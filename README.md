@@ -22,7 +22,7 @@ Sigue los pasos a continuación para configurar el entorno y ejecutar el proyect
 ### 1. **Clonación de Proyecto**
 
 ```bash
-git clone
+git clone https://github.com/mateoguillen/subtitle-parse
 ```
 
 ### 2. **Creación del entorno virtual**
