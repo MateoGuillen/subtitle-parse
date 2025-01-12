@@ -9,8 +9,6 @@ __pycache__/
 
 # Archivos de salida
 outputs/
-*.csv
-*.html
 
 # Archivos de configuración de herramientas
 .idea/
