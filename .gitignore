@@ -1,0 +1,17 @@
+
+
+# Entorno virtual
+venv/
+
+# Archivos temporales
+*.pyc
+__pycache__/
+
+# Archivos de salida
+outputs/
+*.csv
+*.html
+
+# Archivos de configuración de herramientas
+.idea/
+.vscode/
