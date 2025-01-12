@@ -15,3 +15,6 @@ outputs/
 # Archivos de configuración de herramientas
 .idea/
 .vscode/
+
+# Archivos Descargados
+downloads/

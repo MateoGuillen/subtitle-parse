@@ -1,6 +1,7 @@
 import os
 from utils.subtitle_extractor import SubtitleExtractor
 from utils.pdf_proccesor import PDFProcessor
+from utils.licitaciones_downloader import LicitacionesDownloader
 
 def ensure_directory_exists(directory_path):
     """
@@ -31,17 +32,20 @@ def main():
             "output_format": "html",
         }
 
-        pdf_processor = PDFProcessor(config)
+        # Descargar licitaciones
+        downloader = LicitacionesDownloader()
+        downloader.download_files_from_urls(downloader.filter_csv(categoria=1, cantidad=2))
 
-        # Procesar el archivo PDF y generar el archivo HTML de salida
-        pdf_processor.process_pdf(input_pdf_path, output_html_path)
+        # # Procesar el archivo PDF y generar el archivo HTML de salida
+        # pdf_processor = PDFProcessor(config)
+        # pdf_processor.process_pdf(input_pdf_path, output_html_path)
 
-        # Extraer subtítulos del archivo HTML y guardarlos en CSV
-        extractor = SubtitleExtractor(exclusion_list)
-        subtitles = extractor.extract_subtitles(output_html_path, output_csv_path)
+        # # Extraer subtítulos del archivo HTML y guardarlos en CSV
+        # extractor = SubtitleExtractor(exclusion_list)
+        # subtitles = extractor.extract_subtitles(output_html_path, output_csv_path)
 
-        print(f"Subtítulos extraídos y guardados en {output_csv_path}")
-        print("Subtítulos encontrados:", subtitles)
+        # print(f"Subtítulos extraídos y guardados en {output_csv_path}")
+        # print("Subtítulos encontrados:", subtitles)
 
 
     except Exception as e:

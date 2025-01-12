@@ -1,2 +1,4 @@
 pandas
 marker-pdf
+requests
+rarfile
