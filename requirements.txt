@@ -2,3 +2,5 @@ pandas
 marker-pdf
 requests
 rarfile
+PyPDF2
+pdfplumber

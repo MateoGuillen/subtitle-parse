@@ -54,7 +54,7 @@ class LicitacionesDownloader:
 
 
 
-    def _extract_and_rename_pdf(self, compressed_file, nro_licitacion, categoria_id, fecha):
+    def _extract_and_rename_pdf(self, compressed_file, nro_licitacion, categoria_id):
         """
         Extrae un archivo PDF desde un archivo comprimido (.zip o .rar) y lo renombra, luego elimina el archivo comprimido.
 
@@ -62,14 +62,13 @@ class LicitacionesDownloader:
             compressed_file (str): Ruta del archivo comprimido.
             nro_licitacion (str): Número de la licitación.
             categoria_id (int): ID de la categoría.
-            fecha (str): Fecha de la convocatoria.
         """
         try:
             # Verificar si es .zip o .rar y llamar a la función de extracción y renombrado correspondiente
             if zipfile.is_zipfile(compressed_file):
-                self._extract_and_rename(compressed_file, 'zip', nro_licitacion, categoria_id, fecha)
+                self._extract_and_rename(compressed_file, 'zip', nro_licitacion, categoria_id)
             elif rarfile.is_rarfile(compressed_file):
-                self._extract_and_rename(compressed_file, 'rar', nro_licitacion, categoria_id, fecha)
+                self._extract_and_rename(compressed_file, 'rar', nro_licitacion, categoria_id)
             else:
                 print(f"El archivo comprimido no es válido: {compressed_file}")
                 return
@@ -77,11 +76,12 @@ class LicitacionesDownloader:
             # Eliminar el archivo comprimido una vez extraído el PDF
             os.remove(compressed_file)
             print(f"Archivo comprimido eliminado: {compressed_file}")
+            
 
         except Exception as e:
             print(f"Error al extraer o renombrar el archivo PDF: {e}")
 
-    def _extract_and_rename(self, compressed_file, file_type, nro_licitacion, categoria_id, fecha):
+    def _extract_and_rename(self, compressed_file, file_type, nro_licitacion, categoria_id):
         """
         Extrae y renombra el archivo PDF desde un archivo comprimido (.zip o .rar).
         """
@@ -102,16 +102,16 @@ class LicitacionesDownloader:
                 for file_name in archive.namelist():
                     if file_name.endswith("01-pliego-de-bases-y-condiciones-pbc.pdf"):
                         extracted_path = archive.extract(file_name, self.output_dir)
-                        self._rename_and_log(extracted_path, nro_licitacion, categoria_id, fecha)
+                        self._rename_and_log(extracted_path, nro_licitacion, categoria_id)
                         break
         except Exception as e:
             print(f"Error al extraer del archivo {file_type.upper()}: {e}")
 
-    def _rename_and_log(self, extracted_path, nro_licitacion, categoria_id, fecha):
+    def _rename_and_log(self, extracted_path, nro_licitacion, categoria_id):
         """
         Renombra el archivo extraído y registra el cambio.
         """
-        new_file_name = f"{nro_licitacion}_{categoria_id}_{fecha}.pdf"
+        new_file_name = f"{nro_licitacion}_{categoria_id}.pdf"
         new_path = os.path.join(self.output_dir, new_file_name)
         os.rename(extracted_path, new_path)
         print(f"Archivo PDF extraído y renombrado a: {new_path}")
@@ -157,11 +157,13 @@ class LicitacionesDownloader:
         if 'url' not in data.columns:
             raise ValueError("El archivo CSV debe contener una columna 'url'.")
 
+        downloaded_files = []  # Lista para almacenar los nombres de archivos descargados
+
         for idx, row in data.iterrows():
             url = row['url']
             nro_licitacion = row['nro_licitacion']
             categoria_id = row['categoria_id']
-            fecha_publicacion_convocatoria = row['fecha_publicacion_convocatoria']
+            
 
             try:
                 response = requests.get(url, stream=True)
@@ -169,7 +171,8 @@ class LicitacionesDownloader:
 
                 # Determinar la extensión del archivo desde los encabezados HTTP
                 ext = self._get_file_extension_from_headers(url)
-                file_name = f"{nro_licitacion}_{categoria_id}_{fecha_publicacion_convocatoria}{ext}"
+                file_name = f"{nro_licitacion}_{categoria_id}{ext}"
+                file_name_without_ext = f"{nro_licitacion}_{categoria_id}"
                 output_path = os.path.join(self.output_dir, file_name)
 
                 # Descargar el archivo
@@ -180,9 +183,16 @@ class LicitacionesDownloader:
                 print(f"Archivo descargado: {output_path}")
 
                 # Extraer y renombrar el archivo PDF
-                self._extract_and_rename_pdf(output_path, nro_licitacion, categoria_id, fecha_publicacion_convocatoria)
+                self._extract_and_rename_pdf(output_path, nro_licitacion, categoria_id)
+
+                # Agregar el archivo descargado a la lista
+                downloaded_files.append(file_name_without_ext)
             except Exception as e:
                 print(f"Error al descargar desde URL '{url}': {e}")
+
+        # Devolver la lista de archivos descargados
+        return downloaded_files
+
 
 # Uso de la clase
 if __name__ == "__main__":

@@ -16,3 +16,6 @@ outputs/
 
 # Archivos Descargados
 downloads/
+
+# Archivos de Tabla de Contenido del PDF "Outline"
+outline_pdfs/
