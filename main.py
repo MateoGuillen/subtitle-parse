@@ -1,6 +1,4 @@
 import os
-from utils.subtitle_extractor import SubtitleExtractor
-from utils.pdf_proccesor import PDFProcessor
 from utils.licitaciones_downloader import LicitacionesDownloader
 from utils.pdf_proccesor_v2 import ProcesadorPDF
 
