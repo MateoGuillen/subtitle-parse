@@ -1,5 +1,8 @@
 import os
 import pandas as pd
+import re
+import json
+
 
 
 class CSVUtility:
@@ -81,3 +84,115 @@ class CSVUtility:
         # Guardar el archivo combinado sin duplicados
         combined_df.to_csv(output_file, index=False)
         print(f"Archivos combinados de todas las categorías y guardados en {output_file}")
+    
+import os
+import pandas as pd
+import re
+
+
+class CSVUtility:
+    @staticmethod
+    def combine_all_categories_excluding_duplicates(directory_path, output_file, total_categories):
+        """
+        Combina los archivos CSV de todas las categorías y elimina los duplicados.
+        
+        Args:
+            directory_path (str): Ruta al directorio que contiene los archivos CSV.
+            output_file (str): Ruta para guardar el archivo CSV combinado de todas las categorías.
+            total_categories (int): El número total de categorías para combinar.
+        """
+        combined_df = pd.DataFrame()  # DataFrame vacío para combinar todos los archivos
+
+        # Iterar sobre las categorías
+        for category in range(1, total_categories + 1):
+            category_file = os.path.join(directory_path, f"combined_category_{category}.csv")
+            print(f"Procesando archivo combinado de categoría {category}...")
+            
+            # Leer el archivo combinado de cada categoría
+            if os.path.exists(category_file):
+                df = pd.read_csv(category_file)
+                combined_df = pd.concat([combined_df, df], ignore_index=True)
+            else:
+                print(f"El archivo {category_file} no existe.")
+
+        # Eliminar duplicados basándose en todas las columnas
+        combined_df.drop_duplicates(inplace=True)
+
+        # Guardar el archivo combinado sin duplicados
+        combined_df.to_csv(output_file, index=False)
+        print(f"Archivos combinados de todas las categorías y guardados en {output_file}")
+
+    @staticmethod
+    def rename_columns(csv_path, output_path, rename_strategy=None):
+        """
+        Renombra las columnas de un archivo CSV y guarda el archivo con los nuevos nombres.
+
+        Args:
+            csv_path (str): Ruta del archivo CSV de entrada.
+            output_path (str): Ruta donde se guardará el archivo con columnas renombradas.
+            rename_strategy (callable, opcional): Función que define cómo transformar los nombres de columnas. 
+                                                Si no se proporciona, se usará una estrategia predeterminada.
+        """
+        df = pd.read_csv(csv_path)
+        
+        if rename_strategy is None:
+            def rename_strategy(col_name):
+                # Paso 1: Eliminar prefijos y patrones específicos
+                col_name = col_name.replace("compiledRelease/", "")
+                col_name = col_name.replace("/0/", "_")
+                
+                # Paso 2: Reemplazar espacios por guiones bajos antes de la conversión
+                col_name = col_name.replace(" ", "_")
+                
+                # Paso 3: Convertir camelCase a snake_case, pero asegurando que no se dividan letras como 'ID'
+                # Esto asegura que las letras mayúsculas de 'ID' o similares no se dividan
+                col_name = re.sub(r'([a-z])([A-Z])', r'\1_\2', col_name)  # Agregar guión bajo entre minúsculas y mayúsculas
+                col_name = col_name.lower()  # Convertir todo a minúsculas
+                
+                # Paso 4: Reemplazar caracteres no deseados y limpiar guiones bajos
+                col_name = re.sub(r'\W+', '_', col_name)  # Reemplazar caracteres no alfanuméricos
+                col_name = re.sub(r'_+', '_', col_name)  # Reducir múltiples "_"
+                col_name = col_name.strip('_')  # Quitar guiones bajos iniciales y finales
+                return col_name
+
+        new_column_names = {col: rename_strategy(col) for col in df.columns}
+        df.rename(columns=new_column_names, inplace=True)
+        
+        df.to_csv(output_path, index=False)
+        print(f"Archivo con columnas renombradas guardado en: {output_path}")
+
+    @staticmethod
+    def rename_columns_v2(csv_path, output_path, json_map_path):
+        """
+        Renombra las columnas de un archivo CSV utilizando un mapeo proporcionado en un archivo JSON
+        y guarda el archivo con los nuevos nombres.
+
+        Args:
+            csv_path (str): Ruta del archivo CSV de entrada.
+            output_path (str): Ruta donde se guardará el archivo con columnas renombradas.
+            json_map_path (str): Ruta de un archivo JSON que contiene un mapeo explícito de columnas.
+                                El formato debe ser {"columna_original": "columna_nueva"}.
+        """
+        # Leer el archivo CSV
+        df = pd.read_csv(csv_path)
+
+        # Cargar el mapa JSON
+        with open(json_map_path, 'r', encoding='utf-8') as f:
+            column_map = json.load(f)
+
+        # Validar las claves del JSON para asegurarse de que existen en el DataFrame
+        column_map = {key: value for key, value in column_map.items() if key in df.columns}
+
+        # Renombrar las columnas
+        if column_map:
+            df.rename(columns=column_map, inplace=True)
+        else:
+            print("No se encontraron columnas coincidentes para renombrar.")
+
+        # Guardar el DataFrame modificado
+        df.to_csv(output_path, index=False)
+        print(f"Archivo con columnas renombradas guardado en: {output_path}")
+
+
+
+
