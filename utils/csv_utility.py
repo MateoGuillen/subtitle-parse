@@ -53,6 +53,7 @@ class CSVUtility:
         combined_df.to_csv(output_file, index=False)
         print(f"Archivos combinados y guardados en {output_file}")
     
+    
     @staticmethod
     def combine_all_categories_excluding_duplicates(directory_path, output_file, total_categories):
         """
@@ -192,6 +193,89 @@ class CSVUtility:
         # Guardar el DataFrame modificado
         df.to_csv(output_path, index=False)
         print(f"Archivo con columnas renombradas guardado en: {output_path}")
+    
+    @staticmethod
+    def filter_csv_by_column(csv_path, output_path, column_name, filter_method="unique"):
+        """
+        Filtra un archivo CSV basado en una columna específica y un método de filtrado.
+
+        Args:
+            csv_path (str): Ruta del archivo CSV de entrada.
+            output_path (str): Ruta donde se guardará el archivo filtrado.
+            column_name (str): Nombre de la columna para aplicar el filtro.
+            filter_method (str | callable): Método de filtrado. Opciones:
+                - "unique": Elimina duplicados.
+                - "non_null": Filtra valores no nulos.
+                - "positive": Filtra valores mayores a 0.
+                - callable: Permite pasar una lógica personalizada con un DataFrame.
+
+        Returns:
+            None
+        """
+        # Leer archivo CSV
+        df = pd.read_csv(csv_path)
+
+        # Diccionario con los métodos de filtrado
+        filter_methods = {
+            "unique": lambda df: df.drop_duplicates(subset=[column_name]),
+            "non_null": lambda df: df[df[column_name].notnull()],
+            "positive": lambda df: df[df[column_name] > 0]
+        }
+
+        # Aplicar el método de filtrado
+        if callable(filter_method):
+            filtered_df = filter_method(df)  # Filtro personalizado
+        elif filter_method in filter_methods:
+            filtered_df = filter_methods[filter_method](df)
+        else:
+            raise ValueError(f"El método de filtrado '{filter_method}' no es válido.")
+
+        # Guardar archivo filtrado
+        filtered_df.to_csv(output_path, index=False)
+        print(f"Archivo filtrado guardado en: {output_path}")
+    
+    @staticmethod
+    def filter_by_column_and_limit(csv_path, output_path, column_name, value, limit=None):
+        """
+        Filtra un archivo CSV por un valor específico en una columna y limita la cantidad de registros.
+
+        Args:
+            csv_path (str): Ruta del archivo CSV de entrada.
+            output_path (str): Ruta donde se guardará el archivo filtrado.
+            column_name (str): Nombre de la columna por la que se va a filtrar.
+            value (str): El valor específico para filtrar en la columna, siempre pasado como string.
+            limit (int | None): Número máximo de registros a devolver. Si es None, no hay límite.
+
+        Returns:
+            None
+        """
+        # Leer archivo CSV
+        df = pd.read_csv(csv_path)
+
+        # Obtener el tipo de la columna
+        column_type = df[column_name].dtype
+
+        # Convertir el valor de str al tipo de la columna
+        if column_type == 'int64':  # Si la columna es numérica
+            value = int(value)  # Convertir a entero
+        elif column_type == 'float64':  # Si la columna es decimal
+            value = float(value)  # Convertir a float
+        # Si la columna es de tipo texto, no se necesita hacer ninguna conversión
+
+        # Filtrar por el valor de la columna específica
+        filtered_df = df[df[column_name] == value]
+
+        # Limitar el número de registros si se especifica el límite
+        if limit is not None:
+            filtered_df = filtered_df.head(limit)
+
+        # Guardar archivo filtrado
+        filtered_df.to_csv(output_path, index=False)
+        print(f"Archivo filtrado guardado en: {output_path}")
+
+
+    
+    
 
 
 

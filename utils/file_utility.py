@@ -8,3 +8,11 @@ class FileUtility:
         else:
             print(f"Error: No se encontró el archivo combinado: {file_path}")
             return False
+
+    @staticmethod
+    def ensure_directory_exists(directory_path):
+        """
+        Crea el directorio si no existe.
+        """
+        if not os.path.exists(directory_path):
+            os.makedirs(directory_path)

@@ -4,3 +4,6 @@ requests
 rarfile
 PyPDF2
 pdfplumber
+asyncio
+aiohttp
+aiofiles

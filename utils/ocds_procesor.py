@@ -89,6 +89,13 @@ class OCDSProcessor:
             return category_details.split(' - ', 1)[1] if ' - ' in category_details else category_details
         except AttributeError:
             return None
+    def extract_year(self,date):
+        if pd.isna(date):
+            return None
+        try:
+            return str(date)[:4]
+        except (TypeError, AttributeError):
+            return None
 
     def process_year(self, year, prefix_name):
         zip_name = f"masivo_{year}.zip"
@@ -139,6 +146,7 @@ class OCDSProcessor:
             pdf_merged_df["nro_licitacion"] = pdf_merged_df["open_contracting_id"].apply(self.extract_nro_licitacion)
             pdf_merged_df["version_pliego"] = pdf_merged_df["tender_documents_url"].apply(self.extract_version_pliego)
             pdf_merged_df["categoria"] = pdf_merged_df["tender_main_procurement_category_details"].apply(self.extract_categoria)
+            pdf_merged_df["year"] = pdf_merged_df["date"].apply(self.extract_year)
             
 
             # Realizar un left join entre JSONs y record.csv
@@ -150,6 +158,7 @@ class OCDSProcessor:
             json_merged_df["nro_licitacion"] = json_merged_df["open_contracting_id"].apply(self.extract_nro_licitacion)
             json_merged_df["version_pliego"] = json_merged_df["tender_documents_url"].apply(self.extract_version_pliego)
             json_merged_df["categoria"] = json_merged_df["tender_main_procurement_category_details"].apply(self.extract_categoria)
+            json_merged_df["year"] = json_merged_df["date"].apply(self.extract_year)
             
 
             # Cargar archivo de categorías y renombrar columnas
