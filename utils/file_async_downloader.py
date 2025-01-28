@@ -274,4 +274,81 @@ class FileHandler:
             
             # Filter out None values and exceptions
             return [f for f in downloaded_files if f is not None and not isinstance(f, Exception)]
-    
+    async def _download_json_file(self, session, url, nro_licitacion, categoria_id, date):
+        """
+        Downloads a JSON file directly from a URL with retries and exception handling.
+        Returns the filename if successful, None otherwise.
+        """
+        retries = 6
+        for attempt in range(retries):
+            try:
+                async with session.get(url) as response:
+                    response.raise_for_status()
+
+                    # Create filename with .json extension
+                    file_name = f"{date}_{categoria_id}_{nro_licitacion}.json"
+                    output_path = os.path.join(self.output_dir, file_name)
+
+                    # Download and save the file
+                    async with aiofiles.open(output_path, 'wb') as file:
+                        async for chunk in response.content.iter_chunked(1024):
+                            await file.write(chunk)
+
+                    print(f"JSON file downloaded: {output_path}")
+                    return file_name.replace('.json', '')  # Return filename without extension
+
+            except aiohttp.ClientError as e:
+                print(f"Connection or HTTP request error with '{url}': {e}")
+            except Exception as e:
+                print(f"Unexpected error downloading from '{url}': {e}")
+
+            # Wait before retrying
+            if attempt < retries - 1:
+                print(f"Retrying... (Attempt {attempt + 1} of {retries})")
+                await asyncio.sleep(6)
+
+        print(f"All attempts exhausted for downloading file from '{url}'")
+        return None
+
+    async def download_json_files_batch(self):
+        """
+        Downloads JSON files in batches from URLs provided in the CSV file.
+        Returns the list of downloaded files in the current batch.
+        """
+        if self.data is None or 'tender_documents_url' not in self.data.columns:
+            raise ValueError("CSV file must contain a 'tender_documents_url' column.")
+
+        # Get the next batch of records
+        start_idx = self.current_position
+        end_idx = min(start_idx + self.batch_size, len(self.data))
+        
+        # If we've processed all records, return None
+        if start_idx >= len(self.data):
+            return None
+            
+        batch_data = self.data.iloc[start_idx:end_idx]
+        
+        async with aiohttp.ClientSession() as session:
+            tasks = []
+            for _, row in batch_data.iterrows():
+                if pd.isna(row['tender_documents_url']):
+                    continue
+                    
+                url = row['tender_documents_url']
+                nro_licitacion = row['nro_licitacion']
+                categoria_id = row['categoria_id']
+                date = str(row['date'])[:4]
+
+                task = asyncio.create_task(
+                    self._download_json_file(session, url, nro_licitacion, categoria_id, date)
+                )
+                tasks.append(task)
+
+            # Wait for all tasks in the batch to complete
+            downloaded_files = await asyncio.gather(*tasks, return_exceptions=True)
+            
+            # Update the position for the next batch
+            self.current_position = end_idx
+            
+            # Filter out None values and exceptions
+            return [f for f in downloaded_files if f is not None and not isinstance(f, Exception)]    
