@@ -1,7 +1,7 @@
 from json_extractor import JSONExtractor
 
 def main():
-    json_path = "./inputs/test_json.json"  # Ruta al archivo JSON
+    json_path = "./inputs/test_json.json"
     extractor = JSONExtractor(json_path)
     
     extractor.load_json()
