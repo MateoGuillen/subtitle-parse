@@ -2,6 +2,7 @@ import re
 import pdfplumber
 from PyPDF2 import PdfReader
 import pandas as pd
+from pathlib import Path
 
 class ProcesadorPDF:
     def __init__(self, pdf_path):
@@ -81,6 +82,16 @@ class ProcesadorPDF:
         print(f"Se encontraron {len(lineas_pdf)} líneas en el PDF.")
         print(resultados_outline)
 
+        # Guardar las líneas extraídas en un archivo .txt
+        output_dir = Path("./outputs/processed_pdf/pdf_to_txt")
+        output_dir.mkdir(parents=True, exist_ok=True)
+        nombre_archivo_txt = output_dir / f"{Path(self.pdf_path).stem}.txt"
+
+        with open(nombre_archivo_txt, "w", encoding="utf-8") as txt_file:
+            for linea, pagina in lineas_pdf:
+                txt_file.write(f"Página {pagina}: {linea}\n")
+        print(f"Texto extraído guardado en: {nombre_archivo_txt}")
+
         for resultado in resultados_outline:
             titulo = resultado["Titulo"]
             resultado["Linea"], resultado["PaginaLinea"] = self.buscar_linea(lineas_pdf, titulo)
@@ -115,7 +126,6 @@ class ProcesadorPDF:
                 "PaginaLinea": None  # Línea página será asignada luego
             })
 
-
     def buscar_linea(self, lineas_pdf, titulo):
         """
         Busca la posición (número de línea) y la página de un título en el documento.
@@ -129,6 +139,3 @@ class ProcesadorPDF:
                 return (line_number, pagina)
         
         return (None, None)  # Si no se encuentra el título, retornar (None, None)
-
-
-

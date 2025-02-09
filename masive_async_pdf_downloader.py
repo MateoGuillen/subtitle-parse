@@ -6,8 +6,8 @@ from utils.csv_utility import CSVUtility
 async def main():
     try:
         # Initial configuration
-        year = "2021"
-        file_type = "json"
+        year = "2025"
+        file_type = "pdf"
         input_root_dir = "./downloads/"
         output_root_dir = "./outputs/"
         outline_pdf_root_dir = f'./downloads/{file_type}/{year}/'

@@ -7,3 +7,6 @@ pdfplumber
 asyncio
 aiohttp
 aiofiles
+tqdm
+resource
+pyarrow

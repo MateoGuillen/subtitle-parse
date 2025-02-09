@@ -19,3 +19,8 @@ downloads/
 
 # Archivos de Tabla de Contenido del PDF "Outline"
 outline_pdfs/
+
+# Archivos de log
+/*.log
+/*.csv
+*.zip
