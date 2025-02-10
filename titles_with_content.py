@@ -5,6 +5,7 @@ import logging
 from typing import Tuple, List, Dict
 from dataclasses import dataclass
 from collections import defaultdict
+from typing import Optional
 
 @dataclass
 class ContentSection:
@@ -12,7 +13,7 @@ class ContentSection:
     content: List[str]
     page: int
     line_start: int
-    line_end: int | None
+    line_end: Optional[int] 
     depth: int
     document_id: str
     nro_licitacion: str
@@ -70,7 +71,7 @@ def get_section_content(
     start_page: int,
     end_page: int,
     start_line: int,
-    end_line: int | None
+    end_line: Optional[int] 
 ) -> List[str]:
     """
     Extract content between two points in the PDF using preprocessed dictionary
@@ -198,9 +199,9 @@ def main():
     setup_logging()
     
     # Define paths
-    pdf_lines_path = "./outputs/processed_pdf/parquet/merged_pdf_lines.parquet"
+    pdf_lines_path = "./outputs/processed_pdf/final_parquet/2021/combined_documents_2021.parquet"
     outlines_path = "./outputs/processed_pdf/merged/merged_outlines_with_lines.parquet"
-    output_path = "./outputs/processed_pdf/sections/content_sections.parquet"
+    output_path = "./outputs/processed_pdf/sections/2021/content_sections_2021.parquet"
     
     try:
         # Load data
