@@ -10,3 +10,6 @@ aiofiles
 tqdm
 resource
 pyarrow
+sqlalchemy 
+psycopg2-binary
+python-dotenv

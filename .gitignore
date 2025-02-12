@@ -24,3 +24,5 @@ outline_pdfs/
 /*.log
 /*.csv
 *.zip
+
+.env
