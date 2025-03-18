@@ -42,7 +42,9 @@ def clean_duplicate_characters(content: str) -> str:
         ",,": ",",
         "..": ".",
         ";;": ";",
-        "::": ":"
+        "::": ":",
+        "°°": "°",
+        "//": "/",
     }
     
     for old, new in replacements.items():
