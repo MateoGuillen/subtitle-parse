@@ -13,7 +13,7 @@ import os
 
 from config.settings import BASE_LOGS_DIR
 from src.utils.logging_utils import setup_logger
-from src.exceptions.exceptions import ExtractionError, TransformationError, LoadError
+from src.core.exceptions.exceptions import ExtractionError, TransformationError, LoadError
 
 logger = setup_logger(__name__)
 

@@ -1,6 +1,6 @@
 """ Script to run the OCDS data processing pipeline. """
 import os
-from pipelines.process_ocds_data import OCDSPipeline
+from src.pipelines.ocds_pipeline import OCDSPipeline
 from config.settings import DNCP_BASE_URL, BASE_OUTPUT_RAW_DIR, \
     BASE_OUTPUT_PROCESSED_DIR, BASE_INPUT_EXTERNAL_DATA_DIR
 
