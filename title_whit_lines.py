@@ -30,8 +30,8 @@ def clean_text(texto: str) -> str:
 
 def match_titles_with_lines(
     outlines_path: str = "./outputs/processed_pdf/merged/merged_outlines.parquet",
-    pdf_lines_path: str = "./outputs/processed_pdf/parquet/merged_pdf_lines.parquet",
-    output_path: str = "./outputs/processed_pdf/merged/merged_outlines_with_lines.parquet"
+    pdf_lines_path: str = "./outputs/processed_pdf/todos_anhios/combined_documents_2021_to_2024.parquet",
+    output_path: str = "./outputs/processed_pdf/merged/merged_outlines_with_lines_2021_to_2024.parquet"
 ):
     """
     Match outline titles with their corresponding line numbers using DataFrame merge

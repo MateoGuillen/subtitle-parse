@@ -92,11 +92,12 @@ class AsyncPDFConverter:
         # Optimize number of workers
         self.cpu_count = multiprocessing.cpu_count()
         self._process_pool = ProcessPoolExecutor(max_workers=self.cpu_count)
+        # print(f"Number of CPU cores: {self.cpu_count}")
         self._thread_pool = ThreadPoolExecutor(max_workers=self.cpu_count * 2)
         
         self.timeout = 60
-        self.batch_size = 10000  # Increased batch size for better performance
-        self.file_batch_size = 100  # Process more files simultaneously
+        self.batch_size = 20000  # Increased batch size for better performance
+        self.file_batch_size = 200  # Process more files simultaneously
         
         # Create a schema once
         self.schema = pa.schema([
@@ -251,9 +252,9 @@ class AsyncPDFConverter:
             logging.error(f"Error merging parquet files: {e}")
 
 async def main():
-    year = "2021"
+    year = "2024_final"
     input_dir = f'./downloads/pdf/{year}/'
-    output_dir = "./outputs/processed_pdf/parquet"
+    output_dir = "./outputs/processed_pdf/2024_parts"
 
     if platform.system() != 'Windows':
         import resource

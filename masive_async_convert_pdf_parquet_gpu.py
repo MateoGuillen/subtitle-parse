@@ -40,7 +40,7 @@ class OptimizedGPUPDFConverter:
         # Optimized batch sizes based on GPU memory
         gpu_mem = torch.cuda.get_device_properties(0).total_memory if torch.cuda.is_available() else 0
         self.batch_size = min(50000, gpu_mem // (1024 * 1024 * 10))  # Dynamically adjust based on GPU memory
-        self.file_batch_size = 500  # Increased for better parallelization
+        self.file_batch_size = 3  # Increased for better parallelization
         
         # Pre-compile regex patterns
         self.cleanup_pattern = re.compile(r'(\w)\1+')
@@ -55,7 +55,7 @@ class OptimizedGPUPDFConverter:
             self.streams = [torch.cuda.Stream() for _ in range(4)]
         
         logging.info(f"Initialized with device: {self.device}")
-
+    
     def process_text_batch_gpu(self, texts: List[str]) -> List[str]:
         """Optimized GPU text processing with CUDA streams"""
         if not torch.cuda.is_available() or not texts:
@@ -197,3 +197,91 @@ class OptimizedGPUPDFConverter:
                 pbar.update(len(batch))
 
         await self.merge_parquet_files()
+    async def write_to_parquet(self, sections: List[PDFSection], output_path: Path):
+        """Optimized Parquet writing with GPU memory management"""
+        if not sections:
+         return
+
+        try:
+            # Free GPU memory before Parquet operations
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
+            # Prepare data efficiently
+            data = {
+                'document_id': [s.document_id for s in sections],
+                'page_number': [s.page_number for s in sections],
+                'line_number': [s.line_number for s in sections],
+                'line_text': [s.line_text for s in sections],
+                'processed_date': [s.processed_date for s in sections]
+            }
+
+            # Define schema if not already defined
+            schema = pa.schema([
+                ('document_id', pa.string()),
+                ('page_number', pa.int32()),
+                ('line_number', pa.int32()),
+                ('line_text', pa.string()),
+                ('processed_date', pa.string())
+            ])
+
+            # Convert to Arrow table directly
+            table = pa.Table.from_pydict(data, schema=schema)
+
+            # Write to Parquet efficiently
+            await asyncio.to_thread(
+                pq.write_table,
+                table,
+                output_path,
+                compression='snappy',
+                row_group_size=self.batch_size
+            )
+
+        except Exception as e:
+            logging.error(f"Error writing to parquet: {e}")
+            raise
+
+        finally:
+            # Ensure GPU memory is cleaned up
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+    
+async def main():
+    # Configure logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+
+    # Set paths
+    year = "2021"
+    input_dir = f'./downloads/pdf/{year}/'
+    output_dir = "./outputs/processed_pdf/gpu"
+
+    # Set higher limits for file handles on Unix systems
+    if platform.system() != 'Windows':
+        import resource
+        resource.setrlimit(resource.RLIMIT_NOFILE, (65536, 65536))
+
+    try:
+        # Verify CUDA availability
+        if torch.cuda.is_available():
+            logging.info(f"Using GPU: {torch.cuda.get_device_name(0)}")
+            logging.info(f"CUDA Version: {torch.version.cuda}")
+        else:
+            logging.warning("GPU not available, falling back to CPU processing")
+
+        # Initialize and run converter
+        converter = OptimizedGPUPDFConverter(input_dir, output_dir)
+        await converter.convert_all()
+
+    except Exception as e:
+        logging.error(f"Error during conversion: {e}")
+        raise
+    finally:
+        # Clean up GPU memory
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -199,9 +199,9 @@ def main():
     setup_logging()
     
     # Define paths
-    pdf_lines_path = "./outputs/processed_pdf/final_parquet/2021/combined_documents_2021.parquet"
-    outlines_path = "./outputs/processed_pdf/merged/merged_outlines_with_lines.parquet"
-    output_path = "./outputs/processed_pdf/sections/2021/content_sections_2021.parquet"
+    pdf_lines_path = "./outputs/processed_pdf/todos_anhios/combined_documents_2021_to_2024.parquet"
+    outlines_path = "./outputs/processed_pdf/merged/merged_outlines_with_lines_2021_to_2024.parquet"
+    output_path = "./outputs/processed_pdf/sections/todos_2021_to_2024/content_sections_2021_to_2024.parquet"
     
     try:
         # Load data
