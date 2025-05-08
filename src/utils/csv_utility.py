@@ -1,7 +1,10 @@
+""" 
+    Este módulo proporciona utilidades para trabajar con archivos CSV, como asegurar
+    la existencia de directorios y combinar archivos CSV de categoría específica."""
 import os
-import pandas as pd
 import re
 import json
+import pandas as pd
 
 
 
@@ -10,7 +13,7 @@ class CSVUtility:
     Clase que proporciona utilidades para trabajar con archivos CSV, como asegurar
     la existencia de directorios y combinar archivos CSV de categoría específica.
     """
-    
+
     @staticmethod
     def ensure_directory_exists(directory_path):
         """
@@ -52,8 +55,8 @@ class CSVUtility:
         # Guardar el archivo combinado
         combined_df.to_csv(output_file, index=False)
         print(f"Archivos combinados y guardados en {output_file}")
-    
-    
+
+
     @staticmethod
     def combine_all_categories_excluding_duplicates(directory_path, output_file, total_categories):
         """
@@ -71,7 +74,7 @@ class CSVUtility:
             category_str = str(category)
             category_file = f"{directory_path}combined_category_{category_str}.csv"
             print(f"Procesando archivo combinado de categoría {category_str}...")
-            
+
             # Leer el archivo combinado de cada categoría
             if os.path.exists(category_file):
                 df = pd.read_csv(category_file)
@@ -81,43 +84,6 @@ class CSVUtility:
 
         # Eliminar duplicados basándose en todas las columnas
         combined_df = combined_df.drop_duplicates()
-
-        # Guardar el archivo combinado sin duplicados
-        combined_df.to_csv(output_file, index=False)
-        print(f"Archivos combinados de todas las categorías y guardados en {output_file}")
-    
-import os
-import pandas as pd
-import re
-
-
-class CSVUtility:
-    @staticmethod
-    def combine_all_categories_excluding_duplicates(directory_path, output_file, total_categories):
-        """
-        Combina los archivos CSV de todas las categorías y elimina los duplicados.
-        
-        Args:
-            directory_path (str): Ruta al directorio que contiene los archivos CSV.
-            output_file (str): Ruta para guardar el archivo CSV combinado de todas las categorías.
-            total_categories (int): El número total de categorías para combinar.
-        """
-        combined_df = pd.DataFrame()  # DataFrame vacío para combinar todos los archivos
-
-        # Iterar sobre las categorías
-        for category in range(1, total_categories + 1):
-            category_file = os.path.join(directory_path, f"combined_category_{category}.csv")
-            print(f"Procesando archivo combinado de categoría {category}...")
-            
-            # Leer el archivo combinado de cada categoría
-            if os.path.exists(category_file):
-                df = pd.read_csv(category_file)
-                combined_df = pd.concat([combined_df, df], ignore_index=True)
-            else:
-                print(f"El archivo {category_file} no existe.")
-
-        # Eliminar duplicados basándose en todas las columnas
-        combined_df.drop_duplicates(inplace=True)
 
         # Guardar el archivo combinado sin duplicados
         combined_df.to_csv(output_file, index=False)
@@ -135,21 +101,21 @@ class CSVUtility:
                                                 Si no se proporciona, se usará una estrategia predeterminada.
         """
         df = pd.read_csv(csv_path)
-        
+
         if rename_strategy is None:
             def rename_strategy(col_name):
                 # Paso 1: Eliminar prefijos y patrones específicos
                 col_name = col_name.replace("compiledRelease/", "")
                 col_name = col_name.replace("/0/", "_")
-                
+
                 # Paso 2: Reemplazar espacios por guiones bajos antes de la conversión
                 col_name = col_name.replace(" ", "_")
-                
+
                 # Paso 3: Convertir camelCase a snake_case, pero asegurando que no se dividan letras como 'ID'
                 # Esto asegura que las letras mayúsculas de 'ID' o similares no se dividan
                 col_name = re.sub(r'([a-z])([A-Z])', r'\1_\2', col_name)  # Agregar guión bajo entre minúsculas y mayúsculas
                 col_name = col_name.lower()  # Convertir todo a minúsculas
-                
+
                 # Paso 4: Reemplazar caracteres no deseados y limpiar guiones bajos
                 col_name = re.sub(r'\W+', '_', col_name)  # Reemplazar caracteres no alfanuméricos
                 col_name = re.sub(r'_+', '_', col_name)  # Reducir múltiples "_"
@@ -158,7 +124,7 @@ class CSVUtility:
 
         new_column_names = {col: rename_strategy(col) for col in df.columns}
         df.rename(columns=new_column_names, inplace=True)
-        
+
         df.to_csv(output_path, index=False)
         print(f"Archivo con columnas renombradas guardado en: {output_path}")
 
@@ -193,7 +159,7 @@ class CSVUtility:
         # Guardar el DataFrame modificado
         df.to_csv(output_path, index=False)
         print(f"Archivo con columnas renombradas guardado en: {output_path}")
-    
+
     @staticmethod
     def filter_csv_by_column(csv_path, output_path, column_name, filter_method="unique"):
         """
@@ -233,7 +199,7 @@ class CSVUtility:
         # Guardar archivo filtrado
         filtered_df.to_csv(output_path, index=False)
         print(f"Archivo filtrado guardado en: {output_path}")
-    
+
     @staticmethod
     def filter_by_column_and_limit(csv_path, output_path, column_name, value, limit=None):
         """
@@ -272,11 +238,4 @@ class CSVUtility:
         # Guardar archivo filtrado
         filtered_df.to_csv(output_path, index=False)
         print(f"Archivo filtrado guardado en: {output_path}")
-
-
-    
-    
-
-
-
 

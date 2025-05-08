@@ -1,15 +1,20 @@
+""" 
+    This script downloads all PDF files from a CSV file."""
+import os
+import zipfile
 import asyncio
 import aiohttp
 import aiofiles
-import zipfile
 import rarfile
-import os
 import pandas as pd
+from src.utils.logging_utils import setup_logger
+from src.utils.error_handler import error_handling
 
 
 class FileHandler:
-    def __init__(self, file_path="./resources/licitaciones_con_pliego.csv", 
-                 output_dir="./downloads", low_memory=False, 
+    """ Class to handle file downloads. """
+    def __init__(self, file_path="./data/processed/ten_documents_pliego_pdf_every_year_filtered.csv",
+                 output_dir="./data/processed/pdf", low_memory=False,
                  batch_size=1000, pause_time=300):
         self.file_path = file_path
         self.output_dir = output_dir
@@ -18,6 +23,7 @@ class FileHandler:
         self.pause_time = pause_time
         self.current_position = 0
         self.data = None
+        self.logger = setup_logger(__name__)
         self._load_data()
         os.makedirs(self.output_dir, exist_ok=True)
 
@@ -29,7 +35,7 @@ class FileHandler:
             self.data = pd.read_csv(self.file_path, low_memory=self.low_memory)
             # Convert categoria_id to int, handling NaN values
             self.data['categoria_id'] = self.data['categoria_id'].fillna(-1).astype(int)
-            print(f"Archivo '{self.file_path}' cargado con éxito.")
+            self.logger.info("Archivo %s cargado con éxito.", self.file_path)
         except Exception as e:
             raise ValueError(f"No se pudo cargar el archivo CSV: {e}")
 
@@ -43,14 +49,14 @@ class FileHandler:
             elif rarfile.is_rarfile(compressed_file):
                 await self._extract_and_rename(compressed_file, 'rar', nro_licitacion, categoria_id, date)
             else:
-                print(f"El archivo comprimido no es válido: {compressed_file}")
+                self.logger.warning("El archivo comprimido no es válido: %s", compressed_file)
                 return
 
             os.remove(compressed_file)
-            print(f"Archivo comprimido eliminado: {compressed_file}")
+            self.logger.info("Archivo comprimido eliminado: %s", compressed_file)
 
         except Exception as e:
-            print(f"Error al extraer o renombrar el archivo PDF: {e}")
+            self.logger.error("Error al extraer o renombrar el archivo PDF: %s", e)
 
     async def _extract_and_rename(self, compressed_file, file_type, nro_licitacion, categoria_id, date):
         """
@@ -63,40 +69,40 @@ class FileHandler:
             }
 
             if file_type not in file_handlers:
-                print(f"Tipo de archivo no soportado: {file_type}")
+                self.logger.warning("Tipo de archivo no soportado: %s", file_type)
                 return
 
             # Crear el manejador de archivo de forma síncrona
             handler = file_handlers[file_type](compressed_file, 'r')
-            
+
             try:
                 # Crear un directorio temporal único para esta extracción
                 temp_dir = os.path.join(self.output_dir, f"temp_{date}_{categoria_id}_{nro_licitacion}")
                 os.makedirs(temp_dir, exist_ok=True)
-                
+
                 # Buscar y extraer el archivo PDF
                 for file_name in handler.namelist():
                     if file_name.endswith("01-pliego-de-bases-y-condiciones-pbc.pdf"):
                         # Extraer primero al directorio temporal
                         extracted_path = await asyncio.to_thread(handler.extract, file_name, temp_dir)
-                        
+
                         # Construir la ruta final del archivo
                         final_pdf_name = f"{date}_{categoria_id}_{nro_licitacion}.pdf"
                         final_path = os.path.join(self.output_dir, final_pdf_name)
-                        
+
                         # Mover el archivo a su ubicación final
                         os.replace(extracted_path, final_path)
-                        print(f"Archivo PDF extraído y renombrado a: {final_path}")
-                        
+                        self.logger.info("Archivo PDF extraído y renombrado a: %s", final_path)
+
                         # Eliminar el directorio temporal
                         await asyncio.to_thread(self._remove_temp_dir, temp_dir)
                         break
             finally:
                 # Asegurarse de cerrar el archivo
                 handler.close()
-                    
+
         except Exception as e:
-            print(f"Error al extraer del archivo {file_type.upper()}: {e}")
+            self.logger.error("Error al extraer del archivo %s: %s", file_type.upper(), e)
             # Intentar limpiar el directorio temporal en caso de error
             if 'temp_dir' in locals():
                 await asyncio.to_thread(self._remove_temp_dir, temp_dir)
@@ -114,7 +120,7 @@ class FileHandler:
                         os.rmdir(os.path.join(root, name))
                 os.rmdir(temp_dir)
         except Exception as e:
-            print(f"Error al eliminar directorio temporal {temp_dir}: {e}")
+            self.logger.error("Error al eliminar directorio temporal %s: %s", temp_dir, e)
 
     async def _rename_and_log(self, extracted_path, nro_licitacion, categoria_id, date):
         """
@@ -123,7 +129,7 @@ class FileHandler:
         new_file_name = f"{date}_{categoria_id}_{nro_licitacion}.pdf"
         new_path = os.path.join(self.output_dir, new_file_name)
         os.rename(extracted_path, new_path)
-        print(f"Archivo PDF extraído y renombrado a: {new_path}")
+        self.logger.info("Archivo PDF extraído y renombrado a: %s", new_path)
 
     async def _get_file_extension_from_headers(self, url):
         """
@@ -148,7 +154,7 @@ class FileHandler:
                     else:
                         return default_ext
         except Exception as e:
-            print(f"Error al obtener la extensión desde los encabezados: {e}")
+            self.logger.error("Error al obtener la extensión desde los encabezados: %s", e)
             return default_ext
 
     async def download_files_from_urls(self):
@@ -163,7 +169,7 @@ class FileHandler:
             for _, row in self.data.iterrows():
                 if pd.isna(row['tender_documents_url']):
                     continue  # Skip rows with NaN URLs
-                    
+
                 url = row['tender_documents_url']
                 nro_licitacion = row['nro_licitacion']
                 categoria_id = row['categoria_id']  # Now safely converted to int
@@ -176,7 +182,7 @@ class FileHandler:
 
             # Wait for all tasks to complete
             downloaded_files = await asyncio.gather(*tasks, return_exceptions=True)
-            
+
             # Filter out None values and exceptions
             return [f for f in downloaded_files if f is not None and not isinstance(f, Exception)]
 
@@ -196,7 +202,7 @@ class FileHandler:
                     # Obtener la extensión del archivo
                     ext = await self._get_file_extension_from_headers(url)
                     if not ext:  # Si no se puede obtener la extensión, se usa .zip por defecto
-                        print(f"No se pudo obtener la extensión para {url}, se utilizará la predeterminada '.zip'")
+                        self.logger.warning("No se pudo obtener la extensión para %s, se utilizará la predeterminada '.zip'", url)
                         ext = ".zip"
 
                     file_name = f"{date}_{categoria_id}_{nro_licitacion}{ext}"
@@ -208,11 +214,11 @@ class FileHandler:
                         async for chunk in response.content.iter_chunked(1024):
                             await file.write(chunk)
 
-                    print(f"Archivo descargado: {output_path}")
+                    self.logger.info("Archivo descargado: %s", output_path)
 
                     # Verificar si el archivo existe antes de intentar extraerlo
                     if not os.path.exists(output_path):
-                        print(f"El archivo descargado no existe en la ruta {output_path}")
+                        self.logger.warning("El archivo descargado no existe en la ruta %s", output_path)
                         return None
 
                     # Intentar extraer y renombrar el archivo
@@ -220,17 +226,17 @@ class FileHandler:
                     return file_name_without_ext
 
             except aiohttp.ClientError as e:
-                print(f"Error de conexión o solicitud HTTP con '{url}': {e}")
+                self.logger.error("Error de conexión o solicitud HTTP con '%s': %s", url, e)
             except Exception as e:
-                print(f"Error inesperado al descargar desde '{url}': {e}")
+                self.logger.error("Error inesperado al descargar desde '%s': %s", url, e)
 
             # Esperar antes de reintentar
             if attempt < retries - 1:
-                print(f"Reintentando... (Intento {attempt + 1} de {retries})")
+                self.logger.info("Reintentando... (Intento %s de %s)", attempt + 1, retries)
                 await asyncio.sleep(6)  # Espera antes de reintentar
 
         # Si fallan todos los intentos
-        print(f"Se agotaron los intentos para descargar el archivo desde '{url}'")
+        self.logger.error("Se agotaron los intentos para descargar el archivo desde '%s'", url)
         return None
     async def download_files_from_urls_batch(self):
         """
@@ -243,19 +249,19 @@ class FileHandler:
         # Get the next batch of records
         start_idx = self.current_position
         end_idx = min(start_idx + self.batch_size, len(self.data))
-        
+
         # If we've processed all records, return None
         if start_idx >= len(self.data):
             return None
-            
+
         batch_data = self.data.iloc[start_idx:end_idx]
-        
+
         async with aiohttp.ClientSession() as session:
             tasks = []
             for _, row in batch_data.iterrows():
                 if pd.isna(row['tender_documents_url']):
                     continue
-                    
+
                 url = row['tender_documents_url']
                 nro_licitacion = row['nro_licitacion']
                 categoria_id = row['categoria_id']
@@ -268,10 +274,10 @@ class FileHandler:
 
             # Wait for all tasks in the batch to complete
             downloaded_files = await asyncio.gather(*tasks, return_exceptions=True)
-            
+
             # Update the position for the next batch
             self.current_position = end_idx
-            
+
             # Filter out None values and exceptions
             return [f for f in downloaded_files if f is not None and not isinstance(f, Exception)]
     async def _download_json_file(self, session, url, nro_licitacion, categoria_id, date):
@@ -294,20 +300,20 @@ class FileHandler:
                         async for chunk in response.content.iter_chunked(1024):
                             await file.write(chunk)
 
-                    print(f"JSON file downloaded: {output_path}")
+                    self.logger.info("JSON file downloaded: %s", output_path)
                     return file_name.replace('.json', '')  # Return filename without extension
 
             except aiohttp.ClientError as e:
-                print(f"Connection or HTTP request error with '{url}': {e}")
+                self.logger.error("Connection or HTTP request error with '%s': %s", url, e)
             except Exception as e:
-                print(f"Unexpected error downloading from '{url}': {e}")
+                self.logger.error("Unexpected error downloading from '%s': %s", url, e)
 
             # Wait before retrying
             if attempt < retries - 1:
-                print(f"Retrying... (Attempt {attempt + 1} of {retries})")
+                self.logger.info("Retrying... (Attempt %s of %s)", attempt + 1, retries)
                 await asyncio.sleep(6)
 
-        print(f"All attempts exhausted for downloading file from '{url}'")
+        self.logger.error("All attempts exhausted for downloading file from '%s'", url)
         return None
 
     async def download_json_files_batch(self):
@@ -321,19 +327,19 @@ class FileHandler:
         # Get the next batch of records
         start_idx = self.current_position
         end_idx = min(start_idx + self.batch_size, len(self.data))
-        
+
         # If we've processed all records, return None
         if start_idx >= len(self.data):
             return None
-            
+
         batch_data = self.data.iloc[start_idx:end_idx]
-        
+
         async with aiohttp.ClientSession() as session:
             tasks = []
             for _, row in batch_data.iterrows():
                 if pd.isna(row['tender_documents_url']):
                     continue
-                    
+
                 url = row['tender_documents_url']
                 nro_licitacion = row['nro_licitacion']
                 categoria_id = row['categoria_id']
@@ -346,9 +352,9 @@ class FileHandler:
 
             # Wait for all tasks in the batch to complete
             downloaded_files = await asyncio.gather(*tasks, return_exceptions=True)
-            
+
             # Update the position for the next batch
             self.current_position = end_idx
-            
+
             # Filter out None values and exceptions
-            return [f for f in downloaded_files if f is not None and not isinstance(f, Exception)]    
+            return [f for f in downloaded_files if f is not None and not isinstance(f, Exception)]
