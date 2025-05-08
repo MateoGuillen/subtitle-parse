@@ -199,8 +199,14 @@ def main():
     setup_logging()
     
     # Define paths
+    
+    # pdf_lines => todas las lineas del pdf de un anhio en especifico
     pdf_lines_path = "./outputs/processed_pdf/final_parquet/2021/combined_documents_2021.parquet"
+    
+    # outlines => titulos de todos los documentos 
     outlines_path = "./outputs/processed_pdf/merged/merged_outlines_with_lines.parquet"
+    
+    # content_sections => todos los titulos con su contenido del anhio en especifico
     output_path = "./outputs/processed_pdf/sections/2021/content_sections_2021.parquet"
     
     try:

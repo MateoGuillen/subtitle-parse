@@ -1,8 +1,11 @@
 import os
 from utils.ocds_procesor import OCDSProcessor
 from utils.csv_utility import CSVUtility
+from src.utils.logging_utils import setup_logger
 
 def main():
+    # Configurar logger
+    logger = setup_logger("cluster_titles")
     print(f"Directorio de trabajo actual: {os.getcwd()}")
 
     base_url = "https://www.contrataciones.gov.py"

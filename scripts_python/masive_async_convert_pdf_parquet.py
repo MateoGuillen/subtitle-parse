@@ -96,7 +96,7 @@ class AsyncPDFConverter:
         
         self.timeout = 60
         self.batch_size = 10000  # Increased batch size for better performance
-        self.file_batch_size = 100  # Process more files simultaneously
+        self.file_batch_size = 50  # Process more files simultaneously
         
         # Create a schema once
         self.schema = pa.schema([
@@ -251,9 +251,9 @@ class AsyncPDFConverter:
             logging.error(f"Error merging parquet files: {e}")
 
 async def main():
-    year = "2021"
+    year = "2022_4"
     input_dir = f'./downloads/pdf/{year}/'
-    output_dir = "./outputs/processed_pdf/parquet"
+    output_dir = "./outputs/processed_pdf/2022_parts"
 
     if platform.system() != 'Windows':
         import resource
