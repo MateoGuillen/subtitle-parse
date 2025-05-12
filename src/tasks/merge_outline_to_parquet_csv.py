@@ -1,11 +1,14 @@
-import pandas as pd
-import os
+""" Merge outline CSV files from multiple years into a single CSV and Parquet file """
 from pathlib import Path
+from typing import List, Optional
+import logging
+import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
 from tqdm import tqdm
-import logging
-from typing import List, Optional
+from src.utils.logging_utils import setup_logger
+from src.utils.error_handler import error_handling
+from config.settings import BASE_OUTPUT_PROCESSED_DIR
 
 def setup_logging():
     """Configure logging settings"""
@@ -20,8 +23,9 @@ def setup_logging():
 
 def merge_outline_files(
     years: List[int],
-    base_path: str = "./outputs/processed_pdf/outlines",
-    output_dir: str = "./outputs/processed_pdf/merged"
+    base_path: str = f'{BASE_OUTPUT_PROCESSED_DIR}/outlines',
+    output_dir: str = f"{BASE_OUTPUT_PROCESSED_DIR}/csv",
+    output_dir_parquet: str = f"{BASE_OUTPUT_PROCESSED_DIR}/parquet"
 ) -> Optional[pd.DataFrame]:
     """
     Merge outline CSV files from multiple years into a single CSV and Parquet file
@@ -37,11 +41,13 @@ def merge_outline_files(
     all_dataframes = []
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    output_dir_parquet = Path(output_dir_parquet)
+    output_dir_parquet.mkdir(parents=True, exist_ok=True)
 
     # Process each year
     for year in tqdm(years, desc="Processing years"):
         year_path = Path(base_path) / str(year) / f"outlines_{year}.csv"
-        
+
         if year_path.exists():
             try:
                 # Read CSV with proper data types
@@ -54,13 +60,13 @@ def merge_outline_files(
                     'page': int,
                     'depth': int
                 })
-                
-                logging.info(f"Successfully read {year_path} with {len(df)} rows")
+
+                logging.info("Successfully read %s with %d rows", year_path, len(df))
                 all_dataframes.append(df)
             except Exception as e:
-                logging.error(f"Error reading {year_path}: {e}")
+                logging.error("Error reading %s: %s", year_path, e)
         else:
-            logging.warning(f"File not found: {year_path}")
+            logging.warning("File not found: %s", year_path)
 
     if not all_dataframes:
         logging.error("No data frames to merge")
@@ -68,17 +74,17 @@ def merge_outline_files(
 
     # Merge all dataframes
     merged_df = pd.concat(all_dataframes, ignore_index=True)
-    logging.info(f"Total rows in merged dataset: {len(merged_df)}")
+    logging.info("Total rows in merged dataset: %d", len(merged_df))
 
     try:
         # Save as CSV
         csv_path = output_dir / "merged_outlines.csv"
         merged_df.to_csv(csv_path, index=False, encoding='utf-8')
-        logging.info(f"Saved merged CSV to {csv_path}")
+        logging.info("Saved merged CSV to %s", csv_path)
 
         # Save as Parquet
-        parquet_path = output_dir / "merged_outlines.parquet"
-        
+        parquet_path = output_dir_parquet / "merged_outlines.parquet"
+
         # Define schema for Parquet
         schema = pa.schema([
             ('document_id', pa.string()),
@@ -98,33 +104,35 @@ def merge_outline_files(
             compression='snappy',
             row_group_size=10000
         )
-        logging.info(f"Saved merged Parquet to {parquet_path}")
+        logging.info("Saved merged Parquet to %s", parquet_path)
 
-        # Print summary statistics
-        print("\nMerge Summary:")
-        print(f"Total rows: {len(merged_df)}")
-        print("\nRows per year:")
-        print(merged_df['year'].value_counts().sort_index())
-        print("\nRows per category:")
-        print(merged_df['category_id'].value_counts().sort_index())
+        # Log summary statistics
+        logging.info("Merge Summary:")
+        logging.info("Total rows: %d", len(merged_df))
+
+        rows_per_year = merged_df['year'].value_counts().sort_index()
+        logging.info("Rows per year:\n%s", rows_per_year.to_string())
+
+        rows_per_category = merged_df['category_id'].value_counts().sort_index()
+        logging.info("Rows per category:\n%s", rows_per_category.to_string())
 
         return merged_df
 
     except Exception as e:
-        logging.error(f"Error saving merged files: {e}")
+        logging.error("Error saving merged files: %s", e)
         return None
 
 def main():
     """Main execution function"""
     # Setup logging
-    setup_logging()
-    
+    setup_logger(__name__)
+
     # Define years to process
     years = [2021, 2022, 2023, 2024, 2025]
-    
+
     # Execute merge
     result_df = merge_outline_files(years)
-    
+
     if result_df is not None:
         logging.info("Merge completed successfully")
     else:

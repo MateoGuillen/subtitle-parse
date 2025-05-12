@@ -1,27 +1,34 @@
-""" Masive Async PDF Outline Extractor """
+""" PDF Outline Extractor module """
+import asyncio
 import re
 from concurrent.futures import ThreadPoolExecutor
-import multiprocessing
-from typing import List, Dict, Optional
-import asyncio
 from pathlib import Path
-from tqdm import tqdm
-from PyPDF2 import PdfReader
-import pandas as pd
-import pdfplumber
-from src.utils.logging_utils import setup_logger
-from config.settings import BASE_OUTPUT_PROCESSED_DIR, BASE_OUTPUT_RAW_DIR
+from typing import List, Dict, Optional
 
-class AsyncPDFOutlineExtractor:
-    """ Async PDF Outline Extractor """
-    def __init__(self, input_dir: str, output_dir: str, year: str):
-        self.input_dir = Path(input_dir)
-        self.output_dir = Path(output_dir)
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-        self._thread_executor = ThreadPoolExecutor(max_workers=multiprocessing.cpu_count() * 2)
-        self.timeout = 60
-        self.year = year
+from PyPDF2 import PdfReader
+import pdfplumber
+from tqdm import tqdm
+
+from src.utils.logging_utils import setup_logger
+
+class PDFOutlineExtractor:
+    """
+    Extracts outlines from PDF files.
+    
+    Attributes:
+        timeout (int): Maximum time in seconds for PDF processing operations.
+        max_workers (int): Maximum number of worker threads.
+        logger (logging.Logger): Logger object for logging messages.
+    """
+    def __init__(self, timeout=60, max_workers=None):
+        self.timeout = timeout
+        self._thread_executor = ThreadPoolExecutor(max_workers=max_workers)
         self.logger = setup_logger(__name__)
+
+    async def get_pdf_files(self, input_dir: str) -> List[Path]:
+        """Get all PDF files from the input directory."""
+        input_path = Path(input_dir)
+        return list(input_path.glob("**/*.pdf"))
 
     def parse_document_id(self, filename: str) -> Dict[str, str]:
         """
@@ -110,59 +117,18 @@ class AsyncPDFOutlineExtractor:
 
             except Exception as e:
                 self.logger.error("Error extracting outline from %s: %s", pdf_path, e)
-            
+
             return outlines
 
         return await self.safe_pdf_operation(extract_outline_content, pdf_path)
 
-    async def convert_all_outlines(self):
-        """ Convert all PDF outlines """
-        all_files = list(self.input_dir.glob("**/*.pdf"))
-        if not all_files:
-            self.logger.info("No PDF files found")
-            return
-
-        self.logger.info("Found %s PDF files", len(all_files))
-        batch_size = 10
+    async def extract_outlines_batch(self, pdf_files: List[Path]) -> List[Dict[str, Optional[str]]]:
+        """Extract outlines from a batch of PDF files."""
         all_outlines = []
-
-        with tqdm(total=len(all_files), desc="Extracting PDF Outlines") as pbar:
-            for i in range(0, len(all_files), batch_size):
-                batch = all_files[i:i + batch_size]
-                batch_outlines = await self.process_batch(batch, pbar)
-                all_outlines.extend(batch_outlines)
-
-        if all_outlines:
-            output_path = self.output_dir / f'outlines_{self.year}.csv'
-            df = pd.DataFrame(all_outlines)
-            df.to_csv(output_path, index=False, encoding='utf-8')
-            self.logger.info("Outlines saved to %s", output_path)
-
-    async def process_batch(self, files: List[Path], pbar: tqdm) -> List[Dict[str, Optional[str]]]:
-        """ Process a batch of PDF files """
-        all_outlines = []
-        for file in files:
-            outlines = await self.extract_pdf_outline(file)
-            all_outlines.extend(outlines)
-            pbar.update(1)
+        with tqdm(total=len(pdf_files), desc="Extracting PDF Outlines") as pbar:
+            for file in pdf_files:
+                outlines = await self.extract_pdf_outline(file)
+                if outlines:
+                    all_outlines.extend(outlines)
+                pbar.update(1)
         return all_outlines
-
-async def main():
-    """ Main function """
-    years = [2021, 2022, 2023, 2024, 2025]
-    for year in years:
-        year = str(year)
-        input_dir = f'{BASE_OUTPUT_RAW_DIR}/pdf/{year}/'
-        output_dir = f'{BASE_OUTPUT_PROCESSED_DIR}/outlines/{year}/'
-        extractor = AsyncPDFOutlineExtractor(input_dir, output_dir, year)
-        await extractor.convert_all_outlines()
-
-if __name__ == "__main__":
-    loop = asyncio.new_event_loop()
-    loop.set_default_executor(ThreadPoolExecutor(max_workers=multiprocessing.cpu_count() * 4))
-    asyncio.set_event_loop(loop)
-
-    try:
-        loop.run_until_complete(main())
-    finally:
-        loop.close()
