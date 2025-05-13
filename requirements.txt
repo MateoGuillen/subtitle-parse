@@ -1,5 +1,4 @@
 pandas
-#marker-pdf
 requests
 rarfile
 PyPDF2
@@ -13,3 +12,4 @@ pyarrow
 sqlalchemy 
 psycopg2-binary
 python-dotenv
+tika

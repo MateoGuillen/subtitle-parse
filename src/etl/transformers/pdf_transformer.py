@@ -1,6 +1,7 @@
 """Module for transforming PDF files into structured data using Apache Tika."""
 
 import re
+import io
 import asyncio
 import multiprocessing
 from pathlib import Path
@@ -11,6 +12,7 @@ from datetime import datetime
 from tqdm import tqdm
 from tika import parser as tika_parser
 from tika import initVM
+from PyPDF2 import PdfReader, PdfWriter
 from src.utils.logging_utils import setup_logger
 from src.utils.error_handler import error_handling
 
@@ -29,65 +31,89 @@ class PDFSection:
     processed_date: Optional[str] = None
 
 
-# Define a standalone function for multiprocessing
 def process_pdf_worker(data_tuple: Tuple[bytes, str]) -> List[PDFSection]:
     """
-    Standalone function for processing a PDF in a worker process.
+    Processes a PDF document by splitting it into individual pages, extracting text from each page
+    using Apache Tika, and returning structured section data.
+
+    This approach combines the precise page splitting capability of PyPDF2 with Tika's superior
+    text extraction quality. We process each page separately because:
+    1. Tika provides cleaner text extraction with better format handling
+    2. PyPDF2 offers reliable page splitting
+    3. Processing pages individually ensures accurate page-boundary text alignment
+
+    Methodology:
+    1. Split the original PDF into single-page PDFs using PyPDF2
+    2. Extract text from each single-page PDF using Tika
+    3. Process the extracted text into structured line data
+    4. Skip common page number indicators (like "1/10")
 
     Args:
-        data_tuple: Tuple containing (pdf_bytes, filename)
+        data_tuple: A tuple containing:
+            - pdf_bytes: Raw bytes of the PDF file
+            - filename: Name of the PDF file for reference
 
     Returns:
-        List of PDFSection objects
+        List[PDFSection]: A list of document sections with:
+            - Source document identification
+            - Page number
+            - Line number within page
+            - Extracted text content
+            - Processing timestamp
+
+    Notes:
+        - Uses in-memory PDF handling for efficiency
+        - Maintains original page numbering (1-based index)
+        - Skips empty lines and page number indicators
+        - Includes error handling for corrupt PDFs
     """
     pdf_bytes, filename = data_tuple
     sections = []
 
     try:
-        # Parse PDF with Tika
-        parsed_pdf = tika_parser.from_buffer(pdf_bytes)
-        content = parsed_pdf.get("content", "")
+        # Read the original PDF and get total page count
+        original_pdf = PdfReader(io.BytesIO(pdf_bytes))
+        total_pages = len(original_pdf.pages)
 
-        if not content:
-            return []
+        for page_number in range(1, total_pages + 1):
+            # Create a single-page PDF in memory
+            writer = PdfWriter()
+            writer.add_page(original_pdf.pages[page_number - 1])
 
-        # Split content into pages using form feed character or treat as single page
-        if "\f" in content:
-            raw_pages = content.split("\f")
-            pages = [p.strip() for p in raw_pages if p.strip()]
-        else:
-            pages = [content]
+            # Write temporary single-page PDF to memory buffer
+            temp_pdf = io.BytesIO()
+            writer.write(temp_pdf)
+            temp_pdf.seek(0)  # Rewind buffer for reading
 
-        for page_number, page_text in enumerate(pages, start=1):
-            if not page_text:
-                continue
+            # Extract text from this page using Tika
+            parsed = tika_parser.from_buffer(temp_pdf)
+            page_text = parsed["content"] or ""  # Handle empty pages
 
-            # Split page into lines
-            lines = page_text.split("\n")
+            # Process each line in the extracted text
             page_line_number = 0
-
+            lines = page_text.split("\n")
             for line in lines:
                 clean_line = line.strip()
-                page_line_number += 1
 
-                # Skip page number indicators like "1/40"
-                if re.fullmatch(r"\d{1,3}/\d{1,3}", clean_line):
+                # Skip empty lines and page number indicators
+                if not clean_line or re.fullmatch(r"\d{1,3}/\d{1,3}", clean_line):
                     continue
 
-                if clean_line:
-                    sections.append(
-                        PDFSection(
-                            document_id=filename,
-                            page_number=page_number,
-                            line_number=page_line_number,
-                            line_text=clean_line,
-                            processed_date=datetime.now().isoformat(),
-                        )
+                page_line_number += 1
+
+                sections.append(
+                    PDFSection(
+                        document_id=filename,
+                        page_number=page_number,
+                        line_number=page_line_number,
+                        line_text=clean_line,
+                        processed_date=datetime.now().isoformat(),
                     )
+                )
 
         return sections
+
     except Exception as e:
-        # Simple error handling for worker process
         print(f"Error processing PDF {filename}: {str(e)}")
         return []
 
