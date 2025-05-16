@@ -61,7 +61,11 @@ cp example.env .env
 ### Ejecución del pipeline principal
 
 ```bash
-python -m scripts/run_ocds_pipeline.py
+python -m scripts.run_ocds_pipeline
+python -m scripts.run_async_download_pipeline
+python -m scripts.run_pdf_outline_pipeline
+python -m scripts.run_pdf_parquet_pipeline
+python -m scripts.run_pdf_content_pipeline
 ```
 
 ### Ejecutar tareas específicas

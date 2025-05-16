@@ -13,3 +13,4 @@ sqlalchemy
 psycopg2-binary
 python-dotenv
 tika
+cryptography==39.0.1

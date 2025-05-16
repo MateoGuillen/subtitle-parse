@@ -23,11 +23,6 @@ def clean_text(texto: str) -> str:
     """
     if pd.isna(texto):
         return texto
-    # texto = re.sub(r'(\w)\1+', r'\1', texto)  # Remove duplicate letters
-    # texto = texto.replace("--", "-")  # Replace double hyphens with single hyphen
-    # texto = texto.replace("::", ":")  # Replace multiple consecutive colons
-    # texto = texto.replace("..", ".")  # Replace consecutive periods
-    # texto = re.sub(r',+', ',', texto)  # Replace multiple commas with a single comma
     return re.sub(r"\s+", " ", texto).strip()  # Clean extra spaces
 
 
