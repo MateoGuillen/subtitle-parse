@@ -1,4 +1,5 @@
-""" A pipeline for managing asynchronous massive downloads."""
+"""A pipeline for managing asynchronous massive downloads."""
+
 import os
 import asyncio
 from src.etl.extractors.file_downloader import FileDownloader
@@ -10,6 +11,7 @@ from src.utils.logging_utils import setup_logger
 from src.utils.error_handler import error_handling
 from src.utils.file_checker import FileChecker
 from src.utils.file_utility import FileUtility
+
 
 class AsyncDownloadPipeline:
     """
@@ -24,15 +26,16 @@ class AsyncDownloadPipeline:
         pause_time (int): Time to pause between batches (in seconds).
         logger (logging.Logger): Logger object for logging messages.
     """
+
     def __init__(self, config):
         self.config = config
-        self.input_file_path = config.get('input_file_path')
-        self.output_dir = config.get('output_dir')
-        self.file_type = config.get('file_type', 'pdf')
-        self.batch_size = config.get('batch_size', 1000)
-        self.pause_time = config.get('pause_time', 300)
-        self.filter_column = config.get('filter_column')
-        self.filter_value = config.get('filter_value')
+        self.input_file_path = config.get("input_file_path")
+        self.output_dir = config.get("output_dir")
+        self.file_type = config.get("file_type", "pdf")
+        self.batch_size = config.get("batch_size", 1000)
+        self.pause_time = config.get("pause_time", 300)
+        self.filter_column = config.get("filter_column")
+        self.filter_value = config.get("filter_value")
         self.logger = setup_logger(__name__)
         self._initialize_components()
 
@@ -61,14 +64,16 @@ class AsyncDownloadPipeline:
         filtered_path = None
         if self.filter_column and self.filter_value:
             filtered_file_name = f"{os.path.splitext(os.path.basename(self.input_file_path))[0]}_filtered_{self.filter_value}.csv"
-            filtered_path = os.path.join(os.path.dirname(self.input_file_path), filtered_file_name)
+            filtered_path = os.path.join(
+                os.path.dirname(self.input_file_path), filtered_file_name
+            )
 
             # Filter by column value
             self.csv_utility.filter_by_column_and_limit(
                 self.input_file_path,
                 filtered_path,
                 self.filter_column,
-                self.filter_value
+                self.filter_value,
             )
             self.logger.info("Datos filtrados guardados en: %s", filtered_path)
             return filtered_path
@@ -81,11 +86,11 @@ class AsyncDownloadPipeline:
 
         # Initialize downloader with appropriate configuration
         downloader_config = {
-            'file_path': file_path,
-            'output_dir': self.output_dir,
-            'low_memory': False,
-            'batch_size': self.batch_size,
-            'pause_time': self.pause_time
+            "file_path": file_path,
+            "output_dir": self.output_dir,
+            "low_memory": False,
+            "batch_size": self.batch_size,
+            "pause_time": self.pause_time,
         }
 
         # Initialize the downloader with the extracted file
@@ -95,8 +100,11 @@ class AsyncDownloadPipeline:
         total_downloaded = 0
         batch_number = 1
 
-        download_method = getattr(downloader, f"download_{self.file_type}_files_batch",
-                                 downloader.download_files_from_urls_batch)
+        download_method = getattr(
+            downloader,
+            f"download_{self.file_type}_files_batch",
+            downloader.download_files_from_urls_batch,
+        )
 
         while True:
             downloaded_files = await download_method()
@@ -105,16 +113,22 @@ class AsyncDownloadPipeline:
 
             batch_count = len(downloaded_files)
             total_downloaded += batch_count
-            self.logger.info("Batch %s: Successfully downloaded %s files", batch_number, batch_count)
+            self.logger.info(
+                "Batch %s: Successfully downloaded %s files", batch_number, batch_count
+            )
             self.logger.info("Total files downloaded so far: %s", total_downloaded)
 
             if batch_count == downloader.batch_size:
-                self.logger.info("Pausing for %s seconds before next batch...", downloader.pause_time)
+                self.logger.info(
+                    "Pausing for %s seconds before next batch...", downloader.pause_time
+                )
                 await asyncio.sleep(downloader.pause_time)
 
             batch_number += 1
 
-        self.logger.info("Download complete. Total files downloaded: %s", total_downloaded)
+        self.logger.info(
+            "Download complete. Total files downloaded: %s", total_downloaded
+        )
         return total_downloaded
 
     async def run(self):

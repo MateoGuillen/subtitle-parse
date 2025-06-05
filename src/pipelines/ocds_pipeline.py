@@ -1,4 +1,5 @@
-""" A pipeline for processing OCDS data."""
+"""A pipeline for processing OCDS data."""
+
 import os
 import pandas as pd
 from src.etl.extractors.file_downloader import FileDownloader
@@ -13,6 +14,7 @@ from src.utils.logging_utils import setup_logger
 from src.utils.error_handler import error_handling
 from src.utils.file_checker import FileChecker
 
+
 class OCDSPipeline:
     """
     A pipeline for processing OCDS data.
@@ -25,14 +27,16 @@ class OCDSPipeline:
         input_external_dir (str): Directory for external data.
         logger (logging.Logger): Logger object for logging messages.
     """
-    def __init__(self,config):
+
+    def __init__(self, config):
         self.config = config
-        self.base_url = config.get('base_url')
-        self.output_dir = config.get('output_dir')
-        self.output_processed_dir = config.get('output_processed_dir')
-        self.input_external_dir = config.get('input_external_dir')
+        self.base_url = config.get("base_url")
+        self.output_dir = config.get("output_dir")
+        self.output_processed_dir = config.get("output_processed_dir")
+        self.input_external_dir = config.get("input_external_dir")
         self.logger = setup_logger(__name__)
         self._initialize_components()
+
     def _initialize_components(self):
         """Initialize the components of the pipeline."""
         # Base components
@@ -45,12 +49,17 @@ class OCDSPipeline:
 
         # ETL components
         self.ocds_extractor = OCDSExtractor(self.base_url, self.output_dir)
-        self.ocds_transformer = OCDSTransformer(self.output_dir, self.input_external_dir, self.output_processed_dir)
+        self.ocds_transformer = OCDSTransformer(
+            self.output_dir, self.input_external_dir, self.output_processed_dir
+        )
         self.csv_loader = CSVLoader(self.output_dir, self.output_processed_dir)
 
         # Set dependencies
         self.ocds_extractor.set_dependencies(self.downloader, self.extractor)
-        self.ocds_transformer.set_dependencies(self.csv_processor, self.csv_utility, self.data_enricher)
+        self.ocds_transformer.set_dependencies(
+            self.csv_processor, self.csv_utility, self.data_enricher
+        )
+
     @error_handling(default_return=False)
     def process_year(self, year, prefix_name):
         """Process data for a specific year."""
@@ -65,7 +74,10 @@ class OCDSPipeline:
         pdf_output = os.path.join(self.output_dir, f"{prefix_name}_pdf_{year}.csv")
         json_output = os.path.join(self.output_dir, f"{prefix_name}_json_{year}.csv")
         if self.file_checker.all_files_exist([pdf_output, json_output]):
-            self.logger.info("Los archivos transformados del año %s ya existen. Omitiendo transformación.", year)
+            self.logger.info(
+                "Los archivos transformados del año %s ya existen. Omitiendo transformación.",
+                year,
+            )
             return True
 
         # Transform
@@ -73,7 +85,9 @@ class OCDSPipeline:
             csv_path, record_csv_path, year, prefix_name
         )
         if pdf_df is None and json_df is None:
-            self.logger.error("Error en la transformación del año %s. Saltando...", year)
+            self.logger.error(
+                "Error en la transformación del año %s. Saltando...", year
+            )
             return False
 
         # Load
@@ -83,7 +97,9 @@ class OCDSPipeline:
         return True
 
     @error_handling(default_return=(None, None))
-    def merge_yearly_outputs(self, years, output_pdf_name, output_json_name, prefix_name):
+    def merge_yearly_outputs(
+        self, years, output_pdf_name, output_json_name, prefix_name
+    ):
         """Combine yearly outputs into a single file for all years."""
         self.logger.info("Combinando resultados de todos los años...")
         output_pdf_path = os.path.join(self.output_dir, output_pdf_name)
@@ -91,15 +107,27 @@ class OCDSPipeline:
 
         # Verify if the combined files already exist
         if self.file_checker.all_files_exist([output_pdf_path, output_json_path]):
-            self.logger.info("Los archivos combinados ya existen. Omitiendo combinación.")
+            self.logger.info(
+                "Los archivos combinados ya existen. Omitiendo combinación."
+            )
             # Read the combined files
-            pdf_merged = pd.read_csv(output_pdf_path) if os.path.exists(output_pdf_path) else None
-            json_merged = pd.read_csv(output_json_path) if os.path.exists(output_json_path) else None
+            pdf_merged = (
+                pd.read_csv(output_pdf_path)
+                if os.path.exists(output_pdf_path)
+                else None
+            )
+            json_merged = (
+                pd.read_csv(output_json_path)
+                if os.path.exists(output_json_path)
+                else None
+            )
             return pdf_merged, json_merged
 
         # Get the combined files
         self.logger.info("merge_yearly_outputs")
-        pdf_merged, json_merged = self.ocds_transformer.merge_yearly_outputs(years, prefix_name)
+        pdf_merged, json_merged = self.ocds_transformer.merge_yearly_outputs(
+            years, prefix_name
+        )
 
         # Save the combined files
         self.logger.info("save_merged_data")
@@ -127,7 +155,9 @@ class OCDSPipeline:
 
         # Save the filtered file
         if filtered_df is not None:
-            self.csv_loader.save_csv(filtered_df, output_filtered_name, self.output_processed_dir)
+            self.csv_loader.save_csv(
+                filtered_df, output_filtered_name, self.output_processed_dir
+            )
             self.logger.info("Filtrado de licitaciones únicas completado.")
             return filtered_df
         return None
@@ -137,19 +167,19 @@ class OCDSPipeline:
         self.logger.info("Iniciando pipeline de procesamiento de datos OCDS...")
 
         # Process data for each year
-        for year in self.config['years']:
-            self.process_year(year, self.config['prefix_name'])
+        for year in self.config["years"]:
+            self.process_year(year, self.config["prefix_name"])
 
         # Merge yearly outputs
         pdf_merged, _ = self.merge_yearly_outputs(
-            self.config['years'],
-            self.config['output_pdf_name'],
-            self.config['output_json_name'],
-            self.config['prefix_name']
+            self.config["years"],
+            self.config["output_pdf_name"],
+            self.config["output_json_name"],
+            self.config["prefix_name"],
         )
 
         # Filter unique tenders
         if pdf_merged is not None:
-            self.filter_unique_tenders(pdf_merged, self.config['output_filtered_name'])
+            self.filter_unique_tenders(pdf_merged, self.config["output_filtered_name"])
 
         self.logger.info("Pipeline de procesamiento completado.")
