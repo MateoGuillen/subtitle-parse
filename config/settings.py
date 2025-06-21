@@ -1,15 +1,16 @@
-""" Configuration file """
+"""Configuration file"""
+
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 DB_CONFIG = {
-    'user': os.getenv("DB_USER"),
-    'password': os.getenv("DB_PASSWORD"),
-    'host': os.getenv("DB_HOST"),
-    'port': int(os.getenv("DB_PORT")),
-    'database': os.getenv("DB_NAME")
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "host": os.getenv("DB_HOST"),
+    "port": int(os.getenv("DB_PORT")),
+    "database": os.getenv("DB_NAME"),
 }
 
 LOGS_FILE = os.getenv("LOGS_FILE")
@@ -27,3 +28,8 @@ BASE_OUTPUT_RAW_DIR = os.getenv("BASE_OUTPUT_RAW_DIR")
 BASE_OUTPUT_PROCESSED_DIR = os.getenv("BASE_OUTPUT_PROCESSED_DIR")
 
 BASE_INPUT_EXTERNAL_DATA_DIR = os.getenv("BASE_INPUT_EXTERNAL_DATA_DIR")
+
+
+LLM_ENDPOINT = os.getenv("LLM_ENDPOINT")
+DEFAULT_BATCH_SIZE = os.getenv("DEFAULT_BATCH_SIZE")
+DEFAULT_MAX_RETRIES = os.getenv("DEFAULT_MAX_RETRIES")
