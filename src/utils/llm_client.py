@@ -2,9 +2,11 @@
 Client for calling LLM APIs with OpenAI-compatible endpoints.
 """
 
+import base64
+import json
+from typing import Dict, Any, Optional
 import time
 import requests
-from typing import Dict, Any, Optional
 from src.utils.logging_utils import setup_logger
 from src.utils.error_handler import error_handling
 
@@ -21,10 +23,19 @@ class LLMClient:
     - Any OpenAI-compatible endpoint
     """
 
-    def __init__(self, endpoint_url: str, api_key: str = None, timeout: int = 120):
+    def __init__(
+        self,
+        endpoint_url: str,
+        username: str = None,
+        password: str = None,
+        api_key: str = None,
+        timeout_llm_response: int = 60,
+    ):
         self.endpoint_url = endpoint_url.rstrip("/")
+        self.username = username
+        self.password = password
         self.api_key = api_key
-        self.timeout = timeout
+        self.timeout_llm_response = timeout_llm_response
         self.logger = setup_logger(__name__)
         self._setup_session()
 
@@ -37,9 +48,26 @@ class LLMClient:
             {"Content-Type": "application/json", "User-Agent": "DNCP-LLM-Pipeline/1.0"}
         )
 
-        # Add API key if provided
-        if self.api_key:
+        # Priority order for authentication:
+        # 1. HTTP Basic Auth with username/password
+        # 2. Bearer token with API key
+        # 3. Basic Auth with API key (legacy)
+
+        if self.username and self.password:
+            # HTTP Basic Authentication with username and password
+            credentials = base64.b64encode(
+                f"{self.username}:{self.password}".encode()
+            ).decode()
+            self.session.headers.update({"Authorization": f"Basic {credentials}"})
+            self.logger.info("Using HTTP Basic Authentication with username/password")
+
+        elif self.api_key:
+            # Bearer token authentication
             self.session.headers.update({"Authorization": f"Bearer {self.api_key}"})
+            self.logger.info("Using Bearer token authentication")
+
+        # Set timeout
+        self.session.timeout = self.timeout_llm_response
 
     @error_handling(default_return=None)
     def call_llm(
@@ -60,13 +88,16 @@ class LLMClient:
 
         for attempt in range(max_retries + 1):
             try:
+
                 self.logger.debug(
-                    f"Llamando LLM (intento {attempt + 1}): {payload.get('model', 'unknown')}"
+                    "LLamando LLM (intento %s) : %s",
+                    {attempt + 1},
+                    {payload.get("model", "unknown")},
                 )
 
                 start_time = time.time()
                 response = self.session.post(
-                    endpoint, json=payload, timeout=self.timeout
+                    endpoint, json=payload, timeout=self.timeout_llm_response
                 )
                 end_time = time.time()
 
@@ -80,7 +111,7 @@ class LLMClient:
 
                 elif response.status_code == 429:  # Rate limit
                     self.logger.warning(
-                        f"Rate limit alcanzado, reintentando en {retry_delay * 2}s..."
+                        "Rate limit alcanzado, reintentando en %s", retry_delay * 2
                     )
                     if attempt < max_retries:
                         time.sleep(retry_delay * 2)
@@ -89,7 +120,7 @@ class LLMClient:
 
                 elif response.status_code >= 500:  # Server errors
                     self.logger.warning(
-                        f"Error del servidor ({response.status_code}), reintentando..."
+                        "Error del servidor (%s), reintentando...", response.status_code
                     )
                     if attempt < max_retries:
                         time.sleep(retry_delay)
@@ -98,27 +129,29 @@ class LLMClient:
                 else:
                     # Client errors or other status codes
                     self.logger.error(
-                        f"Error LLM API ({response.status_code}): {response.text}"
+                        "Error LLM API (%s): %s",
+                        response.status_code,
+                        response.text,
                     )
                     return None
 
             except requests.exceptions.Timeout:
-                self.logger.warning(f"Timeout en llamada LLM (intento {attempt + 1})")
+                self.logger.warning("Timeout en llamada LLM (intento %s)", attempt + 1)
                 if attempt < max_retries:
                     time.sleep(retry_delay)
                     continue
 
             except requests.exceptions.ConnectionError:
-                self.logger.warning(f"Error de conexión LLM (intento {attempt + 1})")
+                self.logger.warning("Error de conexión LLM (intento %s)", attempt + 1)
                 if attempt < max_retries:
                     time.sleep(retry_delay)
                     continue
 
             except Exception as e:
-                self.logger.error(f"Error inesperado en llamada LLM: {str(e)}")
+                self.logger.error("Error inesperado en llamada LLM: %s", str(e))
                 return None
 
-        self.logger.error(f"Todos los intentos fallaron para llamada LLM")
+        self.logger.error("Todos los intentos fallaron para llamada LLM")
         return None
 
     def _parse_response(
@@ -146,8 +179,6 @@ class LLMClient:
                         # Try to parse as JSON if it looks like structured data
                         if content.strip().startswith(("{", "[")):
                             try:
-                                import json
-
                                 return json.loads(content)
                             except json.JSONDecodeError:
                                 # Return as text if JSON parsing fails
@@ -162,8 +193,6 @@ class LLMClient:
                 # Try to parse as JSON
                 if isinstance(content, str) and content.strip().startswith(("{", "[")):
                     try:
-                        import json
-
                         return json.loads(content)
                     except json.JSONDecodeError:
                         return {"response": content}
@@ -173,12 +202,13 @@ class LLMClient:
             # Handle other response formats
             else:
                 self.logger.warning(
-                    f"Formato de respuesta desconocido: {list(response_data.keys())}"
+                    "Formato de respuesta desconocido: %s",
+                    list(response_data.keys()),
                 )
                 return response_data
 
         except Exception as e:
-            self.logger.error(f"Error parseando respuesta LLM: {str(e)}")
+            self.logger.error("Error parseando respuesta LLM: %s", str(e))
             return None
 
     @error_handling(default_return=False)
@@ -202,14 +232,14 @@ class LLMClient:
 
             # Consider connection successful if we get any response (even error)
             # This just tests connectivity, not functionality
-            self.logger.info(f"Conexión LLM OK (status: {response.status_code})")
+            self.logger.info("Conexión LLM OK (status: %s)", response.status_code)
             return True
 
         except requests.exceptions.ConnectionError:
             self.logger.error("No se puede conectar al endpoint LLM")
             return False
         except Exception as e:
-            self.logger.error(f"Error probando conexión LLM: {str(e)}")
+            self.logger.error("Error probando conexión LLM: %s", str(e))
             return False
 
     def get_available_models(self) -> Optional[list]:
@@ -229,7 +259,7 @@ class LLMClient:
                     return [model["id"] for model in data["data"]]
 
         except Exception as e:
-            self.logger.debug(f"No se pueden obtener modelos disponibles: {str(e)}")
+            self.logger.debug("No se pueden obtener modelos disponibles: %s", str(e))
 
         return None
 
@@ -293,7 +323,7 @@ class LLMClient:
             endpoint_url: New endpoint URL
         """
         self.endpoint_url = endpoint_url.rstrip("/")
-        self.logger.info(f"Endpoint actualizado: {self.endpoint_url}")
+        self.logger.info("Endpoint actualizado: %s", self.endpoint_url)
 
     def get_endpoint_info(self) -> Dict[str, Any]:
         """
@@ -305,6 +335,6 @@ class LLMClient:
         return {
             "endpoint_url": self.endpoint_url,
             "has_api_key": bool(self.api_key),
-            "timeout": self.timeout,
+            "timeout": self.timeout_llm_response,
             "session_headers": dict(self.session.headers),
         }

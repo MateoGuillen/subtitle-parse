@@ -7,6 +7,8 @@ from src.pipelines.llm_extraction_pipeline import LLMExtractionPipeline
 from config.settings import (
     DB_CONFIG,
     LLM_ENDPOINT,
+    LLM_USERNAME,
+    LLM_PASSWORD,
     BASE_OUTPUT_PROCESSED_DIR,
     DEFAULT_BATCH_SIZE,
     DEFAULT_MAX_RETRIES,
@@ -40,6 +42,9 @@ def main():
     config = {
         "db_params": DB_CONFIG,
         "llm_endpoint": LLM_ENDPOINT,
+        "llm_username": LLM_USERNAME,
+        "llm_password": LLM_PASSWORD,
+        "timeout_llm_response": 60,
         "output_processed_dir": output_processed_dir,
         "output_logs_dir": output_logs_dir,
         "batch_size": DEFAULT_BATCH_SIZE,

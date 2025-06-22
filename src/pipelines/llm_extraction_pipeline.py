@@ -38,6 +38,10 @@ class LLMExtractionPipeline:
         self.config = config
         self.db_params = config.get("db_params")
         self.llm_endpoint = config.get("llm_endpoint")
+        self.llm_username = config.get("llm_username")
+        self.llm_password = config.get("llm_password")
+        self.llm_api_key = config.get("llm_api_key")
+        self.timeout_llm_response = config.get("timeout_llm_response")
         self.output_processed_dir = config.get("output_processed_dir")
         self.output_logs_dir = config.get("output_logs_dir")
         self.logger = setup_logger(__name__)
@@ -56,7 +60,13 @@ class LLMExtractionPipeline:
         self.results_loader = LLMResultsLoader(self.db_params)
 
         # External services
-        self.llm_client = LLMClient(self.llm_endpoint)
+        self.llm_client = LLMClient(
+            self.llm_endpoint,
+            self.llm_username,
+            self.llm_password,
+            self.llm_api_key,
+            self.timeout_llm_response,
+        )
 
         # Set dependencies
         self.request_transformer.set_dependencies(self.text_cleaner)
@@ -64,23 +74,26 @@ class LLMExtractionPipeline:
     @error_handling(default_return=False)
     def process_title_slug(self, title_slug: str, model: str) -> bool:
         """Process all pliegos for a specific title_slug and model."""
-        self.logger.info(f"Procesando title_slug: {title_slug} con modelo: {model}")
+        self.logger.info("Procesando title_slug: %s", title_slug)
 
         # Extract configuration
         config_data = self.config_extractor.get_config_by_slug(title_slug)
         if not config_data:
-            self.logger.error(f"No se encontró configuración para {title_slug}")
+            self.logger.error("No se encontró configuración para %s", {title_slug})
             return False
 
         # Extract pliegos content
         pliegos_data = self.pliego_extractor.get_pliegos_by_title(config_data["title"])
         if not pliegos_data:
             self.logger.warning(
-                f"No se encontraron pliegos para {config_data['title']}"
+                "No se encontraron pliegos para %s", {config_data["title"]}
             )
+
             return True
 
-        self.logger.info(f"Procesando {len(pliegos_data)} pliegos para {title_slug}")
+        self.logger.info(
+            "Procesando %s pliegos para %s", len(pliegos_data), {title_slug}
+        )
 
         # Process each pliego
         processed_count = 0
@@ -96,12 +109,15 @@ class LLMExtractionPipeline:
                     error_count += 1
 
             except Exception as e:
-                self.logger.error(f"Error procesando {nro_licitacion}: {str(e)}")
+                self.logger.error("Error procesando %s: %s", {nro_licitacion}, {str(e)})
                 self._log_error(nro_licitacion, title_slug, model, str(e))
                 error_count += 1
 
         self.logger.info(
-            f"Completado {title_slug}: {processed_count} exitosos, {error_count} errores"
+            "Completado %s: %s exitosos, %s errores",
+            {title_slug},
+            {processed_count},
+            {error_count},
         )
         return True
 
@@ -115,7 +131,7 @@ class LLMExtractionPipeline:
         # Check if already processed
         if self.results_loader.result_exists(nro_licitacion, title_slug, model):
             self.logger.debug(
-                f"Ya procesado: {nro_licitacion} - {title_slug} - {model}"
+                "Ya procesado: %s - %s - %s", {nro_licitacion}, {title_slug}, {model}
             )
             return True
 
@@ -130,7 +146,7 @@ class LLMExtractionPipeline:
         end_time = time.time()
 
         if not llm_response:
-            self.logger.error(f"Error en respuesta LLM para {nro_licitacion}")
+            self.logger.error("Error en respuesta LLM para %s", {nro_licitacion})
             return False
 
         # Save results
@@ -179,10 +195,10 @@ class LLMExtractionPipeline:
                 self.results_loader.save_features(
                     nro_licitacion, title_slug, model, features
                 )
-                self.logger.debug(f"Features guardadas para {nro_licitacion}")
+                self.logger.debug("Features guardadas para %s", {nro_licitacion})
 
         except Exception as e:
-            self.logger.error(f"Error procesando features: {str(e)}")
+            self.logger.error("Error procesando features: %s", {str(e)})
 
     def _save_comparison_metrics(
         self,
@@ -205,7 +221,7 @@ class LLMExtractionPipeline:
             )
 
         except Exception as e:
-            self.logger.error(f"Error guardando métricas: {str(e)}")
+            self.logger.error("Error guardando métricas: %s", {str(e)})
 
     def _count_completed_fields(self, response: Dict) -> int:
         """Count non-empty fields in LLM response."""
@@ -220,7 +236,7 @@ class LLMExtractionPipeline:
         try:
             self.results_loader.save_error_log(nro_licitacion, title_slug, model, error)
         except Exception as e:
-            self.logger.error(f"Error guardando log: {str(e)}")
+            self.logger.error("Error guardando log: %s", {str(e)})
 
     @error_handling(default_return=False)
     def run_model_comparison(self):
@@ -238,10 +254,11 @@ class LLMExtractionPipeline:
                 with open(output_file, "w", encoding="utf-8") as f:
                     json.dump(comparison_results, f, indent=2, ensure_ascii=False)
 
-                self.logger.info(f"Resumen comparativo guardado en: {output_file}")
+                # self.logger.info(f"Resumen comparativo guardado en: {output_file}")
+                self.logger.info("Resumen comparativo guardado en: %s", {output_file})
 
         except Exception as e:
-            self.logger.error(f"Error en análisis comparativo: {str(e)}")
+            self.logger.error("Error en análisis comparativo: %s", {str(e)})
             return False
 
         return True
@@ -261,13 +278,18 @@ class LLMExtractionPipeline:
             for model in models:
                 current_combination += 1
                 self.logger.info(
-                    f"Procesando combinación {current_combination}/{total_combinations}: "
-                    f"{title_slug} - {model}"
+                    "Procesando combinación %s/%s: %s - %s",
+                    {current_combination},
+                    {total_combinations},
+                    {title_slug},
+                    {model},
                 )
 
                 success = self.process_title_slug(title_slug, model)
                 if not success:
-                    self.logger.error(f"Falló procesamiento: {title_slug} - {model}")
+                    self.logger.error(
+                        "Falló procesamiento: %s - %s", {title_slug}, {model}
+                    )
 
         # Run model comparison if enabled
         if self.config.get("enable_model_comparison", False):

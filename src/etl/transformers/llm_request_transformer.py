@@ -63,9 +63,9 @@ class LLMRequestTransformer:
 
         # Add response format if json_schema is provided
         if config_data.get("json_schema"):
-            payload["response_format"] = self._prepare_response_format(
-                config_data["json_schema"]
-            )
+            response_format = self._prepare_response_format(config_data["json_schema"])
+            if response_format:  # Solo agregar si es válido
+                payload["response_format"] = response_format
 
         self.logger.debug(f"Payload creado para modelo: {model}")
         return payload
@@ -85,7 +85,7 @@ class LLMRequestTransformer:
 
         # Use text cleaner if available
         if self.text_cleaner:
-            cleaned = self.text_cleaner.clean_text(content)
+            cleaned = self.text_cleaner.clean(content)
         else:
             cleaned = content
 
@@ -175,30 +175,50 @@ class LLMRequestTransformer:
 
         return params
 
-    def _prepare_response_format(self, json_schema: Any) -> Dict[str, Any]:
+    def _prepare_response_format(self, json_schema: Any) -> Optional[Dict[str, Any]]:
         """
         Prepare response format for structured output.
 
         Args:
-            json_schema: JSON schema definition
+            json_schema: JSON schema definition from database (JSONB)
 
         Returns:
-            Response format dictionary
+            Response format dictionary or None if invalid
         """
-        # Handle both dict and string formats
-        if isinstance(json_schema, str):
-            try:
+        try:
+            # Si json_schema es una cadena, parsearlo
+            if isinstance(json_schema, str):
                 schema_dict = json.loads(json_schema)
-            except json.JSONDecodeError:
-                self.logger.error("Invalid JSON schema string")
-                return {}
-        elif isinstance(json_schema, dict):
-            schema_dict = json_schema
-        else:
-            self.logger.error(f"Unsupported schema type: {type(json_schema)}")
-            return {}
+            elif isinstance(json_schema, dict):
+                schema_dict = json_schema
+            else:
+                self.logger.error(f"Tipo de schema no soportado: {type(json_schema)}")
+                return None
 
-        return {"type": "json_schema", "json_schema": schema_dict}
+            # Validar que el schema tenga la estructura básica requerida
+            if not isinstance(schema_dict, dict):
+                self.logger.error("El schema debe ser un diccionario")
+                return None
+
+            # El formato correcto para OpenAI-compatible APIs
+            response_format = {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "extraction_result",
+                    "schema": schema_dict,
+                    "strict": True,
+                },
+            }
+
+            self.logger.debug("Response format preparado correctamente")
+            return response_format
+
+        except json.JSONDecodeError as e:
+            self.logger.error(f"Error al parsear JSON schema: {e}")
+            return None
+        except Exception as e:
+            self.logger.error(f"Error preparando response format: {e}")
+            return None
 
     @error_handling(default_return={})
     def create_batch_payload(
@@ -265,5 +285,40 @@ class LLMRequestTransformer:
             if not isinstance(msg, dict) or "role" not in msg or "content" not in msg:
                 self.logger.error("Invalid message structure")
                 return False
+
+        # Validate response_format if present
+        if "response_format" in payload:
+            if not self._validate_response_format(payload["response_format"]):
+                return False
+
+        return True
+
+    def _validate_response_format(self, response_format: Dict) -> bool:
+        """
+        Validate response_format structure.
+
+        Args:
+            response_format: Response format dictionary to validate
+
+        Returns:
+            True if valid, False otherwise
+        """
+        if not isinstance(response_format, dict):
+            self.logger.error("response_format debe ser un diccionario")
+            return False
+
+        if response_format.get("type") != "json_schema":
+            self.logger.error("response_format.type debe ser 'json_schema'")
+            return False
+
+        json_schema = response_format.get("json_schema")
+        if not isinstance(json_schema, dict):
+            self.logger.error("response_format.json_schema debe ser un diccionario")
+            return False
+
+        schema = json_schema.get("schema")
+        if not isinstance(schema, dict):
+            self.logger.error("response_format.json_schema.schema debe ser un objeto")
+            return False
 
         return True
