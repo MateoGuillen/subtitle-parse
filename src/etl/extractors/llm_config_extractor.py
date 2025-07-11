@@ -2,8 +2,9 @@
 Extractor for LLM configuration from database.
 """
 
-import psycopg2
 from typing import Dict, List, Optional
+import json
+import psycopg2
 from src.utils.logging_utils import setup_logger
 from src.utils.error_handler import error_handling
 
@@ -55,7 +56,7 @@ class LLMConfigExtractor:
 
         if not result:
             self.logger.warning(
-                f"No se encontró configuración activa para: {title_slug}"
+                "No se encontró configuración activa para: %s", title_slug
             )
             return None
 
@@ -73,7 +74,8 @@ class LLMConfigExtractor:
             "activo": result[10],
         }
 
-        self.logger.debug(f"Configuración extraída para: {title_slug}")
+        # self.logger.debug(f"Configuración extraída para: {title_slug}")
+        self.logger.debug("Configuración extraída para: %s", title_slug)
         return config
 
     @error_handling(default_return=[])
@@ -124,7 +126,8 @@ class LLMConfigExtractor:
             }
             configs.append(config)
 
-        self.logger.info(f"Extraídas {len(configs)} configuraciones activas")
+        # self.logger.info(f"Extraídas {len(configs)} configuraciones activas")
+        self.logger.info("Extraídas %s configuraciones activas", len(configs))
         return configs
 
     @error_handling(default_return=[])
@@ -168,19 +171,21 @@ class LLMConfigExtractor:
         required_fields = ["title", "prompt", "json_schema"]
         for field in required_fields:
             if not config.get(field):
-                self.logger.error(f"Campo requerido faltante '{field}' en {title_slug}")
+                # self.logger.error(f"Campo requerido faltante '{field}' en {title_slug}")
+                self.logger.error(
+                    "Campo requerido faltante '%s' en %s", field, title_slug
+                )
                 return False
 
         # Validate JSON schema format
         try:
-            import json
-
             if isinstance(config["json_schema"], str):
                 json.loads(config["json_schema"])
             elif not isinstance(config["json_schema"], dict):
                 raise ValueError("json_schema debe ser dict o JSON string válido")
-        except (json.JSONDecodeError, ValueError) as e:
-            self.logger.error(f"JSON schema inválido en {title_slug}: {e}")
+        except ValueError as e:
+            # self.logger.error(f"JSON schema inválido en {title_slug}: {e}")
+            self.logger.error("JSON schema inválido en %s: %s", title_slug, e)
             return False
 
         return True

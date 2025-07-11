@@ -55,7 +55,7 @@ def main():
         ],
         "models_to_test": [
             "qwen2.5-7b-instruct",
-            "gemma-3-1b-it",
+            "google/gemma-3-1b",
             "deepseek-r1-distill-llama-8b",
         ],
         "enable_feature_extraction": False,

@@ -2,8 +2,8 @@
 Extractor for pliego documents from database.
 """
 
-import psycopg2
 from typing import List, Tuple, Optional
+import psycopg2
 from src.utils.logging_utils import setup_logger
 from src.utils.error_handler import error_handling
 
@@ -36,8 +36,8 @@ class PliegoExtractor:
             FROM dncp.pliegos
             WHERE title = %s 
             AND content IS NOT NULL 
-            AND LENGTH(content) > 100
             ORDER BY nro_licitacion
+            LIMIT 10
         """
 
         with psycopg2.connect(**self.db_params) as conn:
@@ -46,6 +46,9 @@ class PliegoExtractor:
                 results = cur.fetchall()
 
         self.logger.info(f"Extraídos {len(results)} pliegos para title: {title}")
+        # self.logger.info(
+        #     "Extraídos {} pliegos para title: {}".format(len(results), title)
+        # )
         return results
 
     @error_handling(default_return=[])
@@ -162,7 +165,8 @@ class PliegoExtractor:
                 cur.execute(query)
                 results = [row[0] for row in cur.fetchall()]
 
-        self.logger.info(f"Encontrados {len(results)} títulos únicos")
+        # self.logger.info(f"Encontrados {len(results)} títulos únicos")
+        self.logger.info("Encontrados {} títulos únicos".format(len(results)))
         return results
 
     @error_handling(default_return=[])
@@ -183,8 +187,8 @@ class PliegoExtractor:
             WHERE title = %s 
             AND year = %s
             AND content IS NOT NULL 
-            AND LENGTH(content) > 100
             ORDER BY nro_licitacion
+            LIMIT 10
         """
 
         with psycopg2.connect(**self.db_params) as conn:
@@ -192,7 +196,10 @@ class PliegoExtractor:
                 cur.execute(query, (title, year))
                 results = cur.fetchall()
 
-        self.logger.info(f"Extraídos {len(results)} pliegos para {title} en {year}")
+        # self.logger.info(f"Extraídos {len(results)} pliegos para {title} en {year}")
+        self.logger.info(
+            "Extraídos {} pliegos para {} en {}".format(len(results), title, year)
+        )
         return results
 
     @error_handling(default_return=None)
