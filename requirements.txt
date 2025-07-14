@@ -14,3 +14,7 @@ psycopg2-binary
 python-dotenv
 tika
 cryptography==39.0.1
+scikit-learn
+nltk
+matplotlib
+openpyxl

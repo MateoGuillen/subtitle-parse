@@ -53,6 +53,10 @@ venv\Scripts\activate   # Windows
 # Instalar dependencias
 pip install -r requirements.txt
 
+# Descargar paquete de stopwords de nltk en español
+python download_nltk_data.py
+
+
 # Configurar variables de entorno
 cp example.env .env
 # Editar .env con los valores correspondientes

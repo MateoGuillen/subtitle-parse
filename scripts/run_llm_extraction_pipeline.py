@@ -50,12 +50,12 @@ def main():
         "batch_size": DEFAULT_BATCH_SIZE,
         "max_retries": DEFAULT_MAX_RETRIES,
         "title_slugs": [
-            "capacidad_financiera",
+            "capacidad_financiera_v3",
             # "experiencia_tecnica",1
         ],
         "models_to_test": [
             "qwen2.5-7b-instruct",
-            "google/gemma-3-1b",
+            # "google/gemma-3-1b",
             "deepseek-r1-distill-llama-8b",
         ],
         "enable_feature_extraction": False,
