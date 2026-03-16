@@ -45,24 +45,13 @@ class PdfContentTransformer:
     def match_titles_with_lines(
         self, outlines_df: pd.DataFrame, pdf_lines_df: pd.DataFrame
     ) -> pd.DataFrame:
-        """
-        Match outline titles with their corresponding line numbers using DataFrame merge.
-
-        Args:
-            outlines_df (pd.DataFrame): DataFrame with outlines.
-            pdf_lines_df (pd.DataFrame): DataFrame with PDF lines.
-
-        Returns:
-            pd.DataFrame: DataFrame with matched outlines and lines.
-        """
-        # Clean both title and line_text
         self.logger.info("Cleaning text fields...")
+        outlines_df = outlines_df.copy()
         outlines_df["clean_title"] = outlines_df["title"].apply(self.clean_text)
         pdf_lines_df["clean_line_text"] = pdf_lines_df["line_text"].apply(
             self.clean_text
         )
 
-        # Perform the merge using cleaned fields
         self.logger.info("Merging datasets...")
         merged_df = pd.merge(
             outlines_df,
@@ -80,12 +69,22 @@ class PdfContentTransformer:
             how="left",
         )
 
-        # Drop temporary and duplicate columns
         merged_df = merged_df.drop(
             ["page_number", "line_text", "clean_title", "clean_line_text"], axis=1
         )
 
-        # Print summary
+        # ✅ FIX: eliminar duplicados conservando el primer match por outline
+        original_len = len(merged_df)
+        merge_keys = [col for col in outlines_df.columns if col != "clean_title"]
+        merged_df = merged_df.sort_values(
+            "line_number", na_position="last"
+        ).drop_duplicates(subset=merge_keys, keep="first")
+        duplicates_removed = original_len - len(merged_df)
+        if duplicates_removed > 0:
+            self.logger.warning(
+                "Removed %d duplicate outline matches", duplicates_removed
+            )
+
         total_matches = merged_df["line_number"].notna().sum()
         match_rate = (total_matches / len(merged_df)) * 100 if len(merged_df) > 0 else 0
         self.logger.info("Total outline entries: %s", len(merged_df))
@@ -95,36 +94,19 @@ class PdfContentTransformer:
         return merged_df
 
     @error_handling(default_return=(None, None))
-    def preprocess_dataframes(
-        self, pdf_lines_df: pd.DataFrame, outlines_df: pd.DataFrame
-    ) -> Tuple[Dict, pd.DataFrame]:
-        """
-        Preprocess dataframes to optimize content extraction.
-
-        Args:
-            pdf_lines_df (pd.DataFrame): DataFrame with PDF lines.
-            outlines_df (pd.DataFrame): DataFrame with outlines.
-
-        Returns:
-            Tuple[Dict, pd.DataFrame]: Preprocessed data.
-        """
-        # Create a dictionary for quick access to PDF lines
+    def preprocess_dataframes(self, pdf_lines_df, outlines_df):
+        # ✅ Reemplazar iterrows por groupby vectorizado
         pdf_lines_dict = defaultdict(lambda: defaultdict(list))
 
-        # Group PDF lines by document_id and page_number
-        for _, row in pdf_lines_df.iterrows():
-            pdf_lines_dict[row["document_id"]][row["page_number"]].append(
-                {"line_number": row["line_number"], "line_text": row["line_text"]}
-            )
+        grouped = pdf_lines_df.sort_values("line_number").groupby(
+            ["document_id", "page_number"], sort=False
+        )
+        for (doc_id, page_num), group in grouped:
+            pdf_lines_dict[doc_id][int(page_num)] = group[
+                ["line_number", "line_text"]
+            ].to_dict("records")
 
-        # Sort lines within each page
-        for doc_id in pdf_lines_dict:
-            for page in pdf_lines_dict[doc_id]:
-                pdf_lines_dict[doc_id][page].sort(key=lambda x: x["line_number"])
-
-        # Sort outlines
         outlines_df = outlines_df.sort_values(["document_id", "page", "line_number"])
-
         return pdf_lines_dict, outlines_df
 
     @error_handling(default_return=[])

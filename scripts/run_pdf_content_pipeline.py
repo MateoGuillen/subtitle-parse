@@ -44,6 +44,9 @@ def main():
         "outlines_path": outlines_path,
         "outlines_with_position_in_content_path": outlines_with_position_in_content_path,
         "content_sections_path": content_sections_path,
+        "content_sections_dir": os.path.join(
+            BASE_OUTPUT_PROCESSED_DIR, "sections"
+        ),  # ✅ agregar esto
     }
 
     # Initialize and run the pipeline

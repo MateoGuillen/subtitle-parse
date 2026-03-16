@@ -18,7 +18,7 @@ def main():
     a single Parquet file.
     """
     # Set up directory paths
-    years = [2021, 2022, 2023, 2024]
+    years = [2021, 2022, 2023, 2024, 2025, 2026]
     output_processed_dir = f"{BASE_OUTPUT_PROCESSED_DIR}/parquet/pdf-to-parquet/"
 
     # Create output directory if it doesn't exist
@@ -30,7 +30,7 @@ def main():
         "input_base_dir": f"{BASE_OUTPUT_RAW_DIR}/pdf",
         "output_dir": output_processed_dir,
         "batch_size": 1000000,
-        "file_batch_size": 1000,
+        "file_batch_size": 100,  # Process 100 PDFs per batch with Podman Tika servers
         "cpu_count": None,  # Use default (all available cores)
         "timeout": 60,
     }

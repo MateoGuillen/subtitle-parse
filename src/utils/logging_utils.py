@@ -22,10 +22,12 @@ def setup_logger(name: str, log_file: str = BASE_LOGS_DIR) -> logging.Logger:
         logger.setLevel(logging.INFO)
 
         stream_handler = logging.StreamHandler()
+        stream_handler.set_name('utf8_stream_handler')
         stream_formatter = logging.Formatter("[%(asctime)s] [%(levelname)s] %(message)s", "%H:%M:%S")
         stream_handler.setFormatter(stream_formatter)
+        stream_formatter.encoding = 'utf-8'
 
-        file_handler = logging.FileHandler(log_path, mode='a')
+        file_handler = logging.FileHandler(log_path, mode='a', encoding='utf-8')
         file_formatter = logging.Formatter("[%(asctime)s] [%(levelname)s] %(message)s", "%Y-%m-%d %H:%M:%S")
         file_handler.setFormatter(file_formatter)
 

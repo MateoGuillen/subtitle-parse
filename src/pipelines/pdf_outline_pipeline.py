@@ -120,15 +120,15 @@ class PDFOutlinePipeline:
         """
         self.logger.info("Merging outline files from all years...")
 
-        # Check if merged files already exist
-        csv_path = os.path.join(self.output_dir, "csv", "merged_outlines.csv")
-        parquet_path = os.path.join(
-            self.output_dir, "parquet", "merged_outlines.parquet"
-        )
+        # # Check if merged files already exist
+        # csv_path = os.path.join(self.output_dir, "csv", "merged_outlines.csv")
+        # parquet_path = os.path.join(
+        #     self.output_dir, "parquet", "merged_outlines.parquet"
+        # )
 
-        if self.file_checker.all_files_exist([csv_path, parquet_path]):
-            self.logger.info("Merged files already exist. Skipping merge operation.")
-            return Path(csv_path), Path(parquet_path)
+        # if self.file_checker.all_files_exist([csv_path, parquet_path]):
+        #     self.logger.info("Merged files already exist. Skipping merge operation.")
+        #     return Path(csv_path), Path(parquet_path)
 
         # Merge yearly outlines
         base_path = os.path.join(self.output_dir, "outlines")

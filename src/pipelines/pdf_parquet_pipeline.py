@@ -62,32 +62,33 @@ class PDFParquetPipeline:
             self.logger.info("Parquet file for %s already exists. Skipping...", year)
             return True
 
-        # Create async event loop and run the ETL process
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
+        # Run async operations using asyncio.run() - handles loop creation/cleanup properly
+        try:
+            result = asyncio.run(self._process_year_async(year))
+            if result:
+                self.logger.info("Successfully processed PDFs for year %s", year)
+                return True
+            else:
+                self.logger.error("Failed to process PDFs for year %s", year)
+                return False
+        except Exception as e:
+            self.logger.error("Exception processing year %s: %s", year, e)
+            return False
 
+    async def _process_year_async(self, year):
+        """Async helper to process a year."""
         # Extract
-        pdf_files = loop.run_until_complete(self.pdf_extractor.extract_pdf_files(year))
+        pdf_files = await self.pdf_extractor.extract_pdf_files(year)
         if not pdf_files:
             self.logger.warning("No PDF files found for year %s", year)
-            loop.close()
             return False
 
         # Transform and Load
-        result = loop.run_until_complete(
-            self.pdf_transformer.process_and_load(
-                pdf_files, self.parquet_loader, year_dir=str(year)
-            )
+        result = await self.pdf_transformer.process_and_load(
+            pdf_files, self.parquet_loader, year_dir=str(year)
         )
 
-        loop.close()
-
-        if result:
-            self.logger.info("Successfully processed PDFs for year %s", year)
-            return True
-        else:
-            self.logger.error("Failed to process PDFs for year %s", year)
-            return False
+        return result
 
     @error_handling(default_return=False)
     def merge_all_years(self):

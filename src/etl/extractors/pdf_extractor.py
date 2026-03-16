@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import List, Optional
 from src.utils.logging_utils import setup_logger
 from src.utils.error_handler import error_handling
+import pyarrow.parquet as pq
 
 
 class PDFExtractor:

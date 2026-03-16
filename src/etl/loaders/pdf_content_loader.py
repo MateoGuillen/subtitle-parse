@@ -58,33 +58,17 @@ class PdfContentLoader:
     def save_content_sections(
         self, sections_df: pd.DataFrame, output_path: str, include_metrics: bool = True
     ) -> pd.DataFrame:
-        """
-        Save content sections to a parquet file.
-
-        Args:
-            sections_df (pd.DataFrame): DataFrame with content sections.
-            output_path (str): Path to save the parquet file.
-            include_metrics (bool): Whether to include additional metrics in the schema.
-                                Default changed to True to include all metrics.
-
-        Returns:
-            pd.DataFrame: The saved DataFrame.
-        """
         self.logger.info("Saving content sections to %s...", output_path)
-
-        # Create directory if it doesn't exist
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-        # Get schema from model based on whether we want metrics
-        if include_metrics:
-            schema = ContentSection.get_enhanced_schema()
-        else:
-            schema = ContentSection.get_schema()
-
-        # Ensure all columns in schema are in DataFrame
-        # En PyArrow, usar schema.names para obtener los nombres de campos
+        schema = (
+            ContentSection.get_enhanced_schema()
+            if include_metrics
+            else ContentSection.get_schema()
+        )
         schema_fields = schema.names
 
+        # Asegurar columnas
         for field in schema_fields:
             if field not in sections_df.columns:
                 field_type = schema.field(field).type
@@ -95,28 +79,92 @@ class PdfContentLoader:
                 else:
                     sections_df[field] = None
 
-        # Keep only columns that are in the schema
         sections_df = sections_df[
             [col for col in schema_fields if col in sections_df.columns]
         ]
 
-        # Save to parquet
-        table = pa.Table.from_pandas(sections_df, schema=schema)
-        pq.write_table(table, output_path, compression="snappy", row_group_size=10000)
+        # ✅ Escribir en chunks para evitar OOM
+        CHUNK_SIZE = 100_000
+        writer = None
+
+        try:
+            for start in range(0, len(sections_df), CHUNK_SIZE):
+                chunk = sections_df.iloc[start : start + CHUNK_SIZE]
+                table = pa.Table.from_pandas(chunk, schema=schema)
+
+                if writer is None:
+                    writer = pq.ParquetWriter(
+                        output_path, schema=schema, compression="snappy"
+                    )
+
+                writer.write_table(table)
+                self.logger.info(
+                    "Written %d/%d rows...",
+                    min(start + CHUNK_SIZE, len(sections_df)),
+                    len(sections_df),
+                )
+        finally:
+            if writer:
+                writer.close()
 
         self.logger.info(
             "Saved %d content sections to %s", len(sections_df), output_path
         )
-
-        # Print summary
+        self.logger.info("Total documents: %d", sections_df["document_id"].nunique())
         self.logger.info(
-            "Total documents processed: %d", sections_df["document_id"].nunique()
-        )
-        self.logger.info(
-            "Total licitaciones processed: %d", sections_df["nro_licitacion"].nunique()
+            "Total licitaciones: %d", sections_df["nro_licitacion"].nunique()
         )
         self.logger.info(
             "Average content length: %.2f lines", sections_df["content_length"].mean()
         )
 
         return sections_df
+
+    @error_handling(default_return=None)
+    def save_content_sections_partitioned(
+        self, sections_df: pd.DataFrame, output_dir: str
+    ) -> None:
+        """
+        Save content sections partitioned by year using pyarrow.parquet.write_to_dataset.
+
+        Each batch is appended to the existing partition, so calling this
+        multiple times (once per pipeline batch) safely accumulates all data.
+
+        Args:
+            sections_df (pd.DataFrame): DataFrame with content sections for this batch.
+            output_dir (str): Root directory for partitioned output.
+                            Generates: output_dir/year=YYYY/part-N.parquet
+        """
+        schema = ContentSection.get_enhanced_schema()
+        schema_fields = schema.names
+
+        # Asegurar columnas requeridas
+        for field in schema_fields:
+            if field not in sections_df.columns:
+                field_type = schema.field(field).type
+                if pa.types.is_string(field_type):
+                    sections_df[field] = ""
+                elif pa.types.is_integer(field_type):
+                    sections_df[field] = 0
+                else:
+                    sections_df[field] = None
+
+        # Incluir 'year' para la partición (no está en schema_fields si es clave de partición)
+        cols = [col for col in schema_fields if col in sections_df.columns]
+        if "year" not in cols:
+            cols.append("year")
+        sections_df = sections_df[cols]
+
+        # ✅ write_to_dataset append: si ya existe year=2021/, agrega un nuevo part-N
+        pq.write_to_dataset(
+            pa.Table.from_pandas(sections_df, preserve_index=False),
+            root_path=output_dir,
+            partition_cols=["year"],
+            compression="snappy",
+            existing_data_behavior="overwrite_or_ignore",
+        )
+
+        years = sections_df["year"].unique().tolist()
+        self.logger.info(
+            "Written %d rows to %s (years: %s)", len(sections_df), output_dir, years
+        )

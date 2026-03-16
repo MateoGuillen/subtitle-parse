@@ -3,6 +3,7 @@
 from typing import Tuple, Optional, List
 import pandas as pd
 import pyarrow as pa
+import pyarrow.compute as pc
 import pyarrow.parquet as pq
 from src.utils.error_handler import error_handling
 from src.utils.logging_utils import setup_logger
@@ -135,3 +136,45 @@ class PdfContentExtractor:
         pq.write_table(table, output_path, compression="snappy", row_group_size=10000)
 
         self.logger.info("Saved %d rows to %s", len(df), output_path)
+
+    @error_handling(default_return=None)
+    def get_document_ids(self, pdf_lines_path: str) -> list:
+        """Obtiene todos los document_ids únicos sin cargar el archivo completo."""
+
+        parquet_file = pq.ParquetFile(pdf_lines_path)
+        doc_ids = set()
+        for batch in parquet_file.iter_batches(
+            batch_size=200_000, columns=["document_id"]
+        ):
+            doc_ids.update(batch.column("document_id").to_pylist())
+        self.logger.info("Found %d unique document_ids", len(doc_ids))
+        return list(doc_ids)
+
+    @error_handling(default_return=None)
+    def load_lines_for_documents(
+        self, pdf_lines_path: str, doc_ids: list
+    ) -> pd.DataFrame:
+        """Carga líneas solo para los document_ids especificados."""
+
+        parquet_file = pq.ParquetFile(pdf_lines_path)
+        doc_ids_set = set(doc_ids)  # lookup O(1)
+        chunks = []
+
+        for batch in parquet_file.iter_batches(
+            batch_size=200_000,
+            columns=["document_id", "page_number", "line_number", "line_text"],
+        ):
+            # Convertir a pandas y filtrar — evita problemas de tipos en PyArrow
+            df = batch.to_pandas()
+            filtered = df[df["document_id"].isin(doc_ids_set)]
+            if not filtered.empty:
+                chunks.append(filtered)
+
+        if not chunks:
+            return pd.DataFrame()
+
+        result = pd.concat(chunks, ignore_index=True)
+        # Reducir memoria
+        result["page_number"] = result["page_number"].astype("int32")
+        result["line_number"] = result["line_number"].astype("int32")
+        return result

@@ -72,7 +72,8 @@ async def main():
     logger = setup_logger(__name__)
 
     # Set parameters for the pipeline
-    years = ["2021", "2022", "2023", "2024"]  # Array of years to process
+    # years = ["2021", "2022", "2023", "2024"]
+    years = ["2025", "2026"]  # Array of years to process
     file_type = "pdf"  # Options: pdf, json
 
     # Process sequentially - one year at a time

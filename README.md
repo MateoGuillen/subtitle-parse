@@ -70,6 +70,7 @@ python -m scripts.run_async_download_pipeline
 python -m scripts.run_pdf_outline_pipeline
 python -m scripts.run_pdf_parquet_pipeline
 python -m scripts.run_pdf_content_pipeline
+python -m scripts.run_content_cleaning_pipeline
 python -m scripts.run_llm_extraction_pipeline
 ```
 
