@@ -5,11 +5,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from nltk.corpus import stopwords
+from src.tasks.agrupamiento import QUERY
 from config.settings import DB_CONFIG
 
 # 🧠 Parámetros
 K_RANGE = range(2, 16)
-TITLE = "Capacidad Financiera"
+TITLE = "Apertura de ofertas"
+# TITLE = "Capacidad Financiera"
+
 
 # 🧾 Cargar stopwords español
 spanish_stopwords = stopwords.words("spanish")
@@ -20,6 +23,7 @@ engine = create_engine(DB_URI)
 
 # 📥 Cargar datos desde la vista materializada
 QUERY = "SELECT * FROM dncp.vm_capacidad_financiera_v2"
+# QUERY = "SELECT * FROM dncp.vm_apertura_de_ofertas"
 df = pd.read_sql_query(QUERY, engine)
 
 # 🧹 Limpieza

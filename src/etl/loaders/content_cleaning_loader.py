@@ -75,10 +75,12 @@ class ContentCleaningLoader:
         Args:
             df (pd.DataFrame): Cleaned DataFrame for one year (or one batch).
             output_dir (str): Root directory for the partitioned output.
+            chunk_size (int): Rows per write chunk. Default 100_000.
+                              Reduce to 50_000 if OOM persists.
         """
         os.makedirs(output_dir, exist_ok=True)
 
-        # Ensure all schema columns are present
+        # Ensure all schema columns are present with correct defaults
         for field in CLEANED_SCHEMA:
             if field.name not in df.columns:
                 if pa.types.is_string(field.type):
@@ -90,22 +92,58 @@ class ContentCleaningLoader:
                 else:
                     df[field.name] = None
 
-        # Keep only schema columns + year (used as partition key)
         schema_names = CLEANED_SCHEMA.names
         cols = [c for c in schema_names if c in df.columns]
         if "year" not in cols:
             cols.append("year")
-        df = df[cols]
+        df = df[cols].copy()
+        df["year"] = df["year"].astype(str)
 
-        table = pa.Table.from_pandas(df, preserve_index=False)
+        # ✅ Escribir por año y por chunks de 100k filas.
+        # pa.Table.from_pandas() sobre 1-2M filas consume 2GB+ de RAM de golpe.
+        # Con chunks de 100k nunca se piden más de ~100MB por conversión.
+        CHUNK_SIZE = 100_000
+        writers = {}
+        try:
+            for year, year_df in df.groupby("year", observed=True):
+                year_dir = os.path.join(output_dir, f"year={year}")
+                os.makedirs(year_dir, exist_ok=True)
+                existing_parts = [
+                    f
+                    for f in os.listdir(year_dir)
+                    if f.startswith("part-") and f.endswith(".parquet")
+                ]
+                next_part = len(existing_parts)
+                part_path = os.path.join(year_dir, f"part-{next_part}.parquet")
 
-        pq.write_to_dataset(
-            table,
-            root_path=output_dir,
-            partition_cols=["year"],
-            compression="snappy",
-            existing_data_behavior="overwrite_or_ignore",
-        )
+                writer = pq.ParquetWriter(
+                    part_path, CLEANED_SCHEMA, compression="snappy"
+                )
+                writers[year] = writer
+
+                total_year = len(year_df)
+                written = 0
+
+                for start in range(0, total_year, CHUNK_SIZE):
+                    chunk = year_df.iloc[start : start + CHUNK_SIZE]
+                    table = pa.Table.from_pandas(
+                        chunk, schema=CLEANED_SCHEMA, preserve_index=False
+                    )
+                    writer.write_table(table)
+                    del table, chunk
+                    written += min(CHUNK_SIZE, total_year - start)
+                    self.logger.info(
+                        "Year %s: written %d / %d rows...",
+                        year,
+                        written,
+                        total_year,
+                    )
+        finally:
+            for year, writer in writers.items():
+                try:
+                    writer.close()
+                except Exception:
+                    pass
 
         years = df["year"].unique().tolist()
         self.logger.info(

@@ -191,16 +191,31 @@ class PdfContentTransformer:
                 sections.append(section)
 
         def determine_section_end(i, doc_rows, current):
-            if i < len(doc_rows) - 1:
-                next_outline = doc_rows[i + 1]
-                if next_outline["page"] == current["page"] and not pd.isna(
-                    next_outline["line_number"]
-                ):
-                    return next_outline["page"], next_outline["line_number"]
-                else:
-                    return current["page"] + 1, None
-            else:
+            if i >= len(doc_rows) - 1:
                 return current["page"] + 1, None
+
+            next_outline = doc_rows[i + 1]
+
+            # Caso 1: mismo documento, misma página y tiene line_number → cortar ahí
+            if next_outline["page"] == current["page"] and not pd.isna(
+                next_outline["line_number"]
+            ):
+                return next_outline["page"], int(next_outline["line_number"])
+
+            # Caso 2: el siguiente outline está en otra página y tiene line_number
+            # → terminar en la línea donde arranca en su página
+            if not pd.isna(next_outline["line_number"]):
+                return next_outline["page"], int(next_outline["line_number"])
+
+            # Caso 3: el siguiente outline no tiene line_number (no fue matcheado)
+            # → buscar el próximo que sí tenga
+            for j in range(i + 2, len(doc_rows)):
+                future = doc_rows[j]
+                if not pd.isna(future["line_number"]):
+                    return future["page"], int(future["line_number"])
+
+            # Caso 4: no hay más outlines con line_number → dejar que llegue al final
+            return current["page"] + 1, None
 
         def create_content_section(current, content, end_line):
             return ContentSection(

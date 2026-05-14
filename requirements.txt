@@ -19,3 +19,4 @@ nltk
 matplotlib
 openpyxl
 lxml
+psycopg2-binary

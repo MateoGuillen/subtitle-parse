@@ -10,9 +10,11 @@ from config.settings import DB_CONFIG
 
 spanish_stopwords = stopwords.words("spanish")
 
-TITLE = "Capacidad Financiera"
+# TITLE = "Capacidad Financiera"
+TITLE = "Apertura de ofertas"
+QUERY = "SELECT * FROM dncp.vm_apertura_de_ofertas"
 
-QUERY = "SELECT * from dncp.vm_capacidad_financiera_v2"
+# QUERY = "SELECT * from dncp.v"
 
 DB_URI = f"postgresql+psycopg2://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['database']}"
 engine = create_engine(DB_URI)
@@ -28,7 +30,7 @@ vectorizer = TfidfVectorizer(stop_words=spanish_stopwords, max_features=1000)
 X = vectorizer.fit_transform(df["content"])
 
 #  Clusterización KMeans
-N_CLUSTERS = 3  # Podés ajustar según tamaño/muestra
+N_CLUSTERS = 15  # Podés ajustar según tamaño/muestra
 kmeans = KMeans(n_clusters=N_CLUSTERS, random_state=42)
 df["cluster"] = kmeans.fit_predict(X)
 
