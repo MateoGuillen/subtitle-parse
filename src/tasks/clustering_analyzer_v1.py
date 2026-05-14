@@ -13,7 +13,6 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from nltk.corpus import stopwords
 from config.settings import DB_CONFIG
-api_key = os.getenv("GROQ_API_KEY")
 
 
 
@@ -341,7 +340,7 @@ if __name__ == "__main__":
 
     QUERY = "SELECT * FROM dncp.vm_capacidad_financiera_v2"
     SAMPLES_PER_CLUSTER = 5
-    GROK_LLM_API_KEY = "api_key"  # Reemplaza con tu API key de Groq
+    GROK_LLM_API_KEY = os.getenv("GROQ_API_KEY")  # Reemplaza con tu API key de Groq
 
     analyzer = ClusteringAnalyzer("groq", GROK_LLM_API_KEY)
 
