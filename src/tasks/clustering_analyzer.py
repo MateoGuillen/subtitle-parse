@@ -445,7 +445,8 @@ if __name__ == "__main__":
     TITLE_FILTER = "Apertura de ofertas"
     QUERY = "SELECT * FROM dncp.vm_apertura_de_ofertas"
     SAMPLES_PER_CLUSTER = 5
-    GROK_LLM_API_KEY = "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"
+    GROK_LLM_API_KEY = ""  # Reemplaza con tu API key de Groq
+
 
     # Inicializar analyzer con filtro parametrizable
     analyzer = ClusteringAnalyzer("groq", GROK_LLM_API_KEY, TITLE_FILTER)

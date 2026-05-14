@@ -338,7 +338,7 @@ if __name__ == "__main__":
 
     QUERY = "SELECT * FROM dncp.vm_capacidad_financiera_v2"
     SAMPLES_PER_CLUSTER = 5
-    GROK_LLM_API_KEY = "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"
+    GROK_LLM_API_KEY = ""  # Reemplaza con tu API key de Groq
 
     analyzer = ClusteringAnalyzer("groq", GROK_LLM_API_KEY)
 
