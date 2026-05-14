@@ -3,7 +3,7 @@ Script integrado para clustering de pliegos con análisis LLM
 El LLM analiza solo las métricas (inercia/silhouette) para determinar k óptimo
 Parametrizable para cualquier tipo de análisis (Capacidad Financiera, Experiencia, etc.)
 """
-
+import os
 import time
 import pandas as pd
 import requests
@@ -13,6 +13,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from nltk.corpus import stopwords
 from config.settings import DB_CONFIG
+api_key = os.getenv("GROQ_API_KEY")
 
 
 class ClusteringAnalyzer:
@@ -445,7 +446,7 @@ if __name__ == "__main__":
     TITLE_FILTER = "Apertura de ofertas"
     QUERY = "SELECT * FROM dncp.vm_apertura_de_ofertas"
     SAMPLES_PER_CLUSTER = 5
-    GROK_LLM_API_KEY = ""  # Reemplaza con tu API key de Groq
+    GROK_LLM_API_KEY = "api_key"  # Reemplaza con tu API key de Groq
 
 
     # Inicializar analyzer con filtro parametrizable
