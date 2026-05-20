@@ -150,7 +150,7 @@ class PDFOutlineExtractor:
                                 )
                                 title = self.clean_text(item.title)
 
-                                if depth == 2:
+                                if depth in (1, 2):
                                     outlines.append(
                                         {
                                             "document_id": pdf_path.stem,

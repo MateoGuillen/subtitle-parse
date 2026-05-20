@@ -58,14 +58,6 @@ class ContentCleaningPipeline:
         cleaned_sections_dir = self.config["cleaned_sections_dir"]
         BATCH_SIZE = self.config.get("batch_size", 200_000)
 
-        # Debug: verificar tipo de content (solo primer año, primera fila)
-        for year, df in self.extractor.iter_years(sections_dir):
-            sample = df["content"].iloc[0]
-            self.logger.info(
-                "content type: %s | value: %s", type(sample), repr(sample)[:200]
-            )
-            break
-
         total_rows_in = 0
         total_rows_out = 0
 

@@ -33,7 +33,7 @@ async def main():
     config = {
         "input_dir": input_dir,
         "output_dir": output_dir,
-        "years": [2021, 2022, 2023, 2024, 2025, 2026],
+        "years": [2021, 2022, 2023, 2024, 2025],
         "max_workers": multiprocessing.cpu_count() * 2,
         "batch_size": 10000,
         "timeout": 60,

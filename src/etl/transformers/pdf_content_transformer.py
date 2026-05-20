@@ -1,6 +1,7 @@
 """Transformer for PDF content data."""
 
 import re
+import unicodedata
 import logging
 from typing import Tuple, List, Dict, Optional
 from collections import defaultdict
@@ -40,6 +41,25 @@ class PdfContentTransformer:
         if pd.isna(texto):
             return texto
         return re.sub(r"\s+", " ", texto).strip()  # Clean extra spaces
+
+    @staticmethod
+    def _normalize_exact(text: str) -> str:
+        """
+        Normalize text for exact matching: lowercase, strip accents and punctuation.
+
+        Args:
+            text (str): Text to normalize.
+
+        Returns:
+            str: Normalized text.
+        """
+        if pd.isna(text):
+            return ""
+        text = unicodedata.normalize("NFKD", str(text))
+        text = text.encode("ascii", "ignore").decode("ascii")
+        text = re.sub(r"[^\w\s]", "", text)
+        text = re.sub(r"\s+", " ", text).strip()
+        return text.lower()
 
     @error_handling(default_return=None)
     def match_titles_with_lines(
@@ -90,6 +110,80 @@ class PdfContentTransformer:
         self.logger.info("Total outline entries: %s", len(merged_df))
         self.logger.info("Successfully matched: %s", total_matches)
         self.logger.info("Match rate: %.2f%%", match_rate)
+
+        # Fallback: buscar títulos no matcheados mediante normalización
+        unmatched = merged_df[merged_df["line_number"].isna()]
+        if len(unmatched) > 0:
+            self.logger.info(
+                "Fallback searching for %d unmatched outlines via normalized matching...",
+                len(unmatched),
+            )
+
+            pdf_copy = pdf_lines_df.copy()
+            pdf_copy["norm_text"] = pdf_copy["line_text"].apply(
+                lambda x: self._normalize_exact(x) if pd.notna(x) else ""
+            )
+
+            page_lookup = {}
+            stripped_lookup = {}
+            for _, row in (
+                pdf_copy.sort_values(
+                    ["document_id", "page_number", "line_number"]
+                ).iterrows()
+            ):
+                doc = row["document_id"]
+                pg = row["page_number"]
+                norm = row["norm_text"]
+                if norm:
+                    key = (doc, pg)
+                    if key not in page_lookup:
+                        page_lookup[key] = {}
+                        stripped_lookup[key] = {}
+                    if norm not in page_lookup[key]:
+                        page_lookup[key][norm] = row["line_number"]
+                    stripped = re.sub(r"^[\d\s]+", "", norm).strip()
+                    if stripped and stripped != norm and stripped not in stripped_lookup[key]:
+                        stripped_lookup[key][stripped] = row["line_number"]
+
+            fallback_matched = 0
+            for idx in unmatched.index:
+                doc = merged_df.loc[idx, "document_id"]
+                pg = int(merged_df.loc[idx, "page"])
+                title = merged_df.loc[idx, "title"]
+                norm_title = self._normalize_exact(title)
+
+                found = False
+                for offset in range(0, 6):
+                    for sign in [1, -1] if offset > 0 else [0]:
+                        search_page = pg + sign * offset
+                        if search_page < 1:
+                            continue
+                        key = (doc, search_page)
+                        if key in page_lookup:
+                            if norm_title in page_lookup[key]:
+                                merged_df.loc[idx, "page"] = search_page
+                                merged_df.loc[idx, "line_number"] = page_lookup[key][
+                                    norm_title
+                                ]
+                                fallback_matched += 1
+                                found = True
+                                break
+                            if norm_title in stripped_lookup.get(key, {}):
+                                merged_df.loc[idx, "page"] = search_page
+                                merged_df.loc[idx, "line_number"] = stripped_lookup[
+                                    key
+                                ][norm_title]
+                                fallback_matched += 1
+                                found = True
+                                break
+                    if found:
+                        break
+
+            self.logger.info(
+                "Fallback matched %d / %d outlines",
+                fallback_matched,
+                len(unmatched),
+            )
 
         return merged_df
 
@@ -171,9 +265,44 @@ class PdfContentTransformer:
 
         def process_document_outlines(doc_id, doc_outlines):
             doc_rows = doc_outlines.to_dict("records")
+            if not doc_rows:
+                return
+
+            # Depth 1 items son boundaries virtuales (títulos generales).
+            # No generan sección propia — forzar line_number=None
+            # para que el loop los salte, pero sirvan como límite en
+            # determine_section_end (Caso 3: diferente página, sin match)
+            for r in doc_rows:
+                if r.get("depth") == 1:
+                    r["line_number"] = None
+
+            # Ordenar por (page, line_number virtual).
+            # Depth-1 (line_number=None → 0) queda antes que depth-2
+            # en la misma página, correcto como header
+            doc_rows.sort(key=lambda r: (r.get("page", 0), r.get("line_number") or 0))
+
+            # Synthetic end-of-document marker para capturar TODO el contenido
+            # del último título real del documento
+            if doc_id in pdf_lines_dict:
+                pages = pdf_lines_dict[doc_id]
+                last_page = max(pages.keys())
+                last_line = max(l["line_number"] for l in pages[last_page])
+                last_outline = doc_rows[-1]
+                doc_rows.append({
+                    "document_id": doc_id,
+                    "page": last_page,
+                    "line_number": last_line + 1,
+                    "title": "__END_OF_DOCUMENT__",
+                    "depth": 0,
+                    "nro_licitacion": last_outline.get("nro_licitacion"),
+                    "category_id": last_outline.get("category_id"),
+                    "year": last_outline.get("year"),
+                })
 
             for i, current in enumerate(doc_rows):
                 if pd.isna(current["line_number"]):
+                    continue
+                if current.get("title") == "__END_OF_DOCUMENT__":
                     continue
 
                 end_page, end_line = determine_section_end(i, doc_rows, current)
@@ -196,25 +325,51 @@ class PdfContentTransformer:
 
             next_outline = doc_rows[i + 1]
 
-            # Caso 1: mismo documento, misma página y tiene line_number → cortar ahí
+            # Caso 1: misma página y tiene line_number → cortar en esa línea
             if next_outline["page"] == current["page"] and not pd.isna(
                 next_outline["line_number"]
             ):
                 return next_outline["page"], int(next_outline["line_number"])
 
-            # Caso 2: el siguiente outline está en otra página y tiene line_number
-            # → terminar en la línea donde arranca en su página
+            # Caso 2: otra página y tiene line_number
+            # → cortar al final de la página anterior para no absorber
+            # contenido de páginas intermedias que no pertenecen a esta sección
             if not pd.isna(next_outline["line_number"]):
-                return next_outline["page"], int(next_outline["line_number"])
+                self.logger.info(
+                    "Caso 2: doc=%s title='%s' cutting at page %d (next '%s' on page %d)",
+                    doc_id, current["title"],
+                    next_outline["page"] - 1,
+                    next_outline["title"], next_outline["page"],
+                )
+                return next_outline["page"] - 1, None
 
-            # Caso 3: el siguiente outline no tiene line_number (no fue matcheado)
-            # → buscar el próximo que sí tenga
+            # Caso 3: otra página SIN line_number → cortar al final de la página anterior
+            # No se absorbe contenido de outlines no matcheados en otras páginas
+            if next_outline["page"] != current["page"]:
+                end_at = next_outline["page"] - 1
+                self.logger.info(
+                    "Caso 3: doc=%s title='%s' cutting at page %d (next '%s' at pg %d unmatched)",
+                    doc_id,
+                    current["title"],
+                    end_at,
+                    next_outline["title"],
+                    next_outline["page"],
+                )
+                return end_at if end_at >= current["page"] else current["page"], None
+
+            # Caso 4: misma página sin line_number → buscar próximo con line_number
+            self.logger.warning(
+                "Caso 4: doc=%s title='%s' skipping '%s' on same page",
+                doc_id,
+                current["title"],
+                next_outline["title"],
+            )
             for j in range(i + 2, len(doc_rows)):
                 future = doc_rows[j]
                 if not pd.isna(future["line_number"]):
                     return future["page"], int(future["line_number"])
 
-            # Caso 4: no hay más outlines con line_number → dejar que llegue al final
+            # Caso 5: no hay más outlines con line_number
             return current["page"] + 1, None
 
         def create_content_section(current, content, end_line):

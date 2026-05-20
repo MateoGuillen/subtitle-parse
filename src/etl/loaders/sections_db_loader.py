@@ -1,11 +1,9 @@
 """Loader for sections-to-database pipeline."""
 
-import io
 import logging
 from typing import List
 from contextlib import contextmanager
 
-import pandas as pd
 import psycopg2
 import psycopg2.extras
 from src.utils.error_handler import error_handling
@@ -91,66 +89,6 @@ class SectionsDbLoader:
         finally:
             cur.close()
 
-    @error_handling(default_return=None)
-    def upsert_categorias(self, cat_df: pd.DataFrame) -> None:
-        """
-        Insert unique categorias using ON CONFLICT DO NOTHING.
-
-        WHY ON CONFLICT DO NOTHING: The pipeline may be re-run for the same
-        years (e.g. after fixing a bug).  This makes the insert idempotent
-        without requiring a prior DELETE.
-
-        Args:
-            cat_df (pd.DataFrame): DataFrame with column 'category_id'.
-        """
-        if cat_df is None or cat_df.empty:
-            return
-
-        rows = [
-            (str(r["category_id"]),) for _, r in cat_df.iterrows() if r["category_id"]
-        ]
-
-        sql = """
-            INSERT INTO dncp.categorias (category_id)
-            VALUES %s
-            ON CONFLICT (category_id) DO NOTHING
-        """
-        with self._cursor() as cur:
-            psycopg2.extras.execute_values(cur, sql, rows, page_size=1000)
-
-        self.logger.info("Upserted %d categorias", len(rows))
-
-    @error_handling(default_return=None)
-    def upsert_licitaciones(self, licit_df: pd.DataFrame) -> None:
-        """
-        Insert unique licitaciones using ON CONFLICT DO NOTHING.
-
-        Args:
-            licit_df (pd.DataFrame): DataFrame with columns
-                (nro_licitacion, category_id, year).
-        """
-        if licit_df is None or licit_df.empty:
-            return
-
-        rows = [
-            (
-                str(r["nro_licitacion"]),
-                str(r["category_id"]) if r["category_id"] else None,
-                int(r["year"]) if r["year"] else None,
-            )
-            for _, r in licit_df.iterrows()
-        ]
-
-        sql = """
-            INSERT INTO dncp.licitaciones (nro_licitacion, category_id, year)
-            VALUES %s
-            ON CONFLICT (nro_licitacion) DO NOTHING
-        """
-        with self._cursor() as cur:
-            psycopg2.extras.execute_values(cur, sql, rows, page_size=1000)
-
-        self.logger.info("Upserted %d licitaciones", len(rows))
-
     @error_handling(default_return=0)
     def copy_sections(self, rows: List[tuple], batch_size: int = 10_000) -> int:
         """
@@ -176,7 +114,12 @@ class SectionsDbLoader:
             return 0
 
         cols = ", ".join(self.TARGET_COLUMNS)
-        sql = f"INSERT INTO {self.TARGET_TABLE} ({cols}) VALUES %s"
+
+        conflict_cols = "nro_licitacion, title, line_start, year"
+        sql = (
+            f"INSERT INTO {self.TARGET_TABLE} ({cols}) VALUES %s"
+            f" ON CONFLICT ({conflict_cols}) DO NOTHING"
+        )
         self.logger.info(
             "Inserting %d rows into %s in batches of %d...",
             len(rows),

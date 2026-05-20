@@ -18,7 +18,7 @@ def main():
     a single Parquet file.
     """
     # Set up directory paths
-    years = [2021, 2022, 2023, 2024, 2025, 2026]
+    years = [2021, 2022, 2023, 2024, 2025]
     output_processed_dir = f"{BASE_OUTPUT_PROCESSED_DIR}/parquet/pdf-to-parquet/"
 
     # Create output directory if it doesn't exist

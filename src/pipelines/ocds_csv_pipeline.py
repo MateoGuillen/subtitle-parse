@@ -69,8 +69,31 @@ class OcdsCsvPipeline:
         )
         self.logger = setup_logger(__name__)
 
-        self.extractor = OcdsCsvExtractor(self.work_dir)
-        self.records_transformer = OcdsRecordsTransformer()
+        # Cargar whitelist de licitaciones con pliego electrónico
+        self._valid_nros: set = set()
+        whitelist_path = config.get("whitelist_path")
+        if whitelist_path and os.path.exists(whitelist_path):
+            wl_df = pd.read_csv(whitelist_path, usecols=["nro_licitacion"])
+            self._valid_nros = set(wl_df["nro_licitacion"].dropna().astype(str))
+            self.logger.info("Whitelist cargada: %d nro_licitacion válidos", len(self._valid_nros))
+        else:
+            self.logger.warning("Whitelist no encontrada en %s — sin filtro", whitelist_path)
+
+        # Cargar mapa de categorías
+        self._cat_map: dict = {}
+        self._cat_df: Optional[pd.DataFrame] = None
+        cat_path = config.get("categories_path")
+        if cat_path and os.path.exists(cat_path):
+            cat_df = pd.read_csv(cat_path)
+            self._cat_map = dict(zip(cat_df.iloc[:, 1], cat_df.iloc[:, 0].astype(str)))
+            self._cat_df = cat_df.rename(columns={
+                cat_df.columns[0]: "category_id",
+                cat_df.columns[1]: "descripcion",
+            })
+            self.logger.info("Mapa de categorías cargado: %d entradas", len(self._cat_map))
+
+        self.extractor = OcdsCsvExtractor(self.work_dir, valid_nros=self._valid_nros)
+        self.records_transformer = OcdsRecordsTransformer(cat_map=self._cat_map)
         self.parties_transformer = OcdsPartiesTransformer()
         self.awards_transformer = OcdsAwardsTransformer()
         self.contracts_transformer = OcdsContractsTransformer()
@@ -165,12 +188,23 @@ class OcdsCsvPipeline:
     # ─────────────────────────────────────────────────────────────
 
     def _process_records(self, year: int):
-        """Transforma records.csv → licitaciones + convocantes."""
+        """Transforma records.csv → licitaciones + convocantes.
+        Filtra por whitelist: solo licitaciones con Pliego Electrónico.
+        """
         self.logger.info("Procesando records.csv...")
         for chunk in self.extractor.iter_records(year):
             licit_df, conv_df = self.records_transformer.transform(chunk)
             if licit_df is not None and not licit_df.empty:
-                self._licitaciones.append(licit_df)
+                if self._valid_nros:
+                    before = len(licit_df)
+                    licit_df = licit_df[licit_df["nro_licitacion"].isin(self._valid_nros)]
+                    if len(licit_df) < before:
+                        self.logger.debug(
+                            "Filtradas %d licitaciones sin pliego electrónico",
+                            before - len(licit_df)
+                        )
+                if not licit_df.empty:
+                    self._licitaciones.append(licit_df)
             if conv_df is not None and not conv_df.empty:
                 self._convocantes.append(conv_df)
             del chunk, licit_df, conv_df
@@ -430,6 +464,10 @@ class OcdsCsvPipeline:
             ("consultas", consultas_df, self.loader.upsert_consultas),
             ("protestas", protestas_df, self.loader.upsert_protestas),
         ]
+
+        # ── Seeder: categorías primero (FK parent) ────────────────
+        if self._cat_df is not None and not self._cat_df.empty:
+            self.loader.upsert_categorias(self._cat_df)
 
         has_errors = False
         for name, df, upsert_fn in loads:

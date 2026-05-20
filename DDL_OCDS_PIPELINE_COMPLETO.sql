@@ -245,7 +245,7 @@ CREATE INDEX idx_adj_tender_id      ON dncp.adjudicaciones(tender_id);
 -- ═══════════════════════════════════════════════════════════════════
 CREATE TABLE dncp.contratos (
     contrato_id             text PRIMARY KEY,
-    award_id                text REFERENCES dncp.adjudicaciones(award_id),
+    award_id                text,
     nro_licitacion          text NOT NULL REFERENCES dncp.licitaciones(nro_licitacion),
     compiled_release_id     text,
     proveedor_id            text REFERENCES dncp.proveedores(proveedor_id),
@@ -273,7 +273,7 @@ CREATE INDEX idx_contratos_fecha_firma      ON dncp.contratos(fecha_firma);
 -- ═══════════════════════════════════════════════════════════════════
 CREATE TABLE dncp.enmiendas_contrato (
     enmienda_id         text PRIMARY KEY,
-    contrato_id         text NOT NULL REFERENCES dncp.contratos(contrato_id),
+    contrato_id         text NOT NULL,
     nro_licitacion      text,
     fecha               timestamptz,
     descripcion         text,
@@ -290,7 +290,7 @@ CREATE INDEX idx_enmiendas_nro_licit    ON dncp.enmiendas_contrato(nro_licitacio
 -- ═══════════════════════════════════════════════════════════════════
 CREATE TABLE dncp.pagos_contrato (
     pago_id             text PRIMARY KEY,
-    contrato_id         text NOT NULL REFERENCES dncp.contratos(contrato_id),
+    contrato_id         text NOT NULL,
     nro_licitacion      text,
     proveedor_id        text,
     fecha_pago          timestamptz,
@@ -390,6 +390,10 @@ CREATE INDEX idx_ps_estimated_tokens      ON ONLY dncp.pliegos_secciones(estimat
 CREATE INDEX idx_ps_title_norm_licit      ON ONLY dncp.pliegos_secciones(title_normalized, nro_licitacion);
 CREATE INDEX idx_ps_page_brin             ON ONLY dncp.pliegos_secciones USING brin(page) WITH (pages_per_range='128');
 CREATE INDEX idx_ps_title_normalized_trgm ON ONLY dncp.pliegos_secciones USING gin(title_normalized gin_trgm_ops);
+
+-- Índice único para deduplicación en re-ejecuciones del pipeline
+CREATE UNIQUE INDEX IF NOT EXISTS idx_pliegos_secciones_unique
+    ON dncp.pliegos_secciones (nro_licitacion, title, line_start, year);
 
 -- ═══════════════════════════════════════════════════════════════════
 -- PARTICIONES POR AÑO (pliegos_secciones)

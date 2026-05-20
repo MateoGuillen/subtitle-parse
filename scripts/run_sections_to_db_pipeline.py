@@ -38,11 +38,15 @@ def main():
 
     Output
     ------
-    Tables populated in PostgreSQL::
+    Table populated in PostgreSQL::
 
-        dncp.categorias          (upserted)
-        dncp.licitaciones        (upserted)
         dncp.pliegos_secciones   (inserted, partitioned by year)
+
+    Checkpoints
+    -----------
+    After each year completes, a marker file ``.sections_db_done_{year}`` is
+    written to the sections directory.  On re-run, completed years are skipped
+    automatically.  Delete the marker to reprocess a year.
 
     Configuration
     -------------
@@ -79,7 +83,11 @@ def main():
         "batch_size": 10_000,
         # Load specific years only, or None for all available years.
         # Example: "years": [2024, 2025]  to reload only recent years.
-        "years": None,
+        # Note: años con partición faltante en PostgreSQL se saltan.
+        "years": [2021, 2022, 2023, 2024, 2025],
+        # Saltar años anteriores a este (útil para reanudar tras crash).
+        # Ejemplo: "start_year": 2025  → solo procesa 2025 en adelante.
+        "start_year": None,
     }
 
     pipeline = SectionsToDbPipeline(config)

@@ -28,6 +28,24 @@ class OcdsLoader:
         self.logger = setup_logger(__name__)
         self._conn = None
 
+    # ── Categorias ────────────────────────────────────────────────
+
+    @error_handling(default_return=False)
+    def upsert_categorias(self, df: Optional[pd.DataFrame]) -> bool:
+        if df is None or df.empty:
+            return True
+        sql = """
+            INSERT INTO dncp.categorias (category_id, descripcion)
+            VALUES %s
+            ON CONFLICT (category_id) DO NOTHING
+        """
+        rows = [
+            (str(r["category_id"]), str(r["descripcion"]) if r.get("descripcion") else None)
+            for _, r in df.iterrows()
+        ]
+        self._execute_values(sql, rows, "categorias")
+        return True
+
     # ── Conexión ──────────────────────────────────────────────────
 
     def connect(self, dsn: str) -> None:
@@ -117,8 +135,22 @@ class OcdsLoader:
             "duracion_contrato_dias", "cantidad_oferentes",
             "tiene_consultas", "tiene_subasta", "tiene_acuerdo_marco",
             "criterio_elegibilidad", "convocante_id",
+            "category_id", "year", "tender_id",
         ]
         available = [c for c in cols if c in df.columns]
+
+        # Auto-crear categorías faltantes antes del upsert
+        if "category_id" in df.columns:
+            cat_ids = df["category_id"].dropna().unique()
+            if len(cat_ids):
+                seed_rows = [(str(cid), None) for cid in cat_ids]
+                seed_sql = """
+                    INSERT INTO dncp.categorias (category_id, descripcion)
+                    VALUES %s
+                    ON CONFLICT (category_id) DO NOTHING
+                """
+                self._execute_values(seed_sql, seed_rows, "categorias_seed")
+
         update_cols = [c for c in available if c != "nro_licitacion"]
         set_clause = ", ".join(
             f"{c} = COALESCE(EXCLUDED.{c}, dncp.licitaciones.{c})"

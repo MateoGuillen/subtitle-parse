@@ -73,7 +73,7 @@ async def main():
 
     # Set parameters for the pipeline
     # years = ["2021", "2022", "2023", "2024"]
-    years = ["2025", "2026"]  # Array of years to process
+    years = ["2021", "2022", "2023", "2024", "2025"]  # Array of years to process
     file_type = "pdf"  # Options: pdf, json
 
     # Process sequentially - one year at a time

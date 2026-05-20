@@ -51,7 +51,7 @@ Genera un CSV con las URLs de todos los pliegos PDF asociados a cada licitación
 
 ### Proceso paso a paso
 
-1. **Extrae** datos OCDS de la API del DNCP para cada año (2021-2026)
+1. **Extrae** datos OCDS de la API del DNCP para cada año (2021-2025)
 2. **Transforma** los datos crudos en dos DataFrames:
    - `pdf_df`: filas con metadatos + URLs de pliegos PDF (`ten_documents_pliego_pdf_*`)
    - `json_df`: filas con metadatos de pliegos JSON
@@ -60,10 +60,10 @@ Genera un CSV con las URLs de todos los pliegos PDF asociados a cada licitación
 
 ### Output
 
-| Archivo | Descripción |
-|---------|-------------|
-| `{BASE_OUTPUT_RAW_DIR}/csv/datasets/merged_tender_data_pdf_{year}.csv` | URLs de PDFs por año |
-| `{BASE_OUTPUT_PROCESSED_DIR}/csv/ten_documents_pliego_pdf_every_year.csv` | URLs de PDFs, todos los años |
+| Archivo                                                                            | Descripción                  |
+| ---------------------------------------------------------------------------------- | ---------------------------- |
+| `{BASE_OUTPUT_RAW_DIR}/csv/datasets/merged_tender_data_pdf_{year}.csv`             | URLs de PDFs por año         |
+| `{BASE_OUTPUT_PROCESSED_DIR}/csv/ten_documents_pliego_pdf_every_year.csv`          | URLs de PDFs, todos los años |
 | `{BASE_OUTPUT_PROCESSED_DIR}/csv/ten_documents_pliego_pdf_every_year_filtered.csv` | Licitaciones únicas con URLs |
 
 ### Columnas clave del output
@@ -94,11 +94,11 @@ Descarga los archivos PDF de pliegos desde las URLs generadas por el pipeline an
 
 ### Output
 
-| Directorio | Contenido |
-|------------|-----------|
-| `{BASE_OUTPUT_RAW_DIR}/pdf/{year}/` | PDFs descargados organizados por año |
-| `{BASE_OUTPUT_RAW_DIR}/pdf/{year}/{category}/` | PDFs organizados por categoría |
-| `{BASE_OUTPUT_RAW_DIR}/download_summary_pdf_{year}.csv` | Resumen de descargas |
+| Directorio                                              | Contenido                            |
+| ------------------------------------------------------- | ------------------------------------ |
+| `{BASE_OUTPUT_RAW_DIR}/pdf/{year}/`                     | PDFs descargados organizados por año |
+| `{BASE_OUTPUT_RAW_DIR}/pdf/{year}/{category}/`          | PDFs organizados por categoría       |
+| `{BASE_OUTPUT_RAW_DIR}/download_summary_pdf_{year}.csv` | Resumen de descargas                 |
 
 ---
 
@@ -122,23 +122,23 @@ Extrae la tabla de contenidos (outlines/bookmarks) de cada PDF de pliego. Los ou
 
 ### Output
 
-| Archivo | Formato | Descripción |
-|---------|---------|-------------|
-| `{output_dir}/outlines/{year}/outlines_{year}.csv` | CSV | Outlines por año |
-| `{output_dir}/csv/merged_outlines.csv` | CSV | Outlines de todos los años |
-| `{output_dir}/parquet/merged_outlines.parquet` | Parquet | Outlines de todos los años |
+| Archivo                                            | Formato | Descripción                |
+| -------------------------------------------------- | ------- | -------------------------- |
+| `{output_dir}/outlines/{year}/outlines_{year}.csv` | CSV     | Outlines por año           |
+| `{output_dir}/csv/merged_outlines.csv`             | CSV     | Outlines de todos los años |
+| `{output_dir}/parquet/merged_outlines.parquet`     | Parquet | Outlines de todos los años |
 
 ### Columnas del output
 
-| Columna | Descripción |
-|---------|-------------|
-| `document_id` | ID del documento PDF |
-| `title` | Título de la sección (ej: "2.1. Objeto de la contratación") |
-| `page` | Número de página donde comienza (extraído o estimado) |
-| `depth` | Nivel jerárquico (0=capítulo, 1=sección, 2=subsección) |
-| `line_start` | Número de línea de inicio (rellenable post-content) |
-| `line_end` | Número de línea de fin (rellenable post-content) |
-| `year` | Año de la licitación |
+| Columna       | Descripción                                                 |
+| ------------- | ----------------------------------------------------------- |
+| `document_id` | ID del documento PDF                                        |
+| `title`       | Título de la sección (ej: "2.1. Objeto de la contratación") |
+| `page`        | Número de página donde comienza (extraído o estimado)       |
+| `depth`       | Nivel jerárquico (0=capítulo, 1=sección, 2=subsección)      |
+| `line_start`  | Número de línea de inicio (rellenable post-content)         |
+| `line_end`    | Número de línea de fin (rellenable post-content)            |
+| `year`        | Año de la licitación                                        |
 
 ---
 
@@ -161,21 +161,21 @@ Extrae el texto completo de cada PDF línea por línea usando Apache Tika, y lo 
 
 ### Output
 
-| Archivo | Descripción |
-|---------|-------------|
-| `{output_dir}/pdf_text_{year}.parquet` | Líneas de PDF por año |
+| Archivo                                             | Descripción                                     |
+| --------------------------------------------------- | ----------------------------------------------- |
+| `{output_dir}/pdf_text_{year}.parquet`              | Líneas de PDF por año                           |
 | `{output_dir}/combined_documents_all_years.parquet` | ** Todas las líneas de todos los años ** (~2GB) |
 
 ### Columnas del output
 
-| Columna | Descripción |
-|---------|-------------|
-| `document_id` | ID del documento PDF |
-| `page_number` | Número de página (1-indexed) |
-| `line_number` | Número de línea dentro del documento |
-| `content` | Texto de la línea |
-| `x`, `y`, `width`, `height` | Coordenadas espaciales (opcional) |
-| `year` | Año de la licitación |
+| Columna                     | Descripción                          |
+| --------------------------- | ------------------------------------ |
+| `document_id`               | ID del documento PDF                 |
+| `page_number`               | Número de página (1-indexed)         |
+| `line_number`               | Número de línea dentro del documento |
+| `content`                   | Texto de la línea                    |
+| `x`, `y`, `width`, `height` | Coordenadas espaciales (opcional)    |
+| `year`                      | Año de la licitación                 |
 
 ---
 
@@ -206,31 +206,31 @@ Para cada outline (título + página estimada), busca en las líneas del mismo `
 
 ### Output
 
-| Archivo | Descripción |
-|---------|-------------|
+| Archivo                                                                  | Descripción                           |
+| ------------------------------------------------------------------------ | ------------------------------------- |
 | `{output_dir}/outlines/merged_outlines_with_position_in_content.parquet` | Outlines con línea de inicio resuelta |
-| `{output_dir}/sections/year={year}/part-*.parquet` | Secciones particionadas por año |
+| `{output_dir}/sections/year={year}/part-*.parquet`                       | Secciones particionadas por año       |
 
 ### Columnas de secciones
 
-| Columna | Descripción |
-|---------|-------------|
-| `document_id` | ID del documento |
-| `nro_licitacion` | FK a licitaciones |
-| `category_id` | Categoría de la licitación |
-| `year` | Año |
-| `title` | Título de la sección (ej: "Garantía de Oferta") |
-| `title_normalized` | Título normalizado (minúsculas, sin acentos) |
-| `page` | Página donde comienza |
-| `line_start` | Línea de inicio en el documento |
-| `line_end` | Línea de fin |
-| `depth` | Nivel jerárquico |
-| `content_length` | Longitud del texto crudo |
-| `estimated_tokens` | Tokens estimados (content_length / 4) |
-| `word_count` | Cantidad de palabras |
-| `size_bytes` | Tamaño en bytes |
-| `content_text` | Texto completo de la sección |
-| `content` | Lista de strings (líneas raw, usado como paso intermedio) |
+| Columna            | Descripción                                               |
+| ------------------ | --------------------------------------------------------- |
+| `document_id`      | ID del documento                                          |
+| `nro_licitacion`   | FK a licitaciones                                         |
+| `category_id`      | Categoría de la licitación                                |
+| `year`             | Año                                                       |
+| `title`            | Título de la sección (ej: "Garantía de Oferta")           |
+| `title_normalized` | Título normalizado (minúsculas, sin acentos)              |
+| `page`             | Página donde comienza                                     |
+| `line_start`       | Línea de inicio en el documento                           |
+| `line_end`         | Línea de fin                                              |
+| `depth`            | Nivel jerárquico                                          |
+| `content_length`   | Longitud del texto crudo                                  |
+| `estimated_tokens` | Tokens estimados (content_length / 4)                     |
+| `word_count`       | Cantidad de palabras                                      |
+| `size_bytes`       | Tamaño en bytes                                           |
+| `content_text`     | Texto completo de la sección                              |
+| `content`          | Lista de strings (líneas raw, usado como paso intermedio) |
 
 ---
 
@@ -264,17 +264,17 @@ Limpia el `content` (lista de líneas raw) de cada sección aplicando una secuen
 
 ### Output
 
-| Directorio | Contenido |
-|------------|-----------|
+| Directorio                                                | Contenido                               |
+| --------------------------------------------------------- | --------------------------------------- |
 | `{BASE_OUTPUT_PROCESSED_DIR}/sections_clean/year={year}/` | Secciones limpias particionadas por año |
 
 ### Columnas nuevas/adicionadas
 
-| Columna | Tipo | Descripción |
-|---------|------|-------------|
-| `content_clean` | `TEXT[]` | Array de líneas de texto limpias (para PostgreSQL) |
-| `content_text` | `TEXT` | Texto completo concatenado (para búsqueda full-text) |
-| `content_length_clean` | `INT` | Caracteres del texto limpio |
+| Columna                | Tipo     | Descripción                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `content_clean`        | `TEXT[]` | Array de líneas de texto limpias (para PostgreSQL)   |
+| `content_text`         | `TEXT`   | Texto completo concatenado (para búsqueda full-text) |
+| `content_length_clean` | `INT`    | Caracteres del texto limpio                          |
 
 ---
 
@@ -300,11 +300,11 @@ Lee las secciones limpias desde Parquet y las inserta en PostgreSQL usando COPY 
 
 ### Output en PostgreSQL
 
-| Tabla | Columnas pobladas |
-|-------|-------------------|
-| `dncp.categorias` | `category_id` |
-| `dncp.licitaciones` | `nro_licitacion`, `category_id`, `year` |
-| `dncp.pliegos_secciones` | 17 columnas (ver DDL) |
+| Tabla                    | Columnas pobladas                       |
+| ------------------------ | --------------------------------------- |
+| `dncp.categorias`        | `category_id`                           |
+| `dncp.licitaciones`      | `nro_licitacion`, `category_id`, `year` |
+| `dncp.pliegos_secciones` | 17 columnas (ver DDL)                   |
 
 ---
 
@@ -329,17 +329,17 @@ licitaciones (nro_licitacion PK)
 
 ### Volúmenes estimados
 
-| Pipeline | Tabla/Dataset | Filas |
-|----------|---------------|-------|
-| OCDS CSV | licitaciones | ~61K |
-| OCDS CSV | proveedores | ~55K |
-| OCDS CSV | adjudicaciones | ~89K |
-| OCDS CSV | contratos | ~85K |
-| OCDS CSV | pagos | ~684K |
-| OCDS CSV | items | ~2.5M |
-| **PDF Sections** | **pliegos_secciones** | **~2.8M** (~100 por licitación) |
-| PDF Sections | categorias | ~500 |
-| PDF Lines | combined_documents_all_years.parquet | ~50M líneas |
+| Pipeline         | Tabla/Dataset                        | Filas                           |
+| ---------------- | ------------------------------------ | ------------------------------- |
+| OCDS CSV         | licitaciones                         | ~61K                            |
+| OCDS CSV         | proveedores                          | ~55K                            |
+| OCDS CSV         | adjudicaciones                       | ~89K                            |
+| OCDS CSV         | contratos                            | ~85K                            |
+| OCDS CSV         | pagos                                | ~684K                           |
+| OCDS CSV         | items                                | ~2.5M                           |
+| **PDF Sections** | **pliegos_secciones**                | **~2.8M** (~100 por licitación) |
+| PDF Sections     | categorias                           | ~500                            |
+| PDF Lines        | combined_documents_all_years.parquet | ~50M líneas                     |
 
 ---
 
@@ -394,24 +394,24 @@ run_sections_to_db_pipeline.py
 
 El pipeline de limpieza (`content_cleaning_pipeline.py`) calcula:
 
-| Columna | Cálculo | Propósito |
-|---------|---------|-----------|
-| `content_clean` | Limpieza secuencial de cada línea | Array de strings limpio para PostgreSQL TEXT[] |
-| `content_text` | `'\n'.join(content_clean)` | Texto plano para búsqueda full-text |
-| `content_length_clean` | `len(content_text)` | Feature numérica: qué tan detallada es cada sección |
-| `word_count` | `len(content_text.split())` | Feature: cantidad de palabras |
-| `estimated_tokens` | `content_length / 4` | Estimación de tokens LLM |
+| Columna                | Cálculo                           | Propósito                                           |
+| ---------------------- | --------------------------------- | --------------------------------------------------- |
+| `content_clean`        | Limpieza secuencial de cada línea | Array de strings limpio para PostgreSQL TEXT[]      |
+| `content_text`         | `'\n'.join(content_clean)`        | Texto plano para búsqueda full-text                 |
+| `content_length_clean` | `len(content_text)`               | Feature numérica: qué tan detallada es cada sección |
+| `word_count`           | `len(content_text.split())`       | Feature: cantidad de palabras                       |
+| `estimated_tokens`     | `content_length / 4`              | Estimación de tokens LLM                            |
 
 En el transformer de secciones a DB (`sections_db_transformer.py`), los tipos numpy se convierten a tipos Python nativos para compatibilidad con psycopg2:
 
-| Tipo Parquet → | Tipo Python → | Tipo PostgreSQL |
-|----------------|---------------|-----------------|
-| `int32/int16` | `int` o `None` | `INTEGER`/`SMALLINT` |
-| `float64` | `int` o `None` | `INTEGER` |
-| `str` | `str` o `None` | `TEXT` |
-| `list[str]` | `list[str]` | `TEXT[]` |
-| `NaN` | `None` | `NULL` |
-| `NaT` | `None` | `NULL` |
+| Tipo Parquet → | Tipo Python →  | Tipo PostgreSQL      |
+| -------------- | -------------- | -------------------- |
+| `int32/int16`  | `int` o `None` | `INTEGER`/`SMALLINT` |
+| `float64`      | `int` o `None` | `INTEGER`            |
+| `str`          | `str` o `None` | `TEXT`               |
+| `list[str]`    | `list[str]`    | `TEXT[]`             |
+| `NaN`          | `None`         | `NULL`               |
+| `NaT`          | `None`         | `NULL`               |
 
 ---
 
@@ -420,6 +420,7 @@ En el transformer de secciones a DB (`sections_db_transformer.py`), los tipos nu
 ### Particionamiento por año
 
 `pliegos_secciones` está particionada por `LIST (year)` con particiones `pliegos_secciones_2021` a `2025`. Esto permite:
+
 - ANALYZE individual por partición
 - Drop/reload de un año sin afectar otros
 - Consultas más rápidas cuando se filtra por año
@@ -468,6 +469,7 @@ Checkpoints por pipeline:
 La tesis usa Isolation Forest sobre una feature matrix híbrida:
 
 **Features estructuradas** (del pipeline OCDS CSV):
+
 - Montos: monto_estimado, monto_adjudicado, monto_contrato
 - Tiempos: duración del proceso, plazos
 - Cantidades: cantidad_oferentes, cantidad_items, cantidad_enmiendas
@@ -475,6 +477,7 @@ La tesis usa Isolation Forest sobre una feature matrix híbrida:
 - Relacionales: mismo proveedor en múltiples licitaciones
 
 **Features textuales** (del pipeline PDF Sections):
+
 - Por sección del pliego (~50-150 por licitación)
 - content_length_clean, word_count
 - Presencia/ausencia de ciertas secciones

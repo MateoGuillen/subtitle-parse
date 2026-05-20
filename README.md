@@ -32,7 +32,8 @@ subtitle-parse/
 **Propósito:** Descarga y procesa metadatos de licitaciones desde la API DNCP (Open Contracting Data Standard).
 
 **Proceso:**
-- Consulta la API de `contrataciones.gov.py` por años (2021-2026)
+
+- Consulta la API de `contrataciones.gov.py` por años (2021-2025)
 - Extrae información de contratos, licitaciones y pliegos
 - Guarda los datos en formato estructurado en `data/processed/`
 
@@ -47,6 +48,7 @@ subtitle-parse/
 **Propósito:** Extrae el esquema (outline/índice) de archivos PDF de pliegos de licitación.
 
 **Proceso:**
+
 - Descarga asíncrona de PDFs desde URLs de licitaciones
 - Extrae el outline (estructura de capítulos/secciones) con posiciones
 - Procesa en paralelo con multi-core
@@ -63,6 +65,7 @@ subtitle-parse/
 **Propósito:** Convierte archivos PDF a formato Parquet extrayendo contenido completo.
 
 **Proceso:**
+
 - Utiliza Apache Tika para extracción de contenido de PDFs
 - Procesa PDFs en pods de Tika
 - Genera archivos Parquet con el contenido extraído
@@ -78,6 +81,7 @@ subtitle-parse/
 **Propósito:** Limpia y fusiona las secciones extraídas de los PDFs por año.
 
 **Proceso:**
+
 - Limpia texto extraído (remueve artefactos, normaliza)
 - Fusiona secciones relacionadas por licitación
 - Organiza resultados por año en `data/processed/`
@@ -93,6 +97,7 @@ subtitle-parse/
 **Propósito:** Ejecuta extracción de información clave usando LLM sobre secciones limpias.
 
 **Proceso:**
+
 - Envía contenido limpio a endpoint de LLM configurado
 - Extrae campos estructurados (montos, fechas, proveedores, etc.)
 - Guarda resultados en formato estructurado
@@ -108,6 +113,7 @@ subtitle-parse/
 **Propósito:** Carga los datos procesados en PostgreSQL.
 
 **Proceso:**
+
 - Conecta a PostgreSQL usando `DB_CONFIG`
 - Hace upsert en las siguientes tablas:
   - `dncp.categorias` - Categorías de licitación
@@ -124,6 +130,7 @@ subtitle-parse/
 **Propósito:** Descarga asíncrona de archivos desde URLs.
 
 **Proceso:**
+
 - Descarga masiva asíncrona con `aiohttp`
 - Manejo de errores y reintentos
 - Guardado en `data/raw/`
@@ -183,13 +190,13 @@ python scripts/run_sections_to_db_pipeline.py
 
 ## Dependencias Principales
 
-| Categoría | Paquetes |
-|-----------|----------|
-| Datos | `pandas`, `pyarrow`, `openpyxl`, `lxml` |
-| PDF | `PyPDF2`, `pdfplumber`, `tika` |
-| Red | `requests`, `aiohttp`, `aiofiles` |
-| DB | `sqlalchemy`, `psycopg2-binary` |
-| LLM/ML | `scikit-learn`, `nltk`, `matplotlib` |
+| Categoría  | Paquetes                                           |
+| ---------- | -------------------------------------------------- |
+| Datos      | `pandas`, `pyarrow`, `openpyxl`, `lxml`            |
+| PDF        | `PyPDF2`, `pdfplumber`, `tika`                     |
+| Red        | `requests`, `aiohttp`, `aiofiles`                  |
+| DB         | `sqlalchemy`, `psycopg2-binary`                    |
+| LLM/ML     | `scikit-learn`, `nltk`, `matplotlib`               |
 | Utilidades | `rarfile`, `cryptography`, `python-dotenv`, `tqdm` |
 
 ## Propósito Final

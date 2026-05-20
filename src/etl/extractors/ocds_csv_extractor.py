@@ -48,7 +48,8 @@ BASE_URL = "https://www.contrataciones.gov.py/images/opendata-v3/final/ocds/{yea
 # Columnas de records.csv que necesitamos para el mapa de IDs
 RECORDS_ID_COLS = [
     "compiledRelease/id",           # compiled_release_id
-    "compiledRelease/tender/id",    # nro_licitacion
+    "compiledRelease/tender/id",    # tender_id (slug completo)
+    "compiledRelease/ocid",         # ocid (para extraer nro_licitacion numérico)
 ]
 
 CHUNK_SIZE = 100_000
@@ -62,14 +63,17 @@ class OcdsCsvExtractor:
     y provee iteradores en chunks para procesamiento eficiente en RAM.
     """
 
-    def __init__(self, work_dir: str):
+    def __init__(self, work_dir: str, valid_nros: set = None):
         """
         Args:
             work_dir: Directorio donde se guardan ZIPs y CSVs extraídos.
                       Estructura: work_dir/{year}/masivo.zip
                                   work_dir/{year}/csv/{archivo}.csv
+            valid_nros: Set de nro_licitacion válidos (whitelist).
+                        Si se provee, iter_csv filtra automáticamente.
         """
         self.work_dir = work_dir
+        self.valid_nros = valid_nros or set()
         self.logger = setup_logger(__name__)
         self._id_maps: dict[str, dict] = {}  # cache por año
 
@@ -187,6 +191,13 @@ class OcdsCsvExtractor:
             self.logger.error("records.csv no encontrado para año %d", year)
             return {}
 
+        def _nro_from_ocid(ocid: str) -> str:
+            """Extrae nro_licitacion numerico del ocid: ocds-03ad3f-384916-1 → 384916."""
+            parts = str(ocid).split("-")
+            if len(parts) >= 3 and parts[2].isdigit():
+                return parts[2]
+            return None
+
         id_map = {}
         for chunk in pd.read_csv(
             csv_path,
@@ -196,10 +207,12 @@ class OcdsCsvExtractor:
             low_memory=False,
         ):
             release_col = "compiledRelease/id"
-            tender_col  = "compiledRelease/tender/id"
+            ocid_col    = "compiledRelease/ocid"
 
-            chunk = chunk.dropna(subset=[release_col, tender_col])
-            batch = dict(zip(chunk[release_col], chunk[tender_col]))
+            chunk = chunk.dropna(subset=[release_col, ocid_col])
+            chunk["_nro"] = chunk[ocid_col].apply(_nro_from_ocid)
+            chunk = chunk.dropna(subset=["_nro"])
+            batch = dict(zip(chunk[release_col], chunk["_nro"]))
             id_map.update(batch)
 
         self.logger.info(
@@ -264,6 +277,12 @@ class OcdsCsvExtractor:
             # Agregar nro_licitacion desde el mapa
             chunk["nro_licitacion"] = chunk[release_col].map(id_map)
             chunk["year"] = year
+
+            # Filtrar por whitelist si está configurada
+            if self.valid_nros:
+                chunk = chunk[chunk["nro_licitacion"].isin(self.valid_nros)]
+                if chunk.empty:
+                    return
 
             total_rows += len(chunk)
             self.logger.debug(

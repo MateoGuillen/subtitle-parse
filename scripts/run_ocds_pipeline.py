@@ -45,7 +45,7 @@ def main():
         "output_dir": output_path,
         "output_processed_dir": output_processed_path,
         "input_external_dir": input_external_dir,
-        "years": [2021, 2022, 2023, 2024, 2025, 2026],
+        "years": [2021, 2022, 2023, 2024, 2025],
         # "years": [2025, 2026],
         "prefix_name": "merged_tender_data",
         "output_pdf_name": "ten_documents_pliego_pdf_every_year.csv",

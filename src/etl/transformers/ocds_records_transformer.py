@@ -17,7 +17,7 @@ from src.utils.logging_utils import setup_logger
 # Mapeo columnas records.csv → campos de nuestra DB
 RECORDS_COLS = {
     "compiledRelease/id":                                   "compiled_release_id",
-    "compiledRelease/tender/id":                            "nro_licitacion",
+    "compiledRelease/tender/id":                            "tender_id",
     "compiledRelease/ocid":                                 "ocid",
     "compiledRelease/tender/title":                         "titulo",
     "compiledRelease/tender/status":                        "estado",
@@ -78,8 +78,33 @@ class OcdsRecordsTransformer:
     upsert en dncp.licitaciones y dncp.convocantes.
     """
 
-    def __init__(self):
+    def __init__(self, cat_map: dict = None):
+        """
+        Args:
+            cat_map: Dict {nombre_categoria: category_id} para mapear
+                     desde categoria_detalle. Ej: {"Pasajes y Transportes": "1"}
+        """
         self.logger = setup_logger(__name__)
+        self.cat_map = cat_map or {}
+
+    @staticmethod
+    def _nro_from_ocid(ocid: str) -> Optional[str]:
+        """ocds-03ad3f-384916-1 → 384916"""
+        if pd.isna(ocid):
+            return None
+        parts = str(ocid).split("-")
+        if len(parts) >= 3 and parts[2].isdigit():
+            return parts[2]
+        return None
+
+    @staticmethod
+    def _cat_from_detalle(detalle: str, cat_map: dict) -> Optional[str]:
+        """Bienes - Equipos, accesorios... → Equipos, accesorios... → lookup → 24"""
+        if pd.isna(detalle):
+            return None
+        parts = str(detalle).split(" - ", 1)
+        name = parts[1] if len(parts) > 1 else parts[0]
+        return cat_map.get(name)
 
     @error_handling(default_return=(None, None))
     def transform(
@@ -102,14 +127,23 @@ class OcdsRecordsTransformer:
         available = {k: v for k, v in RECORDS_COLS.items() if k in chunk.columns}
         df = chunk.rename(columns=available).copy()
 
-        # ── Asegurar columnas mínimas ────────────────────────────
-        required = ["compiled_release_id", "nro_licitacion"]
-        for col in required:
-            if col not in df.columns:
-                self.logger.warning("Columna requerida ausente: %s", col)
-                return None, None
+        # ── Asegurar columna mínima ─────────────────────────────
+        if "compiled_release_id" not in df.columns:
+            self.logger.warning("Columna requerida ausente: compiled_release_id")
+            return None, None
 
+        # ── Extraer nro_licitacion numérico desde ocid ───────────
+        if "ocid" not in df.columns:
+            self.logger.warning("Columna requerida ausente: ocid")
+            return None, None
+        df["nro_licitacion"] = df["ocid"].apply(self._nro_from_ocid)
         df = df.dropna(subset=["nro_licitacion"])
+
+        # ── Mapear category_id desde categoria_detalle ────────────
+        if "categoria_detalle" in df.columns and self.cat_map:
+            df["category_id"] = df["categoria_detalle"].apply(
+                lambda x: self._cat_from_detalle(x, self.cat_map)
+            )
 
         # ── Casteos de tipo ──────────────────────────────────────
         df = self._cast_types(df)
@@ -120,7 +154,7 @@ class OcdsRecordsTransformer:
         # ── Preparar licitaciones ────────────────────────────────
         licit_cols = [
             "nro_licitacion", "compiled_release_id", "ocid",
-            "titulo", "estado", "estado_detalle",
+            "tender_id", "titulo", "estado", "estado_detalle",
             "metodo_contratacion", "metodo_detalle",
             "categoria_principal", "categoria_detalle",
             "criterio_adjudicacion", "criterio_detalle",
@@ -129,7 +163,8 @@ class OcdsRecordsTransformer:
             "duracion_consultas_dias", "duracion_oferta_dias",
             "duracion_contrato_dias", "cantidad_oferentes",
             "tiene_consultas", "tiene_subasta", "tiene_acuerdo_marco",
-            "criterio_elegibilidad", "convocante_id", "year",
+            "criterio_elegibilidad", "convocante_id",
+            "category_id", "year",
         ]
         existing_cols = [c for c in licit_cols if c in df.columns]
         licit_df = df[existing_cols].drop_duplicates(
@@ -173,10 +208,10 @@ class OcdsRecordsTransformer:
                 )
 
         # Strings — limpiar espacios
-        str_cols = ["nro_licitacion", "compiled_release_id", "ocid",
+        str_cols = ["nro_licitacion", "tender_id", "compiled_release_id", "ocid",
                     "titulo", "convocante_id", "convocante_nombre",
                     "estado", "estado_detalle", "metodo_contratacion",
-                    "metodo_detalle", "categoria_principal"]
+                    "metodo_detalle", "categoria_principal", "category_id"]
         for col in str_cols:
             if col in df.columns:
                 df[col] = df[col].astype(str).str.strip()
