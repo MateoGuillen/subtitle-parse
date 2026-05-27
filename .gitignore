@@ -44,3 +44,5 @@ data/processed/*
 
 datasets/
 logs/
+
+backup-dncp/

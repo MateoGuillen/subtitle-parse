@@ -15,8 +15,11 @@ python-dotenv
 tika
 cryptography==39.0.1
 scikit-learn
+sentence-transformers
+umap-learn
 nltk
 matplotlib
 openpyxl
 lxml
 psycopg2-binary
+hdbscan
