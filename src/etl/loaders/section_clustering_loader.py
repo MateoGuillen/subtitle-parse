@@ -224,6 +224,19 @@ class SectionClusteringLoader:
         self.logger.info("Clustering comparison saved: %s", path)
         return path
 
+    def save_chat_prompts(
+        self,
+        prompts: List[Dict[str, Any]],
+        filename: str = "llm_chat_prompts.json",
+    ) -> str:
+        """Save chat prompts for manual LLM schema design."""
+        os.makedirs(self.output_dir, exist_ok=True)
+        path = os.path.join(self.output_dir, filename)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(prompts, f, indent=2, ensure_ascii=False)
+        self.logger.info("Chat prompts saved: %s", path)
+        return path
+
     # ---- helpers ----------------------------------------------------------
 
     @staticmethod

@@ -3,15 +3,15 @@
 Handles:
 - Embedding generation via Sentence‑Transformers
 - UMAP dimensionality reduction
-- K‑Means clustering (k∈[3,7] via silhouette + Davies-Bouldin + Calinski-Harabasz)
-- HDBSCAN clustering as alternative (opt-in)
+- K‑Means clustering (k∈[2,k_max] via silhouette + Davies-Bouldin + Calinski-Harabasz)
 - Representative/extreme sampling per cluster
 - Schema validation post-LLM with retry
 - LLM‑driven JSON‑schema design and extraction‑prompt construction.
 """
 
+import difflib
 import json
-import time
+from statistics import median
 from typing import Any, Dict, List, Optional, Tuple
 import numpy as np
 import pandas as pd
@@ -23,8 +23,8 @@ from sklearn.metrics import (
 )
 from sklearn.decomposition import PCA
 from sentence_transformers import SentenceTransformer
+from src.etl.transformers.llm_provider import LLMProvider
 from src.utils.logging_utils import setup_logger
-from src.utils.error_handler import error_handling
 
 
 SCHEMA_DESIGN_SYSTEM_PROMPT = """Eres un experto en detección de anomalías en pliegos de licitaciones públicas paraguayas.
@@ -123,34 +123,31 @@ class SectionClusteringTransformer:
     for each title.
     """
 
-    OPENROUTER_BASE = "https://openrouter.ai/api/v1"
     DEFAULT_UMAP_PARAMS = {"n_components": 10, "n_neighbors": 15}
 
     def __init__(
         self,
-        llm_api_key: str,
-        llm_model: str = "openai/gpt-oss-20b:free",
+        llm_provider: LLMProvider,
         embedding_model: str = "paraphrase-multilingual-MiniLM-L12-v2",
         random_state: int = 42,
-        k_range: Tuple[int, int] = (2, 15),
-        use_hdbscan: bool = True,
+        k_range: Tuple[int, int] = (2, 20),
         validate_schema: bool = True,
         schema_validation_retries: int = 2,
         compare_embeddings: bool = False,
         embedding_models_to_test: Optional[List[str]] = None,
         umap_params_grid: Optional[List[Dict[str, Any]]] = None,
+        skip_llm: bool = False,
     ):
-        self.llm_api_key = llm_api_key
-        self.llm_model = llm_model
+        self.llm_provider = llm_provider
         self.embedding_model_name = embedding_model
         self.random_state = random_state
         self.k_range = k_range
-        self.use_hdbscan = use_hdbscan
         self.validate_schema = validate_schema
         self.schema_validation_retries = schema_validation_retries
         self.compare_embeddings = compare_embeddings
         self.embedding_models_to_test = embedding_models_to_test or []
         self.umap_params_grid = umap_params_grid or []
+        self.skip_llm = skip_llm
         self.logger = setup_logger(__name__)
         self._embedder: Optional[SentenceTransformer] = None
         self._rng = np.random.RandomState(random_state)
@@ -260,38 +257,6 @@ class SectionClusteringTransformer:
                 metrics=km_metrics,
             ))
 
-            # HDBSCAN alternative
-            if self.use_hdbscan:
-                try:
-                    hdb_labels, hdb_n_clusters, hdb_n_noise = self._cluster_hdbscan(reduced)
-                    if hdb_n_clusters >= 2:
-                        hdb_metrics = self._evaluate_clustering(
-                            reduced, hdb_labels, ignore_noise=True
-                        )
-                        hdb_metrics["combined"] = hdb_metrics["silhouette"]
-                        comparison_results.append(self._make_comparison_entry(
-                            embedding_model=self.embedding_model_name,
-                            clustering_method="hdbscan",
-                            umap_params=self.DEFAULT_UMAP_PARAMS,
-                            n_clusters=hdb_n_clusters,
-                            n_noise=hdb_n_noise,
-                            metrics=hdb_metrics,
-                        ))
-
-                        if hdb_metrics["combined"] > km_metrics["combined"]:
-                            self.logger.info(
-                                "  -> HDBSCAN beats K-Means (combined=%.4f vs %.4f). Switching.",
-                                hdb_metrics["combined"],
-                                km_metrics["combined"],
-                            )
-                            cluster_labels = hdb_labels
-                            selected_method = "hdbscan"
-                            centroids = self._compute_centroids(reduced, hdb_labels)
-                except ImportError:
-                    self.logger.warning("HDBSCAN not available; skipping.")
-                except Exception as e:
-                    self.logger.warning("HDBSCAN failed: %s. Skipping.", str(e))
-
         # ---- Apply labels --------------------------------------------------
         df = df.copy()
         df["cluster_id"] = cluster_labels
@@ -309,7 +274,11 @@ class SectionClusteringTransformer:
         )
 
         # ---- Generate schema & prompt via LLM ------------------------------
-        schema_result = self._generate_schema_via_llm(title, samples)
+        if self.skip_llm:
+            self.logger.info("skip_llm=True — usando esquema por defecto (sin LLM).")
+            schema_result = self._default_schema(title)
+        else:
+            schema_result = self._generate_schema_via_llm(title, samples)
 
         # ---- Build final extraction prompt ---------------------------------
         extraction_prompt = self._build_extraction_prompt(
@@ -524,33 +493,6 @@ class SectionClusteringTransformer:
         labels = kmeans.fit_predict(X)
         return labels, kmeans
 
-    # ---- HDBSCAN ----------------------------------------------------------
-
-    def _cluster_hdbscan(
-        self,
-        X: np.ndarray,
-        min_cluster_size: int = 50,
-        min_samples: int = 10,
-    ) -> Tuple[np.ndarray, int, int]:
-        import hdbscan
-
-        self.logger.info("Clustering with HDBSCAN…")
-        clusterer = hdbscan.HDBSCAN(
-            min_cluster_size=min(min_cluster_size, X.shape[0] // 5),
-            min_samples=min_samples,
-        )
-        labels = clusterer.fit_predict(X)
-        n_clusters = len(set(labels) - {-1})
-        n_noise = int(np.sum(labels == -1))
-        noise_pct = 100.0 * n_noise / len(labels)
-        self.logger.info(
-            "HDBSCAN: %d clusters, %d noise points (%.1f%%)",
-            n_clusters,
-            n_noise,
-            noise_pct,
-        )
-        return labels, n_clusters, n_noise
-
     # ---- helpers ----------------------------------------------------------
 
     def _compute_centroids(
@@ -656,52 +598,6 @@ class SectionClusteringTransformer:
                         umap_p.get("n_components", 10),
                         umap_p.get("n_neighbors", 15),
                         str(e),
-                    )
-
-                # HDBSCAN
-                try:
-                    hdb_labels, hdb_nc, hdb_nn = self._cluster_hdbscan(reduced)
-                    if hdb_nc >= 2:
-                        hdb_metrics = self._evaluate_clustering(
-                            reduced, hdb_labels, ignore_noise=True
-                        )
-                        hdb_metrics["combined"] = hdb_metrics["silhouette"]
-                        entry = self._make_comparison_entry(
-                            embedding_model=model_name,
-                            clustering_method="hdbscan",
-                            umap_params=umap_p,
-                            n_clusters=hdb_nc,
-                            n_noise=hdb_nn,
-                            metrics=hdb_metrics,
-                        )
-                        all_results.append(entry)
-                        if hdb_metrics.get("combined", -1) > best_score:
-                            best_score = hdb_metrics.get("combined", -1)
-                            centroids = self._compute_centroids(reduced, hdb_labels)
-                            best_entry = {
-                                "labels": hdb_labels,
-                                "kmeans": None,
-                                "centroids": centroids,
-                                "reduced": reduced,
-                                "combined_scores": {},
-                                "selected_method": "hdbscan",
-                                "selected_embedding": model_name,
-                                "selected_umap": umap_p,
-                                "metrics": hdb_metrics,
-                            }
-                        self.logger.info(
-                            "  [grid] %s / UMAP(%d,%d) / hdbscan(k=%d): combined=%.4f",
-                            model_name.split("/")[-1][:30],
-                            umap_p.get("n_components", 10),
-                            umap_p.get("n_neighbors", 15),
-                            hdb_nc,
-                            hdb_metrics.get("combined", -1),
-                        )
-                except ImportError:
-                    pass
-                except Exception as e:
-                    self.logger.warning(
-                        "  [grid] HDBSCAN failed: %s", str(e)
                     )
 
         if best_entry is None:
@@ -845,7 +741,7 @@ class SectionClusteringTransformer:
         self, title: str, samples: Dict[str, List[Dict[str, Any]]]
     ) -> Dict[str, Any]:
         self.logger.info(
-            "Generating JSON schema via %s for '%s'…", self.llm_model, title
+            "Generating JSON schema via %s for '%s'…", self.llm_provider.name(), title
         )
 
         cluster_descriptions = []
@@ -888,7 +784,9 @@ class SectionClusteringTransformer:
                 {"role": "user", "content": user_prompt},
             ]
 
-            response_text = self._call_llm(messages)
+            response_text = self.llm_provider.generate(
+                messages, response_format={"type": "json_object"}
+            )
 
             try:
                 json_str = response_text
@@ -948,50 +846,163 @@ class SectionClusteringTransformer:
             ),
         }
 
-    def _call_llm(self, messages: List[Dict[str, str]]) -> str:
-        import requests
+    # ---- chat prompt export -----------------------------------------------
 
-        url = f"{self.OPENROUTER_BASE}/chat/completions"
-        headers = {
-            "Authorization": f"Bearer {self.llm_api_key}",
-            "Content-Type": "application/json",
-        }
-        payload = {
-            "model": self.llm_model,
-            "messages": messages,
-            "max_tokens": 4096,
-            "temperature": 0.0,
-        }
+    @staticmethod
+    def _merge_similar_clusters(
+        samples: Dict[str, List[Dict[str, Any]]],
+        cluster_counts: Dict[str, int],
+        similarity_threshold: float = 0.95,
+    ) -> Tuple[Dict[str, List[Dict[str, Any]]], Dict[str, int]]:
+        """Merge clusters whose representative texts are nearly identical (>threshold)."""
+        cids = sorted(samples.keys(), key=int)
+        if len(cids) <= 1:
+            return samples, cluster_counts
 
-        for attempt in range(3):
-            try:
-                resp = requests.post(
-                    url, headers=headers, json=payload, timeout=120
+        rep_texts = {}
+        for cid in cids:
+            sample_list = samples[cid]
+            rep = next(
+                (s for s in sample_list if not s.get("is_extreme")),
+                sample_list[0],
+            )
+            rep_texts[cid] = rep["text"]
+
+        groups = []
+        assigned = set()
+        for cid in cids:
+            if cid in assigned:
+                continue
+            group = [cid]
+            assigned.add(cid)
+            for other in cids:
+                if other in assigned:
+                    continue
+                ratio = difflib.SequenceMatcher(
+                    None, rep_texts[cid], rep_texts[other]
+                ).ratio()
+                if ratio >= similarity_threshold:
+                    group.append(other)
+                    assigned.add(other)
+            groups.append(group)
+
+        merged_samples = {}
+        merged_counts = {}
+        for group in groups:
+            new_id = "_".join(group)
+            combined = []
+            seen = set()
+            for cid in group:
+                for s in samples[cid]:
+                    key = s["text"][:300]
+                    if key not in seen:
+                        seen.add(key)
+                        combined.append(s)
+            merged_samples[new_id] = combined
+            merged_counts[new_id] = sum(
+                int(cluster_counts.get(cid, 0)) for cid in group
+            )
+
+        return merged_samples, merged_counts
+
+    def _build_chat_prompt(
+        self,
+        title: str,
+        samples: Dict[str, List[Dict[str, Any]]],
+        total_sections: int,
+        cluster_counts: Dict[str, int],
+        samples_per_cluster: int = 2,
+        truncation_chars: Optional[int] = None,
+        merge_similar_clusters: bool = True,
+        merge_similarity_threshold: float = 0.95,
+    ) -> Dict[str, Any]:
+        """Build a chat prompt ready to copy-paste into DeepSeek/ChatGPT/Claude.
+
+        Parameters
+        ----------
+        samples_per_cluster : int
+            How many samples to include per cluster (1 rep + rest extremes). Default 2.
+        truncation_chars : int or None
+            Max chars per sample. If None, computed dynamically as median×1.5 clamped to [500,2000].
+        merge_similar_clusters : bool
+            If True, merge clusters whose representative texts are near-identical.
+        merge_similarity_threshold : float
+            difflib ratio threshold for merging (default 0.95).
+        """
+        # 1. Merge similar clusters
+        merged_samples = samples
+        merged_counts = dict(cluster_counts)
+        if merge_similar_clusters:
+            merged_samples, merged_counts = self._merge_similar_clusters(
+                samples, cluster_counts, merge_similarity_threshold
+            )
+
+        # 2. Dynamic truncation
+        if truncation_chars is None:
+            all_lens = []
+            for sample_list in merged_samples.values():
+                for s in sample_list:
+                    all_lens.append(len(s["text"]))
+            if all_lens:
+                med = median(all_lens)
+                truncation_chars = min(max(int(med * 1.5), 500), 2000)
+            else:
+                truncation_chars = 1500
+
+        # 3. Build cluster descriptions with reduced samples
+        cluster_descriptions = []
+        for cid, sample_list in merged_samples.items():
+            rep = [s for s in sample_list if not s.get("is_extreme")]
+            ext = [s for s in sample_list if s.get("is_extreme")]
+            selected = []
+            if rep:
+                selected.append(rep[0])
+            remaining = samples_per_cluster - len(selected)
+            selected.extend(ext[:remaining])
+            if len(selected) < samples_per_cluster:
+                selected = sample_list[:samples_per_cluster]
+
+            texts_for_llm = []
+            for s in selected:
+                tag = "EXTREMO" if s.get("is_extreme") else "REPRESENTATIVO"
+                texts_for_llm.append(
+                    f"[{tag} - {s['nro_licitacion']}]\n{s['text'][:truncation_chars]}"
                 )
-                if resp.status_code == 200:
-                    data = resp.json()
-                    choices = data.get("choices", [])
-                    if choices:
-                        return choices[0].get("message", {}).get("content", "")
-                    return json.dumps(data)
-                else:
-                    self.logger.error(
-                        "LLM API error (attempt %d): %d %s",
-                        attempt + 1,
-                        resp.status_code,
-                        resp.text[:500],
-                    )
-                    if attempt < 2:
-                        time.sleep(2**attempt)
-            except requests.exceptions.RequestException as e:
-                self.logger.error(
-                    "LLM request failed (attempt %d): %s",
-                    attempt + 1,
-                    str(e),
-                )
-                if attempt < 2:
-                    time.sleep(2**attempt)
-        return '{"schema": {}, "justification": "LLM call failed after 3 retries."}'
+            cluster_descriptions.append(
+                f"=== CLUSTER {cid} ({len(selected)} muestras) ===\n"
+                + "\n\n".join(texts_for_llm)
+            )
+
+        user_prompt = (
+            f"TÍTULO DE LA SECCIÓN: {title}\n\n"
+            f"CLUSTERS ENCONTRADOS:\n\n"
+            + "\n\n".join(cluster_descriptions)
+            + "\n\n"
+            + "Analiza los clusters y sus diferencias. "
+            "Diseña un esquema JSON (solo binarios y numéricos) "
+            "que capture las características potencialmente anómalas "
+            "del texto y diferencie los clusters."
+        )
+
+        expected_output = (
+            '```json\n{\n  "schema": {\n    "campo_ejemplo": '
+            '{"type": "binary", "description": "..."}\n  },\n  '
+            '"justification": "..."\n}\n```'
+        )
+
+        return {
+            "title": title,
+            "total_sections": total_sections,
+            "n_clusters": len(merged_samples),
+            "cluster_counts": merged_counts,
+            "truncation_chars": truncation_chars,
+            "samples_per_cluster": min(samples_per_cluster, 2),
+            "prompt": {
+                "system": SCHEMA_DESIGN_SYSTEM_PROMPT,
+                "user": user_prompt,
+            },
+            "expected_output": expected_output,
+        }
 
     # ---- extraction prompt ------------------------------------------------
 

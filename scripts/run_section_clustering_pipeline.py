@@ -2,8 +2,10 @@
 Entry point for the section clustering & schema pipeline.
 
 Usage:
-    python scripts/run_section_clustering_pipeline.py                        # modo normal
-    python scripts/run_section_clustering_pipeline.py --compare             # con comparación de enfoques
+    python scripts/run_section_clustering_pipeline.py                                          # modo normal
+    python scripts/run_section_clustering_pipeline.py --compare                               # con comparación de enfoques
+    python scripts/run_section_clustering_pipeline.py --llm-provider openrouter               # con OpenRouter
+    python scripts/run_section_clustering_pipeline.py --export-chat-prompts                   # + prompts para chat
 """
 
 import argparse
@@ -40,11 +42,6 @@ def main() -> None:
         help="Max sections per title for clustering",
     )
     parser.add_argument(
-        "--no-hdbscan",
-        action="store_true",
-        help="Disable HDBSCAN clustering",
-    )
-    parser.add_argument(
         "--k-min",
         type=int,
         default=2,
@@ -53,14 +50,43 @@ def main() -> None:
     parser.add_argument(
         "--k-max",
         type=int,
-        default=15,
-        help="Maximum k for K-Means search (default: 15)",
+        default=20,
+        help="Maximum k for K-Means search (default: 20)",
+    )
+    parser.add_argument(
+        "--llm-provider",
+        choices=["local", "openrouter"],
+        default="local",
+        help="LLM provider to use: 'local' (LM Studio / llama-server) or 'openrouter' (default: local)",
+    )
+    parser.add_argument(
+        "--llm-base-url",
+        type=str,
+        default="http://localhost:1234/v1",
+        help="Base URL for local LLM endpoint (default: http://localhost:1234/v1)",
+    )
+    parser.add_argument(
+        "--llm-model",
+        type=str,
+        default="openai/gpt-oss-20b:free",
+        help="Model name for OpenRouter provider (default: openai/gpt-oss-20b:free)",
+    )
+    parser.add_argument(
+        "--export-chat-prompts",
+        action="store_true",
+        help="Export prompts listos para copiar-pegar en DeepSeek/ChatGPT/Claude",
+    )
+    parser.add_argument(
+        "--skip-llm",
+        action="store_true",
+        help="Skip LLM schema generation (uses default schema). Useful for fast export regeneration.",
     )
     args = parser.parse_args()
 
-    if not OPENROUTER_API_KEY or OPENROUTER_API_KEY == "tu_clave_aqui":
-        print("ERROR: Configurá OPENROUTER_API_KEY en el archivo .env")
-        return
+    if args.llm_provider == "openrouter":
+        if not OPENROUTER_API_KEY or OPENROUTER_API_KEY == "tu_clave_aqui":
+            print("ERROR: Configurá OPENROUTER_API_KEY en el archivo .env")
+            return
 
     output_dir = os.path.join(
         BASE_OUTPUT_PROCESSED_DIR, "section_clustering"
@@ -68,18 +94,21 @@ def main() -> None:
 
     config = {
         "db_params": DB_CONFIG,
+        "llm_provider_type": args.llm_provider,
+        "llm_base_url": args.llm_base_url,
         "llm_api_key": OPENROUTER_API_KEY,
-        "llm_model": "openai/gpt-oss-20b:free",
+        "llm_model": args.llm_model,
         "embedding_model": "paraphrase-multilingual-MiniLM-L12-v2",
         "output_dir": output_dir,
         "base_output_dir": BASE_OUTPUT_PROCESSED_DIR,
         "skip_titles": args.skip_titles,
         "max_samples_per_title": args.max_samples,
         "k_range": (args.k_min, args.k_max),
-        "use_hdbscan": not args.no_hdbscan,
         "validate_schema": True,
         "schema_validation_retries": 2,
         "compare_embeddings": args.compare,
+        "export_chat_prompts": args.export_chat_prompts,
+        "skip_llm": args.skip_llm,
     }
 
     if args.compare:

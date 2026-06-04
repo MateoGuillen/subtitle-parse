@@ -8,6 +8,11 @@ from typing import Dict, Any
 from src.etl.extractors.section_clustering_extractor import (
     SectionClusteringExtractor,
 )
+from src.etl.transformers.llm_provider import (
+    LLMProvider,
+    LocalLLMProvider,
+    OpenRouterProvider,
+)
 from src.etl.transformers.section_clustering_transformer import (
     SectionClusteringTransformer,
 )
@@ -22,9 +27,9 @@ class SectionClusteringPipeline:
     For each of the top-10 most relevant titles:
 
     1. Extract all sections from ``dncp.pliegos_secciones``.
-    2. Cluster texts into 3-7 groups via embeddings + UMAP + K-Means.
+    2. Cluster texts into groups via embeddings + UMAP + K-Means.
     3. Sample representative + extreme examples per cluster.
-    4. Use an LLM (OpenRouter by default) to design a JSON schema.
+    4. Use an LLM to design a JSON schema.
     5. Build a master extraction prompt for each title.
     6. Save ``master_schemas.json`` and per-title Markdown reports.
     """
@@ -32,10 +37,18 @@ class SectionClusteringPipeline:
     def __init__(self, config: dict):
         self.config = config
         self.db_params = config["db_params"]
-        self.llm_api_key = config["llm_api_key"]
-        self.llm_model = config.get(
-            "llm_model", "openai/gpt-oss-20b:free"
-        )
+
+        llm_provider_type = config.get("llm_provider_type", "local")
+        if llm_provider_type == "local":
+            self.llm_provider: LLMProvider = LocalLLMProvider(
+                base_url=config.get("llm_base_url", "http://localhost:1234/v1")
+            )
+        else:
+            self.llm_provider = OpenRouterProvider(
+                api_key=config["llm_api_key"],
+                model=config.get("llm_model", "openai/gpt-oss-20b:free"),
+            )
+
         self.embedding_model = config.get(
             "embedding_model",
             "paraphrase-multilingual-MiniLM-L12-v2",
@@ -46,10 +59,10 @@ class SectionClusteringPipeline:
         )
         self.skip_titles = config.get("skip_titles", [])
         self.max_samples_per_title = config.get("max_samples_per_title", 5000)
-        self.k_range = config.get("k_range", (2, 15))
-        self.use_hdbscan = config.get("use_hdbscan", True)
+        self.k_range = config.get("k_range", (2, 20))
         self.validate_schema = config.get("validate_schema", True)
         self.schema_validation_retries = config.get("schema_validation_retries", 2)
+        self.export_chat_prompts = config.get("export_chat_prompts", False)
         self.compare_embeddings = config.get("compare_embeddings", False)
         self.embedding_models_to_test = config.get(
             "embedding_models_to_test",
@@ -68,19 +81,19 @@ class SectionClusteringPipeline:
                 {"n_components": 20, "n_neighbors": 30},
             ],
         )
+        self.skip_llm = config.get("skip_llm", False)
 
         self.extractor = SectionClusteringExtractor(self.db_params)
         self.transformer = SectionClusteringTransformer(
-            llm_api_key=self.llm_api_key,
-            llm_model=self.llm_model,
+            llm_provider=self.llm_provider,
             embedding_model=self.embedding_model,
             k_range=self.k_range,
-            use_hdbscan=self.use_hdbscan,
             validate_schema=self.validate_schema,
             schema_validation_retries=self.schema_validation_retries,
             compare_embeddings=self.compare_embeddings,
             embedding_models_to_test=self.embedding_models_to_test,
             umap_params_grid=self.umap_params_grid,
+            skip_llm=self.skip_llm,
         )
         self.loader = SectionClusteringLoader(self.output_dir)
         self.logger = setup_logger(__name__)
@@ -159,7 +172,24 @@ class SectionClusteringPipeline:
                 "Error guardando reporte de comparación: %s", str(e)
             )
 
-        # -- 5. Summary -----------------------------------------------
+        # -- 5. Export chat prompts (optional) -------------------------
+        if self.export_chat_prompts and results:
+            self.logger.info("Exportando prompts para chat LLM…")
+            chat_prompts = []
+            for title, data in results.items():
+                samples = data.get("samples_per_cluster", {})
+                if samples:
+                    chat_prompts.append(
+                        self.transformer._build_chat_prompt(
+                            title,
+                            samples,
+                            data.get("total_sections", 0),
+                            data.get("cluster_counts", {}),
+                        )
+                    )
+            self.loader.save_chat_prompts(chat_prompts)
+
+        # -- 6. Summary -----------------------------------------------
         elapsed = time.time() - t_start
         self.logger.info("Paso 5/5 — Pipeline completado.")
         self.logger.info(
