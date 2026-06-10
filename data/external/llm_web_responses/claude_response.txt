@@ -1,0 +1,88 @@
+{
+  "schema": {
+    "texto_solo_titulo": {"type": "binary", "description": "Indica si el texto contiene únicamente el título 'Fraude y Corrupción' sin desarrollo de contenido (casos extremos como 436392 y 423088)"},
+    "texto_incompleto": {"type": "binary", "description": "Indica si el texto está visiblemente truncado o cortado sin llegar a un cierre lógico de cláusulas"},
+    "incluye_denuncia_penal": {"type": "binary", "description": "Indica si el inciso (iv) menciona explícitamente 'denuncia penal'; ausencia (solo 'denuncia') puede indicar omisión deliberada de consecuencias penales"},
+    "convocante_mayuscula": {"type": "binary", "description": "Indica si usa 'La Convocante' con C mayúscula (plantilla institucional formal) vs 'la convocante' en minúscula; diferencia entre clusters que sugiere distintos orígenes de plantilla"},
+    "clausula_i_con_yo": {"type": "binary", "description": "Indica si el inciso (i) de consecuencias incluye el conector 'y/o' al final; su ausencia (como en cluster 2 representativo) puede implicar restricción del alcance sancionatorio"},
+    "incluye_definicion_colusion": {"type": "binary", "description": "Indica si se incluye la definición del acto de colusión (inciso iv de actos); su omisión es anómala pues es clave para detectar acuerdos colusorios"},
+    "num_incisos_consecuencias": {"type": "numeric", "description": "Cantidad de sub-incisos (i, ii, iii, iv) listados en el punto 2 de consecuencias para funcionarios/oferentes corruptos; valores menores a 4 indican omisión de sanciones"},
+    "num_actos_definidos": {"type": "numeric", "description": "Cantidad de tipos de actos de fraude/corrupción definidos (incisos i a v+); valores bajos indican definición incompleta del alcance del concepto"},
+    "incluye_remision_dncp": {"type": "binary", "description": "Indica si se menciona la remisión a la Dirección Nacional de Contrataciones Públicas (DNCP); su ausencia elimina el mecanismo de sanción administrativa"},
+    "longitud_texto": {"type": "numeric", "description": "Longitud aproximada del texto en caracteres; valores extremadamente bajos (solo título) o inusualmente cortos señalan contenido suprimido"}
+  },
+  "justification": "Los clusters se diferencian principalmente por: (1) completitud del texto — CLUSTER 2 extremo (436392) y CLUSTER 15 (423088) contienen solo el título, lo que capturan 'texto_solo_titulo' y 'longitud_texto'; (2) presencia o no de 'denuncia penal' vs solo 'denuncia' — clusters 1_11, 4, 5_8_10_14_17, 12, 13, 16 omiten 'penal', debilitando el efecto disuasorio, capturado por 'incluye_denuncia_penal'; (3) capitalización de 'Convocante' que distingue plantillas de distinto origen institucional, capturado por 'convocante_mayuscula'; (4) presencia del conector 'y/o' en el inciso (i) de consecuencias, ausente en CLUSTER 2 representativo, capturado por 'clausula_i_con_yo'; (5) cantidad de incisos de consecuencias y actos definidos, que varía entre clusters truncados y completos, capturado por 'num_incisos_consecuencias' y 'num_actos_definidos'; (6) presencia de la definición de colusión (inciso iv de actos), que algunos clusters no alcanzan por truncamiento, capturado por 'incluye_definicion_colusion'; (7) mención de la DNCP como organismo receptor de antecedentes, capturado por 'incluye_remision_dncp'."
+}
+
+
+Buen prompt en general — estructura clara, reglas estrictas y formato forzado. Pero hay varios puntos concretos donde mejoraría:
+
+---
+
+**1. El ejemplo del formato contamina el output**
+
+Los campos de ejemplo (`menciona_porcentaje_anticipo`, `contiene_firma_digital`) no tienen nada que ver con fraude y corrupción. El modelo los ve y puede anclarse a ese *estilo* de campos. Mejor usar un ejemplo genérico o directamente del dominio.
+
+---
+
+**2. No defines qué es "anómalo" en este contexto**
+
+Le pedís detectar anomalías pero no le decís desde qué perspectiva. ¿Anómalo = inusual estadísticamente? ¿= omisión de cláusulas obligatorias? ¿= debilitamiento de sanciones? Agregar una línea como:
+
+> *"Una anomalía es cualquier variación que reduzca garantías legales, omita sanciones, o se desvíe de la plantilla estándar de contratación pública paraguaya."*
+
+...enfoca mucho mejor el razonamiento.
+
+---
+
+**3. La regla sobre "secciones del mismo título" es confusa**
+
+> *"El esquema debe ser común para todas las secciones de este título"*
+
+No queda claro qué significa "título" vs "sección" en este contexto. Si el esquema ya se aplica a un único título por llamada, esta instrucción es redundante o genera confusión.
+
+---
+
+**4. No hay ejemplos negativos de campos malos**
+
+Decís qué *no* se permite (texto libre, listas), pero no mostrás qué campo sería *irrelevante*. Un ejemplo como:
+
+> *"MAL: `tiene_titulo_en_negrita` — formato visual, no semántico. BIEN: `omite_sancion_penal` — indica debilitamiento de consecuencias."*
+
+...ayudaría a calibrar el criterio de selección.
+
+---
+
+**5. La justificación no tiene criterio de calidad**
+
+Pedís que explique "brevemente" cada campo, pero no especificás qué debe incluir esa explicación. Podrías pedir explícitamente:
+
+> *"Para cada campo indicá: qué cluster(s) lo motivaron, qué valor tomaría en cada cluster, y por qué esa diferencia es sospechosa."*
+
+---
+
+**6. No hay instrucción de razonamiento previo**
+
+El modelo va directo al JSON. Podrías agregar al final del system prompt:
+
+> *"Antes de generar el esquema, razona internamente sobre las diferencias entre clusters. Luego produce el JSON."*
+
+O bien pedirle que incluya ese razonamiento dentro del campo `justification` de forma estructurada.
+
+---
+
+**7. El user prompt podría incluir metadata útil**
+
+Actualmente solo mandás el texto crudo. Agregar al inicio del user prompt algo como:
+
+```
+Total de muestras analizadas: N
+Clusters identificados: K
+Proporción de muestras truncadas: X%
+```
+
+Le da contexto estadístico sin que el modelo tenga que inferirlo.
+
+---
+
+**En resumen**, el prompt es sólido en estructura pero le falta *criterio semántico* — le decís el *formato* del output con precisión, pero el *razonamiento* para elegir campos queda bastante libre. Los puntos 2, 4 y 5 serían los de mayor impacto si los refinaras.

@@ -1,0 +1,100 @@
+
+Leí los 5 documentos. Tenés una arquitectura sólida y bien pensada. Voy a darte un análisis honesto de ambos pipelines — lo que funciona, lo que tiene riesgo real, y las mejoras concretas.
+
+Pipeline 1: Lo que está bien
+El diseño del clustering es correcto para el problema. UMAP + K-Means con score combinado (silhouette + DB + CH) es más robusto que cualquier métrica sola. El merge por difflib ≥ 0.95 es una solución pragmática al problema de K-Means sobreparticionando variantes casi idénticas. El flujo de 5 muestras por cluster (3 centroides + 2 extremos) le da al LLM tanto el "caso típico" como los "outliers" del cluster, que es exactamente lo que necesita para diseñar campos discriminantes.
+
+El historial de versiones del prompt (v1→v2→v3) muestra disciplina de ingeniería: cada versión tiene un problema documentado y una solución medible. Eso es valioso y hay que mantenerlo.
+
+Pipeline 1: Problemas reales
+Problema 1 — El merge por difflib es frágil para textos legales
+difflib.SequenceMatcher mide similitud de caracteres, no semántica. Dos cláusulas pueden ser 94% similares en caracteres pero normativamentediferentes (una dice "hasta 5%" y otra "hasta 3%"). Y lo contrario: dos cláusulas semánticamente equivalentes escritas diferente pueden no mergearse cuando deberían.
+
+El threshold 0.95 es muy alto — casi solo captura duplicados exactos con diferencias de whitespace. Probablemente hay clusters que deberían mergearse pero no lo hacen porque la redacción varía más.
+
+Mejora concreta: Después del merge por texto, agregar un segundo pass de merge por distancia de embeddings. Si el centroide de dos clusters tiene cosine similarity > 0.92 (threshold empírico, ajustable), mergear. Esto ya tenés los embeddings calculados, es barato.
+
+python
+# Después del merge por difflib
+from sklearn.metrics.pairwise import cosine_similarity
+
+def _merge_by_embedding_similarity(clusters, embeddings, threshold=0.92):
+    centroids = {cid: embeddings[idxs].mean(axis=0) 
+                 for cid, idxs in clusters.items()}
+    # Calcular similitud entre todos los pares de centroides
+    # Merge pares con sim > threshold que no se mergearon por texto
+Problema 2 — El schema diseñado sobre 5,000 muestras puede no cubrir variantes raras
+K-Means con 5,000 muestras de 31,000 puede no capturar clusters que solo existen en el 2-3% del corpus total pero que son los más anómalos. Un cluster de 620 documentos (2% de 31,000) puede quedar fuera del sample de 5,000 o representado con tan pocas muestras que el LLM no lo detecta.
+
+Mejora concreta: Stratified sampling en lugar de random sampling. Si el título tiene 31,000 secciones y sampleás 5,000, no hagas random — hacé clustering primero sobre el sample y luego verificá que los clusters pequeños del sample correspondan a clusters reales en el corpus completo. Una validación simple: después de K-Means sobre 5,000, asignar las 26,000 restantes al cluster más cercano y verificar que la distribución no cambie más de un 15%.
+
+Problema 3 — La truncación dinámica puede cortar exactamente donde está la anomalía
+median_text_length × 1.5, clamp [500, 2000]. Para "fraude y corrupcion" con textos de ~1,984 chars en promedio, el límite queda en ~2,000 — que coincide con el máximo del clamp. Pero si el texto tiene 2,500 chars y la cláusula anómala está al final (común en documentos legales donde las excepciones van al cierre), la truncación la elimina.
+
+Mejora concreta: Para el prompt de Pipeline 1 (schema design), truncar por el final es aceptable porque estás viendo distribuciones. Para Pipeline 2 (extracción), truncar por el final es un error de diseño. En build_section_extraction_prompt el texto debería ir completo o con una estrategia de chunking diferente (por ejemplo, si el texto supera el límite, incluir siempre los últimos 300 chars además de los primeros N).
+
+Pipeline 2: Lo que está bien diseñado
+La tabla destino con (nro_licitacion, title_normalized) como PK es correcta — permite UPSERT idempotente y re-runs sin duplicados. El checkpointing cada 500 + batch de 100 para UPSERT es un balance razonable entre durabilidad y rendimiento.
+
+La decisión de filtrar por importance >= 7 antes de enviar al extractor es importante y correcta. Mandár los 12 campos a 315,000 textos multiplicaría tokens innecesariamente.
+
+El diseño de 3 estrategias de ejecución (local/OpenRouter/híbrido) con estimaciones de tiempo y costo muestra que pensaste el problema de escala.
+
+Pipeline 2: Problemas reales
+Problema 1 — response_format: json_schema asume que el LLM soporta structured outputs
+Tu LocalLLMProvider usa LM Studio con Qwen 2.5 14B. LM Studio soporta json_object pero el soporte de json_schema (con validación contra un schema específico) depende de la versión y el backend. Si usás json_schema y el modelo no lo soporta, el fallback silencioso puede devolver JSON malformado que pasa json_object pero no el schema.
+
+Mejora concreta: Tener dos paths en el transformer:
+
+Si el provider soporta json_schema: usarlo con el schema derivado del master schema
+Si no: usar json_object + validación post-LLM en _validate_extraction()
+La validación post-LLM es necesaria de todas formas, así que no es trabajo extra — solo no asumir que el formato garantiza correctitud de tipos.
+
+Problema 2 — El paralelismo con semaphore sobre LM Studio es un cuello de botella no obvio
+6 workers concurrentes sobre un solo proceso de LM Studio con Qwen 14B en una 4070 Ti SUPER de 16GB va a saturar la VRAM en el primer request grande. LM Studio no es thread-safe para múltiples requests simultáneos de la misma forma que un servidor de producción — los requests se encolan internamente pero el KV cache se fragmenta entre ellos.
+
+En la práctica con un modelo 14B en 16GB VRAM, el throughput real con 6 workers concurrentes probablemente sea similar o peor que 2-3 workers. El cuello de botella es la inferencia secuencial en GPU, no el I/O.
+
+Mejora concreta: Antes de correr las 315,000 secciones, hacer un benchmark de 100 secciones con 1, 2, 3, 4 workers y medir tokens/segundo. Para un 14B en esa GPU, el punto óptimo probablemente sea 2-3 workers, no 6. Con el 7B Q4 podría ser diferente.
+
+Alternativamente, si querés verdadero paralelismo local, levantar dos instancias separadas de LM Studio en puertos distintos (1234 y 1235) con el 7B cada una — eso sí usa la VRAM en paralelo real.
+
+Problema 3 — El fallback de defaults silenciosos contamina Pipeline 3
+|-> si falla: fallback defaults (0 para binarios, 0 para numéricos)
+Si una sección de 1,984 chars falla la extracción y guardás todo en 0, Pipeline 3 (Isolation Forest) va a ver ese registro como "completamente vacío de contenido normativo" — que es una anomalía de nivel máximo. Pero en realidad es un fallo de extracción, no una anomalía real.
+
+Mejora concreta: Agregar una columna extraction_confidence a la tabla destino y un flag is_fallback: bool. Los registros con is_fallback=True se excluyen del entrenamiento de Pipeline 3 o se tratan como missing values, no como ceros reales.
+
+sql
+-- Agregar a la tabla
+extraction_confidence FLOAT,          -- 0.0-1.0, del output del LLM
+is_fallback BOOLEAN DEFAULT FALSE,    -- TRUE si se usó default por fallo
+error_message TEXT                    -- descripción del error si is_fallback
+Problema 4 — No hay validación de consistencia del schema entre corridas
+El schema_version en la tabla es un string libre. Si regenerás los schemas de Pipeline 1 (por ejemplo, con una mejora del prompt), las filas antiguas en section_extracted_features tienen campos que ya no corresponden al schema nuevo. Pipeline 3 podría mezclar features de versiones distintas del schema.
+
+Mejora concreta: El schema_version debe ser un hash del schema (MD5 o SHA1 de los field names + types). Antes de hacer UPSERT, verificar que el schema_version coincide con el de las filas existentes para ese título. Si no coincide, hay dos opciones: borrar las filas viejas del título o levantar un error explícito.
+
+python
+import hashlib, json
+
+def compute_schema_version(schema: dict) -> str:
+    # Solo fields + types, no descriptions ni hints (esos pueden cambiar sin romper compatibilidad)
+    canonical = {k: v["type"] for k, v in schema.items()}
+    return hashlib.md5(json.dumps(canonical, sort_keys=True).encode()).hexdigest()[:8]
+La interfaz entre los dos pipelines: el gap más importante
+El gap más crítico no está en ninguno de los dos pipelines individualmente — está en la transición entre ellos. Específicamente: el schema de Pipeline 1 fue diseñado viendo clusters, pero Pipeline 2 lo ejecuta sobre textos individuales. Los extraction_hints son el puente, pero hoy no hay validación de que ese puente funcione antes de correr 315,000 textos.
+
+La prueba de fuego que recomiendo hacer antes de implementar Pipeline 2:
+
+Tomar el schema de "idioma de la oferta" (el más simple, 2 clusters) y correrlo manualmente sobre 20 textos reales — 10 del cluster 0 y 10 del cluster 1. Verificar que el extractor asigna los valores predichos en cluster_values. Si el accuracy es ≥ 85%, el hint es suficientemente bueno. Si no, ajustar el hint y repetir. Esto toma 2 horas y te ahorra correr 315,000 textos con un schema que extrae mal.
+
+Resumen ejecutivo
+Área	Estado	Acción
+Clustering (P1)	Sólido	Agregar merge por embedding similarity como segundo pass
+Schema design (P1)	Bueno en v3	Agregar contexto de extracción al user prompt (crítico)
+Truncación en P2	Riesgo	Incluir siempre los últimos 300 chars en textos largos
+Paralelismo local (P2)	Sobreestimado	Benchmark con 1-3 workers antes de fijar en 6
+Fallback defaults (P2)	Peligroso para P3	Agregar is_fallback + extraction_confidence a la tabla
+Schema versioning (P2)	Ausente	Hash de field names como schema_version
+Validación P1→P2	Ausente	Test manual sobre 20 textos antes del run completo

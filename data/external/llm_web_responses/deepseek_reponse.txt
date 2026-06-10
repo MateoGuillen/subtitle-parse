@@ -1,0 +1,81 @@
+{
+  "schema": {
+    "solo_titulo": {
+      "type": "binary",
+      "description": "Vale 1 si el texto contiene solo el título 'Fraude y Corrupción' sin cláusulas adicionales"
+    },
+    "contiene_clausula_2": {
+      "type": "binary",
+      "description": "Vale 1 si aparece la cláusula 2 ('Si se comprueba que un funcionario público...')"
+    },
+    "num_acciones": {
+      "type": "numeric",
+      "description": "Cantidad de acciones (i) a (iv) enumeradas dentro de la cláusula 2 (0-4)"
+    },
+    "contiene_definiciones": {
+      "type": "binary",
+      "description": "Vale 1 si aparece la frase 'Fraude y corrupción comprenden actos como' y se listan definiciones"
+    },
+    "num_definiciones": {
+      "type": "numeric",
+      "description": "Cantidad de ítems (i) a (v) listados en las definiciones de actos de fraude y corrupción (0-5)"
+    },
+    "menciona_denuncia_penal": {
+      "type": "binary",
+      "description": "Vale 1 si el texto usa explícitamente la expresión 'denuncia penal' (no solo 'denuncia')"
+    },
+    "menciona_dncp": {
+      "type": "binary",
+      "description": "Vale 1 si se menciona a la Dirección Nacional de Contrataciones Públicas"
+    },
+    "menciona_colusion": {
+      "type": "binary",
+      "description": "Vale 1 si aparece el término 'colusión' en el texto"
+    },
+    "longitud_texto": {
+      "type": "numeric",
+      "description": "Cantidad total de caracteres del texto (aproximación de completitud)"
+    },
+    "completo_clausula_2": {
+      "type": "binary",
+      "description": "Vale 1 si num_acciones es igual a 4 (están todas las acciones: descalificar, rescindir, remitir y denunciar)"
+    },
+    "completo_definiciones": {
+      "type": "binary",
+      "description": "Vale 1 si num_definiciones es igual a 5 (lista completa de actos fraudulentos)"
+    }
+  },
+  "justification": "Los clusters muestran pliegos que van desde solo el título (anomalía extrema) hasta versiones completas. Las diferencias clave son: omisión total de la cláusula 2, omisión de acciones específicas (especialmente la remisión a la DNCP y la denuncia penal), ausencia de la lista de definiciones de actos fraudulentos, y variaciones en la redacción como 'denuncia penal' versus 'denuncia'. Los campos binarios capturan presencia/ausencia de estos elementos, los numéricos cuantifican la completitud de las listas (acciones y definiciones) y la longitud del texto permite detectar versiones recortadas. Estos indicadores son relevantes porque un pliego incompleto o que omite referencias a sanciones penales o a la DNCP podría debilitar los mecanismos anticorrupción, constituyendo una anomalía deliberada."
+}
+
+
+
+Tu prompt está muy bien estructurado y es claro en sus reglas. El mayor acierto es obligar a un esquema de solo binarios/numéricos y exigir una justificación, lo que fuerza a que el modelo razone sobre las diferencias reales entre clusters y no se limite a describir el texto. También es bueno que des ejemplos de campos en el formato de respuesta.
+
+Dicho esto, se puede mejorar en varios aspectos para que el modelo sea aún más preciso y evite ambigüedades:
+
+1. **Definir qué es una “anomalía” en este contexto**  
+   El prompt dice “indicador de anomalías”, pero no define qué hace que una cláusula sea anómala. En licitaciones, una anomalía suele ser la omisión de partes obligatorias (p.ej., no mencionar la denuncia penal, no incluir la remisión a la DNCP, recortar la lista de actos corruptos). Si incorporas una breve orientación del tipo *“son anomalías la ausencia de elementos que debiliten los controles anticorrupción, como omitir referencias a sanciones penales, eliminar la obligación de denunciar o suprimir la definición de colusión”*, el modelo enfocará mejor los campos.
+
+2. **Aclarar la restricción “común para todas las secciones de este título”**  
+   La frase es ambigua: ¿el esquema debe servir para cualquier sección de un pliego (garantías, forma de pago, etc.) o para esta misma sección en todos los pliegos? Si es lo primero, es muy difícil que 12 campos cubran secciones tan dispares. Sugiero eliminarla o precisar: *“Este esquema será aplicado únicamente a la sección ‘Fraude y Corrupción’ de distintos pliegos, por lo que debe capturar las variaciones típicas en esta cláusula.”*
+
+3. **Explicitar que los campos deben basarse en diferencias observables entre los clusters**  
+   Aunque lo mencionas, puede reforzarse pidiendo que la justificación cite al menos dos clusters y la diferencia concreta que motiva cada campo. Así se evita que el modelo invente campos genéricos sin anclaje en los datos.
+
+4. **Presentar los clusters de forma más limpia**  
+   Los nombres como “CLUSTER 0_3_7_9_18_19” son confusos; el modelo no sabe que son agrupaciones hechas por ti. Si pudieras renombrarlos con letras o números simples (A, B, C…) sería más fácil de procesar. Además, en el texto veo que algunos clusters mezclan muestras muy largas con otras cortadas (“Cualqui…”), lo que es un artefacto de truncamiento. Si es posible, muestra fragmentos completos o indica que los textos originales pueden estar truncados.
+
+5. **Flexibilizar el límite de 12 campos**  
+   Para esta sección 12 campos son suficientes, pero si más adelante trabajas con cláusulas más complejas podrías necesitar más. Podrías ponerlo como guía (“idealmente no más de 12, pero si es necesario justifique el exceso”).
+
+6. **Incluir en el prompt una lista de “elementos críticos” como semilla**  
+   Aunque el modelo debe inferirlo, darle una pequeña guía de qué elementos suelen ser clave en cláusulas anticorrupción (remisión a la DNCP, denuncia penal, definición completa de actos, mención de colusión, etc.) mejora la consistencia entre diferentes ejecuciones. No es necesario ser exhaustivo, pero algo como: *“Por ejemplo, en este tipo de sección son relevantes: número de acciones ante incumplimiento, mención explícita de denuncia penal, inclusión de la DNCP y enumeración completa de actos de fraude.”* Esto orienta sin forzar.
+
+7. **Pedir explícitamente que los campos no sean redundantes entre sí**  
+   Aunque tienes “mismo nivel (no anidados)”, a veces se crean campos como “contiene_definiciones” y luego “num_definiciones”. Eso es válido, pero se podría añadir que cada campo mida un aspecto distinto para evitar información duplicada que solo desperdicie los 12 slots.
+
+8. **Establecer que los valores numéricos indiquen “0” cuando no aplica, como en el ejemplo**  
+   Ya lo hiciste en el ejemplo (“porcentaje_anticipo: 0 si no aplica”), pero podrías generalizarlo en las reglas: *“Para todo campo numérico, si la característica está ausente, el valor será 0.”* Así no hay ambigüedad con nulos.
+
+Con estas mejoras, el modelo tendrá una comprensión mucho más precisa de la tarea y producirá esquemas más enfocados y accionables. Tu prompt base ya es muy sólido; los ajustes son sobre todo para reducir ambigüedad y alinear mejor la definición de anomalía con los datos reales.

@@ -237,6 +237,55 @@ class SectionClusteringLoader:
         self.logger.info("Chat prompts saved: %s", path)
         return path
 
+    def save_cluster_samples(
+        self,
+        results: Dict[str, Dict[str, Any]],
+        filename: str,
+    ) -> str:
+        """Save all samples per cluster with stats: unique_texts, pct, sorted by size desc."""
+        os.makedirs(self.output_dir, exist_ok=True)
+        path = os.path.join(self.output_dir, filename)
+
+        output: Dict[str, Any] = {}
+        for title, data in results.items():
+            samples = data.get("samples_per_cluster", {})
+            counts = data.get("cluster_counts", {})
+            total = data.get("total_sections", 0)
+
+            sorted_cids = sorted(counts, key=lambda c: counts[c], reverse=True)
+            clusters: List[Dict[str, Any]] = []
+            for cid in sorted_cids:
+                cluster_samples = samples.get(cid, [])
+                unique = len({s.get("text", "")[:300] for s in cluster_samples})
+                clusters.append({
+                    "cluster_id": cid,
+                    "count": counts[cid],
+                    "pct": round(100.0 * counts[cid] / total, 1) if total else 0,
+                    "unique_texts": unique,
+                    "samples": [
+                        {
+                            "nro_licitacion": s.get("nro_licitacion", ""),
+                            "year": s.get("year"),
+                            "category_id": s.get("category_id"),
+                            "text": s.get("text", ""),
+                            "is_extreme": s.get("is_extreme", False),
+                        }
+                        for s in cluster_samples
+                    ],
+                })
+
+            output[title] = {
+                "total_sections": total,
+                "n_clusters": len(clusters),
+                "clusters": clusters,
+            }
+
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(output, f, indent=2, ensure_ascii=False)
+
+        self.logger.info("Cluster samples saved: %s", path)
+        return path
+
     # ---- helpers ----------------------------------------------------------
 
     @staticmethod

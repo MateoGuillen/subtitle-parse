@@ -76,8 +76,11 @@ Textos cortos (idioma 281 chars, planos 300 chars, etc.) → 7B local.
 │  3. PROCESAR por título:                                            │
 │     ┌──────────────────────────────────────────────┐                │
 │     │  Para cada sección:                          │                │
-│     │  1. Truncar text a N chars (configurable)    │                │
-│     │  2. Armar prompt con extraction_prompt       │                │
+│     │  1. build_section_extraction_prompt(         │                │
+│     │       titulo, nro, texto, schema, thr=7)     │                │
+│     │     → system (EXTRACTION_SYSTEM_PROMPT)      │                │
+│     │     → user (schema reducido + texto)          │                │
+│     │  2. Truncar texto a N chars (configurable)   │                │
 │     │  3. LLM call con response_format json_schema │                │
 │     │  4. Validar output contra el schema          │                │
 │     │  5. Si inválido → retry (max 2)              │                │
@@ -132,6 +135,102 @@ Textos cortos (idioma 281 chars, planos 300 chars, etc.) → 7B local.
        └─────────────────────────────────────────┘
 ```
 
+## Prompt Construction (Pipeline 2)
+
+El prompt del extractor tiene dos partes: un **system prompt fijo** (~200 tokens) y un **user prompt dinámico** por sección.
+
+### EXTRACTION_SYSTEM_PROMPT (ya implementado en Pipeline 1)
+
+```python
+EXTRACTION_SYSTEM_PROMPT = """Eres un extractor de información estructurada de documentos legales paraguayos.
+
+Recibes el texto de una sección de un pliego de licitación pública y un schema
+con campos a extraer. Tu tarea es extraer el valor de cada campo siguiendo
+exactamente las instrucciones del extraction_hint de ese campo.
+
+REGLAS:
+1. Extrae SOLO los campos del schema. No agregues campos adicionales.
+2. Para campos binarios: retorna exactamente 0 o 1 (entero, no booleano).
+3. Para campos numéricos: retorna el número exacto según el hint. Si no aplica, retorna 0.
+4. Si el texto está vacío o es ilegible, retorna el valor por defecto.
+5. Para campos con extraction_method "literal": busca coincidencia textual exacta.
+6. Para campos con extraction_method "semantic": razona sobre el significado.
+7. Para campos con extraction_method "structural": analiza la estructura.
+8. No expliques tu razonamiento. Retorna solo el JSON de salida.
+
+Formato de salida DEBE SER EXACTAMENTE:
+{
+  "campos": {
+    "nombre_campo": valor,
+    ...
+  }
+}"""
+```
+
+### `build_section_extraction_prompt()` (ya implementado en Pipeline 1)
+
+Esta función construye el prompt para una sección individual:
+
+```python
+def build_section_extraction_prompt(
+    self, titulo: str, nro_licitacion: str, texto: str,
+    schema: dict, importance_threshold: int = 7
+) -> Tuple[str, str]:
+    """
+    Filtra campos por importance >= threshold.
+    Solo incluye 'type', 'extraction_hint' y 'extraction_method'.
+    No incluye description/importance/cluster_values (ruido para el extractor).
+    """
+```
+
+### Ejemplo de user prompt generado
+
+```
+TÍTULO DE LA SECCIÓN: fraude y corrupcion
+DOCUMENTO: 123456
+
+SCHEMA A EXTRAER:
+{
+  "contiene_denuncia_penal": {
+    "type": "binary",
+    "extraction_method": "literal",
+    "extraction_hint": "Buscar la frase exacta 'denuncia penal'. No activar con solo 'denuncia'. Retornar 1 si aparece, 0 si no."
+  },
+  "num_acciones_listadas": {
+    "type": "numeric",
+    "extraction_method": "semantic",
+    "extraction_hint": "Contar cuántas de estas 4 acciones están presentes semánticamente: descalificar oferta, rescindir contrato, remitir a DNCP, denuncia penal. Retornar entero 0-4."
+  }
+}
+
+TEXTO DE LA SECCIÓN:
+<texto completo aquí>
+
+Extrae los campos del schema siguiendo exactamente cada extraction_hint.
+```
+
+Nota: El schema que recibe el extractor es un **subconjunto limpio** del schema original:
+- Solo `type`, `extraction_hint`, `extraction_method`
+- Sin `description`, `importance`, `cluster_values`
+- Filtrado por importance ≥ 7 (típicamente 5-7 campos en lugar de 12)
+
+### Flujo de construcción
+
+```
+master_schemas.json (por título)
+         ↓
+build_section_extraction_prompt(titulo, nro_licitacion, texto, schema, threshold=7)
+         ↓
+    [system: EXTRACTION_SYSTEM_PROMPT ~200 tokens]  (fijo)
+    [user: schema reducido + texto]                  (dinámico por sección)
+         ↓
+    LLM call (7B Q4_K_M u OpenRouter)
+         ↓
+    {"campos": {"contiene_denuncia_penal": 1, ...}}
+         ↓
+    _validate_extraction() → UPSERT a dncp.section_extracted_features
+```
+
 ## Componentes del código
 
 ### `src/etl/extractors/section_extraction_extractor.py`
@@ -139,9 +238,10 @@ Textos cortos (idioma 281 chars, planos 300 chars, etc.) → 7B local.
 - Filtrado, paginación, ordenamiento
 
 ### `src/etl/transformers/section_extraction_transformer.py`
+- Usa `SectionClusteringTransformer.build_section_extraction_prompt()` para construir prompts
 - Toma schema + sección → llama al LLM → devuelve features
-- Validación de output contra schema
-- Retry lógica
+- Validación de output contra schema (tipos, rangos)
+- Retry lógica (max 2 intentos)
 - Fallback defaults
 
 ### `src/etl/loaders/section_extraction_loader.py`
@@ -153,6 +253,7 @@ Textos cortos (idioma 281 chars, planos 300 chars, etc.) → 7B local.
 - Orquesta: leer schemas → procesar títulos → checkpoint → persistir
 - Manejo de errores por título (no falla todo por un título)
 - Dry-run mode para estimar costo sin ejecutar
+- Usa `build_section_extraction_prompt()` de Pipeline 1 directamente
 
 ### `scripts/run_section_extraction_pipeline.py`
 ```bash

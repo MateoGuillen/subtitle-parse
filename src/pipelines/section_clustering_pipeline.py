@@ -105,7 +105,7 @@ class SectionClusteringPipeline:
         self.logger.info("=" * 60)
 
         # -- 1. Extract -----------------------------------------------
-        self.logger.info("Paso 1/4 — Extrayendo secciones de los 10 títulos…")
+        self.logger.info("Paso 1/5 — Extrayendo secciones de los 10 títulos…")
         all_data = self.extractor.extract_all_titles()
         if not all_data:
             self.logger.error("No se pudieron extraer datos. Abortando.")
@@ -115,7 +115,7 @@ class SectionClusteringPipeline:
         results: Dict[str, Dict[str, Any]] = {}
 
         # -- 2. Process each title ------------------------------------
-        self.logger.info("Paso 2/4 — Clustering + esquemas + prompts…")
+        self.logger.info("Paso 2/5 — Clustering + esquemas + prompts…")
         for title, df in all_data.items():
             if title in self.skip_titles:
                 self.logger.info("  Skipping '%s' (skip list).", title)
@@ -145,7 +145,7 @@ class SectionClusteringPipeline:
                 self.logger.error(traceback.format_exc())
 
         # -- 3. Save results ------------------------------------------
-        self.logger.info("Paso 3/4 — Guardando resultados…")
+        self.logger.info("Paso 3/5 — Guardando resultados…")
 
         # Master JSON
         master_path = self.loader.save_master_schema(results)
@@ -163,7 +163,34 @@ class SectionClusteringPipeline:
                     str(e),
                 )
 
-        # -- 4. Save comparison report ---------------------------------
+        # -- 4. Save cluster samples (raw + merged) ----------------------
+        self.logger.info("Guardando muestras de clusters (raw + merged)…")
+        try:
+            self.loader.save_cluster_samples(results, "all_cluster_samples_raw.json")
+
+            merged_results: Dict[str, Any] = {}
+            for title, data in results.items():
+                merged_samples, merged_counts = (
+                    SectionClusteringTransformer._merge_similar_clusters(
+                        data.get("samples_per_cluster", {}),
+                        data.get("cluster_counts", {}),
+                    )
+                )
+                merged_results[title] = {
+                    **data,
+                    "samples_per_cluster": merged_samples,
+                    "cluster_counts": merged_counts,
+                    "total_sections": data.get("total_sections", 0),
+                }
+            self.loader.save_cluster_samples(
+                merged_results, "all_cluster_samples_merged.json"
+            )
+        except Exception as e:
+            self.logger.error(
+                "Error guardando muestras de clusters: %s", str(e)
+            )
+
+        # -- 5. Save comparison report ---------------------------------
         self.logger.info("Guardando reporte de comparación de clustering…")
         try:
             self.loader.save_clustering_comparison(results)
@@ -172,7 +199,7 @@ class SectionClusteringPipeline:
                 "Error guardando reporte de comparación: %s", str(e)
             )
 
-        # -- 5. Export chat prompts (optional) -------------------------
+        # -- 6. Export chat prompts (optional) -------------------------
         if self.export_chat_prompts and results:
             self.logger.info("Exportando prompts para chat LLM…")
             chat_prompts = []
@@ -189,7 +216,7 @@ class SectionClusteringPipeline:
                     )
             self.loader.save_chat_prompts(chat_prompts)
 
-        # -- 6. Summary -----------------------------------------------
+        # -- 7. Summary -----------------------------------------------
         elapsed = time.time() - t_start
         self.logger.info("Paso 5/5 — Pipeline completado.")
         self.logger.info(

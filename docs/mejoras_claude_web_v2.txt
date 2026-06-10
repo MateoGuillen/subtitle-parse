@@ -1,0 +1,199 @@
+Leí el v3 completo. El problema está bien diagnosticado en tu doc: el schema designer no sabe que su audiencia es un extractor que opera sin contexto global. Acá está la guía completa.
+
+El problema central en una línea
+El schema designer ve N clusters en paralelo y diseña campos comparativos. El extractor ve 1 texto en aislamiento y necesita instrucciones absolutas. Son dos tareas cognitivas distintas, pero hoy comparten el mismo artefacto (el schema) sin que el designer sepa para quién escribe.
+
+Las tres capas del problema
+Capa 1: El designer no sabe quién ejecuta sus hints
+Cuando el LLM designer escribe:
+"extraction_hint": "Indica si hay definición de fraude"
+Está escribiendo para sí mismo (tiene los clusters enfrente). El extractor no tiene ese contexto. Necesita saber exactamente qué buscar en el texto.
+Solución: Agregar una línea al final del user prompt de Pipeline 1 que explicite la audiencia:
+CONTEXTO DE USO:
+El schema que diseñes será ejecutado por un LLM separado que procesará cada sección 
+de forma individual, sin acceso a estos clusters ni a este análisis comparativo.
+Ese extractor recibirá solo el texto de una sección y tu schema. Los extraction_hints 
+serán sus únicas instrucciones. Escríbelos como comandos para alguien que no vio 
+este análisis: sin asumir contexto, sin referencias a "el cluster dominante" ni a 
+"la versión estándar".
+Esto cambia el frame mental del LLM designer al escribir los hints.
+Capa 2: Los hints mezclan dos calidades sin distinción
+Hoy un hint puede ser cualquier cosa entre perfectamente literal y completamente semántico, y el schema no lo indica. El extractor no sabe si puede usar regex o necesita razonar:
+Hint actualCalidad realEl extractor no sabe"Buscar 'DNCP' o 'Dirección Nacional...'"Literal — regex directoNada, es claro"Contar acciones sancionatorias"Semántico — requiere comprensiónSi (i)(ii) literales cuentan o no"Si no contiene párrafo normativo"Juicio — requiere razonamientoQué umbral usar
+Solución: Agregar un campo extraction_method con tres valores posibles: literal, semantic, structural. Esto le dice al extractor cuánto contexto necesita para ejecutar el hint.
+json"contiene_denuncia_penal": {
+  "type": "binary",
+  "extraction_method": "literal",
+  "extraction_hint": "Buscar la frase exacta 'denuncia penal'. Retornar 1 si aparece, 0 si no."
+},
+"num_acciones_sancion": {
+  "type": "numeric",
+  "extraction_method": "semantic",
+  "extraction_hint": "Contar cuántas de estas 4 acciones están presentes: (1) descalificación de oferta, (2) rescisión de contrato, (3) remisión a DNCP, (4) denuncia penal. Buscar por significado, no por marcador literal. Retornar 0-4."
+},
+"texto_vacio": {
+  "type": "binary",
+  "extraction_method": "structural",
+  "extraction_hint": "Retornar 1 si el texto tiene menos de 50 palabras o no contiene ninguna oración con verbo conjugado. Retornar 0 en caso contrario."
+}
+El prompt de Pipeline 2 puede entonces variar la instrucción según el método: para literal puede incluso hacer pre-filtering con regex antes de llamar al LLM, para semantic envía el texto completo, para structural puede hacer el cálculo programáticamente.
+Capa 3: El prompt de Pipeline 2 no existe todavía
+Este es el gap más grande. El schema está diseñado pero no hay un prompt que lo convierta en instrucciones ejecutables para el extractor. Hay que construirlo.
+
+Diseño del prompt de Pipeline 2
+El sistema tiene dos partes fijas y una dinámica.
+System prompt del extractor (fijo, ~200 tokens)
+Eres un extractor de información estructurada de documentos legales paraguayos.
+
+Recibes el texto de una sección de un pliego de licitación pública y un schema 
+con campos a extraer. Tu tarea es extraer el valor de cada campo siguiendo 
+exactamente las instrucciones del extraction_hint de ese campo.
+
+REGLAS:
+1. Extrae SOLO los campos del schema. No agregues campos adicionales.
+2. Para campos binarios: retorna exactamente 0 o 1 (entero, no booleano).
+3. Para campos numéricos: retorna el número exacto según el hint. Si no aplica, retorna 0.
+4. Si el texto está vacío o es ilegible, retorna el valor por defecto de cada campo 
+   (0 para binarios, 0 para numéricos).
+5. Sigue el extraction_hint de cada campo al pie de la letra. Si dice "literal", 
+   no inferas. Si dice "semántico", razona sobre el significado.
+6. No expliques tu razonamiento. Retorna solo el JSON de salida.
+
+Formato de salida DEBE SER EXACTAMENTE:
+{
+  "nro_licitacion": "<id del documento>",
+  "titulo": "<título de la sección>",
+  "campos": {
+    "nombre_campo": valor,
+    ...
+  },
+  "confianza": 0.95
+}
+User prompt del extractor (dinámico, construido por Pipeline 2)
+Este es el artefacto central que hay que construir. Se genera una vez por (titulo, nro_licitacion):
+TÍTULO DE LA SECCIÓN: fraude y corrupcion
+DOCUMENTO: nro_licitacion 123456
+
+SCHEMA A EXTRAER:
+{
+  "contiene_denuncia_penal": {
+    "type": "binary",
+    "extraction_hint": "Buscar la frase literal 'denuncia penal'. No activar con solo 'denuncia'. Retornar 1 si aparece, 0 si no."
+  },
+  "menciona_dncp": {
+    "type": "binary", 
+    "extraction_hint": "Buscar 'DNCP' o 'Dirección Nacional de Contrataciones Públicas'. Retornar 1 si aparece cualquier variante, 0 si no."
+  },
+  "num_acciones_listadas": {
+    "type": "numeric",
+    "extraction_hint": "Contar cuántas de estas acciones están presentes semánticamente: descalificar oferta, rescindir contrato, remitir a DNCP, presentar denuncia penal. Retornar entero 0-4."
+  }
+}
+
+TEXTO DE LA SECCIÓN:
+<texto completo aquí>
+
+Extrae los campos del schema siguiendo exactamente cada extraction_hint.
+Notar que el user prompt incluye solo type y extraction_hint del schema — no description, no importance, no cluster_values. Esos son datos para Pipeline 1 y para análisis humano, no para el extractor. Reducir el ruido en el prompt del extractor mejora la precisión.
+
+La función build_extraction_prompt en Pipeline 2
+Esta función ya existe como stub en el transformer (2h. Build extraction prompt para uso futuro). Acá está el diseño completo:
+pythondef build_extraction_prompt(
+    titulo: str,
+    nro_licitacion: str,
+    texto: str,
+    schema: dict,
+    importance_threshold: int = 7
+) -> tuple[str, str]:
+    """
+    Construye system + user prompt para extraer campos de un texto individual.
+    
+    Filtra campos por importance >= threshold para reducir tokens.
+    Solo incluye 'type' y 'extraction_hint' en el schema enviado al extractor.
+    """
+    
+    # Filtrar por importance y reducir schema a solo lo necesario para extracción
+    schema_para_extractor = {}
+    for field_name, field_def in schema.items():
+        if field_def.get("importance", 0) >= importance_threshold:
+            schema_para_extractor[field_name] = {
+                "type": field_def["type"],
+                "extraction_hint": field_def.get("extraction_hint", field_def["description"])
+            }
+    
+    user_prompt = f"""TÍTULO DE LA SECCIÓN: {titulo}
+DOCUMENTO: {nro_licitacion}
+
+SCHEMA A EXTRAER:
+{json.dumps(schema_para_extractor, ensure_ascii=False, indent=2)}
+
+TEXTO DE LA SECCIÓN:
+{texto}
+
+Extrae los campos del schema siguiendo exactamente cada extraction_hint."""
+    
+    return EXTRACTION_SYSTEM_PROMPT, user_prompt
+Puntos clave de esta función. Primero, el filtro por importance es crítico: si mandás los 12 campos a un modelo 7B para 31,000 registros, el costo/latencia explota. Con threshold=7 probablemente quedás en 5-7 campos por schema. Segundo, el schema que recibe el extractor es un subconjunto limpio: solo type y extraction_hint, nada más. Tercero, el fallback para extraction_hint es la description si el campo no tiene hint (compatibilidad con schemas v2 existentes).
+
+Cambio en el system prompt de Pipeline 1 (lo más urgente)
+De los cambios propuestos, este es el de mayor impacto con menor costo. Agregar al final del user prompt de Pipeline 1, antes de la instrucción final:
+IMPORTANTE — CONTEXTO DE EJECUCIÓN:
+El schema diseñado será ejecutado automáticamente por un sistema separado que procesa 
+cada sección de forma individual. Ese sistema NO tiene acceso a estos clusters ni a 
+este análisis. Recibirá únicamente el texto de una sección y los extraction_hints.
+
+Por lo tanto, cada extraction_hint debe ser autocontenido:
+- No uses frases como "como en el cluster dominante" o "según la versión estándar"
+- Para campos binarios: especifica qué texto exacto o qué patrón semántico activa el valor 1
+- Para campos numéricos: lista exactamente qué items contar o qué número extraer
+- Si el hint requiere buscar variantes textuales, enuméralas explícitamente
+Y cambiar la instrucción final de:
+Analiza los clusters y sus diferencias. Diseña un esquema JSON (solo binarios y numéricos)
+que capture las características potencialmente anómalas del texto y diferencie los clusters.
+A:
+Analiza los clusters y sus diferencias. Diseña un esquema JSON (solo binarios y numéricos)
+que capture las características potencialmente anómalas del texto, diferencie los clusters,
+y cuyos extraction_hints sean ejecutables por un sistema automático sobre textos individuales.
+
+Flujo completo Pipeline 1 → Pipeline 2
+PIPELINE 1 (por título, una vez)
+────────────────────────────────
+[31,000 textos] → clustering → k clusters con muestras representativas
+                                        ↓
+                            LLM designer ve N clusters
+                            [system: schema design v3]
+                            [user: frequency header + clusters + contexto de extracción]
+                                        ↓
+                            schema con: type, description, importance,
+                                        extraction_hint, extraction_method,
+                                        cluster_values
+                                        ↓
+                            _validate_schema() → master_schemas.json
+
+
+PIPELINE 2 (por registro, 31,000 veces)
+────────────────────────────────────────
+[master_schemas.json] → para cada título, cargar schema
+[DB: texto individual] → para cada nro_licitacion
+
+    build_extraction_prompt(titulo, nro_licitacion, texto, schema, threshold=7)
+                    ↓
+    [system: extractor fijo ~200 tokens]
+    [user: schema reducido (type+hint) + texto]
+                    ↓
+    LLM extractor (modelo pequeño, 7B es suficiente para literal+structural)
+                    ↓
+    {"nro_licitacion": "123456", "campos": {"contiene_denuncia_penal": 1, ...}}
+                    ↓
+    _validate_extraction() → UPSERT dncp.section_extracted_features
+
+Prioridad de implementación
+Ordenado por impacto/esfuerzo:
+1. Contexto de extracción en user prompt de Pipeline 1 — 10 líneas de código, impacto alto. Los schemas futuros tendrán hints autocontenidos.
+2. Agregar extraction_method al schema — 5 líneas al system prompt + validación. Permite a Pipeline 2 pre-filtrar qué campos necesitan LLM vs regex vs código.
+3. build_extraction_prompt — la función central de Pipeline 2. Con esto podés hacer tests manuales antes de correr los 31,000 registros.
+4. _validate_extraction — validación del output del extractor: todos los campos presentes, tipos correctos, valores en rango.
+5. Rerun Pipeline 1 con v3+ para regenerar schemas — los schemas actuales (v2) no tienen extraction_hint. Necesitás regenerarlos con el prompt actualizado antes de correr Pipeline 2.
+
+Un test rápido que podés hacer hoy
+Antes de implementar todo, tomá el schema de "fraude y corrupcion" de DeepSeek v2 (el que ya tenés), construí manualmente el user prompt del extractor con uno de los textos de muestra que usaste en clustering, y mandalo a Claude o DeepSeek web. Si los valores que devuelve coinciden con lo que esperarías según el cluster de origen del texto, el diseño funciona. Si no coinciden, los hints son ambiguos y necesitás ajustar el prompt de Pipeline 1 antes de correr 31,000 registros.

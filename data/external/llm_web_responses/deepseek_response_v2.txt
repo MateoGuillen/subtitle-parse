@@ -1,0 +1,65 @@
+{
+  "schema": {
+    "contiene_clausula_sanciones": {
+      "type": "binary",
+      "description": "Indica si está presente la cláusula '2. Si se comprueba... la convocante deberá:' que enumera las acciones ante fraude/corrupción.",
+      "importance": 10
+    },
+    "contiene_descalificacion_oferta": {
+      "type": "binary",
+      "description": "Indica si se lista la acción (i): descalificar la oferta y/o rechazar la propuesta de adjudicación en etapa de oferta.",
+      "importance": 9
+    },
+    "contiene_rescision_contrato": {
+      "type": "binary",
+      "description": "Indica si se lista la acción (ii): rescindir el contrato por causa imputable al proveedor durante la ejecución.",
+      "importance": 9
+    },
+    "contiene_remision_dncp": {
+      "type": "binary",
+      "description": "Indica si se lista la acción (iii): remitir antecedentes a la Dirección Nacional de Contrataciones Públicas (DNCP) para aplicación de sanciones.",
+      "importance": 10
+    },
+    "contiene_presentacion_denuncia": {
+      "type": "binary",
+      "description": "Indica si se lista la acción (iv): presentar denuncia ante instancias correspondientes si el hecho está tipificado penalmente.",
+      "importance": 9
+    },
+    "contiene_definicion_fraude": {
+      "type": "binary",
+      "description": "Indica si está presente la lista de actos que constituyen fraude y corrupción ('Fraude y corrupción comprenden actos como:...').",
+      "importance": 8
+    },
+    "num_acciones_listadas": {
+      "type": "numeric",
+      "description": "Cantidad de acciones sancionatorias (i-iv) efectivamente listadas (0-4).",
+      "importance": 8
+    },
+    "num_actos_fraude_definidos": {
+      "type": "numeric",
+      "description": "Cantidad de incisos (i-v) de actos de fraude/corrupción explicitados en la definición (0-5).",
+      "importance": 7
+    },
+    "menciona_colusion": {
+      "type": "binary",
+      "description": "Indica si en la definición se menciona explícitamente 'colusión o acuerdo' como acto de fraude.",
+      "importance": 8
+    },
+    "menciona_soborno": {
+      "type": "binary",
+      "description": "Indica si en la definición se menciona el acto de ofrecer/dar/recibir/solicitar cualquier cosa de valor (soborno).",
+      "importance": 8
+    },
+    "denuncia_explicita_penal": {
+      "type": "binary",
+      "description": "Indica si la cláusula de denuncia dice expresamente 'denuncia penal' en lugar de solo 'denuncia'.",
+      "importance": 6
+    },
+    "texto_vacio": {
+      "type": "binary",
+      "description": "Indica si la sección no contiene ningún párrafo normativo, solo el título o menos.",
+      "importance": 10
+    }
+  },
+  "justification": "La versión estándar (cluster 0_2_5_8_9_10_11_12_13_14_15_17_18, 58%) contiene de manera completa: introducción ética, enumeración de las cuatro acciones sancionatorias ante fraude (descalificar oferta, rescindir contrato, remitir a DNCP, presentar denuncia) y la lista de cinco actos que definen fraude y corrupción (soborno, tergiversación, daño, colusión, otros). Los campos diseñados miden desviaciones respecto a este estándar que debilitan controles o eliminan responsabilidades.\n\n- **contiene_clausula_sanciones**: Captura si existe el párrafo completo que activa las consecuencias. Es 0 en el representativo del cluster 1 (solo tiene el párrafo introductorio), en el cluster 3 (vacío) y en el representativo del cluster 6 (corta tras 'deberá:'), revelando omisión total del régimen sancionador.\n- **contiene_descalificacion_oferta, contiene_rescision_contrato, contiene_remision_dncp, contiene_presentacion_denuncia**: Permiten detectar ausencias selectivas. La DNCP es la autoridad de control clave, por lo que omitir su mención (cluster 1 rep., cluster 3, cluster 6 rep.) elimina un mecanismo de supervisión externa, siendo anomalía de máxima gravedad (importance 10).\n- **contiene_definicion_fraude**: La definición explícita de las conductas prohibidas (soborno, colusión, etc.) falta en los clusters 1 (rep.), 3 y 6 (rep.), lo que reduce la claridad normativa y puede facilitar interpretaciones restrictivas.\n- **num_acciones_listadas**: Refuerzo numérico (0-4) que cuantifica el grado de omisión; un valor <4 indica que no se activan todas las herramientas de sanción.\n- **num_actos_fraude_definidos**: Similar para la definición; un valor menor a 5 (o truncamiento) muestra una lista incompleta que excluye conductas como colusión o daño.\n- **menciona_colusion y menciona_soborno**: Binarios específicos porque la colusión y el soborno son las prácticas más graves en contratación pública; su omisión debilita la prevención de carteles y corrupción activa. El estándar las contiene, y faltan en clusters que omiten toda la definición.\n- **denuncia_explicita_penal**: Aunque el estándar dominante no usa 'denuncia penal', varios clusters (1 extremo, 4_7, 6 extremo) sí la incluyen. Su presencia/ausencia puede indicar desviaciones de redacción que, combinado con otras anomalías, refuerza la detección de pliegos no estándar. Se le asigna importancia menor.\n- **texto_vacio**: Identifica el caso extremo del cluster 3 (sección sin contenido), que elimina por completo la cláusula antifraude."
+}

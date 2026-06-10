@@ -25,96 +25,12 @@ from sklearn.decomposition import PCA
 from sentence_transformers import SentenceTransformer
 from src.etl.transformers.llm_provider import LLMProvider
 from src.utils.logging_utils import setup_logger
-
-
-SCHEMA_DESIGN_SYSTEM_PROMPT = """Eres un experto en detección de anomalías en pliegos de licitaciones públicas paraguayas.
-
-Recibes muestras de texto agrupadas en CLUSTERS para una sección específica de un pliego.
-Cada cluster representa una variante distinta de cómo aparece ese contenido.
-
-Tu tarea es diseñar un ESQUEMA JSON que capture las diferencias relevantes entre clusters
-y que sea potencialmente indicador de anomalías.
-
-REGLAS ESTRICTAS para el esquema:
-1. Solo campos BINARIOS (0/1): indican presencia/ausencia de ciertos elementos, cláusulas o características.
-2. Solo campos NUMÉRICOS (enteros o floats): cantidades, porcentajes, conteos, valores.
-3. NO se permiten: campos de texto libre, listas de strings, objetos anidados complejos.
-4. Todos los campos deben ser relevantes para la detección de anomalías.
-5. El esquema debe ser común para todas las secciones de este título (algunos campos quedarán en 0 según corresponda).
-6. Máximo 12 campos en total.
-7. Los campos binarios y numéricos deben estar al mismo nivel (no anidados).
-
-Formato de respuesta DEBE SER EXACTAMENTE:
-```json
-{{
-  "schema": {{
-    "menciona_porcentaje_anticipo": {{"type": "binary", "description": "Indica si se menciona un porcentaje de anticipo en el texto"}},
-    "porcentaje_anticipo": {{"type": "numeric", "description": "Valor del porcentaje de anticipo mencionado (0 si no aplica)"}},
-    "contiene_firma_digital": {{"type": "binary", "description": "Indica si el texto contiene referencia a firma digital o electrónica"}},
-    "num_clausulas_especiales": {{"type": "numeric", "description": "Cantidad de cláusulas especiales o condiciones adicionales mencionadas"}}
-  }},
-  "justification": "Explica brevemente por qué cada campo fue elegido y cómo ayuda a detectar anomalías. Menciona las diferencias clave entre clusters que justifican cada campo."
-}}
-```
-
-Debes responder ÚNICAMENTE con el JSON mostrado arriba, sin texto adicional fuera del bloque de código."""
-
-SCHEMA_VALIDATION_SYSTEM_PROMPT = """Eres un experto en detección de anomalías en pliegos de licitaciones públicas paraguayas.
-
-Recibes muestras de texto agrupadas en CLUSTERS para una sección específica de un pliego.
-Cada cluster representa una variante distinta de cómo aparece ese contenido.
-
-Tu tarea es diseñar un ESQUEMA JSON que capture las diferencias relevantes entre clusters
-y que sea potencialmente indicador de anomalías.
-
-Un intento anterior fue RECHAZADO por la siguiente razón:
-{razon_rechazo}
-
-REGLAS ESTRICTAS para el esquema:
-1. Solo campos BINARIOS (0/1): indican presencia/ausencia de ciertos elementos, cláusulas o características.
-2. Solo campos NUMÉRICOS (enteros o floats): cantidades, porcentajes, conteos, valores.
-3. NO se permiten: campos de texto libre, listas de strings, objetos anidados complejos.
-4. Todos los campos deben ser relevantes para la detección de anomalías.
-5. El esquema debe ser común para todas las secciones de este título (algunos campos quedarán en 0 según corresponda).
-6. Máximo 12 campos en total.
-7. Los campos binarios y numéricos deben estar al mismo nivel (no anidados).
-
-Formato de respuesta DEBE SER EXACTAMENTE:
-```json
-{{
-  "schema": {{
-    "menciona_porcentaje_anticipo": {{"type": "binary", "description": "Indica si se menciona un porcentaje de anticipo en el texto"}},
-    "porcentaje_anticipo": {{"type": "numeric", "description": "Valor del porcentaje de anticipo mencionado (0 si no aplica)"}},
-    "contiene_firma_digital": {{"type": "binary", "description": "Indica si el texto contiene referencia a firma digital o electrónica"}},
-    "num_clausulas_especiales": {{"type": "numeric", "description": "Cantidad de cláusulas especiales o condiciones adicionales mencionadas"}}
-  }},
-  "justification": "Explica brevemente por qué cada campo fue elegido y cómo ayuda a detectar anomalías. Menciona las diferencias clave entre clusters que justifican cada campo."
-}}
-```
-
-Debes responder ÚNICAMENTE con el JSON mostrado arriba, sin texto adicional fuera del bloque de código.
-CORRIGE el error mencionado en tu respuesta."""
-
-EXTRACTION_PROMPT_TEMPLATE = """Eres un extractor de datos estructurados para pliegos de licitaciones públicas paraguayas.
-
-CONTEXTO: Sección "{titulo}" de un pliego de licitación.
-{titulo_descripcion}
-
-Debes analizar el texto proporcionado y extraer UNICAMENTE los campos definidos en el siguiente esquema JSON.
-
-ESQUEMA:
-{esquema_str}
-
-REGLAS:
-1. Campos BINARIOS: 1 si la característica está presente en el texto, 0 si no.
-2. Campos NUMÉRICOS: el valor numérico encontrado. Si no hay valor, poner 0.
-3. Responde EXCLUSIVAMENTE con un JSON válido, sin texto adicional.
-4. No inventes información que no esté en el texto.
-
-TEXTO A ANALIZAR:
-{texto}
-
-RESPUESTA (solo JSON):"""
+from src.utils.prompt_utils import (
+    SCHEMA_DESIGN_SYSTEM_PROMPT,
+    SCHEMA_VALIDATION_SYSTEM_PROMPT,
+    EXTRACTION_SYSTEM_PROMPT,
+    build_extraction_prompt_text,
+)
 
 
 class SectionClusteringTransformer:
@@ -278,7 +194,11 @@ class SectionClusteringTransformer:
             self.logger.info("skip_llm=True — usando esquema por defecto (sin LLM).")
             schema_result = self._default_schema(title)
         else:
-            schema_result = self._generate_schema_via_llm(title, samples)
+            schema_result = self._generate_schema_via_llm(
+                title, samples,
+                data.get("cluster_counts", {}),
+                data.get("total_sections", len(df)),
+            )
 
         # ---- Build final extraction prompt ---------------------------------
         extraction_prompt = self._build_extraction_prompt(
@@ -717,6 +637,8 @@ class SectionClusteringTransformer:
         if len(schema) > 12:
             return False, f"Demasiados campos ({len(schema)}), máximo 12"
 
+        allowed_field_keys = {"type", "description", "importance", "extraction_hint", "extraction_method"}
+        valid_methods = {"literal", "semantic", "structural"}
         for field_name, field_def in schema.items():
             if not isinstance(field_def, dict):
                 return False, f"Campo '{field_name}' no es un diccionario"
@@ -728,21 +650,63 @@ class SectionClusteringTransformer:
                 )
             if not field_def.get("description", "").strip():
                 return False, f"Campo '{field_name}' no tiene descripción o está vacía"
-            extra = set(field_def.keys()) - {"type", "description"}
+            method = field_def.get("extraction_method")
+            if method is not None and method not in valid_methods:
+                return (
+                    False,
+                    f"Campo '{field_name}' tiene extraction_method='{method}' (debe ser 'literal', 'semantic' o 'structural')",
+                )
+            extra = set(field_def.keys()) - allowed_field_keys
             if extra:
                 return False, f"Campo '{field_name}' tiene claves extra: {extra}"
 
         if not result.get("justification", "").strip():
             return False, "'justification' está vacía"
 
+        cluster_values = result.get("cluster_values")
+        if cluster_values is not None:
+            if not isinstance(cluster_values, dict):
+                return False, "'cluster_values' debe ser un diccionario"
+            collapsed_fields = []
+            for field_name, values in cluster_values.items():
+                if field_name not in schema:
+                    continue
+                if not isinstance(values, dict):
+                    continue
+                unique_vals = set(v for v in values.values() if v is not None)
+                if len(unique_vals) <= 1:
+                    collapsed_fields.append(field_name)
+            if collapsed_fields and len(collapsed_fields) == len(schema):
+                return (
+                    False,
+                    f"Todos los campos tienen valor constante entre clusters según cluster_values: {collapsed_fields}",
+                )
+
         return True, ""
 
     def _generate_schema_via_llm(
-        self, title: str, samples: Dict[str, List[Dict[str, Any]]]
+        self, title: str, samples: Dict[str, List[Dict[str, Any]]],
+        cluster_counts: Optional[Dict[str, int]] = None,
+        total_sections: int = 0,
     ) -> Dict[str, Any]:
         self.logger.info(
             "Generating JSON schema via %s for '%s'…", self.llm_provider.name(), title
         )
+
+        # Build frequency header
+        freq_lines = []
+        if cluster_counts and total_sections:
+            freq_lines.append(f"Total secciones: {total_sections}")
+            freq_lines.append(f"Clusters identificados: {len(cluster_counts)}")
+            sorted_clusters = sorted(cluster_counts, key=lambda c: cluster_counts[c], reverse=True)
+            freq_lines.append("Distribución de clusters (ordenados por tamaño descendente):")
+            for i, cid in enumerate(sorted_clusters, 1):
+                cnt = cluster_counts[cid]
+                pct = 100.0 * cnt / total_sections
+                tag = "← versión dominante/estándar" if i == 1 else ""
+                freq_lines.append(f"  Cluster {cid}: {cnt} ({pct:.1f}%) {tag}")
+            freq_lines.append("")
+        freq_header = "\n".join(freq_lines)
 
         cluster_descriptions = []
         for cid, sample_list in samples.items():
@@ -757,15 +721,28 @@ class SectionClusteringTransformer:
                 + "\n\n".join(texts_for_llm)
             )
 
+        extraction_context = (
+            "\n\nIMPORTANTE — CONTEXTO DE EJECUCIÓN:\n"
+            "El schema diseñado será ejecutado automáticamente por un sistema separado que procesa "
+            "cada sección de forma individual. Ese sistema NO tiene acceso a estos clusters ni a "
+            "este análisis. Recibirá únicamente el texto de una sección y los extraction_hints.\n\n"
+            "Por lo tanto, cada extraction_hint debe ser autocontenido:\n"
+            "- No uses frases como 'como en el cluster dominante' o 'según la versión estándar'\n"
+            "- Para campos binarios: especifica qué texto exacto o qué patrón activa el valor 1\n"
+            "- Para campos numéricos: lista exactamente qué items contar o qué número extraer\n"
+            "- Si el hint requiere buscar variantes textuales, enuméralas explícitamente"
+        )
+
         user_prompt = (
             f"TÍTULO DE LA SECCIÓN: {title}\n\n"
-            f"CLUSTERS ENCONTRADOS:\n\n"
+            + freq_header
+            + "CLUSTERS ENCONTRADOS:\n\n"
             + "\n\n".join(cluster_descriptions)
+            + extraction_context
             + "\n\n"
-            + "Analiza los clusters y sus diferencias. "
-            "Diseña un esquema JSON (solo binarios y numéricos) "
-            "que capture las características potencialmente anómalas "
-            "del texto y diferencie los clusters."
+            + "Analiza los clusters y sus diferencias. Diseña un esquema JSON (solo binarios y numéricos) "
+            "que capture las características potencialmente anómalas del texto, diferencie los clusters, "
+            "y cuyos extraction_hints sean ejecutables por un sistema automático sobre textos individuales."
         )
 
         max_attempts = 1 + (self.schema_validation_retries if self.validate_schema else 0)
@@ -973,20 +950,53 @@ class SectionClusteringTransformer:
                 + "\n\n".join(texts_for_llm)
             )
 
+        # 4. Build frequency header
+        freq_lines = []
+        if merged_counts and total_sections:
+            freq_lines.append(f"Total secciones: {total_sections}")
+            freq_lines.append(f"Clusters identificados: {len(merged_counts)}")
+            sorted_clusters = sorted(merged_counts, key=lambda c: merged_counts[c], reverse=True)
+            freq_lines.append("Distribución de clusters (ordenados por tamaño descendente):")
+            for i, cid in enumerate(sorted_clusters, 1):
+                cnt = merged_counts[cid]
+                pct = 100.0 * cnt / total_sections
+                tag = "← versión dominante/estándar" if i == 1 else ""
+                freq_lines.append(f"  Cluster {cid}: {cnt} ({pct:.1f}%) {tag}")
+            freq_lines.append("")
+        freq_header = "\n".join(freq_lines)
+
+        extraction_context = (
+            "\n\nIMPORTANTE — CONTEXTO DE EJECUCIÓN:\n"
+            "El schema diseñado será ejecutado automáticamente por un sistema separado que procesa "
+            "cada sección de forma individual. Ese sistema NO tiene acceso a estos clusters ni a "
+            "este análisis. Recibirá únicamente el texto de una sección y los extraction_hints.\n\n"
+            "Por lo tanto, cada extraction_hint debe ser autocontenido:\n"
+            "- No uses frases como 'como en el cluster dominante' o 'según la versión estándar'\n"
+            "- Para campos binarios: especifica qué texto exacto o qué patrón activa el valor 1\n"
+            "- Para campos numéricos: lista exactamente qué items contar o qué número extraer\n"
+            "- Si el hint requiere buscar variantes textuales, enuméralas explícitamente"
+        )
+
         user_prompt = (
             f"TÍTULO DE LA SECCIÓN: {title}\n\n"
-            f"CLUSTERS ENCONTRADOS:\n\n"
+            + freq_header
+            + "CLUSTERS ENCONTRADOS:\n\n"
             + "\n\n".join(cluster_descriptions)
+            + extraction_context
             + "\n\n"
-            + "Analiza los clusters y sus diferencias. "
-            "Diseña un esquema JSON (solo binarios y numéricos) "
-            "que capture las características potencialmente anómalas "
-            "del texto y diferencie los clusters."
+            + "Analiza los clusters y sus diferencias. Diseña un esquema JSON (solo binarios y numéricos) "
+            "que capture las características potencialmente anómalas del texto, diferencie los clusters, "
+            "y cuyos extraction_hints sean ejecutables por un sistema automático sobre textos individuales."
         )
 
         expected_output = (
             '```json\n{\n  "schema": {\n    "campo_ejemplo": '
-            '{"type": "binary", "description": "..."}\n  },\n  '
+            '{"type": "binary", "description": "...", "importance": 5, '
+            '"extraction_method": "literal", "extraction_hint": "..."},'
+            '\n    "campo_numerico": '
+            '{"type": "numeric", "description": "...", "importance": 7, '
+            '"extraction_method": "semantic", "extraction_hint": "..."}'
+            '\n  },\n  '
             '"justification": "..."\n}\n```'
         )
 
@@ -1004,37 +1014,49 @@ class SectionClusteringTransformer:
             "expected_output": expected_output,
         }
 
-    # ---- extraction prompt ------------------------------------------------
+    # ---- extraction prompt (Pipeline 2) -----------------------------------
+
+    def build_section_extraction_prompt(
+        self, titulo: str, nro_licitacion: str, texto: str,
+        schema: dict, importance_threshold: int = 7
+    ) -> Tuple[str, str]:
+        """
+        Build system + user prompt for extracting fields from a single text.
+
+        Pipeline 2 uses this to call the LLM extractor per section.
+        Filters schema fields by importance >= threshold to reduce tokens.
+        Only includes 'type', 'extraction_hint' and 'extraction_method' in
+        the schema sent to the extractor — no description/importance/cluster_values.
+        """
+        schema_para_extractor = {}
+        for field_name, field_def in schema.items():
+            if field_def.get("importance", 0) >= importance_threshold:
+                entry = {
+                    "type": field_def["type"],
+                    "extraction_hint": field_def.get(
+                        "extraction_hint", field_def["description"]
+                    ),
+                }
+                if "extraction_method" in field_def:
+                    entry["extraction_method"] = field_def["extraction_method"]
+                schema_para_extractor[field_name] = entry
+
+        user_prompt = (
+            f"TÍTULO DE LA SECCIÓN: {titulo}\n"
+            f"DOCUMENTO: {nro_licitacion}\n\n"
+            f"SCHEMA A EXTRAER:\n"
+            f"{json.dumps(schema_para_extractor, ensure_ascii=False, indent=2)}\n\n"
+            f"TEXTO DE LA SECCIÓN:\n"
+            f"{texto}\n\n"
+            f"Extrae los campos del schema siguiendo exactamente cada extraction_hint."
+        )
+
+        return EXTRACTION_SYSTEM_PROMPT, user_prompt
 
     def _build_extraction_prompt(
         self, title: str, schema: Dict[str, Any]
     ) -> str:
-        titulo_descripcion = {
-            "fraude y corrupcion": "Contiene referencias a posibles actos de fraude, corrupción, sobornos, conflictos de interés o irregularidades en el proceso de licitación.",
-            "formato y firma de la oferta": "Describe el formato requerido para presentar la oferta y los requisitos de firma (digital o manuscrita).",
-            "copias de la oferta cps": "Especifica la cantidad y tipo de copias requeridas de la oferta (impresas, digitales, CD, etc.).",
-            "limitacion de responsabilidad": "Define las limitaciones de responsabilidad de las partes contratantes.",
-            "planos y disenos": "Describe requisitos de planos, diseños, especificaciones técnicas o documentación gráfica.",
-            "porcentaje de garantia de fiel cumplimiento de con": "Establece el porcentaje de garantía de fiel cumplimiento del contrato.",
-            "idioma de la oferta": "Especifica el idioma o idiomas en que debe presentarse la oferta.",
-            "aclaracion de las ofertas": "Describe el proceso para solicitar aclaraciones sobre las ofertas presentadas.",
-            "retiro sustitucion y modificacion de las ofertas": "Regula el retiro, sustitución y modificación de las ofertas antes de la apertura.",
-            "audiencia informativa": "Describe la realización de audiencias informativas o reuniones previas a la presentación de ofertas.",
-        }.get(title, "")
-
-        esquema_lines = []
-        for field_name, field_def in schema.items():
-            ftype = field_def.get("type", "binary")
-            fdesc = field_def.get("description", "")
-            esquema_lines.append(f'  "{field_name}": ({ftype}) {fdesc}')
-        esquema_str = "\n".join(esquema_lines)
-
-        return EXTRACTION_PROMPT_TEMPLATE.format(
-            titulo=title,
-            titulo_descripcion=titulo_descripcion,
-            esquema_str=esquema_str,
-            texto="{texto}",
-        )
+        return build_extraction_prompt_text(title, schema)
 
     # ---- cluster report ---------------------------------------------------
 

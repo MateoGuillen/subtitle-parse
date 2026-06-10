@@ -1,0 +1,297 @@
+{
+  "schema": {
+    "contiene_acciones_sancionatorias": {
+      "type": "binary",
+      "description": "Indica si el texto incluye medidas concretas como descalificación, rescisión contractual o remisión de antecedentes."
+    },
+    "contiene_denuncia_penal": {
+      "type": "binary",
+      "description": "Indica si se menciona explícitamente la denuncia penal ante instancias correspondientes."
+    },
+    "menciona_dncp": {
+      "type": "binary",
+      "description": "Indica si se menciona a la Dirección Nacional de Contrataciones Públicas como autoridad receptora de antecedentes."
+    },
+    "define_actos_fraude_corrupcion": {
+      "type": "binary",
+      "description": "Indica si el texto incluye una definición o listado de actos considerados fraude o corrupción."
+    },
+    "incluye_colusion": {
+      "type": "binary",
+      "description": "Indica si se menciona explícitamente la colusión o acuerdos entre partes como práctica prohibida."
+    },
+    "incluye_obstruccion": {
+      "type": "binary",
+      "description": "Indica si se menciona la obstrucción de investigaciones o auditorías como práctica fraudulenta."
+    },
+    "texto_incompleto": {
+      "type": "binary",
+      "description": "Indica si la sección aparece truncada, parcial o contiene únicamente el encabezado."
+    },
+    "num_medidas_convocante": {
+      "type": "numeric",
+      "description": "Cantidad de medidas o acciones que la convocante debe ejecutar ante prácticas fraudulentas o corruptas."
+    },
+    "num_actos_fraude_definidos": {
+      "type": "numeric",
+      "description": "Cantidad de actos o categorías de fraude y corrupción enumeradas en el texto."
+    },
+    "num_parrafos_principales": {
+      "type": "numeric",
+      "description": "Cantidad de apartados principales presentes en la sección."
+    }
+  },
+  "justification": "Los clusters muestran diferencias principalmente en el nivel de completitud del texto. Algunos contienen únicamente el título o los primeros párrafos, mientras otros incluyen el desarrollo completo de sanciones y definiciones de fraude. Los campos 'texto_incompleto', 'num_parrafos_principales', 'num_medidas_convocante' y 'num_actos_fraude_definidos' capturan estas variaciones estructurales. Existen diferencias entre versiones que incluyen o no denuncia penal explícita, referencia a la DNCP y detalle de actos fraudulentos, por lo que se incorporan campos binarios específicos. La presencia de colusión y obstrucción suele encontrarse únicamente en versiones más completas y puede servir para detectar omisiones anómalas. En conjunto, los campos permiten identificar pliegos con cláusulas anticorrupción incompletas, reducidas o modificadas respecto al estándar observado."
+}
+
+
+Tu prompt ya está bastante bien diseñado para el objetivo de generar features para detección de anomalías. Tiene varias fortalezas:
+
+* Fuerza una salida estructurada.
+* Limita el esquema a variables utilizables por ML.
+* Obliga a pensar en diferencias entre clusters.
+* Evita texto libre en la extracción posterior.
+* Pone un límite de campos para controlar dimensionalidad.
+
+Pero veo varias mejoras importantes si tu objetivo final es entrenar un Isolation Forest o algún modelo de anomalías sobre 23.000 pliegos.
+
+---
+
+# Problema 1: No le estás diciendo qué es una anomalía
+
+Actualmente dices:
+
+> "Diseña un esquema JSON que capture las diferencias relevantes entre clusters"
+
+El LLM interpreta "diferencia" y no necesariamente "anomalía".
+
+Por ejemplo:
+
+* Convocante vs convocante
+* denuncia penal vs denuncia
+
+pueden generar features inútiles.
+
+Yo agregaría algo como:
+
+```text
+IMPORTANTE:
+
+No diseñes campos para capturar diferencias de redacción,
+capitalización, formato, saltos de línea o estilo.
+
+Diseña únicamente campos que representen diferencias normativas,
+jurídicas, operativas o de cumplimiento que puedan indicar:
+
+- omisión de controles
+- reducción de sanciones
+- flexibilización de requisitos
+- eliminación de responsabilidades
+- cláusulas atípicas
+- ausencia de elementos normalmente presentes
+```
+
+Eso mejora muchísimo la calidad de features.
+
+---
+
+# Problema 2: Falta distinguir estándar vs excepción
+
+Actualmente todos los clusters tienen casi el mismo contenido.
+
+En este caso el LLM termina inventando variables poco útiles.
+
+Yo agregaría:
+
+```text
+Identifica primero cuál parece ser la versión estándar o dominante.
+
+Luego diseña campos que permitan detectar
+desviaciones respecto a esa versión estándar.
+```
+
+Porque en licitaciones:
+
+* la normalidad importa
+* la excepción es la anomalía
+
+---
+
+# Problema 3: Falta capturar AUSENCIAS
+
+Esto es crítico.
+
+Muchas anomalías aparecen porque falta algo.
+
+Ejemplo:
+
+Cluster A:
+
+* denuncia penal
+* DNCP
+* rescisión
+
+Cluster B:
+
+* denuncia penal eliminada
+
+Eso es más importante que cualquier diferencia textual.
+
+Agregar:
+
+```text
+Prioriza especialmente campos que permitan detectar
+la ausencia de cláusulas que aparecen en la mayoría de los clusters.
+```
+
+---
+
+# Problema 4: Falta ranking de importancia
+
+El LLM podría generar campos irrelevantes.
+
+Yo pediría:
+
+```text
+Para cada campo asigna un score de importancia entre 1 y 10
+respecto a su potencial valor para detección de anomalías.
+```
+
+Ejemplo:
+
+```json
+"contiene_denuncia_penal": {
+  "type":"binary",
+  "importance":10
+}
+```
+
+Después puedes filtrar automáticamente.
+
+---
+
+# Problema 5: Falta pensar en extracción automática
+
+Hay campos que son buenos conceptualmente pero difíciles de extraer.
+
+Ejemplo malo:
+
+```json
+"nivel_etico_exigido"
+```
+
+¿Cómo lo extraes?
+
+Yo agregaría:
+
+```text
+Cada campo debe poder extraerse posteriormente
+mediante reglas, regex o LLM con alta confiabilidad.
+
+Evita conceptos ambiguos o subjetivos.
+```
+
+---
+
+# Problema 6: No aprovechas la frecuencia de clusters
+
+Tu pipeline ya tiene clusters.
+
+Eso es oro.
+
+Podrías pasar algo así:
+
+```text
+Cluster 0:
+75% de los documentos
+
+Cluster 1:
+15%
+
+Cluster 2:
+8%
+
+Cluster 3:
+2%
+```
+
+Y luego:
+
+```text
+Considera más anómalas las características presentes
+solo en clusters minoritarios.
+```
+
+Esto acerca mucho más el resultado al Isolation Forest.
+
+---
+
+# Problema 7: Falta una categoría muy importante
+
+Yo agregaría explícitamente:
+
+```text
+Busca especialmente:
+
+- porcentajes
+- montos
+- plazos
+- multas
+- sanciones
+- garantías
+- excepciones
+- exoneraciones
+- autorizaciones especiales
+- mecanismos de control
+```
+
+Porque son las variables que más suelen explicar anomalías en pliegos.
+
+---
+
+# Problema 8: Te falta pedir "campo observable"
+
+Yo cambiaría:
+
+```text
+Diseña un esquema JSON
+```
+
+por
+
+```text
+Diseña un esquema JSON de variables observables.
+```
+
+Porque si no el modelo genera conceptos abstractos.
+
+---
+
+# Si yo estuviera construyendo tu sistema de 23.000 licitaciones
+
+Cambiaría completamente el objetivo del prompt.
+
+En vez de:
+
+> Diseña campos que diferencien clusters
+
+Usaría:
+
+> Diseña campos que permitan detectar desviaciones respecto a la versión estándar observada en los clusters.
+
+Ese pequeño cambio suele producir features mucho más útiles para modelos de anomalías.
+
+De hecho, para tu proyecto DNCP, yo incluso haría una segunda etapa donde el LLM clasifique cada feature propuesta en:
+
+```json
+{
+  "feature":"contiene_denuncia_penal",
+  "anomaly_relevance":10,
+  "extraction_difficulty":2,
+  "expected_variability":7
+}
+```
+
+y luego conservar solamente las que tengan alta relevancia y baja dificultad de extracción. Eso suele mejorar mucho la calidad del dataset final para Isolation Forest.
+
+

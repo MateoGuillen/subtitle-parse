@@ -1,0 +1,137 @@
+Perfecto. Entonces el foco es: el schema que genera Pipeline 1 tiene que ser ejecutable por Pipeline 2 desde el día uno. Eso cambia bastante qué mejorar.
+Voy a darte un análisis estructurado del prompt actual y las mejoras concretas.
+
+El problema de fondo
+El prompt actual está optimizado para que el LLM diseñe bien los campos, pero no para que esos campos sean extraíbles de forma confiable. La regla 8 lo menciona vagamente ("alta confiabilidad"), pero no da estructura suficiente para que Pipeline 2 pueda operar sin ambigüedad.
+Cuando Pipeline 2 reciba el schema y un texto libre, necesita saber exactamente cómo extraer cada campo. Hoy ese conocimiento no está en el schema.
+
+Problemas concretos en el schema actual
+1. Falta el mecanismo de extracción por campo
+Compará estos dos campos del schema de DeepSeek:
+json"contiene_denuncia_penal": {
+  "type": "binary",
+  "description": "Indica si se menciona explícitamente denuncia penal (no solo 'denuncia')",
+  "importance": 10
+}
+json"texto_vacio": {
+  "type": "binary",
+  "description": "Indica si la sección no contiene ningún párrafo normativo.",
+  "importance": 10
+}
+El primero es extraíble con regex trivial. El segundo requiere juicio semántico ("¿qué es un párrafo normativo?"). Pipeline 2 no puede saber la diferencia — ambos son binary con description. Necesitás distinguir el método de extracción en el schema mismo.
+2. Campos numéricos sin rango ni regla de conteo
+json"num_acciones_listadas": {
+  "type": "numeric",
+  "description": "Cantidad de acciones sancionatorias (i-iv) listadas (0-4)."
+}
+¿Cómo cuenta Pipeline 2? ¿Cuenta incisos literales (i), (ii)? ¿O semánticamente "acciones que impliquen sanción"? Si el texto dice "primero", "segundo" en lugar de (i), (ii) — ¿cuenta o no? La description no lo dice.
+3. Sin señales de qué texto buscar
+Para un campo binario como menciona_colusion, el LLM que extrae necesita saber: ¿busca la palabra exacta "colusión"? ¿también "acuerdo colusorio"? ¿"acuerdo entre oferentes"? Hoy eso queda implícito en la descripción en lenguaje natural.
+4. La justification es para humanos, no para Pipeline 2
+La justificación explica por qué se eligió el campo, pero Pipeline 2 no la puede usar. Lo que Pipeline 2 necesita es cómo extraerlo.
+
+La mejora central: agregar extraction_hint por campo
+La idea es añadir un cuarto atributo a cada campo que le diga a Pipeline 2 cómo extraerlo. No es código, es una regla expresada en lenguaje preciso que un LLM pueda ejecutar directamente como instrucción.
+Schema actual vs schema mejorado
+Actual:
+json"contiene_denuncia_penal": {
+  "type": "binary",
+  "description": "Indica si se menciona explícitamente denuncia penal",
+  "importance": 10
+}
+Mejorado:
+json"contiene_denuncia_penal": {
+  "type": "binary",
+  "description": "Indica si se menciona explícitamente denuncia penal (no solo 'denuncia')",
+  "importance": 10,
+  "extraction_hint": "Buscar la frase 'denuncia penal' de forma literal. No activar si solo aparece 'denuncia' sin el calificador 'penal'. Retornar 1 si aparece, 0 si no."
+}
+json"num_acciones_listadas": {
+  "type": "numeric",
+  "description": "Cantidad de acciones sancionatorias listadas (0-4)",
+  "importance": 8,
+  "extraction_hint": "Contar cuántas de las siguientes acciones están presentes: (i) descalificación de oferta, (ii) rescisión de contrato, (iii) remisión a DNCP, (iv) denuncia penal. Contar por semántica, no por etiqueta literal. Retornar entero entre 0 y 4."
+}
+json"texto_vacio": {
+  "type": "binary",
+  "description": "Indica si la sección no contiene ningún párrafo normativo",
+  "importance": 10,
+  "extraction_hint": "Retornar 1 si el texto tiene menos de 30 palabras o consiste solo de encabezado/título sin desarrollo. Retornar 0 si contiene al menos una oración completa con contenido normativo."
+}
+
+Mejoras al system prompt de Pipeline 1
+Agregar la regla del extraction_hint
+Reemplazar la regla 8 actual:
+
+"Cada campo debe poder extraerse mediante reglas, regex o LLM con alta confiabilidad. Evita conceptos ambiguos o subjetivos."
+
+Por esto:
+8. Para cada campo incluye un "extraction_hint": instrucción precisa de 1-3 oraciones
+   que indique cómo extraer ese valor del texto.
+   - Para campos binarios: especificá qué texto o patrón activa el valor 1 vs 0.
+     Indicá si la detección es por coincidencia literal, variantes semánticas, o criterio estructural.
+   - Para campos numéricos: especificá qué se cuenta/mide, la unidad, y el rango esperado.
+     Indicá si el conteo es por marcadores literales (incisos, letras) o por semántica.
+   - Nunca uses "si menciona X" sin especificar variantes aceptadas o el criterio de activación.
+Actualizar el ejemplo en el system prompt
+El ejemplo actual no tiene extraction_hint, lo que hace que el LLM no lo genere. El ejemplo es la señal más fuerte del formato esperado. Cambiarlo a:
+json{
+  "schema": {
+    "contiene_denuncia_penal": {
+      "type": "binary",
+      "description": "Indica si se menciona explícitamente denuncia penal (no solo 'denuncia')",
+      "importance": 10,
+      "extraction_hint": "Buscar la frase literal 'denuncia penal'. No activar con solo 'denuncia'. Retornar 1 si aparece, 0 si no."
+    },
+    "menciona_dncp": {
+      "type": "binary",
+      "description": "Indica si se menciona a la DNCP como autoridad receptora",
+      "importance": 9,
+      "extraction_hint": "Buscar 'DNCP' o 'Dirección Nacional de Contrataciones Públicas'. Retornar 1 si aparece en cualquier variante, 0 si no."
+    },
+    "num_acciones_incumplimiento": {
+      "type": "numeric",
+      "description": "Cantidad de acciones o sanciones listadas ante incumplimiento (0-4)",
+      "importance": 8,
+      "extraction_hint": "Contar semánticamente cuántas acciones sancionatorias distintas se enumeran. Retornar entero entre 0 y 4."
+    },
+    "porcentaje_garantia": {
+      "type": "numeric",
+      "description": "Porcentaje de garantía exigido (0 si no aplica)",
+      "importance": 7,
+      "extraction_hint": "Extraer el número que precede al símbolo '%' en el contexto de 'garantía'. Si hay múltiples valores, tomar el más alto. Retornar 0 si no se menciona porcentaje."
+    }
+  },
+  "justification": "..."
+}
+
+Mejora secundaria: separar la justification en dos partes
+Hoy la justificación mezcla dos cosas: por qué se eligió el campo y qué valor tomaría en cada cluster. La segunda parte es valiosa para validar el schema, pero no para Pipeline 2.
+Propongo separarla en el formato de respuesta:
+json{
+  "schema": { ... },
+  "justification": "Explicación de por qué cada campo fue elegido y qué diferencias normativas captura.",
+  "cluster_values": {
+    "contiene_denuncia_penal": {"cluster_0": 1, "cluster_1": 1, "cluster_2": 0, "cluster_3": 1},
+    "num_acciones_listadas":   {"cluster_0": 4, "cluster_1": 4, "cluster_2": 2, "cluster_3": 3}
+  }
+}
+Esto te da tres beneficios inmediatos. Primero, podés validar el schema automáticamente: si un campo tiene el mismo valor en todos los clusters, lo rechazás (ya tenés esta lógica pero ahora es explícita). Segundo, tenés ground truth para evaluar Pipeline 2 — si el LLM extractor en Pipeline 2 da valores que divergen de cluster_values, hay un error. Tercero, el _validate_schema puede usar estos valores en lugar de inferirlos.
+
+Mejora al _validate_schema
+Con cluster_values en el schema, la validación de "clusters colapsados" pasa de heurística a determinista:
+python# Actual (heurístico):
+# "si todos los campos dan 0 para todas las muestras → clusters colapsados"
+
+# Mejorado (determinista):
+for field, values in schema.get("cluster_values", {}).items():
+    unique_vals = set(values.values())
+    if len(unique_vals) == 1:
+        collapsed_fields.append(field)
+
+if len(collapsed_fields) == len(schema["schema"]):
+    return False, f"Todos los campos tienen valor constante entre clusters: {collapsed_fields}"
+
+Resumen de cambios priorizados
+CambioDóndeImpacto en Pipeline 2EsfuerzoAgregar extraction_hint por campoSystem prompt, regla 8 + ejemploAlto — Pipeline 2 puede usarlo directamente como instrucciónBajoActualizar ejemplo con extraction_hintSystem promptAlto — el LLM lo imitaráBajoAgregar cluster_values al formato de respuestaSystem prompt, formato + validaciónMedio — ground truth para Pipeline 2MedioMejorar _validate_schema con cluster_valuessection_clustering_transformer.pyMedio — menos falsos positivos de validaciónMedio
+El cambio más importante es el extraction_hint. Con él, el prompt de Pipeline 2 puede ser tan simple como: "Para cada campo del schema, aplicá el extraction_hint al texto y retorná el valor correspondiente." Sin él, Pipeline 2 necesita re-inferir cómo extraer cada campo, lo que introduce inconsistencias entre el schema designer y el extractor.
