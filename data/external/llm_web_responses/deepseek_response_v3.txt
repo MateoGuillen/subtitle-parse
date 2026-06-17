@@ -1,0 +1,35 @@
+{
+  "schema": {
+    "seccion_vacia": {
+      "type": "binary",
+      "description": "Indica si la sección no contiene ningún texto luego del título (solo encabezado)",
+      "importance": 10
+    },
+    "incluye_traduccion_oficial": {
+      "type": "binary",
+      "description": "Indica si la cláusula de idioma de la oferta permite presentar traducción oficial por traductor público matriculado como alternativa al castellano",
+      "importance": 9
+    },
+    "num_temas_idioma": {
+      "type": "numeric",
+      "description": "Número de subtemas distintos abordados en la sección (1: solo oferta en castellano/traducción, 2: además cláusula de catálogos, 3: además cláusula de idioma de correspondencia)",
+      "importance": 8
+    },
+    "permite_sin_traduccion_catalogos": {
+      "type": "binary",
+      "description": "Indica si la cláusula sobre catálogos en idioma extranjero menciona 'sin traducción' (en lugar de 'su traducción')",
+      "importance": 7
+    },
+    "respuesta_no_aplica_catalogos": {
+      "type": "binary",
+      "description": "Indica si la respuesta a la cláusula de catálogos es 'No Aplica' (valor estándar)",
+      "importance": 7
+    },
+    "contiene_clausula_correspondencia": {
+      "type": "binary",
+      "description": "Indica si la sección incluye una cláusula sobre el idioma de la correspondencia intercambiada, lo cual no es propio de esta sección estándar",
+      "importance": 8
+    }
+  },
+  "justification": "Se eligieron estos campos para detectar desviaciones respecto al cluster dominante 4_5 (29.6% de las muestras), que representa la versión estándar. 'seccion_vacia' (importance 10) captura la omisión total de contenido (cluster 1) y es la anomalía más grave. 'incluye_traduccion_oficial' (9) identifica si se elimina la posibilidad de presentar traducción oficial, como en el representativo del cluster 2, lo cual restringe la participación de oferentes extranjeros y debilita la competencia. 'num_temas_idioma' (8) cuantifica la cantidad de aspectos normativos cubiertos; el estándar tiene 2 temas, mientras que la muestra extrema del cluster 0 solo tiene 1 (falta la cláusula de catálogos), y el representativo del cluster 3 tiene 3 por inclusión indebida de correspondencia. 'permite_sin_traduccion_catalogos' (7) detecta cuando la cláusula de catálogos cambia la condición de 'sin traducción' a 'su traducción' (cluster 2 representativo), alterando el régimen de permisividad. 'respuesta_no_aplica_catalogos' (7) verifica la presencia del valor estándar 'No Aplica'; su ausencia en el cluster 3 representativo (texto truncado) señala una sección incompleta o mal formada. 'contiene_clausula_correspondencia' (8) marca la inserción anómala de una cláusula de idioma de correspondencia (cluster 3 representativo), lo que indica una probable corrupción de la plantilla. Todos los campos son binarios o numéricos, evitando ambigüedades, y permiten una extracción automatizada fiable."
+}

@@ -30,11 +30,13 @@ class LLMProvider(ABC):
 class LocalLLMProvider(LLMProvider):
     """Provider for local LM Studio / llama-server endpoint."""
 
-    def __init__(self, base_url: str = "http://localhost:1234/v1"):
+    def __init__(self, base_url: str = "http://localhost:1234/v1", model: str = ""):
         self.base_url = base_url.rstrip("/")
+        self.model = model
 
     def name(self) -> str:
-        return f"local ({self.base_url})"
+        tag = self.model if self.model else "default"
+        return f"local ({tag} @ {self.base_url})"
 
     def generate(
         self,
@@ -49,6 +51,8 @@ class LocalLLMProvider(LLMProvider):
             "max_tokens": max_tokens,
             "temperature": temperature,
         }
+        if self.model:
+            payload["model"] = self.model
         if response_format:
             payload["response_format"] = response_format
 

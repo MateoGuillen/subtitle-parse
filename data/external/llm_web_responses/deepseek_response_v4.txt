@@ -1,0 +1,127 @@
+{
+  "schema": {
+    "texto_vacio": {
+      "type": "binary",
+      "description": "Sección sin contenido normativo sustancial",
+      "importance": 9,
+      "extraction_method": "structural",
+      "extraction_hint": "Contar las palabras del texto de la sección, excluyendo el título 'Idioma de la oferta'. Si el total es menor a 30 palabras o no hay ninguna oración completa con sentido normativo, retornar 1; en caso contrario, 0."
+    },
+    "contiene_clausula_traduccion_oferta": {
+      "type": "binary",
+      "description": "Presencia de la opción de traducción oficial de la oferta",
+      "importance": 10,
+      "extraction_method": "semantic",
+      "extraction_hint": "Buscar en el primer párrafo tras el título si existe una frase equivalente a 'en su defecto acompañada de su traducción oficial' o 'en su defecto acompañado de su traducción oficial'. Si aparece, retornar 1. Si solo se exige presentación en castellano sin mencionar esa alternativa, retornar 0."
+    },
+    "menciona_traduccion_oficial_o_matriculado": {
+      "type": "binary",
+      "description": "Especificación de oficialidad en la traducción de la oferta",
+      "importance": 8,
+      "extraction_method": "semantic",
+      "extraction_hint": "En la cláusula que habla de la traducción de la oferta (si existe), verificar si se menciona 'traducción oficial' o 'traductor público matriculado'. Retornar 1 si al menos uno de estos términos aparece. Si la cláusula existe pero solo dice 'traducción' sin estos calificativos, o si no hay cláusula de traducción, retornar 0."
+    },
+    "respuesta_permiso_presente": {
+      "type": "binary",
+      "description": "Existencia de respuesta explícita a la pregunta sobre documentos en otro idioma",
+      "importance": 7,
+      "extraction_method": "structural",
+      "extraction_hint": "Localizar la línea que contiene la palabra 'permitirá' y termina con dos puntos (':'). Inmediatamente después de los dos puntos, verificar si hay texto no vacío que constituya una respuesta (por ejemplo, 'No Aplica', 'Sí', 'No', una frase afirmativa). Retornar 1 si existe esa respuesta; 0 si el texto está ausente, solo hay espacios o se pasa directamente a otro párrafo."
+    },
+    "permite_documentos_sin_traduccion": {
+      "type": "binary",
+      "description": "Concesión explícita de permiso para documentos en idioma extranjero sin traducción",
+      "importance": 9,
+      "extraction_method": "semantic",
+      "extraction_hint": "Si el campo 'respuesta_permiso_presente' es 1, examinar esa respuesta. Retornar 1 si contiene una afirmación positiva de permiso, como 'Sí', 'Sí, la convocante aceptará', 'Acepta', o frases que indiquen que se permite la presentación de catálogos, anexos o folletos en otro idioma sin traducción. Si la respuesta es 'No Aplica', 'No', una negativa, o no hay respuesta, retornar 0."
+    },
+    "pregunta_permiso_es_sin_traduccion": {
+      "type": "binary",
+      "description": "La pregunta de permiso especifica 'sin traducción' en lugar de 'su traducción' u otra variante",
+      "importance": 6,
+      "extraction_method": "literal",
+      "extraction_hint": "En la línea que contiene 'permitirá' y finaliza con ':', buscar justo antes de los dos puntos la frase exacta 'sin traducción' (puede estar precedida de 'y'). Retornar 1 si aparece 'sin traducción'; retornar 0 si aparece 'su traducción', 'con traducción' u otra expresión, o si la línea no existe."
+    },
+    "contiene_contenido_adicional": {
+      "type": "binary",
+      "description": "Presencia de párrafos normativos extra más allá de las dos cláusulas básicas",
+      "importance": 8,
+      "extraction_method": "structural",
+      "extraction_hint": "Identificar el bloque de texto tras la línea de permiso. Si hay más de dos oraciones adicionales que no pertenecen a las cláusulas estándar (requisito de idioma de la oferta y pregunta/respuesta de permiso), retornar 1. Considerar como adicional cualquier contenido como 'La oferta que prepare el Oferente...', 'Los documentos complementarios...', u otras disposiciones. Si el texto termina con la respuesta al permiso o solo tiene las dos cláusulas, retornar 0."
+    },
+    "num_palabras_seccion": {
+      "type": "numeric",
+      "description": "Cantidad total de palabras en la sección excluyendo el título",
+      "importance": 5,
+      "extraction_method": "structural",
+      "extraction_hint": "Contar todas las palabras del texto de la sección a partir del primer carácter después del título 'Idioma de la oferta', incluyendo todo el contenido hasta el final. Si no hay contenido adicional, el valor será 0."
+    }
+  },
+  "justification": "Los campos se diseñaron para detectar desviaciones respecto al clúster dominante (0_1_3_7_9_10_11_13_14_15_16_17_18), que constituye el 49.3% de los pliegos y representa la plantilla estándar. Las anomalías incluyen: sección vacía (clúster 6_12_19), omisión de la cláusula de traducción oficial de la oferta (clúster 5 y muestra extrema del 8), ausencia de respuesta a la pregunta de permiso (clúster 8 y extremo del 5), otorgamiento explícito de permiso para documentos sin traducción (clúster 2), cambio de 'sin traducción' por 'su traducción' (clúster 5), y adición de contenido normativo no estándar (clúster 8). Cada campo binario captura una característica normativa concreta cuya ausencia, presencia o alteración puede debilitar controles o desviarse de la plantilla oficial. El campo numérico 'num_palabras_seccion' apoya la detección de secciones vacías o anómalamente extensas.",
+  "cluster_values": {
+    "texto_vacio": {
+      "cluster_0_1_3_7_9_10_11_13_14_15_16_17_18": 0,
+      "cluster_2": 0,
+      "cluster_4": 0,
+      "cluster_5": 0,
+      "cluster_6_12_19": 1,
+      "cluster_8": 0
+    },
+    "contiene_clausula_traduccion_oferta": {
+      "cluster_0_1_3_7_9_10_11_13_14_15_16_17_18": 1,
+      "cluster_2": 1,
+      "cluster_4": 1,
+      "cluster_5": 0,
+      "cluster_6_12_19": 0,
+      "cluster_8": 1
+    },
+    "menciona_traduccion_oficial_o_matriculado": {
+      "cluster_0_1_3_7_9_10_11_13_14_15_16_17_18": 1,
+      "cluster_2": 1,
+      "cluster_4": 1,
+      "cluster_5": 0,
+      "cluster_6_12_19": 0,
+      "cluster_8": 1
+    },
+    "respuesta_permiso_presente": {
+      "cluster_0_1_3_7_9_10_11_13_14_15_16_17_18": 1,
+      "cluster_2": 1,
+      "cluster_4": 1,
+      "cluster_5": 1,
+      "cluster_6_12_19": 0,
+      "cluster_8": 0
+    },
+    "permite_documentos_sin_traduccion": {
+      "cluster_0_1_3_7_9_10_11_13_14_15_16_17_18": 0,
+      "cluster_2": 1,
+      "cluster_4": 0,
+      "cluster_5": 0,
+      "cluster_6_12_19": 0,
+      "cluster_8": 0
+    },
+    "pregunta_permiso_es_sin_traduccion": {
+      "cluster_0_1_3_7_9_10_11_13_14_15_16_17_18": 1,
+      "cluster_2": 1,
+      "cluster_4": 1,
+      "cluster_5": 0,
+      "cluster_6_12_19": 0,
+      "cluster_8": 1
+    },
+    "contiene_contenido_adicional": {
+      "cluster_0_1_3_7_9_10_11_13_14_15_16_17_18": 0,
+      "cluster_2": 0,
+      "cluster_4": 0,
+      "cluster_5": 0,
+      "cluster_6_12_19": 0,
+      "cluster_8": 1
+    },
+    "num_palabras_seccion": {
+      "cluster_0_1_3_7_9_10_11_13_14_15_16_17_18": 45,
+      "cluster_2": 60,
+      "cluster_4": 45,
+      "cluster_5": 35,
+      "cluster_6_12_19": 0,
+      "cluster_8": 110
+    }
+  }
+}

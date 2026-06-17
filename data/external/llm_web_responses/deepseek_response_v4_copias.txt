@@ -1,0 +1,55 @@
+{
+  "schema": {
+    "texto_normativo_presente": {
+      "type": "binary",
+      "description": "Indica si la sección contiene desarrollo normativo más allá del título",
+      "importance": 9,
+      "extraction_method": "structural",
+      "extraction_hint": "Contar palabras en el texto excluyendo la línea 'Copias de la oferta - CPS'. Si el total de palabras es menor que 15, retornar 0; en caso contrario, retornar 1."
+    },
+    "contiene_clausula_oferta_electronica": {
+      "type": "binary",
+      "description": "Indica si se menciona que en ofertas electrónicas no se requerirán copias",
+      "importance": 7,
+      "extraction_method": "semantic",
+      "extraction_hint": "Buscar las frases 'Oferta Electrónica' u 'oferta electrónica' y verificar que en la misma oración o contexto inmediato se indique que no se requerirán copias (ej: 'no requerirá de copias', 'no requerirá copias'). Retornar 1 si se encuentra, 0 si no."
+    },
+    "contiene_requisito_identificacion_copias": {
+      "type": "binary",
+      "description": "Indica si se exige que las copias estén identificadas o indicadas como tales",
+      "importance": 5,
+      "extraction_method": "semantic",
+      "extraction_hint": "Buscar variantes como 'deberán estar indicadas como tales', 'deberán estar identificadas como tales', 'estarán indicadas como tales', 'deberán ser identificadas como tales'. Retornar 1 si aparece alguna, 0 si no."
+    },
+    "num_copias_requeridas": {
+      "type": "numeric",
+      "description": "Número de copias requeridas según la sección (0 si ninguna o si no se especifica)",
+      "importance": 3,
+      "extraction_method": "literal",
+      "extraction_hint": "Extraer el número inmediatamente después de 'Cantidad de copias requeridas:'. Si aparece 'Ninguna Copia' o '0 copias', retornar 0. Si la línea está ausente, retornar 0."
+    }
+  },
+  "justification": "El cluster dominante (0_4_6_7, 51.1%) contiene el texto normativo completo: indica que la convocante podrá requerir copias, exige que estén marcadas, incluye la cláusula de exención para oferta electrónica y especifica una cantidad de copias (típicamente 0 o 1). El cluster 1_3_5 (40.4%) es equivalente en contenido normativo, con la única diferencia estilística de 'identificadas' vs 'indicadas', por lo que no se considera anómalo. El cluster 2 (8.5%) presenta la mayor anomalía: en su forma representativa carece por completo de desarrollo normativo (solo título), lo que elimina cualquier control sobre la gestión de copias. Incluso su muestra extrema, que sí contiene texto, omite la cláusula de oferta electrónica en algunos casos. \n\nLos campos diseñados capturan estas diferencias críticas: \n- texto_normativo_presente detecta la omisión total de contenido (cluster 2 representativo). \n- contiene_clausula_oferta_electronica verifica la presencia de una disposición relevante para procesos electrónicos; su ausencia podría generar ambigüedad operativa. \n- contiene_requisito_identificacion_copias comprueba la exigencia de marcar las copias, cuyo incumplimiento debilitaría el control de las ofertas. \n- num_copias_requeridas permite identificar valores atípicos (por ejemplo, números excesivos) que se desvíen de lo habitual (0 o 1). \n\nTodos los campos son binarios o numéricos, con pistas de extracción autocontenidas y adaptadas a los métodos literal, semántico o estructural según corresponda.",
+  "cluster_values": {
+    "texto_normativo_presente": {
+      "cluster_0_4_6_7": 1,
+      "cluster_1_3_5": 1,
+      "cluster_2": 0
+    },
+    "contiene_clausula_oferta_electronica": {
+      "cluster_0_4_6_7": 1,
+      "cluster_1_3_5": 1,
+      "cluster_2": 0
+    },
+    "contiene_requisito_identificacion_copias": {
+      "cluster_0_4_6_7": 1,
+      "cluster_1_3_5": 1,
+      "cluster_2": 0
+    },
+    "num_copias_requeridas": {
+      "cluster_0_4_6_7": 0,
+      "cluster_1_3_5": 1,
+      "cluster_2": 0
+    }
+  }
+}
