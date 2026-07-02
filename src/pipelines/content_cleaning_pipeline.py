@@ -57,11 +57,16 @@ class ContentCleaningPipeline:
         sections_dir = self.config["sections_dir"]
         cleaned_sections_dir = self.config["cleaned_sections_dir"]
         BATCH_SIZE = self.config.get("batch_size", 200_000)
+        years_filter = self.config.get("years", None)
 
         total_rows_in = 0
         total_rows_out = 0
 
         for year, year_df in self.extractor.iter_years(sections_dir):
+            if years_filter is not None and str(year) not in [str(y) for y in years_filter]:
+                self.logger.info("Skipping year %s (not in filter %s)", year, years_filter)
+                continue
+
             total_rows = len(year_df)
             total_rows_in += total_rows
             rows_out = 0

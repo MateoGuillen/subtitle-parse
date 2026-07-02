@@ -325,45 +325,46 @@ class PdfContentTransformer:
 
             next_outline = doc_rows[i + 1]
 
-            # Caso 1: misma página y tiene line_number → cortar en esa línea
-            if next_outline["page"] == current["page"] and not pd.isna(
-                next_outline["line_number"]
-            ):
+            # Caso 1+2 (unificado): el siguiente outline tiene line_number
+            # resuelto → cortar exactamente en su (page, line_number), sea
+            # la misma u otra página.
+            # ANTES el Caso 2 cortaba en (next.page - 1, None), perdiendo el
+            # contenido desde el título actual hasta la línea del título
+            # siguiente (~115K secciones con content_length=1, line_end=-1).
+            # get_section_content() aplica end_line solo en end_page, por lo
+            # que el contenido intermedio se preserva completo hasta la línea
+            # del título siguiente.
+            if not pd.isna(next_outline["line_number"]):
+                if next_outline["page"] != current["page"]:
+                    self.logger.info(
+                        "Caso 2: doc=%s title='%s' cutting at page %d line %d "
+                        "(next '%s' on page %d)",
+                        doc_id, current["title"],
+                        next_outline["page"], int(next_outline["line_number"]),
+                        next_outline["title"], next_outline["page"],
+                    )
                 return next_outline["page"], int(next_outline["line_number"])
 
-            # Caso 2: otra página y tiene line_number
-            # → cortar al final de la página anterior para no absorber
-            # contenido de páginas intermedias que no pertenecen a esta sección
-            if not pd.isna(next_outline["line_number"]):
-                self.logger.info(
-                    "Caso 2: doc=%s title='%s' cutting at page %d (next '%s' on page %d)",
-                    doc_id, current["title"],
-                    next_outline["page"] - 1,
-                    next_outline["title"], next_outline["page"],
-                )
-                return next_outline["page"] - 1, None
-
-            # Caso 3: otra página SIN line_number → cortar al final de la página anterior
-            # No se absorbe contenido de outlines no matcheados en otras páginas
+            # Caso 3+4 (unificado): otra/s página/s SIN line_number →
+            # buscar el PRÓXIMO outline con line_number como límite.
+            # Esto evita perder páginas intermedias cuando hay outlines
+            # no matcheados (depth-1 o fallback fallido) entre medio.
             if next_outline["page"] != current["page"]:
-                end_at = next_outline["page"] - 1
                 self.logger.info(
-                    "Caso 3: doc=%s title='%s' cutting at page %d (next '%s' at pg %d unmatched)",
+                    "Caso 3: doc=%s title='%s' next '%s' at page %d unmatched, "
+                    "skipping forward for next matched outline",
                     doc_id,
                     current["title"],
-                    end_at,
                     next_outline["title"],
                     next_outline["page"],
                 )
-                return end_at if end_at >= current["page"] else current["page"], None
-
-            # Caso 4: misma página sin line_number → buscar próximo con line_number
-            self.logger.warning(
-                "Caso 4: doc=%s title='%s' skipping '%s' on same page",
-                doc_id,
-                current["title"],
-                next_outline["title"],
-            )
+            else:
+                self.logger.warning(
+                    "Caso 4: doc=%s title='%s' skipping '%s' on same page",
+                    doc_id,
+                    current["title"],
+                    next_outline["title"],
+                )
             for j in range(i + 2, len(doc_rows)):
                 future = doc_rows[j]
                 if not pd.isna(future["line_number"]):
@@ -409,6 +410,9 @@ class PdfContentTransformer:
 
         # Crear DataFrame desde los diccionarios
         df = pd.DataFrame(sections_data)
+
+        # Dedup por (document_id, title): conservar la fila con más contenido
+        df = df.loc[df.groupby(["document_id", "title"])["content_length"].idxmax()].reset_index(drop=True)
 
         # Asegurarse de que los valores None en line_end se manejen correctamente
         if "line_end" in df.columns and df["line_end"].isna().any():

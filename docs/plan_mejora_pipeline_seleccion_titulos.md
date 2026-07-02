@@ -3,9 +3,16 @@
 **Objetivo**: Seleccionar un Top-10 de títulos/secciones de pliegos de bases de condiciones de la DNCP (Paraguay) como variables más significativas para detección no supervisada de anomalías, mediante un pipeline reproducible, automatizado y con fundamento académico.
 
 **Fecha**: 2026-06-24
-**Versión**: 2.0 (revisión con marco teórico académico)
+**Versión**: 2.1 (decisión híbrida v1.0 + v2.0 GLM)
 **Estado**: Plan (no implementado)
 **Contexto**: Tesis de grado — detección de anomalías en pliegos de licitación pública
+
+> **Decisión adoptada** (2026-06-24): Se adopta este plan v2.0 como base con los siguientes ajustes:
+> - **§2.4 Synthetic AUC**: 1 seed (no 5). Documentar en `comparacion_planes_v1_v2.md`.
+> - **§8.2 Bootstrap (S2)**: 30 iteraciones (no 100). Justificación: Meinshausen & Bühlmann muestran que 30-50 bastan.
+> - **§8.3 Sensibilidad pesos (S3)**: Mover a trabajo futuro (§9.3). No esencial para pipeline.
+> - **Tiempo estimado**: 7 días (vs. 8-12 de v2.0 original).
+> - **Comparación completa**: Ver `docs/comparacion_planes_v1_v2.md`.
 
 ---
 
@@ -30,6 +37,8 @@ El enfoque propuesto se enmarca en la taxonomía clásica de **Kohavi & John (19
 | **Capa 3 — Embedded / Ensemble** | Agregación de múltiples criterios vía voto mayoritario ponderado | Combinación de 5 estrategias de ranking con pesos calibrados | Kittler et al. (1998) |
 
 **Justificación del enfoque híbrido**: Chandola et al. (2009), en su revisión seminal sobre detección de anomalías, señalan que los métodos *Filter* son eficientes pero ignoran interacciones entre variables, mientras que los *Wrapper* las capturan a alto costo computacional. La combinación jerárquica (Filter → Wrapper) balancea ambos objetivos.
+
+> **Ajuste v2.1**: Se mantiene el marco teórico completo. El código se implementará siguiendo esta taxonomía, pero con las simplificaciones operacionales indicadas en §4.1.
 
 ### 0.3 Definición operativa de "anomalía"
 
@@ -240,7 +249,7 @@ def synthetic_auc(X_subset, n_synthetic=None, contamination=0.05, seed=42):
     return roc_auc_score(y_all, scores)
 ```
 
-**Reproducibilidad**: la inyección usa `seed` fijo. Se promedian 5 seeds para reducir varianza (Aggarwal, 2017 recomienda ≥3).
+**Reproducibilidad**: la inyección usa `seed` fijo (42). Para tesis de grado, 1 seed es suficiente. Si el resultado es borderline, se promedian 3 seeds (mínimo recomendado por Aggarwal, 2017).
 
 ---
 
@@ -525,6 +534,8 @@ def cross_method_agreement(X_subset, contamination=0.05):
 
 Esta sección es **nueva en v2.0** y constituye material ideal para una sub-sección *"Stability Analysis"* en el capítulo de resultados de la tesis. Fundamento: **Meinshausen & Bühlmann (2010)**.
 
+> **Ajuste v2.1**: Se reduce bootstrap de 100 a 30 iteraciones (suficiente para estimar frecuencias, ver §4.1). Se elimina test S3 (sensibilidad a pesos) → se mueve a trabajo futuro (§9.3).
+
 ### 8.1 Test S1: Sensibilidad a K
 
 **Pregunta**: ¿El ranking es estable al variar K?
@@ -552,11 +563,12 @@ def sensitivity_to_K(ranked_titles, ks=[5, 8, 10, 12, 15, 20]):
 **Pregunta**: ¿Qué tan a menudo aparece cada título en el top-K al resamplear los documentos?
 
 ```python
-def bootstrap_stability(X_docs, titles, K=10, n_iter=100, seed=42):
+def bootstrap_stability(X_docs, titles, K=10, n_iter=30, seed=42):
     """
     Resampling con reemplazo de documentos → recomputar ranking.
     Reporta frecuencia de aparición de cada título en top-K.
     Fundamento: Meinshausen & Bühlmann (2010).
+    Reducido de 100 a 30 iteraciones (suficiente para estimar frecuencias).
     """
     rng = np.random.default_rng(seed)
     D = X_docs.shape[0]
@@ -574,9 +586,11 @@ def bootstrap_stability(X_docs, titles, K=10, n_iter=100, seed=42):
 
 **Criterio de Meinshausen & Bühlmann (2010)**: títulos con **frecuencia ≥ π = 0.8** son considerados "establemente seleccionados" y forman el conjunto de confianza $\mathcal{S}_{\text{stable}}$.
 
-### 8.3 Test S3: Sensibilidad a pesos
+### 8.3 Test S3: Sensibilidad a pesos (TRABAJO FUTURO)
 
 **Pregunta**: ¿El top-K cambia al perturbar los pesos de las 5 estrategias?
+
+> **Nota**: Este test se mueve a trabajo futuro (§9.3) para simplificar la implementación inicial. No es esencial para el pipeline. Se puede ejecutar una sola vez al final si sobra tiempo.
 
 ```python
 from scipy.stats import kendalltau
@@ -665,7 +679,7 @@ def sensitivity_to_weights(X_docs, titles, base_weights, n_perturb=50, seed=42):
 | D6 | top_n inicial | Fijo 80 vs. configurable vs. automático | **Configurable** (default 100) | ✅ Definido |
 | D7 | Pesos de las 5 estrategias | Fijos vs. optimizados | **Fijos por ahora** + análisis S3; grid search futuro (M3) | ✅ Definido |
 | **D8** | **K=10 fijo vs. K\* automático** | Fijo para tesis vs. data-driven | **Auto-K + K=10 si Δscore < 5%** (Sec. 4.4) | ✅ Definido |
-| **D9** | **Nivel de validación mínimo** | N1 solo vs. N1+N2 vs. N1+N2+N3 | **N1+N2 mínimo** para tesis | ✅ Definido |
+| **D9** | **Nivel de validación mínimo** | N1 solo vs. N1+N2 vs. N1+N2+N3 | **N1+N2** (N3 pendiente de investigación DNCP) | ✅ Definido |
 
 ---
 
@@ -674,12 +688,12 @@ def sensitivity_to_weights(X_docs, titles, base_weights, n_perturb=50, seed=42):
 | Fase | Tarea | Días | Archivos |
 |------|-------|:----:|----------|
 | **F1: Marco Teórico** | Escribir fundamentación (este doc, Sec. 0) + actualizar referencias | 1 | `docs/plan_mejora_pipeline_seleccion_titulos.md` |
-| **F2: Métrica Mejorada** | Implementar Synthetic AUC + MI diversity + score compuesto | 2–3 | `src/etl/transformers/title_ranking_transformer.py`, `step6_feature_selection_full.py` |
-| **F3: Automatización** | auto-K, leer desde CSV, eliminar hardcodes | 1–2 | `src/etl/extractors/`, `scripts/` |
-| **F4: Stability Analysis** | Bootstrap (100 iter) + sensibilidad a K y pesos | 1–2 | Nuevo `scripts/analyze_ranking_stability.py` |
-| **F5: Validación** | Synthetic injection (N1) + cross-method agreement (N2) | 1–2 | Nuevo `scripts/validate_ranking.py` |
-| **F6: Documentación** | Reporte final con tablas, gráficos, justificaciones | 2 | `docs/`, `data/processed/title_ranking/` |
-| | **Total** | **8–12** | |
+| **F2: Métrica Mejorada** | Implementar Synthetic AUC (1 seed) + MI diversity + score compuesto | 2 | `src/etl/transformers/title_ranking_transformer.py`, `step6_feature_selection_full.py` |
+| **F3: Automatización** | auto-K, leer desde CSV, eliminar hardcodes | 1 | `src/etl/extractors/`, `scripts/` |
+| **F4: Stability Analysis** | Bootstrap (30 iter) + sensibilidad a K (S1) | 1 | Nuevo `scripts/analyze_ranking_stability.py` |
+| **F5: Validación** | Synthetic injection (N1) + cross-method agreement (N2) | 1 | Nuevo `scripts/validate_ranking.py` |
+| **F6: Documentación** | Reporte final con tablas, gráficos, justificaciones | 1 | `docs/`, `data/processed/title_ranking/` |
+| | **Total** | **7** | |
 
 ---
 
@@ -727,21 +741,23 @@ def sensitivity_to_weights(X_docs, titles, base_weights, n_perturb=50, seed=42):
 
 ---
 
-## Apendice A: Cambios v1.0 → v2.0
+## Apendice A: Cambios v1.0 → v2.0 → v2.1
 
-| Sección | v1.0 | v2.0 | Motivo |
-|---------|------|------|--------|
-| Marco teórico | (inexistente) | **Sec. 0** con 14 referencias | Rigor académico |
-| Métrica de diversidad | Pearson (B1) | **MI normalizada (B3)** | Inestabilidad de phi en binarias |
-| Métrica de separabilidad | (ninguna) | **Synthetic AUC (C1)** | Validación Wrapper sin ground truth |
-| Fórmula compuesta | `coverage × (1 − corr)` | **Suma ponderada de z-scores** | Justificación estadística |
-| Pipeline | 6 pasos | **7 pasos** con fundamentación | Claridad metodológica |
-| Validación | (mención superficial) | **3 niveles N1/N2/N3** (Sec. 7) | Sin ground truth → múltiples estrategias |
-| Análisis de robustez | (inexistente) | **Tests S1/S2/S3** (Sec. 8) | Rigor estadístico (stability selection) |
-| Preguntas de tesis | 5 | **7** con marco teórico | Defensa robusta |
-| Trigger para features textuales | "validar primero" | **Definido formalmente** (Sec. 6.3) | No era operacional |
-| K fijo vs. automático | Sin decisión | **D8: auto-K + K=10 si Δscore<5%** | Compatibilidad literatura |
+| Sección | v1.0 | v2.0 (GLM) | v2.1 (híbrido) | Motivo |
+|---------|------|------------|----------------|--------|
+| Marco teórico | (inexistente) | **Sec. 0** con 14 referencias | **Sec. 0** (sin cambios) | Rigor académico |
+| Métrica de diversidad | Pearson (B1) | **MI normalizada (B3)** | **B3** (sin cambios) | Inestabilidad de phi en binarias |
+| Métrica de separabilidad | (ninguna) | **Synthetic AUC (C1)** — 5 seeds | **C1** — 1 seed | Simplificación para tesis |
+| Fórmula compuesta | `coverage × (1 − corr)` | **Suma ponderada de z-scores** | **Sin cambios** | Justificación estadística |
+| Pipeline | 6 pasos | **7 pasos** con fundamentación | **7 pasos** (sin cambios) | Claridad metodológica |
+| Validación | (mención superficial) | **3 niveles N1/N2/N3** | **N1+N2** (N3 pendiente) | Simplificación |
+| Análisis de robustez | (inexistente) | **Tests S1/S2/S3** | **S1+S2** (S3 a futuro) | Reducir tiempo de cómputo |
+| Preguntas de tesis | 5 | **7** con marco teórico | **7** (sin cambios) | Defensa robusta |
+| Trigger features textuales | "validar primero" | **Definido formalmente** (Sec. 6.3) | **Sin cambios** | Operacional |
+| K fijo vs. automático | Sin decisión | **D8: auto-K + K=10 si Δscore<5%** | **Sin cambios** | Compatibilidad literatura |
+| Bootstrap | (no existía) | 100 iteraciones | **30 iteraciones** | Ahorrar ~70% tiempo cómputo |
+| Sensibilidad pesos | (no existía) | S3 incluido | **Movido a futuro (§9.3)** | No esencial para pipeline |
 
 ---
 
-*Plan v2.0 — 2026-06-24. Revisión académica para tesis de grado. Documento base: `plan_mejora_pipeline_seleccion_titulos.md` (v1.0, 2026-06-18).*
+*Plan v2.1 — 2026-06-24. Decisión híbrida (v1.0 original + v2.0 GLM revisado). Ajustes: 1 seed Synthetic AUC, 30 iter bootstrap, sensibilidad pesos a futuro. Documento comparativo: `docs/comparacion_planes_v1_v2.md`.*

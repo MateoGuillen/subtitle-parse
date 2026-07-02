@@ -1,8 +1,22 @@
 """Script to run the PDF content extraction pipeline."""
 
+import argparse
 import os
 from src.pipelines.pdf_content_pipeline import PdfContentPipeline
 from config.settings import BASE_OUTPUT_PROCESSED_DIR
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Extract PDF content sections from outlines and lines."
+    )
+    parser.add_argument(
+        "--years",
+        type=str,
+        default=None,
+        help="Comma-separated years to process (e.g. 2021,2022). Default: all years.",
+    )
+    return parser.parse_args()
 
 
 def main():
@@ -16,6 +30,9 @@ def main():
     The pipeline processes PDF outlines and PDF lines data, matches them, and extracts
     content for each section defined by the outlines.
     """
+
+    args = parse_args()
+    years = [int(y.strip()) for y in args.years.split(",")] if args.years else None
 
     pdf_lines_path = os.path.join(
         BASE_OUTPUT_PROCESSED_DIR,
@@ -46,7 +63,8 @@ def main():
         "content_sections_path": content_sections_path,
         "content_sections_dir": os.path.join(
             BASE_OUTPUT_PROCESSED_DIR, "sections"
-        ),  # ✅ agregar esto
+        ),
+        "years": years,
     }
 
     # Initialize and run the pipeline

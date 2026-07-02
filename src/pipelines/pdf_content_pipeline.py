@@ -46,6 +46,16 @@ class PdfContentPipeline:
         if outlines_df is None:
             return
 
+        years = self.config.get("years", None)
+        if years is not None:
+            years_str = [str(y) for y in years]
+            before = len(outlines_df)
+            outlines_df = outlines_df[outlines_df["year"].isin(years_str)]
+            self.logger.info(
+                "Filtered outlines by years %s: %d -> %d rows",
+                years_str, before, len(outlines_df),
+            )
+
         all_doc_ids = outlines_df["document_id"].unique().tolist()
         all_doc_ids_set = set(all_doc_ids)
         total_docs = len(all_doc_ids)

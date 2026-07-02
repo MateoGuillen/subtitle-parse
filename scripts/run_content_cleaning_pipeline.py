@@ -1,8 +1,22 @@
 """Script to run the content cleaning pipeline."""
 
+import argparse
 import os
 from src.pipelines.content_cleaning_pipeline import ContentCleaningPipeline
 from config.settings import BASE_OUTPUT_PROCESSED_DIR
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Clean content text from extracted PDF sections."
+    )
+    parser.add_argument(
+        "--years",
+        type=str,
+        default=None,
+        help="Comma-separated years to process (e.g. 2021,2022). Default: all years.",
+    )
+    return parser.parse_args()
 
 
 def main():
@@ -31,6 +45,9 @@ def main():
     The raw ``sections/`` dataset is left untouched so the cleaning step
     can be re-run with different parameters without re-running extraction.
     """
+    args = parse_args()
+    years = [int(y.strip()) for y in args.years.split(",")] if args.years else None
+
     sections_dir = os.path.join(
         BASE_OUTPUT_PROCESSED_DIR, "sections"
     )
@@ -43,6 +60,7 @@ def main():
     config = {
         "sections_dir":         sections_dir,
         "cleaned_sections_dir": cleaned_sections_dir,
+        "years": years,
     }
 
     pipeline = ContentCleaningPipeline(config)

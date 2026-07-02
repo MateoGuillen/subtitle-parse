@@ -1,9 +1,23 @@
 """Script to load cleaned sections into PostgreSQL."""
 
+import argparse
 import os
 from src.pipelines.sections_to_db_pipeline import SectionsToDbPipeline
 from config.settings import BASE_OUTPUT_PROCESSED_DIR
 from config.settings import DB_CONFIG
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Load cleaned sections into PostgreSQL."
+    )
+    parser.add_argument(
+        "--years",
+        type=str,
+        default=None,
+        help="Comma-separated years to process (e.g. 2021,2022). Default: all years.",
+    )
+    return parser.parse_args()
 
 
 def main():
@@ -54,6 +68,8 @@ def main():
     For production, move credentials to environment variables or a
     secrets manager — never commit passwords to version control.
     """
+    args = parse_args()
+    years = [int(y.strip()) for y in args.years.split(",")] if args.years else None
 
     # ── Paths ──────────────────────────────────────────────────────────────
     sections_dir = os.path.join(BASE_OUTPUT_PROCESSED_DIR, "sections_clean")
@@ -77,16 +93,8 @@ def main():
     config = {
         "sections_dir": sections_dir,
         "db_dsn": db_dsn,
-        # Rows committed per batch.
-        # 10_000 is safe for 32GB RAM.  Increase to 50_000 for faster loads
-        # if you have headroom — each batch holds ~50MB of row data in memory.
         "batch_size": 10_000,
-        # Load specific years only, or None for all available years.
-        # Example: "years": [2024, 2025]  to reload only recent years.
-        # Note: años con partición faltante en PostgreSQL se saltan.
-        "years": [2021, 2022, 2023, 2024, 2025],
-        # Saltar años anteriores a este (útil para reanudar tras crash).
-        # Ejemplo: "start_year": 2025  → solo procesa 2025 en adelante.
+        "years": years,
         "start_year": None,
     }
 
