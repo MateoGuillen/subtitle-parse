@@ -81,6 +81,23 @@ def main() -> None:
         action="store_true",
         help="Skip LLM schema generation (uses default schema). Useful for fast export regeneration.",
     )
+    parser.add_argument(
+        "--from-ranking",
+        action="store_true",
+        help="Read titles from the title_ranking.csv instead of hardcoded defaults",
+    )
+    parser.add_argument(
+        "--ranking-csv",
+        type=str,
+        default=None,
+        help="Path to ranking CSV (default: data/processed/title_ranking/title_ranking.csv)",
+    )
+    parser.add_argument(
+        "--top-k",
+        type=int,
+        default=10,
+        help="Number of top titles to process from ranking (default: 10)",
+    )
     args = parser.parse_args()
 
     if args.llm_provider == "openrouter":
@@ -90,6 +107,10 @@ def main() -> None:
 
     output_dir = os.path.join(
         BASE_OUTPUT_PROCESSED_DIR, "section_clustering"
+    )
+
+    default_ranking_csv = os.path.join(
+        BASE_OUTPUT_PROCESSED_DIR, "title_ranking", "title_ranking.csv"
     )
 
     config = {
@@ -109,6 +130,8 @@ def main() -> None:
         "compare_embeddings": args.compare,
         "export_chat_prompts": args.export_chat_prompts,
         "skip_llm": args.skip_llm,
+        "ranking_csv": args.ranking_csv or (default_ranking_csv if args.from_ranking else None),
+        "top_k_titles": args.top_k,
     }
 
     if args.compare:

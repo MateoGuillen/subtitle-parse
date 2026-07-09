@@ -1,16 +1,19 @@
 """Transformer for title anomaly-ranking pipeline.
 
 Implements five complementary strategies and combines them into a single
-relevance score per title.
+relevance score per title.  Supports NMI diversity, Synthetic AUC, optimal K
+selection, and bootstrap stability analysis.
 """
 
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import (
     RandomForestClassifier,
     IsolationForest,
 )
+from sklearn.metrics import roc_auc_score
+from scipy.stats import spearmanr
 from src.utils.logging_utils import setup_logger
 
 
@@ -25,9 +28,17 @@ class TitleRankingTransformer:
         * Contextual anomalies (category_id)      — 0.15
         * Section-level Isolation Forest          — 0.20
         * Document-level IF point-biserial corr.  — 0.10
+
+    **New in v2.1** (hybrid plan):
+        * ``compute_nmi_diversity()`` — NMI-based diversity metric (B3)
+        * ``compute_synthetic_auc()`` — AUC against injected anomalies (C1)
+        * ``evaluate_optimal_k()`` — score compuesto z-normalizado (A1+B3+C1)
+        * ``bootstrap_stability()`` — 30-iter bootstrap (S2)
+        * ``sensitivity_to_k()`` — Spearman rho between K variants (S1)
     """
 
-    WEIGHTS = {
+    # Pesos de las 5 estrategias
+    STRATEGY_WEIGHTS = {
         "score_outlier": 0.25,
         "score_rf": 0.30,
         "score_contextual": 0.15,
@@ -35,8 +46,16 @@ class TitleRankingTransformer:
         "score_corr": 0.10,
     }
 
+    # Pesos del score compuesto (K* optimal)
+    COMPOSITE_WEIGHTS = {
+        "coverage": 0.35,
+        "diversity": 0.35,
+        "separability": 0.30,
+    }
+
     def __init__(self, random_state: int = 42):
         self.random_state = random_state
+        self.rng = np.random.default_rng(random_state)
         self.logger = setup_logger(__name__)
 
     # ------------------------------------------------------------------
@@ -51,18 +70,6 @@ class TitleRankingTransformer:
     ) -> pd.DataFrame:
         """
         Run all five strategies and produce a combined ranking.
-
-        Args:
-            df_doc:  ``document_features`` DataFrame (one row per document).
-            df_sec:  Sampled ``pliegos_secciones`` DataFrame.
-            title_slugs:  Sorted list of unique title slugs from columns.
-
-        Returns:
-            DataFrame with columns
-            ``[title_slug, display_name, score_outlier, score_rf,
-              score_contextual, score_section_if, score_corr,
-              score_total, rank]``
-            ordered by ``rank``.
         """
         self.logger.info("=== Strategy 1/5: Tukey Outlier Frequency ===")
         s1 = self._strategy_outlier_frequency(df_doc, title_slugs)
@@ -79,7 +86,6 @@ class TitleRankingTransformer:
         self.logger.info("=== Strategy 5/5: Document-level IF Correlation ===")
         s5 = self._strategy_doc_correlation(df_doc, title_slugs)
 
-        # Assemble ranking table
         records = []
         for slug in title_slugs:
             display = slug.replace("_", " ").title()
@@ -95,7 +101,7 @@ class TitleRankingTransformer:
 
         ranking = pd.DataFrame(records)
         ranking["score_total"] = sum(
-            ranking[col] * w for col, w in self.WEIGHTS.items()
+            ranking[col] * w for col, w in self.STRATEGY_WEIGHTS.items()
         )
         ranking["rank"] = ranking["score_total"].rank(ascending=False).astype(int)
         ranking.sort_values("rank", inplace=True)
@@ -106,6 +112,300 @@ class TitleRankingTransformer:
             ranking.head(5)["display_name"].tolist(),
         )
         return ranking
+
+    # ------------------------------------------------------------------
+    # New v2.1: NMI Diversity (B3)
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def compute_nmi_diversity(
+        df_doc: pd.DataFrame,
+        slugs: List[str],
+    ) -> float:
+        """
+        Compute mean Normalized Mutual Information (NMI) among all title pairs.
+
+        Returns:
+            Mean NMI across all unique pairs (lower = more diverse).
+            NMI = MI(has_i; has_j) / sqrt(H(has_i) * H(has_j))
+        """
+        n = len(slugs)
+        if n < 2:
+            return 1.0
+
+        def entropy(p):
+            p = np.clip(p, 1e-12, 1 - 1e-12)
+            return -p * np.log2(p) - (1 - p) * np.log2(1 - p)
+
+        nmi_values = []
+        for i in range(n):
+            col_i = f"has_{slugs[i]}"
+            if col_i not in df_doc.columns:
+                continue
+            vi = df_doc[col_i].values.astype(float)
+            hi = entropy(vi.mean())
+            if hi < 1e-12:
+                continue
+            for j in range(i + 1, n):
+                col_j = f"has_{slugs[j]}"
+                if col_j not in df_doc.columns:
+                    continue
+                vj = df_doc[col_j].values.astype(float)
+                hj = entropy(vj.mean())
+                if hj < 1e-12:
+                    continue
+                # Joint entropy
+                pairs = np.column_stack([vi, vj])
+                p_00 = ((vi == 0) & (vj == 0)).mean()
+                p_01 = ((vi == 0) & (vj == 1)).mean()
+                p_10 = ((vi == 1) & (vj == 1)).mean()
+                p_11 = ((vi == 1) & (vj == 1)).mean()
+                p_joint = np.clip([p_00, p_01, p_10, p_11], 1e-12, None)
+                h_joint = -np.sum(p_joint * np.log2(p_joint))
+
+                mi = hi + hj - h_joint
+                nmi = mi / np.sqrt(hi * hj) if hi * hj > 0 else 0.0
+                nmi_values.append(np.clip(nmi, 0.0, 1.0))
+
+        return float(np.mean(nmi_values)) if nmi_values else 1.0
+
+    # ------------------------------------------------------------------
+    # New v2.1: Synthetic AUC (C1)
+    # ------------------------------------------------------------------
+
+    def compute_synthetic_auc(
+        self,
+        X_subset: np.ndarray,
+        n_synthetic: Optional[int] = None,
+        contamination: float = 0.05,
+    ) -> float:
+        """
+        Inject synthetic anomalies and measure AUC of Isolation Forest.
+
+        For each anomaly, randomly mutates features:
+          - 40%: set to max value (over-dimensioned)
+          - 30%: set to min value (omission)
+          - 30%: unchanged
+
+        For binary features, this becomes flip 0→1 and flip 1→0.
+        """
+        D = X_subset.shape[0]
+        n_synthetic = n_synthetic or max(100, int(0.05 * D))
+        n_synthetic = min(n_synthetic, D)
+        rng = self.rng
+
+        idx = rng.choice(D, size=n_synthetic, replace=False)
+        X_anom = X_subset[idx].copy()
+
+        for j in range(X_anom.shape[1]):
+            mask = rng.random(n_synthetic)
+            col_min = float(X_subset[:, j].min())
+            col_max = float(X_subset[:, j].max())
+
+            is_binary = (col_min == 0.0 and col_max == 1.0 and
+                         set(np.unique(X_subset[:, j]).astype(int).tolist()).issubset({0, 1}))
+
+            if is_binary:
+                for row_i in range(n_synthetic):
+                    if mask[row_i] < 0.4:
+                        X_anom[row_i, j] = 1.0
+                    elif mask[row_i] < 0.7:
+                        X_anom[row_i, j] = 0.0
+            else:
+                p99 = float(np.percentile(X_subset[:, j], 99))
+                if np.isnan(p99) or p99 <= col_min:
+                    p99 = col_max
+                X_anom[mask < 0.4, j] = p99
+                X_anom[(mask >= 0.4) & (mask < 0.7), j] = 0.0
+
+        X_all = np.vstack([X_subset, X_anom])
+        y_all = np.concatenate([np.ones(D), np.zeros(n_synthetic)])
+
+        clf = IsolationForest(
+            contamination=contamination,
+            random_state=self.random_state,
+            n_estimators=200,
+            n_jobs=-1,
+        )
+        clf.fit(X_subset)
+        scores = clf.score_samples(X_all)
+
+        return float(roc_auc_score(y_all, scores))
+
+    # ------------------------------------------------------------------
+    # New v2.1: Optimal K Evaluation (Wrapper)
+    # ------------------------------------------------------------------
+
+    def evaluate_optimal_k(
+        self,
+        ranking: pd.DataFrame,
+        df_doc: pd.DataFrame,
+        k_values: Optional[List[int]] = None,
+    ) -> pd.DataFrame:
+        """
+        Evaluate multiple K values using coverage (A1), NMI diversity (B3),
+        and synthetic AUC (C1).  Uses has_*, len_*, tok_* features.
+
+        Best K = argmax(0.35*z(cov) + 0.35*z(div) + 0.30*z(auc)).
+        """
+        if k_values is None:
+            k_values = [5, 8, 10, 12, 15, 20]
+
+        results = []
+        slugs = ranking["title_slug"].tolist()
+
+        for k in k_values:
+            top_slugs = slugs[:k]
+            # Build feature matrix: has_* + len_* + tok_*
+            feat_cols = []
+            for s in top_slugs:
+                for prefix in ("has_", "len_", "tok_"):
+                    col = f"{prefix}{s}"
+                    if col in df_doc.columns:
+                        feat_cols.append(col)
+
+            if not feat_cols:
+                self.logger.warning("  K=%d: no valid columns, skipping.", k)
+                continue
+
+            X = df_doc[feat_cols].values.astype(float)
+            n_docs = len(df_doc)
+
+            # Coverage@K (based on has_* only)
+            has_cols = [f"has_{s}" for s in top_slugs if f"has_{s}" in df_doc.columns]
+            if has_cols:
+                has_data = df_doc[has_cols].values.astype(float)
+                coverage = float((has_data.sum(axis=1) > 0).mean())
+            else:
+                coverage = 0.0
+
+            # Diversity@K (based on has_*)
+            div = 1.0 - self.compute_nmi_diversity(df_doc, top_slugs) if len(top_slugs) >= 2 else 1.0
+
+            # Synthetic AUC@K (based on all feat cols)
+            auc_val = self.compute_synthetic_auc(X)
+
+            results.append({
+                "K": k,
+                "coverage": coverage,
+                "diversity": div,
+                "synthetic_auc": auc_val,
+            })
+
+        if not results:
+            self.logger.error("No valid K values evaluated!")
+            return pd.DataFrame()
+
+        eval_df = pd.DataFrame(results)
+
+        # Z-normalize each column, then combine with weights
+        w = self.COMPOSITE_WEIGHTS
+        for col in ["coverage", "diversity", "synthetic_auc"]:
+            mu, std = eval_df[col].mean(), eval_df[col].std()
+            if std > 1e-12:
+                eval_df[f"z_{col}"] = (eval_df[col] - mu) / std
+            else:
+                eval_df[f"z_{col}"] = 0.0
+
+        eval_df["score"] = (
+            w["coverage"] * eval_df["z_coverage"]
+            + w["diversity"] * eval_df["z_diversity"]
+            + w["separability"] * eval_df["z_synthetic_auc"]
+        )
+        eval_df["is_optimal"] = eval_df["score"] == eval_df["score"].max()
+        eval_df.sort_values("K", inplace=True)
+        eval_df.reset_index(drop=True, inplace=True)
+
+        best_k = int(eval_df.loc[eval_df["score"].idxmax(), "K"])
+        self.logger.info("Optimal K* = %d (score=%.4f)", best_k, eval_df["score"].max())
+        for _, row in eval_df.iterrows():
+            flag = " <- K*" if row["is_optimal"] else ""
+            self.logger.info(
+                "  K=%2d  coverage=%.4f  diversity=%.4f  auc=%.4f  score=%+.4f%s",
+                row["K"], row["coverage"], row["diversity"],
+                row["synthetic_auc"], row["score"], flag,
+            )
+
+        return eval_df
+
+    # ------------------------------------------------------------------
+    # New v2.1: Bootstrap Stability (S2)
+    # ------------------------------------------------------------------
+
+    def bootstrap_stability(
+        self,
+        df_doc: pd.DataFrame,
+        df_sec: pd.DataFrame,
+        slugs: List[str],
+        K: int = 10,
+        n_iter: int = 30,
+    ) -> Dict[str, float]:
+        """
+        Bootstrap resampling to measure selection frequency for each title.
+
+        Returns:
+            Dict of {title_slug: frequency (0-1)} in top-K across n_iter
+            bootstrap samples.
+        """
+        self.logger.info(
+            "Bootstrap stability: %d iterations, K=%d, %d titles, %d docs.",
+            n_iter, K, len(slugs), len(df_doc),
+        )
+        D = len(df_doc)
+        counts = {s: 0 for s in slugs}
+
+        for it in range(n_iter):
+            if (it + 1) % 10 == 0:
+                self.logger.info("  Bootstrap iteration %d/%d", it + 1, n_iter)
+            idx = self.rng.choice(D, size=D, replace=True)
+            df_doc_boot = df_doc.iloc[idx].reset_index(drop=True)
+            idx_sec = self.rng.choice(len(df_sec), size=len(df_sec), replace=True) if df_sec is not None else None
+            df_sec_boot = df_sec.iloc[idx_sec].reset_index(drop=True) if df_sec is not None else None
+            ranking = self.compute_ranking(df_doc_boot, df_sec_boot, slugs)
+            for s in ranking.head(K)["title_slug"].tolist():
+                counts[s] += 1
+
+        return {s: c / n_iter for s, c in counts.items()}
+
+    # ------------------------------------------------------------------
+    # New v2.1: Sensitivity to K (S1)
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def sensitivity_to_k(
+        ranking: pd.DataFrame,
+        k_pairs: Optional[List[Tuple[int, int]]] = None,
+    ) -> Dict[str, float]:
+        """
+        Spearman rho between top-K rankings at different K values.
+
+        Args:
+            ranking: Full ranking DataFrame (title_slug + rank columns).
+            k_pairs: List of (K1, K2) pairs to compare. Default: [(8,10), (10,12), (8,12)].
+
+        Returns:
+            Dict of "{K1}-{K2}" -> Spearman rho.
+        """
+        if k_pairs is None:
+            k_pairs = [(8, 10), (10, 12), (8, 12)]
+
+        slugs = ranking["title_slug"].tolist()
+        ranks = {s: i for i, s in enumerate(slugs)}
+        results = {}
+
+        for k1, k2 in k_pairs:
+            top1 = set(slugs[:k1])
+            top2 = set(slugs[:k2])
+            common = list(top1 & top2)
+            if len(common) < 5:
+                results[f"{k1}-{k2}"] = float("nan")
+                continue
+            r1 = [ranks[t] for t in common]
+            r2 = [ranks[t] for t in common]
+            rho, _ = spearmanr(r1, r2)
+            results[f"{k1}-{k2}"] = float(rho)
+
+        return results
 
     # ------------------------------------------------------------------
     # Strategy implementations

@@ -82,8 +82,12 @@ class SectionClusteringPipeline:
             ],
         )
         self.skip_llm = config.get("skip_llm", False)
+        self.ranking_csv = config.get("ranking_csv")
+        self.top_k_titles = config.get("top_k_titles", 10)
 
-        self.extractor = SectionClusteringExtractor(self.db_params)
+        self.extractor = SectionClusteringExtractor(
+            self.db_params, ranking_csv=self.ranking_csv
+        )
         self.transformer = SectionClusteringTransformer(
             llm_provider=self.llm_provider,
             embedding_model=self.embedding_model,
