@@ -7,91 +7,134 @@
 `feature/ocds-csv-pipeline` — staged changes (not yet committed):
 - `config/settings.py`, `scripts/run_section_clustering_pipeline.py`, `src/etl/loaders/section_clustering_loader.py`, `src/etl/transformers/llm_provider.py` (new), `src/etl/transformers/section_clustering_transformer.py`, `src/pipelines/section_clustering_pipeline.py`, `docs/readme_pipeline_extraction_runner.md`, `reporte_clustering_decisiones.md`
 
+Unstaged modified files (current session):
+- `src/etl/extractors/document_features_extractor.py` — Phase 1: added word_count, page, line_start, line_end to SECTION_QUERY; chunked loading
+- `src/etl/transformers/document_features_transformer.py` — Phase 1: Gini, entropy, word pivot, count pivot, span/page_range pivots, _compute_gini, _compute_title_entropy
+- `src/etl/loaders/document_features_loader.py` — Phase 1: FIXED_COLUMNS_DDL extended, create_table handles word_, count_, span_, page_range_ prefixes
+- `src/pipelines/document_features_pipeline.py` — Phase 1: extended title_cols generation with 4 new prefix types + word_otros
+- `src/etl/extractors/title_ranking_extractor.py` — Phase 4: added ECON_FEATURES_QUERY + get_economic_features(); **Phase 4 fix**: memory-safe column loading (245 cols instead of 587) via `_get_relevant_columns()` querying information_schema
+- `src/etl/transformers/title_ranking_transformer.py` — Phase 4: 6 strategies (economic=0.15), STRATEGY_WEIGHTS updated, _strategy_economic_risk method, ECONOMIC_RISK_COLS module constant
+- `src/pipelines/title_ranking_pipeline.py` — Phase 4: loads document_economic_features + passes df_econ to compute_ranking
+
+## Sessions Summary
+
+### Session 1 — Feature Improvements Plan (Phases 1–3)
+
+- **Phase 1** — Word count fix + structural features  
+  - Recalculated `word_count` for all 2,775,485 sections (avg 204.5, max 475K)  
+  - `document_features` rebuilt with 571 columns (was 260): added `word_*`, `count_*`, `span_*`, `page_range_*` per title, plus aggregates (gini, entropy, avg/max page, sum/avg word count)  
+  - Pipeline: 31,321 documents, 171 sec, chunked loading (200K rows/chunk), int64→int32 downcast
+
+- **Phase 2** — Economic features table  
+  - Created extractor (JOIN across 9 OCDS tables), transformer (12 derived fields: ratios, flags), loader (bulk INSERT with NaT→None), pipeline, run script  
+  - Fixed: SQLAlchemy immutabledict bug → switched to raw psycopg2; NaT serialization → pd.isna(v) catch-all  
+  - Populated: 29,811 documents, 42 columns, ~3 sec
+
+- **Phase 3** — Collusion features  
+  - Extractor SQL: win_freq CTE (winner_category_frequency, winner_total_contracts) and repeat_win CTE (is_repeat_winner) with window functions  
+  - Transformer: added bidder_diversity = n_oferentes_distintos / cantidad_items  
+  - ALTER TABLE added 4 columns; pipeline re-run: 29,811 rows, 46 columns
+
+### Session 2 — Phase 4 + Memory Fix
+
+- **Phase 4** — 6th ranking strategy (Economic Risk)  
+  - STRATEGY_WEIGHTS: outlier=0.20, rf=0.25, contextual=0.15, section_if=0.15, corr=0.10, economic=0.15  
+  - ECONOMIC_RISK_COLS: es_unico_oferente, overbudget_ratio, is_high_value_single_bidder, winner_category_frequency, is_repeat_winner, winner_total_contracts, bidder_diversity  
+  - `_strategy_economic_risk()`: for each title, merge has_{slug} with economic features on nro_licitacion, compute mean absolute Pearson correlation with risk indicators  
+  - `compute_ranking()` updated to accept df_econ param and call 6th strategy  
+  - Validated via isolation test (test_economic_strategy.py)
+
+- **Memory Fix**  
+  - `_get_relevant_columns()` queries information_schema.columns, filters to has_*/len_*/tok_* prefixes + nro_licitacion + category_id  
+  - Column reduction: **587 → 245** (−58%)  
+  - Pipeline now runs without ArrayMemoryError
+
+### Session 3 — Phase 5 Execution + Phase 6 Docs
+
+- **Phase 5** — Ranking pipeline re-run  
+  - Ranking pipeline executed successfully with 6 strategies  
+  - 11.4s, top-1: Fuerza Mayor (0.5717)  
+  - Output: title_ranking.csv, title_ranking_report.md, pipeline_summary.json
+
+- **Phase 6** ✅ — Anomaly detection docs fully updated  
+  - Added pre-computed tables reference (document_features, document_economic_features, title_ranking)  
+  - Updated Feature Engineering section to reference pre-computed tables  
+  - Updated ColumnTransformer with new structural + economic features  
+  - Added comprehensive **Title Ranking Pipeline** section with 6 strategies, weights, actual top-20 scores (including economic), and integration notes  
+  - Added feature justification table with corruption literature references  
+  - Updated architecture diagram showing feature engineering → ranking → anomaly detection flow  
+  - Updated thesis novelty comparison  
+  - Added references section with anomaly detection + corruption literature  
+  - Added limitations + reproducibility sections  
+  - **Fixed report generator**: `src/etl/loaders/title_ranking_loader.py` now displays all 6 strategies including Economic Risk (was showing 5)  
+  - Regenerated `title_ranking_report.md` with updated 6-strategy table  
+  - Added CSV schema and design decisions subsections
+
 ## Next Priority (in order)
-1. ✅ Schema DeepSeek v4 validado para "idioma de la oferta" (86.2% con Qwen 14B) — **APTO para Pipeline 2**
-2. Repetir validación para los otros 9 títulos (generar schemas vía web LLM, insertar, validar)
-3. Implementar extraction runner pipeline (5 new files)
-4. Validar clusters in original embedding space
+
+1. **Clustering**: Continue with schema validation for remaining 9 titles
+
+2. **Clustering**: Continue with schema validation for remaining 9 titles  
+   - Staged files exist for section_clustering_pipeline but never executed  
+   - Need to validate LLM extraction prompts for remaining titles
+
+3. **Extraction runner pipeline**: Implement extraction runner (5 new files)
+
+4. **Commit**: All Phase 1–5 changes are uncommitted:
+   - 7 unstaged modified files  
+   - 5 new untracked pipeline files (economic features)  
+   - Various untracked scripts
 
 ## Key Commands
 ```bash
-# Clustering pipeline (no LLM, fast export regeneration):
-python scripts/run_section_clustering_pipeline.py --skip-llm --export-chat-prompts
+# Ranking pipeline (6 strategies):
+python -c "import sys; sys.path.insert(0, '.'); from src.pipelines.title_ranking_pipeline import TitleRankingPipeline; from config.settings import DB_CONFIG; p = TitleRankingPipeline({'db_params': DB_CONFIG, 'top_n': 80, 'section_sample': 30000, 'output_dir': 'data/processed/title_ranking'}); p.run()"
 
-# Clustering pipeline with local LLM:
+# Test 6th strategy isolation:
+python scripts/test_economic_strategy.py
+
+# Feature engineering pipelines:
+python scripts/run_document_features_pipeline.py
+python scripts/run_document_economic_features_pipeline.py
+
+# Clustering pipeline:
+python scripts/run_section_clustering_pipeline.py --skip-llm --export-chat-prompts
 python scripts/run_section_clustering_pipeline.py
 
-# With OpenRouter:
-python scripts/run_section_clustering_pipeline.py --llm-provider openrouter
-
-# Skip specific titles:
-python scripts/run_section_clustering_pipeline.py --skip-titles fraude retiro
-
-# Update schemas from manual edits:
-python scripts/update_schemas.py
-
-# ---- Schema validation workflow ----
-# Export prompts for web LLM:
-python scripts/run_section_clustering_pipeline.py --skip-llm --export-chat-prompts
-
-# Insert web LLM response into master_schemas.json:
-python scripts/insert_llm_schema.py --title "idioma de la oferta" --provider deepseek --file data/external/llm_web_responses/deepseek_response_v4.txt
-
-# Validate (doble validación recomendada, 16 samples × 2 runs):
-python scripts/validate_extraction_prompts.py --title "idioma de la oferta" --samples 16 --runs 2
-
-# Validate single run:
+# Schema validation:
 python scripts/validate_extraction_prompts.py --title "idioma de la oferta" --samples 16
+python scripts/insert_llm_schema.py --title "idioma de la oferta" --provider deepseek --file data/external/llm_web_responses/deepseek_response_v4.txt
 ```
 
-## Critical Files
-- `src/etl/transformers/section_clustering_transformer.py` — main logic (1117 lines)
-- `src/etl/transformers/llm_provider.py` — LLM provider abstraction (ahora soporta `model` param)
-- `scripts/validate_extraction_prompts.py` — validación de schemas vs LLM local
-- `scripts/insert_llm_schema.py` — insertar respuestas de LLM web en master_schemas.json
-- `src/pipelines/section_clustering_pipeline.py` — pipeline orchestration
-- `config/settings.py` — reads from `.env`
-- `.env` — live creds (not in git)
+## Relevant Files
+- `docs/plan_feature_improvements.md`: full plan document with 6 phases
+- `docs/pipeline3_anomaly_detection.md`: anomaly detection pipeline documentation (pending Phase 6 updates)
+- `src/etl/extractors/document_features_extractor.py`: SECTION_QUERY v2, chunked loading
+- `src/etl/transformers/document_features_transformer.py`: Gini, entropy, pivot aggregations
+- `src/etl/loaders/document_features_loader.py`: DDL with 6 new aggregate cols
+- `src/pipelines/document_features_pipeline.py`: 4 new prefix types
+- `src/etl/extractors/document_economic_extractor.py`: ECONOMIC_QUERY with collusion window functions
+- `src/etl/transformers/document_economic_transformer.py`: 12 DERIVED_FIELDS + COLLUSION_FIELDS
+- `src/etl/loaders/document_economic_loader.py`: NaT→None, _df_to_tuples with pd.isna catch-all
+- `src/etl/extractors/title_ranking_extractor.py`: memory fix — _get_relevant_columns() loads 245 cols via information_schema
+- `src/etl/transformers/title_ranking_transformer.py`: 6 strategies, 666 lines, STRATEGY_WEIGHTS, ECONOMIC_RISK_COLS, _strategy_economic_risk
+- `src/pipelines/title_ranking_pipeline.py`: loads economic features, passes df_econ to compute_ranking
+- `scripts/test_economic_strategy.py`: validates 6th strategy in isolation (lightweight)
 
 ## Data
-- `data/processed/section_clustering/master_schemas.json` — schemas + samples (6515 lines)
-- `data/processed/section_clustering/llm_chat_prompts.json` — prompts for web LLM
-- `data/external/llm_web_responses/` — respuestas guardadas de LLMs web
-- DB: `dncp.pliegos_secciones` (2.7M rows, 31K documents, 323 titles)
+- `dncp.document_features` — 31,321 rows × 571 cols (structural features)
+- `dncp.document_economic_features` — 29,811 rows × 46 cols (economic + collusion)
+- `dncp.pliegos_secciones` — 2.7M rows, 17 cols (word_count fixed)
+- `data/processed/title_ranking/` — ranking CSVs + reports (6 strategies, 11.4s run)
 
-## Docs (session continuity)
-- `docs/plan_actual.md` — everything completed
-- `docs/plan_futuro.md` — full future roadmap with implementation details
-- `docs/readme_pipeline_extraction_runner.md` — extraction runner spec
-- `docs/workflow_validacion_schemas.md` — workflow de validación completo
-- `docs/reporte_validacion_completo.md` — reporte completo con benchmarks y análisis costo-tiempo
-- `docs/schema_pipeline2_campos.md` — explicación campo por campo de schemas validados
-
-## Schema Validation State
-| Título | Estado | Accuracy | Notas |
-|--------|:------:|:--------:|-------|
-| idioma de la oferta | ✅ APTO | **93.8%-96.9%** (14B Q5, doble validación) | 8 campos. Fix: hint literal estricto para `contiene_contenido_adicional` (30%→100%) |
-| copias de la oferta cps | ✅ APTO | **93.8%** (14B Q5, doble validación) | 9 campos Claude. Fix: per-sample overrides para cluster 2 y `cantidad_copias` (ground truth corregido) |
-| fraude y corrupcion | ❌ Pendiente | - | Schema v1 sin hints ni methods |
-| formato y firma | ❌ Pendiente | - | - |
-| limitacion de responsabilidad | ❌ Pendiente | - | - |
-| planos y disenos | ❌ Pendiente | - | - |
-| ... (5 más) | ❌ Pendiente | - | - |
-
-## Known LLM Limitations
-- **Qwen 2.5 7B**: Falla en distinguir `pregunta_permiso_es_sin_traduccion` de `permite_documentos_sin_traduccion` (0% vs 90% con 14B). Usar Qwen 14B para Pipeline 2.
-- **LM Studio**: No soporta `response_format.type=json_object` (error 400). Usar parse desde texto.
-- **LocalLLMProvider** ahora acepta `model` param para especificar modelo.
-- **Conteo de palabras**: LLM siempre falla en campos numéricos exactos (`longitud_texto_palabras`, `num_clausulas_normativas_presentes`). Calcular programáticamente.
-- **Hallucination en textos vacíos**: Cluster 2 (texto_vacio=1) causa que LLM invente contenido → 8 errores por muestra. Muestras con <10 palabras deben excluirse del LLM o trattarse separadamente.
-
-## Ground Truth Issues (Descubrimiento)
-- **Problema**: `cluster_values` generados por Claude/DeepSeek asumen que todas las muestras de un cluster son idénticas. Pero el clustering agrupa por similitud de embedding, no por valores de campos.
-- **Ejemplo**: Cluster 2 de "copias" tiene 3 muestras vacías + 2 con contenido completo. El ground truth decía "vacías" para todas.
-- **Solución**: `sample_overrides` en `master_schemas.json` corrige valores para muestras específicas.
-- **Mejor práctica**: Verificar `cluster_values` contra texto real antes de validar contra LLM local. Pendiente: script `validate_ground_truth.py` para auto-generar overrides.
+## Known Issues
+- `bidder_diversity` = 0.0 for all rows because `cantidad_items` is 0 in licitaciones (source data quality issue)
+- Pipeline 2 (LLM extraction) remains ❌ with Schema Validation at 2/10
+- `pd.NaT` serialization: use `pd.isna(v)` as catch-all for None/NaN/NaT
+- `pandas SQLAlchemy`: UserWarning when reading SQL with psycopg2 connection (cosmetic)
 
 ## Git State
 - `HEAD` = `9d31adc` on `feature/ocds-csv-pipeline`
-- Staged: 8 files (new `llm_provider.py`, modified clustering pipeline)
-- Untracked: `scripts/update_schemas.py`, `scripts/insert_llm_schema.py`, `scripts/validate_extraction_prompts.py`, `informe_features*.md`, various analysis scripts
+- Staged: 8 files (clustering pipeline — never executed)
+- Modified (unstaged): 7 files from Phases 1–4
+- Untracked: 5 new economic pipeline files + various scripts

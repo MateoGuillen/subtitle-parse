@@ -43,7 +43,7 @@ class TitleRankingLoader:
         lines.append("# Title Anomaly-Detection Relevance Ranking")
         lines.append("")
         lines.append(
-            "Ranking generated from five complementary strategies "
+            "Ranking generated from six complementary strategies "
             "(see methodology below)."
         )
         lines.append("")
@@ -53,15 +53,15 @@ class TitleRankingLoader:
         lines.append("")
         lines.append(
             "| Rank | Title | Total Score | Outlier Freq | RF Import | "
-            "Contextual | Section IF | Doc Corr |"
+            "Contextual | Section IF | Doc Corr | Economic Risk |"
         )
         lines.append(
             "|------|-------|-------------|--------------|-----------|"
-            "------------|------------|----------|"
+            "------------|------------|----------|---------------|"
         )
         for _, row in top.iterrows():
             lines.append(
-                "| %d | %s | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f |"
+                "| %d | %s | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f |"
                 % (
                     row["rank"],
                     row["display_name"],
@@ -71,6 +71,7 @@ class TitleRankingLoader:
                     row["score_contextual"],
                     row["score_section_if"],
                     row["score_corr"],
+                    row.get("score_economic", 0.0),
                 )
             )
         lines.append("")
@@ -88,16 +89,16 @@ class TitleRankingLoader:
         lines.append("---")
         lines.append("## Methodology")
         lines.append("")
-        lines.append("Five strategies are combined with fixed weights:")
+        lines.append("Six strategies are combined with fixed weights:")
         lines.append("")
         lines.append("| Strategy | Weight | Description |")
         lines.append("|----------|--------|-------------|")
         lines.append(
-            "| Outlier Frequency (Tukey IQR) | 0.25 | %% of documents where "
+            "| Outlier Frequency (Tukey IQR) | 0.20 | %% of documents where "
             "`len_*`/`tok_*` fall outside [Q1-1.5×IQR, Q3+1.5×IQR] |"
         )
         lines.append(
-            "| Proxy Random Forest | 0.30 | Gini importance from RF trained "
+            "| Proxy Random Forest | 0.25 | Gini importance from RF trained "
             "to distinguish original vs. noise-corrupted data |"
         )
         lines.append(
@@ -105,12 +106,17 @@ class TitleRankingLoader:
             "category `|z|>3` for `len_*`/`tok_*` |"
         )
         lines.append(
-            "| Section-level Isolation Forest | 0.20 | %% of sections per "
+            "| Section-level Isolation Forest | 0.15 | %% of sections per "
             "title flagged as anomalous (bottom 5%% of IF scores) |"
         )
         lines.append(
             "| Document IF Correlation | 0.10 | Absolute difference in mean "
             "document-level IF score between `has_*=1` vs `has_*=0` |"
+        )
+        lines.append(
+            "| Economic Risk Correlation | 0.15 | Mean absolute Pearson "
+            "correlation between `has_*` and economic risk indicators "
+            "(single bidder, overbudget, collusion, protests) |"
         )
         lines.append("")
         lines.append(
@@ -139,6 +145,7 @@ class TitleRankingLoader:
             "ctx": row.get("score_contextual", 0),
             "sec": row.get("score_section_if", 0),
             "corr": row.get("score_corr", 0),
+            "econ": row.get("score_economic", 0),
         }
         top_part = max(parts, key=parts.get)
 
@@ -246,6 +253,26 @@ class TitleRankingLoader:
                 "significativamente con la anomalía documental." % parts["corr"]
             )
 
+        # --- economic ---
+        if parts["econ"] >= 0.7:
+            lines.append(
+                "- **Alto riesgo económico asociado** (%.2f): la presencia de "
+                "este título se correlaciona fuertemente con indicadores de "
+                "riesgo económico como oferta única, sobrecostos, colusión o "
+                "protestas." % parts["econ"]
+            )
+        elif parts["econ"] >= 0.4:
+            lines.append(
+                "- **Riesgo económico moderado** (%.2f): existe cierta "
+                "asociación con señales de corrupción económica." % parts["econ"]
+            )
+        else:
+            lines.append(
+                "- **Bajo riesgo económico** (%.2f): no se observa una "
+                "asociación fuerte con indicadores económicos de riesgo."
+                % parts["econ"]
+            )
+
         if top_part == "outlier":
             lines.append(
                 "*Factor dominante: la variabilidad estructural de este "
@@ -274,6 +301,12 @@ class TitleRankingLoader:
                 "*Factor dominante: la presencia/ausencia de este título "
                 "está fuertemente ligada a la anomalía global del "
                 "documento.*"
+            )
+        elif top_part == "econ":
+            lines.append(
+                "*Factor dominante: este título está asociado con patrones "
+                "económicos de riesgo, lo que lo hace relevante para "
+                "detectar corrupción.*"
             )
 
         return lines

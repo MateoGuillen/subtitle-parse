@@ -1,6 +1,6 @@
 """Transformer for title anomaly-ranking pipeline.
 
-Implements five complementary strategies and combines them into a single
+Implements six complementary strategies and combines them into a single
 relevance score per title.  Supports NMI diversity, Synthetic AUC, optimal K
 selection, and bootstrap stability analysis.
 """
@@ -16,18 +16,30 @@ from sklearn.metrics import roc_auc_score
 from scipy.stats import spearmanr
 from src.utils.logging_utils import setup_logger
 
+# Risk indicators used by the 6th strategy (economic risk correlation)
+ECONOMIC_RISK_COLS = [
+    "es_unico_oferente",
+    "overbudget_ratio",
+    "is_high_value_single_bidder",
+    "winner_category_frequency",
+    "is_repeat_winner",
+    "winner_total_contracts",
+    "bidder_diversity",
+]
+
 
 class TitleRankingTransformer:
     """
-    Ranks titles by their relevance for anomaly detection using five
+    Ranks titles by their relevance for anomaly detection using six
     complementary strategies.
 
     **Weights** (from spec):
-        * Outlier frequency (Tukey IQR)          — 0.25
-        * Proxy Random Forest importance          — 0.30
+        * Outlier frequency (Tukey IQR)          — 0.20
+        * Proxy Random Forest importance          — 0.25
         * Contextual anomalies (category_id)      — 0.15
-        * Section-level Isolation Forest          — 0.20
+        * Section-level Isolation Forest          — 0.15
         * Document-level IF point-biserial corr.  — 0.10
+        * Economic risk correlation                — 0.15
 
     **New in v2.1** (hybrid plan):
         * ``compute_nmi_diversity()`` — NMI-based diversity metric (B3)
@@ -37,13 +49,14 @@ class TitleRankingTransformer:
         * ``sensitivity_to_k()`` — Spearman rho between K variants (S1)
     """
 
-    # Pesos de las 5 estrategias
+    # Pesos de las 6 estrategias
     STRATEGY_WEIGHTS = {
-        "score_outlier": 0.25,
-        "score_rf": 0.30,
+        "score_outlier": 0.20,
+        "score_rf": 0.25,
         "score_contextual": 0.15,
-        "score_section_if": 0.20,
+        "score_section_if": 0.15,
         "score_corr": 0.10,
+        "score_economic": 0.15,
     }
 
     # Pesos del score compuesto (K* optimal)
@@ -67,24 +80,28 @@ class TitleRankingTransformer:
         df_doc: pd.DataFrame,
         df_sec: pd.DataFrame,
         title_slugs: List[str],
+        df_econ: Optional[pd.DataFrame] = None,
     ) -> pd.DataFrame:
         """
-        Run all five strategies and produce a combined ranking.
+        Run all six strategies and produce a combined ranking.
         """
-        self.logger.info("=== Strategy 1/5: Tukey Outlier Frequency ===")
+        self.logger.info("=== Strategy 1/6: Tukey Outlier Frequency ===")
         s1 = self._strategy_outlier_frequency(df_doc, title_slugs)
 
-        self.logger.info("=== Strategy 2/5: Proxy Random Forest ===")
+        self.logger.info("=== Strategy 2/6: Proxy Random Forest ===")
         s2 = self._strategy_rf_importance(df_doc, title_slugs)
 
-        self.logger.info("=== Strategy 3/5: Contextual Anomalies ===")
+        self.logger.info("=== Strategy 3/6: Contextual Anomalies ===")
         s3 = self._strategy_contextual(df_doc, title_slugs)
 
-        self.logger.info("=== Strategy 4/5: Section-level Isolation Forest ===")
+        self.logger.info("=== Strategy 4/6: Section-level Isolation Forest ===")
         s4 = self._strategy_section_if(df_sec, title_slugs)
 
-        self.logger.info("=== Strategy 5/5: Document-level IF Correlation ===")
+        self.logger.info("=== Strategy 5/6: Document-level IF Correlation ===")
         s5 = self._strategy_doc_correlation(df_doc, title_slugs)
+
+        self.logger.info("=== Strategy 6/6: Economic Risk Correlation ===")
+        s6 = self._strategy_economic_risk(df_doc, df_econ, title_slugs)
 
         records = []
         for slug in title_slugs:
@@ -97,6 +114,7 @@ class TitleRankingTransformer:
                 "score_contextual": s3.get(slug, 0.0),
                 "score_section_if": s4.get(slug, 0.0),
                 "score_corr": s5.get(slug, 0.0),
+                "score_economic": s6.get(slug, 0.0),
             })
 
         ranking = pd.DataFrame(records)
@@ -598,6 +616,41 @@ class TitleRankingTransformer:
                 continue
             diff = abs(doc_scores[has].mean() - doc_scores[~has].mean())
             scores[slug] = diff
+        return _normalize_series(pd.Series(scores)).to_dict()
+
+    # ---- 6. Economic risk correlation (weight 0.15) --------------------
+
+    def _strategy_economic_risk(
+        self,
+        df_doc: pd.DataFrame,
+        df_econ: Optional[pd.DataFrame],
+        slugs: List[str],
+    ) -> Dict[str, float]:
+        risk_cols = [c for c in ECONOMIC_RISK_COLS if c in (df_econ.columns if df_econ is not None else [])]
+        if not risk_cols:
+            self.logger.warning("  No economic risk columns available.")
+            return {s: 0.0 for s in slugs}
+        eco = df_econ[["nro_licitacion"] + risk_cols].copy()
+        for c in risk_cols:
+            eco[c] = pd.to_numeric(eco[c], errors="coerce").fillna(0)
+
+        scores: Dict[str, float] = {}
+        for slug in slugs:
+            has_col = f"has_{slug}"
+            if has_col not in df_doc.columns:
+                scores[slug] = 0.0
+                continue
+            merged = df_doc[["nro_licitacion", has_col]].merge(eco, on="nro_licitacion", how="inner")
+            if len(merged) < 100:
+                scores[slug] = 0.0
+                continue
+            has = merged[has_col].astype(float)
+            correlations = []
+            for c in risk_cols:
+                r = has.corr(merged[c])
+                if np.isfinite(r):
+                    correlations.append(abs(r))
+            scores[slug] = float(np.mean(correlations)) if correlations else 0.0
         return _normalize_series(pd.Series(scores)).to_dict()
 
 

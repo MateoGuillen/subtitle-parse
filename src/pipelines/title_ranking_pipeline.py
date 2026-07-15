@@ -70,9 +70,18 @@ class TitleRankingPipeline:
         )
         df_sec = self.extractor.sample_sections(self.section_sample, top_titles_raw)
 
-        # -- 2. Transform (5 strategies) --------------------------------------
-        self.logger.info("Paso 2/5 — Computando ranking (5 estrategias)…")
-        ranking = self.transformer.compute_ranking(df_doc, df_sec, title_slugs)
+        # Load economic features for 6th strategy
+        self.logger.info("Loading economic features from document_economic_features…")
+        df_econ = self.extractor.get_economic_features()
+        if df_econ is not None:
+            self.logger.info("Economic features loaded: %d rows x %d cols.",
+                             len(df_econ), len(df_econ.columns))
+        else:
+            self.logger.warning("No economic features — 6th strategy will return zeros.")
+
+        # -- 2. Transform (6 strategies) --------------------------------------
+        self.logger.info("Paso 2/5 — Computando ranking (6 estrategias)…")
+        ranking = self.transformer.compute_ranking(df_doc, df_sec, title_slugs, df_econ)
 
         # -- 3. Optimal K evaluation (optional) --------------------------------
         eval_result = None

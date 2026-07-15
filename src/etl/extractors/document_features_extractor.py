@@ -26,7 +26,11 @@ class DocumentFeaturesExtractor:
                estimated_tokens,
                size_bytes,
                year,
-               category_id
+               category_id,
+               word_count,
+               page,
+               line_start,
+               line_end
         FROM dncp.pliegos_secciones
         WHERE title_normalized IS NOT NULL
         ORDER BY nro_licitacion
@@ -80,13 +84,21 @@ class DocumentFeaturesExtractor:
         Returns:
             DataFrame with columns ``nro_licitacion``, ``title_normalized``,
             ``content_length``, ``estimated_tokens``, ``size_bytes``,
-            ``year``, ``category_id``, or *None* on failure.
+            ``year``, ``category_id``, ``word_count``, ``page``,
+            ``line_start``, ``line_end``, or *None* on failure.
         """
-        self.logger.info("Loading all sections from database…")
-        df = pd.read_sql(self.SECTION_QUERY, self._engine)
-        if df.empty:
+        self.logger.info("Loading all sections from database (chunked)…")
+        chunks = []
+        for i, chunk in enumerate(pd.read_sql(self.SECTION_QUERY, self._engine, chunksize=200_000)):
+            # Downcast int64 to int32 to save memory
+            for col in chunk.select_dtypes(include=["int64"]).columns:
+                chunk[col] = chunk[col].astype("int32")
+            chunks.append(chunk)
+            self.logger.info("  Loaded chunk %d (%d rows)", i + 1, len(chunk))
+        if not chunks:
             self.logger.warning("No sections found.")
             return None
+        df = pd.concat(chunks, ignore_index=True)
         self.logger.info(
             "Loaded %d sections from %d documents.",
             len(df),

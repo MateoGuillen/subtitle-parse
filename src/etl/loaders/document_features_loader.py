@@ -42,7 +42,13 @@ class DocumentFeaturesLoader:
         avg_size_bytes         NUMERIC(10,2),
         std_size_bytes         NUMERIC(10,2),
         max_size_bytes         INTEGER,
-        sum_size_bytes         INTEGER
+        sum_size_bytes         INTEGER,
+        sum_word_count         INTEGER,
+        avg_word_count         NUMERIC(10,2),
+        avg_page               NUMERIC(8,2),
+        max_page               SMALLINT,
+        gini_content_length    NUMERIC(6,4),
+        title_entropy          NUMERIC(10,4)
     """
 
     def __init__(self, db_params: dict):
@@ -107,10 +113,14 @@ class DocumentFeaturesLoader:
         # ALTER TABLE for each title feature column
         added = 0
         for name in title_safe_names:
-            if name.startswith("has_"):
+            if name.startswith("has_") or name.startswith("count_"):
                 col_type = "SMALLINT DEFAULT 0"
-            elif name.startswith("len_") or name.startswith("tok_"):
+            elif name.startswith("len_") or name.startswith("tok_") or name.startswith("word_"):
                 col_type = "INTEGER DEFAULT 0"
+            elif name.startswith("span_"):
+                col_type = "INTEGER DEFAULT 0"
+            elif name.startswith("page_range_"):
+                col_type = "SMALLINT DEFAULT 0"
             else:
                 continue
             sql = f"ALTER TABLE {self.TARGET_TABLE} ADD COLUMN {name} {col_type}"

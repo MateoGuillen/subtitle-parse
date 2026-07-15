@@ -13,6 +13,10 @@ class TitleRankingExtractor:
     ``dncp.pliegos_secciones`` for the title anomaly-ranking pipeline.
     """
 
+    ECON_FEATURES_QUERY = """
+        SELECT * FROM dncp.document_economic_features ORDER BY nro_licitacion
+    """
+
     TOP_TITLES_QUERY = """
         SELECT title_normalized
         FROM dncp.pliegos_secciones
@@ -20,12 +24,6 @@ class TitleRankingExtractor:
         GROUP BY title_normalized
         ORDER BY COUNT(DISTINCT nro_licitacion) DESC
         LIMIT :top_n
-    """
-
-    DOC_FEATURES_QUERY = """
-        SELECT *
-        FROM dncp.document_features
-        ORDER BY nro_licitacion
     """
 
     SECTIONS_SAMPLE_QUERY = """
@@ -42,6 +40,13 @@ class TitleRankingExtractor:
         WHERE title_normalized IS NOT NULL
         ORDER BY random()
         LIMIT :n
+    """
+
+    COLUMNS_QUERY = """
+        SELECT column_name
+        FROM information_schema.columns
+        WHERE table_schema = 'dncp'
+          AND table_name = 'document_features'
     """
 
     def __init__(self, db_params: dict):
@@ -66,11 +71,41 @@ class TitleRankingExtractor:
 
     @error_handling(default_return=None)
     def get_document_features(self) -> Optional[pd.DataFrame]:
-        """Load the full ``dncp.document_features`` table."""
-        self.logger.info("Loading document features…")
-        df = pd.read_sql(self.DOC_FEATURES_QUERY, self._engine)
+        """Load only title-relevant columns from ``dncp.document_features``
+        (has_*, len_*, tok_*, nro_licitacion, category_id) instead of all
+        587 columns, to avoid memory exhaustion on constrained machines."""
+        cols = self._get_relevant_columns()
+        if not cols:
+            self.logger.error("No relevant columns found!")
+            return None
+        cols_expr = ", ".join(f'"{c}"' for c in cols)
+        self.logger.info("Loading %d columns from document_features…", len(cols))
+        query = text(
+            f"SELECT {cols_expr} FROM dncp.document_features ORDER BY nro_licitacion"
+        )
+        with self._engine.connect() as conn:
+            df = pd.read_sql(query, conn)
         self.logger.info("Loaded %d rows x %d cols.", len(df), len(df.columns))
         return df
+
+    def _get_relevant_columns(self) -> List[str]:
+        """Return only column names needed by ranking strategies:
+        ``nro_licitacion``, ``category_id``, and ``has_*``/``len_*``/``tok_*``.
+        Excludes ``word_*``, ``count_*``, ``span_*``, ``page_range_*``,
+        and aggregates to avoid loading all 587 columns."""
+        with self._engine.connect() as conn:
+            result = pd.read_sql(text(self.COLUMNS_QUERY), conn)
+        all_cols: List[str] = result["column_name"].tolist()
+        keep = {"nro_licitacion", "category_id"}
+        for c in all_cols:
+            if c.startswith("has_") or c.startswith("len_") or c.startswith("tok_"):
+                keep.add(c)
+        filtered = sorted(keep)
+        self.logger.info(
+            "Filtered document_features: %d columns (was %d).",
+            len(filtered), len(all_cols),
+        )
+        return filtered
 
     @error_handling(default_return=None)
     def sample_sections(
@@ -103,6 +138,14 @@ class TitleRankingExtractor:
             if c.startswith("has_") and c != "has_otros"
         })
         return slugs
+
+    @error_handling(default_return=None)
+    def get_economic_features(self) -> Optional[pd.DataFrame]:
+        """Load ``dncp.document_economic_features`` with risk columns."""
+        self.logger.info("Loading economic features…")
+        df = pd.read_sql(text(self.ECON_FEATURES_QUERY), self._engine)
+        self.logger.info("Loaded %d rows x %d cols.", len(df), len(df.columns))
+        return df
 
     @staticmethod
     def slug_to_display(slug: str) -> str:

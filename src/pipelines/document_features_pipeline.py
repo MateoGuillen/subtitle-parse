@@ -85,10 +85,10 @@ class DocumentFeaturesPipeline:
         # -- 4. Construir lista de columnas para el DDL -----------------------
         title_cols = []
         for title in top_titles:
-            title_cols.append(self.transformer.make_safe_col("has_", title))
-            title_cols.append(self.transformer.make_safe_col("len_", title))
-            title_cols.append(self.transformer.make_safe_col("tok_", title))
-        title_cols += ["has_otros", "len_otros", "tok_otros"]
+            for prefix in ("has_", "len_", "tok_", "word_", "count_",
+                           "span_", "page_range_"):
+                title_cols.append(self.transformer.make_safe_col(prefix, title))
+        title_cols += ["has_otros", "len_otros", "tok_otros", "word_otros"]
 
         # -- 5. Cargar a PostgreSQL -------------------------------------------
         self.logger.info("Paso 4/5 — Creando tabla e insertando datos…")

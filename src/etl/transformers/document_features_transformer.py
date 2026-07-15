@@ -52,6 +52,12 @@ class DocumentFeaturesTransformer:
         "std_size_bytes",
         "max_size_bytes",
         "sum_size_bytes",
+        "sum_word_count",
+        "avg_word_count",
+        "avg_page",
+        "max_page",
+        "gini_content_length",
+        "title_entropy",
     ]
 
     def __init__(self, top_titles: List[str]):
@@ -108,7 +114,9 @@ class DocumentFeaturesTransformer:
             df_sections: Section-level DataFrame from the extractor with
                          columns ``nro_licitacion``, ``title_normalized``,
                          ``content_length``, ``estimated_tokens``,
-                         ``size_bytes``, ``year``, ``category_id``.
+                         ``size_bytes``, ``year``, ``category_id``,
+                         ``word_count``, ``page``, ``line_start``,
+                         ``line_end``.
 
         Returns:
             Feature matrix — one row per document, one column per feature.
@@ -135,13 +143,20 @@ class DocumentFeaturesTransformer:
         pivot_has = self._pivot_presence(df_top)
         pivot_len = self._pivot_sum(df_top, "content_length", "len_")
         pivot_tok = self._pivot_sum(df_top, "estimated_tokens", "tok_")
+        pivot_word = self._pivot_sum(df_top, "word_count", "word_")
+        pivot_count = self._pivot_agg(df_top, "content_length", "count", "count_")
+
+        # Span and page range per title
+        pivot_span, pivot_page = self._pivot_span_page(df_top)
 
         # -- 4. Other-title aggregates ---------------------------------------
         otros = self._compute_otros(df_other, doc_agg["nro_licitacion"])
+        otros_word = self._compute_otros_word(df_other, doc_agg["nro_licitacion"])
 
         # -- 5. Merge --------------------------------------------------------
         features = doc_agg.copy()
-        for pv in (pivot_len, pivot_has, pivot_tok):
+        for pv in (pivot_len, pivot_has, pivot_tok, pivot_word,
+                    pivot_count, pivot_span, pivot_page):
             if pv is not None and not pv.empty:
                 features = features.merge(
                     pv.reset_index(),
@@ -151,6 +166,7 @@ class DocumentFeaturesTransformer:
                 )
 
         features = features.merge(otros, on="nro_licitacion", how="left")
+        features = features.merge(otros_word, on="nro_licitacion", how="left")
 
         # -- 6. Clean-up -----------------------------------------------------
         # Drop duplicate columns that may have been introduced by merge
@@ -183,6 +199,13 @@ class DocumentFeaturesTransformer:
 
     def _compute_aggregates(self, df: pd.DataFrame) -> pd.DataFrame:
         """Group sections by document and compute summary statistics."""
+
+        # Gini coefficient per document
+        gini_df = self._compute_gini(df)
+
+        # Title entropy per document
+        entropy_df = self._compute_title_entropy(df)
+
         agg = df.groupby("nro_licitacion", sort=False).agg(
             year=("year", "first"),
             category_id=("category_id", "first"),
@@ -200,8 +223,41 @@ class DocumentFeaturesTransformer:
             std_size_bytes=("size_bytes", "std"),
             max_size_bytes=("size_bytes", "max"),
             sum_size_bytes=("size_bytes", "sum"),
+            sum_word_count=("word_count", "sum"),
+            avg_word_count=("word_count", "mean"),
+            avg_page=("page", "mean"),
+            max_page=("page", "max"),
         ).reset_index()
+
+        agg = agg.merge(gini_df, on="nro_licitacion", how="left")
+        agg = agg.merge(entropy_df, on="nro_licitacion", how="left")
         return agg
+
+    @staticmethod
+    def _compute_gini(df: pd.DataFrame) -> pd.DataFrame:
+        """Gini coefficient of content_length per document."""
+        def _gini(values):
+            sorted_vals = np.sort(values.values.astype(float))
+            n = len(sorted_vals)
+            if n == 0 or sorted_vals.sum() == 0:
+                return 0.0
+            cumsum = np.cumsum(sorted_vals)
+            return float((2 * np.sum(cumsum) / sorted_vals.sum() - (n + 1)) / n)
+
+        gini_df = df.groupby("nro_licitacion")["content_length"].apply(_gini).reset_index()
+        gini_df.columns = ["nro_licitacion", "gini_content_length"]
+        return gini_df
+
+    @staticmethod
+    def _compute_title_entropy(df: pd.DataFrame) -> pd.DataFrame:
+        """Shannon entropy of title distribution per document."""
+        counts = df.groupby(["nro_licitacion", "title_normalized"]).size().reset_index(name="count")
+        totals = counts.groupby("nro_licitacion")["count"].sum().reset_index(name="total")
+        counts = counts.merge(totals, on="nro_licitacion")
+        counts["p"] = counts["count"] / counts["total"]
+        counts["entropy"] = -counts["p"] * np.log2(counts["p"])
+        entropy_df = counts.groupby("nro_licitacion")["entropy"].sum().reset_index(name="title_entropy")
+        return entropy_df
 
     def _pivot_presence(self, df: pd.DataFrame) -> pd.DataFrame:
         """Pivot table: 1 if document has the title, else 0."""
@@ -233,10 +289,47 @@ class DocumentFeaturesTransformer:
         pv.columns = [self.make_safe_col(prefix, c) for c in pv.columns]
         return pv
 
+    def _pivot_agg(
+        self, df: pd.DataFrame, value_col: str, agg_func, prefix: str
+    ) -> pd.DataFrame:
+        """Pivot table with arbitrary agg function."""
+        if df.empty:
+            return pd.DataFrame()
+        pv = df.pivot_table(
+            index="nro_licitacion",
+            columns="title_normalized",
+            values=value_col,
+            aggfunc=agg_func,
+            fill_value=0,
+        )
+        pv.columns = [self.make_safe_col(prefix, c) for c in pv.columns]
+        return pv
+
+    @staticmethod
+    def _pivot_span_page(df: pd.DataFrame):
+        """Pivot tables for line span and page range per title."""
+        if df.empty:
+            return pd.DataFrame(), pd.DataFrame()
+        span_data = df.groupby(["nro_licitacion", "title_normalized"]).agg(
+            line_span=("line_end", lambda x: x.max() - x.min()),
+            page_range=("page", lambda x: x.max() - x.min()),
+        ).reset_index()
+        pivot_span = span_data.pivot_table(
+            index="nro_licitacion", columns="title_normalized",
+            values="line_span", fill_value=0,
+        )
+        pivot_span.columns = [DocumentFeaturesTransformer.make_safe_col("span_", c) for c in pivot_span.columns]
+        pivot_page = span_data.pivot_table(
+            index="nro_licitacion", columns="title_normalized",
+            values="page_range", fill_value=0,
+        )
+        pivot_page.columns = [DocumentFeaturesTransformer.make_safe_col("page_range_", c) for c in pivot_page.columns]
+        return pivot_span, pivot_page
+
     def _compute_otros(
         self, df_other: pd.DataFrame, all_docs: pd.Series
     ) -> pd.DataFrame:
-        """Aggregate non-top-N titles into three ``*_otros`` columns."""
+        """Aggregate non-top-N titles into ``*_otros`` columns."""
         if df_other.empty:
             df = pd.DataFrame({"nro_licitacion": all_docs})
             df["has_otros"] = np.int8(0)
@@ -253,6 +346,20 @@ class DocumentFeaturesTransformer:
         return otros
 
     @staticmethod
+    def _compute_otros_word(
+        df_other: pd.DataFrame, all_docs: pd.Series
+    ) -> pd.DataFrame:
+        """Aggregate word_count for non-top-N titles into ``word_otros``."""
+        if df_other.empty:
+            df = pd.DataFrame({"nro_licitacion": all_docs})
+            df["word_otros"] = 0
+            return df
+        otros_word = df_other.groupby("nro_licitacion", sort=False).agg(
+            word_otros=("word_count", "sum"),
+        ).reset_index()
+        return otros_word
+
+    @staticmethod
     def _fix_dtypes(df: pd.DataFrame) -> None:
         """Cast columns to their intended numeric types in-place."""
         int_cols = [
@@ -264,6 +371,8 @@ class DocumentFeaturesTransformer:
             "sum_tokens",
             "max_size_bytes",
             "sum_size_bytes",
+            "sum_word_count",
+            "max_page",
             "year",
         ]
         for col in int_cols:
@@ -277,6 +386,10 @@ class DocumentFeaturesTransformer:
             "std_tokens",
             "avg_size_bytes",
             "std_size_bytes",
+            "avg_word_count",
+            "avg_page",
+            "gini_content_length",
+            "title_entropy",
         ]
         for col in float_cols:
             if col in df.columns:

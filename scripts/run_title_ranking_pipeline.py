@@ -3,7 +3,7 @@ Entry point for the title anomaly-ranking pipeline (v2.1).
 
 Usage::
 
-    # Basic ranking (80 titles, 5 strategies)
+    # Basic ranking (80 titles, 6 strategies)
     python scripts/run_title_ranking_pipeline.py
 
     # With optimal K* evaluation (coverage + diversity + synthetic AUC)
