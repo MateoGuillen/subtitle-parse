@@ -11,6 +11,7 @@ Handles:
 
 import difflib
 import json
+import re
 from statistics import median
 from typing import Any, Dict, List, Optional, Tuple
 import numpy as np
@@ -39,7 +40,7 @@ class SectionClusteringTransformer:
     for each title.
     """
 
-    DEFAULT_UMAP_PARAMS = {"n_components": 10, "n_neighbors": 15}
+    DEFAULT_UMAP_PARAMS = {"n_components": 10, "n_neighbors": 30}
 
     def __init__(
         self,
@@ -105,6 +106,9 @@ class SectionClusteringTransformer:
             df = df.sample(n=max_samples, random_state=self.random_state)
 
         texts = df["content_text"].tolist()
+        texts_normalized = [
+            re.sub(r'\s+', ' ', t).strip().lower() for t in texts
+        ]
         n_samples = len(texts)
 
         # ---- Clustering: find best approach --------------------------------
@@ -121,7 +125,7 @@ class SectionClusteringTransformer:
             )
             configs_to_try = self.umap_params_grid or [self.DEFAULT_UMAP_PARAMS]
             best = self._run_grid_comparison(
-                title, texts, models_to_try, configs_to_try
+                title, texts_normalized, models_to_try, configs_to_try
             )
             comparison_results = best["comparison_results"]
             cluster_labels = best["labels"]
@@ -134,7 +138,7 @@ class SectionClusteringTransformer:
             selected_umap = best["selected_umap"]
         else:
             # Single-model path
-            embeddings = self._get_embeddings(texts)
+            embeddings = self._get_embeddings(texts_normalized)
             reduced = self._reduce_dimensions(
                 embeddings, **self.DEFAULT_UMAP_PARAMS
             )
@@ -189,15 +193,26 @@ class SectionClusteringTransformer:
             df, reduced, kmeans=kmeans_for_sample, centroids=centroids
         )
 
+        # ---- Merge similar clusters before LLM schema generation ------------
+        merged_samples, merged_counts = self._merge_similar_clusters(
+            samples, dict(cluster_counts)
+        )
+        n_merged = len(merged_samples)
+        if n_merged < len(samples):
+            self.logger.info(
+                "Merged %d raw clusters into %d merged clusters (saved for LLM).",
+                len(samples), n_merged,
+            )
+
         # ---- Generate schema & prompt via LLM ------------------------------
         if self.skip_llm:
             self.logger.info("skip_llm=True — usando esquema por defecto (sin LLM).")
             schema_result = self._default_schema(title)
         else:
             schema_result = self._generate_schema_via_llm(
-                title, samples,
-                data.get("cluster_counts", {}),
-                data.get("total_sections", len(df)),
+                title, merged_samples,
+                merged_counts,
+                total_sections,
             )
 
         # ---- Build final extraction prompt ---------------------------------
@@ -379,7 +394,10 @@ class SectionClusteringTransformer:
         )  # invert: lower DB = better
         ch_norm = normalize_minmax(ch_values)
 
-        combined = sil_norm + db_norm + ch_norm
+        k_vals = np.array(list(all_scores.keys()))
+        k_norm = k_vals / k_vals.max() if k_vals.max() > 0 else np.zeros_like(k_vals)
+        penalty = 0.08 * k_norm
+        combined = sil_norm + db_norm + ch_norm - penalty
 
         best_idx = int(np.argmax(combined))
         optimal_k = list(all_scores.keys())[best_idx]
@@ -391,10 +409,12 @@ class SectionClusteringTransformer:
             all_scores[k]["ch_norm"] = float(ch_norm[i])
             all_scores[k]["combined"] = float(combined[i])
 
+        penalty_val = float(penalty[best_idx])
         self.logger.info(
-            "Optimal k=%d (combined=%.4f, sil=%.4f, db=%.4f, ch=%.1f)",
+            "Optimal k=%d (combined=%.4f, penalty=%.4f, sil=%.4f, db=%.4f, ch=%.1f)",
             optimal_k,
             combined[best_idx],
+            penalty_val,
             all_scores[optimal_k]["silhouette"],
             all_scores[optimal_k]["davies_bouldin"],
             all_scores[optimal_k]["calinski_harabasz"],

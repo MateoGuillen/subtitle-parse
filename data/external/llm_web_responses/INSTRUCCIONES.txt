@@ -1,0 +1,54 @@
+INSTRUCCIONES - Generación Manual de Schemas LLM
+==================================================
+
+Los 10 prompts están en: data/processed/section_clustering/llm_chat_prompts.json
+
+WORKFLOW:
+1. Para cada título, copia el mensaje SYSTEM + USER al chat LLM (DeepSeek/ChatGPT)
+2. La LLM debe responder con un JSON schema (el formato está especificado en el prompt)
+3. Guarda la respuesta cruda en data/external/llm_web_responses/openrouter_<titulo>.txt
+4. Inserta con: python scripts/insert_llm_schema.py --title "TITULO" --provider deepseek --file "data/external/llm_web_responses/openrouter_TITULO.txt"
+
+TÍTULOS Y COMANDOS:
+
+1. Fraude Y Corrupcion
+   File: openrouter_fraude_y_corrupcion.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Fraude Y Corrupcion" --provider deepseek --file "data/external/llm_web_responses/openrouter_fraude_y_corrupcion.txt"
+
+2. Confidencialidad De La Informacion
+   File: openrouter_confidencialidad_de_la_informacion.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Confidencialidad De La Informacion" --provider deepseek --file "data/external/llm_web_responses/openrouter_confidencialidad_de_la_informacion.txt"
+
+3. Fuerza Mayor
+   File: openrouter_fuerza_mayor.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Fuerza Mayor" --provider deepseek --file "data/external/llm_web_responses/openrouter_fuerza_mayor.txt"
+
+4. Aclaracion De Las Ofertas
+   File: openrouter_aclaracion_de_las_ofertas.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Aclaracion De Las Ofertas" --provider deepseek --file "data/external/llm_web_responses/openrouter_aclaracion_de_las_ofertas.txt"
+
+5. Interpretacion
+   File: openrouter_interpretacion.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Interpretacion" --provider deepseek --file "data/external/llm_web_responses/openrouter_interpretacion.txt"
+
+6. Formato Y Firma De La Oferta
+   File: openrouter_formato_y_firma_de_la_oferta.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Formato Y Firma De La Oferta" --provider deepseek --file "data/external/llm_web_responses/openrouter_formato_y_firma_de_la_oferta.txt"
+
+7. Impuestos Y Derechos
+   File: openrouter_impuestos_y_derechos.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Impuestos Y Derechos" --provider deepseek --file "data/external/llm_web_responses/openrouter_impuestos_y_derechos.txt"
+
+8. Derechos Intelectuales
+   File: openrouter_derechos_intelectuales.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Derechos Intelectuales" --provider deepseek --file "data/external/llm_web_responses/openrouter_derechos_intelectuales.txt"
+
+9. Retiro Sustitucion Y Modificacion De Las Ofertas
+   File: openrouter_retiro_sustitucion_y_modificacion_de_las_ofertas.txt
+   Cmd: python scripts/insert_llm_schema.py --title "Retiro Sustitucion Y Modificacion De Las Ofertas" --provider deepseek --file "data/external/llm_web_responses/openrouter_retiro_sustitucion_y_modificacion_de_las_ofertas.txt"
+
+10. Causales De Terminacion Del Contrato
+    File: openrouter_causales_de_terminacion_del_contrato.txt
+    Cmd: python scripts/insert_llm_schema.py --title "Causales De Terminacion Del Contrato" --provider deepseek --file "data/external/llm_web_responses/openrouter_causales_de_terminacion_del_contrato.txt"
+
+NOTA: El insert_llm_schema.py valida que el schema tenga type, extraction_hint, extraction_method, e importance.

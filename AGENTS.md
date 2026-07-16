@@ -134,7 +134,8 @@ python scripts/insert_llm_schema.py --title "idioma de la oferta" --provider dee
 - `pandas SQLAlchemy`: UserWarning when reading SQL with psycopg2 connection (cosmetic)
 
 ## Git State
-- `HEAD` = `9d31adc` on `feature/ocds-csv-pipeline`
+- `HEAD` = `9b777b6` on `feature/ocds-csv-pipeline`
+- Last commit: `feat(pipelines,docs): Complete Phases 1-6 feature improvements for ranking and anomaly detection` (19 files, 1762 insertions, 225 deletions)
 - Staged: 8 files (clustering pipeline — never executed)
-- Modified (unstaged): 7 files from Phases 1–4
-- Untracked: 5 new economic pipeline files + various scripts
+- Modified (unstaged): 0
+- Untracked: debug/temp scripts and analysis files left intentionally uncommitted
