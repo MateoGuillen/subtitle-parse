@@ -8,9 +8,12 @@ from src.utils.logging_utils import setup_logger
 
 class DocumentFeaturesV2LLMExtractor:
     def __init__(self, db_params: dict, schemas_path: str, conf_threshold: float = 0.8,
-                 exclude_fields=None):
+                 exclude_fields=None, features_table: str = "dncp.document_features_v2"):
         self.db_params = db_params
         self.conf_threshold = conf_threshold
+        # Sesión 23: con dncp.document_features_v3 (NULL≠0) la población es
+        # {campo}_status = 'no_extraido' (la conf de esas filas es NULL en v3).
+        self.features_table = features_table
         self.exclude_fields = set(exclude_fields or [])
         self.logger = setup_logger(__name__)
 
@@ -56,6 +59,12 @@ class DocumentFeaturesV2LLMExtractor:
         groups: Dict[str, list] = {f["name"]: [] for f in self._hybrid_fields}
         conn = psycopg2.connect(**self.db_params)
         cur = conn.cursor()
+        schema_name, table_name = self.features_table.split(".")
+        cur.execute("SELECT count(*) FROM information_schema.columns WHERE table_schema=%s "
+                    "AND table_name=%s AND column_name LIKE '%%\\_status'",
+                    (schema_name, table_name))
+        use_status = cur.fetchone()[0] > 0
+        thr = 0.5 if use_status else self.conf_threshold
 
         try:
             for slug, schema in self.title_schemas.items():
@@ -66,17 +75,23 @@ class DocumentFeaturesV2LLMExtractor:
 
                 field_names = [f["name"] for f in hybrid]
                 conf_cols = [f"{n}_conf" for n in field_names]
-                where_clause = " OR ".join(f"fv2.{c} < %s" for c in conf_cols)
+                if use_status:
+                    # selector = 0 (pendiente) / 1 (resuelto): reutiliza la comparación < thr
+                    sel_cols = [f"(CASE WHEN fv2.{n}_status = 'no_extraido' THEN 0.0 ELSE 1.0 END)"
+                                for n in field_names]
+                else:
+                    sel_cols = [f"fv2.{c}" for c in conf_cols]
+                where_clause = " OR ".join(f"{c} < %s" for c in sel_cols)
 
                 # Sesión 23 (H1.5): una sola sección por doc, elegida de forma
                 # determinista (la más larga; desempate por línea y año) y con su
                 # clave (title, line_start, year) para que el resume sea exacto.
                 sql = f"""
                     SELECT DISTINCT ON (fv2.nro_licitacion)
-                           fv2.nro_licitacion, {', '.join(conf_cols)},
+                           fv2.nro_licitacion, {', '.join(sel_cols)},
                            ps.content_text, ps.cluster_id,
                            ps.title, ps.line_start, ps.year
-                    FROM dncp.document_features_v2 fv2
+                    FROM {self.features_table} fv2
                     JOIN dncp.pliegos_secciones ps
                       ON fv2.nro_licitacion = ps.nro_licitacion
                      AND ps.title_normalized = %s
@@ -84,7 +99,7 @@ class DocumentFeaturesV2LLMExtractor:
                     ORDER BY fv2.nro_licitacion, ps.content_length DESC NULLS LAST,
                              ps.line_start, ps.year
                 """
-                params = [title_name] + [self.conf_threshold] * len(conf_cols)
+                params = [title_name] + [thr] * len(conf_cols)
                 cur.execute(sql, params)
                 rows = cur.fetchall()
 
@@ -94,7 +109,7 @@ class DocumentFeaturesV2LLMExtractor:
                     text, cluster_id, title, line_start, year = row[1 + k:]
                     for i, fn in enumerate(field_names):
                         conf_val = row[1 + i]
-                        if conf_val is not None and conf_val < self.conf_threshold:
+                        if conf_val is not None and conf_val < thr:
                             groups[fn].append({
                                 "nro_licitacion": doc_id,
                                 "content_text": text,

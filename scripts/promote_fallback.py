@@ -4,7 +4,7 @@ Por defecto es DRY-RUN: imprime qué se escribiría. Para escribir: --apply.
   /root/vllm-env/bin/python scripts/promote_fallback.py --run-id <id> --fields a,b
   /root/vllm-env/bin/python scripts/promote_fallback.py --run-id <id> --fields a,b --apply
   /root/vllm-env/bin/python scripts/promote_fallback.py --run-id <id> --rollback [--apply]
---table permite apuntar a una copia (p. ej. dncp.dfv2_test) para ensayar.
+Destino por defecto: dncp.document_features_v3 (NULL≠0, F4). --table permite ensayar en una copia.
 """
 import argparse
 import json
@@ -22,7 +22,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run-id", required=True)
     ap.add_argument("--fields", default="")
-    ap.add_argument("--table", default="dncp.document_features_v2")
+    ap.add_argument("--table", default="dncp.document_features_v3")
     ap.add_argument("--rollback", action="store_true")
     ap.add_argument("--apply", action="store_true", help="escribir (sin esto: dry-run)")
     a = ap.parse_args()

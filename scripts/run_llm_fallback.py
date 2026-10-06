@@ -97,6 +97,8 @@ def main() -> None:
     ap.add_argument("--conf-threshold", type=float, default=0.8)
     ap.add_argument("--sub-batch", type=int, default=2000)
     ap.add_argument("--allow-dirty", action="store_true")
+    ap.add_argument("--features-table", default="dncp.document_features_v3",
+                    help="tabla de la que sale la población (v3: status='no_extraido')")
     args = ap.parse_args()
 
     mcfg = MODELS[args.model]
@@ -106,7 +108,7 @@ def main() -> None:
     fschemas = field_schemas()
     want = sorted(f.strip() for f in args.fields.split(",") if f.strip())
     extra = {"mode": args.mode, "llm_all": args.llm_all, "pilot_docs": args.pilot_docs,
-             "fields": want, "runner": "v2"}
+             "fields": want, "runner": "v2", "features_table": args.features_table}
     fp = compute_fingerprint(mcfg["model_id"], mcfg["quant"], system_prompt, str(SCHEMAS),
                              sampling, args.conf_threshold, extra)
     if fp["git_dirty"] and not args.allow_dirty:
@@ -145,7 +147,8 @@ def main() -> None:
         # ---- 2. Población + etapa de reglas (CPU)
         cfg = dict(DB_CONFIG)
         cfg["dbname"] = cfg.pop("database")
-        extractor = DocumentFeaturesV2LLMExtractor(cfg, str(SCHEMAS), args.conf_threshold)
+        extractor = DocumentFeaturesV2LLMExtractor(cfg, str(SCHEMAS), args.conf_threshold,
+                                                   features_table=args.features_table)
         failed = extractor.get_failed_extractions_grouped()
         if want:
             failed = {k: v for k, v in failed.items() if k in want}
