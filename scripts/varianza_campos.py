@@ -29,6 +29,8 @@ MODAL_BINARIO = 0.99
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--table", default="dncp.document_features_v3")
+    ap.add_argument("--overlay-run", default="",
+                    help="proyecta el estado post-promote: COALESCE(tabla, staging del run)")
     a = ap.parse_args()
     s = json.loads(SCHEMAS.read_text(encoding="utf-8"))
     fields = [(f["name"], f["type"], f["extraction_method"], k.replace("_", " "))
@@ -42,7 +44,13 @@ def main():
     n_docs = cur.fetchone()[0]
     rows = []
     for f, t, m, title in fields:
-        cur.execute(f"SELECT {f}, count(*) FROM {a.table} WHERE {f} IS NOT NULL GROUP BY 1")
+        if a.overlay_run:
+            cur.execute(f"""SELECT COALESCE(t.{f}, s.value) v, count(*) FROM {a.table} t
+                LEFT JOIN dncp.llm_fallback_runs_v2 s ON s.nro_licitacion = t.nro_licitacion
+                 AND s.field = %s AND s.run_id = %s AND s.status = 'done'
+                WHERE COALESCE(t.{f}, s.value) IS NOT NULL GROUP BY 1""", (f, a.overlay_run))
+        else:
+            cur.execute(f"SELECT {f}, count(*) FROM {a.table} WHERE {f} IS NOT NULL GROUP BY 1")
         dist = {float(v): c for v, c in cur.fetchall()}
         n = sum(dist.values())
         if n:
@@ -75,7 +83,8 @@ def main():
     out_csv = ROOT / "data/processed/llm_benchmark/varianza_campos.csv"
     df.to_csv(out_csv, index=False)
     md = ["# Varianza por campo (F4.6, auditoría H4.2)", "",
-          f"> Generado por `scripts/varianza_campos.py` sobre `{a.table}` ({n_docs} docs, NULL≠0).",
+          f"> Generado por `scripts/varianza_campos.py` sobre `{a.table}` ({n_docs} docs, NULL≠0)"
+          + (f" + proyección del run `{a.overlay_run}` (estado post-promote)." if a.overlay_run else "."),
           f"> `binario`: el valor modal es ≥{MODAL_BINARIO:.0%} de los extraídos → como magnitud no "
           "discrimina; usar como indicador de cláusula estándar presente.", "",
           "| campo | método | extraídos | cobertura | distintos | modal (frac) | entropía | textos sección | fuentes | clase |",

@@ -1,0 +1,27 @@
+campo,tipo,metodo,extraidos,cobertura,valores_distintos,valor_modal,frac_modal,entropia_bits,textos_distintos_seccion,fuentes,clase
+pct_garantia_cumplimiento,float,regex,31319,0.9999,4,10.0,0.7861,0.751,177,{},baja variabilidad
+num_documentos_pago,int,hybrid,30990,0.9894,2,6.0,0.8711,0.554,23218,"{""regex"": 30990}",baja variabilidad
+num_componentes_formula,int,hybrid,13836,0.4417,12,3.0,0.9403,0.414,17510,{},baja variabilidad
+pct_diferencia_precio_bajo,float,regex,27164,0.8673,2,25.0,0.9507,0.283,418,{},baja variabilidad
+pct_diferencia_precio_alto,float,regex,27164,0.8673,2,15.0,0.9507,0.283,418,{},baja variabilidad
+ratio_endeudamiento_maximo,float,hybrid,25605,0.8175,24,0.8,0.9737,0.262,19351,"{""regex"": 171}",baja variabilidad
+ratio_liquidez_minimo,float,hybrid,25982,0.8295,24,1.0,0.9778,0.218,19351,"{""regex"": 31}",baja variabilidad
+num_categorias_documentos,int,regex,30523,0.9745,5,2.0,0.9804,0.155,670,{},baja variabilidad
+dias_aceptacion_rechazo_factura,int,hybrid,30992,0.9895,3,15.0,0.9999,0.001,23218,"{""regex"": 2}",binario (cláusula estándar)
+dias_notificacion_fuerza_mayor,int,hybrid,29831,0.9524,1,7.0,1.0,-0.0,559,{},binario (cláusula estándar)
+dias_presentacion_garantia,int,regex,31319,0.9999,1,10.0,1.0,-0.0,177,{},binario (cláusula estándar)
+pct_multa_diaria,float,regex,25968,0.8291,34,0.5,0.3218,2.794,638,{},magnitud
+dias_validez_garantia,int,hybrid,7298,0.233,54,365.0,0.5708,2.527,7050,"{""regex"": 5724}",magnitud
+dias_reposicion,int,regex,11924,0.3807,20,5.0,0.3003,2.507,11584,{},magnitud
+pct_interes_mora_diario,float,regex,26933,0.8599,34,0.01,0.4445,2.319,1579,{},magnitud
+num_referencias_minimo,int,regex,459,0.0147,8,3.0,0.3442,2.27,25202,{},magnitud
+pct_monto_referencia_tecnica,float,regex,147,0.0047,9,50.0,0.3741,2.242,17547,{},magnitud
+anos_experiencia_minima_tecnica,int,hybrid,1284,0.041,13,3.0,0.3676,2.175,17547,"{""regex"": 689}",magnitud
+dias_solicitud_anticipo,int,hybrid,7403,0.2364,15,10.0,0.4929,1.991,6530,"{""regex"": 5965}",magnitud
+dias_pago_anticipo,int,hybrid,5685,0.1815,16,10.0,0.5757,1.989,6530,"{""regex"": 1057}",magnitud
+anos_experiencia_minima,int,regex,2681,0.0856,12,3.0,0.602,1.695,25202,{},magnitud
+dias_pago_maximo,int,hybrid,30992,0.9895,24,60.0,0.6907,1.67,23218,"{""regex"": 1484}",magnitud
+num_referencias_tecnicas_minimo,int,regex,70,0.0022,5,3.0,0.6,1.602,17547,{},magnitud
+pct_monto_referencia_minimo,float,regex,21493,0.6862,18,50.0,0.6619,1.545,25202,{},magnitud
+num_pasos_verificacion,int,hybrid,30851,0.985,3,6.0,0.5309,1.393,773,"{""regex"": 30851}",magnitud
+pct_anticipo,float,regex,0,0.0,0,,,0.0,7,{},sin datos
