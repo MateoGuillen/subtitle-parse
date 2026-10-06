@@ -11,15 +11,18 @@ from src.utils.logging_utils import setup_logger
 
 
 from src.etl.transformers.extraction_postprocess import (
-    NO_RULE, deterministic_pct, postprocess, parse_response,
+    PRODUCTION_MODE, _legacy_production_parse, resolve,
 )
 
 CHUNK_SIZE = 500
 
 
 class DocumentFeaturesV2LLMTransformer:
-    def __init__(self, schemas_path: str, llm_provider, few_shot_db_path: Optional[str] = None):
+    def __init__(self, schemas_path: str, llm_provider, few_shot_db_path: Optional[str] = None,
+                 parse_mode: str = PRODUCTION_MODE):
         self.llm = llm_provider
+        # Sesión 23: modo de resolución regla/LLM explícito (ver extraction_postprocess.resolve)
+        self.parse_mode = parse_mode
         self.logger = setup_logger(__name__)
 
         with Path(schemas_path).open(encoding="utf-8") as f:
@@ -125,14 +128,20 @@ class DocumentFeaturesV2LLMTransformer:
                 raw_txt = resp.strip()
                 raw = raw_txt.upper()
                 text = df_failed.at[idx, "content_text"] or ""
-                value, conf = self._parse_response(raw_txt, ftype, field=field_name, text=text)
+                res = resolve(field_name, raw_txt, text, mode=self.parse_mode, ftype=ftype)
+                value = res.value
+                conf = 1.0 if value is not None else 0.0
                 all_results.append({
                     "nro_licitacion": df_failed.at[idx, "nro_licitacion"],
                     "field_name": field_name,
-                    "llm_value": value,
+                    "llm_value": value,            # valor FINAL (regla o LLM según source)
                     "llm_confidence": conf,
                     "llm_model": model_name,
-                    "llm_raw": raw_txt[:120],
+                    "llm_raw": raw_txt,            # crudo completo (antes truncado a 120)
+                    "value_source": res.source,    # rule | llm | none | legacy
+                    "rule_value": res.rule_value,
+                    "model_value": res.llm_value,  # número del LLM validado, sin reglas
+                    "parse_mode": res.mode,
                 })
                 if conf > 0:
                     total_ok += 1
@@ -238,39 +247,14 @@ class DocumentFeaturesV2LLMTransformer:
         )
 
     @staticmethod
-    def _parse_response(raw: str, ftype: str, field: str = "", text: str = ""):
-        """Parse a raw LLM response with the deterministic postprocess layer.
+    def _parse_response(raw: str, ftype: str, field: str = "", text: str = "",
+                        mode: str = PRODUCTION_MODE):
+        """(valor, conf) vía extraction_postprocess.resolve().
 
-        Deterministic fields (uniform template pct_*) are resolved from the
-        text without consulting the model output. For the rest, the strict
-        postprocess rules (x100 scale, context validation) are applied after
-        extracting the number from the raw response.
+        mode="llm_gated_rule" reproduce exactamente el parser histórico de
+        producción (sesiones 14-22); el default es el modo de producción vigente.
         """
-        det = deterministic_pct(field, text)
-        if det is not NO_RULE:
-            return det, 1.0
-
-        if raw in ("", "NULL", "NONE", "N/A", "NA", "NOT FOUND"):
-            return None, 0.0
-
-        cleaned = re.sub(r" thinking.*? response", "", raw, flags=re.DOTALL).strip()
-        if not cleaned:
-            cleaned = raw
-
-        m = re.search(r"-?\d+[.,]?\d*", cleaned.replace(" ", ""))
-        if not m:
-            return None, 0.0
-
-        try:
-            val_str = m.group(0).replace(",", ".")
-            if ftype == "int":
-                val = int(float(val_str))
-            else:
-                val = float(val_str)
-        except (ValueError, TypeError):
-            return None, 0.0
-
-        val = postprocess(field, val, text, strict=True)
-        if val is None:
-            return None, 0.0
-        return val, 1.0
+        if mode == "llm_gated_rule":  # conserva también la conf histórica
+            return _legacy_production_parse(raw, ftype, field=field, text=text)
+        res = resolve(field, raw, text, mode=mode, ftype=ftype)
+        return res.value, (1.0 if res.value is not None else 0.0)

@@ -123,8 +123,11 @@ def build_prompt(field_name, text, merge_system=False):
 def postprocess(field, v, text):
     return _postprocess_shared(field, v, text)
 
-def parse(raw, field="", text=""):
-    return parse_response(raw, field=field, text=text, strict=True)
+def parse(raw, field="", text="", mode="rule_then_llm"):
+    """Parse de benchmark. Default = histórico (sesiones 14-22) para reproducir
+    resultados publicados; para medir MODELOS usar mode="llm_only" (auditoría H2.1)."""
+    from src.etl.transformers.extraction_postprocess import resolve
+    return resolve(field, raw, text, mode=mode).value
 
 def load_gt_texts():
     gt = pd.read_csv(GT, encoding="utf-8-sig")

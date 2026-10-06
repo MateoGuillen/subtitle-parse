@@ -18,6 +18,9 @@ import re
 __all__ = [
     "NO_RULE", "KNOWN_DEFAULTS", "deterministic_pct", "postprocess",
     "parse_response", "PCT_INT_SCALE",
+    # sesión 23
+    "RULES", "TOTALITARIAN", "PRODUCTION_MODE", "MODES", "Resolution",
+    "rule_value", "llm_value", "resolve",
 ]
 
 
@@ -427,7 +430,7 @@ def deterministic_pct(field, text):
     return NO_RULE
 
 
-def postprocess(field, v, text, strict=True):
+def _legacy_postprocess(field, v, text, strict=True):
     """Deterministic corrections/validations over an extracted numeric value.
 
     strict=True (used on the LLM path): the number must literally appear in
@@ -610,7 +613,7 @@ def postprocess(field, v, text, strict=True):
     return None
 
 
-def parse_response(raw: str, field: str = "", text: str = "", strict=True):
+def _legacy_parse_response(raw: str, field: str = "", text: str = "", strict=True):
     """Parse a raw LLM (or regex) response with the deterministic layer applied.
 
     Shape-preserving wrapper used by measurement (scripts/benchmark_multi_vs_gt.py)
@@ -658,6 +661,284 @@ def parse_response(raw: str, field: str = "", text: str = "", strict=True):
     try:
         v = r.replace(",", ".")
         v = int(float(v)) if "." not in v else float(v)
-        return postprocess(field, v, text, strict=strict)
+        return _legacy_postprocess(field, v, text, strict=strict)
     except (ValueError, TypeError):
         return None
+
+
+# ===========================================================================
+# Sesión 23 (auditoría H1.1/H1.2, plan F2): API con origen explícito del valor
+# ===========================================================================
+# Antes, un único parse_response() mezclaba tres cosas: (1) reglas deterministas
+# que leen el TEXTO e ignoran al LLM, (2) parse de la respuesta del LLM, y
+# (3) validaciones. Benchmark y producción usaban variantes distintas (difieren en
+# 3.409 de 40.950 ítems del corpus de tests). Ahora:
+#   rule_value(field, text)          -> solo regla (o NO_RULE si no hay/no aplica)
+#   llm_value(field, raw, text, t)   -> solo el número que emitió el LLM, validado
+#                                       sin sustituirlo nunca por otro
+#   resolve(field, raw, text, mode)  -> Resolution(value, source, ...)
+# Modos:
+#   "rule_first"      PRODUCCIÓN desde sesión 23: regla si aplica (source='rule',
+#                     incluso si la regla dictamina ausencia), si no LLM ('llm').
+#   "rule_only"       solo reglas (etapa CPU de F4).
+#   "llm_only"        solo LLM: lo que se reporta como "crudo validado" en benchmark.
+#   "rule_then_llm"   HISTÓRICO benchmark (= _legacy_parse_response, congelado).
+#   "llm_gated_rule"  HISTÓRICO producción hasta sesión 22 (= _legacy_production_parse):
+#                     la regla solo corre si el LLM no respondió NULL.
+# Los modos históricos existen para reproducir resultados publicados; no usar en
+# código nuevo. tests/test_extraction_postprocess.py fija ambos contra el snapshot
+# pre-refactor (tests/fixtures/legacy_snapshot.json).
+
+from dataclasses import dataclass
+
+NULLISH = ("", "NULL", "NONE", "N/A", "NA", "NOT FOUND")
+RAW_NUMBER = re.compile(r"^-?\d+(?:[.,]\d+)?$")
+PRODUCTION_MODE = "rule_first"
+MODES = ("rule_first", "rule_only", "llm_only", "rule_then_llm", "llm_gated_rule")
+
+
+def _deterministic_aceptacion_factura(text):
+    """Plazo de aceptación/rechazo de factura (plantilla DNCP: 15 días).
+
+    Corrige H4.2: la regla histórica era `re.search(r"15", text)`, que también
+    matchea "2015", "150" o "15%". Ahora exige 15 como número aislado ligado a
+    "días" ("15 días", "15 (quince) días", "quince (15) días", "quince días").
+    Totalitaria: sin ese patrón -> None (ausencia), igual que la histórica.
+    """
+    if not (text or ""):
+        return NO_RULE
+    if re.search(
+        r"(?<![\d.,])15(?![\d.,%])\s*(?:\([^)]*\))?\s*d[ií]as"
+        r"|quince\s*(?:\(\s*15\s*\))?\s*d[ií]as",
+        text, re.I):
+        return 15.0
+    return NO_RULE
+
+
+# Reglas autoritativas sobre el texto (el valor del LLM se ignora si aplican).
+RULES = {
+    "ratio_liquidez_minimo": _deterministic_ratio_liquidez,
+    "dias_pago_maximo": _deterministic_primer_n_dias,  # H4.6: "primer N días", no máximo
+    "dias_validez_garantia": _deterministic_validez_garantia,
+    "dias_aceptacion_rechazo_factura": _deterministic_aceptacion_factura,
+    "ratio_endeudamiento_maximo": _deterministic_endeudamiento,
+    "dias_solicitud_anticipo": _deterministic_solicitud_anticipo,
+    "dias_pago_anticipo": _deterministic_pago_anticipo,
+    "anos_experiencia_minima_tecnica": _deterministic_experiencia_tecnica,
+    "dias_notificacion_fuerza_mayor": _deterministic_notificacion_fuerza_mayor,
+}
+# Totalitarias: si la regla no encuentra su patrón, dictamina ausencia (None).
+# dias_pago_maximo NO lo es: sin "N días" en el texto, decide el LLM.
+TOTALITARIAN = set(RULES) - {"dias_pago_maximo"}
+# Alias con nombre honesto (H4.6)
+_first_n_dias = _deterministic_primer_n_dias
+
+
+def rule_value(field, text):
+    """Valor de la regla determinista sobre el texto, sin mirar al LLM.
+
+    Devuelve NO_RULE si el campo no tiene regla o la regla no aplica (solo
+    dias_pago_maximo puede "no aplicar"); None si la regla dictamina ausencia.
+    """
+    det = deterministic_pct(field, text or "")
+    if det is not NO_RULE:
+        return det
+    fn = RULES.get(field)
+    if fn is None:
+        return NO_RULE
+    v = fn(text or "")
+    if v is NO_RULE:
+        return None if field in TOTALITARIAN else NO_RULE
+    return v
+
+
+def _validate_value(field, v, text, strict=True):
+    """Validaciones NO sustitutivas sobre un número ya emitido (escala %, valores
+    por defecto sin contexto, número presente en el texto). Nunca reemplaza `v`
+    por otro número leído del texto; solo lo acepta, lo reescala (%) o lo rechaza."""
+    if v is None:
+        return None
+    if not (text or "").strip():
+        return None
+    # Scale percent fields whose GT is 100% integer (pliego says "20%",
+    # GT=20.0). The LLM normalizes to fraction (0.2); multiply by 100.
+    if field in PCT_INT_SCALE and 0 < abs(v) < 1:
+        v = v * 100
+    if field in PCT_INT_SCALE:
+        num_str_v = str(int(v)) if v == int(v) else str(v)
+        if not re.search(rf"\b{re.escape(num_str_v)}(?:[.,]\d+)?\s*%", text):
+            return None
+
+    known = KNOWN_DEFAULTS.get(field, set())
+    if v not in known:
+        return v
+    num_str = str(int(v) if v == int(v) else v)
+
+    # 182 exception
+    if field == "dias_validez_garantia" and v == 182.0:
+        if ALLOW_182.search(text):
+            return v
+
+    # Context validation
+    if field == "dias_pago_anticipo" and v == 5.0:
+        pat = re.compile(r"\b5\s*(?:\([^)]*\))?\s*(días|dias)", re.I)
+        m = pat.search(text)
+        if not m:
+            pat2 = re.compile(r"[a-záéíóú]+\s*\(\s*5\s*\)\s*(días|dias)", re.I)
+            m = pat2.search(text)
+        if m:
+            snippet = text[max(0, m.start() - 60): min(len(text), m.end() + 60)]
+            if re.search(r"(abonar|pago|pagar|transferir|pagaré)", snippet, re.I):
+                return v
+        return None
+
+    if field == "dias_solicitud_anticipo" and v == 5.0:
+        pat = re.compile(r"\b5\s*(?:\([^)]*\))?\s*(días|dias)", re.I)
+        m = pat.search(text)
+        if not m:
+            pat2 = re.compile(r"[a-záéíóú]+\s*\(\s*5\s*\)\s*(días|dias)", re.I)
+            m = pat2.search(text)
+        if m:
+            snippet = text[max(0, m.start() - 60): min(len(text), m.end() + 60)]
+            if re.search(r"(solicitar|solicitud)", snippet, re.I):
+                return v
+        return None
+
+    if field == "dias_solicitud_anticipo" and v == 20.0:
+        if re.search(r"20\s*%", text):
+            return None
+        if re.search(r"\b20\s*(días|dias)", text, re.I):
+            return v
+        return None
+
+    if field == "dias_solicitud_anticipo" and v not in (5.0, 20.0):
+        pat = re.compile(rf"\b{re.escape(num_str)}\s*(?:\([^)]*\))?\s*(días|dias)", re.I)
+        m = pat.search(text)
+        if m:
+            snippet = text[max(0, m.start() - 60): min(len(text), m.end() + 60)]
+            if re.search(r"(solicitar|solicitud)", snippet, re.I):
+                return v
+        return None
+
+    if field == "anos_experiencia_minima_tecnica":
+        if re.search(rf"(?:punto|item|ítem|ítems?)\s*{re.escape(num_str)}", text, re.I):
+            return None
+        if re.search(rf"[y,]\s*{re.escape(num_str)}\b", text):
+            return None
+        if re.search(rf"\b{re.escape(num_str)}\s*[.)]", text):
+            return None
+
+    if re.search(rf"\b{re.escape(num_str)}\s*%", text):
+        return None
+
+    if field == "anos_experiencia_minima_tecnica":
+        if re.search(rf"\b{re.escape(num_str)}\s*\(?[^)]*\)?\s*personal(?:es)?\b", text, re.I):
+            return None
+
+    if field.startswith("dias_") and isinstance(v, (int, float)) and 0 < v <= 12:
+        if re.search(rf"\b{re.escape(num_str)}\s*(años|anios|año|anio)", text, re.I):
+            if not re.search(rf"\b{re.escape(num_str)}\s*(días|dias|día|dia)", text, re.I):
+                return None
+
+    if not strict:
+        return v
+
+    pattern = rf"\b{re.escape(num_str)}\b"
+    if re.search(pattern, text):
+        return v
+    return None
+
+
+def llm_value(field, raw, text, ftype=None):
+    """Número emitido por el LLM, validado. Nunca sustituido por una regla.
+
+    H4.3: en campos `int` un crudo decimal ("1.5", numeración de cláusula) se
+    RECHAZA (None) en vez de truncarse a 1.
+    """
+    s = (raw or "").strip()
+    if s.upper() in NULLISH or not RAW_NUMBER.match(s):
+        return None
+    v = float(s.replace(",", "."))
+    if ftype == "int":
+        if v != int(v):
+            return None
+        v = float(int(v))
+    return _validate_value(field, v, text, strict=True)
+
+
+@dataclass(frozen=True)
+class Resolution:
+    value: object          # float | None
+    source: str            # "rule" | "llm" | "none" | "legacy"
+    rule_applies: bool     # la regla decidió (aunque sea ausencia)
+    rule_value: object     # valor de la regla (None si ausencia o no aplica)
+    llm_value: object      # valor del LLM validado (None si NULL/rechazado)
+    mode: str
+
+
+def _legacy_production_parse(raw, ftype, field="", text=""):
+    """Copia CONGELADA de DocumentFeaturesV2LLMTransformer._parse_response
+    (sesiones 14-22). Reproduce el staging histórico; no usar en código nuevo."""
+    det = deterministic_pct(field, text)
+    if det is not NO_RULE:
+        return det, 1.0
+
+    if raw in ("", "NULL", "NONE", "N/A", "NA", "NOT FOUND"):
+        return None, 0.0
+
+    cleaned = re.sub(r" thinking.*? response", "", raw, flags=re.DOTALL).strip()
+    if not cleaned:
+        cleaned = raw
+
+    m = re.search(r"-?\d+[.,]?\d*", cleaned.replace(" ", ""))
+    if not m:
+        return None, 0.0
+
+    try:
+        val_str = m.group(0).replace(",", ".")
+        if ftype == "int":
+            val = int(float(val_str))
+        else:
+            val = float(val_str)
+    except (ValueError, TypeError):
+        return None, 0.0
+
+    val = _legacy_postprocess(field, val, text, strict=True)
+    if val is None:
+        return None, 0.0
+    return val, 1.0
+
+
+def resolve(field, raw, text, mode=PRODUCTION_MODE, ftype=None):
+    """Resuelve el valor final de un (campo, respuesta LLM, texto) con origen explícito."""
+    if mode not in MODES:
+        raise ValueError(f"modo desconocido: {mode!r} (válidos: {MODES})")
+    text = text or ""
+    if mode == "rule_then_llm":
+        v = _legacy_parse_response(raw, field=field, text=text, strict=True)
+        return Resolution(v, "legacy", False, None, None, mode)
+    if mode == "llm_gated_rule":
+        v, _ = _legacy_production_parse((raw or "").strip(), ftype, field=field, text=text)
+        return Resolution(v, "legacy", False, None, None, mode)
+
+    rv = rule_value(field, text)
+    applies = rv is not NO_RULE
+    rv_out = rv if applies else None
+    lv = None if mode == "rule_only" else llm_value(field, raw, text, ftype)
+    if mode == "rule_only":
+        return Resolution(rv_out, "rule" if applies else "none", applies, rv_out, None, mode)
+    if mode == "llm_only":
+        return Resolution(lv, "llm" if lv is not None else "none", applies, rv_out, lv, mode)
+    # rule_first
+    if applies:
+        return Resolution(rv, "rule", True, rv_out, lv, mode)
+    return Resolution(lv, "llm" if lv is not None else "none", False, None, lv, mode)
+
+
+# ---------------------------------------------------------------------------
+# Alias públicos HISTÓRICOS (deprecados). Los scripts de benchmark de las sesiones
+# 14-22 los importan; se mantienen para reproducir resultados publicados.
+# Código nuevo: usar resolve(..., mode=...).
+# ---------------------------------------------------------------------------
+postprocess = _legacy_postprocess
+parse_response = _legacy_parse_response

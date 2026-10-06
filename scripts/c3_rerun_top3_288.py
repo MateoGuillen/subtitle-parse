@@ -58,6 +58,9 @@ def eq(a, b, field):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--idx', type=int, required=True)
+    ap.add_argument('--mode', default='llm_only',
+                    help='modo de resolve(): llm_only mide el MODELO (default desde '
+                         'sesión 23); rule_then_llm reproduce el C3 histórico')
     args = ap.parse_args()
     from vllm import LLM, SamplingParams
     from vllm.sampling_params import StructuredOutputsParams
@@ -111,9 +114,11 @@ def main():
         for s, o in zip(chunk, outs):
             raw = (o.outputs[0].text.strip() if o else 'ERROR:gen')
             try:
-                lv = mm.parse(raw, field=s['field'], text=s['text'])
+                lv = mm.parse(raw, field=s['field'], text=s['text'], mode=args.mode)
+                lv_legacy = mm.parse(raw, field=s['field'], text=s['text'],
+                                     mode='rule_then_llm')
             except Exception:
-                lv = None
+                lv = lv_legacy = None
             lvn = to_num(lv) if lv is not None else None
             m_h = eq(lvn, s['gt'], s['field'])
             m_r = eq(lvn, s['db'], s['field'])
@@ -125,6 +130,7 @@ def main():
                     ('O' if not m_r and not m_h else 'X')))
             results.append({**{k: s[k] for k in ('nro', 'field', 'gt', 'db')},
                             'llm_raw': raw, 'llm_value': lv,
+                            'llm_value_legacy': lv_legacy, 'mode': args.mode,
                             'm_human': m_h, 'm_regex': m_r, 'a_m': a_m})
         done = i + len(chunk)
         json.dump({'model': cfg['name'], 'results': results,

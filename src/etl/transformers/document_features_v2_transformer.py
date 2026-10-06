@@ -155,7 +155,7 @@ class DocumentFeaturesV2Transformer:
             if field_name == "dias_aceptacion_rechazo_factura":
                 return self._re_int(text, r"(\d+)\s*d[ií]as.{0,30}?[aá]ceptaci[oó]n")
             if field_name == "num_documentos_pago":
-                return self._re_int(text, r"(\d+)\.\s*(?:Nota|Factura|REPSE)")
+                return self._re_num_documentos_pago(text)
             if field_name == "binary_requiere_cuenta_bancaria_estatal":
                 return self._re_binary(text, r"cuenta corriente.*banco|SITE|Tesorer[ií]a")
 
@@ -646,6 +646,36 @@ class DocumentFeaturesV2Transformer:
         if not items:
             return None
         return max(int(x) for x in items)
+
+    _DOCS_PAGO = {
+        "remision": r"nota\s+de\s+remisi[oó]n|orden\s+de\s+prestaci[oó]n|informe\s+t[eé]cnico",
+        "factura": r"\bfactura",
+        "repse": r"\bREPSE\b|registro\s+de\s+prestadores",
+        "tributario": r"cumplimiento\s+tributario",
+        "seg_social": r"seguridad\s+social|\bIPS\b",
+        "fis": r"\bFIS\b|identificaci[oó]n\s+de\s+servicios\s+personales",
+        "laboral": r"certificado\s+laboral|obrero\s+patronal",
+    }
+
+    def _re_num_documentos_pago(self, text: str):
+        # Sesión 23 (auditoría H4.3): el regex anterior `(\d+)\.\s*(?:Nota|Factura|REPSE)`
+        # devolvía el NÚMERO DEL PRIMER ÍTEM ("1. Nota de remisión" -> 1), no la
+        # cantidad: 5/200 contra GT humano y 1 en 25.343/25.350 docs de producción.
+        # Criterio del GT (nota del anotador): contar por NOMBRE los documentos del
+        # catálogo genérico DNCP (7 posibles) presentes en la lista base, entre
+        # "siguientes documentos"/"Documentos Genéricos" y "Otras formas y condiciones".
+        # GT 200/200 (in-sample: la receta sale de la nota del GT -> validar en F5).
+        t = text or ""
+        m = re.search(r"siguientes\s+documentos|documentos\s+gen[eé]ricos", t, re.I)
+        if not m:
+            return None
+        seg = t[m.end():]
+        stop = re.search(r"otras\s+formas\s+y\s+condiciones|\n\s*2\s*\.\s*La\s+Contratante",
+                         seg, re.I)
+        if stop:
+            seg = seg[:stop.start()]
+        n = sum(1 for p in self._DOCS_PAGO.values() if re.search(p, seg, re.I))
+        return n or None
 
     def _re_num_pasos_verificacion(self, text: str):
         # Misma receta que num_categorias (el LLM subcuenta listas: devuelve 1
