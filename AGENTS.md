@@ -748,8 +748,31 @@ Staging antes de producción (0 failed, invariantes post-lote cazaron 40K silenc
 - New: `docs/plan_correccion_auditoria.md`
 - Modified: `AGENTS.md` (esta sección + rama), `CLAUDE.md` (paso actual + sesión 23), `docs/INDICE_PROYECTO.md` (fila del plan)
 
+### Session 24 — Ejecución autónoma del plan de corrección (Claude Opus 5.5, 06-oct)
+
+Rama `feature/benchmark-models` (local, sin push). Un commit por fase; bitácora detallada en
+`docs/plan_correccion_auditoria.md` §9. Estado: **F0-F4 ✅, F5 código ✅ (anotación humana
+pendiente), F6 ✅, F7 bloqueada (aprobación + F5)**.
+
+#### Qué se hizo y qué se encontró
+- **F0** (`f18f21e`): `requirements-vllm.lock`, `pg_dump` 4 tablas (`/root/backups/`), `data/MANIFEST.sha256` (LF-normalizado), `heldout_freeze.py --verify` (reproduce sha 90e8ccf7), `build_tabla_maestra.py --check` (0 diffs).
+- **F1** (`d01db54`, `docs/rescore_crudo_f1.md`): todas las cifras de la auditoría reproducidas. Nuevo: en Fase 5 (v1 y v2) y C4/C5 fuera de pct, el post de los 3 modelos = baseline siempre-NULL → el ranking Fase 5 se decide solo en pct; "dias robusto al prompt" era artefacto (crudo FP8 67→38 con P3/P4). Crudo FP8 vs Qwen: p≈4e-16. MDE pct ≈22 pp. **Qwen3-8B-FP8 campeón**.
+- **F2** (`5020c2c`): `extraction_postprocess` → `rule_value`/`llm_value`/`resolve(mode)` con `Resolution.source`; modos históricos congelados reproducen un snapshot de 40.950 ítems (bench≠prod en 3.409 = H1.2). Regla 15 corregida (sin efecto real: plantilla pura). `num_documentos_pago` regex devolvía índice del 1er ítem (5/200 GT) → conteo por nombre de 7 docs (200/200 in-sample).
+- **F3** (`05d33ce`, `067c21b`): DDL aditivo `sql/llm_fallback_v2.sql` (llm_runs, cache_v2 solo crudos, runs_v2 con rule/model/value/source, history). Runner v2 (reglas en CPU primero, guided por tipo, chequeo de código por sub-lote, reintento por ítem, resume exacto). `promote_fallback.py` (dry-run por defecto, `--fields` obligatorio, source real, historia, rollback). Ensayo en copia cazó 2 bugs (guardia REAL no idempotente; rollback de `llm_model` por campo) → corregidos, rollback diff 0.
+- **F4** (`133d794`, `f957812`, `4efd0a8`): **ningún numérico de v2 tenía NULL** (26 campos, 0 ceros en 5.266 etiquetas GT) → `dncp.document_features_v3` con NULL≠0 + `{campo}_status` (extraido/sin_seccion/no_extraido). Recompute con historia: `num_documentos_pago` (1 en 25.343 docs y años → 6/7) y `num_pasos_verificacion` (ordinales "1º"; coincide con Qwen en 3.921/3.921). Run completo `llmfb-qwen3-8b-fp8-3fe595a69e69bfd4`: 287.894 filas, 0 fallidas, regla 87,6%, LLM 35.712; **la compuerta v1 había suprimido 76.665 valores** (47.247 ratios: liquidez 876→25.951). Ablación GT-12 (`docs/ablacion_gt.md`): LLM solo Qwen 75,0% vs FP8 34,5%; pipeline 93,8%/90,0%; orden regla→regex 95,1%; modal 67,9% > regex prod 52,2%; el LLM decide 8,7% de ítems y en fórmula queda < modal. Varianza: aceptación/fuerza mayor/presentación garantía = binarios.
+- **F5** (`f957812`, `4efd0a8`): planilla ciega `aceptacion_v2_3fe595a6.csv` (643 ítems; unidad = texto distinto; fuerza mayor colapsa a 7 plantillas) + clave + LEEME; validador v2 con κ; 11 tests.
+- **F6**: veredicto v3 (`endurecimiento_benchmark_plan.md` §9: firme / hipótesis / retirado + contribución metodológica), avisos HISTÓRICO, tabla maestra con columnas crudo, `capas_features.md` §4 (v3), piloto §11, INDICE, CLAUDE.md.
+
+#### Pendiente (no automatizable)
+1. Anotación humana: estratificado-75 (reglas fuera de muestra), IAA-25, planilla v2 → `validar_aceptacion.py`.
+2. F7: aprobación del usuario para `promote_fallback.py --apply` por campo (fórmula candidata a HOLD; decidir orden regla→regex).
+3. Push: auth GitHub + rotación de credenciales publicadas.
+
+#### Files (nuevos clave)
+`scripts/{manifest_datos,build_tabla_maestra,rescore_crudo,snapshot_reglas,promote_fallback,build_features_v3,recompute_regex_field,ablacion_gt,ablacion_resumen,varianza_campos}.py`, `scripts/progreso.sh`, `sql/{llm_fallback_v2,s23_features_v3_null_semantics}.sql`, `tests/` (38), `pytest.ini`, `docs/{rescore_crudo_f1,ablacion_gt,varianza_campos}.md`, `requirements-vllm.lock`, `data/MANIFEST.sha256`.
+
 ## Git State
 - `HEAD` = `869c86c` on `feature/clustering-pipeline` (rama real; los docs anteriores decían `feature/ocds-csv-pipeline` — corregido en sesión 23)
 - Last commit: `fix(clustering): Apply 4 anti-overclustering fixes to section clustering`
-- Sesiones 19-23 sin commitear (benchmark GPU, endurecimiento, gate v2, piloto fallback + planillas). Archivos nuevos sin trackear: `models/candidates.yaml`, `scripts/benchmark_concurrency.py`, `scripts/benchmark_fase5_900.py`, `scripts/{triangulacion,stats_significancia,taxonomia_desacuerdos,schema_valid_rate,c3_rerun_top3_288,c4_paraphrase,c5_replica,c5_analisis,a2_relog_gguf,heldout_freeze,validar_regex_gate,run_llm_fallback,generar_aceptacion,validar_aceptacion,generar_planillas_b,generar_audito_*}.py`, `sql/llm_fallback_cache.sql`, `src/etl/transformers/run_fingerprint.py`, `docs/{benchmark_local_resumen_general,tabla_maestra_benchmark,reporte_benchmark_completo,piloto_llm_fallback,endurecimiento_benchmark_plan,capas_features}.md`, `docs/presentacion_tutores/`, `data/processed/llm_benchmark/` (resultados + planillas)
+- Sesiones 1-24 commiteadas en `feature/benchmark-models` (tag `pre-auditoria-s23`); antes: sesiones 19-23 sin commitear (benchmark GPU, endurecimiento, gate v2, piloto fallback + planillas). Archivos nuevos sin trackear: `models/candidates.yaml`, `scripts/benchmark_concurrency.py`, `scripts/benchmark_fase5_900.py`, `scripts/{triangulacion,stats_significancia,taxonomia_desacuerdos,schema_valid_rate,c3_rerun_top3_288,c4_paraphrase,c5_replica,c5_analisis,a2_relog_gguf,heldout_freeze,validar_regex_gate,run_llm_fallback,generar_aceptacion,validar_aceptacion,generar_planillas_b,generar_audito_*}.py`, `sql/llm_fallback_cache.sql`, `src/etl/transformers/run_fingerprint.py`, `docs/{benchmark_local_resumen_general,tabla_maestra_benchmark,reporte_benchmark_completo,piloto_llm_fallback,endurecimiento_benchmark_plan,capas_features}.md`, `docs/presentacion_tutores/`, `data/processed/llm_benchmark/` (resultados + planillas)
 - DB `dncp` (podman, `5433->5432`): `document_features_v2` 31.321×108 + `llm_fallback_{cache,runs}` (staging 294K filas, producción sin tocar)

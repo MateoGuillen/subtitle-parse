@@ -1,5 +1,14 @@
 # Benchmark de modelos locales — Resumen general (documento vivo)
 
+> ⛔ **AVISO sesión 23 (auditoría H2.1/H2.4)**: las cifras de Fase 5 / GT-100 de este resumen miden acuerdo
+> DESPUÉS de un postproceso determinista que ignora al modelo en la mayoría de los campos
+> (un modelo que siempre responde NULL empata). Las cifras limpias del modelo están en las
+> columnas nuevas `c3_dias_crudo`, `gt12_llm_only` (+ `c3_dias_null_baseline`, `gt12_pipeline`)
+> del CSV, regenerado por `scripts/build_tabla_maestra.py`. Los párrafos de veredicto de este
+> documento (empate 239/239, "indistinguibles", desempate operativo FP8) son **históricos**:
+> veredicto vigente en `endurecimiento_benchmark_plan.md` §9.
+
+
 > **Última actualización**: 13-sep-2026 · **Estado**: benchmark Top 10 + concurrencia cerrados; post-plan pendiente.
 > **Para pulir**: §9 (post-plan) y §7 (agregar futuras rondas). Detalle fino en
 > `docs/reporte_benchmark_completo.md`, tabla en `docs/tabla_maestra_benchmark.md`,
@@ -87,13 +96,13 @@ Qwen3-8B-AWQ, Qwen2.5-14B-AWQ, ALIA-legal.
 | 9-10 | Granite-GGUF / Small-24B | 97/49-50 | 48.2% | 1.09/2.99s | 2.5/0.27 | 8/14.7G |
 
 > ⚠ **FASE 5 v2 (27-sep, ver plan endurecimiento §8)**: con los 4 regex reescritos y el
-> gate sosteniendo, el agreement pasó a medir calidad real — FP8 **87.4%** (v1: 61.8%),
+> [HISTÓRICO — invalidado en sesión 23] gate sosteniendo, el agreement pasó a medir calidad real — FP8 **87.4%** (v1: 61.8%),
 > AWQ 87.0%, Qwen3-8B-FP8 80.3% (+26pp que confirman que el número viejo medía desacuerdo
 > con referencia rota). Set `pseudo900.json` regenerado (backup v1 en su lugar).
 
 Lecturas clave: (i) 4/5 campos saturan idéntico en los 10 → techo del pipeline, no de modelos;
 (ii) solo `pct_monto_referencia_tecnica` discrimina (Llama 114-118/147 vs resto 0-56);
-(iii) throughput replica calidad → **triple corona Llama-FP8**; (iv) punto operativo C=8-16;
+(iii) [HISTÓRICO — invalidado] throughput replica calidad → **triple corona Llama-FP8**; (iv) punto operativo C=8-16;
 (v) descartados: Small (online imposible), Qwen3-14B (sin margen VRAM), Gemma/Granite (lentos).
 
 **Veredicto**: Llama 3.1 8B-FP8 para el fallback Pipeline 2; alternativa Llama-AWQ.

@@ -1,11 +1,11 @@
-modelo,formato,gb,ctx,guided,gt100,flags,fase5_agree,single_P50_s,single_P95_s,single_elapsed_s,conc_N,conc_backend,conc_techo_req_s,conc_C_techo,conc_P50_C1_s,conc_P95_techo_s,conc_VRAM_MiB,conc_agree,fase5_v2_agree
-Llama 3.1 8B-FP8,FP8,8.5,8192,xgrammar (serve+offline),98/100,"quant auto FP8, bf16",536/867=61.8%,0.17,0.28,132,64,vllm,7.04,32,0.19,8.12,11620,40/64,758/867=87.4%
-Llama 3.1 8B-AWQ,AWQ,5.4,8192,xgrammar (serve+offline),98/100,HF_TOKEN tokenizer; quant auto,532/867=61.4%,0.22,0.38,167,64,vllm,5.21,32,0.38,12.04,11620,39/64,754/867=87.0%
-Qwen3-8B-FP8,FP8,8.9,4096,xgrammar (serve+offline),98/100,enable_thinking=False; gpu 0.80,474/867=54.7%,0.24,0.39,187,64,vllm,4.51,32,1.0,10.22,13214,37/64,696/867=80.3%
-Qwen3-14B-AWQ,AWQ,9.4,4096,xgrammar (serve+offline),98/100,enable_thinking=False; gpu 0.92,460/867=53.1%,0.38,0.64,288,64,vllm,3.2,16,0.43,12.28,15168,40/64,
-Ministral 3 14B-Q4_K_M,GGUF,7.7,16384/4slots,sin guided (plain+parse),97/100,llama-server np4,435/867=50.2%,0.55,0.77,421,32,http,4.85,8,0.41,1.82,10462,19/32,
-Mistral 7B v0.3-AWQ,AWQ,3.9,8192,xgrammar (serve+offline),97/100,merge_system obligatorio (jinja); quant auto,428/867=49.4%,0.29,0.96,203,64,vllm,4.31,32,0.69,13.64,11512,33/64,
-EXAONE-3.5-7.8B-AWQ,AWQ,5.0,8192,xgrammar (serve+offline),98/100,-,420/867=48.4%,0.26,0.43,195,64,vllm,5.05,32,0.47,12.42,11532,33/64,
-Gemma 4 12B-Q4_K_XL,GGUF,6.3,16384/4slots,sin guided (plain+parse),97/100,--reasoning off servidor; np4,420/867=48.4%,1.45,1.87,1124,32,http,0.9,8,1.53,12.22,8978,18/32,
-Granite 4.2 8B-Q4_K_M,GGUF,5.2,16384/4slots,sin guided (plain+parse),97/100,enable_thinking:false; llama-server np4,418/867=48.2%,1.09,1.24,891,32,http,2.52,8,1.0,4.04,8004,18/32,
-Mistral Small 24B-AWQ,AWQ,14.0,2048,xgrammar offline (serve cuelga),49/50,cpu_offload 5GB; maxseqs 2-4; trunc >2048,418/867=48.2%,2.99,5.28,1511,24,vllm-offline-batch,0.27,batch24-offline-maxseq4,,,14742,13/24,
+modelo,formato,gb,ctx,guided,gt100,flags,fase5_agree,single_P50_s,single_P95_s,single_elapsed_s,conc_N,conc_backend,conc_techo_req_s,conc_C_techo,conc_P50_C1_s,conc_P95_techo_s,conc_VRAM_MiB,conc_agree,fase5_v2_agree,c3_dias_crudo,c3_dias_null_baseline,gt12_llm_only,gt12_pipeline
+Llama 3.1 8B-FP8,FP8,8.5,8192,xgrammar (serve+offline),98/100,"quant auto FP8, bf16",536/867=61.8%,0.17,0.28,132,64,vllm,7.04,32,0.19,8.12,11620,40/64,758/867=87.4%,183/239=76.6%,239/239=100.0%,828/2400=34.5%,2160/2400=90.0%
+Llama 3.1 8B-AWQ,AWQ,5.4,8192,xgrammar (serve+offline),98/100,HF_TOKEN tokenizer; quant auto,532/867=61.4%,0.22,0.38,167,64,vllm,5.21,32,0.38,12.04,11620,39/64,754/867=87.0%,175/239=73.2%,239/239=100.0%,,
+Qwen3-8B-FP8,FP8,8.9,4096,xgrammar (serve+offline),98/100,enable_thinking=False; gpu 0.80,474/867=54.7%,0.24,0.39,187,64,vllm,4.51,32,1.0,10.22,13214,37/64,696/867=80.3%,235/239=98.3%,239/239=100.0%,1800/2400=75.0%,2250/2400=93.8%
+Qwen3-14B-AWQ,AWQ,9.4,4096,xgrammar (serve+offline),98/100,enable_thinking=False; gpu 0.92,460/867=53.1%,0.38,0.64,288,64,vllm,3.2,16,0.43,12.28,15168,40/64,,,,,
+Ministral 3 14B-Q4_K_M,GGUF,7.7,16384/4slots,sin guided (plain+parse),97/100,llama-server np4,435/867=50.2%,0.55,0.77,421,32,http,4.85,8,0.41,1.82,10462,19/32,,,,,
+Mistral 7B v0.3-AWQ,AWQ,3.9,8192,xgrammar (serve+offline),97/100,merge_system obligatorio (jinja); quant auto,428/867=49.4%,0.29,0.96,203,64,vllm,4.31,32,0.69,13.64,11512,33/64,,,,,
+EXAONE-3.5-7.8B-AWQ,AWQ,5.0,8192,xgrammar (serve+offline),98/100,-,420/867=48.4%,0.26,0.43,195,64,vllm,5.05,32,0.47,12.42,11532,33/64,,,,,
+Gemma 4 12B-Q4_K_XL,GGUF,6.3,16384/4slots,sin guided (plain+parse),97/100,--reasoning off servidor; np4,420/867=48.4%,1.45,1.87,1124,32,http,0.9,8,1.53,12.22,8978,18/32,,,,,
+Granite 4.2 8B-Q4_K_M,GGUF,5.2,16384/4slots,sin guided (plain+parse),97/100,enable_thinking:false; llama-server np4,418/867=48.2%,1.09,1.24,891,32,http,2.52,8,1.0,4.04,8004,18/32,,,,,
+Mistral Small 24B-AWQ,AWQ,14.0,2048,xgrammar offline (serve cuelga),49/50,cpu_offload 5GB; maxseqs 2-4; trunc >2048,418/867=48.2%,2.99,5.28,1511,24,vllm-offline-batch,0.27,batch24-offline-maxseq4,,,14742,13/24,,,,,

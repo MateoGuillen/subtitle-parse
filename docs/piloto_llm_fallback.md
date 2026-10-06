@@ -152,3 +152,21 @@ rinden 4× mejor). ETA con I/O y reintentos: ~4-5 h en una sesión.
    rescató 1.052 — ruidoso pero mejor que NULL, y el upsert con guardia impide que ese 1
    pise el 6/7 del regex. Lección: portar a regex puro solo si cobertura ≈100%; si no,
    hybrid con regex preciso + LLM de respaldo.
+
+## 11. Run v2 (sesión 23, plan de corrección F3-F4)
+
+`run_id=llmfb-qwen3-8b-fp8-3fe595a69e69bfd4` · Qwen3-8B-FP8 · runner v2 · población desde
+`document_features_v3` (`{campo}_status='no_extraido'`) · tablas `llm_fallback_runs_v2` / `cache_v2`.
+
+| | v1 (Llama-FP8, compuerta LLM) | v2 (reglas en CPU + Qwen) |
+|---|---|---|
+| filas-campo | 294.102 | 287.894 (num_documentos_pago y num_pasos ya resueltos por regex en v3) |
+| resuelto por regla | (etiquetado como `llm`) | 252.182 (87,6%), `source='rule'` |
+| a GPU | 294.102 | 35.712 |
+| fallidas | 0 | 0 |
+| con valor | 79.789 | ver `docs/varianza_campos.md` (proyección post-promote) |
+
+- La compuerta v1 suprimió **76.665** valores que la regla produce (47.247 de ratios).
+- El LLM solo decide `num_componentes_formula` (13.836 con valor, 94% = "3") y casos residuales;
+  en la ablación GT queda por debajo de la baseline modal → candidato a HOLD.
+- Nada promovido: F5 (planilla ciega `planillas/aceptacion_v2_3fe595a6.csv`) + F7.

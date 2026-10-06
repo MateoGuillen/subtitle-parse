@@ -1,5 +1,13 @@
 # Plan v4.1 — Endurecimiento metodológico del benchmark (tras verificación de procedencia)
 
+> ⛔ **AVISO (sesión 23, auditoría externa)**: las secciones §6, §7, §7.1, §7.2 y §8 son
+> **HISTÓRICAS e INVALIDADAS en sus conclusiones sobre modelos** (H2.1/H2.4): el parse de
+> benchmark aplicaba reglas deterministas antes de mirar al LLM, y un "modelo" que responde
+> siempre `NULL` obtenía 239/239. "239/239", "87,4%", "indistinguibles/intercambiables",
+> "C5: dias robusto al prompt" y "FP8 por desempate operativo" **no deben citarse**.
+> **Veredicto vigente: §9 (Veredicto v3)**. Detalle: `docs/rescore_crudo_f1.md`, `docs/ablacion_gt.md`.
+
+
 > **Estado**: aprobado con correcciones de procedencia + 2 reglas pre-registradas · **Fecha**: 14-sep-2026
 > **Cambio de v3→v4**: gate φ **por campo** (no agregado); 288 = set principal de A1 con
 > reglas de contaminación verificadas; columna `llm_raw/llm_value` de los 26 archivos
@@ -72,7 +80,7 @@ lo dudoso va al LLM (100% humano en dias).
 **pseudo900 regenerado** (867, backup en `pseudo900_v1_867.json` + `fase5_v1/`).
 Fase 5 top-3 re-corriendo sobre el set nuevo para confirmar que el agreement mide calidad.
 
-#### ✅ FASE 5 v2 — 27-sep (`pseudo900.json` regenerado, referencia gateada)
+#### [HISTÓRICO — invalidado, H2.4] FASE 5 v2 — 27-sep (`pseudo900.json` regenerado, referencia gateada)
 FP8 **87.4%** (758/867; v1: 61.8%), AWQ 87.0% (754; v1: 61.4%), Qwen3-8B-FP8 80.3%
 (696; v1: 54.7%). El salto de +26pp **confirma la tesis del plan**: el 61.8% medía
 desacuerdo con referencia rota; con referencia gateada el agreement sí mide calidad y
@@ -156,7 +164,7 @@ el ganador se elige por humana + throughput, y Pseudo-867 se reporta como diverg
 
 ---
 
-## 8. GATE v2 — regex reescritos para que el gate sostenga (27-sep, plan cumplido)
+## 8. [HISTÓRICO — cifras de Fase 5 v2 invalidadas en sesión 23, ver §9] GATE v2 — regex reescritos para que el gate sostenga (27-sep, plan cumplido)
 
 **Filosofía (aprobada)**: precisión > recall — lo dudoso devuelve `None` → conf 0.0 →
 fallback LLM. El gate se mueve arreglando la referencia, nunca el umbral.
@@ -201,7 +209,7 @@ validez 18.372 filas; **30.894 docs distintos** (4 campos) → ~1-2 h GPU a C=8-
 
 ---
 
-## 6. Estado de ejecución (15-sep)
+## 6. [HISTÓRICO] Estado de ejecución (15-sep)
 
 | Paso | Estado | Artefacto |
 |---|---|---|
@@ -227,7 +235,7 @@ estable entre esquemas) → desempate throughput/VRAM → Llama-FP8 hoy líder e
 
 ---
 
-## 7. VEREDICTO v2 (15-sep, C3 completado — reemplaza al "61.8% triple corona")
+## 7. [HISTÓRICO — INVALIDADO en sesión 23, ver §9] VEREDICTO v2 (15-sep, C3 completado — reemplaza al "61.8% triple corona")
 
 **C3 top-3 sobre 288 humanos, parse post-AloLab, guided, raw completo**
 (`C3_Llama_31_8B-{FP8,AWQ}.json`, `C3_Qwen3-8B-FP8.json`):
@@ -335,3 +343,90 @@ prompt de producción real (base): sin cambio — dias empate 100% (bajo el gate
 (McNemar p≥0.55), throughput elige **Llama-FP8**. Nota para la defensa: bajo reescrituras,
 la robustez favorece a QWEN; el veredicto FP8 es *condicional al prompt congelado*, y eso se
 declara así explícitamente.
+
+
+---
+
+## 9. VEREDICTO v3 (06-oct, sesión 23 — reemplaza a §7; plan de corrección F1-F6)
+
+### 9.1 Qué estaba mal
+`extraction_postprocess.parse_response()` aplicaba overrides deterministas ("reglas") sobre el
+TEXTO **antes** de mirar la respuesta del LLM, y ese mismo parse se usó en benchmark y producción.
+Consecuencia medida (F1, `scripts/rescore_crudo.py`): un "modelo" que siempre responde `NULL`
+saca **239/239** en C3 dias (heldout 50/50) y empata exacto con los tres finalistas en los 720
+ítems no-pct de Fase 5 (v1 418/720, v2 640/720) y en los 120 no-pct de C4/C5 (72/120 en todas
+las variantes). Todo lo publicado como calidad del modelo en esos campos era calidad de las reglas.
+
+### 9.2 Los modelos, medidos sobre su salida cruda (únicas cifras limpias del modelo)
+
+| Métrica | Llama-3.1-8B-FP8 | Llama-3.1-8B-AWQ | Qwen3-8B-FP8 |
+|---|---|---|---|
+| C3 dias (239 humanos), crudo | 183 (76,6%) | 175 (73,2%) | **235 (98,3%)** |
+| C3 pct (49 humanos) | 29 | 32 | 26 |
+| GT 12 campos hybrid (2.400 humanos), LLM solo | 828 (34,5%) | — | **1.800 (75,0%)** |
+| C4/C5 no-pct bajo reescritura P3/P4 (120), crudo | 67→38 | 63→30/36 | 75→65/74 |
+
+- FP8 vs Qwen en dias: McNemar exacto b=0, c=52, p≈4·10⁻¹⁶; diferencia −21,8 pp [−27,0; −16,5].
+- pct: sin diferencia detectable; con n=49 la **diferencia mínima detectable es ≈22 pp** (poder 0,8,
+  α=0,0167). Afirmación permitida: "no se detectan diferencias mayores a ~22 pp".
+- **Decisión: Qwen3-8B-FP8** es el modelo del fallback (mejor por amplio margen y estable bajo
+  reescritura de prompt). FP8 sigue siendo 1,56× más rápido, pero no hay empate de calidad que desempatar.
+
+### 9.3 Ablación contra GT humano (12 campos hybrid × 200; `docs/ablacion_gt.md`)
+
+| Brazo | Qwen3-8B-FP8 | Llama-3.1-8B-FP8 |
+|---|---|---|
+| modal (responder siempre el valor más frecuente) | 1.629 (67,9%) | 1.629 (67,9%) |
+| regex de producción (in-sample) | 1.252 (52,2%) | 1.252 (52,2%) |
+| reglas deterministas solas (in-sample) | 1.800 (75,0%) | 1.800 (75,0%) |
+| **LLM solo (limpio)** | **1.800 (75,0%)** | 828 (34,5%) |
+| pipeline producción: regex → regla → LLM | 2.250 (93,8%) | 2.160 (90,0%) |
+| pipeline alternativo: regla → regex → LLM | **2.282 (95,1%)** | 2.192 (91,3%) |
+
+Lecturas:
+1. **El rendimiento del sistema lo ponen las capas deterministas.** El LLM decide solo **208/2.400
+   (8,7%)** ítems, casi todos `num_componentes_formula`, y acierta 103 (Qwen) / 13 (FP8).
+2. En `num_componentes_formula` (único campo sin regla) Qwen acierta 95/200, **por debajo de la
+   baseline modal (141/200)** → candidato a **HOLD** (no promover).
+3. El regex de producción, cuando acierta poco, **pisa** reglas mejores (validez 181 vs 200,
+   solicitud 195 vs 200): poner la regla antes que el regex sube el sistema a 95,1%. **Pendiente**:
+   confirmar fuera de muestra (estratificado-75) antes de cambiar el orden en producción.
+4. La baseline modal (67,9%) supera al regex de producción (52,2%): los campos son mayormente
+   plantilla; reportar siempre contra esa baseline.
+
+### 9.4 Producción (F4; run `llmfb-qwen3-8b-fp8-3fe595a69e69bfd4`, tabla `document_features_v3`)
+- 287.894 filas-campo, 0 fallidas; las reglas resuelven 252.182 (87,6%) en CPU, el LLM 35.712.
+- La compuerta histórica (regla solo si el LLM no decía NULL) **suprimió 76.665 valores** que la
+  regla sí produce (47.247 de ratios; su corrección se valida en F5), p. ej.:
+  `ratio_liquidez_minimo` 876 → **25.951**, `ratio_endeudamiento_maximo` 3.262 → **25.434**
+  (coherente con el GT: 85-86% de pliegos fijan esos ratios).
+- `num_documentos_pago`: el regex devolvía el índice del primer ítem (1 en 25.343 docs, incluso
+  años) → corregido (6/7, como el GT). `num_pasos_verificacion`: los misses usan ordinales ("1º")
+  → regex con ordinales coincide con Qwen en los 3.921 casos.
+- `dias_aceptacion_rechazo_factura` (15), `dias_notificacion_fuerza_mayor` (7) y
+  `dias_presentacion_garantia` (10) son ≥99,99% constantes → **indicadores binarios** de cláusula
+  estándar, no magnitudes (`docs/varianza_campos.md`).
+- Producción NO promovida todavía: F5 (auditoría humana ciega) y F7 (aprobación).
+
+### 9.5 Estado de las afirmaciones
+
+| Firme (con evidencia limpia) | Hipótesis (falta F5 fuera de muestra) | Retirada |
+|---|---|---|
+| Qwen3-8B-FP8 > Llama-FP8 sobre salida cruda (C3 y GT-12) | Precisión real de las reglas en la población de producción | "239/239 contra humano" |
+| Un postproceso compartido enmascara diferencias entre modelos | Orden regla → regex mejora producción | "finalistas intercambiables" |
+| La compuerta LLM suprimió **76.665** valores que la regla sí produce (47.247 de ratios) | Que esos 76.665 sean correctos (validación F5) · `num_documentos_pago` y `num_pasos` 200/200 fuera de muestra | "87,4% Fase 5 v2" |
+| 3 campos son constantes de plantilla | `num_componentes_formula` no es extraíble con calidad suficiente | "dias robusto al prompt" (C5) |
+| | | "FP8 por desempate operativo" |
+
+### 9.6 Contribución metodológica (para el capítulo)
+**Cuando la capa de postproceso determinista es compartida entre evaluación y producción, puede
+enmascarar por completo las diferencias entre modelos.** Recomendación operativa adoptada:
+reportar siempre (a) salida cruda del modelo, (b) sistema completo y (c) una baseline trivial
+(siempre-NULL y modal) pasada por el mismo postproceso; si la baseline empata al modelo, la
+métrica no mide al modelo.
+
+### 9.7 Limitaciones vigentes
+- Reglas y regex fueron desarrollados sobre `gt_por_campo` (in-sample): sus cifras son cotas
+  optimistas hasta anotar el estratificado-75.
+- Un solo anotador (el autor); IAA-25 pendiente (κ).
+- AWQ no se re-corrió en la ablación GT-12 (sí en C3 crudo).

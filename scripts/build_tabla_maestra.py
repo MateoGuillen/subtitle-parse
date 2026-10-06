@@ -10,7 +10,8 @@ Columnas estáticas (no están en los JSON): formato, gb, ctx, guided, flags -> 
 
 ADVERTENCIA (auditoría sesión 23, H2.1/H2.4): fase5_* y gt100 son acuerdo DESPUÉS
 del postproceso determinista compartido; no miden la salida cruda del modelo.
-Las columnas sobre crudo se agregan en la Fase 1 (scripts/rescore_crudo.py).
+Columnas sobre crudo (F6.4): c3_dias_crudo / c3_dias_null_baseline (F1, top-3) y
+gt12_llm_only / gt12_pipeline (ablación contra GT de 12 campos, Qwen y FP8).
 
 Uso:
   /root/vllm-env/bin/python scripts/build_tabla_maestra.py           # escribe CSV
@@ -66,7 +67,13 @@ META = {
 COLS = ["modelo", "formato", "gb", "ctx", "guided", "gt100", "flags", "fase5_agree",
         "single_P50_s", "single_P95_s", "single_elapsed_s", "conc_N", "conc_backend",
         "conc_techo_req_s", "conc_C_techo", "conc_P50_C1_s", "conc_P95_techo_s",
-        "conc_VRAM_MiB", "conc_agree", "fase5_v2_agree"]
+        "conc_VRAM_MiB", "conc_agree", "fase5_v2_agree",
+        "c3_dias_crudo", "c3_dias_null_baseline", "gt12_llm_only", "gt12_pipeline"]
+# Sesión 23 (F6.4): columnas sobre SALIDA CRUDA (F1) y ablación contra GT (F4.5).
+F1_CSV = ROOT / "data/processed/llm_benchmark/F1_rescore_crudo.csv"
+ABL_CSV = ROOT / "data/processed/llm_benchmark/F6_ablacion_resumen.csv"
+F1_TAG = {"Llama 3.1 8B-FP8": "FP8", "Llama 3.1 8B-AWQ": "AWQ", "Qwen3-8B-FP8": "QWEN"}
+ABL_TAG = {"Llama 3.1 8B-FP8": "Llama-3.1-8B-FP8", "Qwen3-8B-FP8": "Qwen3-8B-FP8"}
 
 
 def load(name: str) -> dict:
@@ -80,6 +87,23 @@ def pct(vals, q):
 
 def frac(k, n):
     return f"{k}/{n}={100 * k / n:.1f}%"
+
+
+def _crudo_cols(modelo: str) -> dict:
+    out = {"c3_dias_crudo": "", "c3_dias_null_baseline": "", "gt12_llm_only": "",
+           "gt12_pipeline": ""}
+    if modelo in F1_TAG and F1_CSV.exists():
+        f1 = pd.read_csv(F1_CSV)
+        sel = f1[(f1.experimento == "C3_288_humano") & (f1.modelo == F1_TAG[modelo])
+                 & (f1.campo == "DIAS_239")].set_index("metrica")
+        out["c3_dias_crudo"] = frac(int(sel.loc["crudo", "k"]), int(sel.loc["crudo", "n"]))
+        out["c3_dias_null_baseline"] = frac(int(sel.loc["null_bl", "k"]), int(sel.loc["null_bl", "n"]))
+    if modelo in ABL_TAG and ABL_CSV.exists():
+        ab = pd.read_csv(ABL_CSV)
+        d = ab[ab.modelo == ABL_TAG[modelo]]
+        out["gt12_llm_only"] = frac(int(d["llm"].sum()), int(d["n"].sum()))
+        out["gt12_pipeline"] = frac(int(d["pipeline"].sum()), int(d["n"].sum()))
+    return out
 
 
 def build() -> pd.DataFrame:
@@ -111,6 +135,7 @@ def build() -> pd.DataFrame:
             "conc_agree": f"{L[top]['agree']}/{L[top]['n']}",
             "fase5_v2_agree": (frac(sum(bool(x["agree"]) for x in main["results"]),
                                     len(main["results"])) if is_v2 else ""),
+            **_crudo_cols(modelo),
         })
     return pd.DataFrame(rows, columns=COLS)
 

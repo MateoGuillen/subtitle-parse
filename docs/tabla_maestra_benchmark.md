@@ -1,5 +1,14 @@
 # Tabla maestra del benchmark de modelos locales (tesis)
 
+> ⛔ **AVISO sesión 23 (auditoría H2.1/H2.4)**: las columnas `gt100` y `fase5_*` miden acuerdo
+> DESPUÉS de un postproceso determinista que ignora al modelo en la mayoría de los campos
+> (un modelo que siempre responde NULL empata). Las cifras limpias del modelo están en las
+> columnas nuevas `c3_dias_crudo`, `gt12_llm_only` (+ `c3_dias_null_baseline`, `gt12_pipeline`)
+> del CSV, regenerado por `scripts/build_tabla_maestra.py`. Los párrafos de veredicto de este
+> documento (empate 239/239, "indistinguibles", desempate operativo FP8) son **históricos**:
+> veredicto vigente en `endurecimiento_benchmark_plan.md` §9.
+
+
 > **Fuente primaria**: `data/processed/llm_benchmark/tabla_maestra_benchmark.csv`
 > (generado desde `Fase5_*.json` + `Conc_*.json`, 12/13-sep-2026).
 > **Hardware único**: RTX 4070 Ti SUPER 16 GB · driver 615 · CUDA 13.4 · vLLM 0.29.0 · llama-server (commit 6d9c82e).
@@ -58,7 +67,7 @@ Qwen3-14B (sin margen VRAM), Gemma/Granite (throughput bajo).
 > ⚠ **SUPERSEDADO 15-sep por el Veredicto v2** (`docs/endurecimiento_benchmark_plan.md` §7):
 > la cifra "61.8% agree" medía divergencia contra una referencia rota (el regex de
 > `dias_pago_anticipo` acierta solo 29.4% contra humano). Sobre los 288 ítems humanos:
-> FP8/AWQ/Qwen3-8B-FP8 empatan en **100% exacto en los 4 campos dias** (239/239, incl.
+> [HISTÓRICO — invalidado en sesión 23] FP8/AWQ/Qwen3-8B-FP8 empatan en **100% exacto en los 4 campos dias** (239/239, incl.
 > heldout congelado) y son **indistinguibles en pct** (McNemar p≥0.55). La elección de
 > **Llama-FP8 se mantiene por desempate operativo** (throughput/latencia), no por calidad.
 > La cifra "~324K docs del fallback" está obsoleta: la población real es conf=0 (regex
@@ -78,7 +87,7 @@ Qwen3-14B (sin margen VRAM), Gemma/Granite (throughput bajo).
 
 † cota optimista: el regex de pct fue validado sobre estos mismos archivos (Sesión 16).
 McNemar pct: FP8-AWQ p=0.55, FP8-QWEN p=0.65 (α Bonferroni 0.0167) → sin diferencia.
-> ⚠ **FASE 5 v2 (27-sep)**: FP8 **87.4%**, AWQ 87.0%, Qwen3-8B-FP8 80.3% sobre pseudo900
+> ⚠ [HISTÓRICO — invalidado en sesión 23: fuera de pct el postproceso empata a un modelo siempre-NULL] **FASE 5 v2 (27-sep)**: FP8 **87.4%**, AWQ 87.0%, Qwen3-8B-FP8 80.3% sobre pseudo900
 > regenerado con referencia gateada (detalle en plan endurecimiento §8). El ranking y el
 > veredicto no cambian; el número ahora sí mide calidad.
 **C5 (15-sep, replicación ciega)**: el "prompt-flip" replicó 3/3 reescrituras ciegas del
@@ -165,3 +174,16 @@ las etiquetas de agosto (`gt_por_campo`), cuya sustancia está bajo auditoría p
 - **Por qué importa**: verifica que la carga no corrompe resultados (agree estable en todos
   los niveles ✓) y que los errores son deterministas (la muestra de 8193 tokens falla igual
   en C=1 y C=32 → robustez, no flakiness).
+
+
+## Sesión 23 — cifras limpias del modelo (salida cruda)
+
+| Modelo | C3 dias crudo (239) | siempre-NULL (mismo postproceso) | GT-12 LLM solo (2.400) | GT-12 pipeline |
+|---|---|---|---|---|
+| Llama 3.1 8B-FP8 | 183 (76,6%) | 239 (100%) | 828 (34,5%) | 2.160 (90,0%) |
+| Llama 3.1 8B-AWQ | 175 (73,2%) | 239 (100%) | — | — |
+| Qwen3-8B-FP8 | **235 (98,3%)** | 239 (100%) | **1.800 (75,0%)** | **2.250 (93,8%)** |
+
+Fuente: `F1_rescore_crudo.csv`, `F6_ablacion_resumen.csv` (columnas del CSV maestro). Detalle y
+estadística: `docs/rescore_crudo_f1.md`, `docs/ablacion_gt.md`, veredicto en
+`endurecimiento_benchmark_plan.md` §9.
