@@ -80,3 +80,15 @@
 5. **Por qué el pseudo-GT da cifras más altas que el GT humano** (≈91% vs 83% para el mejor): la muestra
    fuera de muestra tiene más textos plantilla y más ausencias (`anos_experiencia` y `pct` 100% sin valor),
    que son fáciles. Las cifras absolutas no son comparables entre referencias; los rankings sí.
+
+## E. Acierto por campo (LLM solo, %) — resumen de lectura
+Tablas completas generadas en sesión 24 (GT humano n=200/campo; pseudo-GT n=6-30/campo).
+- **Campos plantilla** (aceptación, fuerza mayor, exp_tec, pct_ref): ~100% en casi todos; no discriminan.
+- **Discriminan**: `num_componentes_formula` (Gemma4-12B 84% / 90% vs Qwen3-8B 48% / 48%), `ratio_endeudamiento`
+  y `ratio_liquidez` (Qwen3.5-9B, Ling, EXAONE y Llama colapsan), `num_pasos` y `pct_ref`.
+- **`dias_pago_maximo`**: 52% en GT humano para todos (= baseline modal) vs ~100% en pseudo-GT → diferencia de
+  criterio de anotación ("primer N días" vs "sin exceder N días tras factura"), no de modelo.
+- **`num_documentos_pago`**: 3-50% en GT humano vs 80-93% en pseudo-GT para los mejores (Gemma, Qwen3.8, MiMo,
+  Qwen3.5). Discrepancia a revisar: el GT humano cuenta el catálogo genérico por nombre (6-7); los modelos
+  probablemente cuentan otra lista. En producción el campo lo resuelve el regex corregido (200/200 GT, 30/30 pseudo).
+- **Llama-3.1-8B-FP8** es el peor en 11 de 13 campos en ambas muestras.
