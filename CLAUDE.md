@@ -2,7 +2,7 @@
 
 ## ⏳ Paso actual (leer primero)
 **Sesión 24 = ejecución autónoma del plan de corrección (`docs/plan_correccion_auditoria.md`)**: F0-F4 y F6 ✅, F5 código ✅. Bitácora completa en §9 del plan; resumen en `AGENTS.md` §Session 24.
-- **Veredicto vigente**: `docs/endurecimiento_benchmark_plan.md` §9 (v3). Modelo del fallback = **Qwen3-8B-FP8** (crudo 98,3% vs FP8 76,6% en C3 dias; GT-12 LLM solo 75,0% vs 34,5%). Las capas deterministas ponen el rendimiento: pipeline 93,8% (95,1% con orden regla→regex); el LLM decide solo 8,7% de ítems.
+- **Veredicto vigente**: `docs/endurecimiento_benchmark_plan.md` §9 (v3) + §9.8 (retest 7 modelos: **Gemma-4-12B GGUF recomendado**, alternativa vLLM Qwen3-14B-AWQ; elección pendiente del usuario). Run F4 hecho con Qwen3-8B-FP8 (crudo 98,3% vs FP8 76,6% en C3 dias; GT-12 LLM solo 75,0% vs 34,5%). Las capas deterministas ponen el rendimiento: pipeline 93,8% (95,1% con orden regla→regex); el LLM decide solo 8,7% de ítems.
 - **Tabla a usar**: `dncp.document_features_v3` (NULL≠0 + `{campo}_status`). `document_features_v2` es legado (0 = ausencia).
 - **Run vigente** (sin promover): `llmfb-qwen3-8b-fp8-3fe595a69e69bfd4` en `dncp.llm_fallback_runs_v2` (287.894 filas, 0 fallidas).
 - 📋 **Tareas del usuario (checklist)**: `docs/TAREAS_USUARIO.md`.
@@ -47,7 +47,7 @@ ETL para detección de anomalías en contrataciones públicas de Paraguay (DNCP)
 - Todo benchmark de LLM se reporta sobre **salida cruda** y, por separado, sobre "crudo + postproceso"; nunca solo lo segundo.
 
 ## Decisiones tomadas en sesión 24 (con evidencia)
-- Modelo del fallback = **Qwen3-8B-FP8** (F1 + ablación GT-12); "FP8 por desempate operativo" retirado.
+- Modelo del fallback: "FP8 por desempate operativo" retirado. Retest de 7 modelos (§9.8): Gemma-4-12B GGUF > Qwen3.8-27B ≈ Qwen3-14B-AWQ > Qwen3-8B-FP8 ≈ Ministral > EXAONE > Llama-FP8. Elección final pendiente del usuario (TAREAS_USUARIO 2b).
 - Producción = `rule_first` (regla si aplica, si no LLM), source explícito; conf convencional por fuente (regex 1.0 · rule 0.9 · llm 0.7).
 - Análisis y promote sobre `document_features_v3` (NULL≠0); v2 queda como legado intacto.
 - Aceptación: unidad = texto distinto, ciega al valor, sin `otro`=0,5; LCB≥0,85 PROMOTE / <0,70 HOLD.

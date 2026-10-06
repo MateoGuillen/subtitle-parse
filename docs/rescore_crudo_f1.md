@@ -70,5 +70,5 @@ Baseline siempre-NULL con el mismo postproceso: **78/80** en dias. Lecturas:
 2. **La selección de finalistas (top-3) también estaba sesgada**: se hizo con Fase 5 (decidida solo en pct contra
    pseudo-GT de regex). Sobre crudo humano, EXAONE-3.5-7.8B-AWQ, Qwen3-14B-AWQ, Gemma-4-12B y Qwen3.8-27B
    rinden igual o mejor que Qwen3-8B-FP8 en GT-100; Llama-FP8/AWQ y Mistral-7B quedan últimos.
-3. Con n=80 las diferencias entre los 6 primeros (78-79) no son significativas. Para elegir entre ellos hace
-   falta C3-288 crudo + ablación GT-12 por modelo (≈5 min de GPU c/u). Pendiente/opcional.
+3. Con n=80 las diferencias entre los 6 primeros (78-79) no son significativas. **Resuelto con el retest de 7
+   modelos (protocolo único, 2.600 GT): ver `endurecimiento_benchmark_plan.md` §9.8 → Gemma-4-12B recomendado.**

@@ -20,4 +20,4 @@ SELECT field, count(*) FILTER (WHERE status='pending') pend,
 FROM dncp.llm_fallback_runs_v2 WHERE run_id='$RUN' GROUP BY 1
 HAVING count(*) FILTER (WHERE status='pending') > 0 ORDER BY 2 DESC;"
 echo "== Última línea del log"
-tail -c 300 /root/backups/run_f4_full.log 2>/dev/null | tr '\r' '\n' | grep -v '^$' | tail -1 | cut -c1-120
+tail -c 300 $(ls -t /root/backups/*.log | head -1) 2>/dev/null | tr '\r' '\n' | grep -v '^$' | tail -1 | cut -c1-120

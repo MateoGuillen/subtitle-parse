@@ -1,25 +1,92 @@
-modelo,campo,n,modal,regex,regla,llm,pipeline
-Qwen3-8B-FP8,anos_experiencia_minima_tecnica,200,160,178,199,180,198
-Qwen3-8B-FP8,dias_aceptacion_rechazo_factura,200,198,2,200,200,198
-Qwen3-8B-FP8,dias_notificacion_fuerza_mayor,200,189,11,200,200,200
-Qwen3-8B-FP8,dias_pago_anticipo,200,98,119,200,190,200
-Qwen3-8B-FP8,dias_pago_maximo,200,104,66,189,122,187
-Qwen3-8B-FP8,dias_solicitud_anticipo,200,100,158,200,171,195
-Qwen3-8B-FP8,dias_validez_garantia,200,128,166,200,166,181
-Qwen3-8B-FP8,num_componentes_formula,200,141,5,5,95,95
-Qwen3-8B-FP8,num_documentos_pago,200,102,200,5,9,200
-Qwen3-8B-FP8,num_pasos_verificacion,200,100,200,3,159,200
-Qwen3-8B-FP8,ratio_endeudamiento_maximo,200,166,88,199,188,198
-Qwen3-8B-FP8,ratio_liquidez_minimo,200,143,59,200,120,198
-Llama-3.1-8B-FP8,anos_experiencia_minima_tecnica,200,160,178,199,164,198
-Llama-3.1-8B-FP8,dias_aceptacion_rechazo_factura,200,198,2,200,70,198
-Llama-3.1-8B-FP8,dias_notificacion_fuerza_mayor,200,189,11,200,79,200
-Llama-3.1-8B-FP8,dias_pago_anticipo,200,98,119,200,103,200
-Llama-3.1-8B-FP8,dias_pago_maximo,200,104,66,189,32,187
-Llama-3.1-8B-FP8,dias_solicitud_anticipo,200,100,158,200,134,195
-Llama-3.1-8B-FP8,dias_validez_garantia,200,128,166,200,150,181
-Llama-3.1-8B-FP8,num_componentes_formula,200,141,5,5,5,5
-Llama-3.1-8B-FP8,num_documentos_pago,200,102,200,5,5,200
-Llama-3.1-8B-FP8,num_pasos_verificacion,200,100,200,3,3,200
-Llama-3.1-8B-FP8,ratio_endeudamiento_maximo,200,166,88,199,53,198
-Llama-3.1-8B-FP8,ratio_liquidez_minimo,200,143,59,200,30,198
+modelo,tag,campo,n,modal,regex,regla,llm,pipeline,regla_primero,errores
+Qwen3-8B-FP8,qwen3-8b-fp8,anos_experiencia_minima_tecnica,200,160,178,199,180,198,199,0
+Qwen3-8B-FP8,qwen3-8b-fp8,dias_aceptacion_rechazo_factura,200,198,2,200,200,198,200,0
+Qwen3-8B-FP8,qwen3-8b-fp8,dias_notificacion_fuerza_mayor,200,189,11,200,200,200,200,0
+Qwen3-8B-FP8,qwen3-8b-fp8,dias_pago_anticipo,200,98,119,200,190,200,200,0
+Qwen3-8B-FP8,qwen3-8b-fp8,dias_pago_maximo,200,104,66,189,121,187,189,0
+Qwen3-8B-FP8,qwen3-8b-fp8,dias_solicitud_anticipo,200,100,158,200,171,195,200,0
+Qwen3-8B-FP8,qwen3-8b-fp8,dias_validez_garantia,200,128,166,200,166,181,200,0
+Qwen3-8B-FP8,qwen3-8b-fp8,num_componentes_formula,200,141,5,5,96,96,96,0
+Qwen3-8B-FP8,qwen3-8b-fp8,num_documentos_pago,200,102,200,5,9,200,200,0
+Qwen3-8B-FP8,qwen3-8b-fp8,num_pasos_verificacion,200,100,200,3,159,200,200,0
+Qwen3-8B-FP8,qwen3-8b-fp8,ratio_endeudamiento_maximo,200,166,88,199,188,198,199,0
+Qwen3-8B-FP8,qwen3-8b-fp8,ratio_liquidez_minimo,200,143,59,200,120,198,200,0
+Qwen3-8B-FP8,qwen3-8b-fp8,pct_monto_referencia_tecnica,200,151,180,151,156,175,175,0
+Llama-3.1-8B-FP8,llama-fp8,anos_experiencia_minima_tecnica,200,160,178,199,164,198,199,0
+Llama-3.1-8B-FP8,llama-fp8,dias_aceptacion_rechazo_factura,200,198,2,200,70,198,200,0
+Llama-3.1-8B-FP8,llama-fp8,dias_notificacion_fuerza_mayor,200,189,11,200,79,200,200,0
+Llama-3.1-8B-FP8,llama-fp8,dias_pago_anticipo,200,98,119,200,103,200,200,0
+Llama-3.1-8B-FP8,llama-fp8,dias_pago_maximo,200,104,66,189,32,187,189,0
+Llama-3.1-8B-FP8,llama-fp8,dias_solicitud_anticipo,200,100,158,200,134,195,200,0
+Llama-3.1-8B-FP8,llama-fp8,dias_validez_garantia,200,128,166,200,150,181,200,0
+Llama-3.1-8B-FP8,llama-fp8,num_componentes_formula,200,141,5,5,5,5,5,0
+Llama-3.1-8B-FP8,llama-fp8,num_documentos_pago,200,102,200,5,5,200,200,0
+Llama-3.1-8B-FP8,llama-fp8,num_pasos_verificacion,200,100,200,3,3,200,200,0
+Llama-3.1-8B-FP8,llama-fp8,ratio_endeudamiento_maximo,200,166,88,199,53,198,199,0
+Llama-3.1-8B-FP8,llama-fp8,ratio_liquidez_minimo,200,143,59,200,30,198,200,0
+Llama-3.1-8B-FP8,llama-fp8,pct_monto_referencia_tecnica,200,151,180,151,153,182,182,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,anos_experiencia_minima_tecnica,200,160,178,199,170,198,199,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,dias_aceptacion_rechazo_factura,200,198,2,200,200,198,200,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,dias_notificacion_fuerza_mayor,200,189,11,200,197,200,200,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,dias_pago_anticipo,200,98,119,200,121,200,200,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,dias_pago_maximo,200,104,66,189,104,187,189,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,dias_solicitud_anticipo,200,100,158,200,172,195,200,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,dias_validez_garantia,200,128,166,200,168,181,200,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,num_componentes_formula,200,141,5,5,7,7,7,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,num_documentos_pago,200,102,200,5,16,200,200,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,num_pasos_verificacion,200,100,200,3,192,200,200,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,ratio_endeudamiento_maximo,200,166,88,199,28,198,199,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,ratio_liquidez_minimo,200,143,59,200,36,198,200,0
+EXAONE-3.5-7.8B-AWQ,exaone-3.5-7.8b-awq,pct_monto_referencia_tecnica,200,151,180,151,150,179,179,0
+Qwen3-14B-AWQ,qwen3-14b-awq,anos_experiencia_minima_tecnica,200,160,178,199,175,198,199,0
+Qwen3-14B-AWQ,qwen3-14b-awq,dias_aceptacion_rechazo_factura,200,198,2,200,200,198,200,0
+Qwen3-14B-AWQ,qwen3-14b-awq,dias_notificacion_fuerza_mayor,200,189,11,200,200,200,200,0
+Qwen3-14B-AWQ,qwen3-14b-awq,dias_pago_anticipo,200,98,119,200,190,200,200,0
+Qwen3-14B-AWQ,qwen3-14b-awq,dias_pago_maximo,200,104,66,189,104,187,189,0
+Qwen3-14B-AWQ,qwen3-14b-awq,dias_solicitud_anticipo,200,100,158,200,166,195,200,0
+Qwen3-14B-AWQ,qwen3-14b-awq,dias_validez_garantia,200,128,166,200,179,181,200,0
+Qwen3-14B-AWQ,qwen3-14b-awq,num_componentes_formula,200,141,5,5,145,145,145,0
+Qwen3-14B-AWQ,qwen3-14b-awq,num_documentos_pago,200,102,200,5,15,200,200,0
+Qwen3-14B-AWQ,qwen3-14b-awq,num_pasos_verificacion,200,100,200,3,200,200,200,0
+Qwen3-14B-AWQ,qwen3-14b-awq,ratio_endeudamiento_maximo,200,166,88,199,184,198,199,0
+Qwen3-14B-AWQ,qwen3-14b-awq,ratio_liquidez_minimo,200,143,59,200,198,198,200,0
+Qwen3-14B-AWQ,qwen3-14b-awq,pct_monto_referencia_tecnica,200,151,180,151,165,178,178,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,anos_experiencia_minima_tecnica,200,160,178,199,175,198,199,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,dias_aceptacion_rechazo_factura,200,198,2,200,200,198,200,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,dias_notificacion_fuerza_mayor,200,189,11,200,200,200,200,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,dias_pago_anticipo,200,98,119,200,189,200,200,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,dias_pago_maximo,200,104,66,189,104,187,189,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,dias_solicitud_anticipo,200,100,158,200,171,195,200,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,dias_validez_garantia,200,128,166,200,190,181,200,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,num_componentes_formula,200,141,5,5,168,168,168,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,num_documentos_pago,200,102,200,5,27,200,200,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,num_pasos_verificacion,200,100,200,3,200,200,200,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,ratio_endeudamiento_maximo,200,166,88,199,175,198,199,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,ratio_liquidez_minimo,200,143,59,200,198,198,200,0
+Gemma-4-12B (GGUF),gemma-4-12b-gguf,pct_monto_referencia_tecnica,200,151,180,151,183,190,190,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,anos_experiencia_minima_tecnica,200,160,178,199,176,198,199,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,dias_aceptacion_rechazo_factura,200,198,2,200,200,198,200,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,dias_notificacion_fuerza_mayor,200,189,11,200,200,200,200,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,dias_pago_anticipo,200,98,119,200,179,200,200,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,dias_pago_maximo,200,104,66,189,105,187,189,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,dias_solicitud_anticipo,200,100,158,200,170,195,200,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,dias_validez_garantia,200,128,166,200,167,181,200,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,num_componentes_formula,200,141,5,5,83,83,83,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,num_documentos_pago,200,102,200,5,22,200,200,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,num_pasos_verificacion,200,100,200,3,125,200,200,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,ratio_endeudamiento_maximo,200,166,88,199,175,198,199,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,ratio_liquidez_minimo,200,143,59,200,192,198,200,0
+Ministral-3-14B (GGUF),ministral-3-14b-gguf,pct_monto_referencia_tecnica,200,151,180,151,160,180,180,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,anos_experiencia_minima_tecnica,200,160,178,199,179,198,199,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,dias_aceptacion_rechazo_factura,200,198,2,200,200,198,200,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,dias_notificacion_fuerza_mayor,200,189,11,200,200,200,200,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,dias_pago_anticipo,200,98,119,200,191,200,200,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,dias_pago_maximo,200,104,66,189,104,187,189,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,dias_solicitud_anticipo,200,100,158,200,170,195,200,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,dias_validez_garantia,200,128,166,200,192,181,200,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,num_componentes_formula,200,141,5,5,117,117,117,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,num_documentos_pago,200,102,200,5,49,200,200,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,num_pasos_verificacion,200,100,200,3,200,200,200,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,ratio_endeudamiento_maximo,200,166,88,199,175,198,199,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,ratio_liquidez_minimo,200,143,59,200,200,198,200,0
+Qwen3.8-27B UD-Q3_K_XL (GGUF),qwen3.8-27b-gguf,pct_monto_referencia_tecnica,200,151,180,151,154,182,182,0

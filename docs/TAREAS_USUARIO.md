@@ -19,6 +19,11 @@
 - [ ] Ensayo: `/root/vllm-env/bin/python scripts/promote_fallback.py --run-id llmfb-qwen3-8b-fp8-3fe595a69e69bfd4 --fields <campos>`
       (dry-run). Aplicar: agregar `--apply`. Revertir: `--rollback --apply`.
 
+## 2b. Modelo del fallback (decisión tuya; evidencia en `endurecimiento_benchmark_plan.md` §9.8)
+- [ ] Elegir: **Gemma-4-12B GGUF** (mejor calidad; requiere agregar backend llama-server al runner, ~5 h para
+      re-correr `num_componentes_formula`) o **Qwen3-14B-AWQ** (vLLM, ya soportado, −1,7 pp, ~1,5 h).
+- [ ] Re-correr `num_componentes_formula` (y residuales) con el modelo elegido antes de promoverlo.
+
 ## 3. Seguridad y publicación
 - [ ] **Rotar/revocar** credenciales ya publicadas en GitHub (repo público, commits 57ad572 / 09e9f50 / f477042):
       API key de Google (`AIzaSy…`), usuario/contraseña del servidor `144.33.29.61`, contraseña de BD local.

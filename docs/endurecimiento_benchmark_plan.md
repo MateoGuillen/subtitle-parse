@@ -430,3 +430,35 @@ métrica no mide al modelo.
   optimistas hasta anotar el estratificado-75.
 - Un solo anotador (el autor); IAA-25 pendiente (κ).
 - AWQ no se re-corrió en la ablación GT-12 (sí en C3 crudo).
+
+### 9.8 Retest de 7 modelos con protocolo único (06-oct; `docs/ablacion_gt.md`)
+Mismo prompt de producción, decodificación restringida número|NULL (vLLM xgrammar / llama-server
+GBNF equivalente), 13 campos × 200 GT humanos (12 hybrid + pct). 0 errores en los 7.
+Métrica = **LLM solo** (sin reglas; pasa solo validaciones no sustitutivas). Qwen3.8-27B: GGUF
+`UD-Q3_K_XL` (FP8 30,9 GB y AWQ 21 GB no entran en 16 GB).
+
+| Modelo (backend) | hybrid-12 (2.400) | `num_componentes_formula` (único campo que decide el LLM; modal 141) | pct (200) | ítems/s (GT, este protocolo) |
+|---|---|---|---|---|
+| **Gemma-4-12B Q4_K_XL (GGUF)** | **1.997 (83,2%)** | **168** | **183** | 1,66 |
+| Qwen3.8-27B UD-Q3_K_XL (GGUF) | 1.977 (82,4%) | 117 | 154 | 1,43 |
+| Qwen3-14B-AWQ (vLLM) | 1.956 (81,5%) | 145 | 165 | 6,15 |
+| Qwen3-8B-FP8 (vLLM) | 1.800 (75,0%) | 96 | 156 | 10,39 |
+| Ministral-3-14B Q4_K_M (GGUF) | 1.794 (74,8%) | 83 | 160 | 5,36 |
+| EXAONE-3.5-7.8B-AWQ (vLLM) | 1.411 (58,8%) | 7 | 150 | 9,92 |
+| Llama-3.1-8B-FP8 (vLLM) | 828 (34,5%) | 5 | 153 | 16,63 |
+
+McNemar exacto (Bonferroni α = 0,05/6) sobre hybrid-12: Gemma vs Qwen3.8-27B p=0,057 (n.s.);
+Gemma vs Qwen3-14B p=7·10⁻⁴ *; Gemma/Qwen3.8/Qwen3-14B vs Qwen3-8B-FP8 todos p<10⁻²³ *.
+En fórmula: Gemma vs Qwen3-14B p=0,002 *, vs Qwen3.8 p=9·10⁻¹⁴ *. En pct: Gemma vs todos p≤0,0014 *.
+Con el pipeline completo (regla → regex → LLM) Gemma llega a 2.355/2.400 (98,1%, in-sample).
+
+**Decisión (actualiza §9.2)**: el modelo recomendado para el fallback es **Gemma-4-12B (GGUF)**
+— empata en el agregado con el 27B, es significativamente mejor que Qwen3-14B y Qwen3-8B, y es el
+único que supera con claridad a la baseline modal en el campo que el LLM realmente decide en
+producción (fórmula 168 vs 141). Alternativa vLLM: **Qwen3-14B-AWQ** (−1,7 pp, significativo;
+3,7× más rápido). Qwen3-8B-FP8 (usado en el run de F4) queda tercero-cuarto: el run vigente sirve
+para los campos con regla (no dependen del modelo) pero **`num_componentes_formula` debería
+re-correrse** con el modelo elegido antes de promoverlo. Caveats: GGUF (Q4/Q3) vs AWQ/FP8 son
+cuantizaciones distintas y backends de guided distintos (GBNF vs xgrammar) — se compara el sistema
+desplegable en 16 GB, no el modelo base; la selección de agosto/septiembre (top-3) estaba sesgada
+por la métrica contaminada (§9.1), por eso Gemma y Qwen3-14B no llegaron entonces a la final.

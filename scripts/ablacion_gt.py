@@ -56,6 +56,11 @@ MODELS = {
     "ministral-3-14b-gguf": dict(backend="http",
                                  gguf="models/gguf/Ministral-3-14B-Instruct-2512-Q4_K_M.gguf",
                                  server_flags=[], extra={}),
+    # 27B: FP8 (30,9 GB) y AWQ (21 GB) no entran en 16 GB; UD-Q3_K_XL (13,15 GB) sí, con
+    # KV en q8 y 2 slots de 8K. Misma cuantización que la corrida de agosto (97/100 GT-100).
+    "qwen3.8-27b-gguf": dict(backend="http", gguf="models/gguf/Qwen3.8-27B-UD-Q3_K_XL.gguf",
+                             server_flags=["--reasoning", "off", "--cache-type-k", "q8_0",
+                                           "--cache-type-v", "q8_0"], np=2, extra={}),
 }
 NP = 4  # slots llama-server
 
@@ -95,10 +100,11 @@ def ftype(fs, f):
 class HttpModel:
     """llama-server con NP slots; gramática GBNF por tipo (mismo contrato que el guided)."""
 
-    def __init__(self, gguf, flags):
+    def __init__(self, gguf, flags, np_=NP):
+        self.np = np_
         self.proc = subprocess.Popen(
             [LLAMA_SERVER, "-m", str(ROOT / gguf), "--port", "1234", "-ngl", "999",
-             "--ctx-size", str(8192 * NP), "-np", str(NP), "--jinja", *flags],
+             "--ctx-size", str(8192 * np_), "-np", str(np_), "--jinja", *flags],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         for _ in range(240):
             try:
@@ -118,7 +124,7 @@ class HttpModel:
                 return (r.json()["choices"][0]["message"].get("content") or "").strip()
             except Exception as e:  # noqa: BLE001
                 return e
-        with ThreadPoolExecutor(NP) as ex:
+        with ThreadPoolExecutor(self.np) as ex:
             return list(ex.map(one, msgs_list))
 
     def close(self):
@@ -162,7 +168,7 @@ def main():
                         out.append(e)
                 return out
     else:
-        model = HttpModel(cfg["gguf"], cfg["server_flags"])
+        model = HttpModel(cfg["gguf"], cfg["server_flags"], cfg.get("np", NP))
 
         def gen(msgs, t):
             return model.generate(msgs, GBNF[t])
