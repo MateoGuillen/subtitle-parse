@@ -5,7 +5,7 @@
 - ⛔ **NO auditar** las planillas `planilla_aceptacion_{A,B,C}` actuales: se regeneran en la Fase 5 (n efectivo ≈1 en algunos campos, sin estratos, valores de regla etiquetados como LLM).
 - ⛔ **NO correr `--promote`**: hoy publicaría las 79.789 celdas sin filtro por campo, con `source='llm'` falso y sin historia (H7.1-H7.3). Se desbloquea en la Fase 7.
 - Staging intacto: run `llmfb-meta-llama-3.1-8b-instruct-fp8-2834432bb7237924` (294.102 filas, 79.789 con valor) = **evidencia histórica**, no se borra ni se reusa como caché.
-- Fase 0 ✅ (ver bitácora §9 del plan). Próximo: **Fase 1** (re-score crudo C3/C4/C5, CPU, sin GPU).
+- Fase 0 ✅, Fase 1 ✅ (`docs/rescore_crudo_f1.md`: campeón sobre crudo = **Qwen3-8B-FP8**, veredicto v2 invalidado). Próximo: **Fase 2** (separar regla/LLM en `extraction_postprocess.py` + tests).
 
 ## Proyecto
 ETL para detección de anomalías en contrataciones públicas de Paraguay (DNCP). Rama de trabajo **`feature/benchmark-models`** (local, sin push; sale de `feature/clustering-pipeline` @ `869c86c`). Sesiones 1-23 commiteadas (`50730e3`, `7993bfd`, tag `pre-auditoria-s23`); un commit por fase del plan de corrección.
