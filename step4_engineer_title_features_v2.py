@@ -1,3 +1,8 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from sqlalchemy import create_engine, text
 import pandas as pd
 import numpy as np
@@ -5,7 +10,9 @@ from collections import defaultdict
 import warnings
 warnings.filterwarnings('ignore')
 
-engine = create_engine('postgresql+psycopg2://postgres:Temporal123@172.31.233.136:5433/dncp')
+engine = create_engine(
+    f"postgresql+psycopg2://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
+    f"@{os.getenv('DB_HOST', 'localhost')}:{os.getenv('DB_PORT', '5433')}/{os.getenv('DB_NAME', 'dncp')}")
 
 # Sample 5000 documents with all sections
 print("Sampling 5000 documents...")

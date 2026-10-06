@@ -520,7 +520,7 @@ De 5,000 a 10,000+ — ahora con GPU el embedding es barato.
 
 ### 8.6 Parametrizar conexión DB
 
-La configuración DB en `settings.py` ya lee de `.env`, pero el host `172.31.233.136` está implícito en las variables de entorno. Documentar en `.env.example`.
+La configuración DB en `settings.py` ya lee de `.env`, pero el host `<DB_HOST>` está implícito en las variables de entorno. Documentar en `.env.example`.
 
 ---
 

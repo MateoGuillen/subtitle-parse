@@ -164,7 +164,7 @@ El pipeline filtra por `self._v(r, "contrato_id")` para evitar filas totalmente 
 # Variables de entorno en .env:
 DB_USER=postgres
 DB_PASSWORD=postgres
-DB_HOST=172.31.233.136
+DB_HOST=<DB_HOST>
 DB_PORT=5433
 DB_NAME=dncp
 BASE_OUTPUT_RAW_DIR=./data/raw
@@ -173,8 +173,8 @@ BASE_OUTPUT_RAW_DIR=./data/raw
 ### DDL
 
 ```bash
-PGPASSWORD=postgres psql -h 172.31.233.136 -p 5433 -U postgres -d dncp -c "DROP SCHEMA IF EXISTS dncp CASCADE; CREATE SCHEMA dncp;"
-PGPASSWORD=postgres psql -h 172.31.233.136 -p 5433 -U postgres -d dncp -f DDL_OCDS_PIPELINE_COMPLETO.sql
+PGPASSWORD=<DB_PASSWORD> psql -h <DB_HOST> -p 5433 -U postgres -d dncp -c "DROP SCHEMA IF EXISTS dncp CASCADE; CREATE SCHEMA dncp;"
+PGPASSWORD=<DB_PASSWORD> psql -h <DB_HOST> -p 5433 -U postgres -d dncp -f DDL_OCDS_PIPELINE_COMPLETO.sql
 ```
 
 ### Ejecución
@@ -186,7 +186,7 @@ python -m scripts.run_ocds_csv_pipeline
 ### Re-ejecutar desde cero
 
 ```bash
-PGPASSWORD=postgres psql -h 172.31.233.136 -p 5433 -U postgres -d dncp <<< "
+PGPASSWORD=<DB_PASSWORD> psql -h <DB_HOST> -p 5433 -U postgres -d dncp <<< "
 TRUNCATE TABLE dncp.hitos_contrato, dncp.pagos_contrato, dncp.enmiendas_contrato, dncp.contratos, dncp.adjudicaciones, dncp.criterios_llamado, dncp.consultas_llamado, dncp.proveedores_notificados, dncp.oferentes, dncp.proveedor_productos, dncp.items_licitacion, dncp.licitaciones, dncp.proveedores, dncp.convocantes, dncp.categorias, dncp.pliegos_secciones_2021, dncp.pliegos_secciones_2022, dncp.pliegos_secciones_2023, dncp.pliegos_secciones_2024, dncp.pliegos_secciones_2025 CASCADE;
 "
 rm -rf ./data/raw/ocds_csv/checkpoint

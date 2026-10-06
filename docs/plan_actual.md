@@ -23,8 +23,8 @@ Lee de `.env` mediante `python-dotenv`:
 ```python
 DB_CONFIG = {
     "user": os.getenv("DB_USER"),       # postgres
-    "password": os.getenv("DB_PASSWORD"), # Temporal123
-    "host": os.getenv("DB_HOST"),        # 172.31.233.136
+    "password": os.getenv("DB_PASSWORD"), # <DB_PASSWORD>
+    "host": os.getenv("DB_HOST"),        # <DB_HOST>
     "port": int(os.getenv("DB_PORT")),   # 5433
     "database": os.getenv("DB_NAME"),    # dncp
 }
@@ -35,8 +35,8 @@ DB_CONFIG = {
 ```
 DB_NAME=dncp
 DB_USER=postgres
-DB_PASSWORD=Temporal123
-DB_HOST=172.31.233.136
+DB_PASSWORD=<DB_PASSWORD>
+DB_HOST=<DB_HOST>
 DB_PORT=5433
 LOGS_FILE=logs/dncp.log
 BASE_LOGS_DIR=logs
@@ -44,8 +44,8 @@ DNCP_BASE_URL=https://www.contrataciones.gov.py
 BASE_OUTPUT_RAW_DIR=./data/raw
 BASE_OUTPUT_PROCESSED_DIR=./data/processed
 BASE_INPUT_EXTERNAL_DATA_DIR=./data/external
-LLM_USERNAME=mateoggv94
-LLM_PASSWORD=pliegos-pbc-123
+LLM_USERNAME=<USUARIO_REMOTO>
+LLM_PASSWORD=<LLM_PASSWORD>
 DEFAULT_BATCH_SIZE=10
 DEFAULT_MAX_RETRIES=3
 GROQ_API_KEY=tu_clave_aqui
@@ -56,9 +56,9 @@ OPEN_ROUTER_API_KEY=
 
 ```python
 # DB_NAME=pbc
-# DB_USER=mateoggv94
-# DB_PASSWORD=pliegos-dncp/.
-# DB_HOST=144.33.29.61
+# DB_USER=<USUARIO_REMOTO>
+# DB_PASSWORD=<DB_PASSWORD_REMOTA>
+# DB_HOST=<HOST_REMOTO>
 # DB_PORT=5432
 ```
 

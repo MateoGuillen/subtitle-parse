@@ -8,7 +8,7 @@ Se ejecutó un pipeline completo de clustering, diseño de esquemas JSON y const
 
 ## 1. Datos de Conexión
 
-- **Base de datos**: PostgreSQL `dncp` en `172.31.233.136:5433`
+- **Base de datos**: PostgreSQL `dncp` en `<DB_HOST>:5433`
 - **Usuario**: `postgres`
 - **Tabla fuente**: `dncp.pliegos_secciones`
 - **Columnas extraídas**: `nro_licitacion`, `content_text`, `year`, `category_id`
@@ -90,7 +90,7 @@ Para cada cluster se extrajeron:
 Originalmente el pipeline llamaba a Gemini API (`gemini-2.5-pro-exp-05-25`) para diseñar los esquemas. Sin embargo:
 
 1. **Modelo `gemini-2.5-pro-exp-05-25`**: No existe (404). Los modelos disponibles con `generateContent` son: `gemini-2.0-flash`, `gemini-2.5-pro`.
-2. **Cuota de API**: La API key `AIzaSyDuPg5SvhWPyesDspvcBZ3wzbi0FxJZAJg` tenía cuota diaria agotada (429).
+2. **Cuota de API**: La API key `<GOOGLE_API_KEY>` tenía cuota diaria agotada (429).
 
 **Solución**: Se analizaron manualmente las muestras de cada cluster (contenidas en `master_schemas.json`) y se diseñaron esquemas JSON específicos por título, siguiendo las reglas estrictas (solo binarios 0/1 y numéricos). El script `scripts/update_schemas.py` aplicó estos esquemas al `master_schemas.json`.
 
@@ -253,12 +253,12 @@ RESPUESTA (solo JSON):
 config = {
     "db_params": {
         "user": "postgres",
-        "password": "Temporal123",
-        "host": "172.31.233.136",
+        "password": "<DB_PASSWORD>",
+        "host": "<DB_HOST>",
         "port": 5433,
         "database": "dncp",
     },
-    "gemini_api_key": "AIzaSyDuPg5SvhWPyesDspvcBZ3wzbi0FxJZAJg",
+    "gemini_api_key": "<GOOGLE_API_KEY>",
     "gemini_model": "gemini-2.0-flash",  # o gemini-2.5-pro
     "embedding_model": "paraphrase-multilingual-MiniLM-L12-v2",
     "output_dir": "./data/processed/section_clustering",

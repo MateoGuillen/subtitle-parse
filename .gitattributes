@@ -1,0 +1,16 @@
+# Normaliza fines de línea a LF en el repo (el checkout en Windows/NTFS
+# convertía a CRLF y generaba ~126 archivos "modificados" sin cambios reales).
+* text=auto eol=lf
+
+# Scripts de Windows conservan CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Binarios
+*.png binary
+*.jpg binary
+*.pdf binary
+*.pptx binary
+*.ttf binary
+*.parquet binary
+*.zip binary

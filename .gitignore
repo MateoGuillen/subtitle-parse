@@ -2,6 +2,7 @@
 
 # Entorno virtual
 venv/
+.venv/
 
 # Archivos temporales
 *.pyc
@@ -25,7 +26,16 @@ outline_pdfs/
 /*.csv
 *.zip
 
+# ---------------------------------------------------------------------------
+# Secretos y credenciales (NUNCA commitear; usar example.env como plantilla)
+# ---------------------------------------------------------------------------
 .env
+.env.*
+!example.env
+*.pem
+*.key
+.netrc
+.pgpass
 
 # Archivos de entrada
 
@@ -41,8 +51,73 @@ data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
+# Lista blanca de reproducibilidad (sesión 23, hallazgo H5.3): artefactos del
+# benchmark + GT humano + schemas + config de runs (~45 MB). El resto de
+# data/processed (11 GB: parquets, secciones, clustering) sigue ignorado.
+!data/processed/llm_benchmark/
+data/processed/llm_benchmark/*.log
+!data/processed/alolab/
+data/processed/alolab/*
+!data/processed/alolab/gt_por_campo/
+!data/processed/section_clustering_v2/
+data/processed/section_clustering_v2/*
+!data/processed/section_clustering_v2/master_schemas_v2.json
+!data/processed/llm_runs/
+!data/MANIFEST.sha256
+
 
 datasets/
 logs/
 
+# ---------------------------------------------------------------------------
+# Backups de BD (pesados y con datos): nunca al repo
+# ---------------------------------------------------------------------------
 backup-dncp/
+backup_dncp/
+backups/
+*.dump
+*.sql.gz
+*.backup
+
+# ---------------------------------------------------------------------------
+# Modelos y pesos (GB): viven en ./models/gguf y en la caché HF, no en git
+# (models/candidates.yaml SÍ se versiona)
+# ---------------------------------------------------------------------------
+models/gguf/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.onnx
+
+# ---------------------------------------------------------------------------
+# Scripts de depuración/exploración de una sola vez (sesiones 1-22).
+# Convención: prefijo "_" o "_tmp_" = descartable. Varios contienen tokens.
+# ---------------------------------------------------------------------------
+/_tmp_*
+scripts/_*.py
+!scripts/__init__.py
+
+# Archivos basura de Windows / editores
+nul
+Thumbs.db
+desktop.ini
+.DS_Store
+*~
+*.swp
+
+# Tooling local de opencode (dependencias)
+.opencode/node_modules/
+
+# ---------------------------------------------------------------------------
+# Referencias bibliográficas: PDFs y su conversión a texto tienen copyright
+# y el repo es público. Se versiona solo la guía de descarga.
+# ---------------------------------------------------------------------------
+docs/referencias/pdf/
+docs/referencias/md/
+
+# Copia vieja duplicada de la presentación (la vigente está en docs/presentacion_tutores/)
+/presentacion_tutores/
+
+# Datasets intermedios pesados de la auditoría de variables (16 MB)
+auditor-top-pliegos/*.csv

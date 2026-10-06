@@ -353,7 +353,7 @@ A continuación, una lista de **posibles estrategias adicionales** que otro LLM 
 
 ```python
 from sqlalchemy import create_engine
-engine = create_engine('postgresql+psycopg2://postgres:Temporal123@172.31.233.136:5433/dncp')
+engine = create_engine('postgresql+psycopg2://<DB_USER>:<DB_PASSWORD>@<DB_HOST>:5433/dncp')
 ```
 
 ## 8. Scripts generados

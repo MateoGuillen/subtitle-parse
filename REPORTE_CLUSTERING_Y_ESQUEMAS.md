@@ -25,7 +25,7 @@ Analizar las 10 secciones más relevantes de pliegos de licitaciones públicas p
 
 ### 2.1 Extractor (`section_clustering_extractor.py`)
 
-- **Conexión**: PostgreSQL a `172.31.233.136:5433`, DB `dncp`
+- **Conexión**: PostgreSQL a `<DB_HOST>:5433`, DB `dncp`
 - **Query**: `SELECT nro_licitacion, content_text, year, category_id FROM dncp.pliegos_secciones WHERE LOWER(title_normalized) = :title`
 - **Mapeo de nombres**: 3 títulos requieren mapeo porque su `title_normalized` en BD no coincide exactamente:
   - `copias de la oferta cps` → `copias de la oferta - cps`
