@@ -156,17 +156,30 @@ class HttpModel:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True, choices=list(MODELS))
+    ap.add_argument("--set", default="gt", choices=["gt", "pseudo"],
+                    help="gt = gt_por_campo humano (2.600); pseudo = muestra fuera de muestra "
+                         "anotada por Opus 5.5 (pseudo_gt_opus/, ambiguos excluidos)")
     a = ap.parse_args()
     cfg = MODELS[a.model]
     fs = field_schemas()
     fields = sorted(f for f, s in fs.items() if s.get("extraction_method") == "hybrid") + EXTRA_FIELDS
     items = []
-    cands = [p for p in GT_DIR.glob("*.csv") if not p.name.startswith("errores_")]
-    for f in fields:
-        path = next(p for p in cands if pd.read_csv(p, nrows=1)["campo"].iloc[0] == f)
-        for r in pd.read_csv(path).itertuples():
-            items.append(dict(field=f, nro=str(r.nro_licitacion), text=str(r.text),
-                              gt=num(r.ground_truth), db=num(r.db_value)))
+    if a.set == "gt":
+        cands = [p for p in GT_DIR.glob("*.csv") if not p.name.startswith("errores_")]
+        for f in fields:
+            path = next(p for p in cands if pd.read_csv(p, nrows=1)["campo"].iloc[0] == f)
+            for r in pd.read_csv(path).itertuples():
+                items.append(dict(field=f, nro=str(r.nro_licitacion), text=str(r.text),
+                                  gt=num(r.ground_truth), db=num(r.db_value)))
+    else:
+        pdir = OUT / "pseudo_gt_opus"
+        ann = json.loads((pdir / "anotaciones.json").read_text(encoding="utf-8"))
+        for r in pd.read_csv(pdir / "muestra.csv").itertuples():
+            v, estado, _ = ann[r.id]
+            if estado == "ambiguo":
+                continue
+            items.append(dict(field=r.campo, nro=str(r.nro_licitacion), text=str(r.texto),
+                              gt=None if v is None else float(v), db=None, id=r.id))
     print(f"{a.model}: {len(items)} ítems GT en {len(fields)} campos", flush=True)
 
     tr = DocumentFeaturesV2LLMTransformer(str(SCHEMAS), llm_provider=None)
@@ -203,6 +216,8 @@ def main():
         for f in fields:
             t = ftype(fs, f)
             sub = [it for it in items if it["field"] == f]
+            if not sub:
+                continue
             raws = gen([tr._build_messages(fs[f], it["text"], None) for it in sub], t)
             for it, raw in zip(sub, raws):
                 it["raw"] = "ERROR" if isinstance(raw, Exception) else raw
@@ -221,12 +236,15 @@ def main():
     meta = {"model": cfg.get("id") or cfg.get("gguf"), "backend": cfg["backend"],
             "guided": "xgrammar regex" if cfg["backend"] == "vllm" else "llama-server GBNF",
             "elapsed_s": round(time.time() - t0, 1)}
-    (OUT / f"F4_ablacion_gt_{a.model}.json").write_text(json.dumps(
+    stem = f"F4_ablacion_gt_{a.model}" if a.set == "gt" else f"F7_pseudo_opus_{a.model}"
+    (OUT / f"{stem}.json").write_text(json.dumps(
         {**meta, "items": [{k: v for k, v in it.items() if k != "text"} for it in items]},
         ensure_ascii=False, indent=0), encoding="utf-8")
     rows = []
     for f in fields:
         sub = [it for it in items if it["field"] == f]
+        if not sub:
+            continue
         r = dict(campo=f, n=len(sub), gt_null=sum(it["gt"] is None for it in sub),
                  errores=sum(it["raw"] == "ERROR" for it in sub))
         for arm in ("regla", "llm", "sistema"):
@@ -236,7 +254,7 @@ def main():
                       f"{arm}_hi": round(hi, 3)})
         rows.append(r)
     df = pd.DataFrame(rows)
-    df.to_csv(OUT / f"F4_ablacion_gt_{a.model}.csv", index=False)
+    df.to_csv(OUT / f"{stem}.csv", index=False)
     print(df[["campo", "n", "errores", "regla_k", "llm_k", "sistema_k"]].to_string(index=False))
 
 
