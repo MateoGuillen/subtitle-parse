@@ -1,0 +1,151 @@
+{
+  "title": "Confidencialidad De La Informacion",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 22.42,
+  "n_fields": 7,
+  "validation_errors": [],
+  "field_names": [
+    "menciona_ley_7021",
+    "menciona_ley_5282",
+    "contiene_instruccion_reserva_aclaraciones",
+    "detalla_excepciones_confidencialidad",
+    "menciona_procedimiento_dos_sobres",
+    "num_clausulas_principales",
+    "menciona_compromiso_subcontratistas"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"menciona_ley_7021\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona la Ley N° 7021/22 'De Suministro y Contrataciones Públicas' como fundamento de la confidencialidad de la evaluación.\",\n      \"importance\": 9,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'Ley N° 7021/22' o 'Ley 7021/22' o 'De Suministro y Contrataciones Públicas' en el contexto de la confidencialidad de la evaluación de ofertas. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"menciona_ley_5282\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona la Ley N° 5282/14 'DE LIBRE ACCESO CIUDADANO A LA INFORMACIÓN PÚBLICA Y TRANSPARENCIA GUBERNAMENTAL' en relación a la reserva de información en aclaraciones.\",\n      \"importance\": 8,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'Ley N° 5282/14' o 'Ley 5282/14' o 'LIBRE ACCESO CIUDADANO A LA INFORMACIÓN PÚBLICA'. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"contiene_instruccion_reserva_aclaraciones\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si contiene la instrucción específica sobre declarar información reservada en respuestas a aclaraciones.\",\n      \"importance\": 8,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar si el texto contiene una instrucción que indique que los oferentes deben declarar si la información en sus aclaraciones es reservada. Activar con frases como 'deberán indicar si la información suministrada es de carácter reservado' o 'precisar la norma legal que la establece como secreta'. Retornar 1 si se encuentra semánticamente, 0 si no.\"\n    },\n    \"detalla_excepciones_confidencialidad\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se detallan excepciones específicas a la obligación de confidencialidad (más allá de la información de dominio público).\",\n      \"importance\": 7,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar si se listan excepciones específicas a la confidencialidad. Activar si se mencionan al menos dos de estas: compartir con instituciones financiadoras, información de dominio público sin culpa, información previamente en posesión, información obtenida legalmente de terceros. Retornar 1 si se encuentran al menos dos, 0 si no.\"\n    },\n    \"menciona_procedimiento_dos_sobres\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se especifica el procedimiento de confidencialidad para licitaciones de dos sobres (etapas técnica y económica).\",\n      \"importance\": 6,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar si el texto menciona explícitamente el caso 'dos sobres', describiendo la confidencialidad en dos etapas (técnica y económica). Activar con frases como 'Cuando se trate de dos sobres', 'primera etapa', 'ofertas técnicas', 'ofertas económicas'. Retornar 1 si se encuentra, 0 si no.\"\n    },\n    \"num_clausulas_principales\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de cláusulas o bloques temáticos principales identificables en la sección (rango 1-5).\",\n      \"importance\": 5,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Contar los bloques temáticos principales. Considerar cada uno de estos temas como una cláusula si está desarrollado: 1) Confidencialidad evaluación ofertas, 2) Instrucción reserva en aclaraciones, 3) Confidencialidad contractual entre partes, 4) Restricción de uso de la información, 5) Excepciones a la confidencialidad. Retornar el número entero de temas presentes (1-5).\"\n    },\n    \"menciona_compromiso_subcontratistas\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se exige explícitamente un compromiso de confidencialidad a los subcontratistas del proveedor.\",\n      \"importance\": 7,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'compromiso de confidencialidad' en el contexto de los subcontratistas. Retornar 1 si aparece, 0 si no.\"\n    }\n  },\n  \"justification\": \"El cluster dominante (0_4_10_11_12_13_15_16) establece un estándar completo con 4 cláusulas numeradas, incluyendo excepciones limitadas (a y b) y la mención al compromiso de subcontratistas. Los campos detectan desviaciones clave: 1) 'menciona_ley_7021' y 'menciona_ley_5282' capturan la omisión de fundamentos legales (presentes en clusters como 1, 2, 7, 14, 17, 18 pero ausentes en el dominante y 3, 9). Esto puede indicar un intento de debilitar el marco normativo. 2) 'contiene_instruccion_reserva_aclaraciones' detecta la adición de una obligación específica (presente en clusters 1, 2, 7, 14, 17, 18) que no está en el estándar, lo que podría ser una anomalía por inclusión no autorizada. 3) 'detalla_excepciones_confidencialidad' identifica expansiones sospechosas de las excepciones (cluster 3 agrega 4 excepciones, vs 2 en el estándar), debilitando la obligación. 4) 'menciona_procedimiento_dos_sobres' es un campo de control, presente en casi todos los clusters. 5) 'num_clausulas_principales' mide la integridad estructural. 6) 'menciona_compromiso_subcontratistas' detecta la omisión de un control importante (presente en el estándar).\",\n  \"cluster_values\": {\n    \"menciona_ley_7021\": {\n      \"cluster_0_4_10_11_12_13_15_16\": 0,\n      \"cluster_1\": 1,\n      \"cluster_2_5_6_8\": 1,\n      \"cluster_3\": 0,\n      \"cluster_7\": 1,\n      \"cluster_9\": 0,\n      \"cluster_14\": 1,\n      \"cluster_17\": 1,\n      \"cluster_18\": 1\n    },\n    \"menciona_ley_5282\": {\n      \"cluster_0_4_10_11_12_13_15_16\": 0,\n      \"cluster_1\": 1,\n      \"cluster_2_5_6_8\": 1,\n      \"cluster_3\": 0,\n      \"cluster_7\": 1,\n      \"cluster_9\": 0,\n      \"cluster_14\": 1,\n      \"cluster_17\": 1,\n      \"cluster_18\": 1\n    },\n    \"contiene_instruccion_reserva_aclaraciones\": {\n      \"cluster_0_4_10_11_12_13_15_16\": 0,\n      \"cluster_1\": 1,\n      \"cluster_2_5_6_8\": 1,\n      \"cluster_3\": 0,\n      \"cluster_7\": 1,\n      \"cluster_9\": 0,\n      \"cluster_14\": 1,\n      \"cluster_17\": 1,\n      \"cluster_18\": 1\n    },\n    \"detalla_excepciones_confidencialidad\": {\n      \"cluster_0_4_10_11_12_13_15_16\": 0,\n      \"cluster_1\": 0,\n      \"cluster_2_5_6_8\": 0,\n      \"cluster_3\": 1,\n      \"cluster_7\": 0,\n      \"cluster_9\": 0,\n      \"cluster_14\": 0,\n      \"cluster_17\": 0,\n      \"cluster_18\": 0\n    },\n    \"menciona_procedimiento_dos_sobres\": {\n      \"cluster_0_4_10_11_12_13_15_16\": 1,\n      \"cluster_1\": 1,\n      \"cluster_2_5_6_8\": 1,\n      \"cluster_3\": 0,\n      \"cluster_7\": 1,\n      \"cluster_9\": 1,\n      \"cluster_14\": 1,\n      \"cluster_17\": 1,\n      \"cluster_18\": 1\n    },\n    \"num_clausulas_principales\": {\n      \"cluster_0_4_10_11_12_13_15_16\": 4,\n      \"cluster_1\": 3,\n      \"cluster_2_5_6_8\": 3,\n      \"cluster_3\": 4,\n      \"cluster_7\": 3,\n      \"cluster_9\": 4,\n      \"cluster_14\": 3,\n      \"cluster_17\": 3,\n      \"cluster_18\": 3\n    },\n    \"menciona_compromiso_subcontratistas\": {\n      \"cluster_0_4_10_11_12_13_15_16\": 1,\n      \"cluster_1\": 1,\n      \"cluster_2_5_6_8\": 1,\n      \"cluster_3\": 1,\n      \"cluster_7\": 1,\n      \"cluster_9\": 1,\n      \"cluster_14\": 1,\n      \"cluster_17\": 1,\n      \"cluster_18\": 1\n    }\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "menciona_ley_7021": {
+        "type": "binary",
+        "description": "Indica si se menciona la Ley N° 7021/22 'De Suministro y Contrataciones Públicas' como fundamento de la confidencialidad de la evaluación.",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'Ley N° 7021/22' o 'Ley 7021/22' o 'De Suministro y Contrataciones Públicas' en el contexto de la confidencialidad de la evaluación de ofertas. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_ley_5282": {
+        "type": "binary",
+        "description": "Indica si se menciona la Ley N° 5282/14 'DE LIBRE ACCESO CIUDADANO A LA INFORMACIÓN PÚBLICA Y TRANSPARENCIA GUBERNAMENTAL' en relación a la reserva de información en aclaraciones.",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'Ley N° 5282/14' o 'Ley 5282/14' o 'LIBRE ACCESO CIUDADANO A LA INFORMACIÓN PÚBLICA'. Retornar 1 si aparece, 0 si no."
+      },
+      "contiene_instruccion_reserva_aclaraciones": {
+        "type": "binary",
+        "description": "Indica si contiene la instrucción específica sobre declarar información reservada en respuestas a aclaraciones.",
+        "importance": 8,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar si el texto contiene una instrucción que indique que los oferentes deben declarar si la información en sus aclaraciones es reservada. Activar con frases como 'deberán indicar si la información suministrada es de carácter reservado' o 'precisar la norma legal que la establece como secreta'. Retornar 1 si se encuentra semánticamente, 0 si no."
+      },
+      "detalla_excepciones_confidencialidad": {
+        "type": "binary",
+        "description": "Indica si se detallan excepciones específicas a la obligación de confidencialidad (más allá de la información de dominio público).",
+        "importance": 7,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar si se listan excepciones específicas a la confidencialidad. Activar si se mencionan al menos dos de estas: compartir con instituciones financiadoras, información de dominio público sin culpa, información previamente en posesión, información obtenida legalmente de terceros. Retornar 1 si se encuentran al menos dos, 0 si no."
+      },
+      "menciona_procedimiento_dos_sobres": {
+        "type": "binary",
+        "description": "Indica si se especifica el procedimiento de confidencialidad para licitaciones de dos sobres (etapas técnica y económica).",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar si el texto menciona explícitamente el caso 'dos sobres', describiendo la confidencialidad en dos etapas (técnica y económica). Activar con frases como 'Cuando se trate de dos sobres', 'primera etapa', 'ofertas técnicas', 'ofertas económicas'. Retornar 1 si se encuentra, 0 si no."
+      },
+      "num_clausulas_principales": {
+        "type": "numeric",
+        "description": "Cantidad de cláusulas o bloques temáticos principales identificables en la sección (rango 1-5).",
+        "importance": 5,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar los bloques temáticos principales. Considerar cada uno de estos temas como una cláusula si está desarrollado: 1) Confidencialidad evaluación ofertas, 2) Instrucción reserva en aclaraciones, 3) Confidencialidad contractual entre partes, 4) Restricción de uso de la información, 5) Excepciones a la confidencialidad. Retornar el número entero de temas presentes (1-5)."
+      },
+      "menciona_compromiso_subcontratistas": {
+        "type": "binary",
+        "description": "Indica si se exige explícitamente un compromiso de confidencialidad a los subcontratistas del proveedor.",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'compromiso de confidencialidad' en el contexto de los subcontratistas. Retornar 1 si aparece, 0 si no."
+      }
+    },
+    "justification": "El cluster dominante (0_4_10_11_12_13_15_16) establece un estándar completo con 4 cláusulas numeradas, incluyendo excepciones limitadas (a y b) y la mención al compromiso de subcontratistas. Los campos detectan desviaciones clave: 1) 'menciona_ley_7021' y 'menciona_ley_5282' capturan la omisión de fundamentos legales (presentes en clusters como 1, 2, 7, 14, 17, 18 pero ausentes en el dominante y 3, 9). Esto puede indicar un intento de debilitar el marco normativo. 2) 'contiene_instruccion_reserva_aclaraciones' detecta la adición de una obligación específica (presente en clusters 1, 2, 7, 14, 17, 18) que no está en el estándar, lo que podría ser una anomalía por inclusión no autorizada. 3) 'detalla_excepciones_confidencialidad' identifica expansiones sospechosas de las excepciones (cluster 3 agrega 4 excepciones, vs 2 en el estándar), debilitando la obligación. 4) 'menciona_procedimiento_dos_sobres' es un campo de control, presente en casi todos los clusters. 5) 'num_clausulas_principales' mide la integridad estructural. 6) 'menciona_compromiso_subcontratistas' detecta la omisión de un control importante (presente en el estándar).",
+    "cluster_values": {
+      "menciona_ley_7021": {
+        "cluster_0_4_10_11_12_13_15_16": 0,
+        "cluster_1": 1,
+        "cluster_2_5_6_8": 1,
+        "cluster_3": 0,
+        "cluster_7": 1,
+        "cluster_9": 0,
+        "cluster_14": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      },
+      "menciona_ley_5282": {
+        "cluster_0_4_10_11_12_13_15_16": 0,
+        "cluster_1": 1,
+        "cluster_2_5_6_8": 1,
+        "cluster_3": 0,
+        "cluster_7": 1,
+        "cluster_9": 0,
+        "cluster_14": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      },
+      "contiene_instruccion_reserva_aclaraciones": {
+        "cluster_0_4_10_11_12_13_15_16": 0,
+        "cluster_1": 1,
+        "cluster_2_5_6_8": 1,
+        "cluster_3": 0,
+        "cluster_7": 1,
+        "cluster_9": 0,
+        "cluster_14": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      },
+      "detalla_excepciones_confidencialidad": {
+        "cluster_0_4_10_11_12_13_15_16": 0,
+        "cluster_1": 0,
+        "cluster_2_5_6_8": 0,
+        "cluster_3": 1,
+        "cluster_7": 0,
+        "cluster_9": 0,
+        "cluster_14": 0,
+        "cluster_17": 0,
+        "cluster_18": 0
+      },
+      "menciona_procedimiento_dos_sobres": {
+        "cluster_0_4_10_11_12_13_15_16": 1,
+        "cluster_1": 1,
+        "cluster_2_5_6_8": 1,
+        "cluster_3": 0,
+        "cluster_7": 1,
+        "cluster_9": 1,
+        "cluster_14": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      },
+      "num_clausulas_principales": {
+        "cluster_0_4_10_11_12_13_15_16": 4,
+        "cluster_1": 3,
+        "cluster_2_5_6_8": 3,
+        "cluster_3": 4,
+        "cluster_7": 3,
+        "cluster_9": 4,
+        "cluster_14": 3,
+        "cluster_17": 3,
+        "cluster_18": 3
+      },
+      "menciona_compromiso_subcontratistas": {
+        "cluster_0_4_10_11_12_13_15_16": 1,
+        "cluster_1": 1,
+        "cluster_2_5_6_8": 1,
+        "cluster_3": 1,
+        "cluster_7": 1,
+        "cluster_9": 1,
+        "cluster_14": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      }
+    }
+  }
+}

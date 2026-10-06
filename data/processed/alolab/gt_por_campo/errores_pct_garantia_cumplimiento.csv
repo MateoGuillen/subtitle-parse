@@ -1,0 +1,197 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+402119,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,10.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+406064,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,10.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+436455,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,10.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+401748,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,10.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+419352,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,10.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+437975,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,10.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+415323,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,5.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+409807,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,5.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+405395,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,5.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+403232,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,5.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de
+""conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de
+""conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+437064,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,5.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+417862,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,5.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+407980,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,5.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."
+434697,pct_garantia_cumplimiento,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,5.0,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Porcentaje de garantía de fiel cumplimiento (típicamente 10%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como Porcentaje de Garantía de Fiel Cumplimiento de Contrato."

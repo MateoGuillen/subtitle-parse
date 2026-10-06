@@ -1,0 +1,71 @@
+{
+ "model": "Ministral_3_14B",
+ "n_relog": 9,
+ "agree_rate": 0.889,
+ "results": [
+  {
+   "nro": "420345",
+   "field": "anos_experiencia_minima_tecnica",
+   "raw_full": "3\n\nEl texto menciona explícitamente \"experiencia de 3 años\" para el Ing. Informático/Analista de Sistema, que cumple con los patrones de la guía de extracción. Para el Ing. Electrónico, aunque se menciona \"al menos 1 año\", el campo solicitado",
+   "value": 3.0,
+   "agree": true
+  },
+  {
+   "nro": "432209",
+   "field": "anos_experiencia_minima_tecnica",
+   "raw_full": "3\n\nEl texto menciona explícitamente **\"3 (tres) años de representación del bien ofertado\"** como requisito mínimo de experiencia técnica. Este valor cumple con los patrones de la guía de extracción.",
+   "value": null,
+   "agree": false
+  },
+  {
+   "nro": "467493",
+   "field": "anos_experiencia_minima_tecnica",
+   "raw_full": "3\n\n---\nExplicación:\n- Se extrae **3 años** de la frase *\"Experiencia general de al menos 3 años en desarrollo o mantenimiento de software\"* (perfil *Especialista en IA y Desarrollo de Sistemas*), que cumple con los patrones de la guía (\"experi",
+   "value": 5.0,
+   "agree": true
+  },
+  {
+   "nro": "425675",
+   "field": "anos_experiencia_minima_tecnica",
+   "raw_full": "5\n\n---\nExplicación: El texto menciona explícitamente **\"al menos 5 años de experiencia\"** en el punto 1, que cumple con los patrones de la guía de extracción (\"N años de experiencia\"). Por lo tanto, se extrae el valor **5** como años de experiencia mínima técnica",
+   "value": 5.0,
+   "agree": true
+  },
+  {
+   "nro": "391551",
+   "field": "anos_experiencia_minima_tecnica",
+   "raw_full": "5\n\n---\nEl texto menciona explícitamente:\n- **\"Se requiere un mínimo de 5 años de experiencia\"** (para Analista Desarrollador).\n- **\"Se requiere un mínimo de 2 años de experiencia\"** (para Desarrollador).\n\nComo el campo solicitado es **AÑOS DE EXPERIENCI",
+   "value": 5.0,
+   "agree": true
+  },
+  {
+   "nro": "421737",
+   "field": "anos_experiencia_minima_tecnica",
+   "raw_full": "3\n\n---\nEl texto menciona en el punto **g** que se requiere:\n- *\"Un Analista de sistemas o Ing. En Sistemas, con al menos **3 años de experiencia** en el sector\"*\n- *\"Un Ing. Informático, con al menos **3 años de experiencia** en el sector",
+   "value": 3.0,
+   "agree": true
+  },
+  {
+   "nro": "473102",
+   "field": "anos_experiencia_minima_tecnica",
+   "raw_full": "3\n\n---\nExplicación: El texto menciona **\"experiencia mínima de 2 años\"** en varios perfiles (ej: *\"Técnicos de Monitoreo SOC: Al menos cuatro (4) técnicos con experiencia mínima de 2 años en ciberseguridad\"*), pero **no hay un valor",
+   "value": 2.0,
+   "agree": true
+  },
+  {
+   "nro": "451706",
+   "field": "anos_experiencia_minima_tecnica",
+   "raw_full": "3\n\nEl texto menciona explícitamente \"3 años como mínimo de experiencia\" para varios cargos clave (efe de obra, capataz, oficial albañil, etc.) y también \"tres años de experiencia\" para el jefe o superintendente de obras. Esto cumple con los patrones de la guía de",
+   "value": 3.0,
+   "agree": true
+  },
+  {
+   "nro": "452330",
+   "field": "dias_pago_anticipo",
+   "raw_full": "5\n\nEl texto menciona explícitamente en el punto **f**:\n*\"Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de la solicitud: dentro de los **5 días corridos**.\"*\n\nEsto cumple con los patrones de",
+   "value": 5.0,
+   "agree": true
+  }
+ ],
+ "elapsed": 11.220352172851562
+}

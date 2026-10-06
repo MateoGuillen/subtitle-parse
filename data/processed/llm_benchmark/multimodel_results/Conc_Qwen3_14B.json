@@ -1,0 +1,59 @@
+{
+ "model": "Qwen3-14B-AWQ",
+ "backend": "vllm",
+ "prompts": 64,
+ "levels": {
+  "1": {
+   "n": 64,
+   "errors": 1,
+   "agree": 40,
+   "wall_s": 28.7,
+   "req_per_s": 2.23,
+   "out_tok_per_s": 19.6,
+   "p50_s": 0.43,
+   "p95_s": 1.22,
+   "mean_s": 0.46,
+   "vram_peak_mib": 15168,
+   "gpu_util_peak": 100
+  },
+  "4": {
+   "n": 64,
+   "errors": 1,
+   "agree": 40,
+   "wall_s": 21.5,
+   "req_per_s": 2.98,
+   "out_tok_per_s": 27.0,
+   "p50_s": 0.87,
+   "p95_s": 5.1,
+   "mean_s": 1.35,
+   "vram_peak_mib": 15168,
+   "gpu_util_peak": 100
+  },
+  "8": {
+   "n": 64,
+   "errors": 1,
+   "agree": 40,
+   "wall_s": 20.5,
+   "req_per_s": 3.12,
+   "out_tok_per_s": 25.3,
+   "p50_s": 1.81,
+   "p95_s": 7.97,
+   "mean_s": 2.55,
+   "vram_peak_mib": 15168,
+   "gpu_util_peak": 100
+  },
+  "16": {
+   "n": 64,
+   "errors": 1,
+   "agree": 40,
+   "wall_s": 20.0,
+   "req_per_s": 3.2,
+   "out_tok_per_s": 31.2,
+   "p50_s": 4.19,
+   "p95_s": 12.28,
+   "mean_s": 4.88,
+   "vram_peak_mib": 15168,
+   "gpu_util_peak": 100
+  }
+ }
+}

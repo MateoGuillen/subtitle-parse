@@ -1,0 +1,13 @@
+{
+  "title": "Retiro Sustitucion Y Modificacion De Las Ofertas",
+  "success": false,
+  "n_attempts": 3,
+  "response_time_s": 17.94,
+  "n_fields": 0,
+  "validation_errors": [
+    "No valid response"
+  ],
+  "field_names": [],
+  "raw_response": "",
+  "schema_data": {}
+}

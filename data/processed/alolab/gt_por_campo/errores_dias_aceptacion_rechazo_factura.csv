@@ -1,0 +1,1654 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+456046,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago será en guaraníes, y el plazo de pago de las facturas será dentro de los 30 (treinta) días posterior a la presentación
+de
+las mismas. Documentos exigidos para el pago: Solicitud de Pago, Factura Crédito; Certificado de Cumplimiento Tributario.;;;
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago será en guaraníes, y el plazo de pago de las facturas será dentro de los 30 (treinta) días posterior a la presentación
+de
+las mismas. Documentos exigidos para el pago: Solicitud de Pago, Factura Crédito; Certificado de Cumplimiento Tributario.;;;
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+442861,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,nan,"Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",15.0,15.0,,Texto vacio.
+430963,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: El pago será a plazos, dentro de
+los 30 (treinta) días posteriores a la entrega de los bienes con la presentación de la factura legal y documentaciones
+requeridas.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: El pago será a plazos, dentro de
+los 30 (treinta) días posteriores a la entrega de los bienes con la presentación de la factura legal y documentaciones
+requeridas.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+415110,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:EL PAGO SE HARA A PLAZOS Y
+SERA ATRAVEZ DE LA DIRECCION GENERAL DE ADMINISTRACION Y FINANZAS, PRESENTANDO LA FACTURA Y REMISION
+CORRESPONDIENTE..LA FACTURA DEBERA EMITIRSE A NOMBRE DE LA MUNICIPALIDAD DE SAN LORENZO. EL PAGO SE
+REALIZARA DENTRO DE LOS 60 (SESENTA) DIAS POSTERIORES A LA ENTREGA DE LA FACTURA CORRESPONDIENTE.
+La solicitud de pago deberá ser mediante nota a nombre del intendente municipal y presentada por mesa de entrada en la
+D,G,A,F, primer piso de la Municipalidad de San Lorenzo
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:EL PAGO SE HARA A PLAZOS Y
+SERA ATRAVEZ DE LA DIRECCION GENERAL DE ADMINISTRACION Y FINANZAS, PRESENTANDO LA FACTURA Y REMISION
+CORRESPONDIENTE..LA FACTURA DEBERA EMITIRSE A NOMBRE DE LA MUNICIPALIDAD DE SAN LORENZO. EL PAGO SE
+REALIZARA DENTRO DE LOS 60 (SESENTA) DIAS POSTERIORES A LA ENTREGA DE LA FACTURA CORRESPONDIENTE.
+La solicitud de pago deberá ser mediante nota a nombre del intendente municipal y presentada por mesa de entrada en la
+D,G,A,F, primer piso de la Municipalidad de San Lorenzo
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",60.0,60.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+474389,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de
+conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las
+adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Plazo de pago: 30 días, desde la
+aprobación del certificado de obra y la presentación de la factura.
+El pago se realizará contra Certificado de Obras aprobado por el Fiscal, además de los otros requisitos anteriores deberá presentar.
+última presentación de la DDJJ de IVA; Evidencias Fotográficas;, actas de medicion. La factura deberá ser presentada por nota a;;
+nombre del Intendente Municipal, por mesa de entrada.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación
+de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en
+quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos
+de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a
+""la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de
+conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las
+adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Plazo de pago: 30 días, desde la
+aprobación del certificado de obra y la presentación de la factura.
+El pago se realizará contra Certificado de Obras aprobado por el Fiscal, además de los otros requisitos anteriores deberá presentar.
+última presentación de la DDJJ de IVA; Evidencias Fotográficas;, actas de medicion. La factura deberá ser presentada por nota a;;
+nombre del Intendente Municipal, por mesa de entrada.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación
+de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en
+quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos
+de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a
+""la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+468567,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes : Los pagos se realizarán en
+guaraníes con el informe de entrega del bien solicitado. Dentro de los 10 (diez) días siguientes a la presentación de la
+solicitud de pago, a satisfacción de la Dirección solicitante u otra persona autorizada por la máxima autoridad, respetando
+las directrices internas de control. En la solicitud de pedido se deberá indicar un contacto de comunicación. La factura
+deberá individualizar el nombre del llamado, el ID, número de ítem y la descripción, y número de informe y periodo de
+entrega. la Direccion de finanzas debe prever y precautelar el cumplimiento efectivo, considerando las multas o penalidad
+del mismo en caso de incumplimiento.-
+""se tiene en cuenta lo relacionado a la tasa fijada en el artículo 63 de la Ley N° 7021/2022 """"""""DE SUMINISTRO Y""
+""CONTRATACIONES PÚBLICAS"""""""" del 0,4% (cero coma cuatro por ciento).-""
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes : Los pagos se realizarán en
+guaraníes con el informe de entrega del bien solicitado. Dentro de los 10 (diez) días siguientes a la presentación de la
+solicitud de pago, a satisfacción de la Dirección solicitante u otra persona autorizada por la máxima autoridad, respetando
+las directrices internas de control. En la solicitud de pedido se deberá indicar un contacto de comunicación. La factura
+deberá individualizar el nombre del llamado, el ID, número de ítem y la descripción, y número de informe y periodo de
+entrega. la Direccion de finanzas debe prever y precautelar el cumplimiento efectivo, considerando las multas o penalidad
+del mismo en caso de incumplimiento.-
+""se tiene en cuenta lo relacionado a la tasa fijada en el artículo 63 de la Ley N° 7021/2022 """"""""DE SUMINISTRO Y""
+""CONTRATACIONES PÚBLICAS"""""""" del 0,4% (cero coma cuatro por ciento).-""
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",10.0,10.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+432078,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de
+conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las
+adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: A plazo, dentro de los 30 (treinta) días de
+haber presentado la factura correspondiente al año 2023
+Plurianual: Los pagos a ser realizados en los ejercicios siguientes 2023, 2024, 2025 y 2026, se encuentran supeditados a la aprobación del
+presupuesto respectivo por la Junta Municipal de los años mencionados.-
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de
+una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince
+(15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de
+la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la
+""Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de
+conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las
+adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: A plazo, dentro de los 30 (treinta) días de
+haber presentado la factura correspondiente al año 2023
+Plurianual: Los pagos a ser realizados en los ejercicios siguientes 2023, 2024, 2025 y 2026, se encuentran supeditados a la aprobación del
+presupuesto respectivo por la Junta Municipal de los años mencionados.-
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de
+una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince
+(15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de
+la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la
+""Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+471642,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: El pago sera realizado Contra
+Certificado, con la presentación de la Factura por Mesa de Entrada de la Institución Municipal. El plazo para el pago es
+hasta 30 (treinta) días calendarios posterior a la presentación de los documentos requeridos. Todos los pagos serán
+realizados a través de la Dirección de Administración y Finanzas, aplicando las retenciones previstas en la Ley 7408/24 y el
+Art. 63 de la Ley 7021/22 de Suministros y Contrataciones Publicas.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: El pago sera realizado Contra
+Certificado, con la presentación de la Factura por Mesa de Entrada de la Institución Municipal. El plazo para el pago es
+hasta 30 (treinta) días calendarios posterior a la presentación de los documentos requeridos. Todos los pagos serán
+realizados a través de la Dirección de Administración y Finanzas, aplicando las retenciones previstas en la Ley 7408/24 y el
+Art. 63 de la Ley 7021/22 de Suministros y Contrataciones Publicas.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+423237,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Los pagos se realizarán en
+guaraníes con cada informe de entrega del SERVICIO solicitado. Dentro de los 10 (diez) días siguientes a la
+presentación de la solicitud de pago, a satisfacción de la Direccion solicitante u otra persona autorizada por la máxima
+autoridad, además deberán presentar el formulario FIS e informes aprobados por el administrador del contrato. En la
+solicitud de pedido se
+deberá indicar un contacto de comunicación, así como un número telefónico o celular, La factura deberá individualizar el
+nombre del llamado, el ID, número de ítem y la descripción, y número de informe y periodo de entrega
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Los pagos se realizarán en
+guaraníes con cada informe de entrega del SERVICIO solicitado. Dentro de los 10 (diez) días siguientes a la
+presentación de la solicitud de pago, a satisfacción de la Direccion solicitante u otra persona autorizada por la máxima
+autoridad, además deberán presentar el formulario FIS e informes aprobados por el administrador del contrato. En la
+solicitud de pedido se
+deberá indicar un contacto de comunicación, así como un número telefónico o celular, La factura deberá individualizar el
+nombre del llamado, el ID, número de ítem y la descripción, y número de informe y periodo de entrega
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",10.0,10.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+443305,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago se realizará en guaraníes, de conformidad al Plan de Caja y a los fondos efectivamente transferidos por el
+Ministerio de Economía y Finanzas a la cuenta administrativa de la institución contratante conforme a los fondos previstos
+en el Presupuesto General de Gastos de la Nación correspondiente al Ejercicio Fiscal 2024, con posterioridad a la entrega
+total de los servicios adjudicados a satisfacción de la Convocante y a la presentación de la factura correspondiente. El
+plazo de pago será dentro de los 60 (sesenta) días calendario contados a partir de la fecha de facturación.
+Por tratarse de un procedimiento Plurianual, la partida presupuestaria correspondiente al Ejercicio Fiscal 2025 estará
+sujeta a la aprobación por parte del Congreso Nacional y el Ministerio de Economía y Finanzas.
+Este plazo será suspendido automáticamente cuando los bienes no se ajusten a lo estipulado en las Especificaciones
+técnicas del pliego de bases y condiciones, y requiera por lo tanto de la adecuación correspondiente por parte del
+proveedor. Así mismo, se suspenderá el plazo antedicho, cuando la documentación de respaldo (factura, nota de remisión,
+etc.) no se ajuste a lo estipulado en el contrato, contenga errores imputables al proveedor o no se ajusten a las
+disposiciones tributarias vigentes.
+Conforme a lo establecido en el Art. 63 de la Ley 7021 modificado por el Art. 277 de la Ley 7228/23 del Presupuesto General
+de la Nación 2024, se retendrá el equivalente al cero coma cinco por ciento (0,5%) sobre el importe de cada factura,
+deducidos los impuestos correspondientes.
+Nota1: Conforme las disposiciones del Decreto 7781/06, para las Contrataciones con Organismos de la Administración
+Central, el Oferente que resulte adjudicado, deberá contar con una cuenta corriente y/o caja de ahorro habilitada en un
+Banco de plaza, o en su defecto, hallarse en condiciones de poder habilitar una cuenta corriente y/o caja de ahorro a su
+nombre, a fin de poder hacer efectivo el Pago Directo a Proveedores y Acreedores vía acreditación en cuenta bancaria.
+Nota 2: Conforme a lo previsto por la Ley de Presupuesto del año en curso los adjudicatarios de los contratos resultantes
+de los procesos mencionados, deberán inscribirse en el Sistema de Información de Proveedores del Estado, como
+requisito previo a la emisión del Código de Contratación respectivo, no siendo la inscripción una exigencia para participar
+en el proceso.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Di","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago se realizará en guaraníes, de conformidad al Plan de Caja y a los fondos efectivamente transferidos por el
+Ministerio de Economía y Finanzas a la cuenta administrativa de la institución contratante conforme a los fondos previstos
+en el Presupuesto General de Gastos de la Nación correspondiente al Ejercicio Fiscal 2024, con posterioridad a la entrega
+total de los servicios adjudicados a satisfacción de la Convocante y a la presentación de la factura correspondiente. El
+plazo de pago será dentro de los 60 (sesenta) días calendario contados a partir de la fecha de facturación.
+Por tratarse de un procedimiento Plurianual, la partida presupuestaria correspondiente al Ejercicio Fiscal 2025 estará
+sujeta a la aprobación por parte del Congreso Nacional y el Ministerio de Economía y Finanzas.
+Este plazo será suspendido automáticamente cuando los bienes no se ajusten a lo estipulado en las Especificaciones
+técnicas del pliego de bases y condiciones, y requiera por lo tanto de la adecuación correspondiente por parte del
+proveedor. Así mismo, se suspenderá el plazo antedicho, cuando la documentación de respaldo (factura, nota de remisión,
+etc.) no se ajuste a lo estipulado en el contrato, contenga errores imputables al proveedor o no se ajusten a las
+disposiciones tributarias vigentes.
+Conforme a lo establecido en el Art. 63 de la Ley 7021 modificado por el Art. 277 de la Ley 7228/23 del Presupuesto General
+de la Nación 2024, se retendrá el equivalente al cero coma cinco por ciento (0,5%) sobre el importe de cada factura,
+deducidos los impuestos correspondientes.
+Nota1: Conforme las disposiciones del Decreto 7781/06, para las Contrataciones con Organismos de la Administración
+Central, el Oferente que resulte adjudicado, deberá contar con una cuenta corriente y/o caja de ahorro habilitada en un
+Banco de plaza, o en su defecto, hallarse en condiciones de poder habilitar una cuenta corriente y/o caja de ahorro a su
+nombre, a fin de poder hacer efectivo el Pago Directo a Proveedores y Acreedores vía acreditación en cuenta bancaria.
+Nota 2: Conforme a lo previsto por la Ley de Presupuesto del año en curso los adjudicatarios de los contratos resultantes
+de los procesos mencionados, deberán inscribirse en el Sistema de Información de Proveedores del Estado, como
+requisito previo a la emisión del Código de Contratación respectivo, no siendo la inscripción una exigencia para participar
+en el proceso.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",60.0,60.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+443783,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,nan,"Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",15.0,15.0,,Texto vacio.
+390980,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago al Proveedor se hará en guaraníes, dentro de los 30 (treinta) días de la recepción de las respectivas
+facturas legales presentadas en Mesa de entrada (José Berges 516 c/ San José), correspondiente a los bienes
+entregados de conformidad al Plan de Entregas establecido, previa deducción de multas si las hubiere. Dichas
+facturas deberán estar acompañadas como mínimo por una nota solicitando el pago de la factura y Acta de
+Recepción, una copia del Contrato, Certificado de cumplimiento tributario, certificado de no estar en
+convocatoria de acreedores (actualizada en el año de la firma del contrato), Certificado de no estar en
+interdicción judicial (actualizada en el año de la firma del contrato) y código de contratación.
+El Proveedor será responsable del pago de todos los impuestos y otros tributos o gravámenes sin excepción
+ninguna del monto total facturado, serán pasibles de retenciones correspondientes al impuesto a la renta e
+Impuesto al Valor Agregado según lo establecido por las disposiciones legales de la República del Paraguay. Así
+mismo independientemente de estas retenciones impositivas se aplicará una retención equivalente al 0,5%
+sobre las facturas pagadas, en concepto de contribución de conformidad a lo dispuesto en el Art. 41 de la Ley
+2.051/03 De Contrataciones Públicas.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago al Proveedor se hará en guaraníes, dentro de los 30 (treinta) días de la recepción de las respectivas
+facturas legales presentadas en Mesa de entrada (José Berges 516 c/ San José), correspondiente a los bienes
+entregados de conformidad al Plan de Entregas establecido, previa deducción de multas si las hubiere. Dichas
+facturas deberán estar acompañadas como mínimo por una nota solicitando el pago de la factura y Acta de
+Recepción, una copia del Contrato, Certificado de cumplimiento tributario, certificado de no estar en
+convocatoria de acreedores (actualizada en el año de la firma del contrato), Certificado de no estar en
+interdicción judicial (actualizada en el año de la firma del contrato) y código de contratación.
+El Proveedor será responsable del pago de todos los impuestos y otros tributos o gravámenes sin excepción
+ninguna del monto total facturado, serán pasibles de retenciones correspondientes al impuesto a la renta e
+Impuesto al Valor Agregado según lo establecido por las disposiciones legales de la República del Paraguay. Así
+mismo independientemente de estas retenciones impositivas se aplicará una retención equivalente al 0,5%
+sobre las facturas pagadas, en concepto de contribución de conformidad a lo dispuesto en el Art. 41 de la Ley
+2.051/03 De Contrataciones Públicas.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+471678,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Moneda de Pago: Guaranies
+La forma de pago será contra certificado, con la presentación y aprobación del certificado, la que deberá ser entregada
+conjuntamente con las demás documentaciones mencionadas.
+Plazo de pago: dentro 30 días, desde la aprobación del certificado de obra y la presentación de la factura, con las demás
+documentaciones mencionadas en este apartado.
+Art. 63 de la Ley 7021/22
+Independientemente del procedimiento o modalidad de contratación que se hubiere empleado, las contratantes deberán
+retener el equivalente al 0,4% (cero coma cuatro por ciento), del importe de cada factura o certificado de obra, deducidos
+los impuestos correspondientes, que presenten a cobro los proveedores, consultores y contratistas, con motivo de la
+ejecución de los contratos materia de la presente ley, a fin de que estos montos sean destinados a la implementación,
+operación, desarrollo, y sostenimiento del Sistema de Información de Contrataciones Públicas (SICP), el Registro de
+Proveedores del Estado, el Registro de Compradores Públicos y cualquier otro sistema de información o base de datos que
+esté directamente relacionado con el Sistema Nacional de Contrataciones Públicas, de conformidad con las previsiones
+establecidas en los reglamentos pertinentes.
+Los montos que sean retenidos por las contratantes en el concepto señalado en el párrafo anterior, deberán ser
+depositados en la cuenta habilitada a tal efecto a nombre de la Dirección Nacional de Contrataciones Públicas, dentro del
+plazo que se establezca en la reglamentación.
+En caso de mora en el pago del porcentaje de contribución indicado en este artículo, la Dirección Nacional de
+Contrataciones Públicas no habilitará a las convocantes el uso del Sistema de Información de Contrataciones Públicas
+(SICP), hasta tanto se cancele la deuda.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Moneda de Pago: Guaranies
+La forma de pago será contra certificado, con la presentación y aprobación del certificado, la que deberá ser entregada
+conjuntamente con las demás documentaciones mencionadas.
+Plazo de pago: dentro 30 días, desde la aprobación del certificado de obra y la presentación de la factura, con las demás
+documentaciones mencionadas en este apartado.
+Art. 63 de la Ley 7021/22
+Independientemente del procedimiento o modalidad de contratación que se hubiere empleado, las contratantes deberán
+retener el equivalente al 0,4% (cero coma cuatro por ciento), del importe de cada factura o certificado de obra, deducidos
+los impuestos correspondientes, que presenten a cobro los proveedores, consultores y contratistas, con motivo de la
+ejecución de los contratos materia de la presente ley, a fin de que estos montos sean destinados a la implementación,
+operación, desarrollo, y sostenimiento del Sistema de Información de Contrataciones Públicas (SICP), el Registro de
+Proveedores del Estado, el Registro de Compradores Públicos y cualquier otro sistema de información o base de datos que
+esté directamente relacionado con el Sistema Nacional de Contrataciones Públicas, de conformidad con las previsiones
+establecidas en los reglamentos pertinentes.
+Los montos que sean retenidos por las contratantes en el concepto señalado en el párrafo anterior, deberán ser
+depositados en la cuenta habilitada a tal efecto a nombre de la Dirección Nacional de Contrataciones Públicas, dentro del
+plazo que se establezca en la reglamentación.
+En caso de mora en el pago del porcentaje de contribución indicado en este artículo, la Dirección Nacional de
+Contrataciones Públicas no habilitará a las convocantes el uso del Sistema de Información de Contrataciones Públicas
+(SICP), hasta tanto se cancele la deuda.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+460267,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con las disposiciones
+tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Plazo de pago: dentro de los treinta (30) días, desde la aprobación del
+certificado de
+obra y la presentación de la factura, acompañada de las documentaciones genéricas mencionadas.
+""Conforme Ley N° 7228, artículo 277: Durante el Ejercicio Fiscal del año 2024, la tasa fijada en el artículo 63 de la Ley N° 7021/2022 """"""""DE SUMINISTRO Y""
+CONTRATACIONES
+""PÚBLICAS"""""""" del 0,4% (cero coma cuatro por ciento), para la contribución de la implementación de las Contrataciones Públicas (SICP), se fijará en 0,5% (cero coma""
+cinco
+por ciento). La recaudación correspondiente a la diferencia del 0,1% (cero coma uno por ciento), se destinará al financiamiento del presupuesto del Ministerio de la
+Defensa Pública y del Ministerio de Justicia. Los montos resultantes del 0,1% (cero coma uno por ciento), que sean retenidos por las contratantes en el concepto
+señalado
+en el párrafo anterior, deberán ser depositados en la cuenta habilitada a tal efecto a nombre del Ministerio de la Defensa Pública y del Ministerio de Justicia, en el
+Banco
+Central del Paraguay (BCP), dentro del plazo de tres días hábiles de efectuada la retención, para los Organismos y Entidades de la Administración Central y
+""Descentralizada, y en el plazo de treinta días calendario para los municipios, de conformidad con lo establecido en la Ley N° 1535/1999 """"""""DE ADMINISTRACIÓN""
+FINANCIERA
+""DEL ESTADO"""""""".""
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una factura por el proveedor,
+y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de la Administración Central, el
+proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General
+""del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con las disposiciones
+tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Plazo de pago: dentro de los treinta (30) días, desde la aprobación del
+certificado de
+obra y la presentación de la factura, acompañada de las documentaciones genéricas mencionadas.
+""Conforme Ley N° 7228, artículo 277: Durante el Ejercicio Fiscal del año 2024, la tasa fijada en el artículo 63 de la Ley N° 7021/2022 """"""""DE SUMINISTRO Y""
+CONTRATACIONES
+""PÚBLICAS"""""""" del 0,4% (cero coma cuatro por ciento), para la contribución de la implementación de las Contrataciones Públicas (SICP), se fijará en 0,5% (cero coma""
+cinco
+por ciento). La recaudación correspondiente a la diferencia del 0,1% (cero coma uno por ciento), se destinará al financiamiento del presupuesto del Ministerio de la
+Defensa Pública y del Ministerio de Justicia. Los montos resultantes del 0,1% (cero coma uno por ciento), que sean retenidos por las contratantes en el concepto
+señalado
+en el párrafo anterior, deberán ser depositados en la cuenta habilitada a tal efecto a nombre del Ministerio de la Defensa Pública y del Ministerio de Justicia, en el
+Banco
+Central del Paraguay (BCP), dentro del plazo de tres días hábiles de efectuada la retención, para los Organismos y Entidades de la Administración Central y
+""Descentralizada, y en el plazo de treinta días calendario para los municipios, de conformidad con lo establecido en la Ley N° 1535/1999 """"""""DE ADMINISTRACIÓN""
+FINANCIERA
+""DEL ESTADO"""""""".""
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una factura por el proveedor,
+y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de la Administración Central, el
+proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General
+""del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+423920,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: de
+pago al proveedor en virtud del contrato serán las siguientes: El Sistema de Pago a ser
+utilizado será de A PLAZOS. Los pagos serán realizados dentro de los 20 días de la presentación de la factura por parte del
+proveedor, la Direccion de finanzas debe prever y precautelar el cumplimiento efectivo, considerando las multas o penalidad
+del mismo en caso de incumplimiento
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: de
+pago al proveedor en virtud del contrato serán las siguientes: El Sistema de Pago a ser
+utilizado será de A PLAZOS. Los pagos serán realizados dentro de los 20 días de la presentación de la factura por parte del
+proveedor, la Direccion de finanzas debe prever y precautelar el cumplimiento efectivo, considerando las multas o penalidad
+del mismo en caso de incumplimiento
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",20.0,20.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+470479,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+a. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+b. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+c. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+d. Certificado de Cumplimiento Tributario
+e. Constancia de Cumplimiento con la Seguridad Social
+f. Formulario de Identificación de Servicios Personales (FIS)
+g. Certificado laboral vigente expedido por la Dirección de Obrero Patronal dependiente del Viceministerio de Trabajo,
+siempre que el sujeto esté obligado a contar con el mismo, de conformidad a la reglamentación pertinente - CPS
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El Pago será realizado dentro de los 30 (treinta) días posteriores a la presentación de la solicitud de pago a la
+Dirección Administración y finanzas de la Gobernación de Cordillera (previa Adjudicación y emisión del Código de
+Contratación por parte de la Dirección Nacional de Contrataciones Públicas) en forma mensual, siempre y cuando el
+Contratista haya dado cumplimiento en las entregas correspondientes de los bienes adjudicados y a satisfacción de
+la Convocante. El pago se efectuará en GUARANIES y conforme al ACTA DE RECEPCION y/o nota de remision y el plan
+financiero Institucional Documentos exigidos para el pago:
+- Factura Crédito y el Acta de Recepcion y/o nota de remision Cuando hubiere un retraso en el pago por parte de la
+Contratante por más de 30 (treinta) días calendario, el Proveedor tendrá derecho a que se le reconozcan intereses
+financieros El pago por los servicios objeto de la presente Licitación esta sujeto a aprobación de reprogramación con
+fondos del ejercicio fiscal 2025 y sujetos a aprobacion del presupuesto 2026..
+En cuanto a la contribución sobre contratos suscriptos, conforme al artículo 63 de la Ley N° 7021/22, se retendrá el
+equivalente al 0,4% (cero coma cuatro por ciento) del importe de cada factura, deducidos los impuestos correspondientes
+así como otras retenciones que fueran obligatorias de acuerdo a la normativa aplicable.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor. La contratante deberá expedirse respecto a la aceptación o rechazo de la factura, a
+más tardar en quince (15) días corridos posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+Sistema de Tesorería (SITE).
+""El certificado previsto en el inciso g), se requerirá únicamente para el último pago.","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+a. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+b. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+c. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+d. Certificado de Cumplimiento Tributario
+e. Constancia de Cumplimiento con la Seguridad Social
+f. Formulario de Identificación de Servicios Personales (FIS)
+g. Certificado laboral vigente expedido por la Dirección de Obrero Patronal dependiente del Viceministerio de Trabajo,
+siempre que el sujeto esté obligado a contar con el mismo, de conformidad a la reglamentación pertinente - CPS
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El Pago será realizado dentro de los 30 (treinta) días posteriores a la presentación de la solicitud de pago a la
+Dirección Administración y finanzas de la Gobernación de Cordillera (previa Adjudicación y emisión del Código de
+Contratación por parte de la Dirección Nacional de Contrataciones Públicas) en forma mensual, siempre y cuando el
+Contratista haya dado cumplimiento en las entregas correspondientes de los bienes adjudicados y a satisfacción de
+la Convocante. El pago se efectuará en GUARANIES y conforme al ACTA DE RECEPCION y/o nota de remision y el plan
+financiero Institucional Documentos exigidos para el pago:
+- Factura Crédito y el Acta de Recepcion y/o nota de remision Cuando hubiere un retraso en el pago por parte de la
+Contratante por más de 30 (treinta) días calendario, el Proveedor tendrá derecho a que se le reconozcan intereses
+financieros El pago por los servicios objeto de la presente Licitación esta sujeto a aprobación de reprogramación con
+fondos del ejercicio fiscal 2025 y sujetos a aprobacion del presupuesto 2026..
+En cuanto a la contribución sobre contratos suscriptos, conforme al artículo 63 de la Ley N° 7021/22, se retendrá el
+equivalente al 0,4% (cero coma cuatro por ciento) del importe de cada factura, deducidos los impuestos correspondientes
+así como otras retenciones que fueran obligatorias de acuerdo a la normativa aplicable.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor. La contratante deberá expedirse respecto a la aceptación o rechazo de la factura, a
+más tardar en quince (15) días corridos posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+Sistema de Tesorería (SITE).
+""El certificado previsto en el inciso g), se requerirá únicamente para el último pago.""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+454147,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con
+las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Plazo de pago: 30 días hábiles, desde la aprobación del certificado de obra y la presentación de la factura con las documentaciones requeridas más
+arriba.- Los montos correspondientes al año 2.025 se encuentran supeditadas al Presupuesto General de la Nación ejercicio 2.025.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una
+factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince (15) días
+posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de la
+Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante
+""para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con
+las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Plazo de pago: 30 días hábiles, desde la aprobación del certificado de obra y la presentación de la factura con las documentaciones requeridas más
+arriba.- Los montos correspondientes al año 2.025 se encuentran supeditadas al Presupuesto General de la Nación ejercicio 2.025.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una
+factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince (15) días
+posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de la
+Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante
+""para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+455493,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago se realizará dentro de los (60) sesenta días posteriores a la presentación de la solicitud correspondiente de
+conformidad al Plan de Caja y a los Fondos efectivamente transferidos por parte de la Tesorería General. EL PROVEEDOR,
+solicitará el pago a través del Dirección de Tecnologia de la Información y Comunicación, y adjuntará a dicha solicitud la
+Factura, Nota de Remisión o el Acta de Recepción de Servicios. Las facturas que deberán contener los siguientes datos:
+Presidencia de la Rca.- Gabinete Civil, RUC: 80020056-0. Descripción del servicio, Número de Contrato, Certificado de
+Cumplimiento Tributario vigente. Formulario del Fis y FIP. Si las facturas al momento de su presentación, no contienen
+algunos de los datos requeridos, las mismas no serán recepcionadas para el procesamiento de pago correspondiente
+PROVEEDORES CON FACTURAS ELECTRONICAS DEBEN SER REMITIDAS EN FORMA INMEDIATA AL SIGUIENTE CORREO:
+facturas.dtic@presidencia.gov.py. El Proveedor será responsable del pago de todos los impuestos y otros tributos o
+gravámenes sin excepción alguna. Del monto total facturado, serán pasibles las retenciones correspondientes al Impuesto
+a la Renta y al Impuesto al Valor Agregado, según lo establecido por las disposiciones legales de la República del Paraguay.
+Asimismo, independientemente de estas retenciones impositivas, se aplicará una Retención equivalente al 0,5% sobre el
+monto de las facturas pagadas, deducidos los impuestos reflejados en las mismas, en concepto de Contribución. de
+conformidad la Ley 7021/22 De Contrataciones Públicas reglamentado por el Decreto Nº 2264/2023. El monto
+correspondiente de la factura, será acreditado dentro del plazo señalado, en la cuenta habilitada del proveedor
+adjudicado, en un Banco de Plaza, vía transferencia bancaria.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago se realizará dentro de los (60) sesenta días posteriores a la presentación de la solicitud correspondiente de
+conformidad al Plan de Caja y a los Fondos efectivamente transferidos por parte de la Tesorería General. EL PROVEEDOR,
+solicitará el pago a través del Dirección de Tecnologia de la Información y Comunicación, y adjuntará a dicha solicitud la
+Factura, Nota de Remisión o el Acta de Recepción de Servicios. Las facturas que deberán contener los siguientes datos:
+Presidencia de la Rca.- Gabinete Civil, RUC: 80020056-0. Descripción del servicio, Número de Contrato, Certificado de
+Cumplimiento Tributario vigente. Formulario del Fis y FIP. Si las facturas al momento de su presentación, no contienen
+algunos de los datos requeridos, las mismas no serán recepcionadas para el procesamiento de pago correspondiente
+PROVEEDORES CON FACTURAS ELECTRONICAS DEBEN SER REMITIDAS EN FORMA INMEDIATA AL SIGUIENTE CORREO:
+facturas.dtic@presidencia.gov.py. El Proveedor será responsable del pago de todos los impuestos y otros tributos o
+gravámenes sin excepción alguna. Del monto total facturado, serán pasibles las retenciones correspondientes al Impuesto
+a la Renta y al Impuesto al Valor Agregado, según lo establecido por las disposiciones legales de la República del Paraguay.
+Asimismo, independientemente de estas retenciones impositivas, se aplicará una Retención equivalente al 0,5% sobre el
+monto de las facturas pagadas, deducidos los impuestos reflejados en las mismas, en concepto de Contribución. de
+conformidad la Ley 7021/22 De Contrataciones Públicas reglamentado por el Decreto Nº 2264/2023. El monto
+correspondiente de la factura, será acreditado dentro del plazo señalado, en la cuenta habilitada del proveedor
+adjudicado, en un Banco de Plaza, vía transferencia bancaria.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",60.0,60.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+447902,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+La factura deberá ser presentada en: La Municipalidad de Carlos Antonio Lopez en Mesa de Entrada de la
+Municipalidad. Una vez aprobado el certificado, el plazo para el pago es hasta 30 (treinta) días calendarios posterior a la
+presentación. Todos los pagos serán realizados a través de la Dirección de Administración y Finanzas de acuerdo a los
+fondos previstos en el Presupuesto Municipal. Los pagos para el año 2025 estan sujetos a aprobacion presupuestaria.
+Que la convocante tendra en cuenta para pago durante el Ejercicio Fiscal del año 2024, la tasa fijada en el artículo 63 de la
+Ley N° 7021/2022 DE SUMINISTRO Y CONTRATACIONES PÚBLICAS del 0,4% (cero coma cuatro por ciento), para la
+contribución de la implementación de las Contrataciones Públicas (SICP), se fijará en 0,5% (cero coma cinco por ciento). La
+recaudación correspondiente a la diferencia del 0,1% (cero coma uno por ciento), se destinará al financiamiento del
+presupuesto del Ministerio de la Defensa Pública y del Ministerio de Justicia. Los montos resultantes del 0,1% (cero coma
+uno por ciento), que sean retenidos por las contratantes en el concepto señalado en el párrafo anterior, deberán ser
+depositados en la cuenta habilitada a tal efecto a nombre del Ministerio de la Defensa Pública y del Ministerio de Justicia,
+en el Banco Central del Paraguay (BCP), dentro del plazo de tres días hábiles de efectuada la retención, para los
+Organismos y Entidades de la Administración Central y Descentralizada, y en el plazo de treinta días calendario para los
+municipios, de conformidad con lo establecido en la Ley Nº 1535/1999 DE ADMINISTRACIÓN FINANCIERA DEL ESTADO
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+La factura deberá ser presentada en: La Municipalidad de Carlos Antonio Lopez en Mesa de Entrada de la
+Municipalidad. Una vez aprobado el certificado, el plazo para el pago es hasta 30 (treinta) días calendarios posterior a la
+presentación. Todos los pagos serán realizados a través de la Dirección de Administración y Finanzas de acuerdo a los
+fondos previstos en el Presupuesto Municipal. Los pagos para el año 2025 estan sujetos a aprobacion presupuestaria.
+Que la convocante tendra en cuenta para pago durante el Ejercicio Fiscal del año 2024, la tasa fijada en el artículo 63 de la
+Ley N° 7021/2022 DE SUMINISTRO Y CONTRATACIONES PÚBLICAS del 0,4% (cero coma cuatro por ciento), para la
+contribución de la implementación de las Contrataciones Públicas (SICP), se fijará en 0,5% (cero coma cinco por ciento). La
+recaudación correspondiente a la diferencia del 0,1% (cero coma uno por ciento), se destinará al financiamiento del
+presupuesto del Ministerio de la Defensa Pública y del Ministerio de Justicia. Los montos resultantes del 0,1% (cero coma
+uno por ciento), que sean retenidos por las contratantes en el concepto señalado en el párrafo anterior, deberán ser
+depositados en la cuenta habilitada a tal efecto a nombre del Ministerio de la Defensa Pública y del Ministerio de Justicia,
+en el Banco Central del Paraguay (BCP), dentro del plazo de tres días hábiles de efectuada la retención, para los
+Organismos y Entidades de la Administración Central y Descentralizada, y en el plazo de treinta días calendario para los
+municipios, de conformidad con lo establecido en la Ley Nº 1535/1999 DE ADMINISTRACIÓN FINANCIERA DEL ESTADO
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+414859,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El Pago al Proveedor se hará en guaraníes, dentro de los 30 (treinta) días de la recepción de las respectivas
+Facturas Legales, acompañadas de los Documentos Genéricos y: Nota solicitando el pago de la factura y Acta de
+recepción, Certificado de no estar en Interdicción Judicial, Certificado de no estar en convocatoria de
+Acreedores (Actualizada en el año de la firma del contrato), Copia del Contrato y el Código de Contratación
+correspondiente. Así también, independientemente de las retenciones impositivas se aplicará una retención
+equivalente al 0,5% sobre las facturas pagadas, en concepto de contribución de conformidad a lo dispuesto en
+el Art. 41 de la Ley 2051/03 DE CONTRATACIONES PÚBLICAS y Art. 267 de la Ley 6672/2020 QUE APRUEBA EL
+PRESUPUESTO GENERAL DE LA NACIÓN VIGENTE PARA EL EJERCICIO FISCAL 2022.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El Pago al Proveedor se hará en guaraníes, dentro de los 30 (treinta) días de la recepción de las respectivas
+Facturas Legales, acompañadas de los Documentos Genéricos y: Nota solicitando el pago de la factura y Acta de
+recepción, Certificado de no estar en Interdicción Judicial, Certificado de no estar en convocatoria de
+Acreedores (Actualizada en el año de la firma del contrato), Copia del Contrato y el Código de Contratación
+correspondiente. Así también, independientemente de las retenciones impositivas se aplicará una retención
+equivalente al 0,5% sobre las facturas pagadas, en concepto de contribución de conformidad a lo dispuesto en
+el Art. 41 de la Ley 2051/03 DE CONTRATACIONES PÚBLICAS y Art. 267 de la Ley 6672/2020 QUE APRUEBA EL
+PRESUPUESTO GENERAL DE LA NACIÓN VIGENTE PARA EL EJERCICIO FISCAL 2022.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+390950,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA)
+de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago al Proveedor se hará en guaraníes, dentro de los 30 (treinta) días de la recepción de las respectivas facturas
+legales presentadas en Mesa de entrada (José Berges 516 c/ San José), correspondiente a los bienes entregados de
+conformidad al Plan de Entregas establecido, previa deducción de multas si las hubiere. Dichas facturas deberán
+estar acompañadas como mínimo por una nota solicitando el pago de la factura y Acta de Recepción, una copia del
+Contrato, Certificado de cumplimiento tributario, certificado de no estar en convocatoria de acreedores
+(actualizada en el año de la firma del contrato), Certificado de no estar en interdicción judicial (actualizada en el
+año de la firma del contrato) y código de contratación.
+El
+Proveedor será responsable del pago de todos los impuestos y otros tributos o gravámenes sin excepción ninguna
+del monto total facturado, serán pasibles de retenciones correspondientes al impuesto a la renta e Impuesto al
+Valor Agregado según lo establecido por las disposiciones legales de la República del Paraguay. Así mismo
+independientemente de estas retenciones impositivas se aplicará una retención equivalente al 0,5% sobre las
+facturas pagadas, en concepto de contribución de conformidad a lo dispuesto en el Art. 41 de la Ley 2.051/03 De
+Contrataciones Públicas.
+La validez de la contratación quedará sujeta a la aprobación de la partida presupuestaria correspondiente al año
+2022.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de
+plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de
+""Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA)
+de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+El pago al Proveedor se hará en guaraníes, dentro de los 30 (treinta) días de la recepción de las respectivas facturas
+legales presentadas en Mesa de entrada (José Berges 516 c/ San José), correspondiente a los bienes entregados de
+conformidad al Plan de Entregas establecido, previa deducción de multas si las hubiere. Dichas facturas deberán
+estar acompañadas como mínimo por una nota solicitando el pago de la factura y Acta de Recepción, una copia del
+Contrato, Certificado de cumplimiento tributario, certificado de no estar en convocatoria de acreedores
+(actualizada en el año de la firma del contrato), Certificado de no estar en interdicción judicial (actualizada en el
+año de la firma del contrato) y código de contratación.
+El
+Proveedor será responsable del pago de todos los impuestos y otros tributos o gravámenes sin excepción ninguna
+del monto total facturado, serán pasibles de retenciones correspondientes al impuesto a la renta e Impuesto al
+Valor Agregado según lo establecido por las disposiciones legales de la República del Paraguay. Así mismo
+independientemente de estas retenciones impositivas se aplicará una retención equivalente al 0,5% sobre las
+facturas pagadas, en concepto de contribución de conformidad a lo dispuesto en el Art. 41 de la Ley 2.051/03 De
+Contrataciones Públicas.
+La validez de la contratación quedará sujeta a la aprobación de la partida presupuestaria correspondiente al año
+2022.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de
+plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de
+""Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+439009,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+A plazos, dentro de los diez (10) días de presentada la solicitud con los documentos anexos, previa verificación de los
+mismo por parte de la contratante. -
+Observacio ́n: Los pagos a ser realizados en el ejercicio fiscal an ̃o 2.025 estara ́n supeditados a la aprobacio ́n del
+Presupuesto General An ̃o 2025 de la Municipalidad de Ypane ́
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+A plazos, dentro de los diez (10) días de presentada la solicitud con los documentos anexos, previa verificación de los
+mismo por parte de la contratante. -
+Observacio ́n: Los pagos a ser realizados en el ejercicio fiscal an ̃o 2.025 estara ́n supeditados a la aprobacio ́n del
+Presupuesto General An ̃o 2025 de la Municipalidad de Ypane ́
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",10.0,10.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+452454,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con las
+disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Plazo de pago: 30 (treinta) días, desde la aprobación del certificado de obra y la presentación de la factura.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una factura por
+el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince (15) días posteriores a su
+presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de la
+Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante para
+""que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con las
+disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Plazo de pago: 30 (treinta) días, desde la aprobación del certificado de obra y la presentación de la factura.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una factura por
+el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince (15) días posteriores a su
+presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de la
+Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante para
+""que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+407214,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el
+valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Para el pago, la factura se entregará en las oficinas de la Vicepresidencia de la Republica (O'Leary N° 222 casi Presidente Franco), específicamente en la Dirección Financiera, para proseguir con los trámites
+correspondientes dentro de los (30) días siguientes a la fecha de la presentación de la factura correspondiente.
+Además, se deberá acompañar las siguientes documentaciones:
+1. Nota de solicitud de pago del proveedor conteniendo:
+a) Número de resolución que lo adjudica como proveedor de los bienes
+b) Número de contrato vigente
+c) Número de factura
+d) Monto solicitado en guaraníes. -
+2. Factura crédito. -
+3. Copia de la orden de Compra. -
+4. Copia del documento que acredite la conformidad con los bienes proveídos. -
+5. Constancia de pago de IVA vigente
+6. Constancia de pago de IRP vigente
+7. Certificado de cumplimiento tributario.
+Estos pagos se harán en base a los precios que figuran en la Planilla de Precios. -
+Así mismo se retendrá el equivalente a cero puntos cuatro por ciento (0,4%) sobre el importe de cada factura, deducidos los impuestos correspondientes, conforme lo establecido en el Art. 41 de la Ley Nº
+2051/03 de Contrataciones Públicas.
+Las retenciones se realizarán conforme a las legislaciones vigentes.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una factura por el proveedor, y después de que la contratante la
+haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de la Administración Central, el proveedor deberá habilitar su
+""respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el
+valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Para el pago, la factura se entregará en las oficinas de la Vicepresidencia de la Republica (O'Leary N° 222 casi Presidente Franco), específicamente en la Dirección Financiera, para proseguir con los trámites
+correspondientes dentro de los (30) días siguientes a la fecha de la presentación de la factura correspondiente.
+Además, se deberá acompañar las siguientes documentaciones:
+1. Nota de solicitud de pago del proveedor conteniendo:
+a) Número de resolución que lo adjudica como proveedor de los bienes
+b) Número de contrato vigente
+c) Número de factura
+d) Monto solicitado en guaraníes. -
+2. Factura crédito. -
+3. Copia de la orden de Compra. -
+4. Copia del documento que acredite la conformidad con los bienes proveídos. -
+5. Constancia de pago de IVA vigente
+6. Constancia de pago de IRP vigente
+7. Certificado de cumplimiento tributario.
+Estos pagos se harán en base a los precios que figuran en la Planilla de Precios. -
+Así mismo se retendrá el equivalente a cero puntos cuatro por ciento (0,4%) sobre el importe de cada factura, deducidos los impuestos correspondientes, conforme lo establecido en el Art. 41 de la Ley Nº
+2051/03 de Contrataciones Públicas.
+Las retenciones se realizarán conforme a las legislaciones vigentes.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una factura por el proveedor, y después de que la contratante la
+haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos de la Administración Central, el proveedor deberá habilitar su
+""respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+407078,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Teniendo en cuenta que el Fondo Ganadero cuenta con el servicio de seguro odontológico ID Nº 407.073, las formas y
+condiciones de pago al Proveedor en virtud del Contrato se realizaran de la siguiente manera:
+1. El Fondo Ganadero realizará el pago hasta una suma de Gs. 900.000 (guaraníes novecientos mil) por cada funcionario
+que se encuentre adherido al seguro odontológico, lo restante y el costo de sus adherentes quedará a cargo de cada
+beneficiario titular; el cual deberá autorizar por escrito el descuento de su salario, ante el Departamento de Gestión de;;;
+Talento Humano. En caso que el funcionario opte por acogerse sólo al seguro médico sanatorial, deberá renunciar
+nota mediante al seguro odontológico, ante el Departamento de Gestión de Talento Humano.
+2. El Fondo Ganadero realizará el pago hasta una suma de Gs. 1.000.000 (guaraníes un millón) por cada funcionario que
+no se encuentre adherido al seguro odontológico mencionado en el punto 1, lo restante y el costo de sus adherentes
+quedará a cargo de cada beneficiario titular; el cual deberá autorizar por escrito el descuento de su salario, ante el;;;
+Departamento de Gestión de Talento Humano. En caso que el funcionario opte por acogerse al seguro odontológico,
+deberá comunicar nota mediante ante el Departamento de Gestión de Talento Humano, de manera a ser incluido en
+el referido seguro, debiendo el pago realizarse automáticamente de conformidad a lo previsto en el punto 1.
+Los pagos por los servicios respectivos serán efectuados en forma mensual por 12 meses (por mes vencido), en las
+condiciones establecidas precedentemente y de acuerdo a la cantidad efectivamente provista, en dónde el oferente
+adjudicado deberá presentar su factura dentro de los 5 (cinco) días hábiles siguientes de acuerdo al servicio realizado, en el
+Departamento de Gestión de Talento Humano 1er. Piso, sito en la Avda. Mcal. López Nº 1.699 e/ Rca. Dominicana, horario de
+atención de lunes a jueves de 07:30 a 16:00 y los viernes de 07:30 a 13:30hs, acompañada de los documentos requeridos en el
+apartado anterior. El plazo mencionado comenzará a correr una vez completa las documentaciones requeridas para el pago.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor
+adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Informe de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Teniendo en cuenta que el Fondo Ganadero cuenta con el servicio de seguro odontológico ID Nº 407.073, las formas y
+condiciones de pago al Proveedor en virtud del Contrato se realizaran de la siguiente manera:
+1. El Fondo Ganadero realizará el pago hasta una suma de Gs. 900.000 (guaraníes novecientos mil) por cada funcionario
+que se encuentre adherido al seguro odontológico, lo restante y el costo de sus adherentes quedará a cargo de cada
+beneficiario titular; el cual deberá autorizar por escrito el descuento de su salario, ante el Departamento de Gestión de;;;
+Talento Humano. En caso que el funcionario opte por acogerse sólo al seguro médico sanatorial, deberá renunciar
+nota mediante al seguro odontológico, ante el Departamento de Gestión de Talento Humano.
+2. El Fondo Ganadero realizará el pago hasta una suma de Gs. 1.000.000 (guaraníes un millón) por cada funcionario que
+no se encuentre adherido al seguro odontológico mencionado en el punto 1, lo restante y el costo de sus adherentes
+quedará a cargo de cada beneficiario titular; el cual deberá autorizar por escrito el descuento de su salario, ante el;;;
+Departamento de Gestión de Talento Humano. En caso que el funcionario opte por acogerse al seguro odontológico,
+deberá comunicar nota mediante ante el Departamento de Gestión de Talento Humano, de manera a ser incluido en
+el referido seguro, debiendo el pago realizarse automáticamente de conformidad a lo previsto en el punto 1.
+Los pagos por los servicios respectivos serán efectuados en forma mensual por 12 meses (por mes vencido), en las
+condiciones establecidas precedentemente y de acuerdo a la cantidad efectivamente provista, en dónde el oferente
+adjudicado deberá presentar su factura dentro de los 5 (cinco) días hábiles siguientes de acuerdo al servicio realizado, en el
+Departamento de Gestión de Talento Humano 1er. Piso, sito en la Avda. Mcal. López Nº 1.699 e/ Rca. Dominicana, horario de
+atención de lunes a jueves de 07:30 a 16:00 y los viernes de 07:30 a 13:30hs, acompañada de los documentos requeridos en el
+apartado anterior. El plazo mencionado comenzará a correr una vez completa las documentaciones requeridas para el pago.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá
+darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",5.0,5.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+468140,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Contra certificado, con la
+presentación de la factura en la Municipalidad de Nueva Londres por Mesa de Entrada. Una vez aprobado el certificado, el
+plazo para el pago es hasta 5 (cinco) días calendarios posterior a la presentación. Todos los pagos serán realizados a través
+de la Dirección de Administración y Finanzas.
+Para cada pago se aplicara lo establecido en el Art. 63 de la Ley 7021/22.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Contra certificado, con la
+presentación de la factura en la Municipalidad de Nueva Londres por Mesa de Entrada. Una vez aprobado el certificado, el
+plazo para el pago es hasta 5 (cinco) días calendarios posterior a la presentación. Todos los pagos serán realizados a través
+de la Dirección de Administración y Finanzas.
+Para cada pago se aplicara lo establecido en el Art. 63 de la Ley 7021/22.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",5.0,5.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+447759,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de
+conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las
+adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Una vez que se haya realizado la entrega de
+los bienes, de acuerdo a las Órdenes de compra, se procederá a su inspección y verificación, con la ficha técnica correspondiente y con
+la participación del REPRESENTANTE del Contratista, el cual será un requisito indispensable al realizar la verificación correspondiente.
+La Convocante emitirá una Constancia de Recepción, al de certificar la entrega realizada. La constancia contendrá el listado de los
+bienes recepcionados, la fecha y las observaciones que emerjan durante la recepción. La constancia deberá estar firmada por el
+Administrador del Contrato. Una vez que La Convocante, por si mismo realice los controles pertinentes y certifique adecuadamente que
+los bienes se ajusta a las Especificaciones Técnicas y demás documentos del Contrato, emitirá el acta de recepción definitiva, la que
+habilitará al proveedor a solicitar el pago de los bienes entregados, hasta cubrir el monto estipulado. Deberán presentar para el pago,
+una solicitud a la Convocante mencionando el cumplimiento de la presente cláusula, dentro del plazo de 30 (treinta) días corridos
+desde la entrega de los bienes ofertados. El pago se realizará a los 20 (veinte) días posteriores de haber recibido la factura aprobada por
+la Dirección Administrativa, y se cuente con el Acta de Recepción Definitiva de los bienes, elaborado por los técnicos responsables del
+área
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación
+de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en
+quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos
+de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a
+""la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de
+conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las
+adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Una vez que se haya realizado la entrega de
+los bienes, de acuerdo a las Órdenes de compra, se procederá a su inspección y verificación, con la ficha técnica correspondiente y con
+la participación del REPRESENTANTE del Contratista, el cual será un requisito indispensable al realizar la verificación correspondiente.
+La Convocante emitirá una Constancia de Recepción, al de certificar la entrega realizada. La constancia contendrá el listado de los
+bienes recepcionados, la fecha y las observaciones que emerjan durante la recepción. La constancia deberá estar firmada por el
+Administrador del Contrato. Una vez que La Convocante, por si mismo realice los controles pertinentes y certifique adecuadamente que
+los bienes se ajusta a las Especificaciones Técnicas y demás documentos del Contrato, emitirá el acta de recepción definitiva, la que
+habilitará al proveedor a solicitar el pago de los bienes entregados, hasta cubrir el monto estipulado. Deberán presentar para el pago,
+una solicitud a la Convocante mencionando el cumplimiento de la presente cláusula, dentro del plazo de 30 (treinta) días corridos
+desde la entrega de los bienes ofertados. El pago se realizará a los 20 (veinte) días posteriores de haber recibido la factura aprobada por
+la Dirección Administrativa, y se cuente con el Acta de Recepción Definitiva de los bienes, elaborado por los técnicos responsables del
+área
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación
+de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo, deberá darse a más tardar en
+quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con Organismos
+de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a
+""la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+475007,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Plazo de pago: 30 (treinta) días, desde la aprobación del certificado de obra y la presentación de la factura.
+""El pago se realizará de conformidad a la tasa fijada en el Artículo 63° de la Ley N° 7021/2022 """"""""DE SUMINISTRO Y""
+""CONTRATACIONES PÚBLICAS"""""""".""
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Plazo de pago: 30 (treinta) días, desde la aprobación del certificado de obra y la presentación de la factura.
+""El pago se realizará de conformidad a la tasa fijada en el Artículo 63° de la Ley N° 7021/2022 """"""""DE SUMINISTRO Y""
+""CONTRATACIONES PÚBLICAS"""""""".""
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+471921,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Contra certificado, con la
+presentación de la factura en la Municipalidad de Itauguá en Mesa de Entrada de la Municipalidad de Itauguá. Una vez
+aprobado el certificado, el plazo para el pago es hasta 45 (cuarenta y cinco) días calendarios posterior a la presentación.
+Todos los pagos serán realizados a través de la Dirección de Administración y Finanzas. Tambien al momento de cada pago
+se dara cumplimiento a la disposicion contenida en el Art. 63 de la Ley 7021/22
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+1. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+2. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado
+(IVA) de conformidad con las disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el
+valor adjudicado o las adendas aprobadas
+3. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+4. Certificado de Cumplimiento Tributario
+5. Constancia de Cumplimiento con la Seguridad Social
+6. Formulario de Identificación de Servicios Personales (FIS).
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes:
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: Contra certificado, con la
+presentación de la factura en la Municipalidad de Itauguá en Mesa de Entrada de la Municipalidad de Itauguá. Una vez
+aprobado el certificado, el plazo para el pago es hasta 45 (cuarenta y cinco) días calendarios posterior a la presentación.
+Todos los pagos serán realizados a través de la Dirección de Administración y Finanzas. Tambien al momento de cada pago
+se dara cumplimiento a la disposicion contenida en el Art. 63 de la Ley 7021/22
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la
+presentación de una factura por el proveedor, y después de que la contratante la haya aceptado. Dicha aceptación o rechazo,
+deberá darse a más tardar en quince (15) días posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de Junio de 2006 y modificatoria, en las contrataciones con
+Organismos de la Administración Central, el proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco
+de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección General del Tesoro Público, la habilitación en el
+""Sistema de Tesorería (SITE).""",45.0,45.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."
+473527,dias_aceptacion_rechazo_factura,formas_y_condiciones_de_pago,,"Formas y condiciones de pago""
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+a. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+b. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con las
+disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+c. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+d. Certificado de Cumplimiento Tributario
+e. Constancia de Cumplimiento con la Seguridad Social
+f. Formulario de Identificación de Servicios Personales (FIS)
+g. Certificado laboral vigente expedido por la Dirección de Obrero Patronal dependiente del Viceministerio de Trabajo, siempre que el sujeto esté obligado a contar con
+el mismo, de conformidad a la reglamentación pertinente - CPS
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: los pagos se realizarán a plazos, dentro de los 30 días de haber
+presentado cada solicitud de pago y acompañado de los documentos requeridos.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una factura por el
+proveedor. La contratante deberá expedirse respecto a la aceptación o rechazo de la factura, a más tardar en quince (15) días corridos posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de junio de 2006 y modificatoria, en las contrataciones con Organismos de la Administración Central, el
+proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección
+General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).
+""El certificado previsto en el inciso g), se requerirá únicamente para el último pago.","Campo a extraer: Plazo para aceptar o rechazar factura (típicamente 15 días)""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a plazo, aceptar, rechazar, factura. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Formas y condiciones de pago
+El adjudicado para solicitar el pago de las obligaciones deberá presentar la solicitud acompañada de los siguientes documentos:
+1. Documentos Genéricos:
+a. Nota de remisión u orden de prestación de servicios según el objeto de la contratación
+b. La factura de pago, con timbrado vigente, la cual deberán expresar claramente por separado el Impuesto al Valor Agregado (IVA) de conformidad con las
+disposiciones tributarias aplicables. En ningún caso el valor total facturado podrá exceder el valor adjudicado o las adendas aprobadas
+c. REPSE (registro de prestadores de servicios) todos los que son prestadores de servicios
+d. Certificado de Cumplimiento Tributario
+e. Constancia de Cumplimiento con la Seguridad Social
+f. Formulario de Identificación de Servicios Personales (FIS)
+g. Certificado laboral vigente expedido por la Dirección de Obrero Patronal dependiente del Viceministerio de Trabajo, siempre que el sujeto esté obligado a contar con
+el mismo, de conformidad a la reglamentación pertinente - CPS
+Otras formas y condiciones de pago al proveedor en virtud del contrato serán las siguientes: los pagos se realizarán a plazos, dentro de los 30 días de haber
+presentado cada solicitud de pago y acompañado de los documentos requeridos.
+2. La Contratante efectuará los pagos, dentro del plazo establecido en este apartado, sin exceder sesenta (60) días después de la presentación de una factura por el
+proveedor. La contratante deberá expedirse respecto a la aceptación o rechazo de la factura, a más tardar en quince (15) días corridos posteriores a su presentación.
+3. De conformidad a las disposiciones del Decreto N° 7781/2006, del 30 de junio de 2006 y modificatoria, en las contrataciones con Organismos de la Administración Central, el
+proveedor deberá habilitar su respectiva cuenta corriente o caja de ahorro en un Banco de plaza y comunicar a la Contratante para que ésta gestione ante la Dirección
+General del Tesoro Público, la habilitación en el Sistema de Tesorería (SITE).
+""El certificado previsto en el inciso g), se requerirá únicamente para el último pago.""",30.0,30.0,15.0,"Extraido de la clausula estandar ""Dicha aceptacion o rechazo, debera darse a mas tardar en N dias posteriores a su presentacion"" (Decreto 7781/2006). Valor: 15 dias. Esta clausula es practicamente invariante (15 dias en el 100% de los pliegos revisados con este dataset), a diferencia del plazo de pago maximo que si varia entre pliegos."

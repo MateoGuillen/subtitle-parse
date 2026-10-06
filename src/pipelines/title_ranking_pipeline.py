@@ -38,6 +38,13 @@ class TitleRankingPipeline:
             "output_dir",
             os.path.join(config.get("base_output_dir", "."), "title_ranking"),
         )
+        # v2.2 additions:
+        self.diagnostics_path = config.get(
+            "diagnostics_path",
+            "data/processed/title_diagnostics/title_diagnostics.csv",
+        )
+        self.candidate_filter_path = config.get("candidate_filter_path", None)
+        self.drop_descartados = config.get("drop_descartados", True)
 
         self.extractor = TitleRankingExtractor(self.db_params)
         self.transformer = TitleRankingTransformer(random_state=42)
@@ -79,9 +86,60 @@ class TitleRankingPipeline:
         else:
             self.logger.warning("No economic features — 6th strategy will return zeros.")
 
-        # -- 2. Transform (6 strategies) --------------------------------------
-        self.logger.info("Paso 2/5 — Computando ranking (6 estrategias)…")
-        ranking = self.transformer.compute_ranking(df_doc, df_sec, title_slugs, df_econ)
+        # v2.2: Load title diagnostics (boilerplate + numeric patterns)
+        df_diagnostics = self.extractor.load_title_diagnostics(self.diagnostics_path)
+        if df_diagnostics is not None:
+            self.logger.info("Diagnostics loaded: %d titles.", len(df_diagnostics))
+
+        # v2.2: Build candidate filter.
+        # Two sources combined:
+        #   (a) candidate_filter_path CSV (if provided) — manual exclusion list.
+        #   (b) drop_descartados option — drop titles with descartado_boilerplate=True
+        candidate_filter: Optional[list] = None
+        if self.candidate_filter_path:
+            cf = pd.read_csv(self.candidate_filter_path)
+            # Expected column: title_normalized (raw DB strings) OR title_slug.
+            col = "title_normalized" if "title_normalized" in cf.columns else cf.columns[0]
+            raw_titles = cf[col].astype(str).tolist()
+            # Convert to slug form (replace spaces by _) so compute_ranking can
+            # match the slug-based title_slugs list.
+            candidate_filter = [t.strip().replace(" ", "_") for t in raw_titles]
+            self.logger.info(
+                "Candidate filter loaded from %s: %d entries.",
+                self.candidate_filter_path, len(candidate_filter),
+            )
+        if df_diagnostics is not None and self.drop_descartados:
+            desc = df_diagnostics[df_diagnostics["descartado_boilerplate"] == True]
+            desc_slugs = set(
+                s.strip().replace(" ", "_") for s in desc["title_normalized"].astype(str)
+            )
+            if candidate_filter is None:
+                # Treat descartados as exclusion: keep everything NOT in desc_slugs.
+                # Easiest: keep all title_slugs but drop descartados.
+                initial_slugs = set(title_slugs)
+                kept = initial_slugs - desc_slugs
+                candidate_filter = list(kept)
+                self.logger.info(
+                    "Dropping %d descartado-boilerplate titles; %d slugs retained.",
+                    len(desc_slugs), len(candidate_filter),
+                )
+            else:
+                # If a manual whitelist was supplied, just remove descartados from it.
+                before = len(candidate_filter)
+                candidate_filter = [s for s in candidate_filter if s not in desc_slugs]
+                self.logger.info(
+                    "Removed %d descartados from whitelist; %d remain.",
+                    before - len(candidate_filter), len(candidate_filter),
+                )
+
+        # -- 2. Transform (8 strategies in v2.2) ----------------------------------
+        self.logger.info("Paso 2/5 — Computando ranking (8 estrategias v2.2)…")
+        ranking = self.transformer.compute_ranking(
+            df_doc, df_sec, title_slugs,
+            df_econ=df_econ,
+            df_diagnostics=df_diagnostics,
+            candidate_filter=candidate_filter,
+        )
 
         # -- 3. Optimal K evaluation (optional) --------------------------------
         eval_result = None
@@ -123,7 +181,10 @@ class TitleRankingPipeline:
         if self.run_stability:
             self.logger.info("Paso 4/5 — Bootstrap stability (30 iter)…")
             freq = self.transformer.bootstrap_stability(
-                df_doc, df_sec, title_slugs, K=resolved_k, n_iter=30
+                df_doc, df_sec, title_slugs, K=resolved_k, n_iter=30,
+                df_econ=df_econ,
+                df_diagnostics=df_diagnostics,
+                candidate_filter=candidate_filter,
             )
             stable_path = os.path.join(self.output_dir, "bootstrap_frequencies.csv")
             freq_df = pd.DataFrame(

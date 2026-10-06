@@ -1,0 +1,144 @@
+{
+  "title": "Retiro Sustitucion Y Modificacion De Las Ofertas",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 15.31,
+  "n_fields": 9,
+  "validation_errors": [],
+  "field_names": [
+    "menciona_ofertas_electronicas",
+    "estructura_dos_subsecciones",
+    "num_condiciones_retiro",
+    "num_condiciones_sustitucion_modificacion",
+    "plazo_retiro_diferente_apertura",
+    "prohibicion_retiro_periodo_validez",
+    "prohibicion_sustitucion_modificacion_periodo_validez",
+    "menciona_garantia_mantenimiento",
+    "num_subarticulos"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"menciona_ofertas_electronicas\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la sección menciona procedimientos específicos para ofertas electrónicas\",\n      \"importance\": 9,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar las frases exactas 'ofertas electrónicas', 'módulo de oferta electrónica' o 'reglamentación vigente' en el contexto de retiro/sustitución. Retornar 1 si aparece alguna de estas frases, 0 si no.\"\n    },\n    \"estructura_dos_subsecciones\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la sección está dividida explícitamente en subsecciones 'Ofertas físicas' y 'Ofertas electrónicas'\",\n      \"importance\": 8,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Retornar 1 si el texto contiene los títulos '1. Ofertas físicas.' y '2. Ofertas electrónicas.' (o variantes con números romanos) como encabezados principales de sección. Retornar 0 si no tiene esta estructura dual.\"\n    },\n    \"num_condiciones_retiro\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de condiciones específicas listadas para el retiro de ofertas (0-3)\",\n      \"importance\": 7,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Contar cuántas de estas 3 condiciones están presentes semánticamente: 1) comunicación escrita firmada, 2) sobres marcados 'RETIRO', 3) recibidas antes del plazo límite. Cada condición debe estar explícitamente mencionada. Retornar entero 0-3.\"\n    },\n    \"num_condiciones_sustitucion_modificacion\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de condiciones específicas listadas para sustitución/modificación (0-3)\",\n      \"importance\": 7,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Contar cuántas de estas 3 condiciones están presentes semánticamente: 1) comunicación escrita firmada, 2) sobres marcados 'SUSTITUCION'/'MODIFICACION', 3) recibidas antes del plazo límite. Cada condición debe estar explícitamente mencionada. Retornar entero 0-3.\"\n    },\n    \"plazo_retiro_diferente_apertura\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si el plazo para retiro es diferente al plazo para sustitución/modificación\",\n      \"importance\": 8,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar frases que establezcan plazos distintos: 'plazo límite establecido para el acto de apertura de ofertas cuando las ofertas sean identificadas con \\\"RETIRO\\\"' y 'plazo límite establecido para la presentación de ofertas cuando las ofertas sean identificadas con \\\"SUSTITUCIÓN\\\" o \\\"MODIFICACIÓN\\\"'. Retornar 1 si ambas frases o su equivalente semántico están presentes, 0 si no.\"\n    },\n    \"prohibicion_retiro_periodo_validez\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se prohíbe explícitamente el retiro durante el período de validez de la oferta\",\n      \"importance\": 6,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar una oración que prohíba el retiro específicamente (no solo sustitución/modificación) durante el intervalo entre fecha límite y expiración de validez. Debe contener 'retirada' o 'retiro' en contexto de prohibición. Retornar 1 si existe, 0 si no.\"\n    },\n    \"prohibicion_sustitucion_modificacion_periodo_validez\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se prohíbe explícitamente la sustitución/modificación durante el período de validez\",\n      \"importance\": 6,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar una oración que prohíba la sustitución o modificación durante el intervalo entre fecha límite y expiración de validez. Debe contener 'sustituida', 'modificada', 'sustitución' o 'modificación' en contexto de prohibición. Retornar 1 si existe, 0 si no.\"\n    },\n    \"menciona_garantia_mantenimiento\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona la activación de la Garantía de Mantenimiento de Oferta por incumplimiento\",\n      \"importance\": 7,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'Garantía de Mantenimiento de Oferta' en contexto de consecuencia por retiro/sustitución/modificación fuera de plazo. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"num_subarticulos\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de subartículos o puntos numerados con formato 'X.Y' (ej: 1.1, 1.2)\",\n      \"importance\": 5,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Contar todas las líneas que comiencen con un patrón numérico del tipo 'número.punto.número' (ej: '1.1', '1.2', '2.1'). Retornar el conteo total como entero.\"\n    }\n  },\n  \"justification\": \"El cluster dominante (0_4_5_6_7_12_13_15_17_18_19) establece el estándar: 3 condiciones para retiro/sustitución, prohibición única para todas las acciones, y sin mención a ofertas electrónicas. Cluster 1_3_9_10_11 añade mención a ofertas electrónicas pero mantiene estructura simple. Cluster 8_16 es el más anómalo: estructura dual física/electrónica, plazos diferenciados, y prohibiciones separadas. Cluster 2_14 parece idéntico al dominante. Los campos detectan: 1) Adición de procedimientos electrónicos (cluster 1), 2) Estructura compleja con subsecciones (cluster 8), 3-4) Reducción de condiciones (anomalía), 5) Plazos diferenciados (solo cluster 8), 6-7) Prohibiciones separadas (solo cluster 8), 8) Omisión de garantía (anomalía grave), 9) Estructura jerárquica compleja.\",\n  \"cluster_values\": {\n    \"menciona_ofertas_electronicas\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 0,\n      \"cluster_1_3_9_10_11\": 1,\n      \"cluster_2_14\": 0,\n      \"cluster_8_16\": 1\n    },\n    \"estructura_dos_subsecciones\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 0,\n      \"cluster_1_3_9_10_11\": 0,\n      \"cluster_2_14\": 0,\n      \"cluster_8_16\": 1\n    },\n    \"num_condiciones_retiro\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 3,\n      \"cluster_1_3_9_10_11\": 3,\n      \"cluster_2_14\": 3,\n      \"cluster_8_16\": 3\n    },\n    \"num_condiciones_sustitucion_modificacion\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 3,\n      \"cluster_1_3_9_10_11\": 3,\n      \"cluster_2_14\": 3,\n      \"cluster_8_16\": 3\n    },\n    \"plazo_retiro_diferente_apertura\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 0,\n      \"cluster_1_3_9_10_11\": 0,\n      \"cluster_2_14\": 0,\n      \"cluster_8_16\": 1\n    },\n    \"prohibicion_retiro_periodo_validez\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 0,\n      \"cluster_1_3_9_10_11\": 0,\n      \"cluster_2_14\": 0,\n      \"cluster_8_16\": 1\n    },\n    \"prohibicion_sustitucion_modificacion_periodo_validez\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 1,\n      \"cluster_1_3_9_10_11\": 1,\n      \"cluster_2_14\": 1,\n      \"cluster_8_16\": 1\n    },\n    \"menciona_garantia_mantenimiento\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 1,\n      \"cluster_1_3_9_10_11\": 1,\n      \"cluster_2_14\": 1,\n      \"cluster_8_16\": 1\n    },\n    \"num_subarticulos\": {\n      \"cluster_0_4_5_6_7_12_13_15_17_18_19\": 0,\n      \"cluster_1_3_9_10_11\": 0,\n      \"cluster_2_14\": 0,\n      \"cluster_8_16\": 4\n    }\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "menciona_ofertas_electronicas": {
+        "type": "binary",
+        "description": "Indica si la sección menciona procedimientos específicos para ofertas electrónicas",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar las frases exactas 'ofertas electrónicas', 'módulo de oferta electrónica' o 'reglamentación vigente' en el contexto de retiro/sustitución. Retornar 1 si aparece alguna de estas frases, 0 si no."
+      },
+      "estructura_dos_subsecciones": {
+        "type": "binary",
+        "description": "Indica si la sección está dividida explícitamente en subsecciones 'Ofertas físicas' y 'Ofertas electrónicas'",
+        "importance": 8,
+        "extraction_method": "structural",
+        "extraction_hint": "Retornar 1 si el texto contiene los títulos '1. Ofertas físicas.' y '2. Ofertas electrónicas.' (o variantes con números romanos) como encabezados principales de sección. Retornar 0 si no tiene esta estructura dual."
+      },
+      "num_condiciones_retiro": {
+        "type": "numeric",
+        "description": "Cantidad de condiciones específicas listadas para el retiro de ofertas (0-3)",
+        "importance": 7,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántas de estas 3 condiciones están presentes semánticamente: 1) comunicación escrita firmada, 2) sobres marcados 'RETIRO', 3) recibidas antes del plazo límite. Cada condición debe estar explícitamente mencionada. Retornar entero 0-3."
+      },
+      "num_condiciones_sustitucion_modificacion": {
+        "type": "numeric",
+        "description": "Cantidad de condiciones específicas listadas para sustitución/modificación (0-3)",
+        "importance": 7,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántas de estas 3 condiciones están presentes semánticamente: 1) comunicación escrita firmada, 2) sobres marcados 'SUSTITUCION'/'MODIFICACION', 3) recibidas antes del plazo límite. Cada condición debe estar explícitamente mencionada. Retornar entero 0-3."
+      },
+      "plazo_retiro_diferente_apertura": {
+        "type": "binary",
+        "description": "Indica si el plazo para retiro es diferente al plazo para sustitución/modificación",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar frases que establezcan plazos distintos: 'plazo límite establecido para el acto de apertura de ofertas cuando las ofertas sean identificadas con \"RETIRO\"' y 'plazo límite establecido para la presentación de ofertas cuando las ofertas sean identificadas con \"SUSTITUCIÓN\" o \"MODIFICACIÓN\"'. Retornar 1 si ambas frases o su equivalente semántico están presentes, 0 si no."
+      },
+      "prohibicion_retiro_periodo_validez": {
+        "type": "binary",
+        "description": "Indica si se prohíbe explícitamente el retiro durante el período de validez de la oferta",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar una oración que prohíba el retiro específicamente (no solo sustitución/modificación) durante el intervalo entre fecha límite y expiración de validez. Debe contener 'retirada' o 'retiro' en contexto de prohibición. Retornar 1 si existe, 0 si no."
+      },
+      "prohibicion_sustitucion_modificacion_periodo_validez": {
+        "type": "binary",
+        "description": "Indica si se prohíbe explícitamente la sustitución/modificación durante el período de validez",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar una oración que prohíba la sustitución o modificación durante el intervalo entre fecha límite y expiración de validez. Debe contener 'sustituida', 'modificada', 'sustitución' o 'modificación' en contexto de prohibición. Retornar 1 si existe, 0 si no."
+      },
+      "menciona_garantia_mantenimiento": {
+        "type": "binary",
+        "description": "Indica si se menciona la activación de la Garantía de Mantenimiento de Oferta por incumplimiento",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'Garantía de Mantenimiento de Oferta' en contexto de consecuencia por retiro/sustitución/modificación fuera de plazo. Retornar 1 si aparece, 0 si no."
+      },
+      "num_subarticulos": {
+        "type": "numeric",
+        "description": "Cantidad de subartículos o puntos numerados con formato 'X.Y' (ej: 1.1, 1.2)",
+        "importance": 5,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar todas las líneas que comiencen con un patrón numérico del tipo 'número.punto.número' (ej: '1.1', '1.2', '2.1'). Retornar el conteo total como entero."
+      }
+    },
+    "justification": "El cluster dominante (0_4_5_6_7_12_13_15_17_18_19) establece el estándar: 3 condiciones para retiro/sustitución, prohibición única para todas las acciones, y sin mención a ofertas electrónicas. Cluster 1_3_9_10_11 añade mención a ofertas electrónicas pero mantiene estructura simple. Cluster 8_16 es el más anómalo: estructura dual física/electrónica, plazos diferenciados, y prohibiciones separadas. Cluster 2_14 parece idéntico al dominante. Los campos detectan: 1) Adición de procedimientos electrónicos (cluster 1), 2) Estructura compleja con subsecciones (cluster 8), 3-4) Reducción de condiciones (anomalía), 5) Plazos diferenciados (solo cluster 8), 6-7) Prohibiciones separadas (solo cluster 8), 8) Omisión de garantía (anomalía grave), 9) Estructura jerárquica compleja.",
+    "cluster_values": {
+      "menciona_ofertas_electronicas": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 0,
+        "cluster_1_3_9_10_11": 1,
+        "cluster_2_14": 0,
+        "cluster_8_16": 1
+      },
+      "estructura_dos_subsecciones": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 0,
+        "cluster_1_3_9_10_11": 0,
+        "cluster_2_14": 0,
+        "cluster_8_16": 1
+      },
+      "num_condiciones_retiro": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 3,
+        "cluster_1_3_9_10_11": 3,
+        "cluster_2_14": 3,
+        "cluster_8_16": 3
+      },
+      "num_condiciones_sustitucion_modificacion": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 3,
+        "cluster_1_3_9_10_11": 3,
+        "cluster_2_14": 3,
+        "cluster_8_16": 3
+      },
+      "plazo_retiro_diferente_apertura": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 0,
+        "cluster_1_3_9_10_11": 0,
+        "cluster_2_14": 0,
+        "cluster_8_16": 1
+      },
+      "prohibicion_retiro_periodo_validez": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 0,
+        "cluster_1_3_9_10_11": 0,
+        "cluster_2_14": 0,
+        "cluster_8_16": 1
+      },
+      "prohibicion_sustitucion_modificacion_periodo_validez": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 1,
+        "cluster_1_3_9_10_11": 1,
+        "cluster_2_14": 1,
+        "cluster_8_16": 1
+      },
+      "menciona_garantia_mantenimiento": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 1,
+        "cluster_1_3_9_10_11": 1,
+        "cluster_2_14": 1,
+        "cluster_8_16": 1
+      },
+      "num_subarticulos": {
+        "cluster_0_4_5_6_7_12_13_15_17_18_19": 0,
+        "cluster_1_3_9_10_11": 0,
+        "cluster_2_14": 0,
+        "cluster_8_16": 4
+      }
+    }
+  }
+}

@@ -1,0 +1,1191 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+436828,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+391966,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+414165,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del
+""contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del
+""contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+437338,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+418442,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+402645,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+440411,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+412393,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+404205,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+410665,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+431987,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+436528,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+398320,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+425189,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del
+""contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del
+""contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+422778,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el
+""artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el
+""artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+426571,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha
+""de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha
+""de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+436270,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario siguientes
+""a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario siguientes
+""a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+398360,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+403963,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+438101,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+418903,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+437355,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+408832,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en
+""el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en
+""el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+431445,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+434309,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario siguientes a partir de la fecha de suscripción del contrato, de conformidad
+""con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario siguientes a partir de la fecha de suscripción del contrato, de conformidad
+""con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+402490,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+408281,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+431946,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+409615,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+414885,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+436380,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+410657,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+425246,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+426381,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+432029,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+424431,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+405355,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el
+""artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el
+""artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+427816,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+399036,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+393874,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los diez (10) días calendarios
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los diez (10) días calendarios
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+425295,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+390742,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+435627,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+413072,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+425854,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+399341,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+432362,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+412536,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+391857,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el
+""artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el
+""artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+425273,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+428709,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+425032,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+422763,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+431680,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+421489,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario siguientes a partir de la fecha
+""de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario siguientes a partir de la fecha
+""de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+437273,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+427451,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+424322,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de
+""conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de
+""conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+405479,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+5,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+412557,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+404115,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+390499,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+428716,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+421537,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+423201,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+412498,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+417672,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+400026,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del
+""contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del
+""contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+410929,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los diez (10) días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los diez (10) días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+421989,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo
+""dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+428301,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+400129,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el proveedor, dentro de los diez (10) días calendario
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+404089,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+419049,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los diez (10) días calendarios
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los diez (10) días calendarios
+""siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",0.0,0.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+426179,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en
+""el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en
+""el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+419555,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+393315,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+402891,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de
+""suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+432506,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+405375,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad
+""con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del contrato, de conformidad
+""con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+428770,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a
+""partir de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+424709,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Fiel Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la
+""fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+400848,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+419861,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del
+""contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir de la fecha de suscripción del
+""contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."
+415914,dias_presentacion_garantia,porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato,,"Porcentaje de Garantía de Fiel Cumplimiento de Contrato""
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.","Campo a extraer: Días corridos para presentar la garantía desde la suscripción del contrato""
+Tipo esperado: int
+Guía de extracción: Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de Garantía de Fiel Cumplimiento de Contrato
+El Porcentaje de Garantía de Fiel Cumplimiento de Contrato es de:
+10,00%
+La garantía de Cumplimiento de Contrato deberá ser presentada por el provedor, dentro de los 10 días calendarios siguientes a partir
+""de la fecha de suscripción del contrato, de conformidad con lo dispuesto en el artículo 39 de la Ley N° 2051/2003.""",15.0,15.0,10,"El texto indica de forma consistente ""10 días"" / ""diez (10) días calendarios/corridos"" para presentar la Garantía de Fiel Cumplimiento de Contrato desde la suscripción del contrato (art. 39 Ley 2051/2003). Es una cláusula estándar de la ley y aparece idéntica (con solo variaciones de corte del texto) en las 200 filas."

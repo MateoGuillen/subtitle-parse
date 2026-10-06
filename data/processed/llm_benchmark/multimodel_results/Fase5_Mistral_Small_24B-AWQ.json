@@ -1,0 +1,7809 @@
+{
+ "model": "Mistral Small 24B-AWQ",
+ "results": [
+  {
+   "nro": "462796",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 3.766
+  },
+  {
+   "nro": "418782",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.671
+  },
+  {
+   "nro": "422110",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.826
+  },
+  {
+   "nro": "434875",
+   "field": "dias_validez_garantia",
+   "pseudo": 720.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.679
+  },
+  {
+   "nro": "430404",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.675
+  },
+  {
+   "nro": "431730",
+   "field": "dias_validez_garantia",
+   "pseudo": 720.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.675
+  },
+  {
+   "nro": "430688",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.371
+  },
+  {
+   "nro": "454983",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": false,
+   "lat": 1.587
+  },
+  {
+   "nro": "407124",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.14
+  },
+  {
+   "nro": "454303",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.823
+  },
+  {
+   "nro": "463078",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.135
+  },
+  {
+   "nro": "475175",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.684
+  },
+  {
+   "nro": "453714",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.137
+  },
+  {
+   "nro": "424066",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 0.673
+  },
+  {
+   "nro": "392709",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.369
+  },
+  {
+   "nro": "461398",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "393630",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.127
+  },
+  {
+   "nro": "443730",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.893
+  },
+  {
+   "nro": "427092",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": true,
+   "lat": 0.913
+  },
+  {
+   "nro": "398433",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.127
+  },
+  {
+   "nro": "397938",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.832
+  },
+  {
+   "nro": "416155",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "24",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.365
+  },
+  {
+   "nro": "395088",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.679
+  },
+  {
+   "nro": "436300",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": true,
+   "lat": 0.902
+  },
+  {
+   "nro": "435664",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.128
+  },
+  {
+   "nro": "476735",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "365",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.818
+  },
+  {
+   "nro": "454194",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.133
+  },
+  {
+   "nro": "417583",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.123
+  },
+  {
+   "nro": "402427",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.6
+  },
+  {
+   "nro": "437015",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.124
+  },
+  {
+   "nro": "454309",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "182",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.828
+  },
+  {
+   "nro": "475762",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.134
+  },
+  {
+   "nro": "426528",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.128
+  },
+  {
+   "nro": "449202",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": true,
+   "lat": 0.905
+  },
+  {
+   "nro": "407973",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.124
+  },
+  {
+   "nro": "472736",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.596
+  },
+  {
+   "nro": "478327",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.126
+  },
+  {
+   "nro": "451850",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.36
+  },
+  {
+   "nro": "425944",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.6
+  },
+  {
+   "nro": "440567",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.127
+  },
+  {
+   "nro": "440794",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "419027",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.915
+  },
+  {
+   "nro": "470239",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.675
+  },
+  {
+   "nro": "442901",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.119
+  },
+  {
+   "nro": "418527",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.681
+  },
+  {
+   "nro": "379125",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "444534",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.364
+  },
+  {
+   "nro": "455531",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.126
+  },
+  {
+   "nro": "426440",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.124
+  },
+  {
+   "nro": "443368",
+   "field": "dias_validez_garantia",
+   "pseudo": 45.0,
+   "llm_raw": "45",
+   "llm_value": 45.0,
+   "agree": true,
+   "lat": 1.589
+  },
+  {
+   "nro": "473321",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.895
+  },
+  {
+   "nro": "426870",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": true,
+   "lat": 0.906
+  },
+  {
+   "nro": "460232",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.591
+  },
+  {
+   "nro": "474005",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "90",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.906
+  },
+  {
+   "nro": "415872",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.13
+  },
+  {
+   "nro": "444177",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.129
+  },
+  {
+   "nro": "438342",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.9
+  },
+  {
+   "nro": "416711",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.674
+  },
+  {
+   "nro": "434624",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.137
+  },
+  {
+   "nro": "457639",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.977
+  },
+  {
+   "nro": "455436",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "365",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.599
+  },
+  {
+   "nro": "386572",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.129
+  },
+  {
+   "nro": "464552",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "90",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.895
+  },
+  {
+   "nro": "446225",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.131
+  },
+  {
+   "nro": "440236",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.127
+  },
+  {
+   "nro": "435346",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "NULL",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.679
+  },
+  {
+   "nro": "454653",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.827
+  },
+  {
+   "nro": "406095",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "NULL",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.677
+  },
+  {
+   "nro": "402289",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.128
+  },
+  {
+   "nro": "417043",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "NULL",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.676
+  },
+  {
+   "nro": "379597",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "NULL",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.682
+  },
+  {
+   "nro": "476077",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.821
+  },
+  {
+   "nro": "464487",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.128
+  },
+  {
+   "nro": "444700",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.685
+  },
+  {
+   "nro": "423586",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.683
+  },
+  {
+   "nro": "475764",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.132
+  },
+  {
+   "nro": "439698",
+   "field": "dias_validez_garantia",
+   "pseudo": 45.0,
+   "llm_raw": "45",
+   "llm_value": 45.0,
+   "agree": true,
+   "lat": 0.898
+  },
+  {
+   "nro": "437231",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.129
+  },
+  {
+   "nro": "468925",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": true,
+   "lat": 0.901
+  },
+  {
+   "nro": "438673",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.121
+  },
+  {
+   "nro": "421886",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.363
+  },
+  {
+   "nro": "473726",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "469052",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.134
+  },
+  {
+   "nro": "393766",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": true,
+   "lat": 0.901
+  },
+  {
+   "nro": "399730",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "1095",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.668
+  },
+  {
+   "nro": "439669",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.12
+  },
+  {
+   "nro": "432888",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.68
+  },
+  {
+   "nro": "393632",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.129
+  },
+  {
+   "nro": "474963",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "90",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.905
+  },
+  {
+   "nro": "441389",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "90",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.906
+  },
+  {
+   "nro": "418849",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.675
+  },
+  {
+   "nro": "413879",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.123
+  },
+  {
+   "nro": "393631",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.127
+  },
+  {
+   "nro": "455819",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "365",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.831
+  },
+  {
+   "nro": "392615",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.593
+  },
+  {
+   "nro": "470386",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.131
+  },
+  {
+   "nro": "473778",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.604
+  },
+  {
+   "nro": "454296",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.825
+  },
+  {
+   "nro": "418908",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.913
+  },
+  {
+   "nro": "385612",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.121
+  },
+  {
+   "nro": "416897",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.135
+  },
+  {
+   "nro": "425197",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "NULL",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.685
+  },
+  {
+   "nro": "444696",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.607
+  },
+  {
+   "nro": "428461",
+   "field": "dias_validez_garantia",
+   "pseudo": 360.0,
+   "llm_raw": "360",
+   "llm_value": 360.0,
+   "agree": true,
+   "lat": 1.129
+  },
+  {
+   "nro": "473599",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.375
+  },
+  {
+   "nro": "445744",
+   "field": "dias_validez_garantia",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.834
+  },
+  {
+   "nro": "403121",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": true,
+   "lat": 0.907
+  },
+  {
+   "nro": "462844",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.687
+  },
+  {
+   "nro": "459890",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.684
+  },
+  {
+   "nro": "448723",
+   "field": "dias_validez_garantia",
+   "pseudo": 360.0,
+   "llm_raw": "360",
+   "llm_value": 360.0,
+   "agree": true,
+   "lat": 1.134
+  },
+  {
+   "nro": "403059",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.123
+  },
+  {
+   "nro": "402989",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.603
+  },
+  {
+   "nro": "475280",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.598
+  },
+  {
+   "nro": "454654",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.368
+  },
+  {
+   "nro": "416643",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "436990",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.127
+  },
+  {
+   "nro": "460783",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.126
+  },
+  {
+   "nro": "435214",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.14
+  },
+  {
+   "nro": "433289",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.678
+  },
+  {
+   "nro": "454903",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.904
+  },
+  {
+   "nro": "400361",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.677
+  },
+  {
+   "nro": "411422",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.128
+  },
+  {
+   "nro": "435755",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.811
+  },
+  {
+   "nro": "419181",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "429753",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.127
+  },
+  {
+   "nro": "444657",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "365",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.579
+  },
+  {
+   "nro": "407196",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "365",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.128
+  },
+  {
+   "nro": "444369",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.677
+  },
+  {
+   "nro": "426781",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.13
+  },
+  {
+   "nro": "463372",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.677
+  },
+  {
+   "nro": "394116",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": true,
+   "lat": 0.905
+  },
+  {
+   "nro": "414194",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.829
+  },
+  {
+   "nro": "452443",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.68
+  },
+  {
+   "nro": "416337",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.124
+  },
+  {
+   "nro": "435772",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.596
+  },
+  {
+   "nro": "427523",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "437018",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.138
+  },
+  {
+   "nro": "392707",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.367
+  },
+  {
+   "nro": "454395",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.529
+  },
+  {
+   "nro": "474720",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.38
+  },
+  {
+   "nro": "465162",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "365",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.585
+  },
+  {
+   "nro": "422798",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.377
+  },
+  {
+   "nro": "419102",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.365
+  },
+  {
+   "nro": "407971",
+   "field": "dias_validez_garantia",
+   "pseudo": 45.0,
+   "llm_raw": "45",
+   "llm_value": 45.0,
+   "agree": true,
+   "lat": 0.902
+  },
+  {
+   "nro": "393641",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.128
+  },
+  {
+   "nro": "471431",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.68
+  },
+  {
+   "nro": "415407",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.679
+  },
+  {
+   "nro": "451193",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.369
+  },
+  {
+   "nro": "385858",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.13
+  },
+  {
+   "nro": "466871",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.908
+  },
+  {
+   "nro": "393638",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.12
+  },
+  {
+   "nro": "401930",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.133
+  },
+  {
+   "nro": "426527",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "427382",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.674
+  },
+  {
+   "nro": "459926",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.134
+  },
+  {
+   "nro": "403044",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.122
+  },
+  {
+   "nro": "429014",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.126
+  },
+  {
+   "nro": "390941",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "90",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 0.912
+  },
+  {
+   "nro": "454655",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.599
+  },
+  {
+   "nro": "475759",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "463488",
+   "field": "dias_validez_garantia",
+   "pseudo": 90.0,
+   "llm_raw": "365",
+   "llm_value": 90.0,
+   "agree": true,
+   "lat": 1.14
+  },
+  {
+   "nro": "432314",
+   "field": "dias_validez_garantia",
+   "pseudo": 45.0,
+   "llm_raw": "45",
+   "llm_value": 45.0,
+   "agree": true,
+   "lat": 0.901
+  },
+  {
+   "nro": "420345",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.126
+  },
+  {
+   "nro": "462683",
+   "field": "dias_validez_garantia",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 0.677
+  },
+  {
+   "nro": "405014",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.687
+  },
+  {
+   "nro": "425327",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.119
+  },
+  {
+   "nro": "472720",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.677
+  },
+  {
+   "nro": "379737",
+   "field": "dias_validez_garantia",
+   "pseudo": 120.0,
+   "llm_raw": "120",
+   "llm_value": 120.0,
+   "agree": true,
+   "lat": 1.124
+  },
+  {
+   "nro": "452013",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.137
+  },
+  {
+   "nro": "421085",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.123
+  },
+  {
+   "nro": "426122",
+   "field": "dias_validez_garantia",
+   "pseudo": 360.0,
+   "llm_raw": "360",
+   "llm_value": 360.0,
+   "agree": true,
+   "lat": 1.13
+  },
+  {
+   "nro": "473856",
+   "field": "dias_validez_garantia",
+   "pseudo": 150.0,
+   "llm_raw": "150",
+   "llm_value": 150.0,
+   "agree": true,
+   "lat": 1.125
+  },
+  {
+   "nro": "448513",
+   "field": "dias_validez_garantia",
+   "pseudo": 180.0,
+   "llm_raw": "180",
+   "llm_value": 180.0,
+   "agree": true,
+   "lat": 1.122
+  },
+  {
+   "nro": "447456",
+   "field": "dias_validez_garantia",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.593
+  },
+  {
+   "nro": "423790",
+   "field": "dias_validez_garantia",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.136
+  },
+  {
+   "nro": "454295",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.366
+  },
+  {
+   "nro": "411184",
+   "field": "dias_validez_garantia",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.143
+  },
+  {
+   "nro": "444720",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.901
+  },
+  {
+   "nro": "476101",
+   "field": "dias_validez_garantia",
+   "pseudo": 365.0,
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "agree": true,
+   "lat": 1.124
+  },
+  {
+   "nro": "466923",
+   "field": "dias_validez_garantia",
+   "pseudo": 30.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 0.901
+  },
+  {
+   "nro": "416767",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.2
+  },
+  {
+   "nro": "395430",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.134
+  },
+  {
+   "nro": "472618",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "437171",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.509
+  },
+  {
+   "nro": "383350",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.131
+  },
+  {
+   "nro": "414575",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.143
+  },
+  {
+   "nro": "414267",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.005
+  },
+  {
+   "nro": "402108",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.198
+  },
+  {
+   "nro": "474330",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "443730",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.198
+  },
+  {
+   "nro": "425339",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.435
+  },
+  {
+   "nro": "463977",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "444724",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.422
+  },
+  {
+   "nro": "465984",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "407120",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.001
+  },
+  {
+   "nro": "426722",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.061
+  },
+  {
+   "nro": "464206",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.37
+  },
+  {
+   "nro": "439829",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.598
+  },
+  {
+   "nro": "414214",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.991
+  },
+  {
+   "nro": "466185",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.521
+  },
+  {
+   "nro": "391862",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.368
+  },
+  {
+   "nro": "419624",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.75
+  },
+  {
+   "nro": "442114",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.141
+  },
+  {
+   "nro": "465040",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "407464",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.36
+  },
+  {
+   "nro": "477953",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.005
+  },
+  {
+   "nro": "408616",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.66
+  },
+  {
+   "nro": "476942",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.596
+  },
+  {
+   "nro": "458683",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 20.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.746
+  },
+  {
+   "nro": "381058",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 25.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.281
+  },
+  {
+   "nro": "470258",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.603
+  },
+  {
+   "nro": "475191",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "462484",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.809
+  },
+  {
+   "nro": "403760",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.59
+  },
+  {
+   "nro": "412325",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.138
+  },
+  {
+   "nro": "416599",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.005
+  },
+  {
+   "nro": "431105",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.966
+  },
+  {
+   "nro": "463796",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.371
+  },
+  {
+   "nro": "459464",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.284
+  },
+  {
+   "nro": "391164",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.445
+  },
+  {
+   "nro": "475180",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.443
+  },
+  {
+   "nro": "454305",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.008
+  },
+  {
+   "nro": "460437",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.976
+  },
+  {
+   "nro": "421360",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.826
+  },
+  {
+   "nro": "463795",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.598
+  },
+  {
+   "nro": "422404",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.753
+  },
+  {
+   "nro": "447345",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "469931",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.815
+  },
+  {
+   "nro": "462134",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.911
+  },
+  {
+   "nro": "454359",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.521
+  },
+  {
+   "nro": "415957",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.912
+  },
+  {
+   "nro": "447609",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.663
+  },
+  {
+   "nro": "453872",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "395621",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "396081",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.425
+  },
+  {
+   "nro": "432706",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "432116",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "431134",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "422312",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.001
+  },
+  {
+   "nro": "431123",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.001
+  },
+  {
+   "nro": "411700",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 25.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.413
+  },
+  {
+   "nro": "455398",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "444109",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.595
+  },
+  {
+   "nro": "417466",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.051
+  },
+  {
+   "nro": "418348",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.515
+  },
+  {
+   "nro": "430314",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "463679",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.673
+  },
+  {
+   "nro": "461816",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.062
+  },
+  {
+   "nro": "422907",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.136
+  },
+  {
+   "nro": "454306",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.005
+  },
+  {
+   "nro": "415783",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.428
+  },
+  {
+   "nro": "452874",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.673
+  },
+  {
+   "nro": "464300",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.609
+  },
+  {
+   "nro": "451850",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.36
+  },
+  {
+   "nro": "436300",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.602
+  },
+  {
+   "nro": "429467",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.75
+  },
+  {
+   "nro": "403087",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.003
+  },
+  {
+   "nro": "444404",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "408040",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.125
+  },
+  {
+   "nro": "418186",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.53
+  },
+  {
+   "nro": "454653",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.987
+  },
+  {
+   "nro": "445143",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.446
+  },
+  {
+   "nro": "420923",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.003
+  },
+  {
+   "nro": "398784",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.648
+  },
+  {
+   "nro": "424796",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.003
+  },
+  {
+   "nro": "474459",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.591
+  },
+  {
+   "nro": "406797",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.519
+  },
+  {
+   "nro": "430559",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.981
+  },
+  {
+   "nro": "465986",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.74
+  },
+  {
+   "nro": "423267",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.375
+  },
+  {
+   "nro": "450203",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.061
+  },
+  {
+   "nro": "395573",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.124
+  },
+  {
+   "nro": "395715",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.213
+  },
+  {
+   "nro": "420144",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.914
+  },
+  {
+   "nro": "464984",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "468017",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.273
+  },
+  {
+   "nro": "421359",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "454655",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "401214",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.2
+  },
+  {
+   "nro": "433587",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.434
+  },
+  {
+   "nro": "434516",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.005
+  },
+  {
+   "nro": "435607",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "454311",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.001
+  },
+  {
+   "nro": "427145",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.577
+  },
+  {
+   "nro": "457828",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.833
+  },
+  {
+   "nro": "409434",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.145
+  },
+  {
+   "nro": "444696",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "466724",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "40",
+   "llm_value": 40,
+   "agree": false,
+   "lat": 2.051
+  },
+  {
+   "nro": "382187",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.37
+  },
+  {
+   "nro": "418636",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.443
+  },
+  {
+   "nro": "456908",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "421369",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.741
+  },
+  {
+   "nro": "476932",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.067
+  },
+  {
+   "nro": "406847",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.741
+  },
+  {
+   "nro": "418731",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.375
+  },
+  {
+   "nro": "390001",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 25.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.211
+  },
+  {
+   "nro": "395896",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.454
+  },
+  {
+   "nro": "385686",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.374
+  },
+  {
+   "nro": "414180",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.587
+  },
+  {
+   "nro": "475245",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.824
+  },
+  {
+   "nro": "426777",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.127
+  },
+  {
+   "nro": "413201",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.288
+  },
+  {
+   "nro": "433530",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.743
+  },
+  {
+   "nro": "470058",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.06
+  },
+  {
+   "nro": "412401",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.983
+  },
+  {
+   "nro": "386298",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "399379",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.582
+  },
+  {
+   "nro": "454303",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.761
+  },
+  {
+   "nro": "383263",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.442
+  },
+  {
+   "nro": "431010",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.755
+  },
+  {
+   "nro": "425272",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.831
+  },
+  {
+   "nro": "418210",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.972
+  },
+  {
+   "nro": "433027",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.005
+  },
+  {
+   "nro": "438444",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.501
+  },
+  {
+   "nro": "453866",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.005
+  },
+  {
+   "nro": "437163",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.96
+  },
+  {
+   "nro": "473847",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.526
+  },
+  {
+   "nro": "470239",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 60.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.988
+  },
+  {
+   "nro": "451186",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.003
+  },
+  {
+   "nro": "422110",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "454048",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.805
+  },
+  {
+   "nro": "406041",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.672
+  },
+  {
+   "nro": "451806",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.005
+  },
+  {
+   "nro": "441674",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 40.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.041
+  },
+  {
+   "nro": "474334",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "472617",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 65.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.001
+  },
+  {
+   "nro": "400957",
+   "field": "pct_monto_referencia_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.503
+  },
+  {
+   "nro": "463273",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "2",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 2.283
+  },
+  {
+   "nro": "452892",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 1.363
+  },
+  {
+   "nro": "452068",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 2.056
+  },
+  {
+   "nro": "420345",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "1",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.902
+  },
+  {
+   "nro": "454858",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.378
+  },
+  {
+   "nro": "425336",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.675
+  },
+  {
+   "nro": "460026",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 2.281
+  },
+  {
+   "nro": "445227",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 15.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 1.824
+  },
+  {
+   "nro": "454884",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 2.968
+  },
+  {
+   "nro": "473833",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.601
+  },
+  {
+   "nro": "429000",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 20.0,
+   "llm_raw": "20",
+   "llm_value": 20.0,
+   "agree": true,
+   "lat": 2.064
+  },
+  {
+   "nro": "454687",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 1.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.057
+  },
+  {
+   "nro": "432209",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.671
+  },
+  {
+   "nro": "400161",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 2.516
+  },
+  {
+   "nro": "453793",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.672
+  },
+  {
+   "nro": "419991",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.056
+  },
+  {
+   "nro": "463795",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 6.0,
+   "llm_raw": "6",
+   "llm_value": 6.0,
+   "agree": true,
+   "lat": 1.595
+  },
+  {
+   "nro": "411365",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 1.618
+  },
+  {
+   "nro": "452350",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.739
+  },
+  {
+   "nro": "436203",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 18.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.596
+  },
+  {
+   "nro": "445611",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 2.515
+  },
+  {
+   "nro": "437195",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.684
+  },
+  {
+   "nro": "460033",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.9
+  },
+  {
+   "nro": "425650",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.822
+  },
+  {
+   "nro": "464441",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 1.829
+  },
+  {
+   "nro": "463285",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 2.284
+  },
+  {
+   "nro": "400792",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.197
+  },
+  {
+   "nro": "408882",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.284
+  },
+  {
+   "nro": "461373",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 1.818
+  },
+  {
+   "nro": "475534",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 1.597
+  },
+  {
+   "nro": "450847",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 1.601
+  },
+  {
+   "nro": "468018",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.755
+  },
+  {
+   "nro": "436292",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.678
+  },
+  {
+   "nro": "449807",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 2.059
+  },
+  {
+   "nro": "468017",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 2.29
+  },
+  {
+   "nro": "422913",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.061
+  },
+  {
+   "nro": "444374",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.004
+  },
+  {
+   "nro": "401214",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.187
+  },
+  {
+   "nro": "451357",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.223
+  },
+  {
+   "nro": "445992",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.669
+  },
+  {
+   "nro": "417976",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.683
+  },
+  {
+   "nro": "439717",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.213
+  },
+  {
+   "nro": "411927",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.595
+  },
+  {
+   "nro": "415465",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.987
+  },
+  {
+   "nro": "463466",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.131
+  },
+  {
+   "nro": "466567",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.914
+  },
+  {
+   "nro": "404135",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 1.365
+  },
+  {
+   "nro": "466510",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.439
+  },
+  {
+   "nro": "426090",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.681
+  },
+  {
+   "nro": "470972",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 2.757
+  },
+  {
+   "nro": "442389",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 5.273
+  },
+  {
+   "nro": "475549",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.129
+  },
+  {
+   "nro": "437194",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 0.903
+  },
+  {
+   "nro": "419207",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.687
+  },
+  {
+   "nro": "424307",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.518
+  },
+  {
+   "nro": "464456",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 1.364
+  },
+  {
+   "nro": "471277",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.593
+  },
+  {
+   "nro": "406390",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 2.753
+  },
+  {
+   "nro": "432450",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.587
+  },
+  {
+   "nro": "417796",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.14
+  },
+  {
+   "nro": "398398",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 5.286
+  },
+  {
+   "nro": "452998",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.812
+  },
+  {
+   "nro": "463603",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 22.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.901
+  },
+  {
+   "nro": "424208",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.37
+  },
+  {
+   "nro": "427764",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 3.426
+  },
+  {
+   "nro": "432542",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.001
+  },
+  {
+   "nro": "394694",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.053
+  },
+  {
+   "nro": "408462",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.827
+  },
+  {
+   "nro": "431765",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.067
+  },
+  {
+   "nro": "409641",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 1.819
+  },
+  {
+   "nro": "403913",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 4.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.509
+  },
+  {
+   "nro": "414559",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 1.819
+  },
+  {
+   "nro": "412782",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 3.665
+  },
+  {
+   "nro": "474065",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.431
+  },
+  {
+   "nro": "414842",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.592
+  },
+  {
+   "nro": "467493",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 2.74
+  },
+  {
+   "nro": "406041",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.896
+  },
+  {
+   "nro": "400716",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 3.218
+  },
+  {
+   "nro": "468329",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 4.0,
+   "agree": false,
+   "lat": 0.003
+  },
+  {
+   "nro": "406470",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 1.121
+  },
+  {
+   "nro": "430559",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.979
+  },
+  {
+   "nro": "400225",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": false,
+   "lat": 2.526
+  },
+  {
+   "nro": "470368",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.357
+  },
+  {
+   "nro": "465130",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 4.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 4.0,
+   "agree": true,
+   "lat": 0.003
+  },
+  {
+   "nro": "427757",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.665
+  },
+  {
+   "nro": "425675",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 1.362
+  },
+  {
+   "nro": "409892",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.289
+  },
+  {
+   "nro": "461507",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.596
+  },
+  {
+   "nro": "418484",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 3.444
+  },
+  {
+   "nro": "473634",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.92
+  },
+  {
+   "nro": "468012",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "2",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 2.76
+  },
+  {
+   "nro": "405505",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 1.146
+  },
+  {
+   "nro": "394618",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 2.533
+  },
+  {
+   "nro": "455788",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 1.367
+  },
+  {
+   "nro": "410965",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.208
+  },
+  {
+   "nro": "391551",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 2.061
+  },
+  {
+   "nro": "382187",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.353
+  },
+  {
+   "nro": "423267",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.369
+  },
+  {
+   "nro": "412371",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.273
+  },
+  {
+   "nro": "437164",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 1.143
+  },
+  {
+   "nro": "424870",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.361
+  },
+  {
+   "nro": "395041",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 2.06
+  },
+  {
+   "nro": "421737",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 2.74
+  },
+  {
+   "nro": "422709",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.758
+  },
+  {
+   "nro": "429243",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.601
+  },
+  {
+   "nro": "405680",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.91
+  },
+  {
+   "nro": "451064",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.912
+  },
+  {
+   "nro": "395430",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.132
+  },
+  {
+   "nro": "465216",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.897
+  },
+  {
+   "nro": "439446",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.831
+  },
+  {
+   "nro": "463778",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 2.055
+  },
+  {
+   "nro": "409764",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.593
+  },
+  {
+   "nro": "417027",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 2.289
+  },
+  {
+   "nro": "445760",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.058
+  },
+  {
+   "nro": "443676",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 18.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "405099",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.904
+  },
+  {
+   "nro": "441302",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.831
+  },
+  {
+   "nro": "402595",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 0.004
+  },
+  {
+   "nro": "462404",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.961
+  },
+  {
+   "nro": "461816",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "2",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 2.054
+  },
+  {
+   "nro": "406019",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 5.745
+  },
+  {
+   "nro": "428389",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 18.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "464748",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.5
+  },
+  {
+   "nro": "467334",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 1.595
+  },
+  {
+   "nro": "442549",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 50.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.132
+  },
+  {
+   "nro": "476452",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.371
+  },
+  {
+   "nro": "467629",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 8.0,
+   "llm_raw": "NULL",
+   "llm_value": 8.0,
+   "agree": true,
+   "lat": 1.593
+  },
+  {
+   "nro": "447547",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 1.136
+  },
+  {
+   "nro": "420628",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 2.061
+  },
+  {
+   "nro": "417791",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 18.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.595
+  },
+  {
+   "nro": "431855",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 6.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.365
+  },
+  {
+   "nro": "417493",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.976
+  },
+  {
+   "nro": "470706",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 1.14
+  },
+  {
+   "nro": "467107",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.98
+  },
+  {
+   "nro": "475113",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.601
+  },
+  {
+   "nro": "428665",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 2.526
+  },
+  {
+   "nro": "405169",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 2.514
+  },
+  {
+   "nro": "437724",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 25.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.609
+  },
+  {
+   "nro": "419088",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 1.824
+  },
+  {
+   "nro": "465373",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "7",
+   "llm_value": 7.0,
+   "agree": false,
+   "lat": 3.212
+  },
+  {
+   "nro": "395135",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.753
+  },
+  {
+   "nro": "435957",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.056
+  },
+  {
+   "nro": "477238",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 2.511
+  },
+  {
+   "nro": "428730",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 2.057
+  },
+  {
+   "nro": "466724",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 6.0,
+   "llm_raw": "6",
+   "llm_value": 6.0,
+   "agree": true,
+   "lat": 1.836
+  },
+  {
+   "nro": "473102",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "2",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 4.823
+  },
+  {
+   "nro": "468687",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": 3.0,
+   "agree": false,
+   "lat": 1.829
+  },
+  {
+   "nro": "383350",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.37
+  },
+  {
+   "nro": "451706",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 1.83
+  },
+  {
+   "nro": "426823",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.832
+  },
+  {
+   "nro": "474335",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 4.0,
+   "llm_raw": "NULL",
+   "llm_value": 4.0,
+   "agree": true,
+   "lat": 3.898
+  },
+  {
+   "nro": "379040",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.607
+  },
+  {
+   "nro": "446987",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.595
+  },
+  {
+   "nro": "472773",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "2",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 1.142
+  },
+  {
+   "nro": "467722",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 6.0,
+   "llm_raw": "6",
+   "llm_value": 6.0,
+   "agree": true,
+   "lat": 1.372
+  },
+  {
+   "nro": "410771",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.914
+  },
+  {
+   "nro": "429896",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.83
+  },
+  {
+   "nro": "422947",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.833
+  },
+  {
+   "nro": "444765",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.535
+  },
+  {
+   "nro": "406431",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.145
+  },
+  {
+   "nro": "435037",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 1.137
+  },
+  {
+   "nro": "448526",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.141
+  },
+  {
+   "nro": "452510",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 18.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.287
+  },
+  {
+   "nro": "424517",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.906
+  },
+  {
+   "nro": "476715",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.828
+  },
+  {
+   "nro": "470487",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 3.669
+  },
+  {
+   "nro": "422150",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.063
+  },
+  {
+   "nro": "468176",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.815
+  },
+  {
+   "nro": "444230",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.89
+  },
+  {
+   "nro": "429839",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.6
+  },
+  {
+   "nro": "465226",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.367
+  },
+  {
+   "nro": "452511",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 18.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.287
+  },
+  {
+   "nro": "394268",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.898
+  },
+  {
+   "nro": "465881",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 1.581
+  },
+  {
+   "nro": "411404",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 2.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 4.587
+  },
+  {
+   "nro": "435659",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 1.0,
+   "llm_raw": "NULL",
+   "llm_value": 1.0,
+   "agree": true,
+   "lat": 3.428
+  },
+  {
+   "nro": "410211",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.916
+  },
+  {
+   "nro": "454089",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.904
+  },
+  {
+   "nro": "461315",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.604
+  },
+  {
+   "nro": "417236",
+   "field": "anos_experiencia_minima_tecnica",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 1.367
+  },
+  {
+   "nro": "426065",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 5.517
+  },
+  {
+   "nro": "449276",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.053
+  },
+  {
+   "nro": "437206",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.815
+  },
+  {
+   "nro": "451078",
+   "field": "dias_pago_anticipo",
+   "pseudo": 8.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.836
+  },
+  {
+   "nro": "435983",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.056
+  },
+  {
+   "nro": "420461",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.597
+  },
+  {
+   "nro": "478427",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": 35.0,
+   "agree": false,
+   "lat": 5.058
+  },
+  {
+   "nro": "420038",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.59
+  },
+  {
+   "nro": "471199",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.272
+  },
+  {
+   "nro": "455153",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.596
+  },
+  {
+   "nro": "460450",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": false,
+   "lat": 5.053
+  },
+  {
+   "nro": "431286",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.059
+  },
+  {
+   "nro": "435226",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.832
+  },
+  {
+   "nro": "455842",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 5.051
+  },
+  {
+   "nro": "452886",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 5.744
+  },
+  {
+   "nro": "448548",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.818
+  },
+  {
+   "nro": "448956",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.293
+  },
+  {
+   "nro": "432076",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.818
+  },
+  {
+   "nro": "472872",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 6.772
+  },
+  {
+   "nro": "446942",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.814
+  },
+  {
+   "nro": "460958",
+   "field": "dias_pago_anticipo",
+   "pseudo": 7.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.598
+  },
+  {
+   "nro": "429127",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 0.003
+  },
+  {
+   "nro": "451666",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.587
+  },
+  {
+   "nro": "441333",
+   "field": "dias_pago_anticipo",
+   "pseudo": 20.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.602
+  },
+  {
+   "nro": "467436",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.28
+  },
+  {
+   "nro": "453430",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.601
+  },
+  {
+   "nro": "454491",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.597
+  },
+  {
+   "nro": "444370",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 5.052
+  },
+  {
+   "nro": "442447",
+   "field": "dias_pago_anticipo",
+   "pseudo": 7.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.602
+  },
+  {
+   "nro": "450175",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.378
+  },
+  {
+   "nro": "450636",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.828
+  },
+  {
+   "nro": "463769",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.594
+  },
+  {
+   "nro": "471529",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.82
+  },
+  {
+   "nro": "456345",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.597
+  },
+  {
+   "nro": "449639",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.828
+  },
+  {
+   "nro": "439151",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.284
+  },
+  {
+   "nro": "461944",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.825
+  },
+  {
+   "nro": "472758",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.823
+  },
+  {
+   "nro": "402710",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": false,
+   "lat": 5.281
+  },
+  {
+   "nro": "451782",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.369
+  },
+  {
+   "nro": "416738",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.592
+  },
+  {
+   "nro": "468643",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.823
+  },
+  {
+   "nro": "439800",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.815
+  },
+  {
+   "nro": "442356",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 5.042
+  },
+  {
+   "nro": "465415",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.591
+  },
+  {
+   "nro": "455698",
+   "field": "dias_pago_anticipo",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": true,
+   "lat": 5.274
+  },
+  {
+   "nro": "420463",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.587
+  },
+  {
+   "nro": "448278",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.593
+  },
+  {
+   "nro": "436905",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 5.525
+  },
+  {
+   "nro": "462710",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.822
+  },
+  {
+   "nro": "439274",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.834
+  },
+  {
+   "nro": "443802",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.826
+  },
+  {
+   "nro": "448853",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.073
+  },
+  {
+   "nro": "471435",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 3.904
+  },
+  {
+   "nro": "456834",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.818
+  },
+  {
+   "nro": "446222",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.742
+  },
+  {
+   "nro": "472206",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.294
+  },
+  {
+   "nro": "452330",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.592
+  },
+  {
+   "nro": "460187",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 5.056
+  },
+  {
+   "nro": "463382",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.586
+  },
+  {
+   "nro": "455252",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 5.056
+  },
+  {
+   "nro": "473218",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.046
+  },
+  {
+   "nro": "463351",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.6
+  },
+  {
+   "nro": "438554",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.37
+  },
+  {
+   "nro": "438556",
+   "field": "dias_pago_anticipo",
+   "pseudo": 30.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.367
+  },
+  {
+   "nro": "449956",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 5.057
+  },
+  {
+   "nro": "433137",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.607
+  },
+  {
+   "nro": "475612",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 5.051
+  },
+  {
+   "nro": "468837",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.289
+  },
+  {
+   "nro": "429544",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.59
+  },
+  {
+   "nro": "439026",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 5.047
+  },
+  {
+   "nro": "450846",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.591
+  },
+  {
+   "nro": "461533",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.59
+  },
+  {
+   "nro": "389797",
+   "field": "dias_pago_anticipo",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.587
+  },
+  {
+   "nro": "452909",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 4.825
+  },
+  {
+   "nro": "441806",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.819
+  },
+  {
+   "nro": "455922",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.598
+  },
+  {
+   "nro": "435940",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.049
+  },
+  {
+   "nro": "430349",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 60.0,
+   "agree": false,
+   "lat": 4.598
+  },
+  {
+   "nro": "419949",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.593
+  },
+  {
+   "nro": "468936",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.675
+  },
+  {
+   "nro": "415334",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.36
+  },
+  {
+   "nro": "434374",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 0.003
+  },
+  {
+   "nro": "423286",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 5.728
+  },
+  {
+   "nro": "432767",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.607
+  },
+  {
+   "nro": "457643",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 5.28
+  },
+  {
+   "nro": "463985",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.283
+  },
+  {
+   "nro": "445625",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.361
+  },
+  {
+   "nro": "443762",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.606
+  },
+  {
+   "nro": "457935",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 0.003
+  },
+  {
+   "nro": "470474",
+   "field": "dias_pago_anticipo",
+   "pseudo": 7.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.806
+  },
+  {
+   "nro": "456842",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.83
+  },
+  {
+   "nro": "468988",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "2",
+   "llm_value": 2.0,
+   "agree": false,
+   "lat": 5.288
+  },
+  {
+   "nro": "405756",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.59
+  },
+  {
+   "nro": "435549",
+   "field": "dias_pago_anticipo",
+   "pseudo": 20.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.599
+  },
+  {
+   "nro": "434132",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.815
+  },
+  {
+   "nro": "448453",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "20",
+   "llm_value": 20.0,
+   "agree": false,
+   "lat": 4.818
+  },
+  {
+   "nro": "459953",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.352
+  },
+  {
+   "nro": "451467",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 2.0,
+   "agree": false,
+   "lat": 5.058
+  },
+  {
+   "nro": "435918",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 20.0,
+   "agree": false,
+   "lat": 5.048
+  },
+  {
+   "nro": "474253",
+   "field": "dias_pago_anticipo",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 45.0,
+   "agree": false,
+   "lat": 5.043
+  },
+  {
+   "nro": "456188",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 5.055
+  },
+  {
+   "nro": "462749",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.594
+  },
+  {
+   "nro": "445595",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.813
+  },
+  {
+   "nro": "470536",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.047
+  },
+  {
+   "nro": "420049",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.364
+  },
+  {
+   "nro": "465549",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.812
+  },
+  {
+   "nro": "437750",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.819
+  },
+  {
+   "nro": "449725",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 5.058
+  },
+  {
+   "nro": "456484",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 5.516
+  },
+  {
+   "nro": "437623",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.595
+  },
+  {
+   "nro": "454691",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.597
+  },
+  {
+   "nro": "471841",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.587
+  },
+  {
+   "nro": "472486",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.593
+  },
+  {
+   "nro": "424093",
+   "field": "dias_pago_anticipo",
+   "pseudo": 30.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.358
+  },
+  {
+   "nro": "399661",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.601
+  },
+  {
+   "nro": "423199",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.363
+  },
+  {
+   "nro": "451272",
+   "field": "dias_pago_anticipo",
+   "pseudo": 7.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.585
+  },
+  {
+   "nro": "429194",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": false,
+   "lat": 5.496
+  },
+  {
+   "nro": "461956",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.825
+  },
+  {
+   "nro": "453501",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.373
+  },
+  {
+   "nro": "464400",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.588
+  },
+  {
+   "nro": "468997",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.588
+  },
+  {
+   "nro": "448906",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.061
+  },
+  {
+   "nro": "469069",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.607
+  },
+  {
+   "nro": "452010",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 3.906
+  },
+  {
+   "nro": "430084",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.362
+  },
+  {
+   "nro": "427556",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 5.06
+  },
+  {
+   "nro": "417371",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.817
+  },
+  {
+   "nro": "450558",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.048
+  },
+  {
+   "nro": "456470",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.591
+  },
+  {
+   "nro": "476204",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.128
+  },
+  {
+   "nro": "454839",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.351
+  },
+  {
+   "nro": "433940",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.59
+  },
+  {
+   "nro": "468303",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "60",
+   "llm_value": 60.0,
+   "agree": false,
+   "lat": 5.275
+  },
+  {
+   "nro": "453545",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.819
+  },
+  {
+   "nro": "444152",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.364
+  },
+  {
+   "nro": "400453",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "20",
+   "llm_value": 20.0,
+   "agree": false,
+   "lat": 4.814
+  },
+  {
+   "nro": "462678",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 5.061
+  },
+  {
+   "nro": "476068",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.903
+  },
+  {
+   "nro": "452451",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.605
+  },
+  {
+   "nro": "431512",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.587
+  },
+  {
+   "nro": "474852",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.379
+  },
+  {
+   "nro": "472324",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 5.05
+  },
+  {
+   "nro": "469141",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.667
+  },
+  {
+   "nro": "460818",
+   "field": "dias_pago_anticipo",
+   "pseudo": 8.0,
+   "llm_raw": "NULL",
+   "llm_value": 3.0,
+   "agree": false,
+   "lat": 4.839
+  },
+  {
+   "nro": "459995",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.366
+  },
+  {
+   "nro": "416761",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.595
+  },
+  {
+   "nro": "452651",
+   "field": "dias_pago_anticipo",
+   "pseudo": 7.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.588
+  },
+  {
+   "nro": "455974",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.818
+  },
+  {
+   "nro": "462093",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 5.511
+  },
+  {
+   "nro": "441139",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.358
+  },
+  {
+   "nro": "448486",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.063
+  },
+  {
+   "nro": "439540",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.588
+  },
+  {
+   "nro": "451496",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.597
+  },
+  {
+   "nro": "402688",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.354
+  },
+  {
+   "nro": "420465",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.595
+  },
+  {
+   "nro": "466121",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.132
+  },
+  {
+   "nro": "452091",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.834
+  },
+  {
+   "nro": "466638",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.825
+  },
+  {
+   "nro": "421631",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.814
+  },
+  {
+   "nro": "441672",
+   "field": "dias_pago_anticipo",
+   "pseudo": 7.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.589
+  },
+  {
+   "nro": "469137",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.675
+  },
+  {
+   "nro": "455446",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.822
+  },
+  {
+   "nro": "475121",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.595
+  },
+  {
+   "nro": "439370",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.593
+  },
+  {
+   "nro": "447962",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.059
+  },
+  {
+   "nro": "446086",
+   "field": "dias_pago_anticipo",
+   "pseudo": 20.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 20.0,
+   "agree": true,
+   "lat": 0.001
+  },
+  {
+   "nro": "463900",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.057
+  },
+  {
+   "nro": "423588",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.14
+  },
+  {
+   "nro": "417649",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.371
+  },
+  {
+   "nro": "473616",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.816
+  },
+  {
+   "nro": "440206",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "419782",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 4.817
+  },
+  {
+   "nro": "456855",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.596
+  },
+  {
+   "nro": "464267",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.289
+  },
+  {
+   "nro": "444564",
+   "field": "dias_pago_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "agree": false,
+   "lat": 5.284
+  },
+  {
+   "nro": "468285",
+   "field": "dias_pago_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "NULL",
+   "llm_value": 60.0,
+   "agree": false,
+   "lat": 4.593
+  },
+  {
+   "nro": "450270",
+   "field": "dias_pago_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.823
+  },
+  {
+   "nro": "473014",
+   "field": "dias_pago_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.817
+  },
+  {
+   "nro": "447505",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.004
+  },
+  {
+   "nro": "431002",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 5.507
+  },
+  {
+   "nro": "447896",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.266
+  },
+  {
+   "nro": "461405",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.821
+  },
+  {
+   "nro": "447849",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.283
+  },
+  {
+   "nro": "433047",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.591
+  },
+  {
+   "nro": "455883",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.046
+  },
+  {
+   "nro": "435683",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.507
+  },
+  {
+   "nro": "438697",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 5.283
+  },
+  {
+   "nro": "402688",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": false,
+   "lat": 4.819
+  },
+  {
+   "nro": "469376",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.833
+  },
+  {
+   "nro": "424247",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.116
+  },
+  {
+   "nro": "463016",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.004
+  },
+  {
+   "nro": "475714",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.038
+  },
+  {
+   "nro": "452319",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 5.049
+  },
+  {
+   "nro": "438780",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.276
+  },
+  {
+   "nro": "469749",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.503
+  },
+  {
+   "nro": "451676",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.816
+  },
+  {
+   "nro": "445074",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.59
+  },
+  {
+   "nro": "466802",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.599
+  },
+  {
+   "nro": "437246",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.817
+  },
+  {
+   "nro": "434174",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.003
+  },
+  {
+   "nro": "431055",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.81
+  },
+  {
+   "nro": "438447",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.277
+  },
+  {
+   "nro": "438299",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.049
+  },
+  {
+   "nro": "464517",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.122
+  },
+  {
+   "nro": "434153",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.061
+  },
+  {
+   "nro": "435584",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.354
+  },
+  {
+   "nro": "398984",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.283
+  },
+  {
+   "nro": "422728",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.581
+  },
+  {
+   "nro": "435818",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.045
+  },
+  {
+   "nro": "438711",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.513
+  },
+  {
+   "nro": "467207",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.001
+  },
+  {
+   "nro": "450948",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 3.894
+  },
+  {
+   "nro": "435173",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.367
+  },
+  {
+   "nro": "455903",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.055
+  },
+  {
+   "nro": "444172",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.589
+  },
+  {
+   "nro": "444991",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 0.0,
+   "agree": false,
+   "lat": 4.579
+  },
+  {
+   "nro": "470231",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.803
+  },
+  {
+   "nro": "473673",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 3.9
+  },
+  {
+   "nro": "422599",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 3.897
+  },
+  {
+   "nro": "432804",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.602
+  },
+  {
+   "nro": "438168",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.125
+  },
+  {
+   "nro": "472674",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.826
+  },
+  {
+   "nro": "451105",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.581
+  },
+  {
+   "nro": "423036",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.825
+  },
+  {
+   "nro": "406031",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 3.902
+  },
+  {
+   "nro": "424288",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.818
+  },
+  {
+   "nro": "474203",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.138
+  },
+  {
+   "nro": "463033",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.134
+  },
+  {
+   "nro": "451060",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.058
+  },
+  {
+   "nro": "426725",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.139
+  },
+  {
+   "nro": "464522",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.366
+  },
+  {
+   "nro": "428724",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.052
+  },
+  {
+   "nro": "473613",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 5.074
+  },
+  {
+   "nro": "469182",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.59
+  },
+  {
+   "nro": "424430",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.454
+  },
+  {
+   "nro": "457545",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.587
+  },
+  {
+   "nro": "415609",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.28
+  },
+  {
+   "nro": "434505",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.125
+  },
+  {
+   "nro": "431042",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.82
+  },
+  {
+   "nro": "460828",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.597
+  },
+  {
+   "nro": "424274",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.121
+  },
+  {
+   "nro": "429955",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.039
+  },
+  {
+   "nro": "423793",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.584
+  },
+  {
+   "nro": "439044",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.585
+  },
+  {
+   "nro": "435756",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.12
+  },
+  {
+   "nro": "431298",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 4.579
+  },
+  {
+   "nro": "425907",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.04
+  },
+  {
+   "nro": "438489",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.046
+  },
+  {
+   "nro": "436469",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.676
+  },
+  {
+   "nro": "459967",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.587
+  },
+  {
+   "nro": "456361",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.002
+  },
+  {
+   "nro": "437712",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.504
+  },
+  {
+   "nro": "440810",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.055
+  },
+  {
+   "nro": "433988",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.13
+  },
+  {
+   "nro": "476591",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.042
+  },
+  {
+   "nro": "438858",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 4.373
+  },
+  {
+   "nro": "434920",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.282
+  },
+  {
+   "nro": "422055",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.359
+  },
+  {
+   "nro": "469170",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.6
+  },
+  {
+   "nro": "432659",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.351
+  },
+  {
+   "nro": "451039",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5.0",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.809
+  },
+  {
+   "nro": "434568",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.361
+  },
+  {
+   "nro": "468784",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.824
+  },
+  {
+   "nro": "434381",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.129
+  },
+  {
+   "nro": "469725",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.516
+  },
+  {
+   "nro": "431288",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.582
+  },
+  {
+   "nro": "432448",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.042
+  },
+  {
+   "nro": "473121",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.356
+  },
+  {
+   "nro": "426571",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.679
+  },
+  {
+   "nro": "476281",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.823
+  },
+  {
+   "nro": "450530",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.593
+  },
+  {
+   "nro": "453032",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.815
+  },
+  {
+   "nro": "458961",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.051
+  },
+  {
+   "nro": "460291",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.82
+  },
+  {
+   "nro": "448267",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.829
+  },
+  {
+   "nro": "466472",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.824
+  },
+  {
+   "nro": "442904",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 4.83
+  },
+  {
+   "nro": "435728",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.042
+  },
+  {
+   "nro": "436218",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 3.889
+  },
+  {
+   "nro": "465281",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.824
+  },
+  {
+   "nro": "454423",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.049
+  },
+  {
+   "nro": "433928",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.987
+  },
+  {
+   "nro": "431032",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.056
+  },
+  {
+   "nro": "445030",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.59
+  },
+  {
+   "nro": "448893",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 15.0,
+   "agree": false,
+   "lat": 4.595
+  },
+  {
+   "nro": "425302",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.831
+  },
+  {
+   "nro": "454380",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.367
+  },
+  {
+   "nro": "434083",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 3.891
+  },
+  {
+   "nro": "445243",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.13
+  },
+  {
+   "nro": "460483",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.585
+  },
+  {
+   "nro": "450531",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5.0",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.818
+  },
+  {
+   "nro": "448671",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.054
+  },
+  {
+   "nro": "454866",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.823
+  },
+  {
+   "nro": "451815",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.057
+  },
+  {
+   "nro": "464528",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 3.903
+  },
+  {
+   "nro": "427063",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.003
+  },
+  {
+   "nro": "423355",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.582
+  },
+  {
+   "nro": "437268",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.052
+  },
+  {
+   "nro": "433770",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 4.598
+  },
+  {
+   "nro": "463865",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.588
+  },
+  {
+   "nro": "475624",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.061
+  },
+  {
+   "nro": "431957",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.273
+  },
+  {
+   "nro": "453707",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.825
+  },
+  {
+   "nro": "464034",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 5.068
+  },
+  {
+   "nro": "433029",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 4.592
+  },
+  {
+   "nro": "460372",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.596
+  },
+  {
+   "nro": "433649",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "agree": false,
+   "lat": 2.976
+  },
+  {
+   "nro": "468595",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.004
+  },
+  {
+   "nro": "424461",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.354
+  },
+  {
+   "nro": "460123",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.122
+  },
+  {
+   "nro": "454070",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.588
+  },
+  {
+   "nro": "435360",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.294
+  },
+  {
+   "nro": "459951",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.583
+  },
+  {
+   "nro": "426719",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.366
+  },
+  {
+   "nro": "424805",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 3.66
+  },
+  {
+   "nro": "430480",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.585
+  },
+  {
+   "nro": "427716",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.043
+  },
+  {
+   "nro": "461578",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.827
+  },
+  {
+   "nro": "463108",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.606
+  },
+  {
+   "nro": "459952",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.583
+  },
+  {
+   "nro": "434113",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.283
+  },
+  {
+   "nro": "424256",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.357
+  },
+  {
+   "nro": "443288",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.352
+  },
+  {
+   "nro": "431109",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 5.0,
+   "agree": false,
+   "lat": 5.286
+  },
+  {
+   "nro": "435265",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 2.0,
+   "llm_raw": "2",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 4.37
+  },
+  {
+   "nro": "444199",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.589
+  },
+  {
+   "nro": "449851",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5.0",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.82
+  },
+  {
+   "nro": "424225",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": null,
+   "agree": false,
+   "lat": 0.002
+  },
+  {
+   "nro": "445016",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.589
+  },
+  {
+   "nro": "429806",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.826
+  },
+  {
+   "nro": "476381",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "03",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 4.816
+  },
+  {
+   "nro": "426650",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 3.675
+  },
+  {
+   "nro": "463499",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.003
+  },
+  {
+   "nro": "454614",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.27
+  },
+  {
+   "nro": "424287",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.052
+  },
+  {
+   "nro": "424228",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.28
+  },
+  {
+   "nro": "465546",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.139
+  },
+  {
+   "nro": "427996",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "NULL",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.366
+  },
+  {
+   "nro": "439401",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.584
+  },
+  {
+   "nro": "436500",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 2.0,
+   "llm_raw": "2",
+   "llm_value": 2.0,
+   "agree": true,
+   "lat": 4.353
+  },
+  {
+   "nro": "430313",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.054
+  },
+  {
+   "nro": "470903",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.796
+  },
+  {
+   "nro": "446950",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.003
+  },
+  {
+   "nro": "441042",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.352
+  },
+  {
+   "nro": "399197",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 3.657
+  },
+  {
+   "nro": "424233",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.004
+  },
+  {
+   "nro": "455975",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 0.002
+  },
+  {
+   "nro": "463495",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 3.0,
+   "llm_raw": "3",
+   "llm_value": 3.0,
+   "agree": true,
+   "lat": 5.039
+  },
+  {
+   "nro": "427659",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.044
+  },
+  {
+   "nro": "453526",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 4.821
+  },
+  {
+   "nro": "430005",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "ERROR:VLLMValidationError",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 0.003
+  },
+  {
+   "nro": "446024",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.815
+  },
+  {
+   "nro": "445018",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": null,
+   "agree": false,
+   "lat": 4.369
+  },
+  {
+   "nro": "424933",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 5.046
+  },
+  {
+   "nro": "424462",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 5.0,
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "agree": true,
+   "lat": 4.361
+  },
+  {
+   "nro": "437052",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 15.0,
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "agree": true,
+   "lat": 3.437
+  },
+  {
+   "nro": "432428",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.586
+  },
+  {
+   "nro": "432393",
+   "field": "dias_solicitud_anticipo",
+   "pseudo": 10.0,
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "agree": true,
+   "lat": 4.587
+  }
+ ],
+ "elapsed": 1511.1031475067139
+}

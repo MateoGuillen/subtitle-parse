@@ -1,0 +1,2107 @@
+{
+ "model": "Llama 3.1 8B-FP8",
+ "P1_sin_hint": [
+  {
+   "nro": "473102",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "1",
+   "value": 2.0
+  },
+  {
+   "nro": "439717",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": null
+  },
+  {
+   "nro": "429000",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "20",
+   "value": 20.0
+  },
+  {
+   "nro": "435659",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "1.0",
+   "value": 1.0
+  },
+  {
+   "nro": "450847",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "1.5",
+   "value": 2.0
+  },
+  {
+   "nro": "417791",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "18",
+   "value": null
+  },
+  {
+   "nro": "463273",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2.0",
+   "value": 2.0
+  },
+  {
+   "nro": "474065",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.3",
+   "value": null
+  },
+  {
+   "nro": "465130",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "1",
+   "value": 4.0
+  },
+  {
+   "nro": "411927",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": null
+  },
+  {
+   "nro": "468018",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.0",
+   "value": null
+  },
+  {
+   "nro": "468329",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": 4.0
+  },
+  {
+   "nro": "400225",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": 2.0
+  },
+  {
+   "nro": "470487",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "1.5",
+   "value": 2.0
+  },
+  {
+   "nro": "411404",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 2.0
+  },
+  {
+   "nro": "410965",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": null
+  },
+  {
+   "nro": "383350",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": null
+  },
+  {
+   "nro": "452998",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "429243",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "3",
+   "value": null
+  },
+  {
+   "nro": "466510",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": null
+  },
+  {
+   "nro": "395135",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "5",
+   "value": null
+  },
+  {
+   "nro": "455788",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "5.0",
+   "value": 10.0
+  },
+  {
+   "nro": "400792",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "3",
+   "value": null
+  },
+  {
+   "nro": "449807",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "468687",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": 3.0
+  },
+  {
+   "nro": "468176",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": null
+  },
+  {
+   "nro": "443676",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "0.5",
+   "value": null
+  },
+  {
+   "nro": "466567",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "417976",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "1.5",
+   "value": null
+  },
+  {
+   "nro": "463778",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "1.5",
+   "value": 3.0
+  },
+  {
+   "nro": "416738",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "472324",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15.0",
+   "value": 10.0
+  },
+  {
+   "nro": "460818",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "431286",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "439274",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "456470",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "472486",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "476204",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "421631",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "478427",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "35",
+   "value": 35.0
+  },
+  {
+   "nro": "452091",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "472206",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "402688",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "5.0",
+   "value": 5.0
+  },
+  {
+   "nro": "451272",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "454839",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "419949",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "435549",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "455974",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "435226",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "439370",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "434132",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "451782",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "434374",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "420038",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "459995",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "436905",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "452330",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "448853",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "438556",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "30",
+   "value": 10.0
+  },
+  {
+   "nro": "438554",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438711",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "434920",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "444199",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "398984",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438780",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "472674",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "463033",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "434568",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438447",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "428724",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "426719",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "461578",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "436469",
+   "field": "dias_solicitud_anticipo",
+   "agree": false,
+   "raw": "5",
+   "value": null
+  },
+  {
+   "nro": "424287",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438697",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "476381",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "432804",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "423793",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "473673",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "452319",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "451815",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "424933",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "435728",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "455975",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "422728",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "455903",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "448671",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "434153",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "454423",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438858",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "444720",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "397938",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "427382",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "468925",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "60",
+   "value": 60.0
+  },
+  {
+   "nro": "454295",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "406095",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "90",
+   "value": 90.0
+  },
+  {
+   "nro": "453714",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "470386",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 365.0
+  },
+  {
+   "nro": "432314",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "45",
+   "value": 45.0
+  },
+  {
+   "nro": "424066",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "30",
+   "value": 5.0
+  },
+  {
+   "nro": "443368",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "45",
+   "value": 45.0
+  },
+  {
+   "nro": "393638",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 365.0
+  },
+  {
+   "nro": "416155",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "444696",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "392615",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "463372",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "426440",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "120",
+   "value": 120.0
+  },
+  {
+   "nro": "426870",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "60",
+   "value": 60.0
+  },
+  {
+   "nro": "386572",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "120",
+   "value": 120.0
+  },
+  {
+   "nro": "435755",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "30",
+   "value": 150.0
+  },
+  {
+   "nro": "459890",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "437015",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 365.0
+  },
+  {
+   "nro": "416337",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "120",
+   "value": 120.0
+  },
+  {
+   "nro": "452013",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "180",
+   "value": 180.0
+  },
+  {
+   "nro": "399730",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "454303",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "418908",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "425944",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "416897",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "150",
+   "value": 150.0
+  },
+  {
+   "nro": "417043",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "90",
+   "value": 90.0
+  },
+  {
+   "nro": "433027",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "0.0",
+   "value": null
+  },
+  {
+   "nro": "402108",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.50",
+   "value": 50.0
+  },
+  {
+   "nro": "468017",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.40",
+   "value": 40.0
+  },
+  {
+   "nro": "431105",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "0.00",
+   "value": null
+  },
+  {
+   "nro": "470239",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.60",
+   "value": 60.0
+  },
+  {
+   "nro": "465040",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.65",
+   "value": 65.0
+  },
+  {
+   "nro": "470058",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.6",
+   "value": 60.0
+  },
+  {
+   "nro": "421359",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.65",
+   "value": 65.0
+  },
+  {
+   "nro": "473847",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "0.00",
+   "value": null
+  },
+  {
+   "nro": "407120",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "0.0",
+   "value": null
+  },
+  {
+   "nro": "470258",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.40",
+   "value": 40.0
+  },
+  {
+   "nro": "409434",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70.0",
+   "value": null
+  },
+  {
+   "nro": "463795",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.6",
+   "value": 60.0
+  },
+  {
+   "nro": "406041",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.5",
+   "value": 50.0
+  },
+  {
+   "nro": "462484",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "30",
+   "value": 30
+  },
+  {
+   "nro": "408616",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "50",
+   "value": 50
+  },
+  {
+   "nro": "444109",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.30",
+   "value": 30.0
+  },
+  {
+   "nro": "416767",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "50",
+   "value": 50
+  },
+  {
+   "nro": "464300",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.60",
+   "value": 60.0
+  },
+  {
+   "nro": "472617",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.65",
+   "value": 65.0
+  },
+  {
+   "nro": "414180",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.65",
+   "value": 65.0
+  },
+  {
+   "nro": "461816",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.40",
+   "value": 40.0
+  },
+  {
+   "nro": "476932",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.5",
+   "value": 50.0
+  },
+  {
+   "nro": "426722",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.50",
+   "value": 50.0
+  },
+  {
+   "nro": "432706",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.65",
+   "value": 65.0
+  },
+  {
+   "nro": "450203",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.40",
+   "value": 40.0
+  },
+  {
+   "nro": "475245",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.40",
+   "value": 40.0
+  },
+  {
+   "nro": "466185",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.50",
+   "value": 50.0
+  },
+  {
+   "nro": "396081",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.30",
+   "value": 30.0
+  },
+  {
+   "nro": "469931",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.40",
+   "value": 40.0
+  }
+ ],
+ "P2_reescrito": [
+  {
+   "nro": "473102",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 2.0
+  },
+  {
+   "nro": "439717",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "429000",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 20.0
+  },
+  {
+   "nro": "435659",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "1.5",
+   "value": 1.0
+  },
+  {
+   "nro": "450847",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 2.0
+  },
+  {
+   "nro": "417791",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "463273",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 2.0
+  },
+  {
+   "nro": "474065",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "3",
+   "value": null
+  },
+  {
+   "nro": "465130",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "1.3",
+   "value": 4.0
+  },
+  {
+   "nro": "411927",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "468018",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "468329",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "5",
+   "value": 4.0
+  },
+  {
+   "nro": "400225",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "3",
+   "value": 2.0
+  },
+  {
+   "nro": "470487",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 2.0
+  },
+  {
+   "nro": "411404",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 2.0
+  },
+  {
+   "nro": "410965",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "383350",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "452998",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "429243",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "466510",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "395135",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "455788",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "3",
+   "value": 10.0
+  },
+  {
+   "nro": "400792",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "3",
+   "value": null
+  },
+  {
+   "nro": "449807",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 5.0
+  },
+  {
+   "nro": "468687",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "468176",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "443676",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "466567",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "2",
+   "value": null
+  },
+  {
+   "nro": "417976",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": false,
+   "raw": "3",
+   "value": null
+  },
+  {
+   "nro": "463778",
+   "field": "anos_experiencia_minima_tecnica",
+   "agree": true,
+   "raw": "2",
+   "value": 3.0
+  },
+  {
+   "nro": "416738",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "1.5",
+   "value": 5.0
+  },
+  {
+   "nro": "472324",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "2",
+   "value": 10.0
+  },
+  {
+   "nro": "460818",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "431286",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "439274",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "456470",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "472486",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "476204",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "421631",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "478427",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "35",
+   "value": 35.0
+  },
+  {
+   "nro": "452091",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 10.0
+  },
+  {
+   "nro": "472206",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "402688",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "451272",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "454839",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 10.0
+  },
+  {
+   "nro": "419949",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "435549",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "3",
+   "value": 30.0
+  },
+  {
+   "nro": "455974",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "435226",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 10.0
+  },
+  {
+   "nro": "439370",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "434132",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "451782",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "434374",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "420038",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "30",
+   "value": 30.0
+  },
+  {
+   "nro": "459995",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "436905",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "452330",
+   "field": "dias_pago_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "448853",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "438556",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "5",
+   "value": 10.0
+  },
+  {
+   "nro": "438554",
+   "field": "dias_pago_anticipo",
+   "agree": false,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438711",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "434920",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "444199",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "398984",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438780",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "472674",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "463033",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "434568",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438447",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "428724",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "426719",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "461578",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "436469",
+   "field": "dias_solicitud_anticipo",
+   "agree": false,
+   "raw": "5",
+   "value": null
+  },
+  {
+   "nro": "424287",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438697",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "476381",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "432804",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "5",
+   "value": 5.0
+  },
+  {
+   "nro": "423793",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "473673",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "452319",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "451815",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "424933",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "435728",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "455975",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "3",
+   "value": 3.0
+  },
+  {
+   "nro": "422728",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "455903",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "448671",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "434153",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "454423",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "10",
+   "value": 10.0
+  },
+  {
+   "nro": "438858",
+   "field": "dias_solicitud_anticipo",
+   "agree": true,
+   "raw": "15",
+   "value": 15.0
+  },
+  {
+   "nro": "444720",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 30.0
+  },
+  {
+   "nro": "397938",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "365",
+   "value": null
+  },
+  {
+   "nro": "427382",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 30.0
+  },
+  {
+   "nro": "468925",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 60.0
+  },
+  {
+   "nro": "454295",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "365",
+   "value": null
+  },
+  {
+   "nro": "406095",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "90",
+   "value": 90.0
+  },
+  {
+   "nro": "453714",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "470386",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 365.0
+  },
+  {
+   "nro": "432314",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 45.0
+  },
+  {
+   "nro": "424066",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 5.0
+  },
+  {
+   "nro": "443368",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "45",
+   "value": 45.0
+  },
+  {
+   "nro": "393638",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 365.0
+  },
+  {
+   "nro": "416155",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "30",
+   "value": null
+  },
+  {
+   "nro": "444696",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "365",
+   "value": null
+  },
+  {
+   "nro": "392615",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "365",
+   "value": null
+  },
+  {
+   "nro": "463372",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 30.0
+  },
+  {
+   "nro": "426440",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 120.0
+  },
+  {
+   "nro": "426870",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 60.0
+  },
+  {
+   "nro": "386572",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 120.0
+  },
+  {
+   "nro": "435755",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "150",
+   "value": 150.0
+  },
+  {
+   "nro": "459890",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 30.0
+  },
+  {
+   "nro": "437015",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 365.0
+  },
+  {
+   "nro": "416337",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 120.0
+  },
+  {
+   "nro": "452013",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "180",
+   "value": 180.0
+  },
+  {
+   "nro": "399730",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "365",
+   "value": null
+  },
+  {
+   "nro": "454303",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "365",
+   "value": null
+  },
+  {
+   "nro": "418908",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "365",
+   "value": 30.0
+  },
+  {
+   "nro": "425944",
+   "field": "dias_validez_garantia",
+   "agree": false,
+   "raw": "365",
+   "value": null
+  },
+  {
+   "nro": "416897",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "150",
+   "value": 150.0
+  },
+  {
+   "nro": "417043",
+   "field": "dias_validez_garantia",
+   "agree": true,
+   "raw": "90",
+   "value": 90.0
+  },
+  {
+   "nro": "433027",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "402108",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "468017",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "431105",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "470239",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "465040",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "470058",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "421359",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "473847",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "407120",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "470258",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "409434",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "463795",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "406041",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "462484",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "408616",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "444109",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "416767",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "464300",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "472617",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "414180",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "461816",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "476932",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": true,
+   "raw": "0.5",
+   "value": 50.0
+  },
+  {
+   "nro": "426722",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "432706",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "450203",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "475245",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "466185",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "396081",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  },
+  {
+   "nro": "469931",
+   "field": "pct_monto_referencia_tecnica",
+   "agree": false,
+   "raw": "70",
+   "value": null
+  }
+ ]
+}

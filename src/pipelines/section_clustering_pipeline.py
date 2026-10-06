@@ -12,6 +12,7 @@ from src.etl.transformers.llm_provider import (
     LLMProvider,
     LocalLLMProvider,
     OpenRouterProvider,
+    TokengoProvider,
 )
 from src.etl.transformers.section_clustering_transformer import (
     SectionClusteringTransformer,
@@ -42,6 +43,12 @@ class SectionClusteringPipeline:
         if llm_provider_type == "local":
             self.llm_provider: LLMProvider = LocalLLMProvider(
                 base_url=config.get("llm_base_url", "http://localhost:1234/v1")
+            )
+        elif llm_provider_type == "tokengo":
+            self.llm_provider = TokengoProvider(
+                api_key=config["llm_api_key"],
+                model=config.get("llm_model", "z-ai/glm-5.1"),
+                reasoning_enabled=config.get("reasoning_enabled", False),
             )
         else:
             self.llm_provider = OpenRouterProvider(
@@ -85,8 +92,10 @@ class SectionClusteringPipeline:
         self.ranking_csv = config.get("ranking_csv")
         self.top_k_titles = config.get("top_k_titles", 10)
 
+        title_overrides = self.config.get("title_overrides")
         self.extractor = SectionClusteringExtractor(
-            self.db_params, ranking_csv=self.ranking_csv
+            self.db_params, ranking_csv=self.ranking_csv,
+            title_override_list=title_overrides,
         )
         self.transformer = SectionClusteringTransformer(
             llm_provider=self.llm_provider,

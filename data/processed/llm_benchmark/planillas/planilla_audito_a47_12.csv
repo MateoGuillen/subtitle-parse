@@ -1,0 +1,560 @@
+grupo,campo,nro_licitacion,valor_regex,etiqueta_humana,llm_value,nota_agosto,texto,valor_en_texto_como_plazo_correcto,evidencia_frag,otro_valor_posible_en_texto
+GATE-pago,dias_pago_anticipo,451078,8.0,15.0,15.0,"Extraido de la clausula ""...se abonara... [al contratista el monto del anticipo]...: N dias"" (numero en digitos).","Solicitud de Pago de Anticipo""
+El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:
+Las condiciones para la solicitud del pago de anticipo son como se establecen a continuación: La Convocante prevé el
+pago de un anticipo establecido en el SICP, únicamente en caso de que el oferente adjudicado resultare ser una MIPYMES
+acreditado mediante cédula MIPYMES.
+a) Plazo máximo para la presentación de la solicitud de pago de anticipo: Para acceder al anticipo, el Contratista deberá
+presentar dentro de los 8 días calendarios posteriores a la firma del contrato la solicitud de pago de anticipo
+b) Dirección: Avda. Mcal. López e/ Alberdi
+c) Horario de atención: de lunes a viernes de 07 a 12 hs,
+d) Oficina y/o departamento: Oficina de la Dirección de Contrataciones
+e) Responsable de la recepción: Andersson Iván Rojas, Director de UOC
+f) Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de la
+solicitud: 15 (quince) días calendarios.
+g) Forma de amortización del monto anticipado con relación a las certificaciones realizadas: Con el primer Certificado de
+Obra, correspondiendo al 100% del total del anticipo recibido.
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en
+que éste debe incurrir para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar;;;
+amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del
+contrato y durante la ejecución de contrato demostrar el debido uso. La Garantía de Anticipo deberá mantener su vigencia hasta su
+total amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+El proveedor, consultor o contratista que reciba pagos en concepto de anticipo estará obligado a informar a la contratante sobre el
+destino y la forma de aplicación del mismo, que en todos los casos estará relacionado al efectivo cumplimiento del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la
+legislación vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de
+Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en
+el PBC. La falta de solicitud de anticipo en el plazo previsto en el PBC será considerada como un rechazo del mismo. En estos casos
+podrá darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en el pliego de bases y condiciones.
+5. El Pago del Anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor
+podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la Contratante. Transcurrido dicho
+plazo, se considerará que el Anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución
+contractual en las condiciones establecidas en el pliego de bases y condiciones.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente clausula y la convocante
+no ha procedido al pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de
+forma total o de acuerdo a lo dispuesto en el punto 5.
+7. La amortización del anticipo se realizará de acuerdo con lo establecido en el contrato, en la proporción que éste indique.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será
+requisito que previamente el proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del
+monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al
+proveedor, a requerimiento de parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las
+obligaciones del proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+10. En el caso de rescisión o terminación anticipada del contrato, los proveedores o contratistas deberán reintegrar a la contratante
+el saldo por amortizar
+11. En el caso de rescisión o terminación anticipada del contrato, los contratistas deberán reintegrar a la contratante el saldo
+por amortizar.
+Nota2. Se interpreta ''planta'' como el conjunto de equipos o instalaciones que se utilizan a los efectos de poder iniciar la
+""ejecución del objeto del contrato",,,
+GATE-pago,dias_pago_anticipo,438556,30.0,10.0,10.0,"Extraido de la clausula ""...se abonara... [al contratista el monto del anticipo]...: N dias"" (numero en digitos).","Solicitud de Pago de Anticipo""
+El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:
+A plazo a más tardar a 30 días de la presentación de la factura, acompañado del acta de recepción de bienes, Iva último mes
+generado, CCT vigente. La validez del presente llamado está sujeto a la aprobación del Presupuesto General de la
+Municipalidad de Edelira del Ejercicio Fiscal 2024, conforme al Art. 14 de la Ley 2051/03. El oferente adjudicado tiene hasta
+10 días corridos contados a partir de la fecha de la suscripción de contrato por un monto máximo del 10 % del monto
+contractual. Y la convocante abonara en un plazo no mayor a 10 días corridos a partir de la recepción de la solicitud de
+anticipo financiero. La forma de amortización del monto anticipado, el mismo será descontado en su totalidad de la primera
+factura y en el caso de que no se pueda deducir la totalidad de la primera factura se restará en las siguientes facturas hasta
+su descuento total.
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en
+que este debe incurrir para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar;;;
+amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del contrato
+y durante la ejecución de contrato demostrar el debido uso. La Garantía de Anticipo deberá mantener su vigencia hasta su total
+amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la legislación
+vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en la
+carta de invitación. La falta de solicitud de anticipo en el plazo previsto en la carta de invitación será considerado como un rechazo
+del mismo. En estos casos podrá darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en la carta de
+invitación.
+5. El Pago del Anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor
+podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la Contratante. Transcurrido dicho
+plazo, se considerará que el Anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución contractual
+en las condiciones establecidas en en la carta de invitación.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente clausula y la convocante
+no ha procedido al pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de
+forma total o de acuerdo a lo dispuesto en el punto 5.
+7. La amortización del anticipo se realizará de acuerdo con lo establecido en el contrato, en la proporción que éste indique.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será
+requisito que previamente el proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del
+monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al
+proveedor, a requerimiento de parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las obligaciones
+del proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+10. En el caso de rescisión o terminación anticipada del contrato, los proveedores o contratistas deberán reintegrar a la contratante
+""el saldo por amortizar.",,,
+GATE-pago,dias_pago_anticipo,454947,5.0,15.0,15.0,"Extraido de la clausula ""...se abonara... [al contratista el monto del anticipo]...: N dias"" (numero en digitos).","Solicitud de Pago de Anticipo""
+El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:
+A pedido del contratista se otorgará un anticipo del 20% del monto total del contrato.
+a) Plazo máximo para la presentación de la solicitud de pago de anticipo: 5 días desde la firma del contrato
+b) Dirección: Avda. Irrazabal entre Sgto Reverchon y Capitán Caballero
+c) Horario de atención: 07:00 a 15:00 hs.
+d) Oficina y/o departamento: Oficina de la Secretaria Departamental de Administración y Finanzas
+e) Responsable de la recepción: Mgtr. Mirta González
+f) Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de la
+solicitud: 15 días siguientes a la solicitud y presentación de las pólizas.
+g) Forma de amortización del monto anticipado con relación a las certificaciones realizadas: proporcional al % de cada
+certificación.
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en
+que éste debe incurrir para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar;;;
+amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del
+contrato y durante la ejecución de contrato demostrar el debido uso. La Garantía de Anticipo deberá mantener su vigencia hasta su
+total amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+El proveedor, consultor o contratista que reciba pagos en concepto de anticipo estará obligado a informar a la contratante sobre el
+destino y la forma de aplicación del mismo, que en todos los casos estará relacionado al efectivo cumplimiento del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la
+legislación vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de
+Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en
+el PBC. La falta de solicitud de anticipo en el plazo previsto en el PBC será considerada como un rechazo del mismo. En estos casos
+podrá darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en el pliego de bases y condiciones.
+5. El Pago del Anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor
+podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la Contratante. Transcurrido dicho
+plazo, se considerará que el Anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución
+contractual en las condiciones establecidas en el pliego de bases y condiciones.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente clausula y la convocante
+no ha procedido al pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de
+forma total o de acuerdo a lo dispuesto en el punto 5.
+7. La amortización del anticipo se realizará de acuerdo con lo establecido en el contrato, en la proporción que éste indique.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será
+requisito que previamente el proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del
+monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al
+proveedor, a requerimiento de parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las
+obligaciones del proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+10. En el caso de rescisión o terminación anticipada del contrato, los proveedores o contratistas deberán reintegrar a la contratante
+el saldo por amortizar
+11. En el caso de rescisión o terminación anticipada del contrato, los contratistas deberán reintegrar a la contratante el saldo
+por amortizar.
+Nota2. Se interpreta ''planta'' como el conjunto de equipos o instalaciones que se utilizan a los efectos de poder iniciar la
+""ejecución del objeto del contrato",,,
+GATE-pago,dias_pago_anticipo,464756,2.0,5.0,5.0,"Extraido de la clausula ""...se abonara... [al contratista el monto del anticipo]...: N dias"" (numero en digitos).","Solicitud de Pago de Anticipo""
+El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:
+1. Plazo máximo para la presentación de la solicitud de pago de anticipo, en caso que la empresa adjudicada sea una MIPYMES:
+2 días calendarios, posteriores a la firma del contrato.
+2. Dirección: Washington esquina Juan de Salazar Edificio Itasa 4to piso Administrador de contrato. Dirección Administrativa
+3. Horario de atención: Lunes a viernes de 7:30 a 15:30 hs.
+4. Oficina y/o departamento: Dirección de Administración
+5. Responsable de la recepción Contratante.
+6. Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de la solicitud: 5 días calendarios,
+posteriores a la solicitud presentada.
+7. Forma de amortización del monto anticipado con relación a las certificaciones realizadas: En cada emisión de Orden de Servicio, se realizará el
+descuento del anticipo hasta cubrir el monto total anticipado
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en que éste debe incurrir
+para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar amparado con una garantía correspondiente al;;;
+cien por ciento de su valor y deberá ser amortizado durante la ejecución del contrato y durante la ejecución de contrato demostrar el debido uso. La
+Garantía de Anticipo deberá mantener su vigencia hasta su total amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+El proveedor, consultor o contratista que reciba pagos en concepto de anticipo estará obligado a informar a la contratante sobre el destino y la forma de
+aplicación del mismo, que en todos los casos estará relacionado al efectivo cumplimiento del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la legislación vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en el PBC. La falta de
+solicitud de anticipo en el plazo previsto en el PBC será considerada como un rechazo del mismo. En estos casos podrá darse inicio al cómputo de la
+ejecución contractual en las condiciones establecidas en el pliego de bases y condiciones.
+5. El Pago del Anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor podrá rechazarlo en el
+plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la Contratante. Transcurrido dicho plazo, se considerará que el Anticipo ha sido
+aceptado por el proveedor y podrá darse inicio al cronograma de ejecución contractual en las condiciones establecidas en el pliego de bases y condiciones.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente clausula y la convocante no ha procedido al
+pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de forma total o de acuerdo a lo dispuesto en el
+punto 5.
+7. La amortización del anticipo se realizará de acuerdo con lo establecido en el contrato, en la proporción que éste indique.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será requisito que previamente el
+proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al proveedor, a requerimiento de
+parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las obligaciones del proveedor en virtud del contrato, pudiendo
+ajustarse por el saldo adeudado.
+""10. En el caso de rescisión o terminación anticipada del contrato, los proveedores o contratistas deberán reintegrar a la contratante el saldo por amortizar",,,
+GATE-pago,dias_pago_anticipo,439746,20.0,10.0,10.0,"Extraido de la clausula ""...se abonara... [al contratista el monto del anticipo]...: N dias"" (numero en digitos).","Solicitud de Pago de Anticipo""
+Las condiciones para la solicitud del pago de anticipo son como se establecen a continuación:
+El Anticipo será del 20% solo para MIPYMES
+a) Plazo máximo para la presentación de la solicitud de pago de anticipo: Hasta 20 días corridos luego de la firma del
+contrato
+b) Dirección: Mcal. Estigarribia e/ Ytororo - Gobernación del Caaguazú
+c) Horario de atención: 07:00 hs a 13:00 hs de Lunes a Viernes
+d) Oficina y/o departamento: Oficina Administrativa - Planta Alta Gobernación del Caaguazú
+e) Responsable de la recepción: Abg. Mario Arce
+f) Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de la
+solicitud: Hasta 10 Días habiles
+g) Forma de amortización del monto anticipado con relación a las certificaciones realizadas: Será del 25% del anticipo en
+relación a cada certificación que se realice, hasta la devolución total del anticipo
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en
+que este debe incurrir para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar;;;
+amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del
+contrato y durante la ejecución de contrato demostrar el debido uso. La garantía de anticipo deberá mantener su vigencia hasta su
+total amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la
+legislación vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de
+Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en
+el PBC. La falta de solicitud de anticipo en el plazo previsto en el PBC será considerada como un rechazo del mismo. En estos casos
+podrá darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en el pliego de bases y condiciones.
+5. El pago del anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor
+podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la contratante. Transcurrido dicho
+plazo, se considerará que el anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución
+contractual en las condiciones establecidas en el pliego de bases y condiciones.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente cláusula y la convocante
+no ha procedido al pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de
+forma total o de acuerdo a lo dispuesto en el punto 5.
+7. El contratista deberá usar el anticipo únicamente para pagar equipos, planta, materiales y/o gastos de movilización que se
+requieran específicamente para la ejecución del contrato. El contratista deberá demostrar que ha utilizado el anticipo para tales
+fines mediante la presentación de copias de las facturas u otros documentos al fiscal de obras, quien junto con la contratante
+realizará el seguimiento y control de los recursos entregados. El contratista estará obligado a proporcionar a la contratante los
+comprobantes, certificaciones y cualquier otra información que le fuera requerida con el objeto de comprobar el cumplimiento del
+plan de inversión del anticipo.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será
+requisito que previamente el proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del
+monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al
+proveedor, a requerimiento de parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las
+obligaciones del proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+10. El atraso en la entrega del anticipo imputable a la contratante prorrogará en igual plazo la fecha de cumplimiento de las
+obligaciones asumidas por ambas partes.
+11. En el caso de rescisión o terminación anticipada del contrato, los contratistas deberán reintegrar a la contratante el saldo por
+""amortizar.",,,
+GATE-pago,dias_pago_anticipo,435239,2.0,5.0,5.0,"Extraido de la clausula ""...se abonara... [al contratista el monto del anticipo]...: N dias"" (numero en digitos).","Solicitud de Pago de Anticipo""
+El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:
+a Convocante podrá otorgar un Anticipo Financiero del cinco por ciento (5%) del monto total del contrato, como máximo
+en caso que una empresa Mipyme resulte adjudicada, pero sujeto a disponibilidad presupuestaria.
+1. Plazo máximo para la presentación de la solicitud de pago de anticipo, en caso que la empresa adjudicada sea
+una MIPYMES:
+2 días calendarios, posteriores a la firma del contrato.
+2. Dirección:
+Washington esquina Juan de Salazar Edificio Itasa 4to piso
+Administrador de contrato.
+Direccion Administrativa
+3. Horario de atención:
+Lunes a viernes de 7:30 a 15:30 hs.
+4. Oficina y/o departamento:
+Dirección de Administratación
+5. Responsable de la recepción
+Contratante.
+6. Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de
+la solicitud:
+5 días calendarios, posteriores a la solicitud presentada.
+7. Forma de amortización del monto anticipado con relación a las certificaciones realizadas:
+En cada emisión de Orden de Servicio, se realizará el descuento del anticipo hasta cubrir el monto total anticipado.
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en
+que este debe incurrir para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar;;;
+amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del contrato
+y durante la ejecución de contrato demostrar el debido uso. La Garantía de Anticipo deberá mantener su vigencia hasta su total
+amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la legislación
+vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en la
+carta de invitación. La falta de solicitud de anticipo en el plazo previsto en la carta de invitación será considerado como un rechazo
+del mismo. En estos casos podrá darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en la carta de
+invitación.
+5. El Pago del Anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor
+podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la Contratante. Transcurrido dicho
+plazo, se considerará que el Anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución contractual
+en las condiciones establecidas en en la carta de invitación.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente clausula y la convocante
+no ha procedido al pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de
+forma total o de acuerdo a lo dispuesto en el punto 5.
+7. La amortización del anticipo se realizará de acuerdo con lo establecido en el contrato, en la proporción que éste indique.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será
+requisito que previamente el proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del
+monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al
+proveedor, a requerimiento de parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las obligaciones
+del proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+10. En el caso de rescisión o terminación anticipada del contrato, los proveedores o contratistas deberán reintegrar a la contratante
+""el saldo por amortizar.",,,
+GATE-pago,dias_pago_anticipo,435549,20.0,30.0,30.0,"Extraido de la clausula ""...se abonara... [al contratista el monto del anticipo]...: N dias"" (numero en digitos).","Solicitud de Pago de Anticipo""
+Las condiciones para la solicitud del pago de anticipo son como se establecen a continuación:
+Las condiciones para la solicitud del pago de anticipo son como se establecen a continuación: Sera del 20%
+a) Plazo máximo para la presentación de la solicitud de pago de anticipo: Hasta 20 días corridos luego de la firma del
+contrato
+b) Dirección: SGTO. PRIMERO BENITEZ C/ PADRE MOLAS Bº AZUCENA CORONEL OVIEDO
+c) Horario de atención: 07:00 hs a 15:00 hs de Lunes a Viernes
+d) Oficina y/o departamento: DIRECCION DE ADMINISTRACION Y FINANZAS
+e) Responsable de la recepción: LIC. PAOLA FERNANDEZ
+f) Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de la
+solicitud: Hasta 30 Días habiles
+g) Forma de amortización del monto anticipado con relación a las certificaciones realizadas: En cada Certificado
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en
+que este debe incurrir para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar;;;
+amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del contrato y
+durante la ejecución de contrato demostrar el debido uso. La garantía de anticipo deberá mantener su vigencia hasta su total
+amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la legislación
+vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en el
+PBC. La falta de solicitud de anticipo en el plazo previsto en el PBC será considerada como un rechazo del mismo. En estos casos podrá
+darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en el pliego de bases y condiciones.
+5. El pago del anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor
+podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la contratante. Transcurrido dicho
+plazo, se considerará que el anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución contractual en
+las condiciones establecidas en el pliego de bases y condiciones.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente cláusula y la convocante no
+ha procedido al pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de forma
+total o de acuerdo a lo dispuesto en el punto 5.
+7. El contratista deberá usar el anticipo únicamente para pagar equipos, planta, materiales y/o gastos de movilización que se
+requieran específicamente para la ejecución del contrato. El contratista deberá demostrar que ha utilizado el anticipo para tales fines
+mediante la presentación de copias de las facturas u otros documentos al fiscal de obras, quien junto con la contratante realizará el
+seguimiento y control de los recursos entregados. El contratista estará obligado a proporcionar a la contratante los comprobantes,
+certificaciones y cualquier otra información que le fuera requerida con el objeto de comprobar el cumplimiento del plan de inversión
+del anticipo.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será requisito
+que previamente el proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del monto
+asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al proveedor,
+a requerimiento de parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las obligaciones del
+proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+10. El atraso en la entrega del anticipo imputable a la contratante prorrogará en igual plazo la fecha de cumplimiento de las
+obligaciones asumidas por ambas partes.
+11. En el caso de rescisión o terminación anticipada del contrato, los contratistas deberán reintegrar a la contratante el saldo por
+""amortizar.",,,
+GATE-pago,dias_pago_anticipo,473919,7.0,30.0,30.0,"Extraido de la clausula ""...se abonara... [al contratista el monto del anticipo]...: N dias"" (numero en digitos).","Solicitud de Pago de Anticipo""
+El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:
+La Convocante podrá otorgar un Anticipo Financiero del diez por ciento (10%) del monto total del contrato, como máximo en caso que una empresa
+Mipyme resulte adjudicada, pero sujeto a disponibilidad presupuestaria.
+1. Plazo máximo para la presentación de la solicitud de pago de anticipo, en caso que la empresa adjudicada sea una MIPYMES: 7 días calendarios,
+posteriores a la firma del contrato.
+2. Dirección: IICS UNA, Dr. Cecilio Baez casi Dr. Gaspar Villamayor, Campus de la UNA, San Lorenzo.
+3. Horario de atención: Lunes a viernes de 7:00 a 13:00 hs.
+4. Oficina y/o departamento: Dirección de Administratación y Finanzas del IICS UNA.
+5. Responsable de la recepción: Contratante.
+6. Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de la solicitud: 30 días calendarios,
+posteriores a la solicitud presentada.
+7. Forma de amortización del monto anticipado con relación a las entregas de los bienes realizadas previa emisión de la Orden de Compra: En la emisión de la Orden de Compra, se realizará el descuento
+del anticipo hasta cubrir el monto total anticipado.
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en que éste debe incurrir para iniciar la ejecución del objeto contractual. El
+mismo no constituye un pago por adelantado; debe estar amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del contrato y durante la;;;
+ejecución de contrato demostrar el debido uso. La Garantía de Anticipo deberá mantener su vigencia hasta su total amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+El proveedor, consultor o contratista que reciba pagos en concepto de anticipo estará obligado a informar a la contratante sobre el destino y la forma de aplicación del mismo, que en todos los casos estará
+relacionado al efectivo cumplimiento del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la legislación vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en el PBC. La falta de solicitud de anticipo en el plazo previsto en el PBC será
+considerada como un rechazo del mismo. En estos casos podrá darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en el pliego de bases y condiciones.
+5. El Pago del Anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de
+reclamo remitida a la Contratante. Transcurrido dicho plazo, se considerará que el Anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución contractual en las condiciones
+establecidas en el pliego de bases y condiciones.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente clausula y la convocante no ha procedido al pago, el oferente no está obligado a iniciar la ejecución del
+contrato hasta tanto el pago se haya efectuado de forma total o de acuerdo a lo dispuesto en el punto 5.
+7. La amortización del anticipo se realizará de acuerdo con lo establecido en el contrato, en la proporción que éste indique.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será requisito que previamente el proveedor sea notificado del incumplimiento y la
+intimación de que se hará efectiva la ejecución del monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al proveedor, a requerimiento de parte, a más tardar treinta (30) días contados a partir de
+la fecha de cumplimiento de las obligaciones del proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+""10. En el caso de rescisión o terminación anticipada del contrato, los proveedores o contratistas deberán reintegrar a la contratante el saldo por amortizar",,,
+descriptivo,anos_experiencia_minima_tecnica,412375,4.0,6.0,6.0,"Extraido cerca (despues) de la palabra ""experiencia"": N años.","Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+CRITERIOS DE EVALUACIÓN OFERTA TÉCNICA
+Evaluación de Propuestas
+Se procederá a realizar una evaluación, para someter la propuesta de cada empresa concursante. Será seleccionada la
+empresa que cumpla con todos los requisitos definidos en la evaluación técnica de los perfiles, y cuente con la oferta
+económica más baja.
+Los oferentes deberán tener en cuenta que la cotización del precio será por hombre/hora basado en el precio referencial
+del llamado.
+Evaluación Propuesta Técnica
+Según los Términos de Referencia para la realización del SERVICIO, la empresa será evaluada y calificada con el criterio de
+Cumple / No cumple en base a los requisitos técnicos para los siguientes perfiles:
+1 Coordinador del Proyecto.
+1 Desarrolladores backend Senior.
+1 Desarrolladores backend
+El oferente deberá presentar el currículum vitae (CV) de cada uno de los RR.HH. propuestos. Estos deberán estar firmados
+por cada uno, y deberán declarar su compromiso a formar parte del equipo de trabajo, en caso de resultar adjudicados. En
+caso de que uno de los recursos no participe al inicio o deje de formar parte durante el proceso de desarrollo por algún
+motivo, para dichos casos el oferente deberá reemplazarlo por otro de equivalente perfil al solicitado o superior y notificar
+por nota el cambio realizado, adjuntando nuevamente el CV del recurso que se incorpora al equipo de desarrollo, conforme
+a lo requerido anteriormente.
+Planilla de Evaluación de Perfiles Técnicos:
+Coordinador del proyecto Cumple/No
+Cumple
+Graduado universitario de las carreras de Ingenieria en Informatica, Ingenieria en Sistemas
+Informáticos, Ciencias de la Computación, Licenciatura en Ciencias Informáticas, Licenciatura en
+Análisis de Sistemas o afines.
+Experiencia general de seis (6) años correspondiente a proyectos de desarrollo de software. Para el
+cálculo se tomará el detalle del Historial laboral del Formulario Formato de Currículum Vitae (CV)
+donde deberá constar los trabajos realizados con el rol solicitado.
+Experiencia específica de dos (5) años en proyectos de tecnología de la información en el rol de
+dirección, gerenciamiento, conducción, coordinación. Para el cálculo se tomará el detalle del Historial
+laboral del Formulario Formato de Currículum Vitae (CV) donde deberá constar los trabajos realizados
+con el rol solicitado.
+Cursos de gestión de proyectos y similares (como instructor o alumno), de una duración mínima de 40
+horas.
+Cursos (como instructor o alumno) relacionados a desarrollo avanzado, técnicas y buenas prácticas en
+desarrollo de software, o testing de software, de una duración mínima de 20 horas.
+Experiencia en utilización de herramientas de test no funcionales (Pruebas de carga y volumen,
+pruebas de stress o pruebas de seguridad) o herramientas de análisis de código fuente en al menos 5
+proyectos (Especificar en su CV los proyectos que cumplan con estos criterios)
+Experiencia en la utilización de metodologías de aseguramiento de calidad de software, pruebas de
+software y/o gestión de proyectos de software (Especificar en su CV los proyectos en los que fueron
+aplicadas metodologías de control de calidad)
+Experiencia en la utilización de metodologías ágiles como Scrum (Especificar en su CV los proyectos
+realizados y las metodologías aplicadas)
+Experiencia en la elaboración de Historias de Usuarios, Casos de Usos, plan de pruebas y criterios de
+aceptación, ruteo de pruebas y gestión de defectos en proyectos informáticos. (Se debe especificar en
+el CV los proyectos en los que trabajó)
+Experiencia en el uso de herramientas de planificación y técnicas de estimación en proyectos (Se debe
+especificar en el CV los proyectos en los que trabajó)
+Experiencia en programación en distintos lenguajes (Se debe especificar en el CV los proyectos en los
+que trabajó)
+Experiencia en el uso de herramientas de seguimiento de errores
+Experiencia en el desarrollo de proyectos en ambientes colaborativos y distribuidos(Se debe
+especificar en el CV los proyectos en los que trabajó)
+Desarrollador Backend Cumple/No
+Cumple
+Graduado universitario de las carreras de Ingenieria en Informatica, Ingenieria en Sistemas
+Informáticos, Ciencias de la Computación, Licenciatura en Ciencias Informáticas, Licenciatura en
+Análisis de Sistemas o afines.
+Experiencia general mínima de cuatro (4) años.
+Experiencia específica de tres (3) años en proyectos de desarrollo e implementación de software.
+Acreditando conocimiento en trabajos de desarrollo de software.
+Experiencia en proyectos en donde haya utilizado metodologías ágiles (Se debe especificar en el CV los
+proyectos en los que trabajó)
+Conocimiento avanzado en especificación de requerimientos de software. Experiencia con UML (Diagramas de
+secuencia, estados, actividades, casos de uso).
+Conocimiento de JSON Web Token (JWT), RFC 7523.
+Experiencia con patrones Model-View-Controller (MVC).
+Conocimiento avanzado en desarrollo e implementación de servicios web (SOAP o REST).
+Experiencia con herramientas de software para la gestión y construcción de proyectos: Composer, NPM,
+Maven.
+Experiencia en proyectos de desarrollo utilizando Open API o swagger. Se debe especificar en el CV los
+proyectos en los que trabajó)
+Experiencia en programación con bases de datos: Mysql, Postgresql, MS SQL Server , Oracle, MongoDB o
+similar.
+Experiencia en el uso de contenedores docker.
+Experiencia en el uso y/o configuración de sistemas Linux.
+Experiencia con control de versiones utilizando Git.
+Conocimiento avanzado en desarrollo de sistemas utilizando Java/JavaEE.
+Manejo de librerías y herramientas como: JPA/EJB/CDI/JSP/Servlet/Maven.
+Experiencia con herramientas de Reportes en plataforma Java como: JasperReports, Eclipse Birt o similares.
+Experiencia en el uso y configuración de servidores de aplicación Wildfly/Jboss
+Conocimiento avanzado de html5, css3 y jquery/bootstrap.
+Experiencia con ",,,
+descriptivo,dias_solicitud_anticipo,433036,5.0,10.0,10.0,"Extraido de la clausula ancla ""Plazo maximo para la presentacion de la solicitud de pago de anticipo: N dias"" (maxima prioridad segun el prompt).","Solicitud de Pago de Anticipo""
+El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:
+Se otorgará un anticipo del 20% (veinte por ciento) del monto total del contrato a TODOS LOS OFERENTES.
+a. Plazo máximo para la presentación de la solicitud de pago de anticipo: 10 (diez) días hábiles, a partir de la firma del
+contrato.
+b. Dirección: Calle Guillermo Closs Dres Sadoff
+c. Horario de atención: 07:00 a 12:00
+d. Oficina y/o departamento: Mesa de Entrada -Recepción.-
+e. Responsable de la recepción: Srta Belen Maidana
+f. Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación
+de la solicitud: 05 (cinco) días corridos contados a partir de la fecha de presentación de la solicitud de anticipo
+g. Forma de amortización del monto anticipado con relación a las certificaciones realizadas: LAS DEDUCCIONES QUE SE
+REALIZARÁN SOBRE LAS FACTURACIONES REALIZADAS EN EL MISMO PORCENTAJE, HASTA CUMPLIR CON EL MONTO TOTAL
+DEL ANTICIPO.
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en
+que este debe incurrir para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar;;;
+amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del contrato
+y durante la ejecución de contrato demostrar el debido uso. La Garantía de Anticipo deberá mantener su vigencia hasta su total
+amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la legislación
+vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en la
+carta de invitación. La falta de solicitud de anticipo en el plazo previsto en la carta de invitación será considerado como un rechazo
+del mismo. En estos casos podrá darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en la carta de
+invitación.
+5. El Pago del Anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor
+podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la Contratante. Transcurrido dicho
+plazo, se considerará que el Anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución contractual
+en las condiciones establecidas en en la carta de invitación.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente clausula y la convocante
+no ha procedido al pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de
+forma total o de acuerdo a lo dispuesto en el punto 5.
+7. La amortización del anticipo se realizará de acuerdo con lo establecido en el contrato, en la proporción que éste indique.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será
+requisito que previamente el proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del
+monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al
+proveedor, a requerimiento de parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las obligaciones
+del proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+10. En el caso de rescisión o terminación anticipada del contrato, los proveedores o contratistas deberán reintegrar a la contratante
+""el saldo por amortizar.",,,
+descriptivo,dias_solicitud_anticipo,434933,7.0,10.0,10.0,"Extraido de la clausula ancla ""Plazo maximo para la presentacion de la solicitud de pago de anticipo: N dias"" (maxima prioridad segun el prompt).","Solicitud de Pago de Anticipo""
+El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:
+Solicitud de pago de anticipo
+Las condiciones para la solicitud del pago de anticipo son como se establecen a continuación: Se otorgará un anticipo del
+5% (cinco por ciento) del monto total del contrato en caso de que el contratista adjudicado sea MIPYMES (Micro, Pequeña y
+Mediana Empresas) conforme a lo dispuesto en el art. 188° de la Ley de presupuesto 7050/23.
+La empresa adjudicada debe presentar junto a la solicitud de pago de anticipo, la cedula mipymes emitido por el MIC.
+Plazo máximo para la presentación de la solicitud de pago de anticipo: 10 (diez) días hábiles
+a. Plazo máximo para la presentación de la solicitud de pago de anticipo: 10 (diez) días hábiles posteriores a la firma del
+contrato
+b. Dirección: Municipalidad de Capitán Miranda
+c. Horario de atención: 07:00-12:00 y 13:00-15:00
+d. Oficina y/o departamento: Departamento de Tesoreria
+e. Responsable de la recepción: Recepecionista- Ana Liz Barboza
+f. Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a la fecha de la presentación de la
+solicitud: 07 (siete) días corridos contados a partir de la fecha de presentación de la solicitud de anticipo
+g. Forma de amortización del monto anticipado con relación a las certificaciones realizadas: monto anticipado se deducirá la
+totalidad del valor adjudicado.-
+1. El anticipo es la suma de dinero que se entrega al proveedor, consultor o contratista destinada al financiamiento de los costos en
+que este debe incurrir para iniciar la ejecución del objeto contractual. El mismo no constituye un pago por adelantado; debe estar;;;
+amparado con una garantía correspondiente al cien por ciento de su valor y deberá ser amortizado durante la ejecución del contrato
+y durante la ejecución de contrato demostrar el debido uso. La Garantía de Anticipo deberá mantener su vigencia hasta su total
+amortización.
+Los recursos entregados en calidad de anticipo no podrán destinarse a fines distintos a los relacionados con el objeto del contrato.
+En caso de extensión de la Garantía de Anticipo, la misma deberá cubrir el saldo pendiente de amortización.
+2. Si se establece en el SICP el otorgamiento de anticipos, no podrá superar en ningún caso el porcentaje establecido en la legislación
+vigente.
+3. La solicitud de pago del anticipo deberá ser presentada por escrito, con la factura, el plan de inversiones y la Garantía de Anticipo.
+4. El proveedor podrá remitir una comunicación por escrito a la contratante, en la cual informe que rechaza el anticipo previsto en la
+carta de invitación. La falta de solicitud de anticipo en el plazo previsto en la carta de invitación será considerado como un rechazo
+del mismo. En estos casos podrá darse inicio al cómputo de la ejecución contractual en las condiciones establecidas en la carta de
+invitación.
+5. El Pago del Anticipo debe ser total. En el caso que se realizare el pago de un porcentaje inferior al 100% del mismo, el proveedor
+podrá rechazarlo en el plazo de cinco (5) días hábiles mediante una nota de reclamo remitida a la Contratante. Transcurrido dicho
+plazo, se considerará que el Anticipo ha sido aceptado por el proveedor y podrá darse inicio al cronograma de ejecución contractual
+en las condiciones establecidas en en la carta de invitación.
+6. En el caso de que el proveedor haya solicitado el anticipo en las condiciones establecidas en la presente clausula y la convocante
+no ha procedido al pago, el oferente no está obligado a iniciar la ejecución del contrato hasta tanto el pago se haya efectuado de
+forma total o de acuerdo a lo dispuesto en el punto 5.
+7. La amortización del anticipo se realizará de acuerdo con lo establecido en el contrato, en la proporción que éste indique.
+8. Para la ejecución de esta garantía, especialmente cuando sea instrumentada a través de Póliza de Seguro de caución, será
+requisito que previamente el proveedor sea notificado del incumplimiento y la intimación de que se hará efectiva la ejecución del
+monto asegurado.
+9. A menos que se indique otra cosa en este apartado, la Garantía de Anticipo será liberada por la contratante y devuelta al
+proveedor, a requerimiento de parte, a más tardar treinta (30) días contados a partir de la fecha de cumplimiento de las obligaciones
+del proveedor en virtud del contrato, pudiendo ajustarse por el saldo adeudado.
+10. En el caso de rescisión o terminación anticipada del contrato, los proveedores o contratistas deberán reintegrar a la contratante
+""el saldo por amortizar.",,,
+descriptivo,dias_validez_garantia,391143,15.0,182.0,182.0,"""La garantía permanecerá vigente durante 06 (seis) meses posteriores al Acta de Recepción"" = 182 días. El ""15 días"" es el plazo para reemplazar repuestos defectuosos (SLA), no la validez total; se descarta.","Periodo de validez de la garantía de los bienes""
+El plazo de validez de la garantía de los bienes será el siguiente:
+El Proveedor garantiza que todos los bienes suministrados en virtud del Contrato son nuevos, sin uso.
+El Proveedor garantiza que todos los bienes suministrados estarán libres de defectos derivados de actos y omisiones que
+éste hubiese incurrido, o derivados del diseño, materiales o manufactura, durante el uso normal de los bienes en las
+condiciones que imperen en el Paraguay.
+La garantía permanecerá vigente durante 06 (seis) meses posteriores al Acta de Recepción de los repuestos y/o accesorios
+correspondientes, salvo que se tenga que reemplazar los repuestos y/o accesorios en cuyo caso el plazo para reemplazar es
+de 15 días y de ahí nuevamente empieza a correr la vigencia de los 06 (seis) meses de garantía técnica.
+La Contratante comunicará al Proveedor la naturaleza de los defectos y proporcionará toda la evidencia disponible,
+inmediatamente después de haberlos descubierto. La Contratante otorgará al Proveedor facilidades razonables para
+inspeccionar tales defectos.
+Tan pronto reciba el Proveedor dicha comunicación, y dentro del plazo establecido, deberá reparar o reemplazar de forma
+expedita los Bienes defectuosos, o sus partes sin ningún costo para la Contratante.
+Si el Proveedor después de haber sido notificado, no cumple con corregir los defectos dentro del plazo establecido, la
+Contratante, podrá proceder a tomar las medidas necesarias para remediar la situación, por cuenta y riesgo del Proveedor
+""y sin perjuicio de otros derechos que la Contratante pueda ejercer contra el Proveedor en virtud del Contrato.",,,

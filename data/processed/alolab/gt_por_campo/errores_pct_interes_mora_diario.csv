@@ -1,0 +1,1331 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+413515,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+430767,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+393643,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+425161,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+433568,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+434659,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+413930,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+403320,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento
+ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión
+nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes
+""durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento
+ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión
+nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes
+""durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+403161,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta
+días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta
+días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+423875,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+408381,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el
+pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo
+en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución
+de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el
+pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo
+en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución
+de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+388700,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas máximas activas
+nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la
+constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes no devengarán
+""intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas máximas activas
+nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la
+constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes no devengarán
+""intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+393467,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+416108,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+413517,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+393942,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de
+atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los
+préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay
+para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las
+""sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de
+atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los
+préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay
+para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las
+""sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+419364,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+402391,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+422869,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+430955,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+418624,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta
+días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta
+días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+429432,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+420810,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+419365,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+407551,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta
+días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta
+días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+430316,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+406162,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el
+pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en
+moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la
+obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el
+pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en
+moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la
+obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+394462,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+435051,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+423353,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago,
+equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda
+nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y
+publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago,
+equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda
+nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y
+publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+396216,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+431564,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+399543,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+413640,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+403157,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+429611,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+405258,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+431741,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+401209,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago,
+equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional
+al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en
+diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes
+""durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago,
+equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional
+al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en
+diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes
+""durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+401385,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+420084,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+436011,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+435933,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+418977,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas máximas activas
+nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la
+constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes no devengarán
+""intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas máximas activas
+nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la
+constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes no devengarán
+""intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+439376,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+435624,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+431917,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas máximas activas
+nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la
+constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes no devengarán
+""intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas máximas activas
+nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la
+constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes no devengarán
+""intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+430974,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+419310,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas
+máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central
+del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes
+""no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas
+máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central
+del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes
+""no devengarán intereses por mora.""",0.0,0.0,,No se encontró un porcentaje explícito de interés por mora diario en el texto. GT=NULL.
+391715,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+416946,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+437958,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+405024,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+433617,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago,
+equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en
+moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la
+obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago,
+equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en
+moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la
+obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+422780,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el
+pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo
+en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la
+constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día de atraso en el
+pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo
+en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la
+constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas
+""correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+431949,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+428586,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+389004,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+419941,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+440095,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+401060,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+403127,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas máximas
+activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para
+el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes no
+""devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio de las tasas máximas
+activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para
+el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los atrasos resultantes no
+""devengarán intereses por mora.""",0.01,0.01,,No se encontró un porcentaje explícito de interés por mora diario en el texto. GT=NULL.
+437593,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago,
+equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional
+al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en
+diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes
+""durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago,
+equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional
+al plazo de ciento ochenta días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en
+diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes
+""durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+435034,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+400703,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+422786,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+419742,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+419990,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio
+de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días,
+determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al promedio
+de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días,
+determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,No se encontró un porcentaje explícito de interés por mora diario en el texto. GT=NULL.
+428297,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta
+días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de atraso en el pago, equivalentes al
+promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por los préstamos de consumo en moneda nacional al plazo de ciento ochenta
+días, determinada por el Banco Central del Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago, las sumas correspondientes durante los
+""atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+395081,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+425703,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de
+atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por
+los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día de
+atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos por
+los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+433150,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la Contratante, el Contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.0,0.0,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+419896,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+416004,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."
+402110,pct_interes_mora_diario,tasa_de_interes_por_mora,,"Tasa de interés por Mora""
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.","Campo a extraer: Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Tasa de interés por Mora
+En caso de retrasos en los pagos por la contratante, el contratista tendrá derecho a percibir interés por mora por cada día
+de atraso en el pago, equivalentes al promedio de las tasas máximas activas nominales, anuales, percibidas en los bancos
+por los préstamos de consumo en moneda nacional al plazo de ciento ochenta días, determinada por el Banco Central del
+Paraguay para el mes anterior de la constitución de la obligación y publicado en diarios de difusión nacional.
+Si la contratante, en virtud de causas establecidas en el contrato, está facultada para suspender la tramitación de un pago,
+""las sumas correspondientes durante los atrasos resultantes no devengarán intereses por mora.""",0.01,0.01,,"La tasa de mora no es un porcentaje fijo: se define por referencia a ""el promedio de las tasas máximas activas nominales"" bancarias (tasa variable, sin cifra explícita en el pliego). GT=NULL."

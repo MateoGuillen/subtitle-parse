@@ -1,0 +1,184 @@
+{
+  "title": "Formato Y Firma De La Oferta",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 5.08,
+  "n_fields": 12,
+  "validation_errors": [],
+  "field_names": [
+    "menciona_firma_electronica",
+    "menciona_firma_fisica",
+    "menciona_declaracion_jurada",
+    "menciona_garantia_mantenimiento",
+    "num_puntos",
+    "menciona_textos_entre_lineas",
+    "menciona_foliatura",
+    "menciona_descalificacion",
+    "longitud_texto",
+    "menciona_enlaces",
+    "menciona_lista_precios",
+    "menciona_oferente"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"menciona_firma_electronica\": {\"type\": \"binary\", \"description\": \"Indica si se menciona firma electrónica\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar las palabras 'firma electrónica' o 'electrónicamente'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_firma_fisica\": {\"type\": \"binary\", \"description\": \"Indica si se menciona firma física\", \"importance\": 7, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la palabra 'física' o 'físicamente'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_declaracion_jurada\": {\"type\": \"binary\", \"description\": \"Indica si se menciona Declaración Jurada\", \"importance\": 9, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'Declaración Jurada'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_garantia_mantenimiento\": {\"type\": \"binary\", \"description\": \"Indica si se menciona Garantía de Mantenimiento de Ofertas\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'Garantía de Mantenimiento de Ofertas'. Retornar 1 si aparece, 0 si no.\"},\n    \"num_puntos\": {\"type\": \"numeric\", \"description\": \"Cantidad de puntos o incisos en la sección\", \"importance\": 6, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar la cantidad de números o letras que indican puntos o incisos (1., 2., a., b.). Retornar el número entero.\"},\n    \"menciona_textos_entre_lineas\": {\"type\": \"binary\", \"description\": \"Indica si se mencionan textos entre líneas o tachaduras\", \"importance\": 7, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar las frases 'textos entre líneas' o 'tachaduras'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_foliatura\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la falta de foliatura\", \"importance\": 6, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la palabra 'foliatura'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_descalificacion\": {\"type\": \"binary\", \"description\": \"Indica si se menciona descalificación de ofertas\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la palabra 'descalificación'. Retornar 1 si aparece, 0 si no.\"},\n    \"longitud_texto\": {\"type\": \"numeric\", \"description\": \"Longitud del texto en palabras\", \"importance\": 5, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar la cantidad de palabras en el texto. Retornar el número entero.\"},\n    \"menciona_enlaces\": {\"type\": \"binary\", \"description\": \"Indica si se mencionan enlaces externos\", \"importance\": 4, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la presencia de URLs (http:// o https://). Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_lista_precios\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la lista de precios\", \"importance\": 7, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'lista de precios'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_oferente\": {\"type\": \"binary\", \"description\": \"Indica si se menciona al oferente\", \"importance\": 6, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la palabra 'oferente'. Retornar 1 si aparece, 0 si no.\"}\n  },\n  \"justification\": \"Cada campo fue elegido para capturar diferencias significativas entre los clusters. La importancia se asignó según la frecuencia y el impacto potencial en la detección de anomalías. Los campos binarios buscan la presencia o ausencia de términos específicos, mientras que los numéricos miden cantidades como la longitud del texto o el número de puntos.\",\n  \"cluster_values\": {\n    \"menciona_firma_electronica\": {\"cluster_0\": 1, \"cluster_4\": 1, \"cluster_5\": 1, \"cluster_12\": 1, \"cluster_17\": 1},\n    \"menciona_declaracion_jurada\": {\"cluster_0\": 0, \"cluster_4\": 0, \"cluster_5\": 0, \"cluster_12\": 1, \"cluster_17\": 1},\n    \"num_puntos\": {\"cluster_0\": 4, \"cluster_4\": 4, \"cluster_5\": 2, \"cluster_12\": 5, \"cluster_17\": 5},\n    \"menciona_textos_entre_lineas\": {\"cluster_0\": 1, \"cluster_4\": 1, \"cluster_5\": 1, \"cluster_12\": 1, \"cluster_17\": 1},\n    \"menciona_foliatura\": {\"cluster_0\": 1, \"cluster_4\": 1, \"cluster_5\": 1, \"cluster_12\": 1, \"cluster_17\": 1},\n    \"menciona_descalificacion\": {\"cluster_0\": 1, \"cluster_4\": 1, \"cluster_5\": 1, \"cluster_12\": 1, \"cluster_17\": 1},\n    \"longitud_texto\": {\"cluster_0\": 150, \"cluster_4\": 120, \"cluster_5\": 100, \"cluster_12\": 180, \"cluster_17\": 180},\n    \"menciona_enlaces\": {\"cluster_0\": 0, \"cluster_4\": 1, \"cluster_5\": 1, \"cluster_12\": 0, \"cluster_17\": 0},\n    \"menciona_lista_precios\": {\"cluster_0\": 1, \"cluster_4\": 1, \"cluster_5\": 1, \"cluster_12\": 1, \"cluster_17\": 1},\n    \"menciona_oferente\": {\"cluster_0\": 1, \"cluster_4\": 1, \"cluster_5\": 1, \"cluster_12\": 1, \"cluster_17\": 1}\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "menciona_firma_electronica": {
+        "type": "binary",
+        "description": "Indica si se menciona firma electrónica",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar las palabras 'firma electrónica' o 'electrónicamente'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_firma_fisica": {
+        "type": "binary",
+        "description": "Indica si se menciona firma física",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la palabra 'física' o 'físicamente'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_declaracion_jurada": {
+        "type": "binary",
+        "description": "Indica si se menciona Declaración Jurada",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'Declaración Jurada'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_garantia_mantenimiento": {
+        "type": "binary",
+        "description": "Indica si se menciona Garantía de Mantenimiento de Ofertas",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'Garantía de Mantenimiento de Ofertas'. Retornar 1 si aparece, 0 si no."
+      },
+      "num_puntos": {
+        "type": "numeric",
+        "description": "Cantidad de puntos o incisos en la sección",
+        "importance": 6,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar la cantidad de números o letras que indican puntos o incisos (1., 2., a., b.). Retornar el número entero."
+      },
+      "menciona_textos_entre_lineas": {
+        "type": "binary",
+        "description": "Indica si se mencionan textos entre líneas o tachaduras",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar las frases 'textos entre líneas' o 'tachaduras'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_foliatura": {
+        "type": "binary",
+        "description": "Indica si se menciona la falta de foliatura",
+        "importance": 6,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la palabra 'foliatura'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_descalificacion": {
+        "type": "binary",
+        "description": "Indica si se menciona descalificación de ofertas",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la palabra 'descalificación'. Retornar 1 si aparece, 0 si no."
+      },
+      "longitud_texto": {
+        "type": "numeric",
+        "description": "Longitud del texto en palabras",
+        "importance": 5,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar la cantidad de palabras en el texto. Retornar el número entero."
+      },
+      "menciona_enlaces": {
+        "type": "binary",
+        "description": "Indica si se mencionan enlaces externos",
+        "importance": 4,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la presencia de URLs (http:// o https://). Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_lista_precios": {
+        "type": "binary",
+        "description": "Indica si se menciona la lista de precios",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'lista de precios'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_oferente": {
+        "type": "binary",
+        "description": "Indica si se menciona al oferente",
+        "importance": 6,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la palabra 'oferente'. Retornar 1 si aparece, 0 si no."
+      }
+    },
+    "justification": "Cada campo fue elegido para capturar diferencias significativas entre los clusters. La importancia se asignó según la frecuencia y el impacto potencial en la detección de anomalías. Los campos binarios buscan la presencia o ausencia de términos específicos, mientras que los numéricos miden cantidades como la longitud del texto o el número de puntos.",
+    "cluster_values": {
+      "menciona_firma_electronica": {
+        "cluster_0": 1,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "menciona_declaracion_jurada": {
+        "cluster_0": 0,
+        "cluster_4": 0,
+        "cluster_5": 0,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "num_puntos": {
+        "cluster_0": 4,
+        "cluster_4": 4,
+        "cluster_5": 2,
+        "cluster_12": 5,
+        "cluster_17": 5
+      },
+      "menciona_textos_entre_lineas": {
+        "cluster_0": 1,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "menciona_foliatura": {
+        "cluster_0": 1,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "menciona_descalificacion": {
+        "cluster_0": 1,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "longitud_texto": {
+        "cluster_0": 150,
+        "cluster_4": 120,
+        "cluster_5": 100,
+        "cluster_12": 180,
+        "cluster_17": 180
+      },
+      "menciona_enlaces": {
+        "cluster_0": 0,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 0,
+        "cluster_17": 0
+      },
+      "menciona_lista_precios": {
+        "cluster_0": 1,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "menciona_oferente": {
+        "cluster_0": 1,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 1,
+        "cluster_17": 1
+      }
+    }
+  }
+}

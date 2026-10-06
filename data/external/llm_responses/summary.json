@@ -1,0 +1,18 @@
+{
+  "winner": "a",
+  "winner_model": "DeepSeek-V3.2",
+  "a": {
+    "model": "DeepSeek-V3.2",
+    "ok": 9,
+    "fail": 1,
+    "total_fields": 66,
+    "total_time_s": 17.4
+  },
+  "b": {
+    "model": "Meta-Llama-3.3-70B-Instruct",
+    "ok": 5,
+    "fail": 5,
+    "total_fields": 57,
+    "total_time_s": 87.2
+  }
+}

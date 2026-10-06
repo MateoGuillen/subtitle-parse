@@ -1,0 +1,138 @@
+{
+  "title": "Formato Y Firma De La Oferta",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 13.31,
+  "n_fields": 8,
+  "validation_errors": [],
+  "field_names": [
+    "menciona_lista_precios",
+    "menciona_firma_fisica",
+    "menciona_firma_electronica",
+    "contiene_clausula_textos_entre_lineas",
+    "contiene_clausula_foliatura",
+    "contiene_clausula_garantia_dj",
+    "num_incisos_normativos",
+    "contiene_enlaces_externos"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"menciona_lista_precios\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona que la 'lista de precios' debe ser firmada junto con el formulario de oferta.\",\n      \"importance\": 8,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase 'lista de precios' en el contexto de la firma (ej. en el mismo párrafo o inciso que 'formulario de oferta'). Retornar 1 si aparece, 0 si no.\"\n    },\n    \"menciona_firma_fisica\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona explícitamente la firma física como opción válida.\",\n      \"importance\": 7,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la palabra 'física' o 'físicamente' en el contexto de la firma (ej. 'firmados, física o electrónicamente'). Retornar 1 si aparece, 0 si no.\"\n    },\n    \"menciona_firma_electronica\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona explícitamente la firma electrónica como opción válida.\",\n      \"importance\": 7,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la palabra 'electrónica' o 'electrónicamente' en el contexto de la firma (ej. 'firmados, física o electrónicamente'). Retornar 1 si aparece, 0 si no.\"\n    },\n    \"contiene_clausula_textos_entre_lineas\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si contiene la cláusula sobre validez de textos entre líneas, tachaduras o palabras superpuestas.\",\n      \"importance\": 8,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar conceptos como 'textos entre líneas', 'tachaduras', 'palabras superpuestas' o 'válidos solamente si llevan la firma'. Retornar 1 si se detecta semánticamente esta cláusula, 0 si no.\"\n    },\n    \"contiene_clausula_foliatura\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si contiene la cláusula que establece que la falta de foliatura no es motivo de descalificación.\",\n      \"importance\": 8,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar conceptos como 'falta de foliatura', 'no podrá ser considerada como motivo de descalificación' o variantes similares. Retornar 1 si se detecta semánticamente esta cláusula, 0 si no.\"\n    },\n    \"contiene_clausula_garantia_dj\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si contiene la cláusula adicional sobre firma de Declaración Jurada para Garantía de Mantenimiento de Ofertas.\",\n      \"importance\": 9,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'Garantía de Mantenimiento de Ofertas' o 'Declaración Jurada' en el contexto de firma en todas sus páginas. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"num_incisos_normativos\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de incisos o párrafos numerados que contienen disposiciones normativas sobre formato y firma.\",\n      \"importance\": 6,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Contar los párrafos que comienzan con un número seguido de punto (ej. '1.', '2.') y que contengan reglas sobre firma, formato o validez. No contar encabezados, enlaces web o texto no normativo. Retornar el entero resultante.\"\n    },\n    \"contiene_enlaces_externos\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la sección contiene enlaces web (URLs) a sitios externos, como guías de la DNCP.\",\n      \"importance\": 5,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar patrones de URL como 'http://', 'https://' o 'www.contrataciones.gov.py'. Retornar 1 si se encuentra al menos una URL, 0 si no.\"\n    }\n  },\n  \"justification\": \"El cluster dominante (0_1_2_3_...) establece el estándar con 4 incisos normativos completos: firma de formulario y lista de precios (física/electrónica), no descalificación por firma faltante en documentos no sustanciales, validez de anotaciones con firma, y no descalificación por falta de foliatura. Los campos binarios detectan omisiones críticas: 'menciona_lista_precios' (ausente en Cluster 5, reduciendo alcance), 'menciona_firma_fisica' (ausente en Cluster 5, limitando opciones), y las cláusulas sobre textos entre líneas y foliatura (ausentes en Cluster 5, debilitando especificaciones). 'contiene_clausula_garantia_dj' detecta adiciones en Clusters 12 y 17 (potencialmente anómalas si no son estándar). 'num_incisos_normativos' cuantifica la completitud estructural (Cluster 5 tiene solo 2, indicando posible recorte). 'contiene_enlaces_externos' detecta inserción de URLs (Clusters 4 y 5), lo que puede distraer o desviar. Las diferencias en estos campos, especialmente la reducción de cláusulas protectoras o la adición de elementos no normativos, son indicadores de anomalía.\",\n  \"cluster_values\": {\n    \"menciona_lista_precios\": {\n      \"cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19\": 1,\n      \"cluster_4\": 1,\n      \"cluster_5\": 0,\n      \"cluster_12\": 1,\n      \"cluster_17\": 1\n    },\n    \"menciona_firma_fisica\": {\n      \"cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19\": 1,\n      \"cluster_4\": 1,\n      \"cluster_5\": 0,\n      \"cluster_12\": 1,\n      \"cluster_17\": 1\n    },\n    \"menciona_firma_electronica\": {\n      \"cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19\": 1,\n      \"cluster_4\": 1,\n      \"cluster_5\": 1,\n      \"cluster_12\": 1,\n      \"cluster_17\": 1\n    },\n    \"contiene_clausula_textos_entre_lineas\": {\n      \"cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19\": 1,\n      \"cluster_4\": 1,\n      \"cluster_5\": 0,\n      \"cluster_12\": 1,\n      \"cluster_17\": 1\n    },\n    \"contiene_clausula_foliatura\": {\n      \"cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19\": 1,\n      \"cluster_4\": 1,\n      \"cluster_5\": 0,\n      \"cluster_12\": 1,\n      \"cluster_17\": 1\n    },\n    \"contiene_clausula_garantia_dj\": {\n      \"cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19\": 0,\n      \"cluster_4\": 0,\n      \"cluster_5\": 0,\n      \"cluster_12\": 1,\n      \"cluster_17\": 1\n    },\n    \"num_incisos_normativos\": {\n      \"cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19\": 4,\n      \"cluster_4\": 4,\n      \"cluster_5\": 2,\n      \"cluster_12\": 5,\n      \"cluster_17\": 5\n    },\n    \"contiene_enlaces_externos\": {\n      \"cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19\": 0,\n      \"cluster_4\": 1,\n      \"cluster_5\": 1,\n      \"cluster_12\": 0,\n      \"cluster_17\": 0\n    }\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "menciona_lista_precios": {
+        "type": "binary",
+        "description": "Indica si se menciona que la 'lista de precios' debe ser firmada junto con el formulario de oferta.",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'lista de precios' en el contexto de la firma (ej. en el mismo párrafo o inciso que 'formulario de oferta'). Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_firma_fisica": {
+        "type": "binary",
+        "description": "Indica si se menciona explícitamente la firma física como opción válida.",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la palabra 'física' o 'físicamente' en el contexto de la firma (ej. 'firmados, física o electrónicamente'). Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_firma_electronica": {
+        "type": "binary",
+        "description": "Indica si se menciona explícitamente la firma electrónica como opción válida.",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la palabra 'electrónica' o 'electrónicamente' en el contexto de la firma (ej. 'firmados, física o electrónicamente'). Retornar 1 si aparece, 0 si no."
+      },
+      "contiene_clausula_textos_entre_lineas": {
+        "type": "binary",
+        "description": "Indica si contiene la cláusula sobre validez de textos entre líneas, tachaduras o palabras superpuestas.",
+        "importance": 8,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar conceptos como 'textos entre líneas', 'tachaduras', 'palabras superpuestas' o 'válidos solamente si llevan la firma'. Retornar 1 si se detecta semánticamente esta cláusula, 0 si no."
+      },
+      "contiene_clausula_foliatura": {
+        "type": "binary",
+        "description": "Indica si contiene la cláusula que establece que la falta de foliatura no es motivo de descalificación.",
+        "importance": 8,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar conceptos como 'falta de foliatura', 'no podrá ser considerada como motivo de descalificación' o variantes similares. Retornar 1 si se detecta semánticamente esta cláusula, 0 si no."
+      },
+      "contiene_clausula_garantia_dj": {
+        "type": "binary",
+        "description": "Indica si contiene la cláusula adicional sobre firma de Declaración Jurada para Garantía de Mantenimiento de Ofertas.",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'Garantía de Mantenimiento de Ofertas' o 'Declaración Jurada' en el contexto de firma en todas sus páginas. Retornar 1 si aparece, 0 si no."
+      },
+      "num_incisos_normativos": {
+        "type": "numeric",
+        "description": "Cantidad de incisos o párrafos numerados que contienen disposiciones normativas sobre formato y firma.",
+        "importance": 6,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar los párrafos que comienzan con un número seguido de punto (ej. '1.', '2.') y que contengan reglas sobre firma, formato o validez. No contar encabezados, enlaces web o texto no normativo. Retornar el entero resultante."
+      },
+      "contiene_enlaces_externos": {
+        "type": "binary",
+        "description": "Indica si la sección contiene enlaces web (URLs) a sitios externos, como guías de la DNCP.",
+        "importance": 5,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar patrones de URL como 'http://', 'https://' o 'www.contrataciones.gov.py'. Retornar 1 si se encuentra al menos una URL, 0 si no."
+      }
+    },
+    "justification": "El cluster dominante (0_1_2_3_...) establece el estándar con 4 incisos normativos completos: firma de formulario y lista de precios (física/electrónica), no descalificación por firma faltante en documentos no sustanciales, validez de anotaciones con firma, y no descalificación por falta de foliatura. Los campos binarios detectan omisiones críticas: 'menciona_lista_precios' (ausente en Cluster 5, reduciendo alcance), 'menciona_firma_fisica' (ausente en Cluster 5, limitando opciones), y las cláusulas sobre textos entre líneas y foliatura (ausentes en Cluster 5, debilitando especificaciones). 'contiene_clausula_garantia_dj' detecta adiciones en Clusters 12 y 17 (potencialmente anómalas si no son estándar). 'num_incisos_normativos' cuantifica la completitud estructural (Cluster 5 tiene solo 2, indicando posible recorte). 'contiene_enlaces_externos' detecta inserción de URLs (Clusters 4 y 5), lo que puede distraer o desviar. Las diferencias en estos campos, especialmente la reducción de cláusulas protectoras o la adición de elementos no normativos, son indicadores de anomalía.",
+    "cluster_values": {
+      "menciona_lista_precios": {
+        "cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19": 1,
+        "cluster_4": 1,
+        "cluster_5": 0,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "menciona_firma_fisica": {
+        "cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19": 1,
+        "cluster_4": 1,
+        "cluster_5": 0,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "menciona_firma_electronica": {
+        "cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19": 1,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "contiene_clausula_textos_entre_lineas": {
+        "cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19": 1,
+        "cluster_4": 1,
+        "cluster_5": 0,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "contiene_clausula_foliatura": {
+        "cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19": 1,
+        "cluster_4": 1,
+        "cluster_5": 0,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "contiene_clausula_garantia_dj": {
+        "cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19": 0,
+        "cluster_4": 0,
+        "cluster_5": 0,
+        "cluster_12": 1,
+        "cluster_17": 1
+      },
+      "num_incisos_normativos": {
+        "cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19": 4,
+        "cluster_4": 4,
+        "cluster_5": 2,
+        "cluster_12": 5,
+        "cluster_17": 5
+      },
+      "contiene_enlaces_externos": {
+        "cluster_0_1_2_3_6_7_8_9_10_11_13_14_15_16_18_19": 0,
+        "cluster_4": 1,
+        "cluster_5": 1,
+        "cluster_12": 0,
+        "cluster_17": 0
+      }
+    }
+  }
+}

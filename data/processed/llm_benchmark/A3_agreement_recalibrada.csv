@@ -1,0 +1,24 @@
+seta,modelo,n,k,acc,wilson,bootstrap
+Pseudo-pct-cota-optimista,Llama_31_8B-FP8,147,118,0.803,"[0.73,0.86]","[0.74,0.86]"
+Pseudo-pct-cota-optimista,Llama_31_8B-AWQ,147,114,0.776,"[0.70,0.84]","[0.71,0.84]"
+Pseudo-pct-cota-optimista,Qwen3-8B-FP8,147,56,0.381,"[0.31,0.46]","[0.30,0.46]"
+Pseudo-pct-cota-optimista,Qwen3-14B-AWQ,147,42,0.286,"[0.22,0.36]","[0.21,0.36]"
+Pseudo-pct-cota-optimista,Ministral_3_14B,147,17,0.116,"[0.07,0.18]","[0.07,0.17]"
+Pseudo-pct-cota-optimista,Mistral_7B_v03-AWQ,147,10,0.068,"[0.04,0.12]","[0.03,0.12]"
+Pseudo-pct-cota-optimista,EXAONE-35-78B-AWQ,147,2,0.014,"[0.00,0.05]","[0.00,0.03]"
+Pseudo-pct-cota-optimista,Gemma_4_12B,147,2,0.014,"[0.00,0.05]","[0.00,0.03]"
+Pseudo-pct-cota-optimista,Granite_42_8B,147,0,0.0,"[0.00,0.03]","[0.00,0.00]"
+Pseudo-pct-cota-optimista,Mistral_Small_24B-AWQ,147,0,0.0,"[0.00,0.03]","[0.00,0.00]"
+Pseudo-recal(dias_solicitud_anticipo),Llama_31_8B-FP8,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),Llama_31_8B-AWQ,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),Qwen3-8B-FP8,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),Qwen3-14B-AWQ,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),Ministral_3_14B,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),Mistral_7B_v03-AWQ,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),EXAONE-35-78B-AWQ,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),Gemma_4_12B,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),Granite_42_8B,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+Pseudo-recal(dias_solicitud_anticipo),Mistral_Small_24B-AWQ,180,154,0.856,"[0.80,0.90]","[0.80,0.91]"
+McNemar-recal(dias_solicitud_anticipo),Llama_31_8B-FP8 vs Llama_31_8B-AWQ,180,"b=0,c=0",1.0,,sig(a=0.0167)=False
+McNemar-recal(dias_solicitud_anticipo),Llama_31_8B-FP8 vs Qwen3-8B-FP8,180,"b=0,c=0",1.0,,sig(a=0.0167)=False
+McNemar-recal(dias_solicitud_anticipo),Llama_31_8B-AWQ vs Qwen3-8B-FP8,180,"b=0,c=0",1.0,,sig(a=0.0167)=False

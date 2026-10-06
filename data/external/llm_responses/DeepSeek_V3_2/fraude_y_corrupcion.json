@@ -1,0 +1,116 @@
+{
+  "title": "Fraude Y Corrupcion",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 12.3,
+  "n_fields": 7,
+  "validation_errors": [],
+  "field_names": [
+    "contiene_denuncia_penal",
+    "menciona_dncp",
+    "acciones_con_conector_y_o",
+    "num_acciones_especificadas",
+    "num_tipos_actos_fraude",
+    "contiene_lista_actos",
+    "texto_vacio_o_muy_reducido"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"contiene_denuncia_penal\": {\"type\": \"binary\", \"description\": \"Indica si la cláusula de denuncia especifica 'denuncia penal' (vs. solo 'denuncia')\", \"importance\": 10, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase exacta 'denuncia penal' en el contexto de las acciones a tomar (punto 2, inciso iv o similar). Retornar 1 si aparece, 0 si aparece solo 'denuncia' o no se menciona.\"},\n    \"menciona_dncp\": {\"type\": \"binary\", \"description\": \"Indica si se menciona a la Dirección Nacional de Contrataciones Públicas como entidad receptora de antecedentes\", \"importance\": 9, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'Dirección Nacional de Contrataciones Públicas' o el acrónimo 'DNCP' en el texto. Retornar 1 si aparece, 0 si no.\"},\n    \"acciones_con_conector_y_o\": {\"type\": \"binary\", \"description\": \"Indica si las acciones de descalificación y/o rescisión están unidas por el conector 'y/o' (vs. solo ';' o punto y coma)\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar el patrón '; y/o' inmediatamente después de la descripción de la primera acción (descalificación de oferta). Retornar 1 si el conector 'y/o' aparece uniendo las acciones (i) y (ii). Retornar 0 si hay solo punto y coma, punto, o no aparece 'y/o'.\"},\n    \"num_acciones_especificadas\": {\"type\": \"numeric\", \"description\": \"Cantidad de acciones específicas listadas en el punto 2 (antes de la lista de actos de fraude). Rango 0-4.\", \"importance\": 9, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar los incisos (i), (ii), (iii), (iv) que estén bajo el punto 2 (antes de la frase 'Fraude y corrupción comprenden actos como:'). Cada inciso debe comenzar con un número romano entre paréntesis seguido de texto. Retornar el número total (0-4).\"},\n    \"num_tipos_actos_fraude\": {\"type\": \"numeric\", \"description\": \"Cantidad de tipos de actos de fraude y corrupción enumerados (incisos i-v). Rango 0-5.\", \"importance\": 7, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar los incisos (i), (ii), (iii), (iv), (v) que estén bajo la frase 'Fraude y corrupción comprenden actos como:' o similar. Cada inciso debe comenzar con un número romano entre paréntesis. Retornar el número total (0-5).\"},\n    \"contiene_lista_actos\": {\"type\": \"binary\", \"description\": \"Indica si la sección incluye la lista detallada de actos que constituyen fraude y corrupción\", \"importance\": 8, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Buscar la frase introductoria 'Fraude y corrupción comprenden actos como:' o 'comprenden actos como' seguida de al menos un inciso con viñeta. Retornar 1 si se encuentra dicha estructura, 0 si no.\"},\n    \"texto_vacio_o_muy_reducido\": {\"type\": \"binary\", \"description\": \"Indica si la sección carece de desarrollo normativo sustancial (solo título o muy pocas palabras)\", \"importance\": 6, \"extraction_method\": \"structural\", \"extraction_hint\": \"Retornar 1 si el texto completo de la sección (excluyendo el título 'Fraude y Corrupción') tiene menos de 100 caracteres o no contiene al menos un verbo en infinitivo que denote obligación (ej: 'exige', 'deberá', 'descalificará'). Retornar 0 en caso contrario.\"}\n  },\n  \"justification\": \"El cluster dominante (0_2_4_6_7_8_10_13_14_15_16_17_19) establece el estándar: 4 acciones específicas, incluye 'denuncia penal', menciona DNCP, usa 'y/o' entre acciones, y tiene lista de 5 actos. Las anomalías clave son: 1) Omisión de 'penal' en la denuncia (clusters 1_12_18 y 3_9_11), lo que debilita la sanción. 2) Ausencia del conector 'y/o' en cluster 5, lo que podría limitar opciones de sanción. 3) Reducción en el número de acciones (aunque en las muestras todos tienen 4, es un campo crítico para detectar omisiones). 4) Ausencia de la lista de actos (no observada en clusters dados, pero es una omisión grave). Los campos binarios capturan omisiones específicas de términos legales clave. Los campos numéricos capturan reducciones en el detalle normativo. El campo 'texto_vacio' captura la omisión total de la sección, una anomalía extrema.\",\n  \"cluster_values\": {\n    \"contiene_denuncia_penal\": {\"cluster_0_2_4_6_7_8_10_13_14_15_16_17_19\": 1, \"cluster_1_12_18\": 0, \"cluster_3_9_11\": 0, \"cluster_5\": 1},\n    \"menciona_dncp\": {\"cluster_0_2_4_6_7_8_10_13_14_15_16_17_19\": 1, \"cluster_1_12_18\": 1, \"cluster_3_9_11\": 1, \"cluster_5\": 1},\n    \"acciones_con_conector_y_o\": {\"cluster_0_2_4_6_7_8_10_13_14_15_16_17_19\": 1, \"cluster_1_12_18\": 1, \"cluster_3_9_11\": 1, \"cluster_5\": 0},\n    \"num_acciones_especificadas\": {\"cluster_0_2_4_6_7_8_10_13_14_15_16_17_19\": 4, \"cluster_1_12_18\": 4, \"cluster_3_9_11\": 4, \"cluster_5\": 4},\n    \"num_tipos_actos_fraude\": {\"cluster_0_2_4_6_7_8_10_13_14_15_16_17_19\": 5, \"cluster_1_12_18\": 5, \"cluster_3_9_11\": 5, \"cluster_5\": 5},\n    \"contiene_lista_actos\": {\"cluster_0_2_4_6_7_8_10_13_14_15_16_17_19\": 1, \"cluster_1_12_18\": 1, \"cluster_3_9_11\": 1, \"cluster_5\": 1},\n    \"texto_vacio_o_muy_reducido\": {\"cluster_0_2_4_6_7_8_10_13_14_15_16_17_19\": 0, \"cluster_1_12_18\": 0, \"cluster_3_9_11\": 0, \"cluster_5\": 0}\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "contiene_denuncia_penal": {
+        "type": "binary",
+        "description": "Indica si la cláusula de denuncia especifica 'denuncia penal' (vs. solo 'denuncia')",
+        "importance": 10,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'denuncia penal' en el contexto de las acciones a tomar (punto 2, inciso iv o similar). Retornar 1 si aparece, 0 si aparece solo 'denuncia' o no se menciona."
+      },
+      "menciona_dncp": {
+        "type": "binary",
+        "description": "Indica si se menciona a la Dirección Nacional de Contrataciones Públicas como entidad receptora de antecedentes",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'Dirección Nacional de Contrataciones Públicas' o el acrónimo 'DNCP' en el texto. Retornar 1 si aparece, 0 si no."
+      },
+      "acciones_con_conector_y_o": {
+        "type": "binary",
+        "description": "Indica si las acciones de descalificación y/o rescisión están unidas por el conector 'y/o' (vs. solo ';' o punto y coma)",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar el patrón '; y/o' inmediatamente después de la descripción de la primera acción (descalificación de oferta). Retornar 1 si el conector 'y/o' aparece uniendo las acciones (i) y (ii). Retornar 0 si hay solo punto y coma, punto, o no aparece 'y/o'."
+      },
+      "num_acciones_especificadas": {
+        "type": "numeric",
+        "description": "Cantidad de acciones específicas listadas en el punto 2 (antes de la lista de actos de fraude). Rango 0-4.",
+        "importance": 9,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar los incisos (i), (ii), (iii), (iv) que estén bajo el punto 2 (antes de la frase 'Fraude y corrupción comprenden actos como:'). Cada inciso debe comenzar con un número romano entre paréntesis seguido de texto. Retornar el número total (0-4)."
+      },
+      "num_tipos_actos_fraude": {
+        "type": "numeric",
+        "description": "Cantidad de tipos de actos de fraude y corrupción enumerados (incisos i-v). Rango 0-5.",
+        "importance": 7,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar los incisos (i), (ii), (iii), (iv), (v) que estén bajo la frase 'Fraude y corrupción comprenden actos como:' o similar. Cada inciso debe comenzar con un número romano entre paréntesis. Retornar el número total (0-5)."
+      },
+      "contiene_lista_actos": {
+        "type": "binary",
+        "description": "Indica si la sección incluye la lista detallada de actos que constituyen fraude y corrupción",
+        "importance": 8,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar la frase introductoria 'Fraude y corrupción comprenden actos como:' o 'comprenden actos como' seguida de al menos un inciso con viñeta. Retornar 1 si se encuentra dicha estructura, 0 si no."
+      },
+      "texto_vacio_o_muy_reducido": {
+        "type": "binary",
+        "description": "Indica si la sección carece de desarrollo normativo sustancial (solo título o muy pocas palabras)",
+        "importance": 6,
+        "extraction_method": "structural",
+        "extraction_hint": "Retornar 1 si el texto completo de la sección (excluyendo el título 'Fraude y Corrupción') tiene menos de 100 caracteres o no contiene al menos un verbo en infinitivo que denote obligación (ej: 'exige', 'deberá', 'descalificará'). Retornar 0 en caso contrario."
+      }
+    },
+    "justification": "El cluster dominante (0_2_4_6_7_8_10_13_14_15_16_17_19) establece el estándar: 4 acciones específicas, incluye 'denuncia penal', menciona DNCP, usa 'y/o' entre acciones, y tiene lista de 5 actos. Las anomalías clave son: 1) Omisión de 'penal' en la denuncia (clusters 1_12_18 y 3_9_11), lo que debilita la sanción. 2) Ausencia del conector 'y/o' en cluster 5, lo que podría limitar opciones de sanción. 3) Reducción en el número de acciones (aunque en las muestras todos tienen 4, es un campo crítico para detectar omisiones). 4) Ausencia de la lista de actos (no observada en clusters dados, pero es una omisión grave). Los campos binarios capturan omisiones específicas de términos legales clave. Los campos numéricos capturan reducciones en el detalle normativo. El campo 'texto_vacio' captura la omisión total de la sección, una anomalía extrema.",
+    "cluster_values": {
+      "contiene_denuncia_penal": {
+        "cluster_0_2_4_6_7_8_10_13_14_15_16_17_19": 1,
+        "cluster_1_12_18": 0,
+        "cluster_3_9_11": 0,
+        "cluster_5": 1
+      },
+      "menciona_dncp": {
+        "cluster_0_2_4_6_7_8_10_13_14_15_16_17_19": 1,
+        "cluster_1_12_18": 1,
+        "cluster_3_9_11": 1,
+        "cluster_5": 1
+      },
+      "acciones_con_conector_y_o": {
+        "cluster_0_2_4_6_7_8_10_13_14_15_16_17_19": 1,
+        "cluster_1_12_18": 1,
+        "cluster_3_9_11": 1,
+        "cluster_5": 0
+      },
+      "num_acciones_especificadas": {
+        "cluster_0_2_4_6_7_8_10_13_14_15_16_17_19": 4,
+        "cluster_1_12_18": 4,
+        "cluster_3_9_11": 4,
+        "cluster_5": 4
+      },
+      "num_tipos_actos_fraude": {
+        "cluster_0_2_4_6_7_8_10_13_14_15_16_17_19": 5,
+        "cluster_1_12_18": 5,
+        "cluster_3_9_11": 5,
+        "cluster_5": 5
+      },
+      "contiene_lista_actos": {
+        "cluster_0_2_4_6_7_8_10_13_14_15_16_17_19": 1,
+        "cluster_1_12_18": 1,
+        "cluster_3_9_11": 1,
+        "cluster_5": 1
+      },
+      "texto_vacio_o_muy_reducido": {
+        "cluster_0_2_4_6_7_8_10_13_14_15_16_17_19": 0,
+        "cluster_1_12_18": 0,
+        "cluster_3_9_11": 0,
+        "cluster_5": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,760 @@
+[
+  {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "395227",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.946334838867188,
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 4,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_denuncia_penal\": 1,\n    \"menciona_dncp\": 1,\n    \"acciones_con_conector_y_o\": 1,\n    \"num_acciones_especificadas\": 4,\n    \"num_tipos_actos_fraude\": 4,\n    \"contiene_lista_actos\": 1,\n    \"texto_vacio_o_muy_reducido\": 0\n  }\n}"
+  },
+  {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "387967",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.929590940475464,
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 4,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_denuncia_penal\": 1,\n    \"menciona_dncp\": 1,\n    \"acciones_con_conector_y_o\": 1,\n    \"num_acciones_especificadas\": 4,\n    \"num_tipos_actos_fraude\": 4,\n    \"contiene_lista_actos\": 1,\n    \"texto_vacio_o_muy_reducido\": 0\n  }\n}"
+  },
+  {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "396415",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.90736198425293,
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 4,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_denuncia_penal\": 1,\n    \"menciona_dncp\": 1,\n    \"acciones_con_conector_y_o\": 1,\n    \"num_acciones_especificadas\": 4,\n    \"num_tipos_actos_fraude\": 4,\n    \"contiene_lista_actos\": 1,\n    \"texto_vacio_o_muy_reducido\": 0\n  }\n}"
+  },
+  {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "399672",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.906540632247925,
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 5,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_denuncia_penal\": 1,\n    \"menciona_dncp\": 1,\n    \"acciones_con_conector_y_o\": 1,\n    \"num_acciones_especificadas\": 4,\n    \"num_tipos_actos_fraude\": 5,\n    \"contiene_lista_actos\": 1,\n    \"texto_vacio_o_muy_reducido\": 0\n  }\n}"
+  },
+  {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "401885",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.04117751121521,
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 4,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_denuncia_penal\": 1,\n    \"menciona_dncp\": 1,\n    \"acciones_con_conector_y_o\": 1,\n    \"num_acciones_especificadas\": 4,\n    \"num_tipos_actos_fraude\": 4,\n    \"contiene_lista_actos\": 1,\n    \"texto_vacio_o_muy_reducido\": 0\n  }\n}"
+  },
+  {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "403005",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.686836957931519,
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 1,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_ley_7021\": 0,\n    \"menciona_ley_5282\": 0,\n    \"contiene_instruccion_reserva_aclaraciones\": 0,\n    \"detalla_excepciones_confidencialidad\": 1,\n    \"menciona_procedimiento_dos_sobres\": 1,\n    \"num_clausulas_principales\": 3,\n    \"menciona_compromiso_subcontratistas\": 1\n  }\n}"
+  },
+  {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "395392",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.692770004272461,
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 1,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_ley_7021\": 0,\n    \"menciona_ley_5282\": 0,\n    \"contiene_instruccion_reserva_aclaraciones\": 0,\n    \"detalla_excepciones_confidencialidad\": 1,\n    \"menciona_procedimiento_dos_sobres\": 1,\n    \"num_clausulas_principales\": 3,\n    \"menciona_compromiso_subcontratistas\": 1\n  }\n}"
+  },
+  {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "400249",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.598281621932983,
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 1,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_ley_7021\": 0,\n    \"menciona_ley_5282\": 0,\n    \"contiene_instruccion_reserva_aclaraciones\": 0,\n    \"detalla_excepciones_confidencialidad\": 1,\n    \"menciona_procedimiento_dos_sobres\": 1,\n    \"num_clausulas_principales\": 3,\n    \"menciona_compromiso_subcontratistas\": 1\n  }\n}"
+  },
+  {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "396159",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.632796287536621,
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 1,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_ley_7021\": 0,\n    \"menciona_ley_5282\": 0,\n    \"contiene_instruccion_reserva_aclaraciones\": 0,\n    \"detalla_excepciones_confidencialidad\": 1,\n    \"menciona_procedimiento_dos_sobres\": 1,\n    \"num_clausulas_principales\": 3,\n    \"menciona_compromiso_subcontratistas\": 1\n  }\n}"
+  },
+  {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "391475",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.568087577819824,
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 0,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_ley_7021\": 0,\n    \"menciona_ley_5282\": 0,\n    \"contiene_instruccion_reserva_aclaraciones\": 0,\n    \"detalla_excepciones_confidencialidad\": 0,\n    \"menciona_procedimiento_dos_sobres\": 1,\n    \"num_clausulas_principales\": 3,\n    \"menciona_compromiso_subcontratistas\": 1\n  }\n}"
+  },
+  {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "376965",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.907174825668335,
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 0,
+      "contiene_exclusion_dificultad": 0,
+      "contiene_requisito_nexo": 0,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_plazo_notificacion\": 1,\n  \"contiene_excepcion_plazo\": 0,\n  \"contiene_exclusion_dificultad\": 0,\n  \"contiene_requisito_nexo\": 0,\n  \"contiene_ampliacion_plazo\": 0,\n  \"contiene_exclusion_previsibilidad\": 1,\n  \"num_eventos_ejemplo\": 6,\n  \"contiene_limite_afectacion\": 0\n}"
+  },
+  {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "418348",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.635870933532715,
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 1,
+      "contiene_exclusion_dificultad": 1,
+      "contiene_requisito_nexo": 1,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_plazo_notificacion\": 1,\n  \"contiene_excepcion_plazo\": 1,\n  \"contiene_exclusion_dificultad\": 1,\n  \"contiene_requisito_nexo\": 1,\n  \"contiene_ampliacion_plazo\": 0,\n  \"contiene_exclusion_previsibilidad\": 1,\n  \"num_eventos_ejemplo\": 6,\n  \"contiene_limite_afectacion\": 1\n}"
+  },
+  {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "395507",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.801053285598755,
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 0,
+      "contiene_exclusion_dificultad": 0,
+      "contiene_requisito_nexo": 0,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_plazo_notificacion\": 1,\n  \"contiene_excepcion_plazo\": 0,\n  \"contiene_exclusion_dificultad\": 0,\n  \"contiene_requisito_nexo\": 0,\n  \"contiene_ampliacion_plazo\": 0,\n  \"contiene_exclusion_previsibilidad\": 1,\n  \"num_eventos_ejemplo\": 6,\n  \"contiene_limite_afectacion\": 0\n}"
+  },
+  {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "400576",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.657574892044067,
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 1,
+      "contiene_exclusion_dificultad": 1,
+      "contiene_requisito_nexo": 1,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_plazo_notificacion\": 1,\n  \"contiene_excepcion_plazo\": 1,\n  \"contiene_exclusion_dificultad\": 1,\n  \"contiene_requisito_nexo\": 1,\n  \"contiene_ampliacion_plazo\": 0,\n  \"contiene_exclusion_previsibilidad\": 1,\n  \"num_eventos_ejemplo\": 6,\n  \"contiene_limite_afectacion\": 1\n}"
+  },
+  {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "401115",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.551506519317627,
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 1,
+      "contiene_exclusion_dificultad": 1,
+      "contiene_requisito_nexo": 1,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_plazo_notificacion\": 1,\n  \"contiene_excepcion_plazo\": 1,\n  \"contiene_exclusion_dificultad\": 1,\n  \"contiene_requisito_nexo\": 1,\n  \"contiene_ampliacion_plazo\": 0,\n  \"contiene_exclusion_previsibilidad\": 1,\n  \"num_eventos_ejemplo\": 6,\n  \"contiene_limite_afectacion\": 1\n}"
+  },
+  {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "400322",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.66527009010315,
+    "values": {
+      "solicitud_obligatoria": 1,
+      "menciona_cpen": 0,
+      "menciona_formulario_anexo": 0,
+      "menciona_facilitar_proceso": 1,
+      "num_verbos_facultad": 1,
+      "num_restricciones_modificacion": 2,
+      "excepcion_errores_aritmeticos": 1,
+      "menciona_fuente_externa": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"solicitud_obligatoria\": 1,\n  \"menciona_cpen\": 0,\n  \"menciona_formulario_anexo\": 0,\n  \"menciona_facilitar_proceso\": 1,\n  \"num_verbos_facultad\": 1,\n  \"num_restricciones_modificacion\": 2,\n  \"excepcion_errores_aritmeticos\": 1,\n  \"menciona_fuente_externa\": 1\n}"
+  },
+  {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "418846",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": false,
+    "response_time": 18.843511819839478,
+    "values": {},
+    "errors": [
+      "Failed after retries"
+    ],
+    "raw_response": ""
+  },
+  {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "420308",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.834438800811768,
+    "values": {
+      "solicitud_obligatoria": 1,
+      "menciona_cpen": 0,
+      "menciona_formulario_anexo": 0,
+      "menciona_facilitar_proceso": 1,
+      "num_verbos_facultad": 1,
+      "num_restricciones_modificacion": 2,
+      "excepcion_errores_aritmeticos": 1,
+      "menciona_fuente_externa": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"solicitud_obligatoria\": 1,\n    \"menciona_cpen\": 0,\n    \"menciona_formulario_anexo\": 0,\n    \"menciona_facilitar_proceso\": 1,\n    \"num_verbos_facultad\": 1,\n    \"num_restricciones_modificacion\": 2,\n    \"excepcion_errores_aritmeticos\": 1,\n    \"menciona_fuente_externa\": 1\n  }\n}"
+  },
+  {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "401398",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.58083176612854,
+    "values": {
+      "solicitud_obligatoria": 1,
+      "menciona_cpen": 0,
+      "menciona_formulario_anexo": 0,
+      "menciona_facilitar_proceso": 1,
+      "num_verbos_facultad": 1,
+      "num_restricciones_modificacion": 2,
+      "excepcion_errores_aritmeticos": 1,
+      "menciona_fuente_externa": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"solicitud_obligatoria\": 1,\n  \"menciona_cpen\": 0,\n  \"menciona_formulario_anexo\": 0,\n  \"menciona_facilitar_proceso\": 1,\n  \"num_verbos_facultad\": 1,\n  \"num_restricciones_modificacion\": 2,\n  \"excepcion_errores_aritmeticos\": 1,\n  \"menciona_fuente_externa\": 1\n}"
+  },
+  {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "393243",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.733580827713013,
+    "values": {
+      "solicitud_obligatoria": 1,
+      "menciona_cpen": 0,
+      "menciona_formulario_anexo": 0,
+      "menciona_facilitar_proceso": 1,
+      "num_verbos_facultad": 1,
+      "num_restricciones_modificacion": 2,
+      "excepcion_errores_aritmeticos": 1,
+      "menciona_fuente_externa": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"solicitud_obligatoria\": 1,\n  \"menciona_cpen\": 0,\n  \"menciona_formulario_anexo\": 0,\n  \"menciona_facilitar_proceso\": 1,\n  \"num_verbos_facultad\": 1,\n  \"num_restricciones_modificacion\": 2,\n  \"excepcion_errores_aritmeticos\": 1,\n  \"menciona_fuente_externa\": 1\n}"
+  },
+  {
+    "title": "Interpretacion",
+    "nro_licitacion": "400970",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.904461145401001,
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_limitacion_dispensas\": 1,\n  \"num_subincisos_limitacion_dispensas\": 2,\n  \"definicion_dia_calendario\": 1,\n  \"clausula_separabilidad_presente\": 1,\n  \"num_clausulas_principales\": 3,\n  \"menciona_contrato_con_mayuscula\": 1\n}"
+  },
+  {
+    "title": "Interpretacion",
+    "nro_licitacion": "398266",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.010278224945068,
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_limitacion_dispensas\": 1,\n  \"num_subincisos_limitacion_dispensas\": 2,\n  \"definicion_dia_calendario\": 1,\n  \"clausula_separabilidad_presente\": 1,\n  \"num_clausulas_principales\": 3,\n  \"menciona_contrato_con_mayuscula\": 0\n}"
+  },
+  {
+    "title": "Interpretacion",
+    "nro_licitacion": "397154",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.059130191802979,
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_limitacion_dispensas\": 1,\n  \"num_subincisos_limitacion_dispensas\": 2,\n  \"definicion_dia_calendario\": 1,\n  \"clausula_separabilidad_presente\": 1,\n  \"num_clausulas_principales\": 3,\n  \"menciona_contrato_con_mayuscula\": 0\n}"
+  },
+  {
+    "title": "Interpretacion",
+    "nro_licitacion": "388072",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.970951318740845,
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 1
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_limitacion_dispensas\": 1,\n  \"num_subincisos_limitacion_dispensas\": 2,\n  \"definicion_dia_calendario\": 1,\n  \"clausula_separabilidad_presente\": 1,\n  \"num_clausulas_principales\": 3,\n  \"menciona_contrato_con_mayuscula\": 1\n}"
+  },
+  {
+    "title": "Interpretacion",
+    "nro_licitacion": "399105",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.941457509994507,
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_limitacion_dispensas\": 1,\n  \"num_subincisos_limitacion_dispensas\": 2,\n  \"definicion_dia_calendario\": 1,\n  \"clausula_separabilidad_presente\": 1,\n  \"num_clausulas_principales\": 3,\n  \"menciona_contrato_con_mayuscula\": 0\n}"
+  },
+  {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "402276",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.109421253204346,
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 4,
+      "contiene_enlaces_externos": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_lista_precios\": 1,\n    \"menciona_firma_fisica\": 1,\n    \"menciona_firma_electronica\": 1,\n    \"contiene_clausula_textos_entre_lineas\": 1,\n    \"contiene_clausula_foliatura\": 1,\n    \"contiene_clausula_garantia_dj\": 0,\n    \"num_incisos_normativos\": 4,\n    \"contiene_enlaces_externos\": 0\n  }\n}"
+  },
+  {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "404097",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.002648830413818,
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 4,
+      "contiene_enlaces_externos": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_lista_precios\": 1,\n    \"menciona_firma_fisica\": 1,\n    \"menciona_firma_electronica\": 1,\n    \"contiene_clausula_textos_entre_lineas\": 1,\n    \"contiene_clausula_foliatura\": 1,\n    \"contiene_clausula_garantia_dj\": 0,\n    \"num_incisos_normativos\": 4,\n    \"contiene_enlaces_externos\": 0\n  }\n}"
+  },
+  {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "393439",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.708501815795898,
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 3,
+      "contiene_enlaces_externos": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"menciona_lista_precios\": 1,\n  \"menciona_firma_fisica\": 1,\n  \"menciona_firma_electronica\": 1,\n  \"contiene_clausula_textos_entre_lineas\": 1,\n  \"contiene_clausula_foliatura\": 1,\n  \"contiene_clausula_garantia_dj\": 0,\n  \"num_incisos_normativos\": 3,\n  \"contiene_enlaces_externos\": 0\n}"
+  },
+  {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "395795",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.989818334579468,
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 4,
+      "contiene_enlaces_externos": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_lista_precios\": 1,\n    \"menciona_firma_fisica\": 1,\n    \"menciona_firma_electronica\": 1,\n    \"contiene_clausula_textos_entre_lineas\": 1,\n    \"contiene_clausula_foliatura\": 1,\n    \"contiene_clausula_garantia_dj\": 0,\n    \"num_incisos_normativos\": 4,\n    \"contiene_enlaces_externos\": 0\n  }\n}"
+  },
+  {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "402440",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.894840240478516,
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 4,
+      "contiene_enlaces_externos": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"menciona_lista_precios\": 1,\n    \"menciona_firma_fisica\": 1,\n    \"menciona_firma_electronica\": 1,\n    \"contiene_clausula_textos_entre_lineas\": 1,\n    \"contiene_clausula_foliatura\": 1,\n    \"contiene_clausula_garantia_dj\": 0,\n    \"num_incisos_normativos\": 4,\n    \"contiene_enlaces_externos\": 0\n  }\n}"
+  },
+  {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "400687",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.244445085525513,
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_excepcion_impuestos\": 1,\n    \"texto_excepcion_especifica\": 1,\n    \"menciona_bienes_extranjeros\": 1,\n    \"menciona_bienes_nacionales\": 1,\n    \"num_tipos_impuestos_listados\": 3,\n    \"menciona_cargos_fuera_paraguay\": 1,\n    \"texto_vacio_o_incompleto\": 0\n  }\n}"
+  },
+  {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "396969",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.230065107345581,
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_excepcion_impuestos\": 1,\n    \"texto_excepcion_especifica\": 1,\n    \"menciona_bienes_extranjeros\": 1,\n    \"menciona_bienes_nacionales\": 1,\n    \"num_tipos_impuestos_listados\": 3,\n    \"menciona_cargos_fuera_paraguay\": 1,\n    \"texto_vacio_o_incompleto\": 0\n  }\n}"
+  },
+  {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "395957",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.058154106140137,
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_excepcion_impuestos\": 1,\n  \"texto_excepcion_especifica\": 1,\n  \"menciona_bienes_extranjeros\": 1,\n  \"menciona_bienes_nacionales\": 1,\n  \"num_tipos_impuestos_listados\": 3,\n  \"menciona_cargos_fuera_paraguay\": 1,\n  \"texto_vacio_o_incompleto\": 0\n}"
+  },
+  {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "400406",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.10708212852478,
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_excepcion_impuestos\": 1,\n    \"texto_excepcion_especifica\": 1,\n    \"menciona_bienes_extranjeros\": 1,\n    \"menciona_bienes_nacionales\": 1,\n    \"num_tipos_impuestos_listados\": 3,\n    \"menciona_cargos_fuera_paraguay\": 1,\n    \"texto_vacio_o_incompleto\": 0\n  }\n}"
+  },
+  {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "390842",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 8.304254293441772,
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "errors": [],
+    "raw_response": "{\n  \"campos\": {\n    \"contiene_excepcion_impuestos\": 1,\n    \"texto_excepcion_especifica\": 1,\n    \"menciona_bienes_extranjeros\": 1,\n    \"menciona_bienes_nacionales\": 1,\n    \"num_tipos_impuestos_listados\": 3,\n    \"menciona_cargos_fuera_paraguay\": 1,\n    \"texto_vacio_o_incompleto\": 0\n  }\n}"
+  },
+  {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "391819",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.889015674591064,
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 0,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 143
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_clausula_indemnizacion\": 1,\n  \"contiene_exclusiones_indemnizacion\": 1,\n  \"contiene_terceros_propiedad_intelectual\": 0,\n  \"num_escenarios_causales_indemnizacion\": 2,\n  \"contiene_referencia_contrato_mayusculas\": 1,\n  \"longitud_seccion_palabras\": 143\n}"
+  },
+  {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "389959",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.918634414672852,
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 1,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 163
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_clausula_indemnizacion\": 1,\n  \"contiene_exclusiones_indemnizacion\": 1,\n  \"contiene_terceros_propiedad_intelectual\": 1,\n  \"num_escenarios_causales_indemnizacion\": 2,\n  \"contiene_referencia_contrato_mayusculas\": 1,\n  \"longitud_seccion_palabras\": 163\n}"
+  },
+  {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "392019",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 10.03989577293396,
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 1,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 163
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_clausula_indemnizacion\": 1,\n  \"contiene_exclusiones_indemnizacion\": 1,\n  \"contiene_terceros_propiedad_intelectual\": 1,\n  \"num_escenarios_causales_indemnizacion\": 2,\n  \"contiene_referencia_contrato_mayusculas\": 1,\n  \"longitud_seccion_palabras\": 163\n}"
+  },
+  {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "404187",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.956200361251831,
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 1,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 133
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_clausula_indemnizacion\": 1,\n  \"contiene_exclusiones_indemnizacion\": 1,\n  \"contiene_terceros_propiedad_intelectual\": 1,\n  \"num_escenarios_causales_indemnizacion\": 2,\n  \"contiene_referencia_contrato_mayusculas\": 1,\n  \"longitud_seccion_palabras\": 133\n}"
+  },
+  {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "390470",
+    "model": "qwen14b",
+    "prompt_variant": "base",
+    "success": true,
+    "response_time": 9.999776601791382,
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 0,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 115
+    },
+    "errors": [],
+    "raw_response": "{\n  \"contiene_clausula_indemnizacion\": 1,\n  \"contiene_exclusiones_indemnizacion\": 1,\n  \"contiene_terceros_propiedad_intelectual\": 0,\n  \"num_escenarios_causales_indemnizacion\": 2,\n  \"contiene_referencia_contrato_mayusculas\": 1,\n  \"longitud_seccion_palabras\": 115\n}"
+  }
+]

@@ -1,0 +1,208 @@
+{
+ "seed": 777,
+ "overlap_n": {
+  "dias_validez_garantia": 17,
+  "anos_experiencia_minima_tecnica": 17,
+  "dias_pago_anticipo": 12,
+  "dias_solicitud_anticipo": 7,
+  "pct_monto_referencia_tecnica": 34
+ },
+ "pseudo_vs_db_mismatch": 1,
+ "dominante": {
+  "dias_validez_garantia": {
+   "n": 69,
+   "k": 36,
+   "p": 0.522,
+   "wilson": [
+    0.406,
+    0.635
+   ]
+  },
+  "anos_experiencia_minima_tecnica": {
+   "n": 82,
+   "k": 19,
+   "p": 0.232,
+   "wilson": [
+    0.154,
+    0.334
+   ]
+  },
+  "dias_pago_anticipo": {
+   "n": 75,
+   "k": 23,
+   "p": 0.307,
+   "wilson": [
+    0.214,
+    0.418
+   ]
+  },
+  "dias_solicitud_anticipo": {
+   "n": 57,
+   "k": 45,
+   "p": 0.789,
+   "wilson": [
+    0.667,
+    0.875
+   ]
+  },
+  "pct_monto_referencia_tecnica": {
+   "n": 67,
+   "k": 41,
+   "p": 0.612,
+   "wilson": [
+    0.492,
+    0.72
+   ]
+  }
+ },
+ "gate": {
+  "dias_validez_garantia": {
+   "decision": "AMBIGUO->no entra (in dubio pro referencia)",
+   "note": "phi n_solapados=15 (<25 inconcluso) ",
+   "phi_models": {}
+  },
+  "anos_experiencia_minima_tecnica": {
+   "decision": "DEGRADA (dominante punto<0.50)",
+   "note": "phi n_solapados=14 (<25 inconcluso) ",
+   "phi_models": {}
+  },
+  "dias_pago_anticipo": {
+   "decision": "DEGRADA (dominante punto<0.50)",
+   "note": "phi n_solapados=10 (<25 inconcluso) ",
+   "phi_models": {}
+  },
+  "dias_solicitud_anticipo": {
+   "decision": "SOSTIENE (dominante LCB>=0.60)",
+   "note": "phi n_solapados=7 (<25 inconcluso) ",
+   "phi_models": {}
+  },
+  "pct_monto_referencia_tecnica": {
+   "decision": "SOLO CON COTA OPTIMISTA (no entra a agregados)",
+   "note": "phi por modelo (n={'EXAONE-35-78B-AWQ': (0.696, 0.696, 0.696, 34), 'Mistral_7B_v03-AWQ': (0.897, 0.897, 0.897, 34), 'Ministral_3_14B': (0.795, 0.795, 0.795, 34), 'Mistral_Small_24B-AWQ': (nan, nan, nan, 34), 'Granite_42_8B': (nan, nan, nan, 34), 'Llama_31_8B-FP8': (0.82, 0.82, 0.82, 34), 'Llama_31_8B-AWQ': (0.812, 0.812, 0.812, 34), 'Qwen3-14B-AWQ': (0.824, 0.824, 0.824, 34), 'Gemma_4_12B': (nan, nan, nan, 34), 'Qwen3-8B-FP8': (0.771, 0.771, 0.771, 34)})",
+   "phi_models": {
+    "EXAONE-35-78B-AWQ": [
+     0.696,
+     0.696,
+     0.696,
+     34
+    ],
+    "Mistral_7B_v03-AWQ": [
+     0.897,
+     0.897,
+     0.897,
+     34
+    ],
+    "Ministral_3_14B": [
+     0.795,
+     0.795,
+     0.795,
+     34
+    ],
+    "Mistral_Small_24B-AWQ": [
+     NaN,
+     NaN,
+     NaN,
+     34
+    ],
+    "Granite_42_8B": [
+     NaN,
+     NaN,
+     NaN,
+     34
+    ],
+    "Llama_31_8B-FP8": [
+     0.82,
+     0.82,
+     0.82,
+     34
+    ],
+    "Llama_31_8B-AWQ": [
+     0.812,
+     0.812,
+     0.812,
+     34
+    ],
+    "Qwen3-14B-AWQ": [
+     0.824,
+     0.824,
+     0.824,
+     34
+    ],
+    "Gemma_4_12B": [
+     NaN,
+     NaN,
+     NaN,
+     34
+    ],
+    "Qwen3-8B-FP8": [
+     0.771,
+     0.771,
+     0.771,
+     34
+    ]
+   }
+  }
+ },
+ "matriz_A1c": {
+  "dias_validez_garantia": {
+   "P_correcta_si_acuerdo": 1.0,
+   "n_desacuerdos": 70,
+   "razon_LLM": 70,
+   "razon_regex": 0,
+   "ninguno": 0,
+   "a_m_desacuerdos_llm_razon": {
+    "A": 60,
+    "M": 10,
+    "O": 0
+   }
+  },
+  "anos_experiencia_minima_tecnica": {
+   "P_correcta_si_acuerdo": 1.0,
+   "n_desacuerdos": 100,
+   "razon_LLM": 100,
+   "razon_regex": 0,
+   "ninguno": 0,
+   "a_m_desacuerdos_llm_razon": {
+    "A": 90,
+    "M": 10,
+    "O": 0
+   }
+  },
+  "dias_pago_anticipo": {
+   "P_correcta_si_acuerdo": 1.0,
+   "n_desacuerdos": 80,
+   "razon_LLM": 80,
+   "razon_regex": 0,
+   "ninguno": 0,
+   "a_m_desacuerdos_llm_razon": {
+    "A": 10,
+    "M": 70,
+    "O": 0
+   }
+  },
+  "dias_solicitud_anticipo": {
+   "P_correcta_si_acuerdo": 1.0,
+   "n_desacuerdos": 10,
+   "razon_LLM": 10,
+   "razon_regex": 0,
+   "ninguno": 0,
+   "a_m_desacuerdos_llm_razon": {
+    "A": 0,
+    "M": 10,
+    "O": 0
+   }
+  },
+  "pct_monto_referencia_tecnica": {
+   "P_correcta_si_acuerdo": 0.874,
+   "n_desacuerdos": 237,
+   "razon_LLM": 8,
+   "razon_regex": 210,
+   "ninguno": 19,
+   "a_m_desacuerdos_llm_razon": {
+    "A": 0,
+    "M": 0,
+    "O": 0
+   }
+  }
+ }
+}

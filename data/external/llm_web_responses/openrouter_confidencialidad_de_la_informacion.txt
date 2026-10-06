@@ -1,0 +1,81 @@
+```json
+{
+  "schema": {
+    "menciona_ley_7021_22": {
+      "type": "binary",
+      "description": "Indica si se hace referencia explícita a la Ley N° 7021/22 de Suministro y Contrataciones Públicas",
+      "importance": 10,
+      "extraction_method": "literal",
+      "extraction_hint": "Buscar la coincidencia literal 'Ley N° 7021/22' o 'Ley 7021/22'. Retornar 1 si aparece, 0 si no."
+    },
+    "menciona_ley_5282_14": {
+      "type": "binary",
+      "description": "Indica si se hace referencia explícita a la Ley N° 5282/14 de Libre Acceso Ciudadano a la Información Pública",
+      "importance": 9,
+      "extraction_method": "literal",
+      "extraction_hint": "Buscar la coincidencia literal 'Ley N° 5282/14' o 'Ley 5282/14'. Retornar 1 si aparece, 0 si no."
+    },
+    "incluye_excepciones_subcontratistas": {
+      "type": "binary",
+      "description": "Indica si se permite la divulgación de información a subcontratistas bajo compromiso de confidencialidad",
+      "importance": 8,
+      "extraction_method": "semantic",
+      "extraction_hint": "Detectar si el texto menciona que el proveedor puede proporcionar información a 'ubcontratistas' siempre que obtenga un 'compromiso de confidencialidad'. Retornar 1 si existe la cláusula, 0 si no."
+    },
+    "menciona_procedimiento_dos_sobres": {
+      "type": "binary",
+      "description": "Indica si la cláusula contempla específicamente el procedimiento de licitación de dos sobres",
+      "importance": 7,
+      "extraction_method": "semantic",
+      "extraction_hint": "Detectar si el texto menciona la distinción entre 'un solo sobre' y 'dos sobres' para la aplicación de la confidencialidad. Retornar 1 si aparece, 0 si no."
+    },
+    "num_excepciones_confidencialidad": {
+      "type": "numeric",
+      "description": "Cantidad de excepciones a la obligación de confidencialidad listadas (ej. dominio público, requerimiento legal) (0-4)",
+      "importance": 7,
+      "extraction_method": "structural",
+      "extraction_hint": "Contar la cantidad de incisos (a, b, c, d) o puntos numerados que describen situaciones donde la información no es confidencial. Retornar el conteo entero."
+    },
+    "menciona_uso_exclusivo_contrato": {
+      "type": "binary",
+      "description": "Indica si se prohíbe explícitamente el uso de la información para fines distintos a la ejecución del contrato",
+      "importance": 6,
+      "extraction_method": "semantic",
+      "extraction_hint": "Detectar si existe una prohibición de usar la información para 'ningún otro propósito diferente al de la ejecución del contrato'. Retornar 1 si aparece, 0 si no."
+    }
+  },
+  "justification": "El cluster dominante (Cluster 0) es una versión simplificada que omite las referencias normativas obligatorias (Ley 7021/22 y Ley 5282/14) que sí aparecen en los clusters 1, 2, 7, 14, 17 y 18. La ausencia de estas leyes es una anomalía crítica porque debilita el marco jurídico de la reserva de información. Se han diseñado campos para detectar la presencia de estas leyes, la mención al procedimiento de dos sobres (que varía en su redacción según el cluster) y la enumeración de excepciones. El campo 'incluye_excepciones_subcontratistas' es vital para asegurar que la responsabilidad de la confidencialidad se extienda a la cadena de suministro, una característica presente en todos los clusters pero con distinta profundidad.",
+  "cluster_values": {
+    "menciona_ley_7021_22": {
+      "cluster_0": 0,
+      "cluster_1": 1,
+      "cluster_2": 1
+    },
+    "menciona_ley_5282_14": {
+      "cluster_0": 0,
+      "cluster_1": 1,
+      "cluster_2": 1
+    },
+    "incluye_excepciones_subcontratistas": {
+      "cluster_0": 1,
+      "cluster_1": 1,
+      "cluster_2": 1
+    },
+    "menciona_procedimiento_dos_sobres": {
+      "cluster_0": 1,
+      "cluster_1": 1,
+      "cluster_2": 1
+    },
+    "num_excepciones_confidencialidad": {
+      "cluster_0": 2,
+      "cluster_1": 0,
+      "cluster_2": 0
+    },
+    "menciona_uso_exclusivo_contrato": {
+      "cluster_0": 1,
+      "cluster_1": 1,
+      "cluster_2": 1
+    }
+  }
+}
+```

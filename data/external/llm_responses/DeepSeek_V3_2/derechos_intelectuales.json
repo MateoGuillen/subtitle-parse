@@ -1,0 +1,114 @@
+{
+  "title": "Derechos Intelectuales",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 13.56,
+  "n_fields": 6,
+  "validation_errors": [],
+  "field_names": [
+    "contiene_clausula_indemnizacion",
+    "contiene_exclusiones_indemnizacion",
+    "contiene_terceros_propiedad_intelectual",
+    "num_escenarios_causales_indemnizacion",
+    "contiene_referencia_contrato_mayusculas",
+    "longitud_seccion_palabras"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"contiene_clausula_indemnizacion\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la sección contiene una cláusula de indemnización del proveedor a la contratante por infracción de derechos intelectuales.\",\n      \"importance\": 10,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Retornar 1 si el texto contiene una oración que indique que el proveedor indemnizará, liberará de responsabilidad o cubrirá costos a la contratante por transgresión de derechos de propiedad intelectual. Buscar términos como 'indemnizará', 'liberará de toda responsabilidad', 'cubrirá gastos', 'costos y gastos de cualquier naturaleza' en el contexto de una infracción de propiedad intelectual. Retornar 0 si no se encuentra tal cláusula.\"\n    },\n    \"contiene_exclusiones_indemnizacion\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la cláusula de indemnización incluye exclusiones o limitaciones específicas.\",\n      \"importance\": 9,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Retornar 1 si el texto, después de establecer la obligación de indemnizar, menciona que dicha indemnización 'no procederá' o 'no cubrirá' bajo ciertas condiciones. Buscar frases como 'no procederá si', 'no cubrirá si', 'tampoco cubrirá', 'si los bienes fuesen utilizados para fines no previstos', o 'asociación o combinación con otro equipo no suministrado'. Retornar 0 si no se encuentran tales exclusiones.\"\n    },\n    \"contiene_terceros_propiedad_intelectual\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona explícitamente que los derechos de propiedad intelectual de materiales suministrados por terceros permanecen en dichos terceros.\",\n      \"importance\": 8,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'derechos de propiedad intelectual de dichos materiales seguirán siendo de propiedad de dichos terceros' o una variante muy cercana como 'seguirá siendo de propiedad de dichos terceros'. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"num_escenarios_causales_indemnizacion\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de escenarios causales específicos listados que activan la obligación de indemnizar (0-2).\",\n      \"importance\": 7,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Contar los incisos o letras (a, b) que enumeran causas específicas para la indemnización. Buscar una lista que comience después de 'debido a:' o 'por:'. Los escenarios típicos son: 1) instalación o uso en Paraguay, y 2) venta de productos en cualquier país. Retornar el número de causas listadas (0, 1 o 2).\"\n    },\n    \"contiene_referencia_contrato_mayusculas\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la palabra 'Contrato' aparece escrita con mayúscula inicial en contextos normativos clave.\",\n      \"importance\": 6,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la palabra 'Contrato' (con 'C' mayúscula) en contextos como 'fines no previstos en el Contrato' o 'virtud del Contrato'. No contar si solo aparece 'contrato' en minúscula. Retornar 1 si se encuentra al menos una instancia de 'Contrato' con mayúscula en el cuerpo normativo (excluyendo el título), 0 si no.\"\n    },\n    \"longitud_seccion_palabras\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad total de palabras en el texto de la sección (excluyendo el título).\",\n      \"importance\": 5,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Contar todas las palabras en el cuerpo del texto después del título 'Derechos Intelectuales'. Una palabra es cualquier secuencia de caracteres alfanuméricos delimitada por espacios o puntuación. Retornar el número entero total.\"\n    }\n  },\n  \"justification\": \"El cluster dominante (0_1_5_9_11_17_18) y la mayoría de los otros (2_4_7..., 6, 8, 12) contienen una cláusula de indemnización robusta con exclusiones y reconocen propiedad intelectual de terceros. Estos campos detectan omisiones graves que debilitan la protección de la contratante. 'contiene_clausula_indemnizacion' es crítico (importancia 10) porque su ausencia sería una anomalía mayor. 'contiene_exclusiones_indemnizacion' (importancia 9) captura si se limitan las obligaciones del proveedor. 'contiene_terceros_propiedad_intelectual' (importancia 8) protege contra riesgos de reclamaciones de terceros. 'num_escenarios_causales_indemnizacion' (importancia 7) mide si se reducen los supuestos de activación. 'contiene_referencia_contrato_mayusculas' (importancia 6) es un proxy estructural que, aunque no normativo, puede correlacionarse con versiones más formales o completas. 'longitud_seccion_palabras' (importancia 5) ayuda a identificar secciones truncadas o anormalmente cortas. Todos los clusters mostrados tendrían valor 1 en los primeros tres campos binarios y 2 en el campo numérico de escenarios, excepto posibles anomalías no visibles en los extractos. Los campos están diseñados para ser extraídos automáticamente de un texto individual.\",\n  \"cluster_values\": {\n    \"contiene_clausula_indemnizacion\": {\n      \"cluster_0_1_5_9_11_17_18\": 1,\n      \"cluster_2_4_7_10_13_14_15_16_19\": 1,\n      \"cluster_3\": 1,\n      \"cluster_6\": 1,\n      \"cluster_8\": 1,\n      \"cluster_12\": 1\n    },\n    \"contiene_exclusiones_indemnizacion\": {\n      \"cluster_0_1_5_9_11_17_18\": 1,\n      \"cluster_2_4_7_10_13_14_15_16_19\": 1,\n      \"cluster_3\": 1,\n      \"cluster_6\": 1,\n      \"cluster_8\": 1,\n      \"cluster_12\": 1\n    },\n    \"contiene_terceros_propiedad_intelectual\": {\n      \"cluster_0_1_5_9_11_17_18\": 1,\n      \"cluster_2_4_7_10_13_14_15_16_19\": 1,\n      \"cluster_3\": 1,\n      \"cluster_6\": 1,\n      \"cluster_8\": 1,\n      \"cluster_12\": 1\n    },\n    \"num_escenarios_causales_indemnizacion\": {\n      \"cluster_0_1_5_9_11_17_18\": 2,\n      \"cluster_2_4_7_10_13_14_15_16_19\": 2,\n      \"cluster_3\": 2,\n      \"cluster_6\": 2,\n      \"cluster_8\": 2,\n      \"cluster_12\": 2\n    },\n    \"contiene_referencia_contrato_mayusculas\": {\n      \"cluster_0_1_5_9_11_17_18\": 1,\n      \"cluster_2_4_7_10_13_14_15_16_19\": 0,\n      \"cluster_3\": 0,\n      \"cluster_6\": 1,\n      \"cluster_8\": 0,\n      \"cluster_12\": 1\n    },\n    \"longitud_seccion_palabras\": {\n      \"cluster_0_1_5_9_11_17_18\": 320,\n      \"cluster_2_4_7_10_13_14_15_16_19\": 320,\n      \"cluster_3\": 320,\n      \"cluster_6\": 320,\n      \"cluster_8\": 320,\n      \"cluster_12\": 320\n    }\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "contiene_clausula_indemnizacion": {
+        "type": "binary",
+        "description": "Indica si la sección contiene una cláusula de indemnización del proveedor a la contratante por infracción de derechos intelectuales.",
+        "importance": 10,
+        "extraction_method": "semantic",
+        "extraction_hint": "Retornar 1 si el texto contiene una oración que indique que el proveedor indemnizará, liberará de responsabilidad o cubrirá costos a la contratante por transgresión de derechos de propiedad intelectual. Buscar términos como 'indemnizará', 'liberará de toda responsabilidad', 'cubrirá gastos', 'costos y gastos de cualquier naturaleza' en el contexto de una infracción de propiedad intelectual. Retornar 0 si no se encuentra tal cláusula."
+      },
+      "contiene_exclusiones_indemnizacion": {
+        "type": "binary",
+        "description": "Indica si la cláusula de indemnización incluye exclusiones o limitaciones específicas.",
+        "importance": 9,
+        "extraction_method": "semantic",
+        "extraction_hint": "Retornar 1 si el texto, después de establecer la obligación de indemnizar, menciona que dicha indemnización 'no procederá' o 'no cubrirá' bajo ciertas condiciones. Buscar frases como 'no procederá si', 'no cubrirá si', 'tampoco cubrirá', 'si los bienes fuesen utilizados para fines no previstos', o 'asociación o combinación con otro equipo no suministrado'. Retornar 0 si no se encuentran tales exclusiones."
+      },
+      "contiene_terceros_propiedad_intelectual": {
+        "type": "binary",
+        "description": "Indica si se menciona explícitamente que los derechos de propiedad intelectual de materiales suministrados por terceros permanecen en dichos terceros.",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'derechos de propiedad intelectual de dichos materiales seguirán siendo de propiedad de dichos terceros' o una variante muy cercana como 'seguirá siendo de propiedad de dichos terceros'. Retornar 1 si aparece, 0 si no."
+      },
+      "num_escenarios_causales_indemnizacion": {
+        "type": "numeric",
+        "description": "Cantidad de escenarios causales específicos listados que activan la obligación de indemnizar (0-2).",
+        "importance": 7,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar los incisos o letras (a, b) que enumeran causas específicas para la indemnización. Buscar una lista que comience después de 'debido a:' o 'por:'. Los escenarios típicos son: 1) instalación o uso en Paraguay, y 2) venta de productos en cualquier país. Retornar el número de causas listadas (0, 1 o 2)."
+      },
+      "contiene_referencia_contrato_mayusculas": {
+        "type": "binary",
+        "description": "Indica si la palabra 'Contrato' aparece escrita con mayúscula inicial en contextos normativos clave.",
+        "importance": 6,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la palabra 'Contrato' (con 'C' mayúscula) en contextos como 'fines no previstos en el Contrato' o 'virtud del Contrato'. No contar si solo aparece 'contrato' en minúscula. Retornar 1 si se encuentra al menos una instancia de 'Contrato' con mayúscula en el cuerpo normativo (excluyendo el título), 0 si no."
+      },
+      "longitud_seccion_palabras": {
+        "type": "numeric",
+        "description": "Cantidad total de palabras en el texto de la sección (excluyendo el título).",
+        "importance": 5,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar todas las palabras en el cuerpo del texto después del título 'Derechos Intelectuales'. Una palabra es cualquier secuencia de caracteres alfanuméricos delimitada por espacios o puntuación. Retornar el número entero total."
+      }
+    },
+    "justification": "El cluster dominante (0_1_5_9_11_17_18) y la mayoría de los otros (2_4_7..., 6, 8, 12) contienen una cláusula de indemnización robusta con exclusiones y reconocen propiedad intelectual de terceros. Estos campos detectan omisiones graves que debilitan la protección de la contratante. 'contiene_clausula_indemnizacion' es crítico (importancia 10) porque su ausencia sería una anomalía mayor. 'contiene_exclusiones_indemnizacion' (importancia 9) captura si se limitan las obligaciones del proveedor. 'contiene_terceros_propiedad_intelectual' (importancia 8) protege contra riesgos de reclamaciones de terceros. 'num_escenarios_causales_indemnizacion' (importancia 7) mide si se reducen los supuestos de activación. 'contiene_referencia_contrato_mayusculas' (importancia 6) es un proxy estructural que, aunque no normativo, puede correlacionarse con versiones más formales o completas. 'longitud_seccion_palabras' (importancia 5) ayuda a identificar secciones truncadas o anormalmente cortas. Todos los clusters mostrados tendrían valor 1 en los primeros tres campos binarios y 2 en el campo numérico de escenarios, excepto posibles anomalías no visibles en los extractos. Los campos están diseñados para ser extraídos automáticamente de un texto individual.",
+    "cluster_values": {
+      "contiene_clausula_indemnizacion": {
+        "cluster_0_1_5_9_11_17_18": 1,
+        "cluster_2_4_7_10_13_14_15_16_19": 1,
+        "cluster_3": 1,
+        "cluster_6": 1,
+        "cluster_8": 1,
+        "cluster_12": 1
+      },
+      "contiene_exclusiones_indemnizacion": {
+        "cluster_0_1_5_9_11_17_18": 1,
+        "cluster_2_4_7_10_13_14_15_16_19": 1,
+        "cluster_3": 1,
+        "cluster_6": 1,
+        "cluster_8": 1,
+        "cluster_12": 1
+      },
+      "contiene_terceros_propiedad_intelectual": {
+        "cluster_0_1_5_9_11_17_18": 1,
+        "cluster_2_4_7_10_13_14_15_16_19": 1,
+        "cluster_3": 1,
+        "cluster_6": 1,
+        "cluster_8": 1,
+        "cluster_12": 1
+      },
+      "num_escenarios_causales_indemnizacion": {
+        "cluster_0_1_5_9_11_17_18": 2,
+        "cluster_2_4_7_10_13_14_15_16_19": 2,
+        "cluster_3": 2,
+        "cluster_6": 2,
+        "cluster_8": 2,
+        "cluster_12": 2
+      },
+      "contiene_referencia_contrato_mayusculas": {
+        "cluster_0_1_5_9_11_17_18": 1,
+        "cluster_2_4_7_10_13_14_15_16_19": 0,
+        "cluster_3": 0,
+        "cluster_6": 1,
+        "cluster_8": 0,
+        "cluster_12": 1
+      },
+      "longitud_seccion_palabras": {
+        "cluster_0_1_5_9_11_17_18": 320,
+        "cluster_2_4_7_10_13_14_15_16_19": 320,
+        "cluster_3": 320,
+        "cluster_6": 320,
+        "cluster_8": 320,
+        "cluster_12": 320
+      }
+    }
+  }
+}

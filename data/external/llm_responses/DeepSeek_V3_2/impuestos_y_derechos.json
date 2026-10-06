@@ -1,0 +1,137 @@
+{
+  "title": "Impuestos Y Derechos",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 12.57,
+  "n_fields": 7,
+  "validation_errors": [],
+  "field_names": [
+    "contiene_excepcion_impuestos",
+    "texto_excepcion_especifica",
+    "menciona_bienes_extranjeros",
+    "menciona_bienes_nacionales",
+    "num_tipos_impuestos_listados",
+    "menciona_cargos_fuera_paraguay",
+    "texto_vacio_o_incompleto"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"contiene_excepcion_impuestos\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la cláusula de responsabilidad del proveedor incluye una excepción explícita (ej. 'con excepción de los siguientes')\",\n      \"importance\": 9,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'con excepción de los siguientes' en el texto. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"texto_excepcion_especifica\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la excepción de impuestos está especificada como 'No Aplica' o similar, en lugar de estar vacía o ser genérica\",\n      \"importance\": 8,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'No Aplica' o 'NO APLICA' en la línea inmediatamente posterior a 'con excepción de los siguientes'. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"menciona_bienes_extranjeros\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona explícitamente la responsabilidad por bienes de origen extranjero\",\n      \"importance\": 7,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar menciones semánticas de bienes extranjeros. Retornar 1 si aparece 'bienes de origen extranjero' o 'origen extranjero' en el contexto de responsabilidad del proveedor. Retornar 0 si no.\"\n    },\n    \"menciona_bienes_nacionales\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona explícitamente la responsabilidad por bienes de origen nacional\",\n      \"importance\": 7,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar menciones semánticas de bienes nacionales. Retornar 1 si aparece 'bienes de origen nacional' o 'origen nacional' en el contexto de responsabilidad del proveedor. Retornar 0 si no.\"\n    },\n    \"num_tipos_impuestos_listados\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de tipos de impuestos o cargos listados en la cláusula de responsabilidad (ej. impuestos, derechos, gravámenes, timbres, comisiones)\",\n      \"importance\": 6,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Contar cuántos de estos 5 tipos de cargos están mencionados semánticamente en la primera oración de responsabilidad: impuestos, derechos, gravámenes, timbres, comisiones. Retornar entero 0-5.\"\n    },\n    \"menciona_cargos_fuera_paraguay\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona explícitamente que la responsabilidad incluye cargos exigibles fuera de Paraguay\",\n      \"importance\": 6,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'fuera y dentro de la República del Paraguay' o 'fuera de la República del Paraguay'. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"texto_vacio_o_incompleto\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la sección está vacía, incompleta o no desarrolla la cláusula normativa\",\n      \"importance\": 5,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Retornar 1 si el texto tiene menos de 30 palabras o si no contiene al menos una oración que defina responsabilidad del proveedor respecto a impuestos. Retornar 0 en caso contrario.\"\n    }\n  },\n  \"justification\": \"El cluster dominante (2_4_5_8_9_12_13_14_15_16_17_18) establece el estándar: responsabilidad completa del proveedor para bienes extranjeros y nacionales, con excepción declarada como 'No Aplica'. Las anomalías detectables son: 1) Ausencia de la cláusula de excepción (Cluster 1 con 'sin excepción alguna' activa 'contiene_excepcion_impuestos' pero no 'texto_excepcion_especifica'). 2) Omisión de la responsabilidad por bienes extranjeros (Cluster 3 no menciona bienes extranjeros, solo nacionales). 3) Texto vacío o incompleto (no observado en estos clusters pero posible en otros). 4) Reducción en la lista de tipos de impuestos (medible con 'num_tipos_impuestos_listados'). 5) Omisión de cargos fuera de Paraguay (potencial debilitamiento de responsabilidad). Estos campos capturan desviaciones que podrían reducir la responsabilidad fiscal del proveedor.\",\n  \"cluster_values\": {\n    \"contiene_excepcion_impuestos\": {\n      \"cluster_0\": 1,\n      \"cluster_1\": 1,\n      \"cluster_2_4_5_8_9_12_13_14_15_16_17_18\": 1,\n      \"cluster_3\": 1,\n      \"cluster_6\": 1,\n      \"cluster_7\": 1,\n      \"cluster_10_11\": 1\n    },\n    \"texto_excepcion_especifica\": {\n      \"cluster_0\": 1,\n      \"cluster_1\": 0,\n      \"cluster_2_4_5_8_9_12_13_14_15_16_17_18\": 1,\n      \"cluster_3\": 1,\n      \"cluster_6\": 1,\n      \"cluster_7\": 1,\n      \"cluster_10_11\": 1\n    },\n    \"menciona_bienes_extranjeros\": {\n      \"cluster_0\": 1,\n      \"cluster_1\": 1,\n      \"cluster_2_4_5_8_9_12_13_14_15_16_17_18\": 1,\n      \"cluster_3\": 0,\n      \"cluster_6\": 1,\n      \"cluster_7\": 1,\n      \"cluster_10_11\": 1\n    },\n    \"menciona_bienes_nacionales\": {\n      \"cluster_0\": 1,\n      \"cluster_1\": 1,\n      \"cluster_2_4_5_8_9_12_13_14_15_16_17_18\": 1,\n      \"cluster_3\": 1,\n      \"cluster_6\": 1,\n      \"cluster_7\": 1,\n      \"cluster_10_11\": 1\n    },\n    \"num_tipos_impuestos_listados\": {\n      \"cluster_0\": 5,\n      \"cluster_1\": 5,\n      \"cluster_2_4_5_8_9_12_13_14_15_16_17_18\": 5,\n      \"cluster_3\": 4,\n      \"cluster_6\": 5,\n      \"cluster_7\": 5,\n      \"cluster_10_11\": 5\n    },\n    \"menciona_cargos_fuera_paraguay\": {\n      \"cluster_0\": 1,\n      \"cluster_1\": 1,\n      \"cluster_2_4_5_8_9_12_13_14_15_16_17_18\": 1,\n      \"cluster_3\": 0,\n      \"cluster_6\": 1,\n      \"cluster_7\": 1,\n      \"cluster_10_11\": 1\n    },\n    \"texto_vacio_o_incompleto\": {\n      \"cluster_0\": 0,\n      \"cluster_1\": 0,\n      \"cluster_2_4_5_8_9_12_13_14_15_16_17_18\": 0,\n      \"cluster_3\": 0,\n      \"cluster_6\": 0,\n      \"cluster_7\": 0,\n      \"cluster_10_11\": 0\n    }\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "contiene_excepcion_impuestos": {
+        "type": "binary",
+        "description": "Indica si la cláusula de responsabilidad del proveedor incluye una excepción explícita (ej. 'con excepción de los siguientes')",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'con excepción de los siguientes' en el texto. Retornar 1 si aparece, 0 si no."
+      },
+      "texto_excepcion_especifica": {
+        "type": "binary",
+        "description": "Indica si la excepción de impuestos está especificada como 'No Aplica' o similar, en lugar de estar vacía o ser genérica",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'No Aplica' o 'NO APLICA' en la línea inmediatamente posterior a 'con excepción de los siguientes'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_bienes_extranjeros": {
+        "type": "binary",
+        "description": "Indica si se menciona explícitamente la responsabilidad por bienes de origen extranjero",
+        "importance": 7,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar menciones semánticas de bienes extranjeros. Retornar 1 si aparece 'bienes de origen extranjero' o 'origen extranjero' en el contexto de responsabilidad del proveedor. Retornar 0 si no."
+      },
+      "menciona_bienes_nacionales": {
+        "type": "binary",
+        "description": "Indica si se menciona explícitamente la responsabilidad por bienes de origen nacional",
+        "importance": 7,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar menciones semánticas de bienes nacionales. Retornar 1 si aparece 'bienes de origen nacional' o 'origen nacional' en el contexto de responsabilidad del proveedor. Retornar 0 si no."
+      },
+      "num_tipos_impuestos_listados": {
+        "type": "numeric",
+        "description": "Cantidad de tipos de impuestos o cargos listados en la cláusula de responsabilidad (ej. impuestos, derechos, gravámenes, timbres, comisiones)",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántos de estos 5 tipos de cargos están mencionados semánticamente en la primera oración de responsabilidad: impuestos, derechos, gravámenes, timbres, comisiones. Retornar entero 0-5."
+      },
+      "menciona_cargos_fuera_paraguay": {
+        "type": "binary",
+        "description": "Indica si se menciona explícitamente que la responsabilidad incluye cargos exigibles fuera de Paraguay",
+        "importance": 6,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'fuera y dentro de la República del Paraguay' o 'fuera de la República del Paraguay'. Retornar 1 si aparece, 0 si no."
+      },
+      "texto_vacio_o_incompleto": {
+        "type": "binary",
+        "description": "Indica si la sección está vacía, incompleta o no desarrolla la cláusula normativa",
+        "importance": 5,
+        "extraction_method": "structural",
+        "extraction_hint": "Retornar 1 si el texto tiene menos de 30 palabras o si no contiene al menos una oración que defina responsabilidad del proveedor respecto a impuestos. Retornar 0 en caso contrario."
+      }
+    },
+    "justification": "El cluster dominante (2_4_5_8_9_12_13_14_15_16_17_18) establece el estándar: responsabilidad completa del proveedor para bienes extranjeros y nacionales, con excepción declarada como 'No Aplica'. Las anomalías detectables son: 1) Ausencia de la cláusula de excepción (Cluster 1 con 'sin excepción alguna' activa 'contiene_excepcion_impuestos' pero no 'texto_excepcion_especifica'). 2) Omisión de la responsabilidad por bienes extranjeros (Cluster 3 no menciona bienes extranjeros, solo nacionales). 3) Texto vacío o incompleto (no observado en estos clusters pero posible en otros). 4) Reducción en la lista de tipos de impuestos (medible con 'num_tipos_impuestos_listados'). 5) Omisión de cargos fuera de Paraguay (potencial debilitamiento de responsabilidad). Estos campos capturan desviaciones que podrían reducir la responsabilidad fiscal del proveedor.",
+    "cluster_values": {
+      "contiene_excepcion_impuestos": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_2_4_5_8_9_12_13_14_15_16_17_18": 1,
+        "cluster_3": 1,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_10_11": 1
+      },
+      "texto_excepcion_especifica": {
+        "cluster_0": 1,
+        "cluster_1": 0,
+        "cluster_2_4_5_8_9_12_13_14_15_16_17_18": 1,
+        "cluster_3": 1,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_10_11": 1
+      },
+      "menciona_bienes_extranjeros": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_2_4_5_8_9_12_13_14_15_16_17_18": 1,
+        "cluster_3": 0,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_10_11": 1
+      },
+      "menciona_bienes_nacionales": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_2_4_5_8_9_12_13_14_15_16_17_18": 1,
+        "cluster_3": 1,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_10_11": 1
+      },
+      "num_tipos_impuestos_listados": {
+        "cluster_0": 5,
+        "cluster_1": 5,
+        "cluster_2_4_5_8_9_12_13_14_15_16_17_18": 5,
+        "cluster_3": 4,
+        "cluster_6": 5,
+        "cluster_7": 5,
+        "cluster_10_11": 5
+      },
+      "menciona_cargos_fuera_paraguay": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_2_4_5_8_9_12_13_14_15_16_17_18": 1,
+        "cluster_3": 0,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_10_11": 1
+      },
+      "texto_vacio_o_incompleto": {
+        "cluster_0": 0,
+        "cluster_1": 0,
+        "cluster_2_4_5_8_9_12_13_14_15_16_17_18": 0,
+        "cluster_3": 0,
+        "cluster_6": 0,
+        "cluster_7": 0,
+        "cluster_10_11": 0
+      }
+    }
+  }
+}

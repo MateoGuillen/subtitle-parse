@@ -1,0 +1,265 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+476548,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+476454,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+454811,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+463204,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+474871,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+468637,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+475283,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+461027,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+474763,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+451639,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+454582,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+469287,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+455984,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+454921,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+455990,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+454815,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+449143,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+469686,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+451453,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+456191,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+472579,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+472486,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+453512,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+461357,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+476376,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+463703,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+469812,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+444804,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+451506,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+452435,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+464569,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+450530,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+454437,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+472942,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+454179,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+473138,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+472447,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+470624,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+466291,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+465008,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+454261,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+471886,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+467254,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,nan,"Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.
+449543,pct_diferencia_precio_bajo,analisis_de_precios_ofertados,,",","Campo a extraer: Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+",0.25,25.0,,Texto vacio o sin contenido util.

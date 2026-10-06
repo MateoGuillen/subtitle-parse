@@ -183,12 +183,15 @@ source ~/.bashrc
 
 ### Script final: `vllm_run.sh`
 
-Este es el script que funciona con todas las optimizaciones:
+**Versión actual (V1 engine, RTX 4070 Ti SUPER 16GB):**
 
 ```bash
 #!/bin/bash
 export PATH="/usr/local/cuda-12.8/bin:/root/vllm-env/bin:$PATH"
 export LD_LIBRARY_PATH="/usr/local/cuda-12.8/lib64:${LD_LIBRARY_PATH:-}"
+# Expanda segments de memoria para evitar OOM por fragmentación durante
+# post-procesamiento de pesos GGUF (process_weights_after_loading)
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 MODEL="/mnt/d/llmstudio-models/lmstudio-community/Qwen2.5-14B-Instruct-Q5_K_L/Qwen2.5-14B-Instruct-Q5_K_L.gguf"
 TOKENIZER="Qwen/Qwen2.5-14B-Instruct"
@@ -197,11 +200,20 @@ TOKENIZER="Qwen/Qwen2.5-14B-Instruct"
     --tokenizer "$TOKENIZER" \
     --host 0.0.0.0 \
     --port 8000 \
-    --max-model-len 14000 \
-    --gpu-memory-utilization 0.90 \
-    --enable-prefix-caching \
-    --kv-cache-dtype fp8
+    --max-model-len 6144 \
+    --gpu-memory-utilization 0.85 \
+    --enforce-eager \
+    --enable-prefix-caching
 ```
+
+> **🔄 Cambios vs benchmark original (vLLM 0.23.0):**
+> - `--max-model-len` bajó de 14000 → 6144 (el V1 engine usa más memoria base)
+> - `--gpu-memory-utilization` bajó de 0.90 → 0.85 (OOM en post-procesamiento de pesos)
+> - Se agregó `--enforce-eager` (desactiva CUDA graphs para ahorrar VRAM, pierde ~23% throughput)
+> - Se agregó `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` (OOM por fragmentación)
+> - Se quitó `--kv-cache-dtype fp8` (causaba OOM durante weight post-processing)
+> - **Impacto**: ~9s/sample secuencial vs ~1s/sample con config optimizada original
+> - **Causa raíz**: vLLM V1 engine + GGUF Q5_K_L requiere ~11 GB VRAM para pesos + overhead, dejando ~5 GB para KV cache y compilación
 
 ### Cómo copiar el script a WSL2
 
@@ -228,21 +240,40 @@ tmux attach -t vllm  # Para ver los logs
 | `--tokenizer` | `Qwen/Qwen2.5-14B-Instruct` | Nombre del tokenizer en HuggingFace (no el path del GGUF) |
 | `--host` | `0.0.0.0` | Escuchar en todas las interfaces (necesario para acceder desde Windows) |
 | `--port` | `8000` | Puerto del servidor |
-| `--max-model-len` | `14000` | Longitud máxima de contexto. 16384 causaba OOM en KV cache |
-| `--gpu-memory-utilization` | `0.90` | Usar 90% de VRAM. 0.95 excedía VRAM por overhead de display |
-| `--enable-prefix-caching` | (flag) | Cachea el KV cache del system prompt (se repite 320K veces en Pipeline 2) |
-| `--kv-cache-dtype` | `fp8` | Reduce el tamaño del KV cache a 50%, permite más concurrencia |
+| `--max-model-len` | `6144` | Contexto suficiente para extracción (~1400 tokens input + ~500 output). No usar >8192 o OOM |
+| `--gpu-memory-utilization` | `0.85` | 0.90+ causa OOM en post-procesamiento de pesos GGUF |
+| `--enforce-eager` | (flag) | **NECESARIO** en V1 engine para reducir memoria base. Desactiva CUDA graphs |
+| `--enable-prefix-caching` | (flag) | Cachea el KV cache del system prompt |
+
+### Variables de entorno
+
+| Variable | Valor | Por qué |
+|----------|-------|---------|
+| `PYTORCH_CUDA_ALLOC_CONF` | `expandable_segments:True` | Evita OOM por fragmentación durante `process_weights_after_loading` |
 
 ### Optimizaciones aplicadas (y por qué)
 
-| Optimización | Impacto | Estado |
-|-------------|:-------:|:------:|
-| CUDA graphs (sin --enforce-eager) | +23% throughput | ✅ Activo |
-| Prefix caching | +10-30% para prompts repetidos | ✅ Activo |
-| FP8 KV cache | +20-40% más concurrencia | ✅ Activo |
-| Chunked prefill | +5-10% (default en V1) | ✅ Automático |
-| torch.compile | +10-15% (con caché) | ✅ Automático |
-| Multi-step scheduling | +10-15% | ❌ No existe en vLLM 0.23.0 |
+| Optimización | Impacto | Estado | Nota |
+|-------------|:-------:|:------:|------|
+| Expandable segments | Crítico | ✅ Activo | Sin esto, OOM en post-procesamiento de GGUF |
+| Prefix caching | +10-30% | ✅ Activo | Cachea system prompt para prompts repetidos |
+| Chunked prefill | +5-10% | ✅ Automático | Default en V1 engine |
+| --enforce-eager | -23% throughput | ✅ Activado | Necesario para que cargue el modelo en 16GB VRAM |
+| CUDA graphs | +23% | ❌ Inactivo | Causa OOM en V1 engine + GGUF Q5_K_L |
+| FP8 KV cache | +20-40% | ❌ Inactivo | Causa OOM durante weight post-processing |
+| Multi-step scheduling | +10-15% | ❌ Inexistente | No existe en vLLM 0.23.0 |
+
+### Causa raíz de OOM
+
+El modelo Qwen2.5-14B-Instruct-Q5_K_L (GGUF, 11 GB en disco) en vLLM V1 engine:
+1. Pesos en GPU: ~7.5 GiB después de cargar
+2. Post-procesamiento: necesita ~1.5 GiB adicional temporal para `process_weights_after_loading` (dequant + padding)
+3. KV cache: ~0.5 GiB para 6144 contexto
+4. Compilación JIT: ~0.5 GiB overhead
+5. **Total con CUDA graphs: ~16.5 GiB → OOM en 16 GiB VRAM**
+6. **Total con --enforce-eager: ~14.5 GiB → cabe**
+
+**Solución**: `--enforce-eager` + `expandable_segments:True` + contexto reducido a 6144.
 
 ## Paso 12: Verificar que vLLM está funcionando
 
@@ -418,3 +449,50 @@ python3 /tmp/benchmark_vllm2.py
 6. **`--num-scheduler-steps` no existe** → quitar flag
 7. **nohup no funciona en WSL2** → usar tmux
 8. **vLLM model name** → path completo del GGUF, no nombre corto
+
+---
+
+## Evaluación: Qwen 2.5 14B Q5_K_L — Resultados de Extracción
+
+### Configuración de prueba
+- **Hardware**: RTX 4070 Ti SUPER (16 GB VRAM)
+- **Modelo**: Qwen2.5-14B-Instruct-Q5_K_L (GGUF, 11 GB)
+- **vLLM**: 0.23.0 V1 engine, `--enforce-eager`, `--max-model-len 6144`, `--gpu-memory-utilization 0.85`
+- **Samples**: 40 secciones (5 por título, 8 títulos con schema válido)
+- **Prompt**: base (system prompt genérico de extracción DNCP)
+
+### Resultados (19-Jul-2026)
+
+| Métrica | Valor |
+|---------|:-----:|
+| Samples exitosos | **39/40 (97.5%)** |
+| Campos extraídos correctamente | **100%** (cuando el sample pasa validación) |
+| Tiempo total | **370s** para 40 samples |
+| Tiempo por sample | **~9.3s/secuencial** |
+
+### Títulos evaluados
+
+| Título | Schema fields | OK/Total | Notas |
+|--------|:-------------:|:--------:|-------|
+| Fraude Y Corrupción | 7 | 5/5 ✅ | Todos los campos presentes |
+| Confidencialidad De La Información | 7 | 5/5 ✅ | Todos los campos presentes |
+| Fuerza Mayor | 8 | 5/5 ✅ | Todos los campos presentes |
+| Aclaración De Las Ofertas | 8 | 4/5 ⚠️ | 1 fallo: `solicitud_obligatoria` no extraído (doc 418846) |
+| Interpretación | 6 | 5/5 ✅ | Todos los campos presentes |
+| Formato Y Firma De La Oferta | 8 | 5/5 ✅ | Todos los campos presentes |
+| Impuestos Y Derechos | 7 | 5/5 ✅ | Todos los campos presentes |
+| Derechos Intelectuales | 6 | 5/5 ✅ | Todos los campos presentes |
+
+### Conclusión
+
+**Qwen 2.5 14B Q5_K_L es apto para Pipeline 2** con una tasa de extracción completa del **97.5%**. El único fallo fue no-determinístico (el mismo texto en otro documento sí funcionó), lo que sugiere que con un reintento adicional se alcanzaría ~100%.
+
+**Limitación actual**: vLLM V1 engine + GGUF Q5_K_L no permite activar CUDA graphs ni FP8 KV cache en 16 GB VRAM. Esto resulta en ~9s/sample vs los ~1s/sample del benchmark original. Para Pipeline 2 completo (315K secciones):
+- Velocidad actual: ~9.3s/sample → **~34 días** a 16h/día
+- Con CUDA graphs + FP8: ~1s/sample → **~5.5 días** a 16h/día
+
+Para recuperar performance, investigar:
+1. Usar vLLM V0 engine (si compatible con GGUF)
+2. Cuantización Q4_K_M (reduce VRAM de pesos de ~7.5 GiB → ~5.5 GiB)
+3. Qwen 2.5 7B Q4_K_M (solo si la calidad semántica es suficiente)
+4. LM Studio como fallback (~103 tok/s, ~27 días a 16h/día)

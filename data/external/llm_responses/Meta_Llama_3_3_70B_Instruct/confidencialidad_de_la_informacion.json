@@ -1,0 +1,143 @@
+{
+  "title": "Confidencialidad De La Informacion",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 7.07,
+  "n_fields": 10,
+  "validation_errors": [],
+  "field_names": [
+    "menciona_confidencialidad",
+    "menciona_reserva_informacion",
+    "num_excepciones_confidencialidad",
+    "menciona_subcontratistas",
+    "menciona_compromiso_confidencialidad",
+    "texto_vacio",
+    "menciona_ley_5282",
+    "menciona_ley_7021",
+    "num_puntos_confidencialidad",
+    "menciona_acto_administrativo"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"menciona_confidencialidad\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la confidencialidad de la información\", \"importance\": 10, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'confidencialidad de la información' o 'mantener confidencialidad'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_reserva_informacion\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la reserva de información en respuestas a aclaraciones\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'reserva de información en respuestas a aclaraciones' o 'indicar si la información suministrada es de carácter reservado'. Retornar 1 si aparece, 0 si no.\"},\n    \"num_excepciones_confidencialidad\": {\"type\": \"numeric\", \"description\": \"Cantidad de excepciones a la confidencialidad mencionadas\", \"importance\": 9, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Contar cuántas de estas excepciones están presentes: a) información para instituciones de financiamiento, b) información de dominio público, c) información previamente obtenida, d) información legalmente puesta a disposición. Retornar entero 0-4.\"},\n    \"menciona_subcontratistas\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la posibilidad de proporcionar información a subcontratistas\", \"importance\": 7, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'subcontratistas' o 'proporcionar a sus subcontratistas'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_compromiso_confidencialidad\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la obligación de obtener un compromiso de confidencialidad de subcontratistas\", \"importance\": 6, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'compromiso de confidencialidad' o 'obtener un compromiso de confidencialidad similar'. Retornar 1 si aparece, 0 si no.\"},\n    \"texto_vacio\": {\"type\": \"binary\", \"description\": \"Indica si la sección no contiene desarrollo normativo\", \"importance\": 5, \"extraction_method\": \"structural\", \"extraction_hint\": \"Retornar 1 si el texto tiene menos de 50 palabras o no contiene oración con contenido normativo. Retornar 0 en caso contrario.\"},\n    \"menciona_ley_5282\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la Ley N° 5282/14\", \"importance\": 4, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'Ley N° 5282/14' o 'DE LIBRE ACCESO CIUDADANO A LA INFORMACIÓN PÚBLICA Y TRANSPARENCIA GUBERNAMENTAL'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_ley_7021\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la Ley N° 7021/22\", \"importance\": 3, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'Ley N° 7021/22' o 'De Suministro y Contrataciones Públicas'. Retornar 1 si aparece, 0 si no.\"},\n    \"num_puntos_confidencialidad\": {\"type\": \"numeric\", \"description\": \"Cantidad de puntos o incisos que tratan sobre confidencialidad\", \"importance\": 2, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar cuántos puntos o incisos están presentes en la sección. Retornar entero 0-5.\"},\n    \"menciona_acto_administrativo\": {\"type\": \"binary\", \"description\": \"Indica si se menciona el acto administrativo de selección de ofertas técnicas\", \"importance\": 1, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'acto administrativo de selección de ofertas técnicas' o 'emisión del acto administrativo'. Retornar 1 si aparece, 0 si no.\"}\n  },\n  \"justification\": \"Cada campo fue elegido para capturar aspectos específicos de la confidencialidad de la información en los pliegos de licitaciones públicas. Los campos binarios detectan la presencia o ausencia de ciertos elementos, mientras que los campos numéricos miden la cantidad de excepciones o puntos que tratan sobre confidencialidad. Los extraction_hints proporcionan instrucciones precisas para extraer cada valor del texto.\",\n  \"cluster_values\": {\n    \"menciona_confidencialidad\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1},\n    \"num_excepciones_confidencialidad\": {\"cluster_0\": 2, \"cluster_1\": 2, \"cluster_3\": 2},\n    \"menciona_subcontratistas\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1},\n    \"menciona_compromiso_confidencialidad\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1},\n    \"texto_vacio\": {\"cluster_0\": 0, \"cluster_1\": 0, \"cluster_3\": 0},\n    \"menciona_ley_5282\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 0},\n    \"menciona_ley_7021\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1},\n    \"num_puntos_confidencialidad\": {\"cluster_0\": 4, \"cluster_1\": 4, \"cluster_3\": 3},\n    \"menciona_acto_administrativo\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 0}\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "menciona_confidencialidad": {
+        "type": "binary",
+        "description": "Indica si se menciona la confidencialidad de la información",
+        "importance": 10,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'confidencialidad de la información' o 'mantener confidencialidad'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_reserva_informacion": {
+        "type": "binary",
+        "description": "Indica si se menciona la reserva de información en respuestas a aclaraciones",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'reserva de información en respuestas a aclaraciones' o 'indicar si la información suministrada es de carácter reservado'. Retornar 1 si aparece, 0 si no."
+      },
+      "num_excepciones_confidencialidad": {
+        "type": "numeric",
+        "description": "Cantidad de excepciones a la confidencialidad mencionadas",
+        "importance": 9,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántas de estas excepciones están presentes: a) información para instituciones de financiamiento, b) información de dominio público, c) información previamente obtenida, d) información legalmente puesta a disposición. Retornar entero 0-4."
+      },
+      "menciona_subcontratistas": {
+        "type": "binary",
+        "description": "Indica si se menciona la posibilidad de proporcionar información a subcontratistas",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'subcontratistas' o 'proporcionar a sus subcontratistas'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_compromiso_confidencialidad": {
+        "type": "binary",
+        "description": "Indica si se menciona la obligación de obtener un compromiso de confidencialidad de subcontratistas",
+        "importance": 6,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'compromiso de confidencialidad' o 'obtener un compromiso de confidencialidad similar'. Retornar 1 si aparece, 0 si no."
+      },
+      "texto_vacio": {
+        "type": "binary",
+        "description": "Indica si la sección no contiene desarrollo normativo",
+        "importance": 5,
+        "extraction_method": "structural",
+        "extraction_hint": "Retornar 1 si el texto tiene menos de 50 palabras o no contiene oración con contenido normativo. Retornar 0 en caso contrario."
+      },
+      "menciona_ley_5282": {
+        "type": "binary",
+        "description": "Indica si se menciona la Ley N° 5282/14",
+        "importance": 4,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'Ley N° 5282/14' o 'DE LIBRE ACCESO CIUDADANO A LA INFORMACIÓN PÚBLICA Y TRANSPARENCIA GUBERNAMENTAL'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_ley_7021": {
+        "type": "binary",
+        "description": "Indica si se menciona la Ley N° 7021/22",
+        "importance": 3,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'Ley N° 7021/22' o 'De Suministro y Contrataciones Públicas'. Retornar 1 si aparece, 0 si no."
+      },
+      "num_puntos_confidencialidad": {
+        "type": "numeric",
+        "description": "Cantidad de puntos o incisos que tratan sobre confidencialidad",
+        "importance": 2,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar cuántos puntos o incisos están presentes en la sección. Retornar entero 0-5."
+      },
+      "menciona_acto_administrativo": {
+        "type": "binary",
+        "description": "Indica si se menciona el acto administrativo de selección de ofertas técnicas",
+        "importance": 1,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'acto administrativo de selección de ofertas técnicas' o 'emisión del acto administrativo'. Retornar 1 si aparece, 0 si no."
+      }
+    },
+    "justification": "Cada campo fue elegido para capturar aspectos específicos de la confidencialidad de la información en los pliegos de licitaciones públicas. Los campos binarios detectan la presencia o ausencia de ciertos elementos, mientras que los campos numéricos miden la cantidad de excepciones o puntos que tratan sobre confidencialidad. Los extraction_hints proporcionan instrucciones precisas para extraer cada valor del texto.",
+    "cluster_values": {
+      "menciona_confidencialidad": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1
+      },
+      "num_excepciones_confidencialidad": {
+        "cluster_0": 2,
+        "cluster_1": 2,
+        "cluster_3": 2
+      },
+      "menciona_subcontratistas": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1
+      },
+      "menciona_compromiso_confidencialidad": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1
+      },
+      "texto_vacio": {
+        "cluster_0": 0,
+        "cluster_1": 0,
+        "cluster_3": 0
+      },
+      "menciona_ley_5282": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 0
+      },
+      "menciona_ley_7021": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1
+      },
+      "num_puntos_confidencialidad": {
+        "cluster_0": 4,
+        "cluster_1": 4,
+        "cluster_3": 3
+      },
+      "menciona_acto_administrativo": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 0
+      }
+    }
+  }
+}

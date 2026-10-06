@@ -1,0 +1,2 @@
+model,path,samples,found,pct,time_s,docs_per_s
+Llama 3.1 8B-AWQ,thesven/Meta-Llama-3.1-8B-Instruct-AWQ,460,382,83.0,52.7,8.73

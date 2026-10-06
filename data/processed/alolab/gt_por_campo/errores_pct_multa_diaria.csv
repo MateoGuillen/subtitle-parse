@@ -1,0 +1,857 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+422494,pct_multa_diaria,porcentaje_de_multas,1.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado en este apartado.
+La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado en este apartado.
+La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.01,0.01,1.0,"Texto indica directamente ""1,00%"" como porcentaje de multa por día de atraso."
+466729,pct_multa_diaria,porcentaje_de_multas,1.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.01,0.01,1.0,"Texto indica directamente ""1,00%"" como porcentaje de multa por día de atraso."
+429923,pct_multa_diaria,porcentaje_de_multas,1.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.01,0.01,1.0,"Texto indica directamente ""1,00%"" como porcentaje de multa por día de atraso."
+463285,pct_multa_diaria,porcentaje_de_multas,5.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+5,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso
+indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+5,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso
+indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como porcentaje de multa por día de atraso."
+472208,pct_multa_diaria,porcentaje_de_multas,5.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+5,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+5,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como porcentaje de multa por día de atraso."
+454546,pct_multa_diaria,porcentaje_de_multas,5.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+5,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+5,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.05,0.05,5.0,"Texto indica directamente ""5,00%"" como porcentaje de multa por día de atraso."
+428453,pct_multa_diaria,porcentaje_de_multas,0.333,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,33%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,33%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.333,0.333,0.33,"Texto indica directamente ""0,33%"" como porcentaje de multa por día de atraso."
+453658,pct_multa_diaria,porcentaje_de_multas,0.333,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,33%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,33%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.333,0.333,0.33,"Texto indica directamente ""0,33%"" como porcentaje de multa por día de atraso."
+409520,pct_multa_diaria,porcentaje_de_multas,0.333,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,33%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada
+día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el
+monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,33%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada
+día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el
+monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.333,0.333,0.33,"Texto indica directamente ""0,33%"" como porcentaje de multa por día de atraso."
+446590,pct_multa_diaria,porcentaje_de_multas,2.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.02,0.02,2.0,"Texto indica directamente ""2,00%"" como porcentaje de multa por día de atraso."
+409324,pct_multa_diaria,porcentaje_de_multas,2.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.02,0.02,2.0,"Texto indica directamente ""2,00%"" como porcentaje de multa por día de atraso."
+425091,pct_multa_diaria,porcentaje_de_multas,2.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.02,0.02,2.0,"Texto indica directamente ""2,00%"" como porcentaje de multa por día de atraso."
+437480,pct_multa_diaria,porcentaje_de_multas,10.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+10,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+10,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como porcentaje de multa por día de atraso."
+439460,pct_multa_diaria,porcentaje_de_multas,10.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+10,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+10,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como porcentaje de multa por día de atraso."
+441074,pct_multa_diaria,porcentaje_de_multas,10.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+10,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado
+en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+10,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado
+en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.1,0.1,10.0,"Texto indica directamente ""10,00%"" como porcentaje de multa por día de atraso."
+408314,pct_multa_diaria,porcentaje_de_multas,3.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+3,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas
+supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+3,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas
+supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.03,0.03,3.0,"Texto indica directamente ""3,00%"" como porcentaje de multa por día de atraso."
+409113,pct_multa_diaria,porcentaje_de_multas,3.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+3,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+3,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.03,0.03,3.0,"Texto indica directamente ""3,00%"" como porcentaje de multa por día de atraso."
+452573,pct_multa_diaria,porcentaje_de_multas,3.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+3,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+3,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.03,0.03,3.0,"Texto indica directamente ""3,00%"" como porcentaje de multa por día de atraso."
+426085,pct_multa_diaria,porcentaje_de_multas,1.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado en este apartado. La contratante podrá
+rescindir administrativamente el contrato cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado en este apartado. La contratante podrá
+rescindir administrativamente el contrato cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.015,0.015,1.5,"Texto indica directamente ""1,50%"" como porcentaje de multa por día de atraso."
+466947,pct_multa_diaria,porcentaje_de_multas,1.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.015,0.015,1.5,"Texto indica directamente ""1,50%"" como porcentaje de multa por día de atraso."
+425662,pct_multa_diaria,porcentaje_de_multas,1.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+1,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.015,0.015,1.5,"Texto indica directamente ""1,50%"" como porcentaje de multa por día de atraso."
+430235,pct_multa_diaria,porcentaje_de_multas,0.001,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado en este
+apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado en este
+apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.001,0.001,,"El texto indica explícitamente ""0,00%"" como porcentaje de multa; el valor 0 está fuera del rango válido (0.01-100) según el prompt. Se responde NULL."
+472652,pct_multa_diaria,porcentaje_de_multas,0.001,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.001,0.001,,"El texto indica explícitamente ""0,00%"" como porcentaje de multa; el valor 0 está fuera del rango válido (0.01-100) según el prompt. Se responde NULL."
+441342,pct_multa_diaria,porcentaje_de_multas,0.001,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de
+atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada día de
+atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.001,0.001,,"El texto indica explícitamente ""0,00%"" como porcentaje de multa; el valor 0 está fuera del rango válido (0.01-100) según el prompt. Se responde NULL."
+395852,pct_multa_diaria,porcentaje_de_multas,0.03,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por hora de atraso en la prestación de los servicios contratados será de:
+0,03%
+En caso de que el atraso del proveedor no permitiere a la contratante satisfacer el objeto de la contratación, la misma podrá rechazar la
+provisión además de aplicar la multa en los términos dispuestos en la presente cláusula.
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada fracción de tiempo de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el
+""valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por hora de atraso en la prestación de los servicios contratados será de:
+0,03%
+En caso de que el atraso del proveedor no permitiere a la contratante satisfacer el objeto de la contratación, la misma podrá rechazar la
+provisión además de aplicar la multa en los términos dispuestos en la presente cláusula.
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada fracción de tiempo de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el
+""valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.""",0.03,0.03,,"El texto especifica que la multa es ""por hora de atraso"" (tarifa horaria), no ""por día de atraso"" como pide el campo; no corresponde al concepto pedido. Se responde NULL."
+467417,pct_multa_diaria,porcentaje_de_multas,50.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+50,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+50,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.5,0.5,50.0,"Texto indica directamente ""50,00%"" como porcentaje de multa por día de atraso."
+433184,pct_multa_diaria,porcentaje_de_multas,50.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+50,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+50,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.5,0.5,50.0,"Texto indica directamente ""50,00%"" como porcentaje de multa por día de atraso."
+412857,pct_multa_diaria,porcentaje_de_multas,50.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+50,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+50,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.5,0.5,50.0,"Texto indica directamente ""50,00%"" como porcentaje de multa por día de atraso."
+409427,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+418327,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+418088,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+435233,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+457766,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+428377,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+438784,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+462066,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+436582,pct_multa_diaria,porcentaje_de_multas,2.5,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada
+día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el
+monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+2,50%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada
+día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el
+monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,2.5,"Texto indica directamente ""2,50%"" como porcentaje de multa por día de atraso."
+394111,pct_multa_diaria,porcentaje_de_multas,0.005,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por hora de atraso en la prestación de los servicios contratados será de:
+0,01%
+En caso de que el atraso del proveedor no permitiere a la contratante satisfacer el objeto de la contratación, la misma podrá rechazar la provisión además de aplicar la multa en los términos dispuestos
+en la presente cláusula.
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada fracción de tiempo de atraso indicado en este
+""apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por hora de atraso en la prestación de los servicios contratados será de:
+0,01%
+En caso de que el atraso del proveedor no permitiere a la contratante satisfacer el objeto de la contratación, la misma podrá rechazar la provisión además de aplicar la multa en los términos dispuestos
+en la presente cláusula.
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por cada fracción de tiempo de atraso indicado en este
+""apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.""",0.005,0.005,,"El texto especifica que la multa es ""por hora de atraso"" (tarifa horaria), no ""por día de atraso"" como pide el campo; no corresponde al concepto pedido. Se responde NULL."
+422619,pct_multa_diaria,porcentaje_de_multas,0.005,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,01%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,01%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.005,0.005,0.01,"Texto indica directamente ""0,01%"" como porcentaje de multa por día de atraso."
+450567,pct_multa_diaria,porcentaje_de_multas,0.005,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,01%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,01%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados, por
+cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.005,0.005,0.01,"Texto indica directamente ""0,01%"" como porcentaje de multa por día de atraso."
+393331,pct_multa_diaria,porcentaje_de_multas,0.005,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,01%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,01%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.005,0.005,0.01,"Texto indica directamente ""0,01%"" como porcentaje de multa por día de atraso."
+393033,pct_multa_diaria,porcentaje_de_multas,30.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+30,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+30,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.3,0.3,30.0,"Texto indica directamente ""30,00%"" como porcentaje de multa por día de atraso."
+422813,pct_multa_diaria,porcentaje_de_multas,30.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+30,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+30,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando
+el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.3,0.3,30.0,"Texto indica directamente ""30,00%"" como porcentaje de multa por día de atraso."
+414236,pct_multa_diaria,porcentaje_de_multas,30.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+30,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+30,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.3,0.3,30.0,"Texto indica directamente ""30,00%"" como porcentaje de multa por día de atraso."
+411609,pct_multa_diaria,porcentaje_de_multas,0.025,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,03%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,03%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,0.03,"Texto indica directamente ""0,03%"" como porcentaje de multa por día de atraso."
+427488,pct_multa_diaria,porcentaje_de_multas,0.025,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,03%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+0,03%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato
+cuando el valor de las multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.025,0.025,0.03,"Texto indica directamente ""0,03%"" como porcentaje de multa por día de atraso."
+463279,pct_multa_diaria,porcentaje_de_multas,100.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+100,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+100,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.01,0.01,100.0,"Texto indica directamente ""100,00%"" como porcentaje de multa por día de atraso."
+427076,pct_multa_diaria,porcentaje_de_multas,20.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+20,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados,
+por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las
+multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+20,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes atrasados,
+por cada día de atraso indicado en este apartado. La contratante podrá rescindir administrativamente el contrato cuando el valor de las
+multas supere el monto de la Garantía de Cumplimiento de Contrato.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.2,0.2,20.0,"Texto indica directamente ""20,00%"" como porcentaje de multa por día de atraso."
+470010,pct_multa_diaria,porcentaje_de_multas,7.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+7,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+7,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.07,0.07,7.0,"Texto indica directamente ""7,00%"" como porcentaje de multa por día de atraso."
+457799,pct_multa_diaria,porcentaje_de_multas,4.0,"Porcentaje de multas""
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+4,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.","Campo a extraer: Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)""
+Tipo esperado: float
+Guía de extracción: Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Porcentaje de multas
+El valor del porcentaje de multas que será aplicado por el atraso en la entrega de los bienes, prestación de servicios será de:
+4,00%
+La contratante podrá deducir en concepto de multas una suma equivalente al porcentaje del precio de entrega de los bienes
+atrasados, por cada día de atraso indicado en este apartado.
+""La aplicación de multas no libera al proveedor del cumplimiento de sus obligaciones contractuales.""",0.04,0.04,4.0,"Texto indica directamente ""4,00%"" como porcentaje de multa por día de atraso."

@@ -1,0 +1,21 @@
+{
+ "model": "Mistral Small 24B-AWQ",
+ "backend": "vllm-offline-batch",
+ "prompts": 24,
+ "levels": {
+  "batch24-offline-maxseq4": {
+   "n": 24,
+   "errors": 0,
+   "agree": 13,
+   "wall_s": 90.2,
+   "req_per_s": 0.27,
+   "out_tok_per_s": 0.8,
+   "p50_s": null,
+   "p95_s": null,
+   "mean_s": 3.76,
+   "vram_peak_mib": 14742,
+   "gpu_util_peak": null,
+   "note": "un solo generate() batch; latencias por-req no medibles offline"
+  }
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "seed": 4242,
+ "n": 50,
+ "per_field": {
+  "dias_validez_garantia": 13,
+  "dias_pago_anticipo": 13,
+  "dias_solicitud_anticipo": 12,
+  "anos_experiencia_minima_tecnica": 12
+ },
+ "sha256": "90e8ccf7c76b9889feb3acef0278094da5fbeff9d9d56da211d823b94d5507f1",
+ "excluded": "pct_monto_referencia_tecnica (regex tuneado sobre este set)",
+ "limitation": "agregados por campo vistos antes del freeze; item-level labels no",
+ "frozen_at": "2026-09-14"
+}

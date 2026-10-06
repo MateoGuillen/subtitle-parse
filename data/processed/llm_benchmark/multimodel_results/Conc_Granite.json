@@ -1,0 +1,59 @@
+{
+ "model": "Granite-4.2-8B-Q4_K_M",
+ "backend": "http",
+ "prompts": 32,
+ "levels": {
+  "1": {
+   "n": 32,
+   "errors": 0,
+   "agree": 18,
+   "wall_s": 30.5,
+   "req_per_s": 1.05,
+   "out_tok_per_s": 67.1,
+   "p50_s": 1.0,
+   "p95_s": 1.11,
+   "mean_s": 0.95,
+   "vram_peak_mib": 8002,
+   "gpu_util_peak": 100
+  },
+  "2": {
+   "n": 32,
+   "errors": 0,
+   "agree": 18,
+   "wall_s": 19.1,
+   "req_per_s": 1.67,
+   "out_tok_per_s": 107.1,
+   "p50_s": 1.18,
+   "p95_s": 1.46,
+   "mean_s": 1.19,
+   "vram_peak_mib": 8004,
+   "gpu_util_peak": 100
+  },
+  "4": {
+   "n": 32,
+   "errors": 0,
+   "agree": 18,
+   "wall_s": 13.1,
+   "req_per_s": 2.44,
+   "out_tok_per_s": 156.3,
+   "p50_s": 1.73,
+   "p95_s": 1.79,
+   "mean_s": 1.64,
+   "vram_peak_mib": 8004,
+   "gpu_util_peak": 100
+  },
+  "8": {
+   "n": 32,
+   "errors": 0,
+   "agree": 18,
+   "wall_s": 12.7,
+   "req_per_s": 2.52,
+   "out_tok_per_s": 161.4,
+   "p50_s": 3.13,
+   "p95_s": 4.04,
+   "mean_s": 3.01,
+   "vram_peak_mib": 8004,
+   "gpu_util_peak": 100
+  }
+ }
+}

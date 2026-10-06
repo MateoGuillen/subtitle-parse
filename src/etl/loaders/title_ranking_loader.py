@@ -42,38 +42,74 @@ class TitleRankingLoader:
         lines: List[str] = []
         lines.append("# Title Anomaly-Detection Relevance Ranking")
         lines.append("")
-        lines.append(
-            "Ranking generated from six complementary strategies "
-            "(see methodology below)."
-        )
+        # Detect v2.2 compatibility
+        is_v22 = "score_boilerplate" in ranking.columns and "score_numeric" in ranking.columns
+        if is_v22:
+            lines.append(
+                "Ranking generated from **eight** complementary strategies (v2.2): "
+                "six legacy + Boilerplate Penalty + Numeric Content (see methodology below)."
+            )
+        else:
+            lines.append(
+                "Ranking generated from six complementary strategies "
+                "(see methodology below)."
+            )
         lines.append("")
 
         # Summary table
         lines.append("## Top-%d Ranking Summary" % top_n)
         lines.append("")
-        lines.append(
-            "| Rank | Title | Total Score | Outlier Freq | RF Import | "
-            "Contextual | Section IF | Doc Corr | Economic Risk |"
-        )
-        lines.append(
-            "|------|-------|-------------|--------------|-----------|"
-            "------------|------------|----------|---------------|"
-        )
-        for _, row in top.iterrows():
+        if is_v22:
             lines.append(
-                "| %d | %s | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f |"
-                % (
-                    row["rank"],
-                    row["display_name"],
-                    row["score_total"],
-                    row["score_outlier"],
-                    row["score_rf"],
-                    row["score_contextual"],
-                    row["score_section_if"],
-                    row["score_corr"],
-                    row.get("score_economic", 0.0),
-                )
+                "| Rank | Title | Total | Outlier | RF | Contextual | "
+                "Section IF | Doc Corr | Economic | Boilerplate | Numeric | Descart |"
             )
+            lines.append(
+                "|------|-------|-------|---------|----|------------|"
+                "------------|----------|----------|-------------|---------|---------|"
+            )
+            for _, row in top.iterrows():
+                lines.append(
+                    "| %d | %s | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f | %s |"
+                    % (
+                        row["rank"],
+                        row["display_name"],
+                        row["score_total"],
+                        row["score_outlier"],
+                        row["score_rf"],
+                        row["score_contextual"],
+                        row["score_section_if"],
+                        row["score_corr"],
+                        row.get("score_economic", 0.0),
+                        row.get("score_boilerplate", 0.0),
+                        row.get("score_numeric", 0.0),
+                        "yes" if row.get("descartado_boilerplate", False) else "",
+                    )
+                )
+        else:
+            lines.append(
+                "| Rank | Title | Total Score | Outlier Freq | RF Import | "
+                "Contextual | Section IF | Doc Corr | Economic Risk |"
+            )
+            lines.append(
+                "|------|-------|-------------|--------------|-----------|"
+                "------------|------------|----------|---------------|"
+            )
+            for _, row in top.iterrows():
+                lines.append(
+                    "| %d | %s | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f | %.4f |"
+                    % (
+                        row["rank"],
+                        row["display_name"],
+                        row["score_total"],
+                        row["score_outlier"],
+                        row["score_rf"],
+                        row["score_contextual"],
+                        row["score_section_if"],
+                        row["score_corr"],
+                        row.get("score_economic", 0.0),
+                    )
+                )
         lines.append("")
 
         # Per-title justification
@@ -89,40 +125,60 @@ class TitleRankingLoader:
         lines.append("---")
         lines.append("## Methodology")
         lines.append("")
-        lines.append("Six strategies are combined with fixed weights:")
-        lines.append("")
-        lines.append("| Strategy | Weight | Description |")
-        lines.append("|----------|--------|-------------|")
-        lines.append(
-            "| Outlier Frequency (Tukey IQR) | 0.20 | %% of documents where "
-            "`len_*`/`tok_*` fall outside [Q1-1.5×IQR, Q3+1.5×IQR] |"
-        )
-        lines.append(
-            "| Proxy Random Forest | 0.25 | Gini importance from RF trained "
-            "to distinguish original vs. noise-corrupted data |"
-        )
-        lines.append(
-            "| Contextual Anomalies | 0.15 | %% of documents with within-"
-            "category `|z|>3` for `len_*`/`tok_*` |"
-        )
-        lines.append(
-            "| Section-level Isolation Forest | 0.15 | %% of sections per "
-            "title flagged as anomalous (bottom 5%% of IF scores) |"
-        )
-        lines.append(
-            "| Document IF Correlation | 0.10 | Absolute difference in mean "
-            "document-level IF score between `has_*=1` vs `has_*=0` |"
-        )
-        lines.append(
-            "| Economic Risk Correlation | 0.15 | Mean absolute Pearson "
-            "correlation between `has_*` and economic risk indicators "
-            "(single bidder, overbudget, collusion, protests) |"
-        )
-        lines.append("")
-        lines.append(
-            "All sub-scores are min-max normalised to [0,1] before "
-            "combination."
-        )
+        if is_v22:
+            lines.append("**v2.2** — Eight strategies combined with fixed weights (sum=1.00):")
+            lines.append("")
+            lines.append("| Strategy | Weight | Description |")
+            lines.append("|----------|--------|-------------|")
+            lines.append("| Outlier Frequency (Tukey IQR) | 0.10 | %% of documents where `len_*`/`tok_*` fall outside [Q1-1.5×IQR, Q3+1.5×IQR] |")
+            lines.append("| Proxy Random Forest | 0.15 | Gini importance from RF trained to distinguish original vs. noise-corrupted data |")
+            lines.append("| Contextual Anomalies | 0.15 | %% of documents with within-category `|z|>3` for `len_*`/`tok_*` |")
+            lines.append("| Section-level Isolation Forest | 0.10 | %% of sections per title flagged as anomalous (bottom 5%% of IF scores) |")
+            lines.append("| Document IF Correlation | 0.10 | Absolute difference in mean document-level IF score between `has_*=1` vs `has_*=0` |")
+            lines.append("| Economic Risk Correlation | 0.20 | Mean absolute Pearson correlation between `has_*` and economic risk indicators (single bidder, overbudget, collusion, protests) |")
+            lines.append("| **Boilerplate Penalty** (v2.2) | 0.10 | `1 - max(md5_top1_share, post_merge_top1_share)` per title. Titles with >90% identical text are heavily penalised. |")
+            lines.append("| **Numeric Content** (v2.2) | 0.10 | Mean per-section regex hits for parametric patterns (Gs. monto, %, días, fechas, multa/anticipo). |")
+            lines.append("")
+            lines.append("All sub-scores are min-max normalised to [0,1] before combination.")
+            lines.append("")
+            lines.append("**v2.2 reformulation rationale** (see `docs/mejoras_pipeline_seleccion_titulos.md`):")
+            lines.append("- Legacy v2.0 weights premiated structural presence (`has_*`) and length proxies that are themselves proxies of boilerplate; v2.2 reduces those weights and adds explicit boilerplate/numeric signals.")
+            lines.append("- Generated from `data/processed/title_diagnostics/title_diagnostics.csv` (Fase 1).")
+        else:
+            lines.append("Six strategies are combined with fixed weights:")
+            lines.append("")
+            lines.append("| Strategy | Weight | Description |")
+            lines.append("|----------|--------|-------------|")
+            lines.append(
+                "| Outlier Frequency (Tukey IQR) | 0.20 | %% of documents where "
+                "`len_*`/`tok_*` fall outside [Q1-1.5×IQR, Q3+1.5×IQR] |"
+            )
+            lines.append(
+                "| Proxy Random Forest | 0.25 | Gini importance from RF trained "
+                "to distinguish original vs. noise-corrupted data |"
+            )
+            lines.append(
+                "| Contextual Anomalies | 0.15 | %% of documents with within-"
+                "category `|z|>3` for `len_*`/`tok_*` |"
+            )
+            lines.append(
+                "| Section-level Isolation Forest | 0.15 | %% of sections per "
+                "title flagged as anomalous (bottom 5%% of IF scores) |"
+            )
+            lines.append(
+                "| Document IF Correlation | 0.10 | Absolute difference in mean "
+                "document-level IF score between `has_*=1` vs `has_*=0` |"
+            )
+            lines.append(
+                "| Economic Risk Correlation | 0.15 | Mean absolute Pearson "
+                "correlation between `has_*` and economic risk indicators "
+                "(single bidder, overbudget, collusion, protests) |"
+            )
+            lines.append("")
+            lines.append(
+                "All sub-scores are min-max normalised to [0,1] before "
+                "combination."
+            )
 
         with open(path, "w", encoding="utf-8") as fh:
             fh.write("\n".join(lines))

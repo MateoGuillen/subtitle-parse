@@ -17,7 +17,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.pipelines.section_clustering_pipeline import SectionClusteringPipeline
-from config.settings import DB_CONFIG, BASE_OUTPUT_PROCESSED_DIR, OPENROUTER_API_KEY
+from config.settings import (
+    DB_CONFIG,
+    BASE_OUTPUT_PROCESSED_DIR,
+    OPENROUTER_API_KEY,
+    TOKENGO_API_KEY,
+)
 
 
 def main() -> None:
@@ -55,9 +60,9 @@ def main() -> None:
     )
     parser.add_argument(
         "--llm-provider",
-        choices=["local", "openrouter"],
+        choices=["local", "openrouter", "tokengo"],
         default="local",
-        help="LLM provider to use: 'local' (LM Studio / llama-server) or 'openrouter' (default: local)",
+        help="LLM provider: local, openrouter, tokengo (default: local)",
     )
     parser.add_argument(
         "--llm-base-url",
@@ -68,8 +73,8 @@ def main() -> None:
     parser.add_argument(
         "--llm-model",
         type=str,
-        default="openai/gpt-oss-20b:free",
-        help="Model name for OpenRouter provider (default: openai/gpt-oss-20b:free)",
+        default="z-ai/glm-5.1",
+        help="Model name for tokengo provider (default: z-ai/glm-5.1)",
     )
     parser.add_argument(
         "--export-chat-prompts",
@@ -80,6 +85,12 @@ def main() -> None:
         "--skip-llm",
         action="store_true",
         help="Skip LLM schema generation (uses default schema). Useful for fast export regeneration.",
+    )
+    parser.add_argument(
+        "--titles",
+        type=str,
+        default=None,
+        help="Comma-separated list of title_normalized values (overrides ranking/defaults)",
     )
     parser.add_argument(
         "--from-ranking",
@@ -104,6 +115,10 @@ def main() -> None:
         if not OPENROUTER_API_KEY or OPENROUTER_API_KEY == "tu_clave_aqui":
             print("ERROR: Configurá OPENROUTER_API_KEY en el archivo .env")
             return
+    elif args.llm_provider == "tokengo":
+        if not TOKENGO_API_KEY:
+            print("ERROR: Configurá TOKENGO_API_KEY en el archivo .env")
+            return
 
     output_dir = os.path.join(
         BASE_OUTPUT_PROCESSED_DIR, "section_clustering"
@@ -113,11 +128,23 @@ def main() -> None:
         BASE_OUTPUT_PROCESSED_DIR, "title_ranking", "title_ranking.csv"
     )
 
+    # Select API key based on provider
+    api_key_map = {
+        "local": "",
+        "openrouter": OPENROUTER_API_KEY,
+        "tokengo": TOKENGO_API_KEY,
+    }
+    llm_api_key = api_key_map.get(args.llm_provider, "")
+
+    title_overrides = None
+    if args.titles:
+        title_overrides = [t.strip() for t in args.titles.split(",")]
+
     config = {
         "db_params": DB_CONFIG,
         "llm_provider_type": args.llm_provider,
         "llm_base_url": args.llm_base_url,
-        "llm_api_key": OPENROUTER_API_KEY,
+        "llm_api_key": llm_api_key,
         "llm_model": args.llm_model,
         "embedding_model": "paraphrase-multilingual-MiniLM-L12-v2",
         "output_dir": output_dir,
@@ -132,6 +159,7 @@ def main() -> None:
         "skip_llm": args.skip_llm,
         "ranking_csv": args.ranking_csv or (default_ranking_csv if args.from_ranking else None),
         "top_k_titles": args.top_k,
+        "title_overrides": title_overrides,
     }
 
     if args.compare:

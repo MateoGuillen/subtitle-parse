@@ -1,0 +1,59 @@
+{
+ "model": "Ministral-3-14B-Q4_K_M",
+ "backend": "http",
+ "prompts": 32,
+ "levels": {
+  "1": {
+   "n": 32,
+   "errors": 0,
+   "agree": 19,
+   "wall_s": 13.1,
+   "req_per_s": 2.44,
+   "out_tok_per_s": 10.6,
+   "p50_s": 0.41,
+   "p95_s": 0.82,
+   "mean_s": 0.41,
+   "vram_peak_mib": 10462,
+   "gpu_util_peak": 100
+  },
+  "2": {
+   "n": 32,
+   "errors": 0,
+   "agree": 19,
+   "wall_s": 9.6,
+   "req_per_s": 3.32,
+   "out_tok_per_s": 14.4,
+   "p50_s": 0.47,
+   "p95_s": 0.93,
+   "mean_s": 0.6,
+   "vram_peak_mib": 10462,
+   "gpu_util_peak": 100
+  },
+  "4": {
+   "n": 32,
+   "errors": 0,
+   "agree": 19,
+   "wall_s": 9.2,
+   "req_per_s": 3.5,
+   "out_tok_per_s": 15.2,
+   "p50_s": 0.89,
+   "p95_s": 1.78,
+   "mean_s": 1.09,
+   "vram_peak_mib": 10462,
+   "gpu_util_peak": 100
+  },
+  "8": {
+   "n": 32,
+   "errors": 0,
+   "agree": 19,
+   "wall_s": 6.6,
+   "req_per_s": 4.85,
+   "out_tok_per_s": 21.1,
+   "p50_s": 1.3,
+   "p95_s": 1.82,
+   "mean_s": 1.44,
+   "vram_peak_mib": 10462,
+   "gpu_util_peak": 100
+  }
+ }
+}

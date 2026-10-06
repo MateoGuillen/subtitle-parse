@@ -1,0 +1,186 @@
+{
+  "title": "Fraude Y Corrupcion",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 5.77,
+  "n_fields": 12,
+  "validation_errors": [],
+  "field_names": [
+    "contiene_denuncia_penal",
+    "menciona_dncp",
+    "num_acciones_incumplimiento",
+    "texto_vacio",
+    "menciona_colusion",
+    "menciona_perjuicio",
+    "num_practicas_fraudulentas",
+    "menciona_etapa_oferta",
+    "menciona_ejecucion_contrato",
+    "longitud_texto",
+    "num_puntos",
+    "num_parrafos"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"contiene_denuncia_penal\": {\"type\": \"binary\", \"description\": \"Indica si se menciona explícitamente denuncia penal\", \"importance\": 10, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase exacta 'denuncia penal'. No activar con solo 'denuncia'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_dncp\": {\"type\": \"binary\", \"description\": \"Indica si se menciona a la DNCP como autoridad receptora\", \"importance\": 9, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'DNCP' o 'Dirección Nacional de Contrataciones Públicas'. Retornar 1 si aparece, 0 si no.\"},\n    \"num_acciones_incumplimiento\": {\"type\": \"numeric\", \"description\": \"Cantidad de acciones o sanciones listadas ante incumplimiento\", \"importance\": 8, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Contar cuántas de estas acciones están presentes semánticamente: descalificar oferta, rescindir contrato, remitir a DNCP, denuncia penal. Retornar entero 0-4.\"},\n    \"texto_vacio\": {\"type\": \"binary\", \"description\": \"Indica si la sección no contiene desarrollo normativo\", \"importance\": 7, \"extraction_method\": \"structural\", \"extraction_hint\": \"Retornar 1 si el texto tiene menos de 50 palabras o no contiene oración con contenido normativo. Retornar 0 en caso contrario.\"},\n    \"menciona_colusion\": {\"type\": \"binary\", \"description\": \"Indica si se menciona colusión como práctica fraudulenta\", \"importance\": 6, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'colusión' o 'acuerdo entre dos o más partes'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_perjuicio\": {\"type\": \"binary\", \"description\": \"Indica si se menciona perjuicio como práctica fraudulenta\", \"importance\": 5, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'perjudicar' o 'causar daño'. Retornar 1 si aparece, 0 si no.\"},\n    \"num_practicas_fraudulentas\": {\"type\": \"numeric\", \"description\": \"Cantidad de prácticas fraudulentas descritas\", \"importance\": 4, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Contar cuántas prácticas fraudulentas están descritas, como ofrecer, dar, recibir, tergiversación, etc. Retornar entero 0-5.\"},\n    \"menciona_etapa_oferta\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la etapa de oferta en el proceso de contratación\", \"importance\": 3, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'etapa de oferta'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_ejecucion_contrato\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la ejecución del contrato en el proceso de contratación\", \"importance\": 2, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'ejecución del contrato'. Retornar 1 si aparece, 0 si no.\"},\n    \"longitud_texto\": {\"type\": \"numeric\", \"description\": \"Longitud del texto en palabras\", \"importance\": 1, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar el número de palabras en el texto. Retornar entero.\"},\n    \"num_puntos\": {\"type\": \"numeric\", \"description\": \"Cantidad de puntos o incisos en el texto\", \"importance\": 1, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar el número de puntos o incisos en el texto. Retornar entero.\"},\n    \"num_parrafos\": {\"type\": \"numeric\", \"description\": \"Cantidad de párrafos en el texto\", \"importance\": 1, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar el número de párrafos en el texto. Retornar entero.\"}\n  },\n  \"justification\": \"Cada campo fue elegido para capturar diferencias significativas entre los clusters y la versión estándar. Los campos binarios detectan la presencia o ausencia de términos y conceptos clave, mientras que los campos numéricos miden la cantidad de acciones, prácticas fraudulentas y estructura del texto.\",\n  \"cluster_values\": {\n    \"contiene_denuncia_penal\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1, \"cluster_5\": 1},\n    \"menciona_dncp\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1, \"cluster_5\": 1},\n    \"num_acciones_incumplimiento\": {\"cluster_0\": 4, \"cluster_1\": 4, \"cluster_3\": 4, \"cluster_5\": 3},\n    \"texto_vacio\": {\"cluster_0\": 0, \"cluster_1\": 0, \"cluster_3\": 0, \"cluster_5\": 0},\n    \"menciona_colusion\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1, \"cluster_5\": 1},\n    \"menciona_perjuicio\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1, \"cluster_5\": 1},\n    \"num_practicas_fraudulentas\": {\"cluster_0\": 5, \"cluster_1\": 5, \"cluster_3\": 5, \"cluster_5\": 5},\n    \"menciona_etapa_oferta\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1, \"cluster_5\": 1},\n    \"menciona_ejecucion_contrato\": {\"cluster_0\": 1, \"cluster_1\": 1, \"cluster_3\": 1, \"cluster_5\": 1},\n    \"longitud_texto\": {\"cluster_0\": 500, \"cluster_1\": 500, \"cluster_3\": 500, \"cluster_5\": 400},\n    \"num_puntos\": {\"cluster_0\": 5, \"cluster_1\": 5, \"cluster_3\": 5, \"cluster_5\": 4},\n    \"num_parrafos\": {\"cluster_0\": 2, \"cluster_1\": 2, \"cluster_3\": 2, \"cluster_5\": 2}\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "contiene_denuncia_penal": {
+        "type": "binary",
+        "description": "Indica si se menciona explícitamente denuncia penal",
+        "importance": 10,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'denuncia penal'. No activar con solo 'denuncia'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_dncp": {
+        "type": "binary",
+        "description": "Indica si se menciona a la DNCP como autoridad receptora",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'DNCP' o 'Dirección Nacional de Contrataciones Públicas'. Retornar 1 si aparece, 0 si no."
+      },
+      "num_acciones_incumplimiento": {
+        "type": "numeric",
+        "description": "Cantidad de acciones o sanciones listadas ante incumplimiento",
+        "importance": 8,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántas de estas acciones están presentes semánticamente: descalificar oferta, rescindir contrato, remitir a DNCP, denuncia penal. Retornar entero 0-4."
+      },
+      "texto_vacio": {
+        "type": "binary",
+        "description": "Indica si la sección no contiene desarrollo normativo",
+        "importance": 7,
+        "extraction_method": "structural",
+        "extraction_hint": "Retornar 1 si el texto tiene menos de 50 palabras o no contiene oración con contenido normativo. Retornar 0 en caso contrario."
+      },
+      "menciona_colusion": {
+        "type": "binary",
+        "description": "Indica si se menciona colusión como práctica fraudulenta",
+        "importance": 6,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'colusión' o 'acuerdo entre dos o más partes'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_perjuicio": {
+        "type": "binary",
+        "description": "Indica si se menciona perjuicio como práctica fraudulenta",
+        "importance": 5,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'perjudicar' o 'causar daño'. Retornar 1 si aparece, 0 si no."
+      },
+      "num_practicas_fraudulentas": {
+        "type": "numeric",
+        "description": "Cantidad de prácticas fraudulentas descritas",
+        "importance": 4,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántas prácticas fraudulentas están descritas, como ofrecer, dar, recibir, tergiversación, etc. Retornar entero 0-5."
+      },
+      "menciona_etapa_oferta": {
+        "type": "binary",
+        "description": "Indica si se menciona la etapa de oferta en el proceso de contratación",
+        "importance": 3,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'etapa de oferta'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_ejecucion_contrato": {
+        "type": "binary",
+        "description": "Indica si se menciona la ejecución del contrato en el proceso de contratación",
+        "importance": 2,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'ejecución del contrato'. Retornar 1 si aparece, 0 si no."
+      },
+      "longitud_texto": {
+        "type": "numeric",
+        "description": "Longitud del texto en palabras",
+        "importance": 1,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de palabras en el texto. Retornar entero."
+      },
+      "num_puntos": {
+        "type": "numeric",
+        "description": "Cantidad de puntos o incisos en el texto",
+        "importance": 1,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de puntos o incisos en el texto. Retornar entero."
+      },
+      "num_parrafos": {
+        "type": "numeric",
+        "description": "Cantidad de párrafos en el texto",
+        "importance": 1,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de párrafos en el texto. Retornar entero."
+      }
+    },
+    "justification": "Cada campo fue elegido para capturar diferencias significativas entre los clusters y la versión estándar. Los campos binarios detectan la presencia o ausencia de términos y conceptos clave, mientras que los campos numéricos miden la cantidad de acciones, prácticas fraudulentas y estructura del texto.",
+    "cluster_values": {
+      "contiene_denuncia_penal": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1,
+        "cluster_5": 1
+      },
+      "menciona_dncp": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1,
+        "cluster_5": 1
+      },
+      "num_acciones_incumplimiento": {
+        "cluster_0": 4,
+        "cluster_1": 4,
+        "cluster_3": 4,
+        "cluster_5": 3
+      },
+      "texto_vacio": {
+        "cluster_0": 0,
+        "cluster_1": 0,
+        "cluster_3": 0,
+        "cluster_5": 0
+      },
+      "menciona_colusion": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1,
+        "cluster_5": 1
+      },
+      "menciona_perjuicio": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1,
+        "cluster_5": 1
+      },
+      "num_practicas_fraudulentas": {
+        "cluster_0": 5,
+        "cluster_1": 5,
+        "cluster_3": 5,
+        "cluster_5": 5
+      },
+      "menciona_etapa_oferta": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1,
+        "cluster_5": 1
+      },
+      "menciona_ejecucion_contrato": {
+        "cluster_0": 1,
+        "cluster_1": 1,
+        "cluster_3": 1,
+        "cluster_5": 1
+      },
+      "longitud_texto": {
+        "cluster_0": 500,
+        "cluster_1": 500,
+        "cluster_3": 500,
+        "cluster_5": 400
+      },
+      "num_puntos": {
+        "cluster_0": 5,
+        "cluster_1": 5,
+        "cluster_3": 5,
+        "cluster_5": 4
+      },
+      "num_parrafos": {
+        "cluster_0": 2,
+        "cluster_1": 2,
+        "cluster_3": 2,
+        "cluster_5": 2
+      }
+    }
+  }
+}

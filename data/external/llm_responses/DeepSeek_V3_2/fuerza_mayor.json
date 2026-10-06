@@ -1,0 +1,178 @@
+{
+  "title": "Fuerza Mayor",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 21.47,
+  "n_fields": 8,
+  "validation_errors": [],
+  "field_names": [
+    "contiene_plazo_notificacion",
+    "contiene_excepcion_plazo",
+    "contiene_exclusion_dificultad",
+    "contiene_requisito_nexo",
+    "contiene_ampliacion_plazo",
+    "contiene_exclusion_previsibilidad",
+    "num_eventos_ejemplo",
+    "contiene_limite_afectacion"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"contiene_plazo_notificacion\": {\"type\": \"binary\", \"description\": \"Indica si se establece un plazo específico (en días) para notificar un evento de fuerza mayor\", \"importance\": 10, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar patrones numéricos seguidos de 'días' o 'días calendario' dentro de la oración que describe la notificación. Ejemplos: 'siete (7) días', '7 días', 'plazo de siete días'. Retornar 1 si se encuentra un número de días específico, 0 si no.\"},\n    \"contiene_excepcion_plazo\": {\"type\": \"binary\", \"description\": \"Indica si se menciona una excepción que permite notificar fuera del plazo establecido\", \"importance\": 9, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Buscar frases que indiquen flexibilidad o excepción al plazo de notificación. Ejemplos: 'Excepcionalmente', 'podrá aceptar... en un plazo mayor', 'bajo su responsabilidad', 'acreditar el interés público'. Retornar 1 si se encuentra alguna de estas variantes semánticas, 0 si no.\"},\n    \"contiene_exclusion_dificultad\": {\"type\": \"binary\", \"description\": \"Indica si se excluye explícitamente que la mera dificultad u onerosidad constituya fuerza mayor\", \"importance\": 8, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Buscar frases que nieguen que la dificultad o mayor costo sean fuerza mayor. Ejemplos: 'más difícil o más onerosa', 'únicamente más difícil', 'no se considerarán... que hagan el cumplimiento... más oneroso'. Retornar 1 si se encuentra, 0 si no.\"},\n    \"contiene_requisito_nexo\": {\"type\": \"binary\", \"description\": \"Indica si se exige demostrar un nexo causal entre el evento y la obligación incumplida\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la palabra 'nexo' en combinación con 'demostrar', 'probar', 'existente', 'causal' o 'obligación'. Ejemplo: 'demostrar el nexo existente'. Retornar 1 si se encuentra, 0 si no.\"},\n    \"contiene_ampliacion_plazo\": {\"type\": \"binary\", \"description\": \"Indica si se menciona expresamente el derecho a una ampliación de plazos de ejecución por fuerza mayor\", \"importance\": 7, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar frases como 'ampliación de los plazos', 'ampliación razonable de los plazos', 'prórroga', 'extensión del plazo'. Retornar 1 si se encuentra, 0 si no.\"},\n    \"contiene_exclusion_previsibilidad\": {\"type\": \"binary\", \"description\": \"Indica si se excluyen eventos previsibles o evitables con diligencia como fuerza mayor\", \"importance\": 7, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Buscar conceptos de previsibilidad o evitabilidad. Ejemplos: 'podría preverse', 'consecuencias podrían evitarse', 'actuando con diligencia razonable', 'imprevisible' en contexto negativo. Retornar 1 si se encuentra una cláusula de exclusión por previsibilidad, 0 si no.\"},\n    \"num_eventos_ejemplo\": {\"type\": \"numeric\", \"description\": \"Cantidad de eventos de fuerza mayor listados como ejemplos (ej: guerras, incendios, inundaciones)\", \"importance\": 6, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Contar los sustantivos que sean ejemplos de eventos de fuerza mayor en la lista que sigue a 'pueden incluir' o 'incluyen'. No contar conectores como 'y', 'o', 'sin que éstos sean los únicos'. Retornar el número entero de ejemplos listados.\"},\n    \"contiene_limite_afectacion\": {\"type\": \"binary\", \"description\": \"Indica si se limita la afectación de la fuerza mayor solo a la parte del contrato cuyo cumplimiento se probó imposible\", \"importance\": 6, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Buscar frases que restrinjan el alcance. Ejemplos: 'solamente podrá afectar a la parte', 'afectar a la parte del contrato cuyo cumplimiento imposible', 'parcial del contrato'. Retornar 1 si se encuentra, 0 si no.\"}\n  },\n  \"justification\": \"El cluster dominante (2_3_4_5_10_11) y la mayoría de los otros (0_8_13_15, 6, 7, 9_14, 12, 16, 17, 18) comparten una estructura normativa robusta: plazo de notificación de 7 días, excepción a ese plazo, exclusión de la mera dificultad, requisito de nexo causal y límite de afectación. Estos campos binarios detectan la omisión de estos elementos clave, lo que debilita los controles. El cluster 1 es el más anómalo: omite el plazo fijo de notificación y la excepción, pero añade el derecho a ampliación de plazos y una cláusula de exclusión por previsibilidad. Los campos 'contiene_ampliacion_plazo' y 'contiene_exclusion_previsibilidad' capturan estas desviaciones. El campo 'num_eventos_ejemplo' mera variación descriptiva, pero una lista muy corta podría ser indicio de redacción minimalista. La ausencia de cualquiera de los elementos del cluster dominante (valor 0 en sus campos) es una anomalía potencial.\",\n  \"cluster_values\": {\n    \"contiene_plazo_notificacion\": {\"cluster_2_3_4_5_10_11\": 1, \"cluster_0_8_13_15\": 1, \"cluster_1\": 0, \"cluster_6\": 1, \"cluster_7\": 1, \"cluster_9_14\": 1, \"cluster_12\": 1, \"cluster_16\": 1, \"cluster_17\": 1, \"cluster_18\": 1},\n    \"contiene_excepcion_plazo\": {\"cluster_2_3_4_5_10_11\": 1, \"cluster_0_8_13_15\": 1, \"cluster_1\": 0, \"cluster_6\": 1, \"cluster_7\": 1, \"cluster_9_14\": 1, \"cluster_12\": 1, \"cluster_16\": 1, \"cluster_17\": 1, \"cluster_18\": 1},\n    \"contiene_exclusion_dificultad\": {\"cluster_2_3_4_5_10_11\": 1, \"cluster_0_8_13_15\": 1, \"cluster_1\": 1, \"cluster_6\": 1, \"cluster_7\": 1, \"cluster_9_14\": 1, \"cluster_12\": 1, \"cluster_16\": 1, \"cluster_17\": 1, \"cluster_18\": 1},\n    \"contiene_requisito_nexo\": {\"cluster_2_3_4_5_10_11\": 1, \"cluster_0_8_13_15\": 1, \"cluster_1\": 1, \"cluster_6\": 1, \"cluster_7\": 1, \"cluster_9_14\": 1, \"cluster_12\": 1, \"cluster_16\": 1, \"cluster_17\": 1, \"cluster_18\": 1},\n    \"contiene_ampliacion_plazo\": {\"cluster_2_3_4_5_10_11\": 0, \"cluster_0_8_13_15\": 0, \"cluster_1\": 1, \"cluster_6\": 0, \"cluster_7\": 0, \"cluster_9_14\": 0, \"cluster_12\": 0, \"cluster_16\": 0, \"cluster_17\": 0, \"cluster_18\": 0},\n    \"contiene_exclusion_previsibilidad\": {\"cluster_2_3_4_5_10_11\": 0, \"cluster_0_8_13_15\": 0, \"cluster_1\": 1, \"cluster_6\": 0, \"cluster_7\": 0, \"cluster_9_14\": 0, \"cluster_12\": 0, \"cluster_16\": 0, \"cluster_17\": 0, \"cluster_18\": 0},\n    \"num_eventos_ejemplo\": {\"cluster_2_3_4_5_10_11\": 7, \"cluster_0_8_13_15\": 7, \"cluster_1\": 14, \"cluster_6\": 7, \"cluster_7\": 7, \"cluster_9_14\": 7, \"cluster_12\": 7, \"cluster_16\": 7, \"cluster_17\": 7, \"cluster_18\": 7},\n    \"contiene_limite_afectacion\": {\"cluster_2_3_4_5_10_11\": 1, \"cluster_0_8_13_15\": 1, \"cluster_1\": 1, \"cluster_6\": 1, \"cluster_7\": 1, \"cluster_9_14\": 1, \"cluster_12\": 1, \"cluster_16\": 1, \"cluster_17\": 1, \"cluster_18\": 1}\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "contiene_plazo_notificacion": {
+        "type": "binary",
+        "description": "Indica si se establece un plazo específico (en días) para notificar un evento de fuerza mayor",
+        "importance": 10,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar patrones numéricos seguidos de 'días' o 'días calendario' dentro de la oración que describe la notificación. Ejemplos: 'siete (7) días', '7 días', 'plazo de siete días'. Retornar 1 si se encuentra un número de días específico, 0 si no."
+      },
+      "contiene_excepcion_plazo": {
+        "type": "binary",
+        "description": "Indica si se menciona una excepción que permite notificar fuera del plazo establecido",
+        "importance": 9,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar frases que indiquen flexibilidad o excepción al plazo de notificación. Ejemplos: 'Excepcionalmente', 'podrá aceptar... en un plazo mayor', 'bajo su responsabilidad', 'acreditar el interés público'. Retornar 1 si se encuentra alguna de estas variantes semánticas, 0 si no."
+      },
+      "contiene_exclusion_dificultad": {
+        "type": "binary",
+        "description": "Indica si se excluye explícitamente que la mera dificultad u onerosidad constituya fuerza mayor",
+        "importance": 8,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar frases que nieguen que la dificultad o mayor costo sean fuerza mayor. Ejemplos: 'más difícil o más onerosa', 'únicamente más difícil', 'no se considerarán... que hagan el cumplimiento... más oneroso'. Retornar 1 si se encuentra, 0 si no."
+      },
+      "contiene_requisito_nexo": {
+        "type": "binary",
+        "description": "Indica si se exige demostrar un nexo causal entre el evento y la obligación incumplida",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la palabra 'nexo' en combinación con 'demostrar', 'probar', 'existente', 'causal' o 'obligación'. Ejemplo: 'demostrar el nexo existente'. Retornar 1 si se encuentra, 0 si no."
+      },
+      "contiene_ampliacion_plazo": {
+        "type": "binary",
+        "description": "Indica si se menciona expresamente el derecho a una ampliación de plazos de ejecución por fuerza mayor",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar frases como 'ampliación de los plazos', 'ampliación razonable de los plazos', 'prórroga', 'extensión del plazo'. Retornar 1 si se encuentra, 0 si no."
+      },
+      "contiene_exclusion_previsibilidad": {
+        "type": "binary",
+        "description": "Indica si se excluyen eventos previsibles o evitables con diligencia como fuerza mayor",
+        "importance": 7,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar conceptos de previsibilidad o evitabilidad. Ejemplos: 'podría preverse', 'consecuencias podrían evitarse', 'actuando con diligencia razonable', 'imprevisible' en contexto negativo. Retornar 1 si se encuentra una cláusula de exclusión por previsibilidad, 0 si no."
+      },
+      "num_eventos_ejemplo": {
+        "type": "numeric",
+        "description": "Cantidad de eventos de fuerza mayor listados como ejemplos (ej: guerras, incendios, inundaciones)",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar los sustantivos que sean ejemplos de eventos de fuerza mayor en la lista que sigue a 'pueden incluir' o 'incluyen'. No contar conectores como 'y', 'o', 'sin que éstos sean los únicos'. Retornar el número entero de ejemplos listados."
+      },
+      "contiene_limite_afectacion": {
+        "type": "binary",
+        "description": "Indica si se limita la afectación de la fuerza mayor solo a la parte del contrato cuyo cumplimiento se probó imposible",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar frases que restrinjan el alcance. Ejemplos: 'solamente podrá afectar a la parte', 'afectar a la parte del contrato cuyo cumplimiento imposible', 'parcial del contrato'. Retornar 1 si se encuentra, 0 si no."
+      }
+    },
+    "justification": "El cluster dominante (2_3_4_5_10_11) y la mayoría de los otros (0_8_13_15, 6, 7, 9_14, 12, 16, 17, 18) comparten una estructura normativa robusta: plazo de notificación de 7 días, excepción a ese plazo, exclusión de la mera dificultad, requisito de nexo causal y límite de afectación. Estos campos binarios detectan la omisión de estos elementos clave, lo que debilita los controles. El cluster 1 es el más anómalo: omite el plazo fijo de notificación y la excepción, pero añade el derecho a ampliación de plazos y una cláusula de exclusión por previsibilidad. Los campos 'contiene_ampliacion_plazo' y 'contiene_exclusion_previsibilidad' capturan estas desviaciones. El campo 'num_eventos_ejemplo' mera variación descriptiva, pero una lista muy corta podría ser indicio de redacción minimalista. La ausencia de cualquiera de los elementos del cluster dominante (valor 0 en sus campos) es una anomalía potencial.",
+    "cluster_values": {
+      "contiene_plazo_notificacion": {
+        "cluster_2_3_4_5_10_11": 1,
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 0,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_9_14": 1,
+        "cluster_12": 1,
+        "cluster_16": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      },
+      "contiene_excepcion_plazo": {
+        "cluster_2_3_4_5_10_11": 1,
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 0,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_9_14": 1,
+        "cluster_12": 1,
+        "cluster_16": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      },
+      "contiene_exclusion_dificultad": {
+        "cluster_2_3_4_5_10_11": 1,
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 1,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_9_14": 1,
+        "cluster_12": 1,
+        "cluster_16": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      },
+      "contiene_requisito_nexo": {
+        "cluster_2_3_4_5_10_11": 1,
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 1,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_9_14": 1,
+        "cluster_12": 1,
+        "cluster_16": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      },
+      "contiene_ampliacion_plazo": {
+        "cluster_2_3_4_5_10_11": 0,
+        "cluster_0_8_13_15": 0,
+        "cluster_1": 1,
+        "cluster_6": 0,
+        "cluster_7": 0,
+        "cluster_9_14": 0,
+        "cluster_12": 0,
+        "cluster_16": 0,
+        "cluster_17": 0,
+        "cluster_18": 0
+      },
+      "contiene_exclusion_previsibilidad": {
+        "cluster_2_3_4_5_10_11": 0,
+        "cluster_0_8_13_15": 0,
+        "cluster_1": 1,
+        "cluster_6": 0,
+        "cluster_7": 0,
+        "cluster_9_14": 0,
+        "cluster_12": 0,
+        "cluster_16": 0,
+        "cluster_17": 0,
+        "cluster_18": 0
+      },
+      "num_eventos_ejemplo": {
+        "cluster_2_3_4_5_10_11": 7,
+        "cluster_0_8_13_15": 7,
+        "cluster_1": 14,
+        "cluster_6": 7,
+        "cluster_7": 7,
+        "cluster_9_14": 7,
+        "cluster_12": 7,
+        "cluster_16": 7,
+        "cluster_17": 7,
+        "cluster_18": 7
+      },
+      "contiene_limite_afectacion": {
+        "cluster_2_3_4_5_10_11": 1,
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 1,
+        "cluster_6": 1,
+        "cluster_7": 1,
+        "cluster_9_14": 1,
+        "cluster_12": 1,
+        "cluster_16": 1,
+        "cluster_17": 1,
+        "cluster_18": 1
+      }
+    }
+  }
+}

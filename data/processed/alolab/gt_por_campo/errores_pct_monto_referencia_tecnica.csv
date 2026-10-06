@@ -1,0 +1,1937 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+462134,pct_monto_referencia_tecnica,capacidad_tecnica,50.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+· Infraestructura: La empresa oferente deberá contar como mínimo con un (01) local o
+Centro de Distribución propia o alquilada, a fin de garantizar el suministro en tiempo y
+forma, el mismo deberá estar debidamente habilitado por la Municipalidad donde tributa
+o fija su domicilio comercial, la habilitación deberá estar al día al momento de la apertura
+de ofertas.
+· Registro Sanitario del Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas
+(SENAVE) vigente, (Solo para importador y/o exportador de productos o sub productos de
+origen vegetal) de verduras, legumbres y fruta in natura.
+· Constancia de Registro Sanitario de Productos Alimenticios (RSPA) y Registro de
+Establecimiento (RE) vigente, de marcas propias expedido por INAN (Instituto Nacional de
+Alimentación y Nutrición), dependiente del Ministerio de Salud Pública y Bienestar Social,
+para los productos que requieran para su comercialización y copias de RESPA y RE de
+productos de terceros ofertados. (que no sean in natura) No se aceptan documentos en
+trámites.
+· Contar con Certificado de Origen Nacional de Productos Lácteos, expedido por el
+Servicio Nacional de Sanidad Animal (SENACSA)
+· Contar con al menos un vehículo propio o arrendado acondicionado tipo furgón para
+el trasporte y la distribución de los productos no perecederos, debidamente habilitados
+por la autoridad competente.
+· Contar con al menos un vehículo propio o arrendado refrigerado para el trasporte
+y la distribución de los productos perecederos, debidamente habilitados por la autoridad
+competente
+· Contar con al menos un personal encargado de las gestiones administrativas para las
+coordinaciones necesarias de entrega de los productos solicitados.
+· Poseer capacidad logística suficiente para cumplir con las provisiones semanales y
+mensuales durante la vigencia del contrato.
+· En caso de ofertarse productos de fabricación propia, presentar documento que
+avale lo mencionado, Registro de marca del producto ofertado
+· Planilla de Especificaciones Técnicas con los datos de los bienes requeridos en el
+Pliego de Bases y Condiciones.
+Para aquel/aquellos oferentes que coticen los ítems de carne deberán presentar:
+· Certificado de Registro de Firma, Certificado de Habilitación Oficial vigente y Registro
+de Empresa del matadero o del frigorífico, expedido por la Dirección General de Calidad e
+Inocuidad de Productos de Origen Animal dependiente del SENACSA. No se admitirán
+simples constancias de gestión de dichos trámites.
+· Certificado de habilitación del establecimiento propio expedido por el Servicio
+Nacional De Calidad Y Salud Animal (SENACSA).
+· En caso de ser compradores de animales vacunos en feria, constancia de feria donde
+conste la cantidad de animales adquiridos en los periodos de 2021/2022/2023 y que
+represente la cantidad necesaria de animales para cubrir la oferta (debe ir acompañado
+por un cálculo de kilos de carne por animal).
+· En caso de ser compradores de cortes de carne vacuna para su posterior
+comercialización, constancia de compra de cortes, de los últimos 3 años con copias de
+facturas de compra de dichos bienes, cuya sumatoria represente por lo menos el 50 % del
+monto máximo ofertado.
+· En caso de no contar con matadero propio, contrato de prestación de servicios de los
+últimos 3 (tres) años, debidamente firmado entre el matadero y el oferente, de formular el
+contrato acompañados de las habilitaciones de SENACSA vigentes a la fecha de apertura.
+· Constancia de contar con al menos un (01) vehículo frigorífico (debido al volumen y
+la cantidad de Servicios a proveer), aptos para el transporte de los productos cárnicos
+habilitados por el SENACSA (se deberá acompañar con la copia autenticada de las
+""habilitaciones vigentes respectivas).","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+· Infraestructura: La empresa oferente deberá contar como mínimo con un (01) local o
+Centro de Distribución propia o alquilada, a fin de garantizar el suministro en tiempo y
+forma, el mismo deberá estar debidamente habilitado por la Municipalidad donde tributa
+o fija su domicilio comercial, la habilitación deberá estar al día al momento de la apertura
+de ofertas.
+· Registro Sanitario del Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas
+(SENAVE) vigente, (Solo para importador y/o exportador de productos o sub productos de
+origen vegetal) de verduras, legumbres y fruta in natura.
+· Constancia de Registro Sanitario de Productos Alimenticios (RSPA) y Registro de
+Establecimiento (RE) vigente, de marcas propias expedido por INAN (Instituto Nacional de
+Alimentación y Nutrición), dependiente del Ministerio de Salud Pública y Bienestar Social,
+para los productos que requieran para su comercialización y copias de RESPA y RE de
+productos de terceros ofertados. (que no sean in natura) No se aceptan documentos en
+trámites.
+· Contar con Certificado de Origen Nacional de Productos Lácteos, expedido por el
+Servicio Nacional de Sanidad Animal (SENACSA)
+· Contar con al menos un vehículo propio o arrendado acondicionado tipo furgón para
+el trasporte y la distribución de los productos no perecederos, debidamente habilitados
+por la autoridad competente.
+· Contar con al menos un vehículo propio o arrendado refrigerado para el trasporte
+y la distribución de los productos perecederos, debidamente habilitados por la autoridad
+competente
+· Contar con al menos un personal encargado de las gestiones administrativas para las
+coordinaciones necesarias de entrega de los productos solicitados.
+· Poseer capacidad logística suficiente para cumplir con las provisiones semanales y
+mensuales durante la vigencia del contrato.
+· En caso de ofertarse productos de fabricación propia, presentar documento que
+avale lo mencionado, Registro de marca del producto ofertado
+· Planilla de Especificaciones Técnicas con los datos de los bienes requeridos en el
+Pliego de Bases y Condiciones.
+Para aquel/aquellos oferentes que coticen los ítems de carne deberán presentar:
+· Certificado de Registro de Firma, Certificado de Habilitación Oficial vigente y Registro
+de Empresa del matadero o del frigorífico, expedido por la Dirección General de Calidad e
+Inocuidad de Productos de Origen Animal dependiente del SENACSA. No se admitirán
+simples constancias de gestión de dichos trámites.
+· Certificado de habilitación del establecimiento propio expedido por el Servicio
+Nacional De Calidad Y Salud Animal (SENACSA).
+· En caso de ser compradores de animales vacunos en feria, constancia de feria donde
+conste la cantidad de animales adquiridos en los periodos de 2021/2022/2023 y que
+represente la cantidad necesaria de animales para cubrir la oferta (debe ir acompañado
+por un cálculo de kilos de carne por animal).
+· En caso de ser compradores de cortes de carne vacuna para su posterior
+comercialización, constancia de compra de cortes, de los últimos 3 años con copias de
+facturas de compra de dichos bienes, cuya sumatoria represente por lo menos el 50 % del
+monto máximo ofertado.
+· En caso de no contar con matadero propio, contrato de prestación de servicios de los
+últimos 3 (tres) años, debidamente firmado entre el matadero y el oferente, de formular el
+contrato acompañados de las habilitaciones de SENACSA vigentes a la fecha de apertura.
+· Constancia de contar con al menos un (01) vehículo frigorífico (debido al volumen y
+la cantidad de Servicios a proveer), aptos para el transporte de los productos cárnicos
+habilitados por el SENACSA (se deberá acompañar con la copia autenticada de las
+""habilitaciones vigentes respectivas).""",0.5,50.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+400538,pct_monto_referencia_tecnica,capacidad_tecnica,50.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+Copias de contratos con sus respectivos certificados de cumplimiento o facturaciones correspondientes por provisión de
+equipos informáticos y otros a instituciones públicas y/o privadas, de los (3) tres años (2018 2019 - 2020). Podrán
+presentarse la cantidad de contratos y/o facturaciones que fueren necesarios para acreditar el volumen o monto total
+ofertado (volumen de negocios igual o superior a 50 % (cincuenta por ciento) del monto máximo de la ofertado, en la
+""sumatoria de los contratos), de los (3) tres años (2018 2019 - 2020).","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+Copias de contratos con sus respectivos certificados de cumplimiento o facturaciones correspondientes por provisión de
+equipos informáticos y otros a instituciones públicas y/o privadas, de los (3) tres años (2018 2019 - 2020). Podrán
+presentarse la cantidad de contratos y/o facturaciones que fueren necesarios para acreditar el volumen o monto total
+ofertado (volumen de negocios igual o superior a 50 % (cincuenta por ciento) del monto máximo de la ofertado, en la
+""sumatoria de los contratos), de los (3) tres años (2018 2019 - 2020).""",70.0,,50.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 50.0%."
+383350,pct_monto_referencia_tecnica,capacidad_tecnica,50.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Presentación de las Especificaciones Técnicas impresas, firmadas, y selladas en su totalidad, conforme a lo
+establecido en la Sección ESPECIFICACIONES TÉCNICAS Y SUMINSTROS REQUERIDOS
+2. Declaración Jurada de poseer capacidad de suministro en cantidad, capacidad de depósito e infraestructura
+propia adecuada, a fin de garantizar el suministro en tiempo y forma.
+3. Registro Sanitario de Producción del Servicio Nacional de Calidad y Sanidad Vegetal y de Semilla (SENAVE),
+vigente, (Solo para importador y/o exportador de productos o sub productos de origen vegetal) de verduras,
+legumbres y frutas in natura.
+4. Constancia de Registro Sanitario de Producto Alimenticio (RSPA) y Registro de Establecimiento (RE) vigentes,
+de marcas propias expedidas por el INAN (Instituto Nacional de Alimentación y Nutrición) dependiente del
+Ministerio de Salud Pública y Bienestar Social para los productos que lo requieran para su comercialización, y
+listado del RSPA Y RE de productos de terceros ofertados. No se aceptarán documentos en trámite.
+5. Para aquel/aquellos oferentes que coticen los ítems de carne deberán presentar:
+Certificado de Registro de Firma, Certificado de Habilitación Oficial vigente y Registro de Empresa del matadero o del
+frigorífico, expedido por la Dirección General de Calidad e Inocuidad de Productos de Origen Animal dependiente del
+SENACSA. No se admitirán simples constancias de gestión de dichos trámites.
+Certificado de habilitación del establecimiento propio expedido por el Servicio Nacional De Calidad Y Salud Animal
+(SENACSA).
+En caso de ser compradores de animales vacunos en feria, constancia de feria donde conste la cantidad de animales
+adquiridos en los periodos de 2017/2018/2019 y que represente la cantidad necesaria de animales para cubrir la
+oferta (debe ir acompañado por un cálculo de kilos de carne por animal).
+En caso de ser compradores de cortes de carne vacuna para su posterior comercialización, constancia de compra de
+cortes, de los últimos 3 años con copias de facturas de compra de dichos bienes y que represente por lo menos el 50
+% del monto máximo ofertado.
+En caso de no contar con matadero propio, contrato de prestación de servicios de los últimos 3 (tres) años,
+debidamente firmado entre el matadero y el oferente, acompañados de las habilitaciones de SENACSA vigentes a la
+fecha de apertura.
+Constancia de contar con por lo menos un (01) vehículo frigorífico, apto para el transporte de los productos cárnicos
+habilitados por el SENACSA (se deberá acompañar con la copia autenticada de las habilitaciones vigentes
+respectivas).
+6. Certificado de Habilitación de vehículo, de 01 (un) vehículo, destinado al transporte del producto expedido por el
+SENACSA, vigente, para el oferente que cotice productos: CARNE AVÍCOLA (BLANCA), HUEVO y LÁCTEOS.
+7. Certificado de Origen Nacional de productos lácteos, expedido por el Servicio Nacional de Sanidad y Calidad Animal
+SENACSA.
+8. Registro de Habilitación expedido por SENAVE, para transporte de hortalizas y derivados, en al menos 01 (un) vehículo
+(conforme Resolución Nº 551 por SENAVE, por la cual se aprueba el Reglamento para el Registro y Habilitación de Medios de
+Transporte Terrestres de Frutas y Hortalizas In Natura, para el oferente que cotice productos Frutas y Hortalizas In
+Natura.
+9. Las evaluaciones se realizarán aplicando el sistema CUMPLE o NO CUMPLE
+Observación: Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser
+obligaciones tributarias, laborales y de seguridad social, además deberá indicarse en la oferta cuál es la empresa líder del
+consorcio, quien deberá cumplir con al menos 60% de los criterios de calificación de experiencia, y el 40% restante lo
+""cumplirán el o los demás integrantes del consorcio).","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Presentación de las Especificaciones Técnicas impresas, firmadas, y selladas en su totalidad, conforme a lo
+establecido en la Sección ESPECIFICACIONES TÉCNICAS Y SUMINSTROS REQUERIDOS
+2. Declaración Jurada de poseer capacidad de suministro en cantidad, capacidad de depósito e infraestructura
+propia adecuada, a fin de garantizar el suministro en tiempo y forma.
+3. Registro Sanitario de Producción del Servicio Nacional de Calidad y Sanidad Vegetal y de Semilla (SENAVE),
+vigente, (Solo para importador y/o exportador de productos o sub productos de origen vegetal) de verduras,
+legumbres y frutas in natura.
+4. Constancia de Registro Sanitario de Producto Alimenticio (RSPA) y Registro de Establecimiento (RE) vigentes,
+de marcas propias expedidas por el INAN (Instituto Nacional de Alimentación y Nutrición) dependiente del
+Ministerio de Salud Pública y Bienestar Social para los productos que lo requieran para su comercialización, y
+listado del RSPA Y RE de productos de terceros ofertados. No se aceptarán documentos en trámite.
+5. Para aquel/aquellos oferentes que coticen los ítems de carne deberán presentar:
+Certificado de Registro de Firma, Certificado de Habilitación Oficial vigente y Registro de Empresa del matadero o del
+frigorífico, expedido por la Dirección General de Calidad e Inocuidad de Productos de Origen Animal dependiente del
+SENACSA. No se admitirán simples constancias de gestión de dichos trámites.
+Certificado de habilitación del establecimiento propio expedido por el Servicio Nacional De Calidad Y Salud Animal
+(SENACSA).
+En caso de ser compradores de animales vacunos en feria, constancia de feria donde conste la cantidad de animales
+adquiridos en los periodos de 2017/2018/2019 y que represente la cantidad necesaria de animales para cubrir la
+oferta (debe ir acompañado por un cálculo de kilos de carne por animal).
+En caso de ser compradores de cortes de carne vacuna para su posterior comercialización, constancia de compra de
+cortes, de los últimos 3 años con copias de facturas de compra de dichos bienes y que represente por lo menos el 50
+% del monto máximo ofertado.
+En caso de no contar con matadero propio, contrato de prestación de servicios de los últimos 3 (tres) años,
+debidamente firmado entre el matadero y el oferente, acompañados de las habilitaciones de SENACSA vigentes a la
+fecha de apertura.
+Constancia de contar con por lo menos un (01) vehículo frigorífico, apto para el transporte de los productos cárnicos
+habilitados por el SENACSA (se deberá acompañar con la copia autenticada de las habilitaciones vigentes
+respectivas).
+6. Certificado de Habilitación de vehículo, de 01 (un) vehículo, destinado al transporte del producto expedido por el
+SENACSA, vigente, para el oferente que cotice productos: CARNE AVÍCOLA (BLANCA), HUEVO y LÁCTEOS.
+7. Certificado de Origen Nacional de productos lácteos, expedido por el Servicio Nacional de Sanidad y Calidad Animal
+SENACSA.
+8. Registro de Habilitación expedido por SENAVE, para transporte de hortalizas y derivados, en al menos 01 (un) vehículo
+(conforme Resolución Nº 551 por SENAVE, por la cual se aprueba el Reglamento para el Registro y Habilitación de Medios de
+Transporte Terrestres de Frutas y Hortalizas In Natura, para el oferente que cotice productos Frutas y Hortalizas In
+Natura.
+9. Las evaluaciones se realizarán aplicando el sistema CUMPLE o NO CUMPLE
+Observación: Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser
+obligaciones tributarias, laborales y de seguridad social, además deberá indicarse en la oferta cuál es la empresa líder del
+consorcio, quien deberá cumplir con al menos 60% de los criterios de calificación de experiencia, y el 40% restante lo
+""cumplirán el o los demás integrantes del consorcio).""",0.6,60.0,50.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 50.0%."
+462510,pct_monto_referencia_tecnica,capacidad_tecnica,30.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Demostrar haber provisto en tiempo y forma el servicio de fumigación, a través de constancias, como mínimo 3
+(tres), expedidas por empresas privadas y/o públicas con quienes mantiene y/o mantuvo relaciones comerciales,
+que debe contener la debida identificación del emisor y que sean correspondientes a los últimos 3(tres) años (2021,
+2022, 2023).
+2. La empresa deberá contar con la habilitación vigente; en la Dirección General de Salud Ambiental (DIGESA),;;;
+dependiente del MSPyBS; como empresa fumigadora.;;;
+3. Contar con un capital operativo (activo corriente - pasivo corriente) positivo y no inferior al 30% (treinta por ciento)
+del monto total de la oferta inicial, lo cual será corroborado por medio del balance general del último año 2023
+pudiendo completar dicho porcentaje con la presentación de certificado de una entidad bancaria regulada por el
+Banco Central del Paraguay que demuestre la disponibilidad de la línea de crédito suficiente para justificar el
+porcentaje mencionado o extracto bancario impreso dentro de los últimos 5 días antes de la apertura de sobre.
+4. Deberá tener habilitación o Nota de la Ley 294/93 de Evaluación de Impacto Ambiental del MADES.
+5. La firma deberá contar con los equipos necesarios, teniendo en cuenta los trabajos a ser realizados; como mínimo;;;
+mochilas pulverizadoras o fumigadoras de 18 litros(como minimo) y 8 (ocho) empleados con su respectivo Carnet de
+DIGESA vigente, para la realización de servicios de fumigación y que deberán estar inscriptos en el Instituto de
+Previsión Social (IPS) con una antigüedad mínima de 1 año.
+6. El oferente deberá demostrar que posee un sistema de gestión de Seguridad y Salud en el trabajo, acompañado de
+sus antecedentes (Datos de la Consultoría, Auditor asignado, Plan de Auditoria, la Certificadora deberá estar
+debidamente acreditada y reconocida por el ONA).
+7. El oferente deberá contar con 02 (dos) Profesionales Técnico en seguridad ocupacional categoría A, cuyo registro
+deberá ser expedido por la Dirección de Salud y Seguridad Ocupacional Viceministerio de Trabajo Ministerio de
+Trabajo, Empleo y Seguridad Social, uno deberá ser parte del plantel permanente del Staff de la empresa, y el otro
+podrá ser Profesional independiente consultor externo, ambos con una antigüedad mínima de 1 año, comprobables
+con constancia de entrada al IPS para el primero y el segundo con contrato profesional y facturas de pagos que
+demuestren la antigüedad requerida.
+8. Listado de productos a ser utilizados deberán cumplir con las normas legales vigentes para el efecto, de manera que
+aseguren una total y efectiva protección a las personas y al medio ambiente, y deben estar registrados en: DINAVISA
+dependiente del MSP y BS o en SENAVE, según corresponda.
+9. La contratista deberá contar con un mínimo de 2(dos) vehículos propios, del tipo utilitario, con capacidad mínima
+de 1.500 kg., año de fabricación 2020 (como minimo) en adelante a fin de garantizar la ejecución oportuna del
+servicio requerido, uno de los móviles deberá ser doble cabina a fin de transportar los fumigadores.
+10. El oferente deberá demostrar que posee un sistema de gestión de calidad que garantice la ejecución oportuna y
+satisfactoria de los servicios objeto del presente llamado.
+El oferente deberá demostrar que posee un sistema de gestión ambiental (SGA) que garantice su compromiso con el medio
+""ambiente.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Demostrar haber provisto en tiempo y forma el servicio de fumigación, a través de constancias, como mínimo 3
+(tres), expedidas por empresas privadas y/o públicas con quienes mantiene y/o mantuvo relaciones comerciales,
+que debe contener la debida identificación del emisor y que sean correspondientes a los últimos 3(tres) años (2021,
+2022, 2023).
+2. La empresa deberá contar con la habilitación vigente; en la Dirección General de Salud Ambiental (DIGESA),;;;
+dependiente del MSPyBS; como empresa fumigadora.;;;
+3. Contar con un capital operativo (activo corriente - pasivo corriente) positivo y no inferior al 30% (treinta por ciento)
+del monto total de la oferta inicial, lo cual será corroborado por medio del balance general del último año 2023
+pudiendo completar dicho porcentaje con la presentación de certificado de una entidad bancaria regulada por el
+Banco Central del Paraguay que demuestre la disponibilidad de la línea de crédito suficiente para justificar el
+porcentaje mencionado o extracto bancario impreso dentro de los últimos 5 días antes de la apertura de sobre.
+4. Deberá tener habilitación o Nota de la Ley 294/93 de Evaluación de Impacto Ambiental del MADES.
+5. La firma deberá contar con los equipos necesarios, teniendo en cuenta los trabajos a ser realizados; como mínimo;;;
+mochilas pulverizadoras o fumigadoras de 18 litros(como minimo) y 8 (ocho) empleados con su respectivo Carnet de
+DIGESA vigente, para la realización de servicios de fumigación y que deberán estar inscriptos en el Instituto de
+Previsión Social (IPS) con una antigüedad mínima de 1 año.
+6. El oferente deberá demostrar que posee un sistema de gestión de Seguridad y Salud en el trabajo, acompañado de
+sus antecedentes (Datos de la Consultoría, Auditor asignado, Plan de Auditoria, la Certificadora deberá estar
+debidamente acreditada y reconocida por el ONA).
+7. El oferente deberá contar con 02 (dos) Profesionales Técnico en seguridad ocupacional categoría A, cuyo registro
+deberá ser expedido por la Dirección de Salud y Seguridad Ocupacional Viceministerio de Trabajo Ministerio de
+Trabajo, Empleo y Seguridad Social, uno deberá ser parte del plantel permanente del Staff de la empresa, y el otro
+podrá ser Profesional independiente consultor externo, ambos con una antigüedad mínima de 1 año, comprobables
+con constancia de entrada al IPS para el primero y el segundo con contrato profesional y facturas de pagos que
+demuestren la antigüedad requerida.
+8. Listado de productos a ser utilizados deberán cumplir con las normas legales vigentes para el efecto, de manera que
+aseguren una total y efectiva protección a las personas y al medio ambiente, y deben estar registrados en: DINAVISA
+dependiente del MSP y BS o en SENAVE, según corresponda.
+9. La contratista deberá contar con un mínimo de 2(dos) vehículos propios, del tipo utilitario, con capacidad mínima
+de 1.500 kg., año de fabricación 2020 (como minimo) en adelante a fin de garantizar la ejecución oportuna del
+servicio requerido, uno de los móviles deberá ser doble cabina a fin de transportar los fumigadores.
+10. El oferente deberá demostrar que posee un sistema de gestión de calidad que garantice la ejecución oportuna y
+satisfactoria de los servicios objeto del presente llamado.
+El oferente deberá demostrar que posee un sistema de gestión ambiental (SGA) que garantice su compromiso con el medio
+""ambiente.""",0.3,30.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+463795,pct_monto_referencia_tecnica,capacidad_tecnica,60.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Mínimo de 6 años de experiencia demostrable en el rubro de software, específicamente trabajos relacionados al objeto
+de la contratación.
+2. Mínimo de 10 referencias de clientes con las siguientes restricciones:
+Cada referencia deberá corresponder a trabajos relacionados a desarrollo o implementación de software (pudiendo
+ser en el marco de la provisión de otros bienes o servicios TIC, pero demostrable en cada caso).
+Deberá presentar contratos o constancias firmadas de organizaciones privadas o públicas.
+Al menos 4 referencias deben corresponder a trabajos realizados en Paraguay para organizaciones públicas o
+privadas radicadas en Paraguay.
+Restricción de monto: deberá cumplir al menos una de las siguientes 2 restricciones:
+La sumatoria de los montos de las referencias presentadas que cumplan estos criterios deberá ser como mínimo el 60%
+del monto referencial de la adquisición.
+Al menos una referencia de trabajo similar por el 40% del monto referencial de la adquisición, provisto a un mismo
+cliente.
+3. Deberá contar con al menos 3 (tres) profesionales radicados en el país de relevada experiencia, formación y
+""certificaciones en el ámbito de desarrollo e implementación de software.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Mínimo de 6 años de experiencia demostrable en el rubro de software, específicamente trabajos relacionados al objeto
+de la contratación.
+2. Mínimo de 10 referencias de clientes con las siguientes restricciones:
+Cada referencia deberá corresponder a trabajos relacionados a desarrollo o implementación de software (pudiendo
+ser en el marco de la provisión de otros bienes o servicios TIC, pero demostrable en cada caso).
+Deberá presentar contratos o constancias firmadas de organizaciones privadas o públicas.
+Al menos 4 referencias deben corresponder a trabajos realizados en Paraguay para organizaciones públicas o
+privadas radicadas en Paraguay.
+Restricción de monto: deberá cumplir al menos una de las siguientes 2 restricciones:
+La sumatoria de los montos de las referencias presentadas que cumplan estos criterios deberá ser como mínimo el 60%
+del monto referencial de la adquisición.
+Al menos una referencia de trabajo similar por el 40% del monto referencial de la adquisición, provisto a un mismo
+cliente.
+3. Deberá contar con al menos 3 (tres) profesionales radicados en el país de relevada experiencia, formación y
+""certificaciones en el ámbito de desarrollo e implementación de software.""",0.6,60.0,40.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 40.0%."
+404004,pct_monto_referencia_tecnica,capacidad_tecnica,60.0,"Capacidad Técnica""
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+Poseer 5 (cinco) años de antigüedad como mínimo en el rubro de venta; mantenimiento, soporte técnico y/o actualización;;;
+de sistemas de gestión municipal. Para el efecto se requiere Copia de Constancia de RUC para verificación de su actividad
+económica.
+Lista de municipalidades clientes, a quienes han proveídos bienes y/o servicios similares a lo propuesto.
+En caso de Consorcio, el líder deberá cumplir con el 60% de los criterios de calificación, y el 40% restante lo cumplirá los
+demás integrantes del consorcio, con facturaciones de venta y/o recepciones finales por un monto equivalente al 50 % como
+""mínimo del monto total ofertado en la presente licitación, de los: últimos años 2019 Y 2020.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+Poseer 5 (cinco) años de antigüedad como mínimo en el rubro de venta; mantenimiento, soporte técnico y/o actualización;;;
+de sistemas de gestión municipal. Para el efecto se requiere Copia de Constancia de RUC para verificación de su actividad
+económica.
+Lista de municipalidades clientes, a quienes han proveídos bienes y/o servicios similares a lo propuesto.
+En caso de Consorcio, el líder deberá cumplir con el 60% de los criterios de calificación, y el 40% restante lo cumplirá los
+demás integrantes del consorcio, con facturaciones de venta y/o recepciones finales por un monto equivalente al 50 % como
+""mínimo del monto total ofertado en la presente licitación, de los: últimos años 2019 Y 2020.""",70.0,,50.0,"Extraido via patron alternativo (""monto/valor ... N%""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 50.0%."
+477953,pct_monto_referencia_tecnica,capacidad_tecnica,60.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+1. Garantía de los Bienes conforme a lo solicitado en las especificaciones técnicas descritos en el presente Pliego de Bases y Condiciones.
+2. El Oferente deberá garantizar a través de una Declaración Jurada que repondrán gratuitamente dentro de los límites de la República del Paraguay, en cualquier lugar o donde ocurriere la
+falla de los bienes e insumos proveídos.
+3. El Oferente deberá garantizar a través de una Declaración Jurada que posee capacidad de suministro en cantidad, capacidad de depósito e infraestructura propia adecuada a fin de
+garantizar el suministro en tiempo y forma.
+4. Planilla de Especificaciones Técnicas con los datos de los bienes requeridos en el Pliego de Bases y Condiciones.
+5. Registro Sanitario de producción del Servicio Nacional de calidad y Sanidad Vegetal y de semilla (SENAVE) para importador o exportador de productos o subproductos de origen vegetal,
+vigente por lo menos 6 (seis meses de vigencia contados a partir de la apertura de ofertas).
+6. Las empresas oferentes deberán presentar los siguientes documentos expedidos por el Instituto Nacional de Alimentación y Nutrición (INAN) (Decreto N° 1635 del 12 de Enero de 1999) según
+corresponda.
+1. Registro de Establecimiento (RE N°) vigente del elaborador, importador o fraccionador de productos, según corresponda, vigente. No se aceptaran registros en trámite.
+2. Registro Sanitario de Producto Alimenticio (RSPA N°) vigente. No se aceptaran registros en trámite.
+7. Certificado de ser Representante, Importador, Distribuidor Oficial o Sub-distribuidor Oficial en el Paraguay de los productos ofertados. Aplica para productos de origen nacional y extranjeros
+conforme a la cadena distributiva.
+8. Para los Fabricantes, Declaración Jurada de poseer la capacidad de producción para proveer la cantidad ofertada en el tiempo solicitado, o
+1. Para los representantes o distribuidores de productos extranjeros. Presentar Declaración Jurada de poseer la capacidad de suministro en cantidad y tiempo solicitado.
+10. Para provisión productos Lácteos y derivados: Copia autenticada del certificado de origen nacional de la leche, expedido por la SENACSA. Comprobante de pago de Patente Municipal
+Comercial o Industrial, en su caso, correspondiente al semestre del acto de apertura en el cual tributa o fija su domicilio comercial.
+11. El oferente deberá poseer como mínimo un vehículo propio o alquilados para el transporte de las todas las mercaderías de los productos requeridos en la presente Licitación, las mismas
+estarán destinados para la provisión en los diferentes lugares conforme al Plan de entrega, para el efecto deberá presentar los datos completos de los vehículos como ser; marca, modelo, año, y los;;;
+mismos deberán ser habilitados por el SENACSA (deberán acompañar con la copia autenticada de las habilitaciones vigentes respectivas). En caso de no poseer vehículos propios o alquilados
+deberán presentar una declaración jurada en la cual se responsabilizan por la supervisión y provisión en tiempo y forma de los bienes adjudicados.
+12. Para provisión de los Productos varios (perecederas y no perecederas): Los Vehículos deben contar con carrocerías cerradas, adecuadas al volumen y tipo de productos a ser transportados y
+estar acondicionados higiénicamente para la distribución de los mismos. No deberán transportarse conjuntamente con sustancias nocivas (Ejemplo, productos de limpieza, insecticidas entre
+otros) que puedan contaminar a los productos alimenticios.
+PARA PRODUCTOS CARNE VACUNO.
+1. Señal y Boleta de Marca expedida por el Poder Judicial.
+2. Certificado de Habilitación expedido por SENACSA del establecimiento ganadero.
+3. Constancia expedida por SENACSA que certifique la cantidad","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+1. Garantía de los Bienes conforme a lo solicitado en las especificaciones técnicas descritos en el presente Pliego de Bases y Condiciones.
+2. El Oferente deberá garantizar a través de una Declaración Jurada que repondrán gratuitamente dentro de los límites de la República del Paraguay, en cualquier lugar o donde ocurriere la
+falla de los bienes e insumos proveídos.
+3. El Oferente deberá garantizar a través de una Declaración Jurada que posee capacidad de suministro en cantidad, capacidad de depósito e infraestructura propia adecuada a fin de
+garantizar el suministro en tiempo y forma.
+4. Planilla de Especificaciones Técnicas con los datos de los bienes requeridos en el Pliego de Bases y Condiciones.
+5. Registro Sanitario de producción del Servicio Nacional de calidad y Sanidad Vegetal y de semilla (SENAVE) para importador o exportador de productos o subproductos de origen vegetal,
+vigente por lo menos 6 (seis meses de vigencia contados a partir de la apertura de ofertas).
+6. Las empresas oferentes deberán presentar los siguientes documentos expedidos por el Instituto Nacional de Alimentación y Nutrición (INAN) (Decreto N° 1635 del 12 de Enero de 1999) según
+corresponda.
+1. Registro de Establecimiento (RE N°) vigente del elaborador, importador o fraccionador de productos, según corresponda, vigente. No se aceptaran registros en trámite.
+2. Registro Sanitario de Producto Alimenticio (RSPA N°) vigente. No se aceptaran registros en trámite.
+7. Certificado de ser Representante, Importador, Distribuidor Oficial o Sub-distribuidor Oficial en el Paraguay de los productos ofertados. Aplica para productos de origen nacional y extranjeros
+conforme a la cadena distributiva.
+8. Para los Fabricantes, Declaración Jurada de poseer la capacidad de producción para proveer la cantidad ofertada en el tiempo solicitado, o
+1. Para los representantes o distribuidores de productos extranjeros. Presentar Declaración Jurada de poseer la capacidad de suministro en cantidad y tiempo solicitado.
+10. Para provisión productos Lácteos y derivados: Copia autenticada del certificado de origen nacional de la leche, expedido por la SENACSA. Comprobante de pago de Patente Municipal
+Comercial o Industrial, en su caso, correspondiente al semestre del acto de apertura en el cual tributa o fija su domicilio comercial.
+11. El oferente deberá poseer como mínimo un vehículo propio o alquilados para el transporte de las todas las mercaderías de los productos requeridos en la presente Licitación, las mismas
+estarán destinados para la provisión en los diferentes lugares conforme al Plan de entrega, para el efecto deberá presentar los datos completos de los vehículos como ser; marca, modelo, año, y los;;;
+mismos deberán ser habilitados por el SENACSA (deberán acompañar con la copia autenticada de las habilitaciones vigentes respectivas). En caso de no poseer vehículos propios o alquilados
+deberán presentar una declaración jurada en la cual se responsabilizan por la supervisión y provisión en tiempo y forma de los bienes adjudicados.
+12. Para provisión de los Productos varios (perecederas y no perecederas): Los Vehículos deben contar con carrocerías cerradas, adecuadas al volumen y tipo de productos a ser transportados y
+estar acondicionados higiénicamente para la distribución de los mismos. No deberán transportarse conjuntamente con sustancias nocivas (Ejemplo, productos de limpieza, insecticidas entre
+otros) que puedan contaminar a los productos alimenticios.
+PARA PRODUCTOS CARNE VACUNO.
+1. Señal y Boleta de Marca expedida por el Poder Judicial.
+2. Certificado de Habilitación expedido por SENACSA del establecimiento ganadero.
+3. Constancia expedida por SENACSA que certifique la cantidad de animales con que cuenta dicho establecimiento y que represente la cantidad necesaria de animales para cubrir la oferta
+(Debe ir acompañado por un cálculo de kilos de carne por animal)
+4. Registro de Firma, Certificado de Habilitación Oficial vigente y Registro de Empresa del matadero y del frigorífico, expedido por la Dirección General de Calidad e Inocuidad de productos de
+Origen Animal dependiente del SENACSA. No se admitirán simples constancias de gestión de dichos trámites.
+5. Certificado de Marca expedido por la Dirección Nacional de Propiedad Intelectual (DINAPI) y/o constancia de renovación de las clases 29 y 35 según Clasificación de NIZA - 11 edición, versión
+2023 como mínimo, únicamente para para productos de carne vacuna, no se admitirán certificados emitidos únicamente para derivados de productos cárnicos (embutidos).
+6. Fotocopia autenticada de la constancia de habilitación del matadero respectivo, emitida por la SENACSA. No se admitirán las constancias otorgadas por médicos o ayudantes veterinarios
+que no fuere el director habilitado. En caso de no contar con matadero propio, deberá presentar un contrato de prestación de servicios; compromiso debidamente firmado entre el matadero;;;
+habilitado y el oferente por medio de un contrato, en el caso de ser adjudicado.
+7. Fotocopia autenticada de la constancia de habilitación de cámaras frigoríficas para la refrigeración de carne con capacidad mínima de 60 (sesenta) reses, expedida por la SENACSA. Se
+admitirán arrendamiento de cámara, con habilitación de SENACSA al día, (presentar copia autenticada del contrato) no se admitirán prorrogas provisorias ni documentos que no sean los
+firmados por los directores de los organismos competente. En caso de poseer Habilitación de establecimiento con cámaras frigoríficas serán consideradas válidas si son expedidas por la
+""SENACSA y tienen la capacidad mínima solicitada para la refrigeración de la carne en reses. (Se podrá realizar una visita técnica a fin de verificar y con""",0.0,,60.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 60.0%."
+465736,pct_monto_referencia_tecnica,capacidad_tecnica,60.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. El oferente deberá estar situado a una distancia no mayor a 11 kms. de la Convocante (Edificio Aurora, Chile 719
+Asunción). La distancia será medida con la aplicación GOOGLE MAPS. Presentar croquis de ubicación.
+2. Contar con Guardia de Seguridad, que podrá ser personal de la empresa oferente o tercerizado, en ambos casos se
+deberá presentar contrato de trabajo y/o servicio.
+3. Contar con área de lavadero dentro del taller y/o tercerizado. En caso de que el lavadero sea tercerizado, deberá
+presentar un contrato y/o convenio con la empresa que realizará el servicio una vez adjudicado.
+4. Contar con sala cerrada para las reparaciones de motor, caja y diferencial, el mismo debe contar con sala de ajuste
+de manera a evitar contaminación del ambiente, la sala debe estar limpia y aislada de polvo, arena y elementos
+contaminantes para las reparaciones y ajustes de bancos de motores y transmisiones.
+5. CCTV 24 Hs., para que la convocante tenga la seguridad desde el ingreso del vehículo hasta la salida, de esta manera
+se tendrá una grabación para un control en los casos de robo/ hurto, etc. El CCTV deberá cubrir la totalidad del
+predio del taller y su frente para una óptima captura de imágenes en el Grabado Digital autónomo.
+6. Licencia de la SEAM, emitido por el MADES (Ministerio del Ambiente y Desarrollo Sostenible) para operar como
+mecánico.
+7. Presentar Certificado de Licencia Comercial definitiva expedida por la Municipalidad de Asunción para los Talleres
+ubicados en Asunción, para talleres ubicados en otro municipio patente comercial, donde el rubro y/o actividad
+debe ser Taller Mecánico.
+8. Debe contar con un sistema de protección contra incendios en todas sus instalaciones: Sensores de humo-calor,
+extintores, equipos de bocas hidrantes, carteles indicadores de salida de emergencia en todas sus instalaciones,
+con Plano (PCI) y la Resolución de aprobación expedido por la Municipalidad (con el acta de verificación de los
+bomberos).
+9. Patente Comercial. Vigente.
+10. El oferente deberá contar con una infraestructura propia con una superficie total mínima de 800m2. Entre el 60% y el
+80% de la superficie total deberá estar destinado al área de trabajo, y el restante a área de
+estacionamiento, maniobras y pruebas independientemente a otras áreas o instalaciones como mínimo que deberá
+demostrar con la presentación de copias autenticadas del plano aprobado de infraestructura, con su resolución de
+aprobación y con su respectivo certificado de inspección final in situ que concuerden con la construcción existente y
+en el cual conste que todos los terrenos estén debidamente habilitados para operar.
+11. Deberán estar totalmente cubierto con techo de tinglado, con un área perimetral cerrado y amurallado
+íntegramente en los 4 costados para garantizar la seguridad en el resguardo de los vehículos.
+12. Seguro contra todo riesgo, el oferente deberá presentar copia de Póliza contra todo riesgo del local y de los
+vehículos que queden en resguardo mientras dure el contrato, con monto mínimo a cubrir de Gs. 400.000.000
+(guaraníes cuatrocientos millones). Este seguro deberá estar vigente al momento de la presentación de la oferta y se
+deberá extender durante el tiempo de vigencia del contrato si el oferente fuese adjudicado.
+13. Deberá contar con Servicio de Traslado de Grúa en la modalidad (24x365) disponible en todo el territorio nacional:
+deberá demostrar si posee vehículo propio o mediante empresa tercerizada para efectuar los servicios de grúa y/o
+remolque. Si el servicio fuese tercerizado deberá presentar copia autenticada del contrato de suscripción con la
+empresa para la prestación del servicio, vigente al inicio de la etapa competitiva, en caso de contar","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. El oferente deberá estar situado a una distancia no mayor a 11 kms. de la Convocante (Edificio Aurora, Chile 719
+Asunción). La distancia será medida con la aplicación GOOGLE MAPS. Presentar croquis de ubicación.
+2. Contar con Guardia de Seguridad, que podrá ser personal de la empresa oferente o tercerizado, en ambos casos se
+deberá presentar contrato de trabajo y/o servicio.
+3. Contar con área de lavadero dentro del taller y/o tercerizado. En caso de que el lavadero sea tercerizado, deberá
+presentar un contrato y/o convenio con la empresa que realizará el servicio una vez adjudicado.
+4. Contar con sala cerrada para las reparaciones de motor, caja y diferencial, el mismo debe contar con sala de ajuste
+de manera a evitar contaminación del ambiente, la sala debe estar limpia y aislada de polvo, arena y elementos
+contaminantes para las reparaciones y ajustes de bancos de motores y transmisiones.
+5. CCTV 24 Hs., para que la convocante tenga la seguridad desde el ingreso del vehículo hasta la salida, de esta manera
+se tendrá una grabación para un control en los casos de robo/ hurto, etc. El CCTV deberá cubrir la totalidad del
+predio del taller y su frente para una óptima captura de imágenes en el Grabado Digital autónomo.
+6. Licencia de la SEAM, emitido por el MADES (Ministerio del Ambiente y Desarrollo Sostenible) para operar como
+mecánico.
+7. Presentar Certificado de Licencia Comercial definitiva expedida por la Municipalidad de Asunción para los Talleres
+ubicados en Asunción, para talleres ubicados en otro municipio patente comercial, donde el rubro y/o actividad
+debe ser Taller Mecánico.
+8. Debe contar con un sistema de protección contra incendios en todas sus instalaciones: Sensores de humo-calor,
+extintores, equipos de bocas hidrantes, carteles indicadores de salida de emergencia en todas sus instalaciones,
+con Plano (PCI) y la Resolución de aprobación expedido por la Municipalidad (con el acta de verificación de los
+bomberos).
+9. Patente Comercial. Vigente.
+10. El oferente deberá contar con una infraestructura propia con una superficie total mínima de 800m2. Entre el 60% y el
+80% de la superficie total deberá estar destinado al área de trabajo, y el restante a área de
+estacionamiento, maniobras y pruebas independientemente a otras áreas o instalaciones como mínimo que deberá
+demostrar con la presentación de copias autenticadas del plano aprobado de infraestructura, con su resolución de
+aprobación y con su respectivo certificado de inspección final in situ que concuerden con la construcción existente y
+en el cual conste que todos los terrenos estén debidamente habilitados para operar.
+11. Deberán estar totalmente cubierto con techo de tinglado, con un área perimetral cerrado y amurallado
+íntegramente en los 4 costados para garantizar la seguridad en el resguardo de los vehículos.
+12. Seguro contra todo riesgo, el oferente deberá presentar copia de Póliza contra todo riesgo del local y de los
+vehículos que queden en resguardo mientras dure el contrato, con monto mínimo a cubrir de Gs. 400.000.000
+(guaraníes cuatrocientos millones). Este seguro deberá estar vigente al momento de la presentación de la oferta y se
+deberá extender durante el tiempo de vigencia del contrato si el oferente fuese adjudicado.
+13. Deberá contar con Servicio de Traslado de Grúa en la modalidad (24x365) disponible en todo el territorio nacional:
+deberá demostrar si posee vehículo propio o mediante empresa tercerizada para efectuar los servicios de grúa y/o
+remolque. Si el servicio fuese tercerizado deberá presentar copia autenticada del contrato de suscripción con la
+empresa para la prestación del servicio, vigente al inicio de la etapa competitiva, en caso de contar con vehículos
+propios presentar cedula verde y habilitación vigente.
+14. Infraestructura Tecnológicas- Herramientas deberá contar como mínimo los siguientes:
+v. 1 (una) fosa azulejada con buena iluminación.
+v. 4 (cuatro) elevadores eléctricos para vehículos, con capacidad mínima de 4.000 kg.
+v. 2 (dos) manómetros de aire acondicionado, máquina bomba de vacío de gas R134 ecológico.
+v. 2 (dos) Gatos hidráulicos tipo yacaré: con capacidad mínima de 2000 kg.
+v. 1 (un) Gato hidráulico tipo yacaré: con capacidad mínima de 4000 kg.
+v. 2 (dos) Scanner Automotriz Multimarca, con programas de inyección de combustible, caja de cambios,
+controladores de mandos, actuadores y programas de borrado de código de fallas.
+v. 1 (una) Balanceadora computarizada de ruedas.
+v. 1 (una) Alineadora computarizada de ruedas.
+v. 1 (un) Banco de limpieza de picos electro inyectores diésel (common rail).
+v. 1 (uno)Taladro Eléctrico estándar como mínimo, compresor de aire, como mínimo de 250 litros de 2 pistones.
+v. 2 (dos) Multi tester digital de uso automotriz.
+v. 1 (una) Prensa hidráulica de banco: con capacidad mínima de 3 toneladas.
+v. 4 (cuatro) Prensa morsa de banco.
+v. 2 (dos) Pistola neumática.
+v. 1 (uno) Gato para desmontaje de caja de cambios.
+v. 1 (uno) Soldadura autógena.
+v. 1 (uno) Soldador MIG.
+v. 1 (uno) Succionador de aceite a vacío.
+v. 1 (uno) Cargador de baterías.
+v. 1 (uno) banco y power para estirar chasis.
+v. 8 (ocho) Cajas de herramientas manuales: Estas deben incluir como mínimo destornilladores, llaves combinadas,
+llaves de tubo, Pinza universal, pinzas de seguro, juego de tork, Allen y otros.
+Deberá presentar una declaración jurada manifestando que los equipos requeridos son propios y que estarán disponibles
+al servicio de la entidad en caso de resultar adjudicado.
+Sala de ajustes: Equipado con torquímetros de precisión, calibre (pie de rey) con su correspondiente certificación de la
+""INTN, micrómetro, reloj comparador (Interno/externo), compresímetros digital para motores""",0.6,60.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+425520,pct_monto_referencia_tecnica,capacidad_tecnica,60.0,"Capacidad Técnica""
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+Capacidad Técnica Oferente
+Individual
+Oferentes en
+Consorcio
+Para el Lote 1
+1. Declaración jurada de confidencialidad, en la cual conste que toda la
+información que reciban en el cumplimiento de sus funciones, así como el
+estricto cumplimiento del horario de trabajo y de las normas protocolares
+durante la jornada de trabajo según las indicaciones de la convocante no
+serán divulgadas.
+Debe
+cumplir
+con el
+requisito.
+Cada
+empresa
+consorciada
+deberá
+cumplir este
+requisito
+2. Copia autenticada del Registro de establecimiento R.E. vigente en la
+categoría 16 expedido por el instituto nacional de alimentación y nutrición
+(I.N.A.N).
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+3. El oferente deberá acreditar que cuenta con 1 (un) tecnólogo de alimentos
+habilitado como mínimo, vinculado a la empresa. Deberán acreditarlo a
+través de la presentación de copia autenticada de contrato de trabajo y
+acompañados con la copia de licencia o matricula profesional y cedula de
+identidad.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+4. El oferente deberá acreditar contar con la constancia vigente de
+Capacitación en Buenas Prácticas de Manufactura del Personal, emitido por
+el Instituto Nacional de Alimentación y Nutrición (INAN), debiendo detallar
+individualmente los datos personales del personal capacitado.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+5. El oferente deberá acreditar contar con certificado de cumplimiento de
+Buenas Prácticas de Manufactura BPM.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+6. La empresa oferente deberá contar con al menos 1 (un) vehículo tipo
+Furgón refrigerado para el traslado y conservación de los alimentos. Para el
+efecto deberá presentar los siguientes documentos del vehículo: cédula
+verde, habilitación municipal al día y póliza de seguro al día, todo ello a
+nombre del oferente. En su defecto, el oferente deberá presentar una carta
+compromiso donde el propietario del vehículo tipo Furgón refrigerado se
+obligue ante el oferente a darle en alquiler dicho vehículo para que el mismo
+sea utilizado en forma exclusiva para la ejecución del contrato, en caso de
+que el proveedor resulte adjudicado en el proceso de licitación. Además
+deberá presentar los documentos del vehículo propuesto: cédula verde,
+habilitación municipal al día y póliza de seguro al día.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+7. Declaración jurada en la cual conste un croquis con la ubicación exacta del
+lugar de la producción gastronómica. El comité de evaluación se reserva el
+derecho de constituirse en el local a los efectos de una verificación del
+proceso de elaboración de los alimentos, higiene y proceso de refrigerado. La
+visita será documentada mediante fotos.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+8. El oferente deberá presentar una Declaración Jurada que dispone del stock
+y cuenta con los medios necesarios para la prestación de los servicios en
+tiempo y forma requeridos.
+Debe
+cumplir
+con el
+requisito.
+Cada
+empresa
+consorciada
+deberá
+cumplir este
+requisito
+9. El oferente deberá declarar bajo fe de juramento que posee la
+infraestructura necesaria para el cumplimiento del servicio. El oferente
+deberá declarar bajo fe de juramento que cuenta con la capacidad técnica y
+cantidad de personal requerido para la prestación del servicio requerido.
+Debe
+cumplir
+con el
+requisito.
+Cada
+empresa
+consorciada
+deberá
+cumplir este
+requisito
+10. El oferente deberá demostrar que cuenta con la cantidad mínima de
+personal capacitado y experimentado para afrontar los trabajos operativos
+que demanden el evento de Transmisión de Mando Presidencial. Deberá
+contar al menos con personal operador de sonidos, técni","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+Capacidad Técnica Oferente
+Individual
+Oferentes en
+Consorcio
+Para el Lote 1
+1. Declaración jurada de confidencialidad, en la cual conste que toda la
+información que reciban en el cumplimiento de sus funciones, así como el
+estricto cumplimiento del horario de trabajo y de las normas protocolares
+durante la jornada de trabajo según las indicaciones de la convocante no
+serán divulgadas.
+Debe
+cumplir
+con el
+requisito.
+Cada
+empresa
+consorciada
+deberá
+cumplir este
+requisito
+2. Copia autenticada del Registro de establecimiento R.E. vigente en la
+categoría 16 expedido por el instituto nacional de alimentación y nutrición
+(I.N.A.N).
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+3. El oferente deberá acreditar que cuenta con 1 (un) tecnólogo de alimentos
+habilitado como mínimo, vinculado a la empresa. Deberán acreditarlo a
+través de la presentación de copia autenticada de contrato de trabajo y
+acompañados con la copia de licencia o matricula profesional y cedula de
+identidad.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+4. El oferente deberá acreditar contar con la constancia vigente de
+Capacitación en Buenas Prácticas de Manufactura del Personal, emitido por
+el Instituto Nacional de Alimentación y Nutrición (INAN), debiendo detallar
+individualmente los datos personales del personal capacitado.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+5. El oferente deberá acreditar contar con certificado de cumplimiento de
+Buenas Prácticas de Manufactura BPM.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+6. La empresa oferente deberá contar con al menos 1 (un) vehículo tipo
+Furgón refrigerado para el traslado y conservación de los alimentos. Para el
+efecto deberá presentar los siguientes documentos del vehículo: cédula
+verde, habilitación municipal al día y póliza de seguro al día, todo ello a
+nombre del oferente. En su defecto, el oferente deberá presentar una carta
+compromiso donde el propietario del vehículo tipo Furgón refrigerado se
+obligue ante el oferente a darle en alquiler dicho vehículo para que el mismo
+sea utilizado en forma exclusiva para la ejecución del contrato, en caso de
+que el proveedor resulte adjudicado en el proceso de licitación. Además
+deberá presentar los documentos del vehículo propuesto: cédula verde,
+habilitación municipal al día y póliza de seguro al día.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+7. Declaración jurada en la cual conste un croquis con la ubicación exacta del
+lugar de la producción gastronómica. El comité de evaluación se reserva el
+derecho de constituirse en el local a los efectos de una verificación del
+proceso de elaboración de los alimentos, higiene y proceso de refrigerado. La
+visita será documentada mediante fotos.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+8. El oferente deberá presentar una Declaración Jurada que dispone del stock
+y cuenta con los medios necesarios para la prestación de los servicios en
+tiempo y forma requeridos.
+Debe
+cumplir
+con el
+requisito.
+Cada
+empresa
+consorciada
+deberá
+cumplir este
+requisito
+9. El oferente deberá declarar bajo fe de juramento que posee la
+infraestructura necesaria para el cumplimiento del servicio. El oferente
+deberá declarar bajo fe de juramento que cuenta con la capacidad técnica y
+cantidad de personal requerido para la prestación del servicio requerido.
+Debe
+cumplir
+con el
+requisito.
+Cada
+empresa
+consorciada
+deberá
+cumplir este
+requisito
+10. El oferente deberá demostrar que cuenta con la cantidad mínima de
+personal capacitado y experimentado para afrontar los trabajos operativos
+que demanden el evento de Transmisión de Mando Presidencial. Deberá
+contar al menos con personal operador de sonidos, técnico y/o operador en
+iluminación, mozos, personal creativo para diseño de estructura, personal
+para el armado y montaje de estructuras. Se deberá presentar una
+Declaración Jurada donde conste el nombre y apellido de cada personal
+especificando el cargo propuesto, así como la copia de cedula de identidad de
+cada uno.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir
+mínimamente
+el 60% de este
+requisito y la
+otra empresa
+con el 40%
+restante, en
+caso de que
+sean 3 o más
+empresas, se
+mantiene el
+cumplimiento
+de la Empresa
+líder,
+debiendo
+cumplir las
+demás
+Empresas con
+la
+distribución
+equitativa del
+porcentaje
+restante.
+11. El oferente deberá acreditar su capacidad de proveer los servicios
+requeridos y para ello deberá declarar bajo fe de juramento que dispone
+indefectiblemente de los equipos que se enuncian en los ítems solicitados en
+el presente llamado. El comité de evaluación se reserva el derecho de verificar
+in situ la existencia de dichos equipos para lo cual, el oferente deberá
+presentar el croquis de la ubicación donde se encuentran depositados dichos
+equipamientos y además una copia del título de propiedad o del contrato de
+arrendamiento del depósito, si fuese el caso.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+12. Declaración jurada en la cual conste la dirección exacta y un croquis
+del/los depósitos de almacenamiento con los equipamientos declarados en el
+punto anterior.
+Debe
+cumplir
+con el
+requisito.
+La empresa
+líder deberá
+cumplir este
+requisito.
+13. El oferente deberá acreditar que cuenta con el título de propiedad o
+contrato de alquiler autenticados del/los depósito/s de almacenamiento, con
+el equipamiento mínimo solicitado según PBC. El comité de evaluación se
+reserva el derecho de verificar in situ la existencia del/los depósito/s.
+Debe
+cumplir
+con el
+requisito.
+Una empresa
+consorciada
+deberá
+cumplir este
+requisito.
+14. El oferente deberá contar con al menos 3 (tres) vehículos con capacidad
+""mínima de 1 tonel""",60.0,60.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+416913,pct_monto_referencia_tecnica,capacidad_tecnica,60.0,"Capacidad Técnica""
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes
+requisitos de capacidad técnica:
+Poseer 5 (cinco) años de antigüedad como mínimo en el rubro de venta; mantenimiento, soporte técnico y/o actualización;;;
+de sistemas de gestión municipal. Para el efecto se requiere Copia de Constancia de RUC para verificación de su actividad
+económica.
+Lista de municipalidades y/o empresas privadas clientes, a quienes han proveídos bienes y/o servicios similares a lo
+propuesto.
+En caso de Consorcio, el líder deberá cumplir con el 60% de los criterios de calificación, y el 40% restante lo cumplirá los
+demás integrantes del consorcio, con facturaciones de venta y/o recepciones finales por un monto equivalente al 50 % como
+mínimo del monto total ofertado en la presente licitación, de los: últimos años 2017 Y 2021.
+""Lista detallada de los personales que ingresaran en la Municipalidad a prestar el servicios.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes
+requisitos de capacidad técnica:
+Poseer 5 (cinco) años de antigüedad como mínimo en el rubro de venta; mantenimiento, soporte técnico y/o actualización;;;
+de sistemas de gestión municipal. Para el efecto se requiere Copia de Constancia de RUC para verificación de su actividad
+económica.
+Lista de municipalidades y/o empresas privadas clientes, a quienes han proveídos bienes y/o servicios similares a lo
+propuesto.
+En caso de Consorcio, el líder deberá cumplir con el 60% de los criterios de calificación, y el 40% restante lo cumplirá los
+demás integrantes del consorcio, con facturaciones de venta y/o recepciones finales por un monto equivalente al 50 % como
+mínimo del monto total ofertado en la presente licitación, de los: últimos años 2017 Y 2021.
+""Lista detallada de los personales que ingresaran en la Municipalidad a prestar el servicios.""",0.6,60.0,50.0,"Extraido via patron alternativo (""monto/valor ... N%""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 50.0%."
+438768,pct_monto_referencia_tecnica,capacidad_tecnica,60.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+1. Carta Compromiso del/los Reasegurador/es y/o Brokers inscripto/s en la Superintendencia de Seguros dirigida al oferente
+manifestando que, en caso de adjudicación de la Cobertura licitada, cubrirá los montos a ser asegurados e indicando el
+porcentaje de participación. Plan de Cobertura, en la que se detallará los siguientes datos: Nombre de los reaseguradores,
+país de origen, dirección, porcentaje de participación y su calificación. La suma, de las participaciones de los
+reaseguradores ofrecidos, debe totalizar el 60% (sesenta por ciento) de cobertura en los montos asegurados. Luego de
+efectuada la adjudicación, para tener derecho a todo pago, el Oferente adjudicado deberá presentar el original y/o
+fotocopia autenticada del Contrato Reaseguro que deberá
+cubrir el cubrir el porcentaje mencionado en el párrafo anterior, los riesgos y pólizas adjudicadas. Sólo serán admitidas
+ofertas cuyas coberturas estén respaldadas por Compañías reaseguradoras, cuyas calificaciones cumplan con lo establecido
+en el PBC. En caso de que intervengan corredores de reaseguros en la colocación del Riesgo, los mismos deberán estar
+inscriptos en el registro de corredores que lleva la Superintendencia de Seguros. Para el efecto, deberán presentar una copia
+de la resolución de inscripción y/o renovación correspondiente emitida por dicha autoridad de control. Además de una
+declaración jurada de que tal disposición sigue vigente.
+En caso de requerirse REASEGURO FACULTATIVO, carta de compromiso del (los) reasegurador (es), inscripto (s) en la
+Superintendencia de Seguros, dirigida al oferente, manifestando que, en caso de adjudicarse la cobertura licitada, cubrirá cuanto
+menos el porcentaje requerido del riesgo asegurado, con la mención de su participación, así como el país de origen, dirección, y su
+calificación. En el caso de la participación de corredor de reaseguro (Bróker), este deberá estar inscripto en la Superintendencia de
+Seguros y presentar una carta compromiso dirigida al oferente manifestando su compromiso de colocación con uno o varios
+reaseguradores que, en caso de adjudicación de la cobertura licitada, cubrirá cuanto menos el porcentaje requerido del riesgo
+asegurado. Si el capital en riesgo licitado supera la capacidad automática del contrato de reaseguro del oferente, éste deberá
+colocar el excedente del capital en riesgo en reaseguros facultativos en la forma señalada precedentemente. Si la oferente manifiesta
+que el capital en riesgo licitado es parcial o totalmente cubierto por su contrato automático de reaseguros, deberá acompañar copia
+autenticada de dicho documento.
+En caso de que el oferente, realice cesión de riesgos, deberá presentar documentación que pruebe o evidencie que los riesgos a ser
+cedidos cubren la cuantía necesaria para el cumplimiento de la reglamentación establecida por el ente regulador referente a la
+capacidad de retención mínima requerida. Esto podrá consistir en una carta compromiso de los reaseguradores o corredores de
+reaseguros dirigida al oferente o copia autenticada de los contratos de reaseguro, en los que se evidencia fehacientemente la
+magnitud del capital en riesgo a ser cedida por la cedente (oferente/aseguradora) para la cobertura respectiva en caso de
+adjudicación del seguro solicitado. Los reaseguradores o corredores de reaseguros que emitan el presente documento, deben estar
+inscriptos en la Superintendencia de Seguros.
+En caso de que intervengan corredores de reaseguros en la colocación del Riesgo, los mismos deberán estar inscriptos en el registro
+de corredores que lleva la Superintendencia de Seguros. Para el efecto, deberán presentar una copia de la resolución de inscripción
+y/o renovación correspondiente emitida por dicha autoridad de control. Además de una declaración jurada de que tal disposición
+""sigue vigente.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+1. Carta Compromiso del/los Reasegurador/es y/o Brokers inscripto/s en la Superintendencia de Seguros dirigida al oferente
+manifestando que, en caso de adjudicación de la Cobertura licitada, cubrirá los montos a ser asegurados e indicando el
+porcentaje de participación. Plan de Cobertura, en la que se detallará los siguientes datos: Nombre de los reaseguradores,
+país de origen, dirección, porcentaje de participación y su calificación. La suma, de las participaciones de los
+reaseguradores ofrecidos, debe totalizar el 60% (sesenta por ciento) de cobertura en los montos asegurados. Luego de
+efectuada la adjudicación, para tener derecho a todo pago, el Oferente adjudicado deberá presentar el original y/o
+fotocopia autenticada del Contrato Reaseguro que deberá
+cubrir el cubrir el porcentaje mencionado en el párrafo anterior, los riesgos y pólizas adjudicadas. Sólo serán admitidas
+ofertas cuyas coberturas estén respaldadas por Compañías reaseguradoras, cuyas calificaciones cumplan con lo establecido
+en el PBC. En caso de que intervengan corredores de reaseguros en la colocación del Riesgo, los mismos deberán estar
+inscriptos en el registro de corredores que lleva la Superintendencia de Seguros. Para el efecto, deberán presentar una copia
+de la resolución de inscripción y/o renovación correspondiente emitida por dicha autoridad de control. Además de una
+declaración jurada de que tal disposición sigue vigente.
+En caso de requerirse REASEGURO FACULTATIVO, carta de compromiso del (los) reasegurador (es), inscripto (s) en la
+Superintendencia de Seguros, dirigida al oferente, manifestando que, en caso de adjudicarse la cobertura licitada, cubrirá cuanto
+menos el porcentaje requerido del riesgo asegurado, con la mención de su participación, así como el país de origen, dirección, y su
+calificación. En el caso de la participación de corredor de reaseguro (Bróker), este deberá estar inscripto en la Superintendencia de
+Seguros y presentar una carta compromiso dirigida al oferente manifestando su compromiso de colocación con uno o varios
+reaseguradores que, en caso de adjudicación de la cobertura licitada, cubrirá cuanto menos el porcentaje requerido del riesgo
+asegurado. Si el capital en riesgo licitado supera la capacidad automática del contrato de reaseguro del oferente, éste deberá
+colocar el excedente del capital en riesgo en reaseguros facultativos en la forma señalada precedentemente. Si la oferente manifiesta
+que el capital en riesgo licitado es parcial o totalmente cubierto por su contrato automático de reaseguros, deberá acompañar copia
+autenticada de dicho documento.
+En caso de que el oferente, realice cesión de riesgos, deberá presentar documentación que pruebe o evidencie que los riesgos a ser
+cedidos cubren la cuantía necesaria para el cumplimiento de la reglamentación establecida por el ente regulador referente a la
+capacidad de retención mínima requerida. Esto podrá consistir en una carta compromiso de los reaseguradores o corredores de
+reaseguros dirigida al oferente o copia autenticada de los contratos de reaseguro, en los que se evidencia fehacientemente la
+magnitud del capital en riesgo a ser cedida por la cedente (oferente/aseguradora) para la cobertura respectiva en caso de
+adjudicación del seguro solicitado. Los reaseguradores o corredores de reaseguros que emitan el presente documento, deben estar
+inscriptos en la Superintendencia de Seguros.
+En caso de que intervengan corredores de reaseguros en la colocación del Riesgo, los mismos deberán estar inscriptos en el registro
+de corredores que lleva la Superintendencia de Seguros. Para el efecto, deberán presentar una copia de la resolución de inscripción
+y/o renovación correspondiente emitida por dicha autoridad de control. Además de una declaración jurada de que tal disposición
+""sigue vigente.""",0.6,60.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+405663,pct_monto_referencia_tecnica,capacidad_tecnica,60.0,"Capacidad Técnica""
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes
+requisitos de capacidad técnica:
+Poseer 5 (cinco) años de antigüedad como mínimo en el rubro de venta; mantenimiento, soporte técnico y/o actualización;;;
+de sistemas de gestión municipal. Para el efecto se requiere Copia de Constancia de RUC para verificación de su actividad
+económica.
+Lista de municipalidades y/o empresas privadas clientes, a quienes han proveídos bienes y/o servicios similares a lo
+propuesto.
+En caso de Consorcio, el líder deberá cumplir con el 60% de los criterios de calificación, y el 40% restante lo cumplirá los
+demás integrantes del consorcio, con facturaciones de venta y/o recepciones finales por un monto equivalente al 50 %
+como mínimo del monto total ofertado en la presente licitación, de los: últimos años 2017 Y 2021.
+""Lista detallada de los personales que ingresaran en la Municipalidad a prestar el servicios.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes
+requisitos de capacidad técnica:
+Poseer 5 (cinco) años de antigüedad como mínimo en el rubro de venta; mantenimiento, soporte técnico y/o actualización;;;
+de sistemas de gestión municipal. Para el efecto se requiere Copia de Constancia de RUC para verificación de su actividad
+económica.
+Lista de municipalidades y/o empresas privadas clientes, a quienes han proveídos bienes y/o servicios similares a lo
+propuesto.
+En caso de Consorcio, el líder deberá cumplir con el 60% de los criterios de calificación, y el 40% restante lo cumplirá los
+demás integrantes del consorcio, con facturaciones de venta y/o recepciones finales por un monto equivalente al 50 %
+como mínimo del monto total ofertado en la presente licitación, de los: últimos años 2017 Y 2021.
+""Lista detallada de los personales que ingresaran en la Municipalidad a prestar el servicios.""",0.6,60.0,50.0,"Extraido via patron alternativo (""monto/valor ... N%""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 50.0%."
+450203,pct_monto_referencia_tecnica,capacidad_tecnica,40.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+Especificar
+El oferente debe ser una persona física o jurídica constituida legalmente en el país
+El oferente debe pertenecer a rubros relacionados a Tecnologías de la Información y Comunicación, específicamente a software. Esto
+deberá verificarse en el objeto de su Constitución, siendo una de las actividades principales.
+El oferente deberá tener como mínimo de 2 años de experiencia o antigüedad en el rubro de software demostrable.
+Mínimo de 5 referencias de clientes con las siguientes restricciones:
+Cada referencia deberá corresponder a provisión de software (pudiendo ser en el marco de la provisión de otros bienes o
+servicios TIC, pero demostrable en su caso).
+Deberá presentar facturaciones, contratos o constancias firmadas de organizaciones privadas o públicas.
+Al menos 2 referencias deben corresponder a trabajos realizados en el Paraguay para organizaciones públicas o privadas
+radicadas en nuestro país.
+Restricción de monto: deberá cumplir al menos una de las siguientes 2 restricciones:
+La sumatoria de los montos de las referencias presentadas que cumplan estos criterios deberá ser como mínimo el 40%
+del monto referencial de la adquisición.
+Al menos una referencia de trabajo similar por el 20% del monto referencial de la adquisición, provisto a un mismo
+cliente.
+Deberá acreditar la autorización del fabricante y condiciones de realizar la instalación, configuración y soporte del software,
+según lo solicitado en la planilla de especificaciones Técnicas.
+Deberá contar con al menos 2 técnicos radicados en el país con experiencia en el uso del software para la instalación/configuración y
+""capacitación, que formará parte del plantel técnico de instalación/soporte.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+Especificar
+El oferente debe ser una persona física o jurídica constituida legalmente en el país
+El oferente debe pertenecer a rubros relacionados a Tecnologías de la Información y Comunicación, específicamente a software. Esto
+deberá verificarse en el objeto de su Constitución, siendo una de las actividades principales.
+El oferente deberá tener como mínimo de 2 años de experiencia o antigüedad en el rubro de software demostrable.
+Mínimo de 5 referencias de clientes con las siguientes restricciones:
+Cada referencia deberá corresponder a provisión de software (pudiendo ser en el marco de la provisión de otros bienes o
+servicios TIC, pero demostrable en su caso).
+Deberá presentar facturaciones, contratos o constancias firmadas de organizaciones privadas o públicas.
+Al menos 2 referencias deben corresponder a trabajos realizados en el Paraguay para organizaciones públicas o privadas
+radicadas en nuestro país.
+Restricción de monto: deberá cumplir al menos una de las siguientes 2 restricciones:
+La sumatoria de los montos de las referencias presentadas que cumplan estos criterios deberá ser como mínimo el 40%
+del monto referencial de la adquisición.
+Al menos una referencia de trabajo similar por el 20% del monto referencial de la adquisición, provisto a un mismo
+cliente.
+Deberá acreditar la autorización del fabricante y condiciones de realizar la instalación, configuración y soporte del software,
+según lo solicitado en la planilla de especificaciones Técnicas.
+Deberá contar con al menos 2 técnicos radicados en el país con experiencia en el uso del software para la instalación/configuración y
+""capacitación, que formará parte del plantel técnico de instalación/soporte.""",0.4,40.0,20.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 20.0%."
+381058,pct_monto_referencia_tecnica,capacidad_tecnica,25.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+a. Garantía de los Bienes conforme a lo solicitado en las especificaciones técnicas descritos en el presente Pliego de Bases y
+Condiciones.
+b. El Oferente deberá garantizar a través de una Declaración Jurada que repondrán gratuitamente dentro de los límites de la
+República del Paraguay, en cualquier lugar o donde ocurriere la falla de los bienes e insumos proveídos.
+c. La convocante se reserva el derecho de visitar el local de las empresas para corroborar su asiento legal, deposito, capacidad de
+provisión, condiciones y lugar de almacenamiento de tal manera a evitar problemas posteriores a la firma del contrato.
+d. Planilla de Especificaciones Técnicas con los datos de los bienes requeridos en el Pliego de Bases y Condiciones.
+e. Registro Sanitario de producción del Servicio Nacional de calidad y Sanidad Vegetal y de semilla (SENAVE), para importador o
+exportador de productos o subproductos de origen vegetal, vigente por lo menos 6 (seis meses de vigencia contados a partir de
+la apertura de ofertas).
+f. Registro Sanitario de producción del Servicio Nacional de calidad y Sanidad Vegetal y de semilla (SENAVE) para importador o
+exportador de productos o subproductos de origen vegetal, vigente por lo menos 6 (seis meses de vigencia contados a partir de
+la apertura de ofertas).
+g. Certificado de ser Representante, Importador, Distribuidor Oficial o Sub-distribuidor Oficial en el Paraguay de los productos
+ofertados.
+h. Para los Fabricantes, Declaración Jurada de poseer la capacidad de producción para proveer la cantidad ofertada en el tiempo
+solicitado, o
+a. Para los representantes o distribuidores, Declaración Jurada de poseer la capacidad de suministro en cantidad y tiempo
+solicitado otorgado por el fabricante.
+j. Certificado de habilitación de Registro de Firmas emitida por la SENACSA
+Autorizaciones: En caso de ser Representante de la marca ofertada y la empresa oferente sea importadora, y/o distribuidora oficial en
+el Paraguay del bien o producto ofertado, deberá presentar Autorización del Fabricante.
+Para Distribuidor: Autorización expedida por el representante para el Paraguay de la marca ofertada, y esta autorización deberá
+estar acompañada del documento que acredite la representación invocada.
+k. Para los Fabricantes, registro de marca vigente al momento de la apertura y Declaración Jurada de poseer la capacidad de
+producción para proveer la cantidad ofertada en el tiempo solicitado
+ax. Contar con Constancia de Registro Sanitario de Producto Alimenticio (RSPA) y Registro de Establecimiento (RE) vigentes,
+expedidas por el INAN (Instituto Nacional de Alimentación y Nutrición) dependiente del Ministerio de Salud Pública y Bienestar
+Social para los productos que lo requieran para su comercialización. No se aceptaran documentos vencidos y en trámite.
+all. Para aquel/aquellos oferentes que coticen los ítems de carne deberán presentar:
+Contar con Certificado de Registro de Firma.
+Certificado de Habilitación Oficial vigente y Registro de Empresa del matadero o del frigorífico, expedido por la Dirección
+General de Calidad e Inocuidad de Productos de origen Animal dependiente del SENACSA. No se admitirán simples constancias
+de gestión de dichos trámites.
+Contar con Certificado de Habilitación del establecimiento propio expedido por el Servicio Nacional de Calidad y Salud Animal
+SENACSA.
+Habilitación de Vehículos (no menos de uno) propio o alquilado, adecuados para el transporte de carne vacuna y menudencia,
+establecido por la ordenanza II JM N° 71/98 y SENACSA, vigentes.
+En caso de ser compradores de animales vacunos en ferias, constancia de feria donde conste la cantidad animales adquiridos
+en los periodos de 2017, 2018 y 2019, y que represente la cantidad necesaria de animales para cubrir la oferta ( debe ir
+acompañado por un cálculo de kilos de carne por animal)
+En caso de ser co","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+a. Garantía de los Bienes conforme a lo solicitado en las especificaciones técnicas descritos en el presente Pliego de Bases y
+Condiciones.
+b. El Oferente deberá garantizar a través de una Declaración Jurada que repondrán gratuitamente dentro de los límites de la
+República del Paraguay, en cualquier lugar o donde ocurriere la falla de los bienes e insumos proveídos.
+c. La convocante se reserva el derecho de visitar el local de las empresas para corroborar su asiento legal, deposito, capacidad de
+provisión, condiciones y lugar de almacenamiento de tal manera a evitar problemas posteriores a la firma del contrato.
+d. Planilla de Especificaciones Técnicas con los datos de los bienes requeridos en el Pliego de Bases y Condiciones.
+e. Registro Sanitario de producción del Servicio Nacional de calidad y Sanidad Vegetal y de semilla (SENAVE), para importador o
+exportador de productos o subproductos de origen vegetal, vigente por lo menos 6 (seis meses de vigencia contados a partir de
+la apertura de ofertas).
+f. Registro Sanitario de producción del Servicio Nacional de calidad y Sanidad Vegetal y de semilla (SENAVE) para importador o
+exportador de productos o subproductos de origen vegetal, vigente por lo menos 6 (seis meses de vigencia contados a partir de
+la apertura de ofertas).
+g. Certificado de ser Representante, Importador, Distribuidor Oficial o Sub-distribuidor Oficial en el Paraguay de los productos
+ofertados.
+h. Para los Fabricantes, Declaración Jurada de poseer la capacidad de producción para proveer la cantidad ofertada en el tiempo
+solicitado, o
+a. Para los representantes o distribuidores, Declaración Jurada de poseer la capacidad de suministro en cantidad y tiempo
+solicitado otorgado por el fabricante.
+j. Certificado de habilitación de Registro de Firmas emitida por la SENACSA
+Autorizaciones: En caso de ser Representante de la marca ofertada y la empresa oferente sea importadora, y/o distribuidora oficial en
+el Paraguay del bien o producto ofertado, deberá presentar Autorización del Fabricante.
+Para Distribuidor: Autorización expedida por el representante para el Paraguay de la marca ofertada, y esta autorización deberá
+estar acompañada del documento que acredite la representación invocada.
+k. Para los Fabricantes, registro de marca vigente al momento de la apertura y Declaración Jurada de poseer la capacidad de
+producción para proveer la cantidad ofertada en el tiempo solicitado
+ax. Contar con Constancia de Registro Sanitario de Producto Alimenticio (RSPA) y Registro de Establecimiento (RE) vigentes,
+expedidas por el INAN (Instituto Nacional de Alimentación y Nutrición) dependiente del Ministerio de Salud Pública y Bienestar
+Social para los productos que lo requieran para su comercialización. No se aceptaran documentos vencidos y en trámite.
+all. Para aquel/aquellos oferentes que coticen los ítems de carne deberán presentar:
+Contar con Certificado de Registro de Firma.
+Certificado de Habilitación Oficial vigente y Registro de Empresa del matadero o del frigorífico, expedido por la Dirección
+General de Calidad e Inocuidad de Productos de origen Animal dependiente del SENACSA. No se admitirán simples constancias
+de gestión de dichos trámites.
+Contar con Certificado de Habilitación del establecimiento propio expedido por el Servicio Nacional de Calidad y Salud Animal
+SENACSA.
+Habilitación de Vehículos (no menos de uno) propio o alquilado, adecuados para el transporte de carne vacuna y menudencia,
+establecido por la ordenanza II JM N° 71/98 y SENACSA, vigentes.
+En caso de ser compradores de animales vacunos en ferias, constancia de feria donde conste la cantidad animales adquiridos
+en los periodos de 2017, 2018 y 2019, y que represente la cantidad necesaria de animales para cubrir la oferta ( debe ir
+acompañado por un cálculo de kilos de carne por animal)
+En caso de ser compradores de cortes de carne vacuna para su posterior comercialización, constancia de compra de cortes, de
+los últimos 3 años con copias de facturas de compras de dicho de bienes y que represente por lo menos el 25% del monto
+máximo ofertado.
+En caso de no contar con matadero propio, contrato de prestación de servicios de los últimos 3 años, debidamente firmado
+entre el matadero y el oferente, de formular el contrato acompañados de las habilitaciones de SENACSA, vigentes a la fecha de
+apertura.
+Constancia de contar con por lo menos 1 (un) vehículo frigorífico propio o alquilado aptos para el transporte de los productos
+cárnicos y avícolas habilitados por el SENACSA (se deberá acompañar con la copia autenticada de las habilitaciones vigentes
+respectivas)
+Certificado de habilitación de vehículos propio o alquilados, por lo menos de 1(un) vehículo, destinados al transporte de
+productos, Frutas, Verduras, y Lácteos.
+Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser obligaciones tributarias,
+laborales y de seguridad social, además deberá indicarse en la oferta cual es la empresa líder del consorcio, quien deberá cumplir con
+al menos del 70% de los criterio de calificación de Experiencia y Capacidad Técnica y el 30% restante los cumplirán el o los demás
+""integrantes del consorcio""",0.7,70.0,25.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 25.0%."
+390001,pct_monto_referencia_tecnica,capacidad_tecnica,25.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Contar con Registro Sanitario de Producción del Servicio Nacional de Calidad y Sanidad Vegetal y de Semilla
+(SENAVE), vigente, (Solo para importador y/o exportador de productos o sub productos de origen vegetal) de
+verduras, legumbres y frutas in natura.
+2. Poseer Constancia de Registro Sanitario de Producto Alimenticio (RSPA) y Registro de Establecimiento (RE) vigentes,
+de marcas propias expedidas por el INAN (Instituto Nacional de Alimentación y Nutrición) dependiente del Ministerio
+de Salud Pública y Bienestar Social para los productos que lo requieran para su comercialización y listado del RSPA Y
+RE de productos de terceros ofertados. No se aceptarán documentos en trámite.
+3. Contar con Certificado de Origen Nacional de productos Lácteos, expedido por el Servicio Nacional de Sanidad y
+Calidad Animal SENACSA.
+4. Para aquel/aquellos oferentes que coticen los ítems de carne deberán estar habilitados por lo menos con unos de
+los siguientes requisitos:
+Certificado de Registro de Firma, Certificado de Habilitación Oficial vigente y Registro de Empresa del matadero o del
+frigorífico, expedido por la Dirección General de Calidad e Inocuidad de Productos de Origen Animal dependiente del
+SENACSA. No se admitirán simples constancias de gestión de dichos trámites.
+Certificado de habilitación del establecimiento propio expedido por el Servicio Nacional De Calidad Y Salud Animal
+(SENACSA).
+En caso de ser compradores de animales vacunos en feria, constancia de feria donde conste la cantidad de animales
+adquiridos en los periodos de 2018/2019/2020 y que represente la cantidad necesaria de animales para cubrir la
+oferta (debe ir acompañado por un cálculo de kilos de carne por animal).
+En caso de ser compradores de cortes de carne vacuna para su posterior comercialización, constancia de compra de
+cortes, de los últimos 3 años con copias de facturas de compra de dichos bienes y que represente por lo menos el 25
+% del monto máximo ofertado.
+En caso de no contar con matadero propio, contrato de prestación de servicios de los últimos 3 (tres) años,
+debidamente firmado entre el matadero y el oferente, de formular el contrato acompañados de las habilitaciones de
+SENACSA vigentes a la fecha de apertura.
+Constancia de contar con por lo menos un (01) vehículo refrigerado, aptos para el transporte de los productos
+cárnicos habilitados por el SENACSA (se deberá acompañar con la copia autenticada de las habilitaciones vigentes
+respectivas).
+5. En caso de ofertarse productos de fabricación propia, presentar documento que avale lo mencionado.
+6. Contar con vehículos Habilitados, como mínimo 01 (un) vehículo, destinado al transporte del producto expedido por
+""el SENACSA, vigente, para el oferente que cotice productos: CARNE AVÍCOLA (BLANCA), HUEVO y LÁCTEOS.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Contar con Registro Sanitario de Producción del Servicio Nacional de Calidad y Sanidad Vegetal y de Semilla
+(SENAVE), vigente, (Solo para importador y/o exportador de productos o sub productos de origen vegetal) de
+verduras, legumbres y frutas in natura.
+2. Poseer Constancia de Registro Sanitario de Producto Alimenticio (RSPA) y Registro de Establecimiento (RE) vigentes,
+de marcas propias expedidas por el INAN (Instituto Nacional de Alimentación y Nutrición) dependiente del Ministerio
+de Salud Pública y Bienestar Social para los productos que lo requieran para su comercialización y listado del RSPA Y
+RE de productos de terceros ofertados. No se aceptarán documentos en trámite.
+3. Contar con Certificado de Origen Nacional de productos Lácteos, expedido por el Servicio Nacional de Sanidad y
+Calidad Animal SENACSA.
+4. Para aquel/aquellos oferentes que coticen los ítems de carne deberán estar habilitados por lo menos con unos de
+los siguientes requisitos:
+Certificado de Registro de Firma, Certificado de Habilitación Oficial vigente y Registro de Empresa del matadero o del
+frigorífico, expedido por la Dirección General de Calidad e Inocuidad de Productos de Origen Animal dependiente del
+SENACSA. No se admitirán simples constancias de gestión de dichos trámites.
+Certificado de habilitación del establecimiento propio expedido por el Servicio Nacional De Calidad Y Salud Animal
+(SENACSA).
+En caso de ser compradores de animales vacunos en feria, constancia de feria donde conste la cantidad de animales
+adquiridos en los periodos de 2018/2019/2020 y que represente la cantidad necesaria de animales para cubrir la
+oferta (debe ir acompañado por un cálculo de kilos de carne por animal).
+En caso de ser compradores de cortes de carne vacuna para su posterior comercialización, constancia de compra de
+cortes, de los últimos 3 años con copias de facturas de compra de dichos bienes y que represente por lo menos el 25
+% del monto máximo ofertado.
+En caso de no contar con matadero propio, contrato de prestación de servicios de los últimos 3 (tres) años,
+debidamente firmado entre el matadero y el oferente, de formular el contrato acompañados de las habilitaciones de
+SENACSA vigentes a la fecha de apertura.
+Constancia de contar con por lo menos un (01) vehículo refrigerado, aptos para el transporte de los productos
+cárnicos habilitados por el SENACSA (se deberá acompañar con la copia autenticada de las habilitaciones vigentes
+respectivas).
+5. En caso de ofertarse productos de fabricación propia, presentar documento que avale lo mencionado.
+6. Contar con vehículos Habilitados, como mínimo 01 (un) vehículo, destinado al transporte del producto expedido por
+""el SENACSA, vigente, para el oferente que cotice productos: CARNE AVÍCOLA (BLANCA), HUEVO y LÁCTEOS.""",70.0,,25.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 25.0%."
+446599,pct_monto_referencia_tecnica,capacidad_tecnica,10.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1- El oferente deberá contar con la infraestructura necesaria para el cumplimiento del servicio requerido en la presente
+licitación. Deberá contar como mínimo con vehículos de 4 (cuatro) ruedas, tipo camioneta de su propiedad o alquilado,
+para la prestación de los servicios solicitados, equipamiento necesario para realizar los servicios (escaleras, andamios,
+equipos para soldar, juego de herramientas, equipos de seguridad, arnés, mascarilla, guantes de cuero, casco, antiparras),
+además, para los trabajos que impliquen y requieran la apertura de línea de gas refrigerante (Cambio juego de reparo para
+compresor, cambio de válvula inversora, desmontaje de componentes sobre la línea de gas, cambio de filtro de gas) el
+oferente no podrán arrojar el gas refrigerante a la atmósfera por lo que deberán contar con Un Recuperador de Gas R22-R-
+424A (RS-44) Y/O 134 A, necesarias para el acopiado, filtrado y reciclado del Gas refrigerante.
+2- Empleados Requeridos como mínimo: 1 Ingeniero y/o Electromecánico y/o Ingeniero Eléctrico, 2 Técnicos en
+refrigeración certificados. El oferente deberá contar con el personal operativo necesario para el cumplimiento en la
+prestación de los servicios licitados.
+3- Seguro contra siniestros, a fin de garantizar que, en caso de que se dañe algún equipo de la institución que se encuentre
+en el local para reparaciones, y pueda ser restituido por medio de la póliza. El monto mínimo de la póliza será por un total
+""de 10% del contrato en guaraníes, y deberá estar vigente durante toda la duración del contrato.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1- El oferente deberá contar con la infraestructura necesaria para el cumplimiento del servicio requerido en la presente
+licitación. Deberá contar como mínimo con vehículos de 4 (cuatro) ruedas, tipo camioneta de su propiedad o alquilado,
+para la prestación de los servicios solicitados, equipamiento necesario para realizar los servicios (escaleras, andamios,
+equipos para soldar, juego de herramientas, equipos de seguridad, arnés, mascarilla, guantes de cuero, casco, antiparras),
+además, para los trabajos que impliquen y requieran la apertura de línea de gas refrigerante (Cambio juego de reparo para
+compresor, cambio de válvula inversora, desmontaje de componentes sobre la línea de gas, cambio de filtro de gas) el
+oferente no podrán arrojar el gas refrigerante a la atmósfera por lo que deberán contar con Un Recuperador de Gas R22-R-
+424A (RS-44) Y/O 134 A, necesarias para el acopiado, filtrado y reciclado del Gas refrigerante.
+2- Empleados Requeridos como mínimo: 1 Ingeniero y/o Electromecánico y/o Ingeniero Eléctrico, 2 Técnicos en
+refrigeración certificados. El oferente deberá contar con el personal operativo necesario para el cumplimiento en la
+prestación de los servicios licitados.
+3- Seguro contra siniestros, a fin de garantizar que, en caso de que se dañe algún equipo de la institución que se encuentre
+en el local para reparaciones, y pueda ser restituido por medio de la póliza. El monto mínimo de la póliza será por un total
+""de 10% del contrato en guaraníes, y deberá estar vigente durante toda la duración del contrato.""",0.1,10.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+433587,pct_monto_referencia_tecnica,capacidad_tecnica,10.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1- Cinco años como mínimo en el área de mantenimiento y reparación de acondicionadores de aire, debiendo presentar
+como mínimo 5 certificados respaldatorios (para los LOTES 1 y LOTE 2) y 3 certificados (para el LOTE 3) debidamente
+firmados, que sumados representen el 10% del monto total ofertado en los últimos 3 (tres) años 2020, 2021 y 2022.
+2- La empresa debe presentar el listado de personales que trabajarían en el servicio, en caso de salir adjudicado, con sus
+correspondientes cargos.
+3-La empresa deberá contar dentro de su plantel un personal técnico en seguridad y salud en el trabajo.
+4- La empresa deberá presentar Declaración Jurada de que el listado de personal presentado con la oferta, permanecerá
+hasta la culminación del contrato
+5 - La empresa deberá contar en su plantel de funcionarios como mínimo con un Personal Técnico, o en su
+defecto Bachiller Técnico en Refrigeración o Electromecánica con certificación expedida por el SNPP o por
+Institutos Privados o Públicos debidamente reconocidos por el MEC.
+6- La empresa deberá contar en su plantel de funcionarios como mínimo con un Técnico con Certificación de
+Competencia Laboral en el Manejo de Substancias refrigerantes utilizados en Sistemas de Refrigeración y aire
+acondicionado establecidos en la Norma Laboral PNA 49 001 11, Versión 1 para técnicos en Refrigeración
+expedida por la Cámara paraguaya del Aire acondicionado, Refrigeración y Ventilación Mecánica.-
+En caso de que existan modificaciones del listado del personal, la empresa adjudicada deberá presentar el
+Curriculum vitae del nuevo técnico a incorporarse al plantel al Administrador del Contrato, para su aprobación,
+el técnico que ingrese deberá tener la misma preparación o superior al saliente, pero nunca inferior.
+7- Capacidad en materia de equipos: la empresa adjudicada deberá contar con todos los equipos propios
+(transporte, herramientas, capacidad de almacenaje, etc.) que determinen el buen cumplimiento y ejecución de
+los trabajos estipulados en las Especificaciones Técnicas, en tiempo y forma.
+8- Certificación de Competencia Laboral en el Manejo de Substancias refrigerantes utilizados en Sistemas de Refrigeración
+y aire acondicionado establecidos en la Norma Laboral PNA 49 001 11, Versión 1 para técnicos en Refrigeración expedida
+por la Cámara paraguaya del Aire acondicionado, Refrigeración y Ventilación Mecánica (1 como mínimo).
+9- Certificaciones expedidas por el SNPP o Bachilleratos Técnicos en el rubro de Refrigeración, que acrediten la formación
+Técnica de al menos 5 (cinco) de sus funcionarios que trabajarían en la ejecución del Contrato. ( a ser aplicado para cada
+LOTE)
+10- Declaración Jurada de conocer y aceptar el Pliego de Bases y Condiciones y las Adendas.
+11- Declaración jurada del Oferente de poseer la capacidad de suministro en tiempo y forma de lo solicitado.
+""12- Planilla de Precios en planilla Excel en medios magnéticos, versión 2003 o posterior","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1- Cinco años como mínimo en el área de mantenimiento y reparación de acondicionadores de aire, debiendo presentar
+como mínimo 5 certificados respaldatorios (para los LOTES 1 y LOTE 2) y 3 certificados (para el LOTE 3) debidamente
+firmados, que sumados representen el 10% del monto total ofertado en los últimos 3 (tres) años 2020, 2021 y 2022.
+2- La empresa debe presentar el listado de personales que trabajarían en el servicio, en caso de salir adjudicado, con sus
+correspondientes cargos.
+3-La empresa deberá contar dentro de su plantel un personal técnico en seguridad y salud en el trabajo.
+4- La empresa deberá presentar Declaración Jurada de que el listado de personal presentado con la oferta, permanecerá
+hasta la culminación del contrato
+5 - La empresa deberá contar en su plantel de funcionarios como mínimo con un Personal Técnico, o en su
+defecto Bachiller Técnico en Refrigeración o Electromecánica con certificación expedida por el SNPP o por
+Institutos Privados o Públicos debidamente reconocidos por el MEC.
+6- La empresa deberá contar en su plantel de funcionarios como mínimo con un Técnico con Certificación de
+Competencia Laboral en el Manejo de Substancias refrigerantes utilizados en Sistemas de Refrigeración y aire
+acondicionado establecidos en la Norma Laboral PNA 49 001 11, Versión 1 para técnicos en Refrigeración
+expedida por la Cámara paraguaya del Aire acondicionado, Refrigeración y Ventilación Mecánica.-
+En caso de que existan modificaciones del listado del personal, la empresa adjudicada deberá presentar el
+Curriculum vitae del nuevo técnico a incorporarse al plantel al Administrador del Contrato, para su aprobación,
+el técnico que ingrese deberá tener la misma preparación o superior al saliente, pero nunca inferior.
+7- Capacidad en materia de equipos: la empresa adjudicada deberá contar con todos los equipos propios
+(transporte, herramientas, capacidad de almacenaje, etc.) que determinen el buen cumplimiento y ejecución de
+los trabajos estipulados en las Especificaciones Técnicas, en tiempo y forma.
+8- Certificación de Competencia Laboral en el Manejo de Substancias refrigerantes utilizados en Sistemas de Refrigeración
+y aire acondicionado establecidos en la Norma Laboral PNA 49 001 11, Versión 1 para técnicos en Refrigeración expedida
+por la Cámara paraguaya del Aire acondicionado, Refrigeración y Ventilación Mecánica (1 como mínimo).
+9- Certificaciones expedidas por el SNPP o Bachilleratos Técnicos en el rubro de Refrigeración, que acrediten la formación
+Técnica de al menos 5 (cinco) de sus funcionarios que trabajarían en la ejecución del Contrato. ( a ser aplicado para cada
+LOTE)
+10- Declaración Jurada de conocer y aceptar el Pliego de Bases y Condiciones y las Adendas.
+11- Declaración jurada del Oferente de poseer la capacidad de suministro en tiempo y forma de lo solicitado.
+""12- Planilla de Precios en planilla Excel en medios magnéticos, versión 2003 o posterior""",70.0,,10.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 10.0%."
+408040,pct_monto_referencia_tecnica,capacidad_tecnica,15.0,"Capacidad Técnica""
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+* DEMOSTRAR STOCK CONTABLE DE REPUESTOS PARA ATENDER EL EQUIPO OFERTADO DE POR LO MENOS 15% DEL MONTO
+DE LA OFERTA
+*EL OFERENTE DEBERA SE REPRESENTANTE OFICIAL O DISTRIBUIDOR AUTORIZADO PARA EL PARAGUAY DEL BIEN
+OFERTADO. SE DEBERA PRESENTAR DOCUMENTOS QUE ACREDITEN LA CADENA DE AUTORIZACIONES DESDE EL
+""FABRICANTE HASTA EL OFERENTE","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+* DEMOSTRAR STOCK CONTABLE DE REPUESTOS PARA ATENDER EL EQUIPO OFERTADO DE POR LO MENOS 15% DEL MONTO
+DE LA OFERTA
+*EL OFERENTE DEBERA SE REPRESENTANTE OFICIAL O DISTRIBUIDOR AUTORIZADO PARA EL PARAGUAY DEL BIEN
+OFERTADO. SE DEBERA PRESENTAR DOCUMENTOS QUE ACREDITEN LA CADENA DE AUTORIZACIONES DESDE EL
+""FABRICANTE HASTA EL OFERENTE""",70.0,,15.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 15.0%."
+414575,pct_monto_referencia_tecnica,capacidad_tecnica,15.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+* DEMOSTRAR STOCK CONTABLE DE REPUESTOS PARA ATENDER EL EQUIPO OFERTADO DE POR LO MENOS 15% DEL MONTO
+DE LA OFERTA
+*EL OFERENTE DEBERA SE REPRESENTANTE OFICIAL O DISTRIBUIDOR AUTORIZADO PARA EL PARAGUAY DEL BIEN
+OFERTADO. SE DEBERA PRESENTAR DOCUMENTOS QUE ACREDITEN LA CADENA DE AUTORIZACIONES DESDE EL
+FABRICANTE HASTA EL OFERENTE.
+""*DISPONER QUE LA MARCA OFERTADA TENGAN PERMANENCIA SUFICIENTE Y DEMOSTRABLE EN EL MERCADO NACIONAL.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+* DEMOSTRAR STOCK CONTABLE DE REPUESTOS PARA ATENDER EL EQUIPO OFERTADO DE POR LO MENOS 15% DEL MONTO
+DE LA OFERTA
+*EL OFERENTE DEBERA SE REPRESENTANTE OFICIAL O DISTRIBUIDOR AUTORIZADO PARA EL PARAGUAY DEL BIEN
+OFERTADO. SE DEBERA PRESENTAR DOCUMENTOS QUE ACREDITEN LA CADENA DE AUTORIZACIONES DESDE EL
+FABRICANTE HASTA EL OFERENTE.
+""*DISPONER QUE LA MARCA OFERTADA TENGAN PERMANENCIA SUFICIENTE Y DEMOSTRABLE EN EL MERCADO NACIONAL.""",70.0,,15.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 15.0%."
+408872,pct_monto_referencia_tecnica,capacidad_tecnica,70.0,"Capacidad Técnica""
+Con el objetivo de calificar la capacidad técnica del oferente, se considerarán los siguientes índices:
+Copia de contrato de Programas de Gestión de Residuos reciclables con alguna Organización o Empresas con o sin
+fines de lucro, cuyo sitio de disposición de residuos cuente con la Declaración de Impacto Ambiental emitida por la
+Secretaria del Ambiente (SEAM). No se aceptará contratos que indiquen un sitio diferente al estipulado en la
+Declaración de Impacto Ambiental.
+Copia de la Declaración de Impacto Ambiental expedida por el Ministerio del Ambiente y Desarrollo Social (MADES),
+del sitio de disposición final, de acuerdo a las normas establecidas en el Reglamento del Código Sanitario para la
+disposición final de desechos sólidos.
+El oferente deberá utilizar para el pago de haberes a sus empleados, el sistema de acreditación de salarios vía tarjeta
+de débito habilitada a través de una entidad bancaria y/o financiera y/o Recibo de pagos de haberes oficial
+emitido por el MTES.
+El oferente debe poseer un capital actual no inferior al 70% del costo total de su oferta, o en su defecto presentar
+certificado de una entidad financiera calificada que demuestre la disponibilidad de línea de crédito suficiente para
+justificar el porcentaje mencionado.
+El oferente deberá presentar extracto de entidad financiera (banco, financiera, cooperativa, etc.) con por lo menos el
+20% (veinte por ciento) disponible en su Cta. Cte. O Caja de Ahorro a la Vista del monto total ofertado a fin de
+verificar
+la disponibilidad inmediata de todo lo solicitado en el PBC en caso de ser adjudicado. El documento emitido deberá
+ser expedido como máximo 5 (cinco) días antes de la apertura de oferta.
+Para empresas con 150 o más empleados deberá contar en su plantel con por lo menos 01 un técnico laboral de
+Seguridad ocupacional a modo de prevención de la salud, integridad, manejo de recursos, etc., quien deberá contar
+con Certificado de capacitación en Alto Riesgo y estará encargado de elaborar un plan básico de condiciones seguras
+de trabajo e identificar los peligros en materia de higiene y seguridad para la aplicación de medidas de intervención
+acorde al sistema de gestión en seguridad y salud en el trabajo (SG-SST), el citado personal deberá encontrarse
+inscripto por el contratista y aportando al seguro social del Instituto de Previsión Social por lo menos (seis) meses
+anterior al acto de apertura de sobre, en tanto para aquellas empresas con menos de 150 empleados deberán contar
+con los servicios especializados externos en Medicina, Higiene y Seguridad en el Trabajo demostrado con contrato y
+factura de pago de dicho servicio vigente al momento de la presentación de la oferta. De conformidad al Art. 274 del
+Código del Trabajo, en referencia al empleador, prescribe: ...adoptar cuantas medidas sean necesarias, incluidas las
+actividades de información, formación, prevención de riesgos... de manera que las normativas legales labores
+vigentes y concordantes como el Art. 271, Art. 272, Art. 273, Art. 274 y Art. 275 del Decreto 14.390/92 exigen que la
+Empresa adopte dicha medida a favor de sus empleados. En ambos casos deben presentar el registro habilitante
+emitido por Ministerio de Trabajo, Empleo y Seguridad Social vigente al momento del presente llamado. Contar con
+Certificado de capacitación en técnicas o trabajo de alturas realizados por la Empresa y emitidas por el Cuerpo de
+Bomberos o Consultoras idóneas en materia de seguridad ocupacional.
+De conformidad al Art. 284 del Decreto 14390/92 establece la observancia laboral que las empresas con 100 o más
+trabajadores a su cargo deberán poseer Comisiones Internas de Prevención de Accidentes (CIPA) y para acreditar
+dicho requisito deberán estar debidamente reconocidas y homologadas por Ministerio de Trabajo, Empleo y
+Seguridad Social.
+Reglamento interno de condiciones de trabajo, homologado, legalizado y registrado por el MTESS (Ministerio de
+Trabajo, Empleo y Seguridad Social).
+Certificado Labora","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+Con el objetivo de calificar la capacidad técnica del oferente, se considerarán los siguientes índices:
+Copia de contrato de Programas de Gestión de Residuos reciclables con alguna Organización o Empresas con o sin
+fines de lucro, cuyo sitio de disposición de residuos cuente con la Declaración de Impacto Ambiental emitida por la
+Secretaria del Ambiente (SEAM). No se aceptará contratos que indiquen un sitio diferente al estipulado en la
+Declaración de Impacto Ambiental.
+Copia de la Declaración de Impacto Ambiental expedida por el Ministerio del Ambiente y Desarrollo Social (MADES),
+del sitio de disposición final, de acuerdo a las normas establecidas en el Reglamento del Código Sanitario para la
+disposición final de desechos sólidos.
+El oferente deberá utilizar para el pago de haberes a sus empleados, el sistema de acreditación de salarios vía tarjeta
+de débito habilitada a través de una entidad bancaria y/o financiera y/o Recibo de pagos de haberes oficial
+emitido por el MTES.
+El oferente debe poseer un capital actual no inferior al 70% del costo total de su oferta, o en su defecto presentar
+certificado de una entidad financiera calificada que demuestre la disponibilidad de línea de crédito suficiente para
+justificar el porcentaje mencionado.
+El oferente deberá presentar extracto de entidad financiera (banco, financiera, cooperativa, etc.) con por lo menos el
+20% (veinte por ciento) disponible en su Cta. Cte. O Caja de Ahorro a la Vista del monto total ofertado a fin de
+verificar
+la disponibilidad inmediata de todo lo solicitado en el PBC en caso de ser adjudicado. El documento emitido deberá
+ser expedido como máximo 5 (cinco) días antes de la apertura de oferta.
+Para empresas con 150 o más empleados deberá contar en su plantel con por lo menos 01 un técnico laboral de
+Seguridad ocupacional a modo de prevención de la salud, integridad, manejo de recursos, etc., quien deberá contar
+con Certificado de capacitación en Alto Riesgo y estará encargado de elaborar un plan básico de condiciones seguras
+de trabajo e identificar los peligros en materia de higiene y seguridad para la aplicación de medidas de intervención
+acorde al sistema de gestión en seguridad y salud en el trabajo (SG-SST), el citado personal deberá encontrarse
+inscripto por el contratista y aportando al seguro social del Instituto de Previsión Social por lo menos (seis) meses
+anterior al acto de apertura de sobre, en tanto para aquellas empresas con menos de 150 empleados deberán contar
+con los servicios especializados externos en Medicina, Higiene y Seguridad en el Trabajo demostrado con contrato y
+factura de pago de dicho servicio vigente al momento de la presentación de la oferta. De conformidad al Art. 274 del
+Código del Trabajo, en referencia al empleador, prescribe: ...adoptar cuantas medidas sean necesarias, incluidas las
+actividades de información, formación, prevención de riesgos... de manera que las normativas legales labores
+vigentes y concordantes como el Art. 271, Art. 272, Art. 273, Art. 274 y Art. 275 del Decreto 14.390/92 exigen que la
+Empresa adopte dicha medida a favor de sus empleados. En ambos casos deben presentar el registro habilitante
+emitido por Ministerio de Trabajo, Empleo y Seguridad Social vigente al momento del presente llamado. Contar con
+Certificado de capacitación en técnicas o trabajo de alturas realizados por la Empresa y emitidas por el Cuerpo de
+Bomberos o Consultoras idóneas en materia de seguridad ocupacional.
+De conformidad al Art. 284 del Decreto 14390/92 establece la observancia laboral que las empresas con 100 o más
+trabajadores a su cargo deberán poseer Comisiones Internas de Prevención de Accidentes (CIPA) y para acreditar
+dicho requisito deberán estar debidamente reconocidas y homologadas por Ministerio de Trabajo, Empleo y
+Seguridad Social.
+Reglamento interno de condiciones de trabajo, homologado, legalizado y registrado por el MTESS (Ministerio de
+Trabajo, Empleo y Seguridad Social).
+Certificado Laboral del oferente, expedido por el MTESS (Ministerio de Trabajo, Empleo y Seguridad Social). Sin
+Observaciones.
+Constancia de Inscripción en el Registro Obrero Patronal del IPS, deberá corresponder a la actividad comercial
+principal del servicio solicitado, con al menos la cantidad total de empleados solicitados en el PBC y constancia de
+presentación de las planillas del IPS correspondientes al mes fenecido de la apertura de sobres de conformidad a lo
+previsto en dicho Decreto Nº 580/08.
+Constancia de no adeudar aporte de obrero patronal, expedido por el Instituto de Previsión Social actualizado y la
+planilla presentada a dicha Institución. Estas documentaciones deberán corresponder al mes vencido anterior a la
+fecha de apertura de sobres. Toda documentación que no corresponda a dicho periodo no será válida.
+Presentar documentos que demuestren que la firma oferente posee un sistema de medición de calidad de su
+gestión, el cual será dado por cumplido con la presentación de la certificación de calidad ISO 9001 cuyo alcance
+indique un servicio profesional de limpiezas, mantenimientos y desinfección en la prestación del servicio o al menos
+uno de los siguientes puntos:
+- Certificación ISO 9001-2015 en Servicios de Limpiezas Profesional de Edificios, Instalaciones u Organizaciones
+vigente al momento de la presentación de ofertas o control de tabla de labores de limpieza debidamente firmada y con
+sello de la Empresa de por lo menos 10 Administradores de diferentes empresas con datos de contacto para la verificación
+de legalidad.
+El oferente deberá garantizar la provisión de insumos de embalaje compostables biodegradables (bolsas de un solo
+uso) en cumplimiento a los criterios ambientales durante el plazo de ejecución del contrato.
+Organigrama de la Empresa acorde con la infraestructura edilicia mínimamente tales como oficinas administrativas,
+número telefónico de atención para reclamos, email, telefax, depósito de almacenamiento de equipos, insumos
+""inherentes al servicio, pas""",70.0,70.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+427141,pct_monto_referencia_tecnica,capacidad_tecnica,20.0,"Capacidad Técnica""
+Con el objetivo de calificar la capacidad técnica del oferente, se considerarán los siguientes índices:
+El oferente deberá acreditar poseer un capital no inferior al 20% (veinte por ciento) del costo total de su oferta, o en su
+defecto presentar certificado o extracto de una entidad bancaria, financiera o cooperativa, en la cual conste la
+disponibilidad en su Cta. Cte. O Caja de Ahorro a la Vista del porcentaje solicitado sobre el monto total ofertado a fin de
+verificar la disponibilidad inmediata de todo lo solicitado en el PBC. El documento emitido deberá ser expedido como
+máximo 5 días antes del inicio de la etapa competitiva de la SBE . En caso de consorcios se tendrán en cuenta la suma
+de capital y/o saldos presentados por cada socio integrante.
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. El oferente deberá demostrar haber proveído satisfactoriamente el Servicio de limpieza en los últimos 3 (tres) años
+(2020, 2021, 2022).
+2. El oferente deberá presentar la nómina del personal disponible, así como también una nota donde se compromete a
+contratar la cantidad de personal necesario para cumplir con el servicio según lo detallado en estas especificaciones.
+3. El oferente deberá avalar que los operarios dispondrán de movilidad suficiente para trasladarse a los diversos
+lobbies indicados en este PBC, con sus respectivos elementos para el aseo correspondiente.
+4. El oferente deberá destinar como mínimo, para el cumplimiento de este Contrato, 1 (un) Vehículo (propio) del tipo
+Minivan/Furgón cerrado, de capacidad de carga de por lo menos 800 kg, con logo de la Empresa, para verificar los
+servicios en los diferentes lobbies, garantizando así el fiel cumplimiento en tiempo y entrega de insumos para el
+servicio solicitado.
+5. El oferente deberá contar con Certificado de Cumplimiento Laboral SIN OBSERVACIONES, emitido por el Ministerio
+de Trabajo, Empleo y Seguridad Social.
+6. Presentar documentos que demuestren que la firma oferente posee un sistema de medición de calidad de su
+gestión, el cual será dado por cumplido con la presentación de la certificación de calidad ISO 9001.
+7. Presentar documentos que demuestren que la firma oferente posee un sistema de gestión ambiental, responsable y
+comprometida con la protección del medio ambiente.
+8. En el caso de que las empresas cuenten con 100 o más trabajadores a su cargo deberán poseer Comisiones Internas
+de Prevención de Accidentes (CIPA).
+9. El oferente deberá contar con equipos de su propiedad, insumos y elementos disponibles para el servicio, conforme
+al siguiente detalle:
+3 (tres) Escaleras reticuladas de hasta 2 (dos) metros de altura.
+2 (Dos) Hidrolavadoras.
+Aspiradora de polvo/líquido.
+3 (tres) motocicletas equipadas para respuesta inmediata ya que se cuenta con servicios 24/7.
+Baldes de 20 litros de capacidad con separador de agua limpia y agua sucia para mopa húmeda.
+Baldes de 10 litros de capacidad con separador de agua limpia y agua sucia para mopa húmeda.
+Franela convencional absorbente.
+Paño de microfibra.
+Plumero de microfibra, 72 cm de largo y 8 cm. de ancho como mínimo.
+Escobillo de fibra sintética.
+Escurridor doble goma de 40 cm.
+Equipo mojador y escurridor con prolongador telescópico.
+Trapo de piso.
+Guantes de látex para limpieza Mediano.
+Palita.
+Bolsas para residuos resistentes o reforzadas de 60 y 100 litros de capacidad.
+Esponja.
+Líquido limpia vidrios de rápido secado.
+Desodorante de ambiente líquido concentrado con fragancia.
+Desodorante de ambiente en aerosol con fragancia, que no dañe la capa de ozono.
+Alcohol etílico al 70% DESINFECTANTE DE SUPERFICIES
+Hipoclorito de sodio concentrado con graduación 6%.
+Limpiador de metales.
+Crema limpiadora multiuso.
+Observación: Se deberán incluir aquellos productos/elementos que puedan inferirse razonablemente
+""necesarios para satisfacer el requisito del suministro indicado.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+Con el objetivo de calificar la capacidad técnica del oferente, se considerarán los siguientes índices:
+El oferente deberá acreditar poseer un capital no inferior al 20% (veinte por ciento) del costo total de su oferta, o en su
+defecto presentar certificado o extracto de una entidad bancaria, financiera o cooperativa, en la cual conste la
+disponibilidad en su Cta. Cte. O Caja de Ahorro a la Vista del porcentaje solicitado sobre el monto total ofertado a fin de
+verificar la disponibilidad inmediata de todo lo solicitado en el PBC. El documento emitido deberá ser expedido como
+máximo 5 días antes del inicio de la etapa competitiva de la SBE . En caso de consorcios se tendrán en cuenta la suma
+de capital y/o saldos presentados por cada socio integrante.
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. El oferente deberá demostrar haber proveído satisfactoriamente el Servicio de limpieza en los últimos 3 (tres) años
+(2020, 2021, 2022).
+2. El oferente deberá presentar la nómina del personal disponible, así como también una nota donde se compromete a
+contratar la cantidad de personal necesario para cumplir con el servicio según lo detallado en estas especificaciones.
+3. El oferente deberá avalar que los operarios dispondrán de movilidad suficiente para trasladarse a los diversos
+lobbies indicados en este PBC, con sus respectivos elementos para el aseo correspondiente.
+4. El oferente deberá destinar como mínimo, para el cumplimiento de este Contrato, 1 (un) Vehículo (propio) del tipo
+Minivan/Furgón cerrado, de capacidad de carga de por lo menos 800 kg, con logo de la Empresa, para verificar los
+servicios en los diferentes lobbies, garantizando así el fiel cumplimiento en tiempo y entrega de insumos para el
+servicio solicitado.
+5. El oferente deberá contar con Certificado de Cumplimiento Laboral SIN OBSERVACIONES, emitido por el Ministerio
+de Trabajo, Empleo y Seguridad Social.
+6. Presentar documentos que demuestren que la firma oferente posee un sistema de medición de calidad de su
+gestión, el cual será dado por cumplido con la presentación de la certificación de calidad ISO 9001.
+7. Presentar documentos que demuestren que la firma oferente posee un sistema de gestión ambiental, responsable y
+comprometida con la protección del medio ambiente.
+8. En el caso de que las empresas cuenten con 100 o más trabajadores a su cargo deberán poseer Comisiones Internas
+de Prevención de Accidentes (CIPA).
+9. El oferente deberá contar con equipos de su propiedad, insumos y elementos disponibles para el servicio, conforme
+al siguiente detalle:
+3 (tres) Escaleras reticuladas de hasta 2 (dos) metros de altura.
+2 (Dos) Hidrolavadoras.
+Aspiradora de polvo/líquido.
+3 (tres) motocicletas equipadas para respuesta inmediata ya que se cuenta con servicios 24/7.
+Baldes de 20 litros de capacidad con separador de agua limpia y agua sucia para mopa húmeda.
+Baldes de 10 litros de capacidad con separador de agua limpia y agua sucia para mopa húmeda.
+Franela convencional absorbente.
+Paño de microfibra.
+Plumero de microfibra, 72 cm de largo y 8 cm. de ancho como mínimo.
+Escobillo de fibra sintética.
+Escurridor doble goma de 40 cm.
+Equipo mojador y escurridor con prolongador telescópico.
+Trapo de piso.
+Guantes de látex para limpieza Mediano.
+Palita.
+Bolsas para residuos resistentes o reforzadas de 60 y 100 litros de capacidad.
+Esponja.
+Líquido limpia vidrios de rápido secado.
+Desodorante de ambiente líquido concentrado con fragancia.
+Desodorante de ambiente en aerosol con fragancia, que no dañe la capa de ozono.
+Alcohol etílico al 70% DESINFECTANTE DE SUPERFICIES
+Hipoclorito de sodio concentrado con graduación 6%.
+Limpiador de metales.
+Crema limpiadora multiuso.
+Observación: Se deberán incluir aquellos productos/elementos que puedan inferirse razonablemente
+""necesarios para satisfacer el requisito del suministro indicado.""",20.0,20.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+458683,pct_monto_referencia_tecnica,capacidad_tecnica,3.0,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Contar con Habilitación del local, actualizado, Renovación de Apertura o en Trámite de Renovación emitida por la
+Dirección Nacional de Vigilancia Sanitaria (DNVS), vigente. Se deberá de acompañar constancia emitida por
+DINAVISA de que el mismo se encuentra en trámite de renovación y que el producto puede seguir siendo
+comercializado mientras dure el trámite.
+2. Disponer del Registro Sanitario de Dispositivos Médicos correspondiente al bien ofertado, que se encuentre vigente
+a la fecha de apertura de ofertas.
+3. Contar con la documentación emitida por la Dirección Nacional de Vigilancia Sanitaria (DNVS) sobre el local utilizado
+como depósito de almacenamiento de los bienes licitados y su cumplimiento respecto a las normativas de buenas
+prácticas de almacenamiento, en particular el Certificado de Buenas Prácticas de Almacenamiento y Distribución
+(BPAyD), vigente a la fecha de apertura de ofertas. Los oferentes que usufructúan instalaciones alquiladas deberán
+presentar además del contrato de alquiler vigente de los depósitos de almacenamiento, copia del certificado de
+Buenas Prácticas de almacenamiento vigente de la empresa de la que el oferente usufructúa las instalaciones.
+4. Contar con Catálogos y/o Folletos y/o Prospectos con información técnica, correspondiente al lote ofertado, en
+idioma castellano o con traducción realizada por traductor público matriculado. Los catálogos y/o folletos y/o
+prospectos servirán de información complementaria al momento de evaluación de las muestras presentadas.
+5. Declaración Jurada del Oferente de poseer la capacidad de suministro en tiempo y forma de lo solicitado.
+6. Para representantes/distribuidores/importadores: Autorización del Fabricante, Representante o Distribuidor o
+documentación donde conste que la empresa oferente se encuentra debidamente autorizado para ofertar el bien
+objeto de la presente licitación. Debidamente legalizado y consularizado en el país de origen y destino (o
+Apostillado).
+Obs: Los representantes del Comité de Evaluación, se reservan el derecho de realizar visita técnica al local declarado por el
+oferente, a fin de determinar si los mismos cuentan con el stock mínimo en el ítem 1 del 3%, en el ítem 2 del 1% y en el ítem
+3 del 16%: 20% del monto máximo del llamado a adjudicar, a fin de garantizar a la Convocante que el oferente no tendrá
+""ningún contratiempo en la entrega de los bienes.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Contar con Habilitación del local, actualizado, Renovación de Apertura o en Trámite de Renovación emitida por la
+Dirección Nacional de Vigilancia Sanitaria (DNVS), vigente. Se deberá de acompañar constancia emitida por
+DINAVISA de que el mismo se encuentra en trámite de renovación y que el producto puede seguir siendo
+comercializado mientras dure el trámite.
+2. Disponer del Registro Sanitario de Dispositivos Médicos correspondiente al bien ofertado, que se encuentre vigente
+a la fecha de apertura de ofertas.
+3. Contar con la documentación emitida por la Dirección Nacional de Vigilancia Sanitaria (DNVS) sobre el local utilizado
+como depósito de almacenamiento de los bienes licitados y su cumplimiento respecto a las normativas de buenas
+prácticas de almacenamiento, en particular el Certificado de Buenas Prácticas de Almacenamiento y Distribución
+(BPAyD), vigente a la fecha de apertura de ofertas. Los oferentes que usufructúan instalaciones alquiladas deberán
+presentar además del contrato de alquiler vigente de los depósitos de almacenamiento, copia del certificado de
+Buenas Prácticas de almacenamiento vigente de la empresa de la que el oferente usufructúa las instalaciones.
+4. Contar con Catálogos y/o Folletos y/o Prospectos con información técnica, correspondiente al lote ofertado, en
+idioma castellano o con traducción realizada por traductor público matriculado. Los catálogos y/o folletos y/o
+prospectos servirán de información complementaria al momento de evaluación de las muestras presentadas.
+5. Declaración Jurada del Oferente de poseer la capacidad de suministro en tiempo y forma de lo solicitado.
+6. Para representantes/distribuidores/importadores: Autorización del Fabricante, Representante o Distribuidor o
+documentación donde conste que la empresa oferente se encuentra debidamente autorizado para ofertar el bien
+objeto de la presente licitación. Debidamente legalizado y consularizado en el país de origen y destino (o
+Apostillado).
+Obs: Los representantes del Comité de Evaluación, se reservan el derecho de realizar visita técnica al local declarado por el
+oferente, a fin de determinar si los mismos cuentan con el stock mínimo en el ítem 1 del 3%, en el ítem 2 del 1% y en el ítem
+3 del 16%: 20% del monto máximo del llamado a adjudicar, a fin de garantizar a la Convocante que el oferente no tendrá
+""ningún contratiempo en la entrega de los bienes.""",0.03,3.0,16.0,"Extraido via patron principal (""N% ... del monto/valor/oferta/total""): porcentaje minimo del monto/valor de la oferta exigido como respaldo de experiencia/referencias tecnicas = 16.0%."
+410197,pct_monto_referencia_tecnica,capacidad_tecnica,,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+1. La empresa nacional a ser contratada para brindar el servicio de mantenimiento del Sistema de Mediciones de Campos
+Electromagnéticos, y para garantizar su experiencia y capacidad, la Oferente debe presentar una carta del Fabricante,
+Representante o Distribuidor de los equipos de la marca NARDA STS donde la misma garantiza que la Oferente cuenta con la
+capacidad para realizar las tareas de mantenimiento, y que cuenta con el aval de NARDA STS para presentarse en el presente
+proceso de contratación.
+2. La Oferente deberá contar en su staff técnico, compuesto por lo menos por 1 (un) ingeniero en electrónica, o en
+telecomunicaciones o en mecatrónica, matriculado con Categoría 1 en Conatel y 2 (dos) técnicos. De los integrantes del staff al
+menos 2 (dos) deben tener conocimiento de los equipos de la marca NARDA STS, con las debidas capacitaciones, y al menos 2
+(dos) de los integrantes deben contar con una antigüedad mínima de 1 (un) año en la empresa. Deberán presentarse los
+currículos de cado uno de los integrantes del staff técnico y deberá demostrarse con los correspondientes certificados expedidos
+por el Fabricante, Representante o Distribuidor de los equipos de Medición de Campos Electromagnéticos de la marca NARDA STS
+la capacitación que hayan recibido, para lo cual deberán presentarse copias de dichos certificados.
+3. Todos los integrantes del staff técnico deben residir en Paraguay para lo cual la Oferente deberá presentar los correspondientes
+certificados de vida y residencia expedidos por la Policía Nacional.
+4. La Oferente, deberá, asimismo, indicar claramente de entre los integrantes del staff técnico a aquel que se desempeñará como
+Supervisor Técnico. Este Supervisor deberá interactuar con los técnicos de la CONATEL, para la coordinación de las tareas y será
+el responsable de la presentación de los informes. Declaración Jurada en la que la Empresa designe al Supervisor técnico
+integrante del staff técnico incluyendo datos del mismo como: domicilio, número de teléfono, número de móvil y dirección de
+correo electrónico.
+La Convocante se reserva el derecho de contactar con la firma NARDA STS, así como con los clientes mencionados por las Oferentes
+para validar la información proporcionada.
+De constatarse cualquier falsedad o error en los datos suministrados, la Convocante procederá a descalificar a la Oferente de este
+proceso, independientemente de las acciones ante la Dirección Nacional de Contrataciones Públicas y ante la justicia ordinaria que la
+Convocante pudiera emprender, por la presentación de información y documentación de contenido falso.
+En caso de Consorcios: en todas las evidencias documentadas presentadas se deberán indicar en la oferta cuál es el Líder
+del Consorcio quien deberá cumplir con al menos el 60% de los criterios de calificación y el 40% restante lo cumplirán él o
+""los demás integrantes del Consorcio.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+1. La empresa nacional a ser contratada para brindar el servicio de mantenimiento del Sistema de Mediciones de Campos
+Electromagnéticos, y para garantizar su experiencia y capacidad, la Oferente debe presentar una carta del Fabricante,
+Representante o Distribuidor de los equipos de la marca NARDA STS donde la misma garantiza que la Oferente cuenta con la
+capacidad para realizar las tareas de mantenimiento, y que cuenta con el aval de NARDA STS para presentarse en el presente
+proceso de contratación.
+2. La Oferente deberá contar en su staff técnico, compuesto por lo menos por 1 (un) ingeniero en electrónica, o en
+telecomunicaciones o en mecatrónica, matriculado con Categoría 1 en Conatel y 2 (dos) técnicos. De los integrantes del staff al
+menos 2 (dos) deben tener conocimiento de los equipos de la marca NARDA STS, con las debidas capacitaciones, y al menos 2
+(dos) de los integrantes deben contar con una antigüedad mínima de 1 (un) año en la empresa. Deberán presentarse los
+currículos de cado uno de los integrantes del staff técnico y deberá demostrarse con los correspondientes certificados expedidos
+por el Fabricante, Representante o Distribuidor de los equipos de Medición de Campos Electromagnéticos de la marca NARDA STS
+la capacitación que hayan recibido, para lo cual deberán presentarse copias de dichos certificados.
+3. Todos los integrantes del staff técnico deben residir en Paraguay para lo cual la Oferente deberá presentar los correspondientes
+certificados de vida y residencia expedidos por la Policía Nacional.
+4. La Oferente, deberá, asimismo, indicar claramente de entre los integrantes del staff técnico a aquel que se desempeñará como
+Supervisor Técnico. Este Supervisor deberá interactuar con los técnicos de la CONATEL, para la coordinación de las tareas y será
+el responsable de la presentación de los informes. Declaración Jurada en la que la Empresa designe al Supervisor técnico
+integrante del staff técnico incluyendo datos del mismo como: domicilio, número de teléfono, número de móvil y dirección de
+correo electrónico.
+La Convocante se reserva el derecho de contactar con la firma NARDA STS, así como con los clientes mencionados por las Oferentes
+para validar la información proporcionada.
+De constatarse cualquier falsedad o error en los datos suministrados, la Convocante procederá a descalificar a la Oferente de este
+proceso, independientemente de las acciones ante la Dirección Nacional de Contrataciones Públicas y ante la justicia ordinaria que la
+Convocante pudiera emprender, por la presentación de información y documentación de contenido falso.
+En caso de Consorcios: en todas las evidencias documentadas presentadas se deberán indicar en la oferta cuál es el Líder
+del Consorcio quien deberá cumplir con al menos el 60% de los criterios de calificación y el 40% restante lo cumplirán él o
+""los demás integrantes del Consorcio.""",0.6,60.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+405277,pct_monto_referencia_tecnica,capacidad_tecnica,,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+. Las empresas oferentes deberán estar legalmente habilitadas por la Autoridad competente para fabricar, comercializar y/o importar los
+bienes licitados en el mercado local; contar con las documentaciones requeridas y así, dar cumplimiento a los requisitos técnicos,;;;
+documentales y legales donde conste y avale que el análisis realizado de los mismos reúna los criterios solicitados.
+Observación:
+Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser obligaciones tributarias, laborales y
+de seguridad social, además deberá indicarse en la oferta cuál es la empresa líder del consorcio, quien deberá cumplir con al menos 60% de los
+""criterios de calificación de experiencia y capacidad técnica, y el 40% restante lo cumplirán el o los demás integrantes del consorcio","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+. Las empresas oferentes deberán estar legalmente habilitadas por la Autoridad competente para fabricar, comercializar y/o importar los
+bienes licitados en el mercado local; contar con las documentaciones requeridas y así, dar cumplimiento a los requisitos técnicos,;;;
+documentales y legales donde conste y avale que el análisis realizado de los mismos reúna los criterios solicitados.
+Observación:
+Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser obligaciones tributarias, laborales y
+de seguridad social, además deberá indicarse en la oferta cuál es la empresa líder del consorcio, quien deberá cumplir con al menos 60% de los
+""criterios de calificación de experiencia y capacidad técnica, y el 40% restante lo cumplirán el o los demás integrantes del consorcio""",0.6,60.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+403202,pct_monto_referencia_tecnica,capacidad_tecnica,,"Capacidad Técnica""
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+1. El oferente deberá presentar Declaración Jurada en la cual se compromete a cumplir con las especificaciones técnicas establecidas y que
+cumplirá con el plazo de entrega establecido por la convocante
+2. La empresa deberá contar con la infraestructura y bienes necesarios para el cumplimiento del servicio. Mínimamente deberá contar con
+los siguientes activos: vehículos, artículos de vajillería, mobiliarios, 1 (una) cámara frigorífica, cocinas industriales, envasadores al vacío y 2 (Dos)
+camiones refrigerados, ect. y deberá demostrar que los camiones son propiedad de la empresa. Para el lote Nº 1
+3. El oferente deberá presentar copia del Certificado de INAN vigente. En caso de no poseer certificado de INAN será aceptada una carta de
+compromiso de parte de una empresa Gastronómica adjuntando las certificaciones correspondientes. Para el Lote 1
+4. El proveedor deberá demostrar propiedad de al menos 500 m2 de toldos estructurados, 300 m2 de piso para eventos, equipamiento de audio
+para al menos 2 actividades en forma simultánea, Pantallas LED p3, la institución podrá verificar en el local del proveedor los equipamientos.
+Para el Lote 2
+5. El proveedor deberá demostrar propiedad de movilidad propia, 4 camiones con furgón cerrado cap. Mínima 5 tn., 2 vehículos livianos, se deberá
+adjuntar copia autenticada de las cédulas verde a nombre del oferente. Para el lote 2
+6. Detalle de la organización interna, indicando, cantidad de personal vinculado a la empresa, disponibles para la ejecución del contrato
+en los siguientes: Dpto. de Ventas, Dpto. de RR.HH., Dpto. de Producción y Dpto. de Eventos. Para el lote Nº 1 y 2
+7. El oferente deberá presentar Croquis de la oficina y depósito del oferente. Para el Lote Nº 1 y 2
+Criterios de evaluación en caso de consorcios:
+En caso de Consorcios, se analizarán en conjunto los siguientes puntos:
+Todos los integrantes del consorcio deberán cumplir los requisitos legales de Carácter sustancial en su totalidad.
+Todos los integrantes del consorcio deberán cumplir íntegramente los requisitos establecidos en lo que respecta a la Capacidad Financiera.
+En cuanto a la Experiencia y Capacidad Técnica, se deberá Indicar en la oferta cual es el líder del consorcio quien deberá cumplir con al
+""menos el 60% de los criterios de calificación, y el 40% restante lo cumplirán el o los demás integrantes del consorcio.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+1. El oferente deberá presentar Declaración Jurada en la cual se compromete a cumplir con las especificaciones técnicas establecidas y que
+cumplirá con el plazo de entrega establecido por la convocante
+2. La empresa deberá contar con la infraestructura y bienes necesarios para el cumplimiento del servicio. Mínimamente deberá contar con
+los siguientes activos: vehículos, artículos de vajillería, mobiliarios, 1 (una) cámara frigorífica, cocinas industriales, envasadores al vacío y 2 (Dos)
+camiones refrigerados, ect. y deberá demostrar que los camiones son propiedad de la empresa. Para el lote Nº 1
+3. El oferente deberá presentar copia del Certificado de INAN vigente. En caso de no poseer certificado de INAN será aceptada una carta de
+compromiso de parte de una empresa Gastronómica adjuntando las certificaciones correspondientes. Para el Lote 1
+4. El proveedor deberá demostrar propiedad de al menos 500 m2 de toldos estructurados, 300 m2 de piso para eventos, equipamiento de audio
+para al menos 2 actividades en forma simultánea, Pantallas LED p3, la institución podrá verificar en el local del proveedor los equipamientos.
+Para el Lote 2
+5. El proveedor deberá demostrar propiedad de movilidad propia, 4 camiones con furgón cerrado cap. Mínima 5 tn., 2 vehículos livianos, se deberá
+adjuntar copia autenticada de las cédulas verde a nombre del oferente. Para el lote 2
+6. Detalle de la organización interna, indicando, cantidad de personal vinculado a la empresa, disponibles para la ejecución del contrato
+en los siguientes: Dpto. de Ventas, Dpto. de RR.HH., Dpto. de Producción y Dpto. de Eventos. Para el lote Nº 1 y 2
+7. El oferente deberá presentar Croquis de la oficina y depósito del oferente. Para el Lote Nº 1 y 2
+Criterios de evaluación en caso de consorcios:
+En caso de Consorcios, se analizarán en conjunto los siguientes puntos:
+Todos los integrantes del consorcio deberán cumplir los requisitos legales de Carácter sustancial en su totalidad.
+Todos los integrantes del consorcio deberán cumplir íntegramente los requisitos establecidos en lo que respecta a la Capacidad Financiera.
+En cuanto a la Experiencia y Capacidad Técnica, se deberá Indicar en la oferta cual es el líder del consorcio quien deberá cumplir con al
+""menos el 60% de los criterios de calificación, y el 40% restante lo cumplirán el o los demás integrantes del consorcio.""",0.6,60.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+420475,pct_monto_referencia_tecnica,capacidad_tecnica,,"Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+Las empresas oferentes deberán estar legalmente habilitadas por la Autoridad competente para fabricar,
+comercializar y/o importar los bienes licitados en el mercado local; contar con las documentaciones requeridas y;;;
+así, dar cumplimiento a los requisitos técnicos, documentales y legales donde conste y avale que el análisis
+realizado de los mismos reúna los criterios solicitados.
+Observación:
+Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como
+ser obligaciones tributarias, laborales y de seguridad social, además deberá indicarse en la oferta cuál es
+la empresa líder del consorcio, quien deberá cumplir con al menos 60% de los criterios de calificación de
+""experiencia y capacidad técnica, y el 40% restante lo cumplirán el o los demás integrantes del consorcio","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+Las empresas oferentes deberán estar legalmente habilitadas por la Autoridad competente para fabricar,
+comercializar y/o importar los bienes licitados en el mercado local; contar con las documentaciones requeridas y;;;
+así, dar cumplimiento a los requisitos técnicos, documentales y legales donde conste y avale que el análisis
+realizado de los mismos reúna los criterios solicitados.
+Observación:
+Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como
+ser obligaciones tributarias, laborales y de seguridad social, además deberá indicarse en la oferta cuál es
+la empresa líder del consorcio, quien deberá cumplir con al menos 60% de los criterios de calificación de
+""experiencia y capacidad técnica, y el 40% restante lo cumplirán el o los demás integrantes del consorcio""",0.6,60.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."
+434688,pct_monto_referencia_tecnica,capacidad_tecnica,,"Capacidad Técnica""
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+1 - La empresa deberá contar con staff de técnicos, transporte propio, herramientas, equipos de seguridad, stock de repuestos y sistema de
+comunicación telefónica con aplicación de WhatsApp con línea telefónica disponible 24 horas (incluso fin de semana) para cualquier requerimiento de
+urgencia que surja en la institución durante la vigencia de la garantía de los servicios realizados.
+2 - El oferente deberá proveer en tiempo y forma todos los materiales, repuestos y accesorios necesarios para el buen cumplimiento del contrato.
+3- En caso de necesidad, el oferente deberá de proveer equipos de respaldo, balón de oxígeno con regulador, balón de aire médico con regulador,
+bomba de vacío portátil con colector, para conectar al sistema mientras dura la instalación.
+4 - Declaración jurada de que la antigüedad de la fabricación de los equipos no superan los 12 meses, y la provisión de repuestos por al menos 10 años.
+5- Declaración jurada de poseer experiencia técnica y contar con un ingeniero biomédico y un ingeniero industrial para así asegurar la correcta
+instalación de lo requerido y proveer asistencia a los Dispositivos Médicos y al sistema de provisión de gases medicinales y que se encarguen de la
+firma documental de los trabajos realizados una vez terminados
+6- Constancia emitida por la Convocante por medio de su Departamento de Mantenimiento que el Oferente ha realizado la visita técnica en el Hospital
+de Trauma Dr. Manuel Giagni y hecha la inspección técnica correspondiente a la Adquisición de Paneles de Alarma y Adecuación del Sistema de
+Distribución de Gases Medicinales. objetos del presente llamado de manera a contar con la información necesaria para preparar las ofertas y celebrar
+el contrato.
+7- Certificados que acrediten contar con personal técnico capacitado y habilitado por el fabricante a realizar instalación y servicio técnico.
+8- Catálogo Técnico del sistema ofertado o manual del sistema o ficha técnica donde se constate claramente el cumplimiento de las especificaciones
+técnicas solicitadas en el Pliego de Bases y Condiciones. (No se aceptará ningún otro documento en reemplazo).
+9- Habilitación emitida por la DNVS para Servicio Técnico.
+Observación: Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser obligaciones tributarias,
+laborales y de seguridad social, además deberá indicarse en la oferta cuál es la empresa líder del consorcio, quien deberá cumplir con al menos 60% de
+""los criterios de calificación de capacidad técnica, y el 40% restante lo cumplirán el o los demás integrantes del consorcio.","Campo a extraer: Porcentaje mínimo del monto del lote para referencias técnicas""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100.
+
+Texto del pliego:
+Capacidad Técnica
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+1 - La empresa deberá contar con staff de técnicos, transporte propio, herramientas, equipos de seguridad, stock de repuestos y sistema de
+comunicación telefónica con aplicación de WhatsApp con línea telefónica disponible 24 horas (incluso fin de semana) para cualquier requerimiento de
+urgencia que surja en la institución durante la vigencia de la garantía de los servicios realizados.
+2 - El oferente deberá proveer en tiempo y forma todos los materiales, repuestos y accesorios necesarios para el buen cumplimiento del contrato.
+3- En caso de necesidad, el oferente deberá de proveer equipos de respaldo, balón de oxígeno con regulador, balón de aire médico con regulador,
+bomba de vacío portátil con colector, para conectar al sistema mientras dura la instalación.
+4 - Declaración jurada de que la antigüedad de la fabricación de los equipos no superan los 12 meses, y la provisión de repuestos por al menos 10 años.
+5- Declaración jurada de poseer experiencia técnica y contar con un ingeniero biomédico y un ingeniero industrial para así asegurar la correcta
+instalación de lo requerido y proveer asistencia a los Dispositivos Médicos y al sistema de provisión de gases medicinales y que se encarguen de la
+firma documental de los trabajos realizados una vez terminados
+6- Constancia emitida por la Convocante por medio de su Departamento de Mantenimiento que el Oferente ha realizado la visita técnica en el Hospital
+de Trauma Dr. Manuel Giagni y hecha la inspección técnica correspondiente a la Adquisición de Paneles de Alarma y Adecuación del Sistema de
+Distribución de Gases Medicinales. objetos del presente llamado de manera a contar con la información necesaria para preparar las ofertas y celebrar
+el contrato.
+7- Certificados que acrediten contar con personal técnico capacitado y habilitado por el fabricante a realizar instalación y servicio técnico.
+8- Catálogo Técnico del sistema ofertado o manual del sistema o ficha técnica donde se constate claramente el cumplimiento de las especificaciones
+técnicas solicitadas en el Pliego de Bases y Condiciones. (No se aceptará ningún otro documento en reemplazo).
+9- Habilitación emitida por la DNVS para Servicio Técnico.
+Observación: Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser obligaciones tributarias,
+laborales y de seguridad social, además deberá indicarse en la oferta cuál es la empresa líder del consorcio, quien deberá cumplir con al menos 60% de
+""los criterios de calificación de capacidad técnica, y el 40% restante lo cumplirán el o los demás integrantes del consorcio.""",0.6,60.0,,"La seccion de Capacidad Tecnica no contiene ningun porcentaje vinculado al monto/valor de la oferta (solo requisitos cualitativos: certificados, vehiculos, permisos, etc., o porcentajes de otro tipo no relacionados con el monto de referencias, ej. eficacia de producto, cobertura de personal). GT=NULL."

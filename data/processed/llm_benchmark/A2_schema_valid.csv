@@ -1,0 +1,11 @@
+modelo,tipo,n,valid_rate,parse_ok_rate,truncados_80,estado
+EXAONE-35-78B-AWQ,vLLM-guided,867,0.999,0.934,0,OK
+Gemma_4_12B,GGUF-plain,867,,0.895,720,PENDING_RELOG (84% raw al tope)
+Granite_42_8B,GGUF-plain,867,,0.631,0,OK
+Llama_31_8B-AWQ,vLLM-guided,867,1.0,0.775,0,OK
+Llama_31_8B-FP8,vLLM-guided,867,1.0,0.777,0,OK
+Ministral_3_14B,GGUF-plain,867,,0.956,9,PENDING_RELOG (1% al tope)
+Mistral_7B_v03-AWQ,vLLM-guided,867,0.999,0.803,0,OK
+Mistral_Small_24B-AWQ,vLLM-guided,867,0.923,0.92,0,OK
+Qwen3-14B-AWQ,vLLM-guided,867,0.993,0.934,0,OK
+Qwen3-8B-FP8,vLLM-guided,867,0.993,0.825,0,OK

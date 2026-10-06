@@ -1,0 +1,161 @@
+{
+  "title": "Fuerza Mayor",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 8.11,
+  "n_fields": 11,
+  "validation_errors": [],
+  "field_names": [
+    "tiene_definicion_fuerza_mayor",
+    "menciona_actos_autoridad",
+    "tiene_plazo_notificacion",
+    "excepcion_plazo_mayor",
+    "num_ejemplos_fuerza_mayor",
+    "menciona_nexo_causal",
+    "tiene_restricciones_invocacion",
+    "menciona_consecuencias_no_invocar",
+    "longitud_seccion",
+    "num_puntos",
+    "texto_vacio"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"tiene_definicion_fuerza_mayor\": {\"type\": \"binary\", \"description\": \"Indica si se define explícitamente qué es Fuerza Mayor\", \"importance\": 9, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'Fuerza Mayor significa' o 'se considera Fuerza Mayor'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_actos_autoridad\": {\"type\": \"binary\", \"description\": \"Indica si se mencionan actos de la autoridad como ejemplo de Fuerza Mayor\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'actos de la autoridad' o 'autoridad en su capacidad soberana'. Retornar 1 si aparece, 0 si no.\"},\n    \"tiene_plazo_notificacion\": {\"type\": \"binary\", \"description\": \"Indica si se establece un plazo para notificar la Fuerza Mayor\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'plazo de siete (7) días calendario' o similar. Retornar 1 si aparece, 0 si no.\"},\n    \"excepcion_plazo_mayor\": {\"type\": \"binary\", \"description\": \"Indica si se permite excepcionalmente un plazo mayor para notificar\", \"importance\": 7, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'Excepcionalmente' y 'plazo mayor'. Retornar 1 si aparece, 0 si no.\"},\n    \"num_ejemplos_fuerza_mayor\": {\"type\": \"numeric\", \"description\": \"Cantidad de ejemplos de Fuerza Mayor mencionados\", \"importance\": 6, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Contar cuántos ejemplos como 'guerras', 'incendios', 'inundaciones', 'epidemias', 'pandemias', 'restricciones de cuarentena', 'embargos de cargamentos' se mencionan. Retornar el número de ejemplos encontrados.\"},\n    \"menciona_nexo_causal\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la necesidad de demostrar el nexo causal entre el evento y la obligación\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'demostrar el nexo existente' o 'nexo causal'. Retornar 1 si aparece, 0 si no.\"},\n    \"tiene_restricciones_invocacion\": {\"type\": \"binary\", \"description\": \"Indica si se establecen restricciones para invocar la Fuerza Mayor\", \"importance\": 7, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'con posterioridad a la suscripción del contrato' y 'con anterioridad al vencimiento del plazo'. Retornar 1 si aparece, 0 si no.\"},\n    \"menciona_consecuencias_no_invocar\": {\"type\": \"binary\", \"description\": \"Indica si se mencionan consecuencias por no invocar la Fuerza Mayor dentro del plazo\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar 'no podrá invocar caso fortuito o fuerza mayor' o similar. Retornar 1 si aparece, 0 si no.\"},\n    \"longitud_seccion\": {\"type\": \"numeric\", \"description\": \"Longitud de la sección en palabras\", \"importance\": 5, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar el número de palabras en la sección. Retornar el número.\"},\n    \"num_puntos\": {\"type\": \"numeric\", \"description\": \"Número de puntos o incisos en la sección\", \"importance\": 4, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar el número de puntos (1., 2., etc.) o incisos (a., b., etc.). Retornar el número.\"},\n    \"texto_vacio\": {\"type\": \"binary\", \"description\": \"Indica si la sección está vacía o no contiene desarrollo normativo\", \"importance\": 3, \"extraction_method\": \"structural\", \"extraction_hint\": \"Retornar 1 si el texto tiene menos de 50 palabras o no contiene oración con contenido normativo. Retornar 0 en caso contrario.\"}\n  },\n  \"justification\": \"Cada campo fue elegido para capturar aspectos clave de la sección sobre Fuerza Mayor que podrían variar entre los clusters y ser relevantes para detectar anomalías. La importancia de cada campo se basa en su potencial impacto en la interpretación y aplicación de la cláusula de Fuerza Mayor.\",\n  \"cluster_values\": {\n    \"tiene_definicion_fuerza_mayor\": {\"cluster_0_8_13_15\": 1, \"cluster_1\": 1, \"cluster_2_3_4_5_10_11\": 1},\n    \"menciona_actos_autoridad\": {\"cluster_0_8_13_15\": 1, \"cluster_1\": 1, \"cluster_2_3_4_5_10_11\": 1},\n    \"tiene_plazo_notificacion\": {\"cluster_0_8_13_15\": 1, \"cluster_1\": 0, \"cluster_2_3_4_5_10_11\": 1},\n    \"excepcion_plazo_mayor\": {\"cluster_0_8_13_15\": 1, \"cluster_1\": 0, \"cluster_2_3_4_5_10_11\": 1},\n    \"num_ejemplos_fuerza_mayor\": {\"cluster_0_8_13_15\": 7, \"cluster_1\": 10, \"cluster_2_3_4_5_10_11\": 7},\n    \"menciona_nexo_causal\": {\"cluster_0_8_13_15\": 1, \"cluster_1\": 1, \"cluster_2_3_4_5_10_11\": 1},\n    \"tiene_restricciones_invocacion\": {\"cluster_0_8_13_15\": 1, \"cluster_1\": 0, \"cluster_2_3_4_5_10_11\": 1},\n    \"menciona_consecuencias_no_invocar\": {\"cluster_0_8_13_15\": 1, \"cluster_1\": 0, \"cluster_2_3_4_5_10_11\": 1},\n    \"longitud_seccion\": {\"cluster_0_8_13_15\": 150, \"cluster_1\": 120, \"cluster_2_3_4_5_10_11\": 160},\n    \"num_puntos\": {\"cluster_0_8_13_15\": 5, \"cluster_1\": 5, \"cluster_2_3_4_5_10_11\": 5},\n    \"texto_vacio\": {\"cluster_0_8_13_15\": 0, \"cluster_1\": 0, \"cluster_2_3_4_5_10_11\": 0}\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "tiene_definicion_fuerza_mayor": {
+        "type": "binary",
+        "description": "Indica si se define explícitamente qué es Fuerza Mayor",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'Fuerza Mayor significa' o 'se considera Fuerza Mayor'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_actos_autoridad": {
+        "type": "binary",
+        "description": "Indica si se mencionan actos de la autoridad como ejemplo de Fuerza Mayor",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'actos de la autoridad' o 'autoridad en su capacidad soberana'. Retornar 1 si aparece, 0 si no."
+      },
+      "tiene_plazo_notificacion": {
+        "type": "binary",
+        "description": "Indica si se establece un plazo para notificar la Fuerza Mayor",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'plazo de siete (7) días calendario' o similar. Retornar 1 si aparece, 0 si no."
+      },
+      "excepcion_plazo_mayor": {
+        "type": "binary",
+        "description": "Indica si se permite excepcionalmente un plazo mayor para notificar",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'Excepcionalmente' y 'plazo mayor'. Retornar 1 si aparece, 0 si no."
+      },
+      "num_ejemplos_fuerza_mayor": {
+        "type": "numeric",
+        "description": "Cantidad de ejemplos de Fuerza Mayor mencionados",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántos ejemplos como 'guerras', 'incendios', 'inundaciones', 'epidemias', 'pandemias', 'restricciones de cuarentena', 'embargos de cargamentos' se mencionan. Retornar el número de ejemplos encontrados."
+      },
+      "menciona_nexo_causal": {
+        "type": "binary",
+        "description": "Indica si se menciona la necesidad de demostrar el nexo causal entre el evento y la obligación",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'demostrar el nexo existente' o 'nexo causal'. Retornar 1 si aparece, 0 si no."
+      },
+      "tiene_restricciones_invocacion": {
+        "type": "binary",
+        "description": "Indica si se establecen restricciones para invocar la Fuerza Mayor",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'con posterioridad a la suscripción del contrato' y 'con anterioridad al vencimiento del plazo'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_consecuencias_no_invocar": {
+        "type": "binary",
+        "description": "Indica si se mencionan consecuencias por no invocar la Fuerza Mayor dentro del plazo",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar 'no podrá invocar caso fortuito o fuerza mayor' o similar. Retornar 1 si aparece, 0 si no."
+      },
+      "longitud_seccion": {
+        "type": "numeric",
+        "description": "Longitud de la sección en palabras",
+        "importance": 5,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de palabras en la sección. Retornar el número."
+      },
+      "num_puntos": {
+        "type": "numeric",
+        "description": "Número de puntos o incisos en la sección",
+        "importance": 4,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de puntos (1., 2., etc.) o incisos (a., b., etc.). Retornar el número."
+      },
+      "texto_vacio": {
+        "type": "binary",
+        "description": "Indica si la sección está vacía o no contiene desarrollo normativo",
+        "importance": 3,
+        "extraction_method": "structural",
+        "extraction_hint": "Retornar 1 si el texto tiene menos de 50 palabras o no contiene oración con contenido normativo. Retornar 0 en caso contrario."
+      }
+    },
+    "justification": "Cada campo fue elegido para capturar aspectos clave de la sección sobre Fuerza Mayor que podrían variar entre los clusters y ser relevantes para detectar anomalías. La importancia de cada campo se basa en su potencial impacto en la interpretación y aplicación de la cláusula de Fuerza Mayor.",
+    "cluster_values": {
+      "tiene_definicion_fuerza_mayor": {
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 1,
+        "cluster_2_3_4_5_10_11": 1
+      },
+      "menciona_actos_autoridad": {
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 1,
+        "cluster_2_3_4_5_10_11": 1
+      },
+      "tiene_plazo_notificacion": {
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 0,
+        "cluster_2_3_4_5_10_11": 1
+      },
+      "excepcion_plazo_mayor": {
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 0,
+        "cluster_2_3_4_5_10_11": 1
+      },
+      "num_ejemplos_fuerza_mayor": {
+        "cluster_0_8_13_15": 7,
+        "cluster_1": 10,
+        "cluster_2_3_4_5_10_11": 7
+      },
+      "menciona_nexo_causal": {
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 1,
+        "cluster_2_3_4_5_10_11": 1
+      },
+      "tiene_restricciones_invocacion": {
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 0,
+        "cluster_2_3_4_5_10_11": 1
+      },
+      "menciona_consecuencias_no_invocar": {
+        "cluster_0_8_13_15": 1,
+        "cluster_1": 0,
+        "cluster_2_3_4_5_10_11": 1
+      },
+      "longitud_seccion": {
+        "cluster_0_8_13_15": 150,
+        "cluster_1": 120,
+        "cluster_2_3_4_5_10_11": 160
+      },
+      "num_puntos": {
+        "cluster_0_8_13_15": 5,
+        "cluster_1": 5,
+        "cluster_2_3_4_5_10_11": 5
+      },
+      "texto_vacio": {
+        "cluster_0_8_13_15": 0,
+        "cluster_1": 0,
+        "cluster_2_3_4_5_10_11": 0
+      }
+    }
+  }
+}

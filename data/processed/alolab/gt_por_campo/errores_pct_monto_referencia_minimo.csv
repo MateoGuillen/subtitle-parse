@@ -1,0 +1,1299 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+410294,pct_monto_referencia_minimo,experiencia_requerida,25.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Asistencia técnica integral de Cajeros de la marca DIEBOLD
+Demostrar la experiencia en el Servicio de asistencia técnica integral de Cajeros Automáticos de la marca
+DIEBOLD, con contratos, facturas, y/o recepciones finales por un monto equivalente al 25% como mínimo del
+""monto máximo ofertado, de los últimos 3 (tres) años (2019,2020, 2021).","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Asistencia técnica integral de Cajeros de la marca DIEBOLD
+Demostrar la experiencia en el Servicio de asistencia técnica integral de Cajeros Automáticos de la marca
+DIEBOLD, con contratos, facturas, y/o recepciones finales por un monto equivalente al 25% como mínimo del
+""monto máximo ofertado, de los últimos 3 (tres) años (2019,2020, 2021).""",30.0,,25.0,"Único valor válido: ""cturas, y/o recepciones finales por un monto equivalente al 25% como mínimo del ""monto máximo"""
+455084,pct_monto_referencia_minimo,experiencia_requerida,25.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de concreto elaborado con facturaciones de venta y/o recepciones finales por
+un monto equivalente al 25 % como mínimo del monto total ofertado en la presente licitación, de los: últimos 3 años (2021,
+""2022 y 2023).","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de concreto elaborado con facturaciones de venta y/o recepciones finales por
+un monto equivalente al 25 % como mínimo del monto total ofertado en la presente licitación, de los: últimos 3 años (2021,
+""2022 y 2023).""",30.0,,25.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 25 % como mínimo del monto total o"""
+461601,pct_monto_referencia_minimo,experiencia_requerida,25.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en SERVICIO DE APLICACION DE CONTRASTE con facturaciones de venta, contratos y/o
+recepciones finales, por un monto equivalente al 25% como mínimo del monto total ofertado en el presente
+procedimiento de contratación, de los años 2021-2022-2023-2024. Las sumatorias de las facturaciones deben alcanzar el
+porcentaje indicado, no será necesaria la presentación del porcentaje del monto establecido por cada año.
+Observación:
+Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser obligaciones
+tributarias, laborales y de seguridad social, además deberá indicarse en la oferta cuál es la empresa líder del consorcio,
+quien deberá cumplir con al menos 60% de los criterios de calificación de experiencia y capacidad técnica, y el 40%
+""restante lo cumplirán el o los demás integrantes del consorcio.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en SERVICIO DE APLICACION DE CONTRASTE con facturaciones de venta, contratos y/o
+recepciones finales, por un monto equivalente al 25% como mínimo del monto total ofertado en el presente
+procedimiento de contratación, de los años 2021-2022-2023-2024. Las sumatorias de las facturaciones deben alcanzar el
+porcentaje indicado, no será necesaria la presentación del porcentaje del monto establecido por cada año.
+Observación:
+Para los consorcios, todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser obligaciones
+tributarias, laborales y de seguridad social, además deberá indicarse en la oferta cuál es la empresa líder del consorcio,
+quien deberá cumplir con al menos 60% de los criterios de calificación de experiencia y capacidad técnica, y el 40%
+""restante lo cumplirán el o los demás integrantes del consorcio.""",50.0,,25.0,"Único valor válido: ""tratos y/o recepciones finales, por un monto equivalente al 25% como mínimo del monto total o"""
+399381,pct_monto_referencia_minimo,experiencia_requerida,25.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en [indicar actividad] con facturaciones de venta y/o recepciones finales por un monto
+equivalente al [indicar porcentaje] % como mínimo del monto total ofertado en la presente licitación, de los: [indicar n° de
+años] años.
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en servicios de impresión de calcomanías con facturaciones de venta y/o recepciones finales por
+un monto equivalente al 25 % como mínimo del monto total ofertado en la presente licitación, de los: últimos 3 años años.
+""[2018, 2019 y 2020].","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en [indicar actividad] con facturaciones de venta y/o recepciones finales por un monto
+equivalente al [indicar porcentaje] % como mínimo del monto total ofertado en la presente licitación, de los: [indicar n° de
+años] años.
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en servicios de impresión de calcomanías con facturaciones de venta y/o recepciones finales por
+un monto equivalente al 25 % como mínimo del monto total ofertado en la presente licitación, de los: últimos 3 años años.
+""[2018, 2019 y 2020].""",50.0,,25.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 25 % como mínimo del monto total o"""
+403914,pct_monto_referencia_minimo,experiencia_requerida,25.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Copias de contratos ejecutados de provisión de bienes en REACTIVOS Y/O DISPOSITIVOS
+MEDICOS con facturaciones de venta por un monto equivalente al 25 % como mínimo del monto total ofertado en la
+presente licitación, en los: 3 ÚLTIMOS AÑOS 2018 - 2019 - 2020.
+Presentación como mínimo de 3 (tres) Notas, Constancias, Certificaciones y /o Actas de Recepción final en la Provisión de
+Reactivos Y/O Dispositivos médicos donde conste el desempeño satisfactorio del Oferente, expedidos por Instituciones
+Públicas o Privadas dentro de los últimos 03 (tres) años. Dicho documento deberá estar debidamente sellado y firmado por
+""el responsable que lo emitió.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Copias de contratos ejecutados de provisión de bienes en REACTIVOS Y/O DISPOSITIVOS
+MEDICOS con facturaciones de venta por un monto equivalente al 25 % como mínimo del monto total ofertado en la
+presente licitación, en los: 3 ÚLTIMOS AÑOS 2018 - 2019 - 2020.
+Presentación como mínimo de 3 (tres) Notas, Constancias, Certificaciones y /o Actas de Recepción final en la Provisión de
+Reactivos Y/O Dispositivos médicos donde conste el desempeño satisfactorio del Oferente, expedidos por Instituciones
+Públicas o Privadas dentro de los últimos 03 (tres) años. Dicho documento deberá estar debidamente sellado y firmado por
+""el responsable que lo emitió.""",50.0,,25.0,"Único valor válido: ""ICOS con facturaciones de venta por un monto equivalente al 25 % como mínimo del monto total o"""
+411531,pct_monto_referencia_minimo,experiencia_requerida,40.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la provisión e instalación de acondicionadores de aire y/o mantenimiento y reparación de acondicionadores de aires mínima de 3 (tres) años, que podrán corresponder tanto a
+Instituciones públicas y/o privadas, con facturaciones de venta, contratos y/o recepciones finales por un monto equivalente al 40% del monto total previsto para la presente licitación , de los 3
+""últimos años (2019, 2020 y 2021)","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la provisión e instalación de acondicionadores de aire y/o mantenimiento y reparación de acondicionadores de aires mínima de 3 (tres) años, que podrán corresponder tanto a
+Instituciones públicas y/o privadas, con facturaciones de venta, contratos y/o recepciones finales por un monto equivalente al 40% del monto total previsto para la presente licitación , de los 3
+""últimos años (2019, 2020 y 2021)""",30.0,,40.0,"Único valor válido: ""ntratos y/o recepciones finales por un monto equivalente al 40% del monto total previsto para"""
+417500,pct_monto_referencia_minimo,experiencia_requerida,40.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de rajas con facturaciones de venta y/o recepciones finales por un monto equivalente
+""al 40 % como mínimo del monto total ofertado en la presente licitación, de los años 2019, 2020, 2021.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de rajas con facturaciones de venta y/o recepciones finales por un monto equivalente
+""al 40 % como mínimo del monto total ofertado en la presente licitación, de los años 2019, 2020, 2021.""",30.0,,40.0,"Único valor válido: ""venta y/o recepciones finales por un monto equivalente ""al 40 % como mínimo del monto total o"""
+431573,pct_monto_referencia_minimo,experiencia_requerida,40.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en servicios similares o iguales a lo ofertado con facturaciones de venta y/o recepciones finales
+por un monto equivalente al [40 %] % del monto máximo de lo ofertado en la presente licitacion 3 (tres) años. ) 2020,2021 y
+""2022.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en servicios similares o iguales a lo ofertado con facturaciones de venta y/o recepciones finales
+por un monto equivalente al [40 %] % del monto máximo de lo ofertado en la presente licitacion 3 (tres) años. ) 2020,2021 y
+""2022.""",30.0,,40.0,"Único valor válido: ""venta y/o recepciones finales por un monto equivalente al [40 %] % del monto máximo de lo ofe"""
+448205,pct_monto_referencia_minimo,experiencia_requerida,20.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en mantenimiento o reparación de motores eléctricos o equipos , con facturaciones de venta o
+contratos, cualquiera de ella con sus respectivas recepciones finales realizadas con entidades públicas y/o privadas de los
+años 2021, 2022 y 2023 por un monto equivalente al 20% como mínimo del monto máximo ofertado en el presente
+procedimiento de contratación.
+Las sumatorias de las facturaciones deben alcanzar el porcentaje indicado, no será necesaria la presentación del
+""porcentaje del monto establecido por cada año.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en mantenimiento o reparación de motores eléctricos o equipos , con facturaciones de venta o
+contratos, cualquiera de ella con sus respectivas recepciones finales realizadas con entidades públicas y/o privadas de los
+años 2021, 2022 y 2023 por un monto equivalente al 20% como mínimo del monto máximo ofertado en el presente
+procedimiento de contratación.
+Las sumatorias de las facturaciones deben alcanzar el porcentaje indicado, no será necesaria la presentación del
+""porcentaje del monto establecido por cada año.""",50.0,,20.0,"Único valor válido: ""s de los años 2021, 2022 y 2023 por un monto equivalente al 20% como mínimo del monto máximo"""
+446467,pct_monto_referencia_minimo,experiencia_requerida,60.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1. El oferente deberá demostrar experiencia en coberturas a instituciones públicas y/o empresas privadas, de los años 2022 Y 2023. Las coberturas
+deberán ser por un valor igual o superior al 60 % del monto total ofertado.
+2. Deberá demostrar el cumplimiento de siniestros cancelados a instituciones públicas y privadas de los años 2022 Y 2023. En caso de haberse
+""reportado siniestros, la cantidad de siniestros indemnizados deberá ser superior al 60 .% del total denunciado","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1. El oferente deberá demostrar experiencia en coberturas a instituciones públicas y/o empresas privadas, de los años 2022 Y 2023. Las coberturas
+deberán ser por un valor igual o superior al 60 % del monto total ofertado.
+2. Deberá demostrar el cumplimiento de siniestros cancelados a instituciones públicas y privadas de los años 2022 Y 2023. En caso de haberse
+""reportado siniestros, la cantidad de siniestros indemnizados deberá ser superior al 60 .% del total denunciado""",30.0,,60.0,"Único valor válido: ""Las coberturas deberán ser por un valor igual o superior al 60 % del monto total ofertado. 2."""
+412907,pct_monto_referencia_minimo,experiencia_requerida,60.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en ventas de tractores objetos de la presente convocatoria con Contratos y/o Facturaciones anteriores
+suscriptas con empresas públicas y/o privadas dentro de los años (2019,2020, 2021) y que en su conjunto obtengan el 60% del
+monto total de su oferta. Deberá presentar los contratos y/o facturaciones realizados en cualquiera de los años mencionados,
+pudiendo presentar la cantidad necesaria hasta acreditar el porcentaje requerido.
+Los contratos con entidades privadas (física o jurídica) deberán estar acompañados de las respectivas facturas emitidas en el
+marco de dichos contratos y autenticados por escribanía pública. Toda facturación realizada a empresas privadas deberá estar
+""acompañada del documento que avale la recepción del bien (nota de remisión o acta de entrega).","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en ventas de tractores objetos de la presente convocatoria con Contratos y/o Facturaciones anteriores
+suscriptas con empresas públicas y/o privadas dentro de los años (2019,2020, 2021) y que en su conjunto obtengan el 60% del
+monto total de su oferta. Deberá presentar los contratos y/o facturaciones realizados en cualquiera de los años mencionados,
+pudiendo presentar la cantidad necesaria hasta acreditar el porcentaje requerido.
+Los contratos con entidades privadas (física o jurídica) deberán estar acompañados de las respectivas facturas emitidas en el
+marco de dichos contratos y autenticados por escribanía pública. Toda facturación realizada a empresas privadas deberá estar
+""acompañada del documento que avale la recepción del bien (nota de remisión o acta de entrega).""",50.0,,60.0,"Único valor válido: ""los años (2019,2020, 2021) y que en su conjunto obtengan el 60% del monto total de su oferta."""
+466773,pct_monto_referencia_minimo,experiencia_requerida,60.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Al menos 10 (diez) años de antigüedad en el mercado dentro del rubro de informática y estar inscripto con actividad
+económica correspondientes al rubro de Comercio al por menor de equipos informáticos y software, para lo cual se
+deberá presentar la documentación de constancia del Registro Único del Contribuyente.
+Haber generado durante los últimos seis (6) años (2019, 2020, 2021, 2022, 2023, 2024) al menos 10 referencias
+verificables, cumpliendo: Trabajos relacionados a software (implementaciones o desarrollos). Con Constancias o
+contratos emitidos por entidades privadas o públicas. Al menos 4 referencias locales (trabajos realizados en
+Paraguay)
+Haber generado durante los últimos cinco (5) años (2020, 2021, 2022, 2023, 2024) La sumatoria de referencias
+representa mínimo el 60% del monto referencial de la contratación, una referencia individual representa al menos el
+40% del monto referencial, (Copia de Contratos, recepciones finales y/o Factura Legal).
+Las sumatorias de las facturaciones deben de alcanzar el porcentaje indicado, siempre que hayan sido formalizados
+dentro del periodo mencionado
+No será necesaria la presentación de un contrato por cada año requerido.
+EN CASO DE CONSORCIOS: el líder deberá cumplir al menos el 50% de éste punto, pudiendo los demás miembros del
+consorcio cumplir el porcentaje restante
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Al menos 10 (diez) años de antigüedad en el mercado dentro del rubro de informática y estar inscripto con actividad
+económica correspondientes al rubro de Comercio al por menor de equipos informáticos y software, para lo cual se
+deberá presentar la documentación de constancia del Registro Único del Contribuyente.
+Haber generado durante los últimos seis (6) años (2019, 2020, 2021, 2022, 2023, 2024) al menos 10 referencias
+verificables, cumpliendo: Trabajos relacionados a software (implementaciones o desarrollos). Con Constancias o
+contratos emitidos por entidades privadas o públicas. Al menos 4 referencias locales (trabajos realizados en
+Paraguay)
+Haber generado durante los últimos cinco (5) años (2020, 2021, 2022, 2023, 2024) La sumatoria de referencias
+representa mínimo el 60% del monto referencial de la contratación, una referencia individual representa al menos el
+40% del monto referencial, (Copia de Contratos, recepciones finales y/o Factura Legal).
+Las sumatorias de las facturaciones deben de alcanzar el porcentaje indicado, siempre que hayan sido formalizados
+dentro del periodo mencionado
+No será necesaria la presentación de un contrato por cada año requerido.
+EN CASO DE CONSORCIOS: el líder deberá cumplir al menos el 50% de éste punto, pudiendo los demás miembros del
+consorcio cumplir el porcentaje restante
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.""",60.0,60.0,40.0,"Múltiples valores [40.0, 60.0] en el mismo pliego (ítems/lotes distintos, o alternativa ""sumatoria vs. referencia individual""). Se tomó el primero mencionado como valor general/representativo. Contexto: 023, 2024) La sumatoria de referencias representa mínimo el 60% del monto referencial de la c | tratación, una referencia individual representa al menos el 40% del monto referencial, (Copia"
+465489,pct_monto_referencia_minimo,experiencia_requerida,60.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de soluciones tecnológicas que incluyan el suministro de software de base de
+datos Oracle Enterprise Edition, soluciones de ingeniería de arquitectura de alta disponibilidad con Oracle, con
+facturaciones de venta y/o recepciones finales por un monto equivalente al 60% como mínimo del monto total
+ofertado en la presente licitación, en cualquiera de los últimos 4(cuatro) años (2021 - 2022 2023 - 2024). El porcentaje
+requerido será la sumatoria de todos los comprobantes de los cuatro años mencionados.
+El oferente deberá presentar Copia de Certificados de Recepción y/o facturas de al menos 10 provisiones de licencias
+y/o soportes ORACLE, comprobables, para lo cual deberá presentar certificados de Conformidad de clientes o
+contratos o facturas. Al menos cuatro de estas referencias, deberá corresponder a trabajos realizados en
+organizaciones públicas o privadas en Paraguay.
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de soluciones tecnológicas que incluyan el suministro de software de base de
+datos Oracle Enterprise Edition, soluciones de ingeniería de arquitectura de alta disponibilidad con Oracle, con
+facturaciones de venta y/o recepciones finales por un monto equivalente al 60% como mínimo del monto total
+ofertado en la presente licitación, en cualquiera de los últimos 4(cuatro) años (2021 - 2022 2023 - 2024). El porcentaje
+requerido será la sumatoria de todos los comprobantes de los cuatro años mencionados.
+El oferente deberá presentar Copia de Certificados de Recepción y/o facturas de al menos 10 provisiones de licencias
+y/o soportes ORACLE, comprobables, para lo cual deberá presentar certificados de Conformidad de clientes o
+contratos o facturas. Al menos cuatro de estas referencias, deberá corresponder a trabajos realizados en
+organizaciones públicas o privadas en Paraguay.
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.""",50.0,,60.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 60% como mínimo del monto total o"""
+416648,pct_monto_referencia_minimo,experiencia_requerida,35.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión Extintores con facturaciones de venta y/o recepciones finales por un monto
+""equivalente al 35 % como mínimo del monto total ofertado en la presente licitación, de los: (tres) 3 años. 2019-2020-2021.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión Extintores con facturaciones de venta y/o recepciones finales por un monto
+""equivalente al 35 % como mínimo del monto total ofertado en la presente licitación, de los: (tres) 3 años. 2019-2020-2021.""",30.0,,35.0,"Único valor válido: ""venta y/o recepciones finales por un monto ""equivalente al 35 % como mínimo del monto total o"""
+411669,pct_monto_referencia_minimo,experiencia_requerida,35.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la venta de equipos informáticos con facturaciones de venta y/o recepciones finales por un
+monto equivalente al 35 % como mínimo del monto total ofertado en la presente licitación, de los: 03 (tres) años. 2019, 2020,
+""2021.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la venta de equipos informáticos con facturaciones de venta y/o recepciones finales por un
+monto equivalente al 35 % como mínimo del monto total ofertado en la presente licitación, de los: 03 (tres) años. 2019, 2020,
+""2021.""",30.0,,35.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 35 % como mínimo del monto total o"""
+402732,pct_monto_referencia_minimo,experiencia_requerida,35.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la venta de equipos informáticos con facturaciones de venta y/o recepciones finales por un
+monto equivalente al 35 % como mínimo del monto total ofertado en la presente licitación, de los: 03 (tres) años. 2018,
+""2019, 2020.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la venta de equipos informáticos con facturaciones de venta y/o recepciones finales por un
+monto equivalente al 35 % como mínimo del monto total ofertado en la presente licitación, de los: 03 (tres) años. 2018,
+""2019, 2020.""",30.0,,35.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 35 % como mínimo del monto total o"""
+458698,pct_monto_referencia_minimo,experiencia_requerida,35.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+a. Acreditar al menos 3 años de existencia en el mercado prestando servicios de esterilización en el
+mercado local.
+b. Demostrar la experiencia en la:
+Provisión de Servicios de Esterilización en Alta Temperatura (Vapor presurizado) y Baja Temperatura (Vapor de
+Peróxido de Hidrogeno-Plasma y/o Vapor de Formaldehido)
+Provisión de Comodatos de Instrumental Quirúrgico y Motores Quirúrgicos,
+Provisión de Pack Quirúrgico, esterilizados en Alta y Baja Temperatura.
+Nota: NO se aceptarán productos esterilizados en Óxido de Etileno.
+Todos los objetos, son del presente llamado y para su comprobación ser requiere presentar documentos como: contratos,
+facturaciones de venta y recepciones finales a instituciones públicas o privadas por un monto equivalente a 35% del monto
+máximo del presente llamado dentro de los últimos 3 años (2021, 2022, 2023).
+""Sera considerado valido el haber alcanzado el porcentaje en cualquiera de los años.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+a. Acreditar al menos 3 años de existencia en el mercado prestando servicios de esterilización en el
+mercado local.
+b. Demostrar la experiencia en la:
+Provisión de Servicios de Esterilización en Alta Temperatura (Vapor presurizado) y Baja Temperatura (Vapor de
+Peróxido de Hidrogeno-Plasma y/o Vapor de Formaldehido)
+Provisión de Comodatos de Instrumental Quirúrgico y Motores Quirúrgicos,
+Provisión de Pack Quirúrgico, esterilizados en Alta y Baja Temperatura.
+Nota: NO se aceptarán productos esterilizados en Óxido de Etileno.
+Todos los objetos, son del presente llamado y para su comprobación ser requiere presentar documentos como: contratos,
+facturaciones de venta y recepciones finales a instituciones públicas o privadas por un monto equivalente a 35% del monto
+máximo del presente llamado dentro de los últimos 3 años (2021, 2022, 2023).
+""Sera considerado valido el haber alcanzado el porcentaje en cualquiera de los años.""",30.0,,35.0,"Único valor válido: ""nstituciones públicas o privadas por un monto equivalente a 35% del monto máximo del presente"""
+464319,pct_monto_referencia_minimo,experiencia_requerida,35.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Las empresas deberán demostrar la experiencia en la prestación remunerada de servicios de limpieza integral en el mercado nacional, demostrados con la
+presentación de constancias y certificados de los mismos equivalente al 35 % como mínimo del monto total ofertado en la presente licitación de los 3 años últimos
+""años 2022, 2023, 2024.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Las empresas deberán demostrar la experiencia en la prestación remunerada de servicios de limpieza integral en el mercado nacional, demostrados con la
+presentación de constancias y certificados de los mismos equivalente al 35 % como mínimo del monto total ofertado en la presente licitación de los 3 años últimos
+""años 2022, 2023, 2024.""",30.0,,35.0,"Único valor válido: ""de constancias y certificados de los mismos equivalente al 35 % como mínimo del monto total o"""
+428147,pct_monto_referencia_minimo,experiencia_requerida,35.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión de sellos con facturaciones de venta y/o recepciones finales por un monto equivalente al 35 % como mínimo del monto
+total ofertado en la presente licitación de los: 3 últimos años, de 2020,2021.2022, Los oferentes con menos de tres años de antigüedad, podrán presentar sus
+""facturas desde su existencia como empresa.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión de sellos con facturaciones de venta y/o recepciones finales por un monto equivalente al 35 % como mínimo del monto
+total ofertado en la presente licitación de los: 3 últimos años, de 2020,2021.2022, Los oferentes con menos de tres años de antigüedad, podrán presentar sus
+""facturas desde su existencia como empresa.""",30.0,,35.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 35 % como mínimo del monto total o"""
+454630,pct_monto_referencia_minimo,experiencia_requerida,70.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en VENTAS DE COMBUSTIBLES con facturaciones de venta, contratos y/o recepciones finales u
+otros documentos, por un monto equivalente al 70% como mínimo del monto total ofertado en el presente procedimiento
+de contratación, de los: últimos 2 años (2022-2023). Las sumatorias de las facturaciones deben alcanzar el porcentaje
+""indicado, no será necesaria la presentación del porcentaje del monto establecido por cada año.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en VENTAS DE COMBUSTIBLES con facturaciones de venta, contratos y/o recepciones finales u
+otros documentos, por un monto equivalente al 70% como mínimo del monto total ofertado en el presente procedimiento
+de contratación, de los: últimos 2 años (2022-2023). Las sumatorias de las facturaciones deben alcanzar el porcentaje
+""indicado, no será necesaria la presentación del porcentaje del monto establecido por cada año.""",30.0,,70.0,"Único valor válido: ""nes finales u otros documentos, por un monto equivalente al 70% como mínimo del monto total o"""
+439804,pct_monto_referencia_minimo,experiencia_requerida,70.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en servicios provisión de alimentos en general, a través de facturas por montos iguales o
+superiores en promedio al 35 (treinta y cinco) % como mínimo del monto total máximo de la presente licitación, de los:
+3 (tres últimos años: 2021, 2022 y 2023).
+Estar en el mercado de provisión de alimentos o comercio en general en los últimos 7 años, comprobable con constancia
+de RUC.
+Nota para el Oferente: En caso de Consorcios, el líder del consorcio deberá reunir por lo menos el 70% del promedio
+exigido en los últimos 3 años (2021, 2022, 2023). Es decir, se sumarán todas las facturaciones de todos los miembros del
+consorcio que correspondan a los últimos 3 años y se dividirá por 3, obteniendo el promedio igual o mayor al 35% del
+monto total máximo de la licitación. De dicho promedio, el líder del consorcio, debe obtener el 70% con sus facturaciones y
+""el restante 30% se completará con los miembros del consorcio.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en servicios provisión de alimentos en general, a través de facturas por montos iguales o
+superiores en promedio al 35 (treinta y cinco) % como mínimo del monto total máximo de la presente licitación, de los:
+3 (tres últimos años: 2021, 2022 y 2023).
+Estar en el mercado de provisión de alimentos o comercio en general en los últimos 7 años, comprobable con constancia
+de RUC.
+Nota para el Oferente: En caso de Consorcios, el líder del consorcio deberá reunir por lo menos el 70% del promedio
+exigido en los últimos 3 años (2021, 2022, 2023). Es decir, se sumarán todas las facturaciones de todos los miembros del
+consorcio que correspondan a los últimos 3 años y se dividirá por 3, obteniendo el promedio igual o mayor al 35% del
+monto total máximo de la licitación. De dicho promedio, el líder del consorcio, debe obtener el 70% con sus facturaciones y
+""el restante 30% se completará con los miembros del consorcio.""",30.0,30.0,35.0,"Único valor válido: ""de facturas por montos iguales o superiores en promedio al 35 (treinta y cinco) % como mínimo del monto total m"""
+456572,pct_monto_referencia_minimo,experiencia_requerida,70.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la Provision de Productos Alimenticios con facturaciones de venta y/o contratos, por un
+equivalente al 70% como mínimo del monto máximo ofertado en el presente procedimiento de contratación, de los
+ultimos 3 años (2022-2023-2024). Las sumatorias de las facturaciones y/o contrato deben alcanzar el porcentaje indicado,
+no siendo necesaria la presentación del porcentaje del monto establecido por cada año.
+En caso de oferentes en consorcio: La empresa líder deberá cumplir con el 60% de los requisitos en carácter de
+""experiencia, y los 40% restantes deberán cumplir los demás miembros del consorcio","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la Provision de Productos Alimenticios con facturaciones de venta y/o contratos, por un
+equivalente al 70% como mínimo del monto máximo ofertado en el presente procedimiento de contratación, de los
+ultimos 3 años (2022-2023-2024). Las sumatorias de las facturaciones y/o contrato deben alcanzar el porcentaje indicado,
+no siendo necesaria la presentación del porcentaje del monto establecido por cada año.
+En caso de oferentes en consorcio: La empresa líder deberá cumplir con el 60% de los requisitos en carácter de
+""experiencia, y los 40% restantes deberán cumplir los demás miembros del consorcio""",50.0,,70.0,"Único valor válido: ""facturaciones de venta y/o contratos, por un equivalente al 70% como mínimo del monto máximo"""
+403026,pct_monto_referencia_minimo,experiencia_requerida,70.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de Equipos de CCTV y Provisión de Software Analítico con facturaciones de
+venta y/o recepciones finales por un monto equivalente al 70 % como mínimo del monto total ofertado en la presente
+licitación, de los: tres años.2018, 2019 y 2020
+El método de evaluación será la suma de todos los montos de los contratos y facturaciones (IVA incluido) hasta llegar al
+70% solicitado dentro de los años 2018, 2019 y 2020. Si el oferente presentase documentaciones que lleguen o superen el
+monto indicado en uno o dos de los años solicitados, la acreditación será considerada como cumplida. No necesariamente
+siendo requisito excluyente la presentación de documentaciones de los 3 años para realizar la sumatoria.
+Observación: En caso de consorcios, el líder deberá cumplir como mínimo el 80% de este requisito. Mientras que los
+""demás integrantes deberán cumplir con el 20% restante.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de Equipos de CCTV y Provisión de Software Analítico con facturaciones de
+venta y/o recepciones finales por un monto equivalente al 70 % como mínimo del monto total ofertado en la presente
+licitación, de los: tres años.2018, 2019 y 2020
+El método de evaluación será la suma de todos los montos de los contratos y facturaciones (IVA incluido) hasta llegar al
+70% solicitado dentro de los años 2018, 2019 y 2020. Si el oferente presentase documentaciones que lleguen o superen el
+monto indicado en uno o dos de los años solicitados, la acreditación será considerada como cumplida. No necesariamente
+siendo requisito excluyente la presentación de documentaciones de los 3 años para realizar la sumatoria.
+Observación: En caso de consorcios, el líder deberá cumplir como mínimo el 80% de este requisito. Mientras que los
+""demás integrantes deberán cumplir con el 20% restante.""",50.0,,70.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 70 % como mínimo del monto total o"""
+418896,pct_monto_referencia_minimo,experiencia_requerida,10.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Con el objetivo de calificar la experiencia del oferente, se considerara ́n los siguientes i ́ndices:
+Demostrar experiencia en SUPLEMENTOS DIETARIOS/ ESPECIALIDADES FARMACEUTICAS con facturaciones de venta , Contrato ejecutados y/o recepciones finales por un
+""monto equivalente al 10 % como mi ́nimo del monto total ofertado en la presente licitación, de los u ́ltimos [3] an ̃os (2020_, 2021_,2022_) en promedio.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Con el objetivo de calificar la experiencia del oferente, se considerara ́n los siguientes i ́ndices:
+Demostrar experiencia en SUPLEMENTOS DIETARIOS/ ESPECIALIDADES FARMACEUTICAS con facturaciones de venta , Contrato ejecutados y/o recepciones finales por un
+""monto equivalente al 10 % como mi ́nimo del monto total ofertado en la presente licitación, de los u ́ltimos [3] an ̃os (2020_, 2021_,2022_) en promedio.""",30.0,,10.0,"Único valor válido: ""utados y/o recepciones finales por un ""monto equivalente al 10 % como mi ́nimo del monto total"""
+419707,pct_monto_referencia_minimo,experiencia_requerida,10.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia con instituciones públicas o privadas de provisión de equipos industriales y/o instrumentos de
+medición industrial y/o provisión de repuestos y/o instalaciones electromecánicas, con contratos y/o facturaciones de
+venta y/o recepciones finales por un monto equivalente al 30 (treinta) % como mínimo del monto total ofertado en la
+presente licitación, de los últimos 3 (tres) años (2019-2020-2021).
+NOTA 1 PARA EL OFERENTE: El resultado de la suma de los montos de los contratos y/o recepciones finales y/o
+facturaciones de venta deberá ser igual o superior al 10 % del monto total ofertado. Los contratos, recepciones finales y/o
+facturaciones de venta deben estar autenticados por Escribanía Pública y podrá presentarse la cantidad que fuere
+necesaria para acreditar el volumen o monto solicitado, siempre que hayan sido emitidas dentro del periodo mencionado
+(2019-2020-2021).
+NOTA 2 PARA EL OFERENTE: Cada contrato y/o facturaciones de ventas y/o recepciones finales deberán estar
+acompañados de su correspondiente certificado de buen cumplimiento de contrato. Caso contrario no podrán ser
+consideradas para evaluar el presente requisito.
+NOTA 3 PARA EL OFERENTE: En caso de presentar recepciones finales, las mismas deben hacer mención de la fecha de
+""emisión y de los montos de los bienes. Caso contrario no podrán ser consideradas para evaluar el presente requisito.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia con instituciones públicas o privadas de provisión de equipos industriales y/o instrumentos de
+medición industrial y/o provisión de repuestos y/o instalaciones electromecánicas, con contratos y/o facturaciones de
+venta y/o recepciones finales por un monto equivalente al 30 (treinta) % como mínimo del monto total ofertado en la
+presente licitación, de los últimos 3 (tres) años (2019-2020-2021).
+NOTA 1 PARA EL OFERENTE: El resultado de la suma de los montos de los contratos y/o recepciones finales y/o
+facturaciones de venta deberá ser igual o superior al 10 % del monto total ofertado. Los contratos, recepciones finales y/o
+facturaciones de venta deben estar autenticados por Escribanía Pública y podrá presentarse la cantidad que fuere
+necesaria para acreditar el volumen o monto solicitado, siempre que hayan sido emitidas dentro del periodo mencionado
+(2019-2020-2021).
+NOTA 2 PARA EL OFERENTE: Cada contrato y/o facturaciones de ventas y/o recepciones finales deberán estar
+acompañados de su correspondiente certificado de buen cumplimiento de contrato. Caso contrario no podrán ser
+consideradas para evaluar el presente requisito.
+NOTA 3 PARA EL OFERENTE: En caso de presentar recepciones finales, las mismas deben hacer mención de la fecha de
+""emisión y de los montos de los bienes. Caso contrario no podrán ser consideradas para evaluar el presente requisito.""",30.0,,10.0,"Múltiples valores [10.0, 30.0] en el mismo pliego (ítems/lotes distintos, o alternativa ""sumatoria vs. referencia individual""). Se tomó el primero mencionado como valor general/representativo. Contexto: e venta y/o recepciones finales por un monto equivalente al 30 (treinta) % como mínimo del monto total o | s y/o facturaciones de venta deberá ser igual o superior al 10 % del monto total ofertado. Los"
+408428,pct_monto_referencia_minimo,experiencia_requerida,100.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión servicios de soporte de hardware y/o software con facturaciones de venta y/o
+recepciones finales por un monto equivalente al 100 % como mínimo del monto total ofertado en la presente licitación, de
+los: 3 últimos ejercicios fiscales años: 2019 y 2020 Y 2021 El porcentaje mencionado corresponde a la sumatoria de los años
+mencionados. El oferente deberá contar con una experiencia mínima de 4 años en el mercado paraguayo, brindando
+""servicios de hardware y software.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión servicios de soporte de hardware y/o software con facturaciones de venta y/o
+recepciones finales por un monto equivalente al 100 % como mínimo del monto total ofertado en la presente licitación, de
+los: 3 últimos ejercicios fiscales años: 2019 y 2020 Y 2021 El porcentaje mencionado corresponde a la sumatoria de los años
+mencionados. El oferente deberá contar con una experiencia mínima de 4 años en el mercado paraguayo, brindando
+""servicios de hardware y software.""",50.0,,100.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 100 % como mínimo del monto total o"""
+467597,pct_monto_referencia_minimo,experiencia_requerida,100.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Haber generado, durante los mejores cinco (5) años de los últimos diez (10) años, en promedio un volumen anual de facturación igual 100%
+en relación al monto máximo ya sea en instituciones públicas o privadas. El promedio del volumen anual de negocios se define como el total
+de las facturas legales correspondientes a obras en ejecución o terminadas por el oferente, dividido el número de (5) años señalado en el
+párrafo precedente.
+Experiencia General en el rubro de construcción de ocho (8) años en trabajos similares.
+Participación en calidad de contratista, integrante de un consorcio en el porcentaje de participación, o subcontratista autorizado por la
+Administración Contratante en al menos un contrato, durante los últimos cinco (5) años, similares a las obras propuestas. La similitud debe
+basarse en la escala física, la complejidad, los métodos o la tecnología, u otras características técnicas, conforme a lo descrito en la Sección
+Descripción de la Obra A fin de cumplir este requisito, las obras deberán estar terminadas en un 100%, y el desempeño deberá haber sido
+satisfactorio, por medio del Acta de Recepción Definitiva de la obra y/o Certificados, a satisfacción de la contratante.
+Contar con experiencia mínima para el contrato que antecede u otros contratos, ejecutados en el período en los últimos diez (10) años en
+Mantenimiento, reparación y señalización de pistas, rutas nacionales y/o internacionales ya sea con empresas públicas o privadas.
+Contar con al menos tres (5) contratos de trabajos similares en los últimos 10 (diez) años.
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Haber generado, durante los mejores cinco (5) años de los últimos diez (10) años, en promedio un volumen anual de facturación igual 100%
+en relación al monto máximo ya sea en instituciones públicas o privadas. El promedio del volumen anual de negocios se define como el total
+de las facturas legales correspondientes a obras en ejecución o terminadas por el oferente, dividido el número de (5) años señalado en el
+párrafo precedente.
+Experiencia General en el rubro de construcción de ocho (8) años en trabajos similares.
+Participación en calidad de contratista, integrante de un consorcio en el porcentaje de participación, o subcontratista autorizado por la
+Administración Contratante en al menos un contrato, durante los últimos cinco (5) años, similares a las obras propuestas. La similitud debe
+basarse en la escala física, la complejidad, los métodos o la tecnología, u otras características técnicas, conforme a lo descrito en la Sección
+Descripción de la Obra A fin de cumplir este requisito, las obras deberán estar terminadas en un 100%, y el desempeño deberá haber sido
+satisfactorio, por medio del Acta de Recepción Definitiva de la obra y/o Certificados, a satisfacción de la contratante.
+Contar con experiencia mínima para el contrato que antecede u otros contratos, ejecutados en el período en los últimos diez (10) años en
+Mantenimiento, reparación y señalización de pistas, rutas nacionales y/o internacionales ya sea con empresas públicas o privadas.
+Contar con al menos tres (5) contratos de trabajos similares en los últimos 10 (diez) años.
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.""",50.0,,100.0,"Único valor válido: ""10) años, en promedio un volumen anual de facturación igual 100% en relación al monto máximo y"""
+415838,pct_monto_referencia_minimo,experiencia_requerida,100.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en [indicar actividad] con facturaciones de venta y/o recepciones finales por un monto equivalente al [indicar porcentaje] % como mínimo del monto total ofertado en la presente
+licitación, de los: [indicar n° de años] años.
+a. Deberán presentar CONTRATOS y/o FACTURAS 2 (dos) por cada año del (2020 y 2021) d e PROVISIÓN DEL SERVICIO SOLICITADA POR LA CONVOCANTE a empresas públicas o
+""privadas, cuyos montos en sumatoria totalicen el 100% o más del monto total de la oferta.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en [indicar actividad] con facturaciones de venta y/o recepciones finales por un monto equivalente al [indicar porcentaje] % como mínimo del monto total ofertado en la presente
+licitación, de los: [indicar n° de años] años.
+a. Deberán presentar CONTRATOS y/o FACTURAS 2 (dos) por cada año del (2020 y 2021) d e PROVISIÓN DEL SERVICIO SOLICITADA POR LA CONVOCANTE a empresas públicas o
+""privadas, cuyos montos en sumatoria totalicen el 100% o más del monto total de la oferta.""",50.0,,100.0,"Único valor válido: ""úblicas o ""privadas, cuyos montos en sumatoria totalicen el 100% o más del monto total de la o"""
+393530,pct_monto_referencia_minimo,experiencia_requerida,100.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1. El oferente deberá demostrar experiencia en coberturas a instituciones públicas y/o empresas privadas, de los años 2018 y/o 2019 y/o 2020. Las
+coberturas deberán ser por un valor igual o superior al 100 % del monto total ofertado.
+2. Deberá demostrar el cumplimiento de siniestros cancelados a instituciones públicas y privadas de los años 2018 y/o 2019 y/o 2020. En caso de haberse
+""reportado siniestros, la cantidad de siniestros indemnizados deberá ser superior al 90 % del total denunciado.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1. El oferente deberá demostrar experiencia en coberturas a instituciones públicas y/o empresas privadas, de los años 2018 y/o 2019 y/o 2020. Las
+coberturas deberán ser por un valor igual o superior al 100 % del monto total ofertado.
+2. Deberá demostrar el cumplimiento de siniestros cancelados a instituciones públicas y privadas de los años 2018 y/o 2019 y/o 2020. En caso de haberse
+""reportado siniestros, la cantidad de siniestros indemnizados deberá ser superior al 90 % del total denunciado.""",30.0,,100.0,"Único valor válido: ""Las coberturas deberán ser por un valor igual o superior al 100 % del monto total ofertado. 2."""
+442382,pct_monto_referencia_minimo,experiencia_requerida,100.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en el rubro de comercialización de baterias para vehiculos livianos y/o pesados de igual
+naturaleza a los solicitados en el presente llamado con facturaciones de venta y/o contratos por un monto equivalente al
+50 (cincuenta) % como mínimo del monto máximo ofertado de la presente licitación, de los: últimos 2 (dos) años. (2022 y
+2023) Cada año indicado deberá ser demostrado.
+""OBSERVACION: En caso de tratarse de un Consorcio cada miembro deberá cumplir el 100% de los requisitos","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en el rubro de comercialización de baterias para vehiculos livianos y/o pesados de igual
+naturaleza a los solicitados en el presente llamado con facturaciones de venta y/o contratos por un monto equivalente al
+50 (cincuenta) % como mínimo del monto máximo ofertado de la presente licitación, de los: últimos 2 (dos) años. (2022 y
+2023) Cada año indicado deberá ser demostrado.
+""OBSERVACION: En caso de tratarse de un Consorcio cada miembro deberá cumplir el 100% de los requisitos""",50.0,,50.0,"Único valor válido: ""raciones de venta y/o contratos por un monto equivalente al 50 (cincuenta) % como mínimo del monto máximo"""
+445227,pct_monto_referencia_minimo,experiencia_requerida,80.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en mantenimiento, reparación y/o instalaciones de equipos similares con facturas y/o copias de
+contratos por un monto equivalente al 80 % como mínimo del monto total ofertado en la presente licitación, dentro de los
+últimos tres años: 2021, 2022 y 2023. En caso de lograr el porcentaje requerido en la sumatoria de los tres años
+consecutivos o en un solo ejercicio, que correspondan a los años establecidos en el presente punto, el mismo deberá
+presentar como mínimo 1 (Uno) factura y/o contrato y/o recepción final.
+En casos de Consorcios: Demostrar la experiencia en mantenimiento, reparación y/o instalaciones de equipos
+similares en facturaciones de venta y/o contratos y/o recepciones finales instituciones públicas o privadas por un monto
+equivalente al 30 % como mínimo del monto total ofertado en la presente licitación, dentro de los últimos: 3 (tres) años
+(2021, 2022 y 2023). En caso de lograr el porcentaje requerido en la sumatoria de tres años consecutivos o en un solo
+ejercicio, que correspondan a los años establecidos en el presente punto, el mismo deberá presentar como mínimo 1 (Uno)
+factura, contrato y/o recepción final, que corresponda/n a los años establecidos en el presente punto, el mismo será
+considerado como valedero para la participación se deberá indicar en la oferta cual es el líder del consorcio quien deberá
+""cumplir con al menos el 70% y 10% restante lo cumplirán el o los demás","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en mantenimiento, reparación y/o instalaciones de equipos similares con facturas y/o copias de
+contratos por un monto equivalente al 80 % como mínimo del monto total ofertado en la presente licitación, dentro de los
+últimos tres años: 2021, 2022 y 2023. En caso de lograr el porcentaje requerido en la sumatoria de los tres años
+consecutivos o en un solo ejercicio, que correspondan a los años establecidos en el presente punto, el mismo deberá
+presentar como mínimo 1 (Uno) factura y/o contrato y/o recepción final.
+En casos de Consorcios: Demostrar la experiencia en mantenimiento, reparación y/o instalaciones de equipos
+similares en facturaciones de venta y/o contratos y/o recepciones finales instituciones públicas o privadas por un monto
+equivalente al 30 % como mínimo del monto total ofertado en la presente licitación, dentro de los últimos: 3 (tres) años
+(2021, 2022 y 2023). En caso de lograr el porcentaje requerido en la sumatoria de tres años consecutivos o en un solo
+ejercicio, que correspondan a los años establecidos en el presente punto, el mismo deberá presentar como mínimo 1 (Uno)
+factura, contrato y/o recepción final, que corresponda/n a los años establecidos en el presente punto, el mismo será
+considerado como valedero para la participación se deberá indicar en la oferta cual es el líder del consorcio quien deberá
+""cumplir con al menos el 70% y 10% restante lo cumplirán el o los demás""",80.0,80.0,30.0,"Múltiples valores [30.0, 80.0] en el mismo pliego (ítems/lotes distintos, o alternativa ""sumatoria vs. referencia individual""). Se tomó el primero mencionado como valor general/representativo. Contexto: acturas y/o copias de contratos por un monto equivalente al 80 % como mínimo del monto total o | stituciones públicas o privadas por un monto equivalente al 30 % como mínimo del monto total o"
+400222,pct_monto_referencia_minimo,experiencia_requerida,80.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+- Declaración jurada de coberturas a instituciones públicas y/o empresas privadas, de los años 2018, 2019 y 2020 indicando
+el tomador, riesgo asegurado, suma asegurada, prima, vigencia de dichas coberturas y los siniestros ocurridos si hubiere. Las
+coberturas deberán ser por un valor igual o superior al 80% del monto total ofertado.
+- Declaración Jurada de cumplimientos de siniestros cancelados a instituciones públicas y privadas de los años 2018, 2019 y
+2020. En caso de haberse reportado siniestros, la cantidad de siniestros indemnizados deberá ser superior al 80% del total
+""denunciado.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+- Declaración jurada de coberturas a instituciones públicas y/o empresas privadas, de los años 2018, 2019 y 2020 indicando
+el tomador, riesgo asegurado, suma asegurada, prima, vigencia de dichas coberturas y los siniestros ocurridos si hubiere. Las
+coberturas deberán ser por un valor igual o superior al 80% del monto total ofertado.
+- Declaración Jurada de cumplimientos de siniestros cancelados a instituciones públicas y privadas de los años 2018, 2019 y
+2020. En caso de haberse reportado siniestros, la cantidad de siniestros indemnizados deberá ser superior al 80% del total
+""denunciado.""",50.0,,80.0,"Único valor válido: ""Las coberturas deberán ser por un valor igual o superior al 80% del monto total ofertado. - D"""
+435980,pct_monto_referencia_minimo,experiencia_requerida,80.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la provisión de Drones a Instituciones Públicas y/o Privadas con facturaciones de venta y/o
+recepciones finales por un monto equivalente al 80 % como mínimo del monto total ofertado en la presente licitación, de
+""los: últimos N° 03 años (2020 - 2021 Y 2022)","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la provisión de Drones a Instituciones Públicas y/o Privadas con facturaciones de venta y/o
+recepciones finales por un monto equivalente al 80 % como mínimo del monto total ofertado en la presente licitación, de
+""los: últimos N° 03 años (2020 - 2021 Y 2022)""",50.0,,80.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 80 % como mínimo del monto total o"""
+416873,pct_monto_referencia_minimo,experiencia_requerida,80.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en PROVISION DE CUBIERTAS DE LA MARCA OFERTADA con
+facturaciones de venta y/o
+recepciones finales por un monto equivalente al 80 % como mínimo del monto total ofertado en
+la presente licitación de los
+""años 2020 Y 2021 años.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en PROVISION DE CUBIERTAS DE LA MARCA OFERTADA con
+facturaciones de venta y/o
+recepciones finales por un monto equivalente al 80 % como mínimo del monto total ofertado en
+la presente licitación de los
+""años 2020 Y 2021 años.""",30.0,,80.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 80 % como mínimo del monto total o"""
+457555,pct_monto_referencia_minimo,experiencia_requerida,15.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1. Antigüedad y trayectoria de la empresa, de cómo mínimo tres (3) años, comprobada con la presentación de una copia de
+los estatutos sociales o extracto de los mismos, en el que indique: nombre o razón social, tipo de sociedad, fecha de
+constitución, domicilio, objeto, duración y capital. En el caso de firmas unipersonales, se deberá presentar fotocopia de la
+Constancia de Inscripción en el Registro Único de Contribuyentes que justifique la antigüedad requerida.
+2. Facturaciones y/o contratos en provisión del servicio objeto de la presente licitación, realizados con el sector público y/o
+privado. Los documentos mencionados deberán estar comprendidos dentro de los tres (3) últimos años (2023, 2024 y
+2025).
+3. Facturación promedio: podrán presentarse la cantidad de contratos y/o facturaciones que fuesen necesarios para
+acreditar en promedio de los tres últimos años, el monto igual o superior al 15% del monto máximo establecido en la
+presente contratación, los mismos podrán ser de entidades públicas y/o privadas. El cálculo se realizará sumando los
+montos nominales de las facturas/contratos y el resultado será dividido por tres (cantidad de años), que deberá arrojar un
+resultado no inferior al 15% del monto máximo de la presente licitación.
+PARA OFERENTES EN CONSORCIOS: La Empresa Líder del Consorcio deberá cumplir con al menos el 70% de todos los
+requisitos exigidos para demostrar la experiencia requerida, mientras que los demás integrantes del mismo deberán
+""completar el 30% restante.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1. Antigüedad y trayectoria de la empresa, de cómo mínimo tres (3) años, comprobada con la presentación de una copia de
+los estatutos sociales o extracto de los mismos, en el que indique: nombre o razón social, tipo de sociedad, fecha de
+constitución, domicilio, objeto, duración y capital. En el caso de firmas unipersonales, se deberá presentar fotocopia de la
+Constancia de Inscripción en el Registro Único de Contribuyentes que justifique la antigüedad requerida.
+2. Facturaciones y/o contratos en provisión del servicio objeto de la presente licitación, realizados con el sector público y/o
+privado. Los documentos mencionados deberán estar comprendidos dentro de los tres (3) últimos años (2023, 2024 y
+2025).
+3. Facturación promedio: podrán presentarse la cantidad de contratos y/o facturaciones que fuesen necesarios para
+acreditar en promedio de los tres últimos años, el monto igual o superior al 15% del monto máximo establecido en la
+presente contratación, los mismos podrán ser de entidades públicas y/o privadas. El cálculo se realizará sumando los
+montos nominales de las facturas/contratos y el resultado será dividido por tres (cantidad de años), que deberá arrojar un
+resultado no inferior al 15% del monto máximo de la presente licitación.
+PARA OFERENTES EN CONSORCIOS: La Empresa Líder del Consorcio deberá cumplir con al menos el 70% de todos los
+requisitos exigidos para demostrar la experiencia requerida, mientras que los demás integrantes del mismo deberán
+""completar el 30% restante.""",30.0,30.0,15.0,"Único valor válido: ""edio de los tres últimos años, el monto igual o superior al 15% del monto máximo establecido"""
+397355,pct_monto_referencia_minimo,experiencia_requerida,15.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Para el Lote 1:
+Demostrar experiencia en provisión de equipos y servicios similares, con contratos o facturaciones de venta por un monto
+equivalente al 15 % igual o mayor al total ofertado en la presente licitación, dentro de los últimos 5 años (2017 al 2021).
+Para el Lote 2:
+Demostrar experiencia en provisión de insumos similares, con contratos o facturaciones por un monto equivalente al 15 %
+igual o mayor al monto total ofertado en la presente licitación, dentro de los últimos 5 años (2017 al 2021).
+OFERENTES EN CONSORCIO: todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser
+obligaciones tributarias, laborales y de seguridad social. Además, en la oferta deberá indicarse quien es el líder. Para tener
+cumplidos los requisitos de experiencia, bastará que uno de los integrantes cumpla al menos 60%, y el 40% restante lo
+""deben cumplir el o los demás integrantes del consorcio.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Para el Lote 1:
+Demostrar experiencia en provisión de equipos y servicios similares, con contratos o facturaciones de venta por un monto
+equivalente al 15 % igual o mayor al total ofertado en la presente licitación, dentro de los últimos 5 años (2017 al 2021).
+Para el Lote 2:
+Demostrar experiencia en provisión de insumos similares, con contratos o facturaciones por un monto equivalente al 15 %
+igual o mayor al monto total ofertado en la presente licitación, dentro de los últimos 5 años (2017 al 2021).
+OFERENTES EN CONSORCIO: todos los integrantes deberán cumplir los requisitos legales en su totalidad como ser
+obligaciones tributarias, laborales y de seguridad social. Además, en la oferta deberá indicarse quien es el líder. Para tener
+cumplidos los requisitos de experiencia, bastará que uno de los integrantes cumpla al menos 60%, y el 40% restante lo
+""deben cumplir el o los demás integrantes del consorcio.""",50.0,,15.0,"Único valor válido: ""tratos o facturaciones de venta por un monto equivalente al 15 % igual o mayor al total oferta"""
+472370,pct_monto_referencia_minimo,experiencia_requerida,15.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de relojes marcadores y/o venta de hardware, licenciamiento de software,
+mantenimiento y servicios profesionales y capacitación con facturaciones de venta y/o contratos y/o recepciones finales,
+por un monto equivalente al 15% como mínimo del monto total ofertado en el presente procedimiento de contratación.
+Las sumatorias de las facturaciones deben alcanzar el porcentaje indicado, no será necesaria la presentación del
+porcentaje del monto establecido por cada año de los últimos: 4 años 2021, 2022, 2023 y 2024.
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de relojes marcadores y/o venta de hardware, licenciamiento de software,
+mantenimiento y servicios profesionales y capacitación con facturaciones de venta y/o contratos y/o recepciones finales,
+por un monto equivalente al 15% como mínimo del monto total ofertado en el presente procedimiento de contratación.
+Las sumatorias de las facturaciones deben alcanzar el porcentaje indicado, no será necesaria la presentación del
+porcentaje del monto establecido por cada año de los últimos: 4 años 2021, 2022, 2023 y 2024.
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.""",50.0,,15.0,"Único valor válido: ""tratos y/o recepciones finales, por un monto equivalente al 15% como mínimo del monto total o"""
+473525,pct_monto_referencia_minimo,experiencia_requerida,5.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión Materiales Aeronáuticos, Equipos Militares y de Seguridad con facturaciones de venta, contratos y/o recepciones finales u
+otros documentos, por un monto equivalente al 5% como mínimo, del monto total ofertado en el presente procedimiento de contratación, de los años 2022,
+2023 y 2024. Las sumatorias de las facturaciones deben alcanzar el porcentaje indicado, no será necesaria la presentación del porcentaje del monto establecido
+por cada año.
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión Materiales Aeronáuticos, Equipos Militares y de Seguridad con facturaciones de venta, contratos y/o recepciones finales u
+otros documentos, por un monto equivalente al 5% como mínimo, del monto total ofertado en el presente procedimiento de contratación, de los años 2022,
+2023 y 2024. Las sumatorias de las facturaciones deben alcanzar el porcentaje indicado, no será necesaria la presentación del porcentaje del monto establecido
+por cada año.
+""La actividad comercial, industrial o de servicios debe estar vinculada con el tipo de bienes o servicios a contratar.""",50.0,,5.0,"Único valor válido: ""nes finales u otros documentos, por un monto equivalente al 5% como mínimo, del monto total"""
+448345,pct_monto_referencia_minimo,experiencia_requerida,5.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en en provisión de combustibles ya sea instituciones públicas y/o privadas con facturaciones de
+venta y/o recepciones finales por un monto equivalente al 05% (cinco por ciento) como mínimo del monto total ofertado
+""en la presente licitación, de los: últimos cuatro meses (Abril a Julio de 2024).-","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en en provisión de combustibles ya sea instituciones públicas y/o privadas con facturaciones de
+venta y/o recepciones finales por un monto equivalente al 05% (cinco por ciento) como mínimo del monto total ofertado
+""en la presente licitación, de los: últimos cuatro meses (Abril a Julio de 2024).-""",5.0,,5.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 05% (cinco por ciento) como mínim"""
+419926,pct_monto_referencia_minimo,experiencia_requerida,5.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la prestación remunerada de servicios de limpieza con facturaciones de venta y/o recepciones
+finales por un monto equivalente al 2 5 % como mínimo del monto total ofertado en la presente licitación, de los: años
+2019, 2020, 2021.-
+Consorcios: Para el requisito N° 1 se podrá combinar la suma de las facturaciones de los integrantes, debiendo el Líder del
+""Consorcio cumplir con el 60%, mientras que los demás integrantes deben cumplir como mínimo el 40% del requisito.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la prestación remunerada de servicios de limpieza con facturaciones de venta y/o recepciones
+finales por un monto equivalente al 2 5 % como mínimo del monto total ofertado en la presente licitación, de los: años
+2019, 2020, 2021.-
+Consorcios: Para el requisito N° 1 se podrá combinar la suma de las facturaciones de los integrantes, debiendo el Líder del
+""Consorcio cumplir con el 60%, mientras que los demás integrantes deben cumplir como mínimo el 40% del requisito.""",50.0,,5.0,"Único valor válido: ""venta y/o recepciones finales por un monto equivalente al 2 5 % como mínimo del monto total o"""
+460760,pct_monto_referencia_minimo,experiencia_requerida,5.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provision de combustibles ya sea con instituciones publicas y/o privada con facturaciones de
+venta, contratos y/o recepciones finales por un monto equivalente al 05 % como mínimo del monto total ofertado en el
+presente procedimiento de contratación, de los ultimos 02 años (2023y 2024). Las sumatorias de las facturaciones deben
+alcanzar el porcentaje indicado, no será necesaria la presentación del porcentaje del monto establecido por cada año
+""(2023 y 2024)","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provision de combustibles ya sea con instituciones publicas y/o privada con facturaciones de
+venta, contratos y/o recepciones finales por un monto equivalente al 05 % como mínimo del monto total ofertado en el
+presente procedimiento de contratación, de los ultimos 02 años (2023y 2024). Las sumatorias de las facturaciones deben
+alcanzar el porcentaje indicado, no será necesaria la presentación del porcentaje del monto establecido por cada año
+""(2023 y 2024)""",50.0,,5.0,"Único valor válido: ""ntratos y/o recepciones finales por un monto equivalente al 05 % como mínimo del monto total o"""
+446977,pct_monto_referencia_minimo,experiencia_requerida,5.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión de productos e insumos de higienización y desinfección de los animales, de instrumentos y/o equipos
+utilizados para la manipulación, extracción y distribución de leche de ganado bobino en general citado en la presente licitación con
+facturaciones de venta y/o recepciones finales por un monto equivalente al 2 5 % como mínimo del monto total ofertado en la presente
+licitación, de los: 4 (CUATRO) (2020, 2021, 2022, 2023) últimos años. En caso de lograr el porcentaje requerido, en uno o en más años, que
+correspondan a los años establecidos en el presente punto, el mismo será considerado como valedero para la participación. En atención a la
+modalidad aplicada para el presente proceso Contrato Abierto por cantidad Mínima y Máxima, el cálculo deberá realizarse por el Monto
+resultante de la multiplicación del precio unitario por la cantidad máxima, conforme a lo estipulado para el presente proceso licitatorio
+Obs.: Para el caso de Consorcios, uno de los integrantes deberá cumplir con al menos el 60% de este requisito, y el 40% restante, podrá ser
+cumplido por los demás integrantes, en forma conjunta. En el acta consorcial deberá establecer cuál de los miembros del consorcio cumplirá
+""con el requisito.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión de productos e insumos de higienización y desinfección de los animales, de instrumentos y/o equipos
+utilizados para la manipulación, extracción y distribución de leche de ganado bobino en general citado en la presente licitación con
+facturaciones de venta y/o recepciones finales por un monto equivalente al 2 5 % como mínimo del monto total ofertado en la presente
+licitación, de los: 4 (CUATRO) (2020, 2021, 2022, 2023) últimos años. En caso de lograr el porcentaje requerido, en uno o en más años, que
+correspondan a los años establecidos en el presente punto, el mismo será considerado como valedero para la participación. En atención a la
+modalidad aplicada para el presente proceso Contrato Abierto por cantidad Mínima y Máxima, el cálculo deberá realizarse por el Monto
+resultante de la multiplicación del precio unitario por la cantidad máxima, conforme a lo estipulado para el presente proceso licitatorio
+Obs.: Para el caso de Consorcios, uno de los integrantes deberá cumplir con al menos el 60% de este requisito, y el 40% restante, podrá ser
+cumplido por los demás integrantes, en forma conjunta. En el acta consorcial deberá establecer cuál de los miembros del consorcio cumplirá
+""con el requisito.""",50.0,,5.0,"Único valor válido: ""venta y/o recepciones finales por un monto equivalente al 2 5 % como mínimo del monto total o"""
+395833,pct_monto_referencia_minimo,experiencia_requerida,5.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Servicio de Soporte F5 WAV (DELIVERY CONTROLLER) con contratos, facturaciones de
+venta y/o recepciones finales por un monto equivalente al 2 5 % como mínimo del monto total ofertado en la presente
+licitación, de los: últimos 3 años (2018,2019 y 2020).
+La empresa contratada, deberá tener como mínimo 3 años de experiencia en el campo, demostrada con el acta de
+constitución de la empresa.
+""Contar con por lo menos 3 instalaciones exitosas de la solución de F5","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Servicio de Soporte F5 WAV (DELIVERY CONTROLLER) con contratos, facturaciones de
+venta y/o recepciones finales por un monto equivalente al 2 5 % como mínimo del monto total ofertado en la presente
+licitación, de los: últimos 3 años (2018,2019 y 2020).
+La empresa contratada, deberá tener como mínimo 3 años de experiencia en el campo, demostrada con el acta de
+constitución de la empresa.
+""Contar con por lo menos 3 instalaciones exitosas de la solución de F5""",50.0,,5.0,"Único valor válido: ""venta y/o recepciones finales por un monto equivalente al 2 5 % como mínimo del monto total o"""
+400690,pct_monto_referencia_minimo,experiencia_requerida,45.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Copias de contratos ejecutados de provisión de bienes en Reactivos y/o con facturaciones de
+venta por un monto equivalente al 45 % como mínimo del monto total ofertado en la presente licitación, en los: 3 ÚLTIMOS
+AÑOS 2018 - 2019 - 2020.
+Presentación como mínimo de 3 (tres) Notas, Constancias, Certificaciones y /o Actas de Recepción final en la Provisión de
+bienes en Reactivos, donde conste el desempeño satisfactorio del Oferente, expedidos por Instituciones Públicas o
+Privadas dentro de los últimos 03 (tres) años. Dicho documento deberá estar debidamente sellado y firmado por el
+""responsable que lo emitió.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Copias de contratos ejecutados de provisión de bienes en Reactivos y/o con facturaciones de
+venta por un monto equivalente al 45 % como mínimo del monto total ofertado en la presente licitación, en los: 3 ÚLTIMOS
+AÑOS 2018 - 2019 - 2020.
+Presentación como mínimo de 3 (tres) Notas, Constancias, Certificaciones y /o Actas de Recepción final en la Provisión de
+bienes en Reactivos, donde conste el desempeño satisfactorio del Oferente, expedidos por Instituciones Públicas o
+Privadas dentro de los últimos 03 (tres) años. Dicho documento deberá estar debidamente sellado y firmado por el
+""responsable que lo emitió.""",50.0,,45.0,"Único valor válido: ""y/o con facturaciones de venta por un monto equivalente al 45 % como mínimo del monto total o"""
+402891,pct_monto_referencia_minimo,experiencia_requerida,45.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión de alimentos para animales con facturaciones de venta y/o recepciones finales por un monto
+igual o superior al 45 % del monto máximo ofertado en cada lote, correspondientes a los ULTIMOS TRES años.
+Dichas facturaciones y/o recepciones deberán cumplir el porcentaje solicitado para cada lote ofertado de los años 2018, 2019
+y 2020
+La factura o contrato que no vengan acompañado de su correspondiente constancia de buen cumplimiento, no será
+considerada.
+Podrán presentarse la cantidad de documentos, siempre que hayan sido formalizados como mínimo uno en cada año
+""mencionado.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Provisión de alimentos para animales con facturaciones de venta y/o recepciones finales por un monto
+igual o superior al 45 % del monto máximo ofertado en cada lote, correspondientes a los ULTIMOS TRES años.
+Dichas facturaciones y/o recepciones deberán cumplir el porcentaje solicitado para cada lote ofertado de los años 2018, 2019
+y 2020
+La factura o contrato que no vengan acompañado de su correspondiente constancia de buen cumplimiento, no será
+considerada.
+Podrán presentarse la cantidad de documentos, siempre que hayan sido formalizados como mínimo uno en cada año
+""mencionado.""",50.0,,45.0,"Único valor válido: ""ta y/o recepciones finales por un monto igual o superior al 45 % del monto máximo ofertado en"""
+400678,pct_monto_referencia_minimo,experiencia_requerida,45.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Copias de contratos ejecutados de provisión de bienes en REACTIVOS E INSUMOS MEDICOS
+Y/O DISPOSITIVOS MEDICOS y/o con facturaciones de venta por un monto equivalente al 45 % como mínimo del monto
+total ofertado en la presente licitación, en los: 3 ÚLTIMOS AÑOS 2018 - 2019 - 2020.
+Presentación como mínimo de 3 (tres) Notas, Constancias, Certificaciones y /o Actas de Recepción final en la provisión de
+bienes en Reactivos e Insumos Y/O Dispositivos mèdicos, donde conste el desempeño satisfactorio del Oferente, expedidos
+por Instituciones Públicas o Privadas dentro de los últimos 03 (tres) años. Dicho documento deberá estar debidamente
+""sellado y firmado por el responsable que lo emitió.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en Copias de contratos ejecutados de provisión de bienes en REACTIVOS E INSUMOS MEDICOS
+Y/O DISPOSITIVOS MEDICOS y/o con facturaciones de venta por un monto equivalente al 45 % como mínimo del monto
+total ofertado en la presente licitación, en los: 3 ÚLTIMOS AÑOS 2018 - 2019 - 2020.
+Presentación como mínimo de 3 (tres) Notas, Constancias, Certificaciones y /o Actas de Recepción final en la provisión de
+bienes en Reactivos e Insumos Y/O Dispositivos mèdicos, donde conste el desempeño satisfactorio del Oferente, expedidos
+por Instituciones Públicas o Privadas dentro de los últimos 03 (tres) años. Dicho documento deberá estar debidamente
+""sellado y firmado por el responsable que lo emitió.""",50.0,,45.0,"Único valor válido: ""y/o con facturaciones de venta por un monto equivalente al 45 % como mínimo del monto total o"""
+391643,pct_monto_referencia_minimo,experiencia_requerida,45.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en los SERVICIOS DE MANTENIMIENTOS DE VEHICULOS con facturaciones de venta y/o recepciones
+finales por un monto equivale a 45% como mínimo del monto total máximo ofertado en la presente licitación, de los años
+""2019-2020","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en los SERVICIOS DE MANTENIMIENTOS DE VEHICULOS con facturaciones de venta y/o recepciones
+finales por un monto equivale a 45% como mínimo del monto total máximo ofertado en la presente licitación, de los años
+""2019-2020""",50.0,,45.0,"Único valor válido: ""es de venta y/o recepciones finales por un monto equivale a 45% como mínimo del monto total m"""
+440515,pct_monto_referencia_minimo,experiencia_requerida,450.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de vehículos con facturaciones de venta, contratos y/o recepciones finales u otros
+documentos, por un monto equivalente al 450 % como mínimo del monto total ofertado en el presente procedimiento de
+contratación, de los: ultimos 3 años (2021, 2022, 2023). Las sumatorias de las facturaciones deben alcanzar el porcentaje
+""indicado, no será necesaria la presentación del porcentaje del monto establecido por cada año.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provisión de vehículos con facturaciones de venta, contratos y/o recepciones finales u otros
+documentos, por un monto equivalente al 450 % como mínimo del monto total ofertado en el presente procedimiento de
+contratación, de los: ultimos 3 años (2021, 2022, 2023). Las sumatorias de las facturaciones deben alcanzar el porcentaje
+""indicado, no será necesaria la presentación del porcentaje del monto establecido por cada año.""",50.0,,450.0,"Valor extraído literalmente del texto: ""nes finales u otros documentos, por un monto equivalente al 450 % como mínimo del monto total o"". ATENCIÓN: 450.0% es implausible como umbral de facturación mínima — probablemente un error de redacción en el propio pliego (candidato fuerte a anomalía real, no error del extractor)."
+415038,pct_monto_referencia_minimo,experiencia_requerida,42.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1. Que cuente como mínimo con 3 (TRES) años de existencia en el mercado para lo cual debe presentar copia de apertura
+de negocios en la SSET y pago de Patente Municipal al día. El formulario de inscripción en la SSET deberá figurar como
+actividad principal del negocio: prestación de servicios de limpieza.
+2. Las empresas deberán demostrar la experiencia en la prestación remunerada de servicios de limpieza integral en el
+mercado nacional, demostrados con la presentación de constancias y certificados de los mismos equivalente al 42 % como
+mínimo del monto total de los Lotes ofertados en la presente licitación de los 3 últimos años (2019, 2020,2021), se tendrá en
+cuenta la sumatoria de los años mencionados; se podrán presentar la cantidad de factura y/o contratos y/o recepciones;;;
+finales, siempre y cuando hayan sido ejecutados en los periodos mencionados, hasta llegar al porcentaje requerido, todas
+""las facturas y/o contratos presentados deberán contar con la constancia de buen cumplimiento de contrato.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1. Que cuente como mínimo con 3 (TRES) años de existencia en el mercado para lo cual debe presentar copia de apertura
+de negocios en la SSET y pago de Patente Municipal al día. El formulario de inscripción en la SSET deberá figurar como
+actividad principal del negocio: prestación de servicios de limpieza.
+2. Las empresas deberán demostrar la experiencia en la prestación remunerada de servicios de limpieza integral en el
+mercado nacional, demostrados con la presentación de constancias y certificados de los mismos equivalente al 42 % como
+mínimo del monto total de los Lotes ofertados en la presente licitación de los 3 últimos años (2019, 2020,2021), se tendrá en
+cuenta la sumatoria de los años mencionados; se podrán presentar la cantidad de factura y/o contratos y/o recepciones;;;
+finales, siempre y cuando hayan sido ejecutados en los periodos mencionados, hasta llegar al porcentaje requerido, todas
+""las facturas y/o contratos presentados deberán contar con la constancia de buen cumplimiento de contrato.""",50.0,,42.0,"Único valor válido: ""de constancias y certificados de los mismos equivalente al 42 % como mínimo del monto total d"""
+456486,pct_monto_referencia_minimo,experiencia_requerida,72.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provision de tintas y toner en empresas publicas y/o privadas con facturaciones de venta, contratos y/o recepciones
+finales u otros documentos, por un monto equivalente al 72 % como mínimo del monto total ofertado en el presente procedimiento de
+contratación, de los ultimos 3 años. Las sumatorias de las facturaciones deben alcanzar el porcentaje indicado, no será necesaria la presentación
+""del porcentaje del monto establecido por cada año. 201,2022,2023.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en provision de tintas y toner en empresas publicas y/o privadas con facturaciones de venta, contratos y/o recepciones
+finales u otros documentos, por un monto equivalente al 72 % como mínimo del monto total ofertado en el presente procedimiento de
+contratación, de los ultimos 3 años. Las sumatorias de las facturaciones deben alcanzar el porcentaje indicado, no será necesaria la presentación
+""del porcentaje del monto establecido por cada año. 201,2022,2023.""",30.0,,72.0,"Único valor válido: ""nes finales u otros documentos, por un monto equivalente al 72 % como mínimo del monto total o"""
+460923,pct_monto_referencia_minimo,experiencia_requerida,65.0,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Existencia Legal de por lo menos 3 (tres) años de antigüedad, que será comprobada desde la fecha de inscripción en
+el Registro Único de Contribuyente.
+Deberá demostrar tener experiencia en prestación de Servicios de diagnósticos médicos por imágenes en
+Instituciones Públicas y/o Privadas como mínimo el 65% (sesenta y cinco por ciento) del monto máximo ofertado en
+la presente licitación, de los tres últimos años (2021, 2022 y 2023). Para CONSORCIOS, el porcentaje indicado más
+""arriba deberá ser cumplido por el Socio Líder del Consorcio.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Existencia Legal de por lo menos 3 (tres) años de antigüedad, que será comprobada desde la fecha de inscripción en
+el Registro Único de Contribuyente.
+Deberá demostrar tener experiencia en prestación de Servicios de diagnósticos médicos por imágenes en
+Instituciones Públicas y/o Privadas como mínimo el 65% (sesenta y cinco por ciento) del monto máximo ofertado en
+la presente licitación, de los tres últimos años (2021, 2022 y 2023). Para CONSORCIOS, el porcentaje indicado más
+""arriba deberá ser cumplido por el Socio Líder del Consorcio.""",50.0,,65.0,"Único valor válido: ""genes en Instituciones Públicas y/o Privadas como mínimo el 65% (sesenta y cinco por ciento)"""
+446059,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en SERVICIO DE PAGO DE MEMBRESIA LACNIC, con al menos 2 (dos) facturas o contratos con
+recepciones finales en Los últimos 5 (cinco) años.
+No será necesaria la presentación de un contrato por cada año requerido.
+EN CASO DE CONSORCIOS: el líder deberá cumplir al menos el 50% de éste punto, pudiendo los demás miembros del
+""consorcio cumplir el porcentaje restante.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en SERVICIO DE PAGO DE MEMBRESIA LACNIC, con al menos 2 (dos) facturas o contratos con
+recepciones finales en Los últimos 5 (cinco) años.
+No será necesaria la presentación de un contrato por cada año requerido.
+EN CASO DE CONSORCIOS: el líder deberá cumplir al menos el 50% de éste punto, pudiendo los demás miembros del
+""consorcio cumplir el porcentaje restante.""",50.0,50.0,,"Los únicos porcentajes del texto corresponden a reglas de composición de consorcio (requisitos del líder/miembros) u otro concepto (edad, flujo de fondos), no al monto mínimo de las referencias. GT=NULL."
+408542,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Cantidad que fuesen necesarios de facturaciones y/ o contratos (en venta de baterías para ups y/o servicio de
+mantenimiento de ups) de los tres últimos años (2019, 2020, 2021) equivalente al 30 % (Treinta Por Ciento) de la oferta
+como mínimo en promedio de los años mencionados, los mismos podrán ser de entidades públicas y/o privadas. (En caso
+""de no cumplir con el volumen mínimo requerido, la oferta será desestimada)..","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Cantidad que fuesen necesarios de facturaciones y/ o contratos (en venta de baterías para ups y/o servicio de
+mantenimiento de ups) de los tres últimos años (2019, 2020, 2021) equivalente al 30 % (Treinta Por Ciento) de la oferta
+como mínimo en promedio de los años mencionados, los mismos podrán ser de entidades públicas y/o privadas. (En caso
+""de no cumplir con el volumen mínimo requerido, la oferta será desestimada)..""",30.0,30.0,,"No se encontró un porcentaje explícito asociado al monto mínimo de las referencias/facturación (el índice se basa en años de antigüedad u otro criterio no monetario, o el texto no especifica un %). GT=NULL."
+442022,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1-Listado de un mínimo de 3 (tres) clientes (Instituciones Públicas y/o Privadas), indicando nombre de la Institución
+Pública y/o Empresa Privada, actividad, persona encargada y teléfonos para ser contactados de ser necesario.
+2-Copia de facturaciones y/o recepciones finales, correspondiente a la provisión de bienes y/o servicios (para
+mantenimiento y reparación de filtros, decantadores, redes de agua potable, planta de tratamiento de agua en general y/o
+mantenimiento de equipos y maquinarias industriales) llevados a cabo dentro de los últimos 3 (tres) años (2021,2022 y
+2023), sea con empresas públicas o privadas. La sumatoria debe equivaler como mínimo al 30 (treinta) % del monto de la
+""oferta.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+1-Listado de un mínimo de 3 (tres) clientes (Instituciones Públicas y/o Privadas), indicando nombre de la Institución
+Pública y/o Empresa Privada, actividad, persona encargada y teléfonos para ser contactados de ser necesario.
+2-Copia de facturaciones y/o recepciones finales, correspondiente a la provisión de bienes y/o servicios (para
+mantenimiento y reparación de filtros, decantadores, redes de agua potable, planta de tratamiento de agua en general y/o
+mantenimiento de equipos y maquinarias industriales) llevados a cabo dentro de los últimos 3 (tres) años (2021,2022 y
+2023), sea con empresas públicas o privadas. La sumatoria debe equivaler como mínimo al 30 (treinta) % del monto de la
+""oferta.""",30.0,,30.0,"Único valor válido: ""icas o privadas. La sumatoria debe equivaler como mínimo al 30 (treinta) % del monto de la ""oferta."""
+425395,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en el servicio de mantenimiento y/o reparación de aires de precisión con facturaciones de
+venta y/o recepciones finales por un monto equivalente al 30 (treinta) % como mínimo del monto total ofertado en la
+""presente licitación de los últimos 3 años. (2020, 2021 y 2022)","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en el servicio de mantenimiento y/o reparación de aires de precisión con facturaciones de
+venta y/o recepciones finales por un monto equivalente al 30 (treinta) % como mínimo del monto total ofertado en la
+""presente licitación de los últimos 3 años. (2020, 2021 y 2022)""",30.0,,30.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 30 (treinta) % como mínimo del monto total o"""
+434473,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la prestación de Servicios de Streaming y Soporte Técnico o servicios similares a la oferta, con
+facturaciones de ventas y recepciones finales iguales o superiores al monto equivalente al 50 (cincuenta) % como mínimo del monto
+máximo ofertado en la presente licitación, de los últimos 3 (tres) años (2020 - 2021 - 2022).
+Observación: Serán considerados servicios similares a la oferta los Servicios de Streaming y Soporte Técnico, todos aquellos que
+forman parte de la presente contratación y que el oferente presente para acreditar su experiencia.
+El oferente deberá acreditar relaciones comerciales recientes en los últimos 3 años (2020 - 2021 - 2022) en el mercado nacional
+del sector público o privado (ya sean empresas jurídicas, físicas o particulares) como mínimo con 3 (tres) clientes distintos, que
+puedan brindar referencias satisfactorias del oferente.
+OBSERVACIÓN: Los oferentes con menos de 3 (tres) años de antigüedad, podrán acreditar referencias comerciales, según corresponda,
+""desde su existencia como empresa.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la prestación de Servicios de Streaming y Soporte Técnico o servicios similares a la oferta, con
+facturaciones de ventas y recepciones finales iguales o superiores al monto equivalente al 50 (cincuenta) % como mínimo del monto
+máximo ofertado en la presente licitación, de los últimos 3 (tres) años (2020 - 2021 - 2022).
+Observación: Serán considerados servicios similares a la oferta los Servicios de Streaming y Soporte Técnico, todos aquellos que
+forman parte de la presente contratación y que el oferente presente para acreditar su experiencia.
+El oferente deberá acreditar relaciones comerciales recientes en los últimos 3 años (2020 - 2021 - 2022) en el mercado nacional
+del sector público o privado (ya sean empresas jurídicas, físicas o particulares) como mínimo con 3 (tres) clientes distintos, que
+puedan brindar referencias satisfactorias del oferente.
+OBSERVACIÓN: Los oferentes con menos de 3 (tres) años de antigüedad, podrán acreditar referencias comerciales, según corresponda,
+""desde su existencia como empresa.""",50.0,,50.0,"Único valor válido: ""ciones finales iguales o superiores al monto equivalente al 50 (cincuenta) % como mínimo del monto máximo"""
+406404,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Se estudiará la antigüedad en el ramo que acredita su experiencia demostrando una antigüedad mínima de 10 (diez)
+años en el ramo, (fecha del Certificado de Registro y Autorización del Ministerio de Salud Pública y Bienestar Social)
+prestando servicios similares a los ofertados (Servicio de Medicina Prepaga).
+Deberá presentar copias de contratos de prestación de servicios similares a los ofertados ejecutados en el periodo
+comprendido entre el 2011 al 2021 (servicio de medicina prepaga), de los cuales por lo menos 5 deben ser de clientes
+corporativos, empresas públicas y/o privadas con igual o superior cantidad de beneficiarios titulares al presente
+llamado por cada contrato (908 titulares aprox.).
+Los contratos deben tener un alcance de la cobertura médica similar (medicina pre-paga) y se debe adjuntar a los
+mismos las respectivas constancias de servicios satisfactorios expedidas por la dependencia responsable de la
+ejecución de cada contrato.
+En caso de Consorcios, el Socio Líder deberá cumplir con el 70% del requisito mínimo establecido). Los Socios restantes
+""combinados deben cumplir con el 30% del requisito mínimo establecido para la Experiencia Requerida.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Se estudiará la antigüedad en el ramo que acredita su experiencia demostrando una antigüedad mínima de 10 (diez)
+años en el ramo, (fecha del Certificado de Registro y Autorización del Ministerio de Salud Pública y Bienestar Social)
+prestando servicios similares a los ofertados (Servicio de Medicina Prepaga).
+Deberá presentar copias de contratos de prestación de servicios similares a los ofertados ejecutados en el periodo
+comprendido entre el 2011 al 2021 (servicio de medicina prepaga), de los cuales por lo menos 5 deben ser de clientes
+corporativos, empresas públicas y/o privadas con igual o superior cantidad de beneficiarios titulares al presente
+llamado por cada contrato (908 titulares aprox.).
+Los contratos deben tener un alcance de la cobertura médica similar (medicina pre-paga) y se debe adjuntar a los
+mismos las respectivas constancias de servicios satisfactorios expedidas por la dependencia responsable de la
+ejecución de cada contrato.
+En caso de Consorcios, el Socio Líder deberá cumplir con el 70% del requisito mínimo establecido). Los Socios restantes
+""combinados deben cumplir con el 30% del requisito mínimo establecido para la Experiencia Requerida.""",30.0,30.0,,"Los únicos porcentajes del texto corresponden a reglas de composición de consorcio (requisitos del líder/miembros) u otro concepto (edad, flujo de fondos), no al monto mínimo de las referencias. GT=NULL."
+414901,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la provisión e instalación de grupo generador con facturaciones de venta y/o recepciones
+finales por un monto equivalente al 30 (treinta) % como mínimo del monto total ofertado en la presente licitación, de
+""los: últimos 3 años. (2019, 2020 y 2021)","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la provisión e instalación de grupo generador con facturaciones de venta y/o recepciones
+finales por un monto equivalente al 30 (treinta) % como mínimo del monto total ofertado en la presente licitación, de
+""los: últimos 3 años. (2019, 2020 y 2021)""",30.0,,30.0,"Único valor válido: ""e venta y/o recepciones finales por un monto equivalente al 30 (treinta) % como mínimo del monto total o"""
+402212,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la provisión de DE FOTOCOPIADORA / IMPRESORA LASER MONOCROMÁTICA, TIPO EMPRESARIAL con
+facturaciones de venta y/o contratos por un monto equivalente al 50 (cincuenta)% como mínimo del monto total ofertado en la
+""presente licitación, de los años 2018-2019 y 2020.","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Demostrar la experiencia en la provisión de DE FOTOCOPIADORA / IMPRESORA LASER MONOCROMÁTICA, TIPO EMPRESARIAL con
+facturaciones de venta y/o contratos por un monto equivalente al 50 (cincuenta)% como mínimo del monto total ofertado en la
+""presente licitación, de los años 2018-2019 y 2020.""",50.0,,50.0,"Único valor válido: ""raciones de venta y/o contratos por un monto equivalente al 50 (cincuenta)% como mínimo del monto total o"""
+434507,pct_monto_referencia_minimo,experiencia_requerida,,"Experiencia requerida""
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Haber facturado en conjunto prestaciones de servicios de la misma naturaleza al objeto del llamado (servicios de limpieza general) a instituciones públicas o
+privadas durante los 3 (tres) últimos años (2.020, 2.021 y 2.022), un volumen de negocio equivalente en promedio al promedio al 50% (cincuenta por ciento) como
+mínimo del valor de su oferta (Presentar Fotocopia de contratos y/o facturas).
+Oferente en consorcio:
+Requisitos Mínimos Socio
+Líder
+Cada
+Socio
+Todas las
+partes
+Combinadas
+Haber facturado en conjunto prestaciones de servicios de la misma naturaleza al objeto del
+llamado (servicios de limpieza general) a instituciones públicas o privadas durante los 3 (tres)
+últimos años (2.020, 2.021 y 2.022), un volumen de negocio equivalente en promedio al promedio
+al 50% (cincuenta por ciento) como mínimo del valor de su oferta (Presentar Fotocopia de
+contratos y/o facturas).
+40 % como
+mínimo
+del
+porcentaje
+solicitado
+10 % como
+mínimo
+del
+porcentaje
+solicitado
+El consorcio
+en su
+conjunto
+deberá
+cumplir con
+el 100 % del
+porcentaje
+solicitado.
+""Para la evaluación deberán ajustarse a los requerimientos solicitados para todos los lotes","Campo a extraer: Porcentaje mínimo del monto del lote que deben sumar las referencias""
+Tipo esperado: float
+Guía de extracción: Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30.
+
+Texto del pliego:
+Experiencia requerida
+Con el objetivo de calificar la experiencia del oferente, se considerarán los siguientes índices:
+Haber facturado en conjunto prestaciones de servicios de la misma naturaleza al objeto del llamado (servicios de limpieza general) a instituciones públicas o
+privadas durante los 3 (tres) últimos años (2.020, 2.021 y 2.022), un volumen de negocio equivalente en promedio al promedio al 50% (cincuenta por ciento) como
+mínimo del valor de su oferta (Presentar Fotocopia de contratos y/o facturas).
+Oferente en consorcio:
+Requisitos Mínimos Socio
+Líder
+Cada
+Socio
+Todas las
+partes
+Combinadas
+Haber facturado en conjunto prestaciones de servicios de la misma naturaleza al objeto del
+llamado (servicios de limpieza general) a instituciones públicas o privadas durante los 3 (tres)
+últimos años (2.020, 2.021 y 2.022), un volumen de negocio equivalente en promedio al promedio
+al 50% (cincuenta por ciento) como mínimo del valor de su oferta (Presentar Fotocopia de
+contratos y/o facturas).
+40 % como
+mínimo
+del
+porcentaje
+solicitado
+10 % como
+mínimo
+del
+porcentaje
+solicitado
+El consorcio
+en su
+conjunto
+deberá
+cumplir con
+el 100 % del
+porcentaje
+solicitado.
+""Para la evaluación deberán ajustarse a los requerimientos solicitados para todos los lotes""",50.0,50.0,10.0,"Múltiples valores [10.0, 40.0, 50.0] en el mismo pliego (ítems/lotes distintos, o alternativa ""sumatoria vs. referencia individual""). Se tomó el primero mencionado como valor general/representativo. Contexto: n volumen de negocio equivalente en promedio al promedio al 50% (cincuenta por ciento) como m | n volumen de negocio equivalente en promedio al promedio al 50% (cincuenta por ciento) como m | su oferta (Presentar Fotocopia de contratos y/o facturas). 40 % como mínimo del porcentaje so | s y/o facturas). 40 % como mínimo del porcentaje solicitado 10 % como mínimo del porcentaje so"

@@ -1,0 +1,1207 @@
+{
+ "raw": 40,
+ "pp": 40,
+ "n": 120,
+ "results": [
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "427005",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "422776",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "388542",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "471648",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "438713",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "472106",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "432758",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "408974",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "427651",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_notificacion_fuerza_mayor",
+   "nro": "422360",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7.0,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "461393",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "429420",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "417530",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "443132",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL\n\nEl texto indica un periodo de \"2 años\". Según la guía ",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "434200",
+   "gt": 365.0,
+   "raw": 365.0,
+   "pp": 365.0,
+   "out": "365",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "401090",
+   "gt": 365.0,
+   "raw": 365.0,
+   "pp": 365.0,
+   "out": "365",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "408454",
+   "gt": 365.0,
+   "raw": 365.0,
+   "pp": 365.0,
+   "out": "365",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "420265",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "409512",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_validez_garantia",
+   "nro": "447026",
+   "gt": 365.0,
+   "raw": 365.0,
+   "pp": 365.0,
+   "out": "365",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "436405",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "445230",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "460214",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "400243",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "426699",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "461484",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "445822",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL\n\nEl texto proporcionado no contiene ninguna mención exp",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "391189",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "407940",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL\n\nEl texto menciona \"5 (cinco) personal técnico\" (cantid",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "anos_experiencia_minima_tecnica",
+   "nro": "433528",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "416855",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 60.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "469693",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 60.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "444925",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 60.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "458898",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 60.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "415229",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 60.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "422375",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 60.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "451998",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 60.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "424046",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 10.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "473108",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 60.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_pago_maximo",
+   "nro": "464187",
+   "gt": 0.0,
+   "raw": 60.0,
+   "pp": 30.0,
+   "out": "60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "465253",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "417180",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "473113",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "471501",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "403136",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "398777",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "399629",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "423140",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "417962",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_aceptacion_rechazo_factura",
+   "nro": "473700",
+   "gt": 0.0,
+   "raw": 15.0,
+   "pp": 15.0,
+   "out": "15",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "460704",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "473840",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "470988",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "403630",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "406681",
+   "gt": 0.0,
+   "raw": 6.0,
+   "pp": 6,
+   "out": "6",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "474190",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1,
+   "out": "1",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "470850",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1,
+   "out": "1",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "462380",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "421129",
+   "gt": 0.0,
+   "raw": 6.0,
+   "pp": 6,
+   "out": "6",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_documentos_pago",
+   "nro": "466031",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1,
+   "out": "1",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "424511",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1.0,
+   "out": "1.0",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "428459",
+   "gt": 0.0,
+   "raw": 0.97,
+   "pp": 0.97,
+   "out": "0.97",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "406617",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1.0,
+   "out": "1.0",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "431316",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1.0,
+   "out": "1.0\n\nEl texto indica explícitamente bajo el punto \"a. Ratio ",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "474689",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1.0,
+   "out": "1.0\n\nEl texto indica explícitamente para el \"Ratio de Liquid",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "424295",
+   "gt": 0.0,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "412444",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1.0,
+   "out": "1.0\n\nEl texto indica explícitamente bajo el punto \"a. Ratio ",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "420576",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1.0,
+   "out": "1.0",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "455698",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1.0,
+   "out": "1.0\n\nEl texto indica explícitamente para el \"Ratio de Liquid",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_liquidez_minimo",
+   "nro": "427181",
+   "gt": 0.0,
+   "raw": 1.0,
+   "pp": 1.0,
+   "out": "1.0",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "394274",
+   "gt": 0.0,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "410637",
+   "gt": 0.0,
+   "raw": 0.6,
+   "pp": 0.6,
+   "out": "0.60",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "425925",
+   "gt": 0.0,
+   "raw": 0.8,
+   "pp": 0.8,
+   "out": "0.80",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "462610",
+   "gt": 0.0,
+   "raw": 0.8,
+   "pp": 0.8,
+   "out": "0.80\n\nEl texto especifica bajo el punto \"b. Endeudamiento: p",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "404181",
+   "gt": 0.0,
+   "raw": 0.9,
+   "pp": 0.9,
+   "out": "0.90",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "406539",
+   "gt": 0.0,
+   "raw": 0.8,
+   "pp": 0.8,
+   "out": "0.80",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "471486",
+   "gt": 0.0,
+   "raw": null,
+   "pp": 0.8,
+   "out": "NULL",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "464683",
+   "gt": 0.0,
+   "raw": 0.8,
+   "pp": 0.8,
+   "out": "0.80",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "430184",
+   "gt": 0.0,
+   "raw": 0.8,
+   "pp": 0.8,
+   "out": "0.80",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "ratio_endeudamiento_maximo",
+   "nro": "414252",
+   "gt": 0.0,
+   "raw": 0.8,
+   "pp": 0.8,
+   "out": "0.80\n\nEl texto indica bajo el punto 2 \"Endeudamiento: pasivo",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "393503",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "405267",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "476400",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": null,
+   "out": "3\n\nLa fórmula presentada es `Pr = (P x IPC1)/IPC0`.\nLas vari",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "460660",
+   "gt": 0.0,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "401507",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "446511",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "403562",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": null,
+   "out": "3\n\nLa fórmula presentada es `V1 = P x ( (Cmc / Co)-1)`.\nLas ",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "393530",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "452249",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": null,
+   "out": "3\n\nLa fórmula presentada es `Pr = P x IPC1 / IPC0`.\nSegún la",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_componentes_formula",
+   "nro": "445023",
+   "gt": 0.0,
+   "raw": 3.0,
+   "pp": 3,
+   "out": "3",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "461425",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "474879",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "403859",
+   "gt": 0.0,
+   "raw": 6.0,
+   "pp": 6,
+   "out": "6",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "406274",
+   "gt": 0.0,
+   "raw": 6.0,
+   "pp": 6,
+   "out": "6",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "441120",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "413803",
+   "gt": 0.0,
+   "raw": 6.0,
+   "pp": 6,
+   "out": "6",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "439374",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "471930",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "416424",
+   "gt": 0.0,
+   "raw": 6.0,
+   "pp": 6,
+   "out": "6",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "num_pasos_verificacion",
+   "nro": "456239",
+   "gt": 0.0,
+   "raw": 7.0,
+   "pp": 7,
+   "out": "7",
+   "ok_raw": false,
+   "ok_pp": false
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "443693",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "405098",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "440778",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "475080",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "410377",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "441072",
+   "gt": 5.0,
+   "raw": 5.0,
+   "pp": 5.0,
+   "out": "5",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "425873",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "467121",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "432279",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_solicitud_anticipo",
+   "nro": "466372",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "467193",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "457788",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "407736",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "432017",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL\n\nEl texto menciona el plazo para *solicitar* el anticip",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "455164",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "415555",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "405774",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "441268",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "474563",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  },
+  {
+   "field": "dias_pago_anticipo",
+   "nro": "393442",
+   "gt": null,
+   "raw": null,
+   "pp": null,
+   "out": "NULL",
+   "ok_raw": true,
+   "ok_pp": true
+  }
+ ]
+}

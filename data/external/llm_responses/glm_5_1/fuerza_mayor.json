@@ -1,0 +1,13 @@
+{
+  "title": "Fuerza Mayor",
+  "success": false,
+  "n_attempts": 3,
+  "response_time_s": 12.36,
+  "n_fields": 0,
+  "validation_errors": [
+    "No valid response"
+  ],
+  "field_names": [],
+  "raw_response": "",
+  "schema_data": {}
+}

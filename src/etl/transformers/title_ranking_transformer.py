@@ -1,8 +1,26 @@
 """Transformer for title anomaly-ranking pipeline.
 
-Implements six complementary strategies and combines them into a single
-relevance score per title.  Supports NMI diversity, Synthetic AUC, optimal K
-selection, and bootstrap stability analysis.
+Implements **eight** complementary strategies (v2.2) for anomaly-relevance
+ranking of section titles. Combines them into a single score per title.
+
+Six legacy strategies (v2.0–v2.1):
+    1. Outlier frequency (Tukey IQR)            — 0.10 (v2.2: was 0.20)
+    2. Proxy Random Forest importance           — 0.15 (v2.2: was 0.25)
+    3. Contextual anomalies (category_id)       — 0.15
+    4. Section-level Isolation Forest           — 0.10 (v2.2: was 0.15)
+    5. Document-level IF point-biserial corr.   — 0.10
+    6. Economic risk correlation                — 0.20 (v2.2: was 0.15)
+
+Two new strategies in v2.2 (boilerplate-aware reformulation):
+    7. Boilerplate penalty                      — 0.10
+       Scores ``1 - max(md5_top1_share, post_merge_top1_share)`` per title.
+       Titles with >90% identical text are heavily penalised.
+    8. Numeric content                          — 0.10
+       Rewards titles whose sections contain parametric patterns
+       (monetarios Gs., porcentajes, días, fechas, anticipos/multas).
+
+Supports NMI diversity, Synthetic AUC, optimal K selection and
+bootstrap stability analysis (v2.1 carry-over).
 """
 
 from typing import List, Dict, Optional, Tuple
@@ -27,21 +45,54 @@ ECONOMIC_RISK_COLS = [
     "bidder_diversity",
 ]
 
+# Columns expected in df_diagnostics (produced by compute_title_diagnostics.py)
+DIAGNOSTICS_REQUIRED_COLS = [
+    "title_normalized",
+    "md5_top1_share",
+    "numeric_pattern_hits",
+]
+DIAGNOSTICS_OPTIONAL_COLS = [
+    "post_merge_top1_share",
+    "cov_word_count",
+    "numeric_pattern_rate",
+    "has_numeric_content",
+    "descartado_boilerplate",
+]
+
+
+def _slug_to_db_title(slug: str) -> str:
+    """Reverse the slug transformation: underscore -> space (then lowercase match)."""
+    return slug.replace("_", " ")
+
 
 class TitleRankingTransformer:
     """
-    Ranks titles by their relevance for anomaly detection using six
-    complementary strategies.
+    Ranks titles by their relevance for anomaly detection using **eight**
+    complementary strategies (v2.2 reformulation).
 
-    **Weights** (from spec):
-        * Outlier frequency (Tukey IQR)          — 0.20
-        * Proxy Random Forest importance          — 0.25
-        * Contextual anomalies (category_id)      — 0.15
-        * Section-level Isolation Forest          — 0.15
-        * Document-level IF point-biserial corr.  — 0.10
-        * Economic risk correlation                — 0.15
+    v2.2 changes:
+        * Two new strategies: ``score_boilerplate`` and ``score_numeric``.
+        * Reweights: outlier 0.20→0.10, rf 0.25→0.15, section_if 0.15→0.10,
+          economic 0.15→0.20, + boilerplate 0.10, + numeric 0.10.
+        * ``compute_ranking()`` accepts optional ``df_diagnostics`` for
+          strategies 7 and 8.  When absent, those strategies return zeros
+          and total weight falls back to the legacy 6-strategy scheme.
+        * ``compute_ranking()`` accepts optional ``candidate_filter`` list
+          of slugs — titles outside this list are dropped from outputs
+          (post-computation), enabling the four-filter policy of the
+          ``mejoras_pipeline_seleccion_titulos`` plan.
 
-    **New in v2.1** (hybrid plan):
+    **Weights** (v2.2, sum=1.00):
+        * Outlier frequency (Tukey IQR)            — 0.10
+        * Proxy Random Forest importance           — 0.15
+        * Contextual anomalies (category_id)       — 0.15
+        * Section-level Isolation Forest           — 0.10
+        * Document-level IF point-biserial corr.   — 0.10
+        * Economic risk correlation                — 0.20
+        * Boilerplate penalty                        — 0.10   (NEW)
+        * Numeric content                           — 0.10   (NEW)
+
+    **Carry-over v2.1**:
         * ``compute_nmi_diversity()`` — NMI-based diversity metric (B3)
         * ``compute_synthetic_auc()`` — AUC against injected anomalies (C1)
         * ``evaluate_optimal_k()`` — score compuesto z-normalizado (A1+B3+C1)
@@ -49,7 +100,19 @@ class TitleRankingTransformer:
         * ``sensitivity_to_k()`` — Spearman rho between K variants (S1)
     """
 
-    # Pesos de las 6 estrategias
+    # v2.2 weights — 8 strategies, sum = 1.00
+    STRATEGY_WEIGHTS_V22 = {
+        "score_outlier": 0.10,
+        "score_rf": 0.15,
+        "score_contextual": 0.15,
+        "score_section_if": 0.10,
+        "score_corr": 0.10,
+        "score_economic": 0.20,
+        "score_boilerplate": 0.10,
+        "score_numeric": 0.10,
+    }
+
+    # v2.0 legacy weights (6 strategies) — used when df_diagnostics is None
     STRATEGY_WEIGHTS = {
         "score_outlier": 0.20,
         "score_rf": 0.25,
@@ -81,27 +144,118 @@ class TitleRankingTransformer:
         df_sec: pd.DataFrame,
         title_slugs: List[str],
         df_econ: Optional[pd.DataFrame] = None,
+        df_diagnostics: Optional[pd.DataFrame] = None,
+        candidate_filter: Optional[List[str]] = None,
+        diagnostic_title_col: str = "title_normalized",
     ) -> pd.DataFrame:
         """
-        Run all six strategies and produce a combined ranking.
+        Run all eight strategies (v2.2) and produce a combined ranking.
+
+        Args:
+            df_doc: Document features (has_*, len_*, tok_*, word_*).
+            df_sec: Section sample from ``pliegos_secciones``.
+            title_slugs: List of slug strings to rank.
+            df_econ: Economic features table (optional; strat 6).
+            df_diagnostics: Per-title boilerplate + numeric diagnostics
+                (output of ``compute_title_diagnostics.py``). If supplied,
+                strategies 7 and 8 are computed; otherwise both return
+                zeros and weights fall back to the legacy 6-strategy scheme.
+            candidate_filter: Optional list of slug strings to keep in the
+                output. Other titles are dropped post-computation. Slugs not
+                in this list are NOT scored — they are filtered out entirely.
+            diagnostic_title_col: Column name in df_diagnostics that holds
+                the title text matching slugs after slug->title conversion.
+                Defaults to ``"title_normalized"``.
+
+        Returns:
+            DataFrame with one row per slug, sorted by ``score_total`` desc.
         """
-        self.logger.info("=== Strategy 1/6: Tukey Outlier Frequency ===")
+        # ----- Restrict candidate set BEFORE scoring if a filter is given -----
+        if candidate_filter is not None:
+            keep = set(candidate_filter)
+            title_slugs = [s for s in title_slugs if s in keep]
+            self.logger.info(
+                "Candidate filter applied: %d slugs kept (was %d).",
+                len(title_slugs), len(keep),
+            )
+
+        use_v22 = df_diagnostics is not None
+        weights = self.STRATEGY_WEIGHTS_V22 if use_v22 else self.STRATEGY_WEIGHTS
+        n_strategies = "8 (v2.2)" if use_v22 else "6 (legacy fallback)"
+        self.logger.info("=== compute_ranking — %s strategies ===", n_strategies)
+
+        # Pre-build a slug -> diagnostics row index if diagnostics are supplied.
+        diag_lookup: Dict[str, pd.Series] = {}
+        if use_v22:
+            # The diagnostics table is indexed by the raw DB title string;
+            # we need to match each slug back to its raw title.
+            # Function _slug_to_db_title converts slug -> "title with spaces".
+            # Diagnostics column "title_normalized" stores exactly those lowercased
+            # strings, so we lowercase both sides for a safer match.
+            diag_df = df_diagnostics.set_index(diagnostic_title_col, drop=False)
+            diag_index = set(diag_df.index.tolist())
+            # Pre-build a lowercase-version list for fuzzy lookup when slug is
+            # truncated (document_features column names are limited to 60 chars)
+            diag_index_lower = {k.lower(): k for k in diag_index}
+            n_matched = 0
+            for slug in title_slugs:
+                raw = _slug_to_db_title(slug)
+                matched_key: Optional[str] = None
+                # Quick direct match
+                if raw in diag_index:
+                    matched_key = raw
+                elif raw.lower() in diag_index:
+                    matched_key = raw.lower()
+                else:
+                    # Slug truncation: try to find a diag entry that starts
+                    # with the slug-derived title (slug truncated at 60 chars).
+                    # The slug "porcentaje_de_garantia_de_fiel_cumplimiento_de_con"
+                    # is truncated; original is "porcentaje de garantia de fiel
+                    # cumplimiento de contrato". Match by prefix.
+                    prefix = raw.lower()
+                    for diag_key in diag_index_lower:
+                        if diag_key.startswith(prefix):
+                            matched_key = diag_key
+                            break
+                if matched_key is not None:
+                    row = diag_df.loc[matched_key]
+                    if isinstance(row, pd.DataFrame):
+                        row = row.iloc[0]
+                    diag_lookup[slug] = row
+                    n_matched += 1
+                else:
+                    diag_lookup[slug] = pd.Series({})
+            self.logger.info(
+                "Diagnostics matched %d/%d slugs.", n_matched, len(title_slugs)
+            )
+
+        self.logger.info("=== Strategy 1/8: Tukey Outlier Frequency ===")
         s1 = self._strategy_outlier_frequency(df_doc, title_slugs)
 
-        self.logger.info("=== Strategy 2/6: Proxy Random Forest ===")
+        self.logger.info("=== Strategy 2/8: Proxy Random Forest ===")
         s2 = self._strategy_rf_importance(df_doc, title_slugs)
 
-        self.logger.info("=== Strategy 3/6: Contextual Anomalies ===")
+        self.logger.info("=== Strategy 3/8: Contextual Anomalies ===")
         s3 = self._strategy_contextual(df_doc, title_slugs)
 
-        self.logger.info("=== Strategy 4/6: Section-level Isolation Forest ===")
+        self.logger.info("=== Strategy 4/8: Section-level Isolation Forest ===")
         s4 = self._strategy_section_if(df_sec, title_slugs)
 
-        self.logger.info("=== Strategy 5/6: Document-level IF Correlation ===")
+        self.logger.info("=== Strategy 5/8: Document-level IF Correlation ===")
         s5 = self._strategy_doc_correlation(df_doc, title_slugs)
 
-        self.logger.info("=== Strategy 6/6: Economic Risk Correlation ===")
+        self.logger.info("=== Strategy 6/8: Economic Risk Correlation ===")
         s6 = self._strategy_economic_risk(df_doc, df_econ, title_slugs)
+
+        if use_v22:
+            self.logger.info("=== Strategy 7/8: Boilerplate Penalty ===")
+            s7 = self._strategy_boilerplate(diag_lookup, title_slugs)
+
+            self.logger.info("=== Strategy 8/8: Numeric Content ===")
+            s8 = self._strategy_numeric_content(diag_lookup, title_slugs)
+        else:
+            s7 = {s: 0.0 for s in title_slugs}
+            s8 = {s: 0.0 for s in title_slugs}
 
         records = []
         for slug in title_slugs:
@@ -115,11 +269,16 @@ class TitleRankingTransformer:
                 "score_section_if": s4.get(slug, 0.0),
                 "score_corr": s5.get(slug, 0.0),
                 "score_economic": s6.get(slug, 0.0),
+                "score_boilerplate": s7.get(slug, 0.0),
+                "score_numeric": s8.get(slug, 0.0),
+                "descartado_boilerplate": bool(
+                    diag_lookup.get(slug, pd.Series()).get("descartado_boilerplate", False)
+                ) if use_v22 else False,
             })
 
         ranking = pd.DataFrame(records)
         ranking["score_total"] = sum(
-            ranking[col] * w for col, w in self.STRATEGY_WEIGHTS.items()
+            ranking[col] * w for col, w in weights.items()
         )
         ranking["rank"] = ranking["score_total"].rank(ascending=False).astype(int)
         ranking.sort_values("rank", inplace=True)
@@ -357,9 +516,15 @@ class TitleRankingTransformer:
         slugs: List[str],
         K: int = 10,
         n_iter: int = 30,
+        df_econ: Optional[pd.DataFrame] = None,
+        df_diagnostics: Optional[pd.DataFrame] = None,
+        candidate_filter: Optional[List[str]] = None,
     ) -> Dict[str, float]:
         """
         Bootstrap resampling to measure selection frequency for each title.
+
+        v2.2: passes ``df_econ`` and ``df_diagnostics`` through to each
+        bootstrap iteration so strategies 6–8 are properly evaluated.
 
         Returns:
             Dict of {title_slug: frequency (0-1)} in top-K across n_iter
@@ -379,7 +544,17 @@ class TitleRankingTransformer:
             df_doc_boot = df_doc.iloc[idx].reset_index(drop=True)
             idx_sec = self.rng.choice(len(df_sec), size=len(df_sec), replace=True) if df_sec is not None else None
             df_sec_boot = df_sec.iloc[idx_sec].reset_index(drop=True) if df_sec is not None else None
-            ranking = self.compute_ranking(df_doc_boot, df_sec_boot, slugs)
+            # v2.2: también bootstrap df_econ si está disponible
+            df_econ_boot = None
+            if df_econ is not None:
+                idx_econ = self.rng.choice(len(df_econ), size=len(df_econ), replace=True)
+                df_econ_boot = df_econ.iloc[idx_econ].reset_index(drop=True)
+            ranking = self.compute_ranking(
+                df_doc_boot, df_sec_boot, slugs,
+                df_econ=df_econ_boot,
+                df_diagnostics=df_diagnostics,
+                candidate_filter=candidate_filter,
+            )
             for s in ranking.head(K)["title_slug"].tolist():
                 counts[s] += 1
 
@@ -651,6 +826,78 @@ class TitleRankingTransformer:
                 if np.isfinite(r):
                     correlations.append(abs(r))
             scores[slug] = float(np.mean(correlations)) if correlations else 0.0
+        return _normalize_series(pd.Series(scores)).to_dict()
+
+    # ---- 7. Boilerplate penalty (v2.2 NEW, weight 0.10) ----------------
+
+    @staticmethod
+    def _strategy_boilerplate(
+        diag_lookup: Dict[str, pd.Series],
+        slugs: List[str],
+    ) -> Dict[str, float]:
+        """Penalise titles with high textual boilerplate.
+
+        For each title, score = ``1 - max(md5_top1_share, post_merge_top1_share)``.
+        A title whose sections are 100% textually identical returns 0 (worst);
+        a title with 0% identical returns 1 (best, most variable).
+
+        Titles without diagnostics return 0.5 (neutral) so they do not
+        artificially rank at the bottom when weights are applied.
+
+        Args:
+            diag_lookup: Mapping ``slug -> pandas.Series`` with at least
+                ``md5_top1_share`` and optionally ``post_merge_top1_share``.
+            slugs: List of slugs to score.
+
+        Returns:
+            Dict[slug, score in [0, 1] before normalisation].
+            After ``_normalize_series`` the values are min-max scaled.
+        """
+        scores: Dict[str, float] = {}
+        for slug in slugs:
+            row = diag_lookup.get(slug)
+            if row is None or row.empty:
+                scores[slug] = 0.5  # neutral if no diagnostics
+                continue
+            md5_share = float(row.get("md5_top1_share", 0.0) or 0.0)
+            pm_share_raw = row.get("post_merge_top1_share", None)
+            pm_share = float(pm_share_raw) if pm_share_raw is not None and not pd.isna(pm_share_raw) else 0.0
+            bp = max(md5_share, pm_share)
+            scores[slug] = 1.0 - bp
+        return _normalize_series(pd.Series(scores)).to_dict()
+
+    # ---- 8. Numeric content (v2.2 NEW, weight 0.10) -------------------
+
+    @staticmethod
+    def _strategy_numeric_content(
+        diag_lookup: Dict[str, pd.Series],
+        slugs: List[str],
+    ) -> Dict[str, float]:
+        """Reward titles whose sections contain parametric numeric patterns.
+
+        Uses the per-title ``numeric_pattern_hits`` (mean matches per
+        section across a 50-section sample) produced by
+        ``compute_title_diagnostics.py``.  Falls back to ``numeric_pattern_rate``
+        is nonzero; if both are absent returns 0.
+
+        Args:
+            diag_lookup: Mapping slug -> diagnostics row.
+            slugs: Slugs to score.
+
+        Returns:
+            Dict[slug, score] (higher = more numeric content).
+        """
+        scores: Dict[str, float] = {}
+        for slug in slugs:
+            row = diag_lookup.get(slug)
+            if row is None or row.empty:
+                scores[slug] = 0.0
+                continue
+            hits = float(row.get("numeric_pattern_hits", 0.0) or 0.0)
+            rate_raw = row.get("numeric_pattern_rate", 0.0)
+            rate = float(rate_raw if rate_raw is not None and not pd.isna(rate_raw) else 0.0)
+            # Combine: hits are the main signal; rate breaks ties.
+            scores[slug] = hits + rate
         return _normalize_series(pd.Series(scores)).to_dict()
 
 

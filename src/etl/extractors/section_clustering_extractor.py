@@ -51,7 +51,7 @@ SLUG_TO_DB = {
 class SectionClusteringExtractor:
     """
     Extracts sections from ``dncp.pliegos_secciones`` for titles read from
-    the ranking CSV or a fallback hardcoded list.
+    the ranking CSV, a hardcoded list, or an explicit title override list.
     """
 
     SECTIONS_BY_TITLE_QUERY = """
@@ -61,9 +61,13 @@ class SectionClusteringExtractor:
           AND content_text IS NOT NULL
     """
 
-    def __init__(self, db_params: dict, ranking_csv: Optional[str] = None):
+    def __init__(
+        self, db_params: dict, ranking_csv: Optional[str] = None,
+        title_override_list: Optional[list[str]] = None,
+    ):
         self.db_params = db_params
         self.ranking_csv = ranking_csv
+        self.title_override_list = title_override_list
         self.logger = setup_logger(__name__)
         conn_str = (
             f"postgresql+psycopg2://{db_params['user']}:{db_params['password']}"
@@ -74,9 +78,20 @@ class SectionClusteringExtractor:
 
     def _load_titles_from_ranking(self, top_k: int = 10) -> Dict[str, str]:
         """
-        Read top-K titles from the ranking CSV and map slugs to DB titles.
-        Falls back to DEFAULT_TITLE_MAPPING if CSV is not available.
+        If ``title_override_list`` is set, use it directly.
+        Otherwise read top-K titles from ranking CSV or fallback defaults.
         """
+        if self.title_override_list:
+            mapping = {}
+            for title_norm in self.title_override_list:
+                display = title_norm.title()
+                mapping[display] = title_norm
+            self.logger.info(
+                "Loaded %d titles from override list: %s",
+                len(mapping), list(mapping.keys()),
+            )
+            return mapping
+
         if self.ranking_csv and os.path.exists(self.ranking_csv):
             try:
                 df = pd.read_csv(self.ranking_csv)

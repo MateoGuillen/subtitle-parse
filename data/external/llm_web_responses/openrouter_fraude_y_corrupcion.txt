@@ -1,0 +1,87 @@
+```json
+{
+  "schema": {
+    "menciona_denuncia_penal_completa": {
+      "type": "binary",
+      "description": "Indica si se menciona la obligación de presentar una 'denuncia penal' (con la palabra 'penal' explícita)",
+      "importance": 10,
+      "extraction_method": "semantic",
+      "extraction_hint": "Retornar 1 si el texto contiene la frase 'denuncia penal' o variantes semánticas que incluyan la palabra 'penal' asociada a 'denuncia'. Retornar 0 si solo menciona 'denuncia' sin especificar el ámbito penal."
+    },
+    "menciona_remision_dncp": {
+      "type": "binary",
+      "description": "Indica si se establece la obligación de remitir antecedentes a la DNCP",
+      "importance": 9,
+      "extraction_method": "literal",
+      "extraction_hint": "Buscar la presencia de 'Dirección Nacional de Contrataciones Públicas' o la sigla 'DNCP' en el contexto de remitir antecedentes o información. Retornar 1 si aparece, 0 si no."
+    },
+    "num_sanciones_etapa_oferta": {
+      "type": "numeric",
+      "description": "Cantidad de medidas sancionatorias aplicables en la etapa de oferta (0-2)",
+      "importance": 8,
+      "extraction_method": "semantic",
+      "extraction_hint": "Contar cuántas de estas acciones se mencionan para la etapa de oferta: descalificar oferta, rechazar propuesta de adjudicación. Retornar el número entero de acciones detectadas."
+    },
+    "menciona_rescindir_contrato": {
+      "type": "binary",
+      "description": "Indica si se menciona la rescisión de contrato como medida ante fraude",
+      "importance": 8,
+      "extraction_method": "semantic",
+      "extraction_hint": "Buscar la mención de 'escindir el contrato' o 'escisión del contrato' como consecuencia de prácticas fraudulentas. Retornar 1 si aparece, 0 si no."
+    },
+    "num_definiciones_fraude": {
+      "type": "numeric",
+      "description": "Cantidad de conductas tipificadas como fraude o corrupción listadas (0-5)",
+      "importance": 7,
+      "extraction_method": "structural",
+      "extraction_hint": "Contar la cantidad de incisos o elementos listados bajo la sección de definiciones de fraude y corrupción (ej. ofrecimiento de valor, tergiversación, daño, colusión). Retornar el número total de elementos detectados."
+    },
+    "texto_incompleto_o_truncado": {
+      "type": "binary",
+      "description": "Indica si el texto termina abruptamente o parece estar cortado",
+      "importance": 6,
+      "extraction_method": "structural",
+      "extraction_hint": "Retornar 1 si la última palabra del texto termina en una palabra incompleta (ej. 'cualqui', 'otr', 'cualquie') o si la sección termina sin punto final tras una lista. Retornar 0 si el texto es gramaticalmente completo."
+    }
+  },
+  "justification": "El cluster dominante (0) es el más completo, incluyendo la denuncia 'penal' explícita, la remisión a la DNCP y una lista de conductas detallada. El Cluster 1 presenta una anomalía crítica al omitir la palabra 'penal' en la denuncia, lo que debilita la exigencia jurídica. El Cluster 3 es similar al 1 pero con variaciones de redacción. El Cluster 5 es una versión reducida que omite la opción de 'echazar propuesta de adjudicación' en la etapa de oferta, limitándose solo a descalificar. El esquema busca detectar estas omisiones (denuncia no penal, falta de remisión a DNCP o reducción de sanciones) y la presencia de textos truncados que podrían indicar errores de carga o intentos de ocultar cláusulas.",
+  "cluster_values": {
+    "menciona_denuncia_penal_completa": {
+      "cluster_0": 1,
+      "cluster_1": 0,
+      "cluster_3": 1,
+      "cluster_5": 1
+    },
+    "menciona_remision_dncp": {
+      "cluster_0": 1,
+      "cluster_1": 1,
+      "cluster_3": 1,
+      "cluster_5": 1
+    },
+    "num_sanciones_etapa_oferta": {
+      "cluster_0": 2,
+      "cluster_1": 1,
+      "cluster_3": 1,
+      "cluster_5": 1
+    },
+    "menciona_rescindir_contrato": {
+      "cluster_0": 1,
+      "cluster_1": 1,
+      "cluster_3": 1,
+      "cluster_5": 1
+    },
+    "num_definiciones_fraude": {
+      "cluster_0": 4,
+      "cluster_1": 4,
+      "cluster_3": 4,
+      "cluster_5": 4
+    },
+    "texto_incompleto_o_truncado": {
+      "cluster_0": 0,
+      "cluster_1": 1,
+      "cluster_3": 0,
+      "cluster_5": 0
+    }
+  }
+}
+```

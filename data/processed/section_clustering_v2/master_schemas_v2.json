@@ -1,0 +1,700 @@
+{
+  "meta": {
+    "description": "Master schemas v2 for parametric extraction. 25 titles (26 excl. copias_de_la_oferta__cps con 0 secciones). Diseñados manualmente siguiendo la disciplina de diseño doc sección 5: priorizar magnitud numérica cruda, colapsar correlaciones, máx 1-2 binarios por hecho legal.",
+    "version": "2.0",
+    "date": "2026-07-24",
+    "total_titles": 25
+  },
+  "analisis_de_precios_ofertados": {
+    "description": "Análisis de precios ofertados — umbrales de diferencia vs precio referencial y criterios de evaluación",
+    "fields": [
+      {
+        "name": "pct_diferencia_precio_bajo",
+        "type": "float",
+        "description": "Porcentaje umbral para ofertas por debajo del precio referencial (típicamente 25%)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar el porcentaje asociado a porcentaje, umbral, ofertas, debajo, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      },
+      {
+        "name": "pct_diferencia_precio_alto",
+        "type": "float",
+        "description": "Porcentaje umbral para ofertas por encima del precio referencial (típicamente 15%)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar el porcentaje asociado a porcentaje, umbral, ofertas, encima, precio. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      },
+      {
+        "name": "binary_solicita_explicacion_precios",
+        "type": "binary",
+        "description": "Si el comité solicita explicación detallada de composición de precios",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a comité, solicita, explicación, detallada, composición. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_permite_declarar_inaceptable",
+        "type": "binary",
+        "description": "Si el precio puede ser declarado inaceptable si la justificación es insuficiente",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a precio, puede, declarado, inaceptable, justificación. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_tiene_multiplicidad_criterios",
+        "type": "binary",
+        "description": "Si se menciona evaluación por multiplicidad de criterios (no solo precio)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a menciona, evaluación, multiplicidad, criterios, solo. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "porcentaje_de_multas": {
+    "description": "Porcentaje de multas por atraso en entrega de bienes o servicios",
+    "fields": [
+      {
+        "name": "pct_multa_diaria",
+        "type": "float",
+        "description": "Porcentaje de multa por día de atraso (valor numérico, ej: 0.01, 1.0, 10.0)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar el porcentaje asociado a porcentaje, multa, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      },
+      {
+        "name": "binary_permite_rescision_por_multas",
+        "type": "binary",
+        "description": "Si se menciona que el contrato puede rescindirse cuando multas superen la garantía de cumplimiento",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a menciona, contrato, puede, rescindirse, cuando. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "fuerza_mayor": {
+    "description": "Cláusula de fuerza mayor — notificación y obligaciones durante evento de fuerza mayor",
+    "fields": [
+      {
+        "name": "dias_notificacion_fuerza_mayor",
+        "type": "int",
+        "description": "Plazo en días para notificar evento de fuerza mayor (típicamente 7)",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Busca el PLAZO en DÍAS para NOTIFICAR un evento de fuerza mayor. Patrones: 'N días', 'N días calendario', 'plazo de N días', 'comunicar dentro de los N días', 'notificar fehacientemente dentro de los N días'. El número debe estar asociado a 'notificar', 'comunicar' o 'fuerza mayor'. NO respondas 0 si no se menciona el plazo — responde NULL. NO extraigas porcentajes, artículos legales, ni listas numeradas. Rango: 1-365."
+      },
+      {
+        "name": "binary_incluye_ejemplos_tipicos",
+        "type": "binary",
+        "description": "Si se listan ejemplos específicos de fuerza mayor (guerras, incendios, epidemias, etc.)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a listan, ejemplos, específicos, fuerza, mayor. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_obliga_continuar_cumplimiento",
+        "type": "binary",
+        "description": "Si el proveedor debe continuar cumpliendo obligaciones no afectadas por la fuerza mayor",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a proveedor, debe, continuar, cumpliendo, obligaciones. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "porcentaje_de_garantia_de_fiel_cumplimiento_de_contrato": {
+    "description": "Porcentaje de garantía de fiel cumplimiento y plazo para presentación",
+    "fields": [
+      {
+        "name": "pct_garantia_cumplimiento",
+        "type": "float",
+        "description": "Porcentaje de garantía de fiel cumplimiento (típicamente 10%)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar el porcentaje asociado a porcentaje, garantía, fiel, cumplimiento. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      },
+      {
+        "name": "dias_presentacion_garantia",
+        "type": "int",
+        "description": "Días corridos para presentar la garantía desde la suscripción del contrato",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      }
+    ]
+  },
+  "aclaracion_de_las_ofertas": {
+    "description": "Procedimiento de aclaración de ofertas por el comité de evaluación",
+    "fields": [
+      {
+        "name": "binary_comite_puede_solicitar_aclaracion",
+        "type": "binary",
+        "description": "Si el comité de evaluación puede solicitar aclaraciones a oferentes",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a comité, evaluación, puede, solicitar, aclaraciones. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_prohibe_modificacion_sustancia",
+        "type": "binary",
+        "description": "Si se prohíbe explícitamente modificar la sustancia de la oferta durante aclaraciones",
+        "extraction_method": "regex",
+        "extraction_hint": "Contar cuántos de estos dos elementos se mencionan en la cláusula de prohibición de modificación: 'precios' (o 'precio') y 'sustancia de la oferta'. Retornar 0, 1 o 2."
+      },
+      {
+        "name": "binary_solicitud_respuesta_por_escrito",
+        "type": "binary",
+        "description": "Si las aclaraciones deben realizarse por escrito",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar la frase 'solicitará a los oferentes' o 'solicitará aclaraciones'. Si aparece, retornar 1. Si aparece 'podrá solicitar' o 'podrá solicitar aclaraciones', retornar 0."
+      }
+    ]
+  },
+  "experiencia_requerida": {
+    "description": "Requisitos de experiencia mínima del oferente — años, referencias, montos",
+    "fields": [
+      {
+        "name": "anos_experiencia_minima",
+        "type": "int",
+        "description": "Años de experiencia mínima requerida del oferente",
+        "extraction_method": "regex",
+        "extraction_hint": "Busca el número de años de experiencia requeridos. Patrones: 'últimos N años', 'mínimo de N años', '(N) años', 'N (N) años'. NO confundas con años calendario (2020, 2021, 2022). NO confundas con porcentajes (30%, 50%). Ej: 'últimos 3 años' → 3. 'mínimo 5 años' → 5."
+      },
+      {
+        "name": "num_referencias_minimo",
+        "type": "int",
+        "description": "Número mínimo de referencias o contratos previos requeridos",
+        "extraction_method": "regex",
+        "extraction_hint": "Busca el NÚMERO MÍNIMO de referencias o contratos requeridos. Patrones: 'mínimo de N referencias', 'N referencias', 'al menos N contratos'. El número suele ser pequeño (1-5). NO confundas con años (2020-2024). NO confundas con porcentajes (30%, 50%). Si ves 'últimos N años', NO es el número de referencias. Ej: 'mínimo 2 referencias' → 2. '3 contratos' → 3."
+      },
+      {
+        "name": "pct_monto_referencia_minimo",
+        "type": "float",
+        "description": "Porcentaje mínimo del monto del lote que deben sumar las referencias",
+        "extraction_method": "regex",
+        "extraction_hint": "Busca el PORCENTAJE MÍNIMO del monto del lote que deben sumar las referencias. Patrones: 'N% como mínimo del monto', 'N% del monto total', 'N por ciento (N%)'. El porcentaje suele ser 30%, 50%, 60%, 70% o 80%. Busca el número SEGUIDO del símbolo % o texto 'por ciento'. NO confundas con años calendario (2020-2024). NO confundas con ratios de liquidez/endeudamiento (1.0, 0.8). Ej: '50% como mínimo del monto' → 50. 'treinta por ciento (30%)' → 30."
+      },
+      {
+        "name": "binary_tiene_requisitos_por_lote",
+        "type": "binary",
+        "description": "Si los requisitos de experiencia varían por lote",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requisitos, experiencia, varían, lote. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_requiere_experiencia_especifica_marca",
+        "type": "binary",
+        "description": "Si se requiere experiencia con marca o equipo específico",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requiere, experiencia, marca, equipo, específico. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "plazo_de_reposicion_de_bienes": {
+    "description": "Plazo para reposición de bienes defectuosos",
+    "fields": [
+      {
+        "name": "dias_reposicion",
+        "type": "int",
+        "description": "Días para reparar o reemplazar bienes defectuosos",
+        "extraction_method": "regex",
+        "extraction_hint": "Busca el PLAZO EN DÍAS para reparar o reemplazar bienes defectuosos. Patrones: 'N días', 'plazo de N días', 'dentro de los N días'. El valor suele aparecer DESPUÉS de 'El plazo de reposición será de:' Si el texto dice 'No Aplica' o 'Conforme a especificaciones técnicas', responde NULL. NO extraigas números de listas numeradas (1., 2., 3...)."
+      },
+      {
+        "name": "binary_dias_habiles",
+        "type": "binary",
+        "description": "1 si el plazo es en días hábiles, 0 si es en días corridos/calendario",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a plazo, días, hábiles,, días, corridos/calendario. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_plazo_segun_autoridad",
+        "type": "binary",
+        "description": "1 si el plazo lo define cada autoridad (no es fijo)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a plazo, define, cada, autoridad, fijo). Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "documentacion_requerida_para_la_firma_del_contrato": {
+    "description": "Documentos requeridos para la firma del contrato post-adjudicación",
+    "fields": [
+      {
+        "name": "num_categorias_documentos",
+        "type": "int",
+        "description": "Número de categorías de documentos requeridos (personas físicas, jurídicas, consorcios)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar el cantidad asociado a número, categorías, documentos, requeridos, (personas. CONTAR los elementos listados en el texto. Si hay una lista (1., 2., 3.), contar cuantos items tiene. Buscar frases como 'N documentos', 'N referencias', 'los siguientes N'. NO extraer porcentajes (ej: '10%'), montos (ej: 'Gs. 10.000.000'), ni valores unitarios de la lista (ej: '1.' como item individual, no como total). Extraer el TOTAL de elementos. Rango valido: 1-50. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      },
+      {
+        "name": "binary_requiere_certificado_tributario",
+        "type": "binary",
+        "description": "Si se requiere Certificado de Cumplimiento Tributario",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requiere, certificado, cumplimiento, tributario. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_requiere_certificado_ips",
+        "type": "binary",
+        "description": "Si se requiere constancia de no adeudar al IPS",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requiere, constancia, adeudar. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_incluye_condiciones_contractuales",
+        "type": "binary",
+        "description": "Si se incluye sección adicional de condiciones contractuales",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a incluye, sección, adicional, condiciones, contractuales. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "causales_de_terminacion_del_contrato": {
+    "description": "Causales de terminación del contrato — incumplimiento, quiebra, conveniencia",
+    "fields": [
+      {
+        "name": "binary_incluye_terminacion_incumplimiento",
+        "type": "binary",
+        "description": "Si incluye terminación por incumplimiento del proveedor",
+        "extraction_method": "regex",
+        "extraction_hint": "Indica si la sección 'Causales De Terminacion Del Contrato' contiene contenido sustancial"
+      },
+      {
+        "name": "binary_incluye_terminacion_fraude",
+        "type": "binary",
+        "description": "Si incluye terminación por fraude o corrupción",
+        "extraction_method": "regex",
+        "extraction_hint": "Indica si la sección 'Causales De Terminacion Del Contrato' contiene contenido sustancial"
+      },
+      {
+        "name": "binary_incluye_terminacion_quiebra",
+        "type": "binary",
+        "description": "Si incluye terminación por insolvencia o quiebra",
+        "extraction_method": "regex",
+        "extraction_hint": "Indica si la sección 'Causales De Terminacion Del Contrato' contiene contenido sustancial"
+      },
+      {
+        "name": "binary_incluye_terminacion_conveniencia",
+        "type": "binary",
+        "description": "Si incluye terminación por conveniencia del contratante",
+        "extraction_method": "regex",
+        "extraction_hint": "Indica si la sección 'Causales De Terminacion Del Contrato' contiene contenido sustancial"
+      }
+    ]
+  },
+  "confidencialidad_de_la_informacion": {
+    "description": "Cláusula de confidencialidad de la información del contrato",
+    "fields": [
+      {
+        "name": "binary_tiene_excepciones_confidencialidad",
+        "type": "binary",
+        "description": "Si se listan excepciones a la confidencialidad (información pública, orden judicial, etc.)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si se listan excepciones específicas a la confidencialidad. Activar si se mencionan al menos dos de estas: compartir con instituciones financiadoras, información de dominio público sin culpa, información previamente en posesión, información obtenida legalmente de terceros. Retornar 1 si se encuentran al menos dos, 0 si no."
+      },
+      {
+        "name": "binary_menciona_plazo_confidencialidad",
+        "type": "binary",
+        "description": "Si se menciona plazo o duración de la obligación de confidencialidad",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona explícitamente el caso 'dos sobres', describiendo la confidencialidad en dos etapas (técnica y económica). Activar con frases como 'Cuando se trate de dos sobres', 'primera etapa', 'ofertas técnicas', 'ofertas económicas'. Retornar 1 si se encuentra, 0 si no."
+      }
+    ]
+  },
+  "impuestos_y_derechos": {
+    "description": "Responsabilidad del proveedor sobre impuestos y derechos",
+    "fields": [
+      {
+        "name": "binary_responsabilidad_integral_proveedor",
+        "type": "binary",
+        "description": "Si el proveedor asume todos los impuestos, tasas y contribuciones",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a proveedor, asume, todos, impuestos,, tasas. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_menciona_iva",
+        "type": "binary",
+        "description": "Si se menciona explícitamente el IVA",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar la frase exacta 'fuera y dentro de la República del Paraguay' o 'fuera de la República del Paraguay'. Retornar 1 si aparece, 0 si no."
+      },
+      {
+        "name": "binary_incluye_exoneraciones",
+        "type": "binary",
+        "description": "Si se mencionan exoneraciones o beneficios tributarios",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a mencionan, exoneraciones, beneficios, tributarios. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "suministros_y_especificaciones_tecnicas": {
+    "description": "Suministros y especificaciones técnicas — normas aplicables y cambios",
+    "fields": [
+      {
+        "name": "binary_menciona_normas_oficiales",
+        "type": "binary",
+        "description": "Si se hace referencia a normas oficiales paraguayas",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a hace, referencia, normas, oficiales, paraguayas. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_permite_cambios_codigos",
+        "type": "binary",
+        "description": "Si se permite cambio de códigos/normas durante la ejecución con aprobación del contratante",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a permite, cambio, códigos/normas, durante, ejecución. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_proveedor_puede_rehusar_responsabilidad",
+        "type": "binary",
+        "description": "Si el proveedor puede rehusar responsabilidad por diseños proporcionados por el contratante",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a proveedor, puede, rehusar, responsabilidad, diseños. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "derechos_intelectuales": {
+    "description": "Derechos de propiedad intelectual sobre los bienes o documentos del contrato",
+    "fields": [
+      {
+        "name": "binary_cesion_derechos_contratante",
+        "type": "binary",
+        "description": "Si los derechos de propiedad intelectual se ceden al contratante",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a derechos, propiedad, intelectual, ceden, contratante. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_prohibe_reproduccion_no_autorizada",
+        "type": "binary",
+        "description": "Si se prohíbe la reproducción no autorizada de documentos del contrato",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a prohíbe, reproducción, autorizada, documentos, contrato. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "periodo_de_validez_de_la_garantia_de_los_bienes": {
+    "description": "Periodo de validez de la garantía de los bienes",
+    "fields": [
+      {
+        "name": "dias_validez_garantia",
+        "type": "int",
+        "description": "Días de validez de la garantía de los bienes",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Busca el PLAZO EN DÍAS de validez de la garantía de los bienes. El valor siempre es en DÍAS. CONVERSIÓN EXACTA de meses/años a días: '12 (doce) meses' = 365, '1 año' o '1 (un) año' = 365, '6 (seis) meses' = 182, '3 (tres) meses' = 91, '2 (dos) meses' = 61, '1 mes' = 30. El número en letras del paréntesis (doce, un, seis) confirma cuántos meses son. 'N años' con N>1 = N*365; si supera 365 responde NULL. Patrones directos: 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO responder el número de meses crudo (12, 6, 3) ni 30 — siempre el valor en días convertido. Rango valido: 1-365. Si no encuentras el valor exacto, responde NULL."
+      },
+      {
+        "name": "binary_cubre_defectos_fabricacion",
+        "type": "binary",
+        "description": "Si la garantía cubre defectos de fabricación, materiales o diseño",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a garantía, cubre, defectos, fabricación,, materiales. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_tiene_cobertura_especifica",
+        "type": "binary",
+        "description": "Si se describe cobertura específica adicional",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a describe, cobertura, específica, adicional. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "capacidad_tecnica": {
+    "description": "Requisitos de capacidad técnica del oferente",
+    "fields": [
+      {
+        "name": "anos_experiencia_minima_tecnica",
+        "type": "int",
+        "description": "Años de experiencia mínima técnica requerida",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Busca los AÑOS DE EXPERIENCIA MÍNIMA TÉCNICA requerida. Patrones: 'N años de experiencia', 'mínimo de N años', 'experiencia mínima de N años', 'experiencia de N años en', 'últimos N años'. El número debe estar acompañado de 'años' junto a 'experiencia' o 'mínimo'. NO respondas 5 por defecto. No confundas con CANTIDAD DE PERSONAL ('5 (cinco) personal técnico' = personas, no años) ni con ANTIGÜEDAD EN MESES ('6 meses' ≠ años de experiencia). Si no hay 'N años' explícito junto a 'experiencia', responde NULL. Rango: 1-50."
+      },
+      {
+        "name": "num_referencias_tecnicas_minimo",
+        "type": "int",
+        "description": "Número mínimo de referencias técnicas",
+        "extraction_method": "regex",
+        "extraction_hint": "Busca el NÚMERO MÍNIMO de referencias técnicas requeridas. Patrones: 'mínimo de N referencias técnicas', 'N referencias técnicas'. Si el texto dice 'No Aplica' o solo lista requisitos generales sin número, responde NULL. NO cuentes ítems de listas de requisitos (1., 2., 3...). NO confundas con años calendario ni porcentajes."
+      },
+      {
+        "name": "pct_monto_referencia_tecnica",
+        "type": "float",
+        "description": "Porcentaje mínimo del monto del lote para referencias técnicas",
+        "extraction_method": "regex",
+        "extraction_hint": "Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100."
+      }
+    ]
+  },
+  "formas_y_condiciones_de_pago": {
+    "description": "Formas y condiciones de pago — plazos, documentos y requisitos",
+    "fields": [
+      {
+        "name": "dias_pago_maximo",
+        "type": "int",
+        "description": "Plazo máximo para pago después de presentación de factura (típicamente 60 días)",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Buscar el días máximo de pago después de la presentación de la factura, NO el plazo de presentación. Patrones: 'sin exceder sesenta (60) días después de la presentación de una factura', 'pagos se procederá', 'pagos serán', 'no mayor a N días después de la presentación'. NO extraer 'dentro de los XX días' sin la frase 'después de la presentación'. NO extraer porcentajes, montos en guarani, números en listas. Si no hay número después de 'después de la presentación de la factura', responder NULL."
+      },
+      {
+        "name": "dias_aceptacion_rechazo_factura",
+        "type": "int",
+        "description": "Plazo para aceptar o rechazar factura (típicamente 15 días)",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Busca el PLAZO en DÍAS para ACEPTAR o RECHAZAR una factura. Patrones: 'plazo de N días para aceptar', 'aceptación o rechazo dentro de N días', 'rechazo de factura en N días', 'plazo para aceptación de N días'. El número debe estar asociado a 'aceptar', 'rechazar' o 'factura'. PRIORIDAD: el N más cercano a 'aceptar/rechazar' o 'factura'. NO extraigas porcentajes, montos, ni fechas. Rango: 1-365."
+      },
+      {
+        "name": "num_documentos_pago",
+        "type": "int",
+        "description": "Número de documentos requeridos para solicitar pago",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Cuenta los DOCUMENTOS PRINCIPALES requeridos para solicitar pago. Busca 'siguientes documentos:' y cuenta los ítems de primer nivel (1., 2., 3...). NO cuentes sub-ítems (a., b., c...). NO cuentes leyes (7021, 7781). NO extraigas plazos en días ni porcentajes. Ej: lista con '1. Factura, 2. Nota, 3. REPSE' → 3."
+      },
+      {
+        "name": "binary_requiere_cuenta_bancaria_estatal",
+        "type": "binary",
+        "description": "Si se requiere cuenta bancaria estatal (SITE) para pagos",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requiere, cuenta, bancaria, estatal, (site). Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "plan_de_entrega_de_los_bienes": {
+    "description": "Plan de entrega de los bienes y cronograma de cumplimiento",
+    "fields": [
+      {
+        "name": "binary_tiene_plan_entrega",
+        "type": "binary",
+        "description": "1 si hay plan de entrega definido, 0 si es 'No aplica'",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a plan, entrega, definido,, aplica'. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_incluye_cronograma",
+        "type": "binary",
+        "description": "Si se incluye cronograma de cumplimiento detallado",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a incluye, cronograma, cumplimiento, detallado. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_requiere_documentos_embarque",
+        "type": "binary",
+        "description": "Si se requieren documentos de embarque específicos",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requieren, documentos, embarque, específicos. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "capacidad_financiera": {
+    "description": "Requisitos de capacidad financiera — índices y estados financieros",
+    "fields": [
+      {
+        "name": "binary_tiene_requisitos_financieros",
+        "type": "binary",
+        "description": "1 si hay requisitos financieros definidos, 0 si es 'NO APLICA'",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requisitos, financieros, definidos,, aplica'. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "ratio_liquidez_minimo",
+        "type": "float",
+        "description": "Ratio de liquidez mínimo requerido",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Busca el RATIO DE LIQUIDEZ MÍNIMO requerido. Patrones: 'mayor que N', '>= N', 'igual o mayor a N', 'mayor a N', 'líquido de N', 'liquidez mínimo de N'. El valor suele ser 1.0, 1.1, 1.2 o 0.8, pero NO respondas 1.0 por defecto si el número no está explícito. Busca DESPUÉS de 'Ratio de Liquidez' o 'liquidez'. Si el texto dice 'No Aplica' o no menciona el ratio de liquidez explícitamente, responde NULL. NO extraigas porcentajes (%). NO confundas con ratio de endeudamiento."
+      },
+      {
+        "name": "ratio_endeudamiento_maximo",
+        "type": "float",
+        "description": "Ratio de endeudamiento máximo permitido",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Busca el RATIO DE ENDEUDAMIENTO MÁXIMO permitido. Patrones: 'ratio de endeudamiento máximo de N', 'endeudamiento menor a N', 'índice de endeudamiento de N', 'igual o menor a N'. EL VALOR debe estar acompañado de la palabra 'endeudamiento' o 'endeudamiento máximo'. Si el texto dice 'No Aplica' o no menciona el ratio explícitamente, responde NULL. NO extraigas 0.01 ni ningún valor por defecto. NO extraigas porcentajes, ni montos. Rango: 0.01-10."
+      },
+      {
+        "name": "binary_requiere_estados_auditados",
+        "type": "binary",
+        "description": "Si se requieren estados financieros auditados",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requieren, estados, financieros, auditados. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "reajuste": {
+    "description": "Fórmula y procedimiento de reajuste de precios",
+    "fields": [
+      {
+        "name": "binary_tiene_formula_reajuste",
+        "type": "binary",
+        "description": "1 si se especifica fórmula de reajuste, 0 si no hay fórmula",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a especifica, fórmula, reajuste,, fórmula. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "num_componentes_formula",
+        "type": "int",
+        "description": "Número de componentes o monomios en la fórmula de reajuste",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Cuenta los COMPONENTES o VARIABLES de entrada en la fórmula de reajuste. Patrones: mira la fórmula después de 'Fórmula:' o 'siguiente fórmula'. Cuenta las variables de entrada (ej: P, IPC, IPCO = 3 componentes). NO incluyas el resultado (Pr, A) en la cuenta. Si no hay fórmula explícita con variables listadas, responde NULL."
+      },
+      {
+        "name": "binary_referencia_ipc",
+        "type": "binary",
+        "description": "Si la fórmula usa IPC (Índice de Precios al Consumidor) del BCP",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a fórmula, (índice, precios, consumidor). Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_no_reajuste_si_atraso",
+        "type": "binary",
+        "description": "Si no hay reajuste cuando el suministro está atrasado",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a reajuste, cuando, suministro, está, atrasado. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "criterios_de_adjudicacion": {
+    "description": "Criterios de adjudicación — precio vs multiplicidad de criterios",
+    "fields": [
+      {
+        "name": "binary_criterio_menor_precio",
+        "type": "binary",
+        "description": "Si se adjudica al oferente de menor precio que cumple requisitos",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a adjudica, oferente, menor, precio, cumple. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_multiplicidad_criterios",
+        "type": "binary",
+        "description": "Si se permite combinación de criterios de adjudicación",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a permite, combinación, criterios, adjudicación. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_contrato_abierto",
+        "type": "binary",
+        "description": "Si el contrato es abierto (cantidades máximas y mínimas)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a contrato, abierto, (cantidades, máximas, mínimas). Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_reserva_disminuir_cantidad",
+        "type": "binary",
+        "description": "Si el contratante se reserva el derecho a disminuir cantidades",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a contratante, reserva, derecho, disminuir, cantidades. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "forma_de_instrumentacion_de_garantia_de_anticipo": {
+    "description": "Forma de instrumentar la garantía de anticipo",
+    "fields": [
+      {
+        "name": "binary_requiere_garantia_anticipo",
+        "type": "binary",
+        "description": "1 si se requiere garantía de anticipo, 0 si no aplica",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requiere, garantía, anticipo,, aplica. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "categorical_tipo_garantia",
+        "type": "categorical",
+        "description": "Tipo de garantía: poliza_seguro, garantia_bancaria, fianza, other",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar la categoria o tipo mencionado para tipo, garantía:, poliza_seguro,, garantia_bancaria,, fianza,. Extraer SOLO el texto de la categoria."
+      },
+      {
+        "name": "pct_anticipo",
+        "type": "float",
+        "description": "Porcentaje del anticipo respecto al monto del contrato",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar el porcentaje asociado a porcentaje, anticipo, respecto, monto, contrato. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      }
+    ]
+  },
+  "requisitos_de_calificacion": {
+    "description": "Requisitos de calificación legal del oferente",
+    "fields": [
+      {
+        "name": "num_pasos_verificacion",
+        "type": "int",
+        "description": "Número de pasos o requisitos de verificación de calificación",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Buscar el cantidad asociado a número, pasos, requisitos, verificación, calificación. CONTAR los elementos listados en el texto. Si hay una lista (1., 2., 3.), contar cuantos items tiene. Buscar frases como 'N documentos', 'N referencias', 'los siguientes N'. NO extraer porcentajes (ej: '10%'), montos (ej: 'Gs. 10.000.000'), ni valores unitarios de la lista (ej: '1.' como item individual, no como total). Extraer el TOTAL de elementos. Rango valido: 1-50. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      },
+      {
+        "name": "binary_verifica_sinarh",
+        "type": "binary",
+        "description": "Si se verifica en base de datos SINARH del Viceministerio de Capital Humano",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a verifica, base, datos, sinarh, viceministerio. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_requiere_declaracion_conflictos",
+        "type": "binary",
+        "description": "Si se requiere declaración jurada de conflicto de intereses",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requiere, declaración, jurada, conflicto, intereses. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_requiere_registro_proveedores",
+        "type": "binary",
+        "description": "Si se requiere formulario de Registro de Proveedores del Estado",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a requiere, formulario, registro, proveedores, estado. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "solicitud_de_pago_de_anticipo": {
+    "description": "Condiciones y plazo para solicitar el pago del anticipo",
+    "fields": [
+      {
+        "name": "binary_tiene_condiciones_anticipo",
+        "type": "binary",
+        "description": "1 si hay condiciones específicas definidas, 0 si es 'No Aplica'",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a condiciones, específicas, definidas,, aplica'. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "dias_solicitud_anticipo",
+        "type": "int",
+        "description": "Plazo máximo en días corridos para solicitar el anticipo",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Busca el PLAZO MÁXIMO EN DÍAS para SOLICITAR el anticipo. PRIORIDAD MÁXIMA al patrón: 'Plazo máximo para la presentación de la solicitud de pago de anticipo: N días' (ej. '10 días calendario posterior de la firma' → 10; 'de 3 (tres) días hábiles posteriores a la firma' → 3). Otros patrones: 'N días para solicitar', 'dentro de los N días', 'N días corridos posteriores a la firma'. ADVERTENCIA: el 'plazo de cinco (5) días hábiles' para presentar nota de RECLAMO/rechazo (punto 5) NO es el plazo de solicitud — ignóralo. NO confundir con el plazo para ABONAR el anticipo (dias_pago_anticipo): la línea 'Plazo o fecha en la cual se abonará...' es OTRO campo. Si el texto solo menciona 'abonar', 'pagar' o pagaré sin 'solicitar' cerca, responde NULL. NO extraer PORCENTAJES: si el número está seguido de '%', responde NULL. Ej: '20% de anticipo' → NULL. REGLA: si hay MÚLTIPLES números, elige el que está en la línea 'Plazo máximo para la presentación de la solicitud'; si no existe, el más cercano a 'solicitar' en formato días. NO defaults: no uses 5, 10, 20, 30 por defecto. Si ves 'No Aplica' o no hay plazo de solicitud en días, responde NULL."
+      },
+      {
+        "name": "dias_pago_anticipo",
+        "type": "int",
+        "description": "Días para abonar el anticipo tras la solicitud",
+        "extraction_method": "hybrid",
+        "extraction_hint": "Busca el PLAZO EN DÍAS para ABONAR/PAGAR el anticipo tras la solicitud. Patrones: 'abonará dentro de los N días', 'dentro de los N días siguientes a la solicitud', 'plazo de N días para el pago', 'se abonará en N días'. CRÍTICO: NO confundir con el plazo para SOLICITAR el anticipo (dias_solicitud_anticipo). REGLA: si el texto solo menciona 'solicitar' o 'solicitud' (ej: 'dentro de los 5 días de solicitar el anticipo') sin 'abonar' o 'pagar' en la misma frase, RESPONDE NULL. El número que está junto a 'solicitar' pertenece a otro campo. NO defaults: no uses 5, 10, 30 por defecto. Si el texto dice 'No Aplica' o no hay plazo de pago explícito, responde NULL."
+      },
+      {
+        "name": "binary_anticipo_solo_mipymes",
+        "type": "binary",
+        "description": "Si el anticipo aplica solo para MIPYMES",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a anticipo, aplica, solo, mipymes. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "tasa_de_interes_por_mora": {
+    "description": "Tasa de interés por mora en pagos de la contratante",
+    "fields": [
+      {
+        "name": "pct_interes_mora_diario",
+        "type": "float",
+        "description": "Porcentaje de interés por cada día de atraso (ej: 0.001, 0.01, 0.05)",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar el porcentaje asociado a porcentaje, interés, cada, atraso. Buscar patrones como 'N%', 'N por ciento', 'N% del monto', 'el N%'. NO extraer numeros que no tengan '%' o 'por ciento' cerca. NO extraer montos absolutos (ej: 'Gs. 10.000.000'). Rango valido: 0.01-100. Si el numero esta fuera de este rango, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+      },
+      {
+        "name": "binary_mora_desde_dia_siguiente",
+        "type": "binary",
+        "description": "1 si la mora se computa desde el día siguiente del vencimiento",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a mora, computa, desde, siguiente, vencimiento. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  },
+  "criterios_de_desempate_de_ofertas": {
+    "description": "Criterios de desempate cuando dos o más ofertas igualan en precio",
+    "fields": [
+      {
+        "name": "binary_menciona_criterios_dncp",
+        "type": "binary",
+        "description": "Si se menciona que los criterios son los dispuestos por la DNCP",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a menciona, criterios, dispuestos, dncp. Retornar 1 si se menciona, 0 si no."
+      },
+      {
+        "name": "binary_incluye_criterios_especificos_Adicionales",
+        "type": "binary",
+        "description": "Si se listan criterios de desempate adicionales a los de DNCP",
+        "extraction_method": "regex",
+        "extraction_hint": "Buscar si el texto menciona o hace referencia a listan, criterios, desempate, adicionales, dncp. Retornar 1 si se menciona, 0 si no."
+      }
+    ]
+  }
+}

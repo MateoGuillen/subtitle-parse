@@ -1,0 +1,118 @@
+# Modelos candidatos — benchmark Top 10 (AWQ + FP8 + GGUF)
+# Estrategia: embudo 2 fases (smoke 30-50 muestras, descartar <70% y borrar antes del siguiente)
+# Fuente ranking: docs/benchmark_modelos/ranking_combinado.md (31-ago-2026)
+
+infra:
+  gpu: "RTX 4070 Ti SUPER 16GB"
+  driver: "615.71.09"
+  cuda_toolkit: "13.4"
+  vllm: "0.29.0 (venv /root/vllm-env, torch 2.13 cu130)"
+  llama_server: "build desde source commit 6d9c82e (09-sep-2026, CUDA sm_89) en /root/llama.cpp-src/build/bin/"
+  # PUERTOS: llama-server=1234, vLLM serve=8000. REGLA: solo uno corre por vez (16GB VRAM).
+  # NOTA vLLM 0.29: no pasar quantization= explicito (auto marlin). Scripts con awq_marlin fijo hay que adaptarlos.
+
+fixtures_smoke: # modelos livianos de validacion de infra (se quedan)
+  - id: "Qwen/Qwen2.5-0.5B-Instruct-AWQ"
+    formato: AWQ
+    path: "/root/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct-AWQ"
+    size: "708M"
+    resultado: "OK vLLM 0.29 (LOAD 63.5s primera vez, GEN 0.25s, 'capital es Asunción')"
+  - id: "Qwen/Qwen2.5-0.5B-Instruct-GGUF:qwen2.5-0.5b-instruct-q4_k_m.gguf"
+    formato: GGUF
+    path: "./models/gguf/qwen2.5-0.5b-instruct-q4_k_m.gguf"
+    size: "469M"
+    resultado: "OK llama-server (UP 2s, VRAM 682MiB total, 'La capital de Paraguay es Asunción')"
+
+# Tanda 0 — baselines (se quedan, 9.3 GB)
+candidatos:
+  - orden: 1
+    id: "thesven/Meta-Llama-3.1-8B-Instruct-AWQ"
+    formato: AWQ
+    size: "5.4G"
+    estado: descargado # 5.4G en caché HF (snap 1a8d4c09)
+    smoke_v029: "OK 09-sep-2026 (LOAD 14.1s, GEN 0.32s, 'Asunción.' correcto, VRAM liberada post-run)"
+    gt100_v029: "98/100 en 9s (validez 20/20, monto_ref 20/20, exp_tec 19/20, pago_ant 20/20, sol_ant 19/20)"
+    fase5_867: "532/867 = 61.4% (P50 0.22s, P95 0.38s, 167s) — mejor AWQ"
+    conc: "techo 5.2 req/s (C32), P50 0.38->4.93s, VRAM 11.6G, serve 0.29 guided-serve OK"
+    nota: "Baseline calidad F1 96.4%"
+  - orden: 2
+    id: "solidrust/Mistral-7B-Instruct-v0.3-AWQ"
+    formato: AWQ
+    size: "3.9G"
+    estado: descargado # 3.9G en caché HF (snap 95b1295d)
+    smoke_v029: "OK 09-sep-2026 (LOAD 12.3s, GEN 0.33s, 'La capital de Paraguay es Asunción' correcto)"
+    gt100_v029: "97/100 en 13s (validez 20/20, monto_ref 19/20, exp_tec 19/20, pago_ant 20/20, sol_ant 19/20)"
+    fase5_867: "428/867 = 49.4% (P50 0.29s; pct_monto colapsa 10/147 por prompt mergeado obligatorio)"
+    conc: "techo 4.3 req/s, P50 0.69->6.62s, err=1 determinista (ctx>8192)"
+    nota: "Throughput champion 35x"
+  # Tanda 1 — funnel AWQ/FP8 bajo vLLM
+  - orden: 3
+    id: "Qwen/Qwen3-14B-AWQ"
+    formato: AWQ
+    size: "9.4G"
+    estado: descargado
+    gt100_v029: "98/100 en 14s (mismos 2 misses: exp_tec, sol_ant)"
+    fase5_867: "460/867 = 53.1% (P50 0.38s; pct_monto 42/147)"
+    conc: "techo 3.2 req/s (C16/maxseq16), VRAM 15.2G al limite"
+  - orden: 4
+    id: "RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8"
+    formato: FP8
+    size: "8.5G"
+    estado: descargado
+    gt100_v029: "98/100 en 9s (idéntico al AWQ)"
+    fase5_867: "536/867 = 61.8% (P50 0.17s, P95 0.28s, 132s) — MEJOR global + más rápido"
+    conc: "techo 7.0 req/s (C16), P50 0.19->3.50s — MEJOR throughput"
+  - orden: 5
+    id: "Qwen/Qwen3-8B-FP8"
+    formato: FP8
+    size: "8.9G"
+    estado: descargado
+    gt100_v029: "98/100 en 10s (requirió max_len 4096 + gpu_mem 0.80 por KV)"
+    fase5_867: "474/867 = 54.7% (P50 0.24s; pct_monto 56/147)"
+    conc: "techo 4.5 req/s, VRAM 13.2G"
+  - orden: 6
+    id: "LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct-AWQ"
+    formato: AWQ
+    size: "5.0G"
+    estado: descargado
+    gt100_v029: "98/100 en 10s (español OK)"
+    fase5_867: "420/867 = 48.4% (P50 0.26s; pct_monto 2/147)"
+    conc: "techo 5.05 req/s, P50 0.47->4.82s"
+    nota: "Validar español — validado"
+  - orden: 7
+    id: "stelterlab/Mistral-Small-24B-Instruct-2501-AWQ"
+    formato: AWQ
+    size: "14G"
+    estado: descargado
+    gt100_v029: "49/50 = 98% en 62s (limit 10/campo; OOM sin offload → cpu_offload 5 + max_seqs 2 + ctx 2048)"
+    fase5_867: "418/867 = 48.2% (P50 2.99s, 1511s con offload; pct_monto 0/147)"
+    conc: "serve+offload CUELGA EngineCore en 0.29; batch-offline24: 0.27 req/s (90s), 6/24 prompts >2048ctx truncados"
+    nota: "Solo 10 muestras, --max-model-len 2048 (no 4096: OOM)"
+  # Tanda 2 — GGUF bajo llama-server (puerto 1234, flags en docs/benchmark_modelos/modelos_gguf.md)
+  - orden: 8
+    id: "bartowski/granite-4.2-8b-GGUF:granite-4.2-8b-Q4_K_M.gguf"
+    formato: GGUF
+    size: "5.2G"
+    estado: descargado
+    gt100_v029: "97/100 en 83s (thinking separado en reasoning_content; evaluado con enable_thinking:false)"
+    fase5_867: "418/867 = 48.2% (P50 1.09s, 891s; pct_monto 0/147)"
+    conc: "techo 2.5 req/s (4 slots ctx16k, trunc15k chars), P50 1.0->3.1s"
+    nota: "SMOKE thinking-off ANTES — superado"
+  - orden: 9
+    id: "unsloth/gemma-4-12B-it-qat-GGUF:gemma-4-12B-it-qat-UD-Q4_K_XL.gguf"
+    formato: GGUF
+    size: "6.3G"
+    estado: descargado
+    gt100_v029: "97/100 en 49s (sin --reasoning off todo va al canal thinking y content queda vacío; guided json_schema válido: 90 -> 90)"
+    fase5_867: "420/867 = 48.4% (P50 1.45s, 1124s; pct_monto 2/147)"
+    conc: "0.73->0.90 req/s: NO escala (compute-bound 12B), P50 1.5->8.8s"
+    nota: "SMOKE guided-decoding ANTES — superado (JSON válido, bug #39130 evitado a nivel servidor)"
+  - orden: 10
+    id: "mistralai/Ministral-3-14B-Instruct-2512-GGUF:Ministral-3-14B-Instruct-2512-Q4_K_M.gguf"
+    formato: GGUF
+    size: "7.7G"
+    estado: descargado
+    gt100_v029: "97/100 en 25s (GGUF más rápido; VRAM 9.2G)"
+    fase5_867: "435/867 = 50.2% (P50 0.55s, 421s; GGUF más rápido)"
+    conc: "4.85 req/s a C8 (escala bien, outputs cortos), P50 0.41->1.30s"
+    nota: "Sin issues"

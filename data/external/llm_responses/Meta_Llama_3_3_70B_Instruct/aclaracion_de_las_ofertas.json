@@ -1,0 +1,198 @@
+{
+  "title": "Aclaracion De Las Ofertas",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 7.52,
+  "n_fields": 12,
+  "validation_errors": [],
+  "field_names": [
+    "permite_modificacion_precios",
+    "solicita_aclaraciones_fuente_publica",
+    "requiere_respuesta_escrita",
+    "considera_aclaraciones_no_solicitadas",
+    "num_modificaciones_permitidas",
+    "menciona_correccion_errores_aritmeticos",
+    "permite_aclaracion_cpenn",
+    "texto_vacio",
+    "longitud_texto",
+    "num_oraciones",
+    "num_parrafos",
+    "menciona_comite_evaluacion"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"permite_modificacion_precios\": {\"type\": \"binary\", \"description\": \"Indica si se permite la modificación de precios\", \"importance\": 9, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'No se solicitará, ofrecerá, ni permitirá ninguna modificación a los precios' o variantes que indiquen lo contrario. Retornar 1 si se encuentra una variante que permita la modificación, 0 si se encuentra la frase exacta o similar que lo prohíba.\"},\n    \"solicita_aclaraciones_fuente_publica\": {\"type\": \"binary\", \"description\": \"Indica si se solicitan aclaraciones a fuentes públicas\", \"importance\": 8, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'A los efectos de confirmar la información o documentación suministrada por el oferente, el Comité de Evaluación, podrá solicitar aclaraciones a cualquier fuente pública o privada de información'. Retornar 1 si se encuentra, 0 si no.\"},\n    \"requiere_respuesta_escrita\": {\"type\": \"binary\", \"description\": \"Indica si se requiere respuesta escrita para aclaraciones\", \"importance\": 7, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'dichas solicitudes y las respuestas de los oferentes se realizarán por escrito'. Retornar 1 si se encuentra, 0 si no.\"},\n    \"considera_aclaraciones_no_solicitadas\": {\"type\": \"binary\", \"description\": \"Indica si se consideran aclaraciones no solicitadas\", \"importance\": 6, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'Las aclaraciones de los oferentes que no sean en respuesta a aquellas solicitadas por la convocante, no serán consideradas'. Retornar 1 si no se encuentra o se encuentra una variante que las considere, 0 si se encuentra la frase exacta o similar.\"},\n    \"num_modificaciones_permitidas\": {\"type\": \"numeric\", \"description\": \"Cantidad de modificaciones permitidas a la oferta\", \"importance\": 5, \"extraction_method\": \"semantic\", \"extraction_hint\": \"Contar cuántas de estas modificaciones están permitidas: precios, sustancia de la oferta, errores aritméticos. Retornar entero 0-3.\"},\n    \"menciona_correccion_errores_aritmeticos\": {\"type\": \"binary\", \"description\": \"Indica si se menciona la corrección de errores aritméticos\", \"importance\": 4, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'excepto para confirmar la corrección de errores aritméticos'. Retornar 1 si se encuentra, 0 si no.\"},\n    \"permite_aclaracion_cpenn\": {\"type\": \"binary\", \"description\": \"Indica si se permite aclaración sobre CPEN\", \"importance\": 3, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'El comité de evaluación podrá solicitar aclaración respecto al CPEN'. Retornar 1 si se encuentra, 0 si no.\"},\n    \"texto_vacio\": {\"type\": \"binary\", \"description\": \"Indica si la sección no contiene desarrollo normativo\", \"importance\": 2, \"extraction_method\": \"structural\", \"extraction_hint\": \"Retornar 1 si el texto tiene menos de 50 palabras o no contiene oración con contenido normativo. Retornar 0 en caso contrario.\"},\n    \"longitud_texto\": {\"type\": \"numeric\", \"description\": \"Longitud del texto en palabras\", \"importance\": 1, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar el número de palabras en el texto. Retornar entero.\"},\n    \"num_oraciones\": {\"type\": \"numeric\", \"description\": \"Número de oraciones en el texto\", \"importance\": 1, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar el número de oraciones en el texto. Retornar entero.\"},\n    \"num_parrafos\": {\"type\": \"numeric\", \"description\": \"Número de párrafos en el texto\", \"importance\": 1, \"extraction_method\": \"structural\", \"extraction_hint\": \"Contar el número de párrafos en el texto. Retornar entero.\"},\n    \"menciona_comite_evaluacion\": {\"type\": \"binary\", \"description\": \"Indica si se menciona al Comité de Evaluación\", \"importance\": 1, \"extraction_method\": \"literal\", \"extraction_hint\": \"Buscar la frase 'Comité de Evaluación'. Retornar 1 si se encuentra, 0 si no.\"}\n  },\n  \"justification\": \"Cada campo fue elegido para capturar diferencias potencialmente anómalas entre los clusters. Los campos binarios detectan la presencia o ausencia de ciertas cláusulas, mientras que los numéricos miden la cantidad de modificaciones permitidas o el tamaño del texto.\",\n  \"cluster_values\": {\n    \"permite_modificacion_precios\": {\"cluster_0_4_6_19\": 0, \"cluster_1\": 0, \"cluster_2_10_11_16\": 0, \"cluster_3_5_8_13_17_18\": 0, \"cluster_7_9_12_14_15\": 0},\n    \"solicita_aclaraciones_fuente_publica\": {\"cluster_0_4_6_19\": 1, \"cluster_1\": 1, \"cluster_2_10_11_16\": 1, \"cluster_3_5_8_13_17_18\": 1, \"cluster_7_9_12_14_15\": 1},\n    \"requiere_respuesta_escrita\": {\"cluster_0_4_6_19\": 1, \"cluster_1\": 1, \"cluster_2_10_11_16\": 1, \"cluster_3_5_8_13_17_18\": 1, \"cluster_7_9_12_14_15\": 1},\n    \"considera_aclaraciones_no_solicitadas\": {\"cluster_0_4_6_19\": 0, \"cluster_1\": 0, \"cluster_2_10_11_16\": 0, \"cluster_3_5_8_13_17_18\": 0, \"cluster_7_9_12_14_15\": 0},\n    \"num_modificaciones_permitidas\": {\"cluster_0_4_6_19\": 1, \"cluster_1\": 1, \"cluster_2_10_11_16\": 1, \"cluster_3_5_8_13_17_18\": 1, \"cluster_7_9_12_14_15\": 1},\n    \"menciona_correccion_errores_aritmeticos\": {\"cluster_0_4_6_19\": 1, \"cluster_1\": 1, \"cluster_2_10_11_16\": 1, \"cluster_3_5_8_13_17_18\": 1, \"cluster_7_9_12_14_15\": 1},\n    \"permite_aclaracion_cpenn\": {\"cluster_0_4_6_19\": 0, \"cluster_1\": 1, \"cluster_2_10_11_16\": 0, \"cluster_3_5_8_13_17_18\": 0, \"cluster_7_9_12_14_15\": 0},\n    \"texto_vacio\": {\"cluster_0_4_6_19\": 0, \"cluster_1\": 0, \"cluster_2_10_11_16\": 0, \"cluster_3_5_8_13_17_18\": 0, \"cluster_7_9_12_14_15\": 0},\n    \"longitud_texto\": {\"cluster_0_4_6_19\": 156, \"cluster_1\": 159, \"cluster_2_10_11_16\": 157, \"cluster_3_5_8_13_17_18\": 158, \"cluster_7_9_12_14_15\": 156},\n    \"num_oraciones\": {\"cluster_0_4_6_19\": 4, \"cluster_1\": 4, \"cluster_2_10_11_16\": 4, \"cluster_3_5_8_13_17_18\": 4, \"cluster_7_9_12_14_15\": 4},\n    \"num_parrafos\": {\"cluster_0_4_6_19\": 1, \"cluster_1\": 1, \"cluster_2_10_11_16\": 1, \"cluster_3_5_8_13_17_18\": 1, \"cluster_7_9_12_14_15\": 1},\n    \"menciona_comite_evaluacion\": {\"cluster_0_4_6_19\": 1, \"cluster_1\": 1, \"cluster_2_10_11_16\": 1, \"cluster_3_5_8_13_17_18\": 1, \"cluster_7_9_12_14_15\": 1}\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "permite_modificacion_precios": {
+        "type": "binary",
+        "description": "Indica si se permite la modificación de precios",
+        "importance": 9,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'No se solicitará, ofrecerá, ni permitirá ninguna modificación a los precios' o variantes que indiquen lo contrario. Retornar 1 si se encuentra una variante que permita la modificación, 0 si se encuentra la frase exacta o similar que lo prohíba."
+      },
+      "solicita_aclaraciones_fuente_publica": {
+        "type": "binary",
+        "description": "Indica si se solicitan aclaraciones a fuentes públicas",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'A los efectos de confirmar la información o documentación suministrada por el oferente, el Comité de Evaluación, podrá solicitar aclaraciones a cualquier fuente pública o privada de información'. Retornar 1 si se encuentra, 0 si no."
+      },
+      "requiere_respuesta_escrita": {
+        "type": "binary",
+        "description": "Indica si se requiere respuesta escrita para aclaraciones",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'dichas solicitudes y las respuestas de los oferentes se realizarán por escrito'. Retornar 1 si se encuentra, 0 si no."
+      },
+      "considera_aclaraciones_no_solicitadas": {
+        "type": "binary",
+        "description": "Indica si se consideran aclaraciones no solicitadas",
+        "importance": 6,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'Las aclaraciones de los oferentes que no sean en respuesta a aquellas solicitadas por la convocante, no serán consideradas'. Retornar 1 si no se encuentra o se encuentra una variante que las considere, 0 si se encuentra la frase exacta o similar."
+      },
+      "num_modificaciones_permitidas": {
+        "type": "numeric",
+        "description": "Cantidad de modificaciones permitidas a la oferta",
+        "importance": 5,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántas de estas modificaciones están permitidas: precios, sustancia de la oferta, errores aritméticos. Retornar entero 0-3."
+      },
+      "menciona_correccion_errores_aritmeticos": {
+        "type": "binary",
+        "description": "Indica si se menciona la corrección de errores aritméticos",
+        "importance": 4,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'excepto para confirmar la corrección de errores aritméticos'. Retornar 1 si se encuentra, 0 si no."
+      },
+      "permite_aclaracion_cpenn": {
+        "type": "binary",
+        "description": "Indica si se permite aclaración sobre CPEN",
+        "importance": 3,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'El comité de evaluación podrá solicitar aclaración respecto al CPEN'. Retornar 1 si se encuentra, 0 si no."
+      },
+      "texto_vacio": {
+        "type": "binary",
+        "description": "Indica si la sección no contiene desarrollo normativo",
+        "importance": 2,
+        "extraction_method": "structural",
+        "extraction_hint": "Retornar 1 si el texto tiene menos de 50 palabras o no contiene oración con contenido normativo. Retornar 0 en caso contrario."
+      },
+      "longitud_texto": {
+        "type": "numeric",
+        "description": "Longitud del texto en palabras",
+        "importance": 1,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de palabras en el texto. Retornar entero."
+      },
+      "num_oraciones": {
+        "type": "numeric",
+        "description": "Número de oraciones en el texto",
+        "importance": 1,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de oraciones en el texto. Retornar entero."
+      },
+      "num_parrafos": {
+        "type": "numeric",
+        "description": "Número de párrafos en el texto",
+        "importance": 1,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de párrafos en el texto. Retornar entero."
+      },
+      "menciona_comite_evaluacion": {
+        "type": "binary",
+        "description": "Indica si se menciona al Comité de Evaluación",
+        "importance": 1,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'Comité de Evaluación'. Retornar 1 si se encuentra, 0 si no."
+      }
+    },
+    "justification": "Cada campo fue elegido para capturar diferencias potencialmente anómalas entre los clusters. Los campos binarios detectan la presencia o ausencia de ciertas cláusulas, mientras que los numéricos miden la cantidad de modificaciones permitidas o el tamaño del texto.",
+    "cluster_values": {
+      "permite_modificacion_precios": {
+        "cluster_0_4_6_19": 0,
+        "cluster_1": 0,
+        "cluster_2_10_11_16": 0,
+        "cluster_3_5_8_13_17_18": 0,
+        "cluster_7_9_12_14_15": 0
+      },
+      "solicita_aclaraciones_fuente_publica": {
+        "cluster_0_4_6_19": 1,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 1,
+        "cluster_7_9_12_14_15": 1
+      },
+      "requiere_respuesta_escrita": {
+        "cluster_0_4_6_19": 1,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 1,
+        "cluster_7_9_12_14_15": 1
+      },
+      "considera_aclaraciones_no_solicitadas": {
+        "cluster_0_4_6_19": 0,
+        "cluster_1": 0,
+        "cluster_2_10_11_16": 0,
+        "cluster_3_5_8_13_17_18": 0,
+        "cluster_7_9_12_14_15": 0
+      },
+      "num_modificaciones_permitidas": {
+        "cluster_0_4_6_19": 1,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 1,
+        "cluster_7_9_12_14_15": 1
+      },
+      "menciona_correccion_errores_aritmeticos": {
+        "cluster_0_4_6_19": 1,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 1,
+        "cluster_7_9_12_14_15": 1
+      },
+      "permite_aclaracion_cpenn": {
+        "cluster_0_4_6_19": 0,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 0,
+        "cluster_3_5_8_13_17_18": 0,
+        "cluster_7_9_12_14_15": 0
+      },
+      "texto_vacio": {
+        "cluster_0_4_6_19": 0,
+        "cluster_1": 0,
+        "cluster_2_10_11_16": 0,
+        "cluster_3_5_8_13_17_18": 0,
+        "cluster_7_9_12_14_15": 0
+      },
+      "longitud_texto": {
+        "cluster_0_4_6_19": 156,
+        "cluster_1": 159,
+        "cluster_2_10_11_16": 157,
+        "cluster_3_5_8_13_17_18": 158,
+        "cluster_7_9_12_14_15": 156
+      },
+      "num_oraciones": {
+        "cluster_0_4_6_19": 4,
+        "cluster_1": 4,
+        "cluster_2_10_11_16": 4,
+        "cluster_3_5_8_13_17_18": 4,
+        "cluster_7_9_12_14_15": 4
+      },
+      "num_parrafos": {
+        "cluster_0_4_6_19": 1,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 1,
+        "cluster_7_9_12_14_15": 1
+      },
+      "menciona_comite_evaluacion": {
+        "cluster_0_4_6_19": 1,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 1,
+        "cluster_7_9_12_14_15": 1
+      }
+    }
+  }
+}

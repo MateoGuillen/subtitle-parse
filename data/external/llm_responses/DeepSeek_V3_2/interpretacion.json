@@ -1,0 +1,114 @@
+{
+  "title": "Interpretacion",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 12.09,
+  "n_fields": 6,
+  "validation_errors": [],
+  "field_names": [
+    "contiene_limitacion_dispensas",
+    "num_subincisos_limitacion_dispensas",
+    "definicion_dia_calendario",
+    "clausula_separabilidad_presente",
+    "num_clausulas_principales",
+    "menciona_contrato_con_mayuscula"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"contiene_limitacion_dispensas\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la sección incluye la cláusula 'Limitación de Dispensas' con sus subincisos a y b.\",\n      \"importance\": 10,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'Limitación de Dispensas:' seguida de texto que describa los requisitos de la dispensa y sus efectos. Retornar 1 si la frase aparece y el texto subsiguiente contiene al menos una referencia a que la dispensa debe ser por escrito o que una prórroga no sirve para incumplimientos futuros. Retornar 0 si la frase está ausente o el texto subsiguiente es irrelevante.\"\n    },\n    \"num_subincisos_limitacion_dispensas\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de subincisos (a, b, etc.) listados bajo la cláusula 'Limitación de Dispensas'.\",\n      \"importance\": 8,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Contar el número de marcadores de subinciso (como 'a)', 'b)', 'c)', etc.) que aparecen en el párrafo que sigue inmediatamente a la frase 'Limitación de Dispensas:'. Si la frase no existe, retornar 0. Retornar un entero entre 0 y 3.\"\n    },\n    \"definicion_dia_calendario\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la definición de 'día' se establece explícitamente como 'día calendario' (vs. 'día corrido' o ausencia).\",\n      \"importance\": 7,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase exacta 'día calendario' dentro del contexto de la definición de 'día' (generalmente en el primer punto). Retornar 1 si aparece 'día calendario'. Retornar 0 si aparece 'día corrido' o si la definición de 'día' está ausente o es ambigua.\"\n    },\n    \"clausula_separabilidad_presente\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si está presente la cláusula de separabilidad (validez de provisiones restantes si una es inválida).\",\n      \"importance\": 6,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar texto que exprese el concepto de que si una parte del contrato es inválida, el resto sigue vigente. Frases clave: 'prohibida o resultase inválida o inejecutable', 'no afectará la validez o el cumplimiento de las otras provisiones'. Retornar 1 si se detecta este concepto semánticamente. Retornar 0 si está ausente.\"\n    },\n    \"num_clausulas_principales\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de cláusulas o puntos principales numerados (1., 2., 3.) en la sección.\",\n      \"importance\": 5,\n      \"extraction_method\": \"structural\",\n      \"extraction_hint\": \"Contar el número de marcadores de punto principal que sean dígitos seguidos de punto (ej: '1.', '2.', '3.') al inicio de una línea o párrafo. Ignorar subincisos con letras. Retornar un entero entre 0 y 5.\"\n    },\n    \"menciona_contrato_con_mayuscula\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si la palabra 'Contrato' aparece escrita con mayúscula inicial en contextos normativos clave.\",\n      \"importance\": 4,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"En los párrafos de las cláusulas principales (después de '1.', '2.', '3.'), buscar la palabra 'Contrato' (con 'C' mayúscula). Retornar 1 si aparece al menos una vez. Retornar 0 si solo aparece 'contrato' (con 'c' minúscula) o no aparece la palabra.\"\n    }\n  },\n  \"justification\": \"El cluster dominante (0_4_7_10_12_13_14_15_16) contiene tres cláusulas principales completas: definición de términos, separabilidad y limitación de dispensas (con subincisos a y b). La anomalía más crítica es la omisión total de 'Limitación de Dispensas' (Cluster 1), que debilita controles sobre modificaciones informales del contrato. La definición de 'día' como 'calendario' (estándar) vs. 'corrido' (Cluster 1) tiene implicaciones en plazos. La cláusula de separabilidad es fundamental y su ausencia sería grave. La cantidad de cláusulas principales y subincisos mide integridad estructural. El uso de 'Contrato' con mayúscula es la forma estándar en los clusters dominantes, mientras que 'contrato' en minúscula aparece en clusters minoritarios y podría indicar una plantilla menos formal.\",\n  \"cluster_values\": {\n    \"contiene_limitacion_dispensas\": {\n      \"cluster_0_4_7_10_12_13_14_15_16\": 1,\n      \"cluster_5_6_8_9_17_18\": 1,\n      \"cluster_1\": 0,\n      \"cluster_3_11\": 1,\n      \"cluster_2\": 1,\n      \"cluster_19\": 1\n    },\n    \"num_subincisos_limitacion_dispensas\": {\n      \"cluster_0_4_7_10_12_13_14_15_16\": 2,\n      \"cluster_5_6_8_9_17_18\": 2,\n      \"cluster_1\": 0,\n      \"cluster_3_11\": 2,\n      \"cluster_2\": 2,\n      \"cluster_19\": 2\n    },\n    \"definicion_dia_calendario\": {\n      \"cluster_0_4_7_10_12_13_14_15_16\": 1,\n      \"cluster_5_6_8_9_17_18\": 1,\n      \"cluster_1\": 0,\n      \"cluster_3_11\": 1,\n      \"cluster_2\": 1,\n      \"cluster_19\": 1\n    },\n    \"clausula_separabilidad_presente\": {\n      \"cluster_0_4_7_10_12_13_14_15_16\": 1,\n      \"cluster_5_6_8_9_17_18\": 1,\n      \"cluster_1\": 1,\n      \"cluster_3_11\": 1,\n      \"cluster_2\": 1,\n      \"cluster_19\": 1\n    },\n    \"num_clausulas_principales\": {\n      \"cluster_0_4_7_10_12_13_14_15_16\": 3,\n      \"cluster_5_6_8_9_17_18\": 3,\n      \"cluster_1\": 2,\n      \"cluster_3_11\": 3,\n      \"cluster_2\": 3,\n      \"cluster_19\": 3\n    },\n    \"menciona_contrato_con_mayuscula\": {\n      \"cluster_0_4_7_10_12_13_14_15_16\": 1,\n      \"cluster_5_6_8_9_17_18\": 0,\n      \"cluster_1\": 0,\n      \"cluster_3_11\": 0,\n      \"cluster_2\": 0,\n      \"cluster_19\": 0\n    }\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "contiene_limitacion_dispensas": {
+        "type": "binary",
+        "description": "Indica si la sección incluye la cláusula 'Limitación de Dispensas' con sus subincisos a y b.",
+        "importance": 10,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'Limitación de Dispensas:' seguida de texto que describa los requisitos de la dispensa y sus efectos. Retornar 1 si la frase aparece y el texto subsiguiente contiene al menos una referencia a que la dispensa debe ser por escrito o que una prórroga no sirve para incumplimientos futuros. Retornar 0 si la frase está ausente o el texto subsiguiente es irrelevante."
+      },
+      "num_subincisos_limitacion_dispensas": {
+        "type": "numeric",
+        "description": "Cantidad de subincisos (a, b, etc.) listados bajo la cláusula 'Limitación de Dispensas'.",
+        "importance": 8,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de marcadores de subinciso (como 'a)', 'b)', 'c)', etc.) que aparecen en el párrafo que sigue inmediatamente a la frase 'Limitación de Dispensas:'. Si la frase no existe, retornar 0. Retornar un entero entre 0 y 3."
+      },
+      "definicion_dia_calendario": {
+        "type": "binary",
+        "description": "Indica si la definición de 'día' se establece explícitamente como 'día calendario' (vs. 'día corrido' o ausencia).",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase exacta 'día calendario' dentro del contexto de la definición de 'día' (generalmente en el primer punto). Retornar 1 si aparece 'día calendario'. Retornar 0 si aparece 'día corrido' o si la definición de 'día' está ausente o es ambigua."
+      },
+      "clausula_separabilidad_presente": {
+        "type": "binary",
+        "description": "Indica si está presente la cláusula de separabilidad (validez de provisiones restantes si una es inválida).",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar texto que exprese el concepto de que si una parte del contrato es inválida, el resto sigue vigente. Frases clave: 'prohibida o resultase inválida o inejecutable', 'no afectará la validez o el cumplimiento de las otras provisiones'. Retornar 1 si se detecta este concepto semánticamente. Retornar 0 si está ausente."
+      },
+      "num_clausulas_principales": {
+        "type": "numeric",
+        "description": "Cantidad de cláusulas o puntos principales numerados (1., 2., 3.) en la sección.",
+        "importance": 5,
+        "extraction_method": "structural",
+        "extraction_hint": "Contar el número de marcadores de punto principal que sean dígitos seguidos de punto (ej: '1.', '2.', '3.') al inicio de una línea o párrafo. Ignorar subincisos con letras. Retornar un entero entre 0 y 5."
+      },
+      "menciona_contrato_con_mayuscula": {
+        "type": "binary",
+        "description": "Indica si la palabra 'Contrato' aparece escrita con mayúscula inicial en contextos normativos clave.",
+        "importance": 4,
+        "extraction_method": "literal",
+        "extraction_hint": "En los párrafos de las cláusulas principales (después de '1.', '2.', '3.'), buscar la palabra 'Contrato' (con 'C' mayúscula). Retornar 1 si aparece al menos una vez. Retornar 0 si solo aparece 'contrato' (con 'c' minúscula) o no aparece la palabra."
+      }
+    },
+    "justification": "El cluster dominante (0_4_7_10_12_13_14_15_16) contiene tres cláusulas principales completas: definición de términos, separabilidad y limitación de dispensas (con subincisos a y b). La anomalía más crítica es la omisión total de 'Limitación de Dispensas' (Cluster 1), que debilita controles sobre modificaciones informales del contrato. La definición de 'día' como 'calendario' (estándar) vs. 'corrido' (Cluster 1) tiene implicaciones en plazos. La cláusula de separabilidad es fundamental y su ausencia sería grave. La cantidad de cláusulas principales y subincisos mide integridad estructural. El uso de 'Contrato' con mayúscula es la forma estándar en los clusters dominantes, mientras que 'contrato' en minúscula aparece en clusters minoritarios y podría indicar una plantilla menos formal.",
+    "cluster_values": {
+      "contiene_limitacion_dispensas": {
+        "cluster_0_4_7_10_12_13_14_15_16": 1,
+        "cluster_5_6_8_9_17_18": 1,
+        "cluster_1": 0,
+        "cluster_3_11": 1,
+        "cluster_2": 1,
+        "cluster_19": 1
+      },
+      "num_subincisos_limitacion_dispensas": {
+        "cluster_0_4_7_10_12_13_14_15_16": 2,
+        "cluster_5_6_8_9_17_18": 2,
+        "cluster_1": 0,
+        "cluster_3_11": 2,
+        "cluster_2": 2,
+        "cluster_19": 2
+      },
+      "definicion_dia_calendario": {
+        "cluster_0_4_7_10_12_13_14_15_16": 1,
+        "cluster_5_6_8_9_17_18": 1,
+        "cluster_1": 0,
+        "cluster_3_11": 1,
+        "cluster_2": 1,
+        "cluster_19": 1
+      },
+      "clausula_separabilidad_presente": {
+        "cluster_0_4_7_10_12_13_14_15_16": 1,
+        "cluster_5_6_8_9_17_18": 1,
+        "cluster_1": 1,
+        "cluster_3_11": 1,
+        "cluster_2": 1,
+        "cluster_19": 1
+      },
+      "num_clausulas_principales": {
+        "cluster_0_4_7_10_12_13_14_15_16": 3,
+        "cluster_5_6_8_9_17_18": 3,
+        "cluster_1": 2,
+        "cluster_3_11": 3,
+        "cluster_2": 3,
+        "cluster_19": 3
+      },
+      "menciona_contrato_con_mayuscula": {
+        "cluster_0_4_7_10_12_13_14_15_16": 1,
+        "cluster_5_6_8_9_17_18": 0,
+        "cluster_1": 0,
+        "cluster_3_11": 0,
+        "cluster_2": 0,
+        "cluster_19": 0
+      }
+    }
+  }
+}

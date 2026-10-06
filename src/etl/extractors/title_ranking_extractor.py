@@ -90,15 +90,23 @@ class TitleRankingExtractor:
 
     def _get_relevant_columns(self) -> List[str]:
         """Return only column names needed by ranking strategies:
-        ``nro_licitacion``, ``category_id``, and ``has_*``/``len_*``/``tok_*``.
-        Excludes ``word_*``, ``count_*``, ``span_*``, ``page_range_*``,
-        and aggregates to avoid loading all 587 columns."""
+        ``nro_licitacion``, ``category_id``, and ``has_*``/``len_*``/``tok_*``/``word_*``.
+
+        v2.2: ahora incluye ``word_*`` (necesarias para Estrategia 7 — boilerplate
+        proxy via covarianza de word_count). Excludes ``count_*``, ``span_*``,
+        ``page_range_*`` y aggregates para no cargar todas las 587 columnas.
+        """
         with self._engine.connect() as conn:
             result = pd.read_sql(text(self.COLUMNS_QUERY), conn)
         all_cols: List[str] = result["column_name"].tolist()
         keep = {"nro_licitacion", "category_id"}
         for c in all_cols:
-            if c.startswith("has_") or c.startswith("len_") or c.startswith("tok_"):
+            if (
+                c.startswith("has_")
+                or c.startswith("len_")
+                or c.startswith("tok_")
+                or c.startswith("word_")
+            ):
                 keep.add(c)
         filtered = sorted(keep)
         self.logger.info(
@@ -106,6 +114,26 @@ class TitleRankingExtractor:
             len(filtered), len(all_cols),
         )
         return filtered
+
+    @error_handling(default_return=None)
+    def load_title_diagnostics(
+        self,
+        path: str = "data/processed/title_diagnostics/title_diagnostics.csv",
+    ) -> Optional[pd.DataFrame]:
+        """Load the per-title boilerplate + numeric diagnostics CSV produced
+        by ``scripts/compute_title_diagnostics.py``.
+
+        Returns a DataFrame indexed by ``title_normalized``.  Returns None if
+        the file does not exist (caller must handle by falling back to the
+        legacy 6-strategy ranking).
+        """
+        import os
+        if not os.path.exists(path):
+            self.logger.warning("Diagnostics CSV not found at %s — strategies 7/8 disabled.", path)
+            return None
+        df = pd.read_csv(path)
+        self.logger.info("Loaded diagnostics: %d titles x %d cols.", len(df), len(df.columns))
+        return df
 
     @error_handling(default_return=None)
     def sample_sections(

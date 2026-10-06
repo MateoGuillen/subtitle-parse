@@ -1,0 +1,807 @@
+{
+ "model": "ALIA legal 7B-Q8_0",
+ "score": 0,
+ "elapsed": 87.11897683143616,
+ "results": [
+  {
+   "nro": "461393",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "429420",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "417530",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "443132",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "434200",
+   "field": "dias_validez_garantia",
+   "gt": 365.0,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "401090",
+   "field": "dias_validez_garantia",
+   "gt": 365.0,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "408454",
+   "field": "dias_validez_garantia",
+   "gt": 365.0,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "420265",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "409512",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "447026",
+   "field": "dias_validez_garantia",
+   "gt": 365.0,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "465651",
+   "field": "dias_validez_garantia",
+   "gt": 365.0,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "381490",
+   "field": "dias_validez_garantia",
+   "gt": 182.0,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "428652",
+   "field": "dias_validez_garantia",
+   "gt": 365.0,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "432362",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "429463",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "462578",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "405727",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "463486",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "418182",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "419003",
+   "field": "dias_validez_garantia",
+   "gt": NaN,
+   "llm_value": -182,
+   "llm_raw": "-182",
+   "match": false
+  },
+  {
+   "nro": "439101",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "405271",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "428737",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "393056",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "475985",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7000000000000002,
+   "llm_raw": "-1.7000000000000001",
+   "match": false
+  },
+  {
+   "nro": "436413",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "402535",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "390561",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "439408",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7000000000000002,
+   "llm_raw": "-1.7000000000000001",
+   "match": false
+  },
+  {
+   "nro": "429213",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": 70.0,
+   "llm_value": -1.7000000000000002,
+   "llm_raw": "-1.7000000000000001",
+   "match": false
+  },
+  {
+   "nro": "447765",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -100.0,
+   "llm_raw": "-100.00",
+   "match": false
+  },
+  {
+   "nro": "459098",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7000000000000002,
+   "llm_raw": "-1.7000000000000001000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "466975",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.7000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "453041",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -100.0,
+   "llm_raw": "-100.00",
+   "match": false
+  },
+  {
+   "nro": "432452",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "426498",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "419672",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "455341",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "417616",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "428832",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": NaN,
+   "llm_value": -1.7,
+   "llm_raw": "-1.70",
+   "match": false
+  },
+  {
+   "nro": "436405",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.0,
+   "llm_raw": "-1.0000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "445230",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.5,
+   "llm_raw": "-1.50",
+   "match": false
+  },
+  {
+   "nro": "460214",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.202,
+   "llm_raw": "-1.2020",
+   "match": false
+  },
+  {
+   "nro": "400243",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.5,
+   "llm_raw": "-1.50",
+   "match": false
+  },
+  {
+   "nro": "426699",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.0,
+   "llm_raw": "-1.0000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "461484",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.5,
+   "llm_raw": "-1.50",
+   "match": false
+  },
+  {
+   "nro": "445822",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "391189",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.0,
+   "llm_raw": "-1.0000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "407940",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.5,
+   "llm_raw": "-1.50",
+   "match": false
+  },
+  {
+   "nro": "433528",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.0,
+   "llm_raw": "-1.0000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "444948",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": 3.0,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "421827",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.5,
+   "llm_raw": "-1.50",
+   "match": false
+  },
+  {
+   "nro": "408734",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.202,
+   "llm_raw": "-1.2020",
+   "match": false
+  },
+  {
+   "nro": "460921",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.0,
+   "llm_raw": "-1.0000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "450043",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "401180",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.5,
+   "llm_raw": "-1.50",
+   "match": false
+  },
+  {
+   "nro": "429540",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.0,
+   "llm_raw": "-1.0000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "476355",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.202,
+   "llm_raw": "-1.2020",
+   "match": false
+  },
+  {
+   "nro": "443306",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "460696",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": NaN,
+   "llm_value": -1.6,
+   "llm_raw": "-1.6000000000000001",
+   "match": false
+  },
+  {
+   "nro": "467193",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "457788",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "407736",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "432017",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.5,
+   "llm_raw": "-1.5000000000000001",
+   "match": false
+  },
+  {
+   "nro": "455164",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "415555",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "405774",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "441268",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "474563",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "393442",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "426592",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "445416",
+   "field": "dias_pago_anticipo",
+   "gt": 15.0,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "432669",
+   "field": "dias_pago_anticipo",
+   "gt": 10.0,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "426072",
+   "field": "dias_pago_anticipo",
+   "gt": 30.0,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "464702",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "403427",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "475079",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "392981",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "435074",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "438773",
+   "field": "dias_pago_anticipo",
+   "gt": NaN,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "443693",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "405098",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.0,
+   "llm_raw": "-1.0000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "440778",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "475080",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "410377",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "441072",
+   "field": "dias_solicitud_anticipo",
+   "gt": 5.0,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "425873",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "467121",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "432279",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "466372",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "433600",
+   "field": "dias_solicitud_anticipo",
+   "gt": 10.0,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "416927",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "472560",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "460724",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "420039",
+   "field": "dias_solicitud_anticipo",
+   "gt": 10.0,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "461292",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "417029",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "470338",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "441033",
+   "field": "dias_solicitud_anticipo",
+   "gt": 3.0,
+   "llm_value": -100000000000000003502199685943161173046080317798311825604870144,
+   "llm_raw": "-100000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  },
+  {
+   "nro": "474107",
+   "field": "dias_solicitud_anticipo",
+   "gt": NaN,
+   "llm_value": -1.1,
+   "llm_raw": "-1.1000000000000000000000000000000000000000000000000000000000000",
+   "match": false
+  }
+ ]
+}

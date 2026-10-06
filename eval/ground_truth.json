@@ -1,0 +1,552 @@
+{
+  "Fraude Y Corrupcion||395227": {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "395227",
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 4,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "n_models": 1
+  },
+  "Fraude Y Corrupcion||387967": {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "387967",
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 4,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "n_models": 1
+  },
+  "Fraude Y Corrupcion||396415": {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "396415",
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 4,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "n_models": 1
+  },
+  "Fraude Y Corrupcion||399672": {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "399672",
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 5,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "n_models": 1
+  },
+  "Fraude Y Corrupcion||401885": {
+    "title": "Fraude Y Corrupcion",
+    "nro_licitacion": "401885",
+    "values": {
+      "contiene_denuncia_penal": 1,
+      "menciona_dncp": 1,
+      "acciones_con_conector_y_o": 1,
+      "num_acciones_especificadas": 4,
+      "num_tipos_actos_fraude": 4,
+      "contiene_lista_actos": 1,
+      "texto_vacio_o_muy_reducido": 0
+    },
+    "n_models": 1
+  },
+  "Confidencialidad De La Informacion||403005": {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "403005",
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 1,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "n_models": 1
+  },
+  "Confidencialidad De La Informacion||395392": {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "395392",
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 1,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "n_models": 1
+  },
+  "Confidencialidad De La Informacion||400249": {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "400249",
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 1,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "n_models": 1
+  },
+  "Confidencialidad De La Informacion||396159": {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "396159",
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 1,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "n_models": 1
+  },
+  "Confidencialidad De La Informacion||391475": {
+    "title": "Confidencialidad De La Informacion",
+    "nro_licitacion": "391475",
+    "values": {
+      "menciona_ley_7021": 0,
+      "menciona_ley_5282": 0,
+      "contiene_instruccion_reserva_aclaraciones": 0,
+      "detalla_excepciones_confidencialidad": 0,
+      "menciona_procedimiento_dos_sobres": 1,
+      "num_clausulas_principales": 3,
+      "menciona_compromiso_subcontratistas": 1
+    },
+    "n_models": 1
+  },
+  "Fuerza Mayor||376965": {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "376965",
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 0,
+      "contiene_exclusion_dificultad": 0,
+      "contiene_requisito_nexo": 0,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 0
+    },
+    "n_models": 1
+  },
+  "Fuerza Mayor||418348": {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "418348",
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 1,
+      "contiene_exclusion_dificultad": 1,
+      "contiene_requisito_nexo": 1,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 1
+    },
+    "n_models": 1
+  },
+  "Fuerza Mayor||395507": {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "395507",
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 0,
+      "contiene_exclusion_dificultad": 0,
+      "contiene_requisito_nexo": 0,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 0
+    },
+    "n_models": 1
+  },
+  "Fuerza Mayor||400576": {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "400576",
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 1,
+      "contiene_exclusion_dificultad": 1,
+      "contiene_requisito_nexo": 1,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 1
+    },
+    "n_models": 1
+  },
+  "Fuerza Mayor||401115": {
+    "title": "Fuerza Mayor",
+    "nro_licitacion": "401115",
+    "values": {
+      "contiene_plazo_notificacion": 1,
+      "contiene_excepcion_plazo": 1,
+      "contiene_exclusion_dificultad": 1,
+      "contiene_requisito_nexo": 1,
+      "contiene_ampliacion_plazo": 0,
+      "contiene_exclusion_previsibilidad": 1,
+      "num_eventos_ejemplo": 6,
+      "contiene_limite_afectacion": 1
+    },
+    "n_models": 1
+  },
+  "Aclaracion De Las Ofertas||400322": {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "400322",
+    "values": {
+      "solicitud_obligatoria": 1,
+      "menciona_cpen": 0,
+      "menciona_formulario_anexo": 0,
+      "menciona_facilitar_proceso": 1,
+      "num_verbos_facultad": 1,
+      "num_restricciones_modificacion": 2,
+      "excepcion_errores_aritmeticos": 1,
+      "menciona_fuente_externa": 1
+    },
+    "n_models": 1
+  },
+  "Aclaracion De Las Ofertas||420308": {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "420308",
+    "values": {
+      "solicitud_obligatoria": 1,
+      "menciona_cpen": 0,
+      "menciona_formulario_anexo": 0,
+      "menciona_facilitar_proceso": 1,
+      "num_verbos_facultad": 1,
+      "num_restricciones_modificacion": 2,
+      "excepcion_errores_aritmeticos": 1,
+      "menciona_fuente_externa": 1
+    },
+    "n_models": 1
+  },
+  "Aclaracion De Las Ofertas||401398": {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "401398",
+    "values": {
+      "solicitud_obligatoria": 1,
+      "menciona_cpen": 0,
+      "menciona_formulario_anexo": 0,
+      "menciona_facilitar_proceso": 1,
+      "num_verbos_facultad": 1,
+      "num_restricciones_modificacion": 2,
+      "excepcion_errores_aritmeticos": 1,
+      "menciona_fuente_externa": 1
+    },
+    "n_models": 1
+  },
+  "Aclaracion De Las Ofertas||393243": {
+    "title": "Aclaracion De Las Ofertas",
+    "nro_licitacion": "393243",
+    "values": {
+      "solicitud_obligatoria": 1,
+      "menciona_cpen": 0,
+      "menciona_formulario_anexo": 0,
+      "menciona_facilitar_proceso": 1,
+      "num_verbos_facultad": 1,
+      "num_restricciones_modificacion": 2,
+      "excepcion_errores_aritmeticos": 1,
+      "menciona_fuente_externa": 1
+    },
+    "n_models": 1
+  },
+  "Interpretacion||400970": {
+    "title": "Interpretacion",
+    "nro_licitacion": "400970",
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 1
+    },
+    "n_models": 1
+  },
+  "Interpretacion||398266": {
+    "title": "Interpretacion",
+    "nro_licitacion": "398266",
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 0
+    },
+    "n_models": 1
+  },
+  "Interpretacion||397154": {
+    "title": "Interpretacion",
+    "nro_licitacion": "397154",
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 0
+    },
+    "n_models": 1
+  },
+  "Interpretacion||388072": {
+    "title": "Interpretacion",
+    "nro_licitacion": "388072",
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 1
+    },
+    "n_models": 1
+  },
+  "Interpretacion||399105": {
+    "title": "Interpretacion",
+    "nro_licitacion": "399105",
+    "values": {
+      "contiene_limitacion_dispensas": 1,
+      "num_subincisos_limitacion_dispensas": 2,
+      "definicion_dia_calendario": 1,
+      "clausula_separabilidad_presente": 1,
+      "num_clausulas_principales": 3,
+      "menciona_contrato_con_mayuscula": 0
+    },
+    "n_models": 1
+  },
+  "Formato Y Firma De La Oferta||402276": {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "402276",
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 4,
+      "contiene_enlaces_externos": 0
+    },
+    "n_models": 1
+  },
+  "Formato Y Firma De La Oferta||404097": {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "404097",
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 4,
+      "contiene_enlaces_externos": 0
+    },
+    "n_models": 1
+  },
+  "Formato Y Firma De La Oferta||393439": {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "393439",
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 3,
+      "contiene_enlaces_externos": 0
+    },
+    "n_models": 1
+  },
+  "Formato Y Firma De La Oferta||395795": {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "395795",
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 4,
+      "contiene_enlaces_externos": 0
+    },
+    "n_models": 1
+  },
+  "Formato Y Firma De La Oferta||402440": {
+    "title": "Formato Y Firma De La Oferta",
+    "nro_licitacion": "402440",
+    "values": {
+      "menciona_lista_precios": 1,
+      "menciona_firma_fisica": 1,
+      "menciona_firma_electronica": 1,
+      "contiene_clausula_textos_entre_lineas": 1,
+      "contiene_clausula_foliatura": 1,
+      "contiene_clausula_garantia_dj": 0,
+      "num_incisos_normativos": 4,
+      "contiene_enlaces_externos": 0
+    },
+    "n_models": 1
+  },
+  "Impuestos Y Derechos||400687": {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "400687",
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "n_models": 1
+  },
+  "Impuestos Y Derechos||396969": {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "396969",
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "n_models": 1
+  },
+  "Impuestos Y Derechos||395957": {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "395957",
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "n_models": 1
+  },
+  "Impuestos Y Derechos||400406": {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "400406",
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "n_models": 1
+  },
+  "Impuestos Y Derechos||390842": {
+    "title": "Impuestos Y Derechos",
+    "nro_licitacion": "390842",
+    "values": {
+      "contiene_excepcion_impuestos": 1,
+      "texto_excepcion_especifica": 1,
+      "menciona_bienes_extranjeros": 1,
+      "menciona_bienes_nacionales": 1,
+      "num_tipos_impuestos_listados": 3,
+      "menciona_cargos_fuera_paraguay": 1,
+      "texto_vacio_o_incompleto": 0
+    },
+    "n_models": 1
+  },
+  "Derechos Intelectuales||391819": {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "391819",
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 0,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 143
+    },
+    "n_models": 1
+  },
+  "Derechos Intelectuales||389959": {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "389959",
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 1,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 163
+    },
+    "n_models": 1
+  },
+  "Derechos Intelectuales||392019": {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "392019",
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 1,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 163
+    },
+    "n_models": 1
+  },
+  "Derechos Intelectuales||404187": {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "404187",
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 1,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 133
+    },
+    "n_models": 1
+  },
+  "Derechos Intelectuales||390470": {
+    "title": "Derechos Intelectuales",
+    "nro_licitacion": "390470",
+    "values": {
+      "contiene_clausula_indemnizacion": 1,
+      "contiene_exclusiones_indemnizacion": 1,
+      "contiene_terceros_propiedad_intelectual": 0,
+      "num_escenarios_causales_indemnizacion": 2,
+      "contiene_referencia_contrato_mayusculas": 1,
+      "longitud_seccion_palabras": 115
+    },
+    "n_models": 1
+  }
+}

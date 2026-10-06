@@ -1,0 +1,1321 @@
+nro_licitacion,campo,title_slug,db_value,text,prompt,llm_raw,llm_value,ground_truth,nota
+408277,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""No Aplica","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""No Aplica""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+469309,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Las deducciones al flujo de
+fondos exigidos por
+compromisos derivados de
+otros contratos solo se harán
+cuando dichos contratos se
+encuentren en ejecución.
+Este mínimo de activos
+líquidos que constituirá el
+capital operativo, debe ser el
+resultado de la diferencia
+entre el Activo Corriente
+menos el Pasivo Corriente.
+Puede ser complementado
+con líneas de crédito
+otorgadas por entidades
+financieras.
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito
+Debe
+cumplir
+por lo
+menos
+con el
+40% del
+requisito
+mínimo
+Debe
+cumplir
+por lo
+menos
+con el
+60% del
+requisito
+mínimo
+Completar el
+formulario
+Situación
+""Financiera"""""""", y""
+presentar los
+documentos
+probatorios que
+se indiquen en el
+pliego de bases y
+""condiciones.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Las deducciones al flujo de
+fondos exigidos por
+compromisos derivados de
+otros contratos solo se harán
+cuando dichos contratos se
+encuentren en ejecución.
+Este mínimo de activos
+líquidos que constituirá el
+capital operativo, debe ser el
+resultado de la diferencia
+entre el Activo Corriente
+menos el Pasivo Corriente.
+Puede ser complementado
+con líneas de crédito
+otorgadas por entidades
+financieras.
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito
+Debe
+cumplir
+por lo
+menos
+con el
+40% del
+requisito
+mínimo
+Debe
+cumplir
+por lo
+menos
+con el
+60% del
+requisito
+mínimo
+Completar el
+formulario
+Situación
+""Financiera"""""""", y""
+presentar los
+documentos
+probatorios que
+se indiquen en el
+pliego de bases y
+""condiciones.""",0.4,0.4,,No se encontro un ratio de endeudamiento/solvencia (Pasivo/Activo) valido en el texto. GT=NULL.
+462973,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+425421,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: Coeficiente mínimo: 2,5 (dos coma cinco) al 30 de Junio de 2022
+""2. Calificación de la aseguradora: """"""""A"""""""" a partir del 30 de junio de 2022, publicado por la Superintendencia de Seguros del""
+Banco Central del Paraguay. Adjuntar copia de los indicadores financieros y calificación de riesgos
+3. Patrimonio propio no comprometido: igual o mayor a Gs. 40.000.000.000.- cuarenta mil millones de guaraníes al 30 de
+junio de 2022.
+4. Fondo de garantía: Igual o superior a Gs. 28.000.000.000.- veintiocho mil millones de guaraníes al 30 de junio de 2022.
+5. Cantidad de reaseguradores: Mínimo 2 (dos)
+6. Calificación de Reaseguradores: A (Standard Poor's) y/o equivalentes en otras calificadoras internacionales.
+7. Disponibilidades:
+Al 30/06/2020: Gs. 18.000.000.000.- (Guaraníes, diez y ocho mil millones)
+Al 30/06/2021: Gs. 21.000.000.000.- (Guaraníes, veintiun mil millones)
+Al 30/06/2022: Gs. 24.000.000.000.- (Guaraníes, veinticuatro mil millones).
+8. Capital Social:
+Al 30/06/2020: Gs. 40.000.000.000.- (Guaraníes, cuarenta mil millones)
+Al 30/06/2021: Gs. 45.000.000.000.- (Guaraníes, cuarenta y cinco mil millones)
+Al 30/06/2022: Gs. 50.000.000.000.- (Guaraníes, cincuenta mil millones).
+Oferentes en Coaseguro: En caso que la oferta fuera presentada en coaseguro, todas las condiciones citadas en el punto de
+la Capacidad Financiera, será exigida solo a la aseguradora que emita la póliza y sea la responsable del
+coaseguro (compañía piloto).- Se recuerda que todos los requerimientos para la evaluación deberán estar vigentes a
+la fecha de la apertura de ofertas.
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la
+""inscripción de la reaseguradora ante el órgano rector para el punto 6.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: Coeficiente mínimo: 2,5 (dos coma cinco) al 30 de Junio de 2022
+""2. Calificación de la aseguradora: """"""""A"""""""" a partir del 30 de junio de 2022, publicado por la Superintendencia de Seguros del""
+Banco Central del Paraguay. Adjuntar copia de los indicadores financieros y calificación de riesgos
+3. Patrimonio propio no comprometido: igual o mayor a Gs. 40.000.000.000.- cuarenta mil millones de guaraníes al 30 de
+junio de 2022.
+4. Fondo de garantía: Igual o superior a Gs. 28.000.000.000.- veintiocho mil millones de guaraníes al 30 de junio de 2022.
+5. Cantidad de reaseguradores: Mínimo 2 (dos)
+6. Calificación de Reaseguradores: A (Standard Poor's) y/o equivalentes en otras calificadoras internacionales.
+7. Disponibilidades:
+Al 30/06/2020: Gs. 18.000.000.000.- (Guaraníes, diez y ocho mil millones)
+Al 30/06/2021: Gs. 21.000.000.000.- (Guaraníes, veintiun mil millones)
+Al 30/06/2022: Gs. 24.000.000.000.- (Guaraníes, veinticuatro mil millones).
+8. Capital Social:
+Al 30/06/2020: Gs. 40.000.000.000.- (Guaraníes, cuarenta mil millones)
+Al 30/06/2021: Gs. 45.000.000.000.- (Guaraníes, cuarenta y cinco mil millones)
+Al 30/06/2022: Gs. 50.000.000.000.- (Guaraníes, cincuenta mil millones).
+Oferentes en Coaseguro: En caso que la oferta fuera presentada en coaseguro, todas las condiciones citadas en el punto de
+la Capacidad Financiera, será exigida solo a la aseguradora que emita la póliza y sea la responsable del
+coaseguro (compañía piloto).- Se recuerda que todos los requerimientos para la evaluación deberán estar vigentes a
+la fecha de la apertura de ofertas.
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la
+""inscripción de la reaseguradora ante el órgano rector para el punto 6.""",0.0,0.0,,"El pliego menciona ""solvencia"" pero en el contexto de un COEFICIENTE DE SOLVENCIA DE LA ASEGURADORA (un requisito regulatorio de compañias de seguros, definido por la Superintendencia de Seguros), NO el ratio de endeudamiento (Pasivo/Activo) del oferente que pide este campo. Son dos metricas financieras distintas que comparten la palabra ""solvencia"" en pliegos de seguros; se excluyo para evitar una falsa extraccion. GT=NULL."
+437274,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+434788,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+417902,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""(NO APLICA)","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""(NO APLICA)""",0.01,0.01,,No se encontro un ratio de endeudamiento/solvencia (Pasivo/Activo) valido en el texto. GT=NULL.
+461646,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: No podrá ser inferior al mínimo requerido a las compañías aseguradoras, por la Superintendencia
+de Seguros, es decir, uno (1)
+2. Calificación de la aseguradora: No podrá ser inferior a BBB o similar.
+3. Patrimonio propio no comprometido: Que cuenten con un patrimonio propio no comprometido al 30 de junio del último
+ejercicio fiscal fenecido, no menor a Gs. 1.000.000.000 (Guaraníes Mil millones).
+4. Fondo de garantía: 1.000.000.000 (Guaraníes Mil millones).
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la
+""inscripción de la reaseguradora ante el órgano rector para el punto 6.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: No podrá ser inferior al mínimo requerido a las compañías aseguradoras, por la Superintendencia
+de Seguros, es decir, uno (1)
+2. Calificación de la aseguradora: No podrá ser inferior a BBB o similar.
+3. Patrimonio propio no comprometido: Que cuenten con un patrimonio propio no comprometido al 30 de junio del último
+ejercicio fiscal fenecido, no menor a Gs. 1.000.000.000 (Guaraníes Mil millones).
+4. Fondo de garantía: 1.000.000.000 (Guaraníes Mil millones).
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la
+""inscripción de la reaseguradora ante el órgano rector para el punto 6.""",0.0,0.0,,"El pliego menciona ""solvencia"" pero en el contexto de un COEFICIENTE DE SOLVENCIA DE LA ASEGURADORA (un requisito regulatorio de compañias de seguros, definido por la Superintendencia de Seguros), NO el ratio de endeudamiento (Pasivo/Activo) del oferente que pide este campo. Son dos metricas financieras distintas que comparten la palabra ""solvencia"" en pliegos de seguros; se excluyo para evitar una falsa extraccion. GT=NULL."
+403468,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+#�NOMBRE?
+El Promedio de los dos años deberá ser igual o mayor que 1.
+#�NOMBRE?
+El Promedio de los dos años no deberá ser mayor a 0,80
+- Rentabilidad: Utilidad después de impuestos o pérdida con respecto al Capital
+""El promedio de los dos años no deberá ser negativo","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+#�NOMBRE?
+El Promedio de los dos años deberá ser igual o mayor que 1.
+#�NOMBRE?
+El Promedio de los dos años no deberá ser mayor a 0,80
+- Rentabilidad: Utilidad después de impuestos o pérdida con respecto al Capital
+""El promedio de los dos años no deberá ser negativo""",0.8,0.8,,No se encontro un ratio de endeudamiento/solvencia (Pasivo/Activo) valido en el texto. GT=NULL.
+440228,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: igual o superior a 1.80 al 31 de diciembre de 2023.
+2. Calificación de la aseguradora: BBB+/- reportado en los tres (03) últimos ejercicios fiscales. No se admitirán las que
+posean calificación menor o que no cumplan con el requisito de tiempo de calificación.
+3. Patrimonio propio no comprometido: Gs. 20.000.000.0000 (Guaraníes veinte mil millones)
+""4. Fondo de garantía: Gs. 6.000.000.000 (Guaraníes seis mil millones)","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: igual o superior a 1.80 al 31 de diciembre de 2023.
+2. Calificación de la aseguradora: BBB+/- reportado en los tres (03) últimos ejercicios fiscales. No se admitirán las que
+posean calificación menor o que no cumplan con el requisito de tiempo de calificación.
+3. Patrimonio propio no comprometido: Gs. 20.000.000.0000 (Guaraníes veinte mil millones)
+""4. Fondo de garantía: Gs. 6.000.000.000 (Guaraníes seis mil millones)""",0.8,0.8,,"El pliego menciona ""solvencia"" pero en el contexto de un COEFICIENTE DE SOLVENCIA DE LA ASEGURADORA (un requisito regulatorio de compañias de seguros, definido por la Superintendencia de Seguros), NO el ratio de endeudamiento (Pasivo/Activo) del oferente que pide este campo. Son dos metricas financieras distintas que comparten la palabra ""solvencia"" en pliegos de seguros; se excluyo para evitar una falsa extraccion. GT=NULL."
+440031,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+423376,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""No aplica.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""No aplica.""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+464111,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+a. Ratio de Liquidez: activo corriente / pasivo corriente
+Deberá ser igual o mayor que 1, en promedio, en los 3 años siguientes: (2022; 2023 y 2024);;;
+b. Endeudamiento: pasivo total / activo total
+No deberá ser mayor a 0,80 en promedio, en los 3 años siguientes: (2022; 2023 y 2024);;;
+c. Rentabilidad: Porcentaje de utilidad después de impuestos o pérdida con respecto al Capital
+El promedio en estos 3 años, no deberá ser negativo (2022;"" 2023 y 2024)","Campo a extraer: Ratio de endeudamiento máximo permitido"";;;
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+a. Ratio de Liquidez: activo corriente / pasivo corriente
+Deberá ser igual o mayor que 1, en promedio, en los 3 años siguientes: (2022; 2023 y 2024);;;
+b. Endeudamiento: pasivo total / activo total
+No deberá ser mayor a 0,80 en promedio, en los 3 años siguientes: (2022; 2023 y 2024);;;
+c. Rentabilidad: Porcentaje de utilidad después de impuestos o pérdida con respecto al Capital
+El promedio en estos 3 años, no deberá ser negativo (2022;"" 2023 y 2024)"""",0.8,0.8,,",;;;,,0.8,"Extraido de la clausula ""Endeudamiento"": valor = 0.8."
+403163,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA.-","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA.-""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+449103,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA.-","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA.-""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+469277,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: COEFICIENTE MÍNIMO DE 1, al 31/06/2024
+2. Calificación de la aseguradora: NO PODRÁ SER INFERIOR A BBB O SIMILAR.
+3. Patrimonio propio no comprometido: IGUAL O MAYOR A GS. 3.000.000.000 (GUARANÍES TRES MIL MILLONES).
+4. Fondo de garantía: IGUAL O MAYOR A GS. 2.000.000.000 (GUARANÍES DOS MIL MILLONES).
+5. Cantidad de reaseguradores: NO APLICA.
+6. Calificación de Reaseguradores: NO APLICA.
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la inscripción de la reaseguradora ante el órgano
+""rector para el punto 6.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: COEFICIENTE MÍNIMO DE 1, al 31/06/2024
+2. Calificación de la aseguradora: NO PODRÁ SER INFERIOR A BBB O SIMILAR.
+3. Patrimonio propio no comprometido: IGUAL O MAYOR A GS. 3.000.000.000 (GUARANÍES TRES MIL MILLONES).
+4. Fondo de garantía: IGUAL O MAYOR A GS. 2.000.000.000 (GUARANÍES DOS MIL MILLONES).
+5. Cantidad de reaseguradores: NO APLICA.
+6. Calificación de Reaseguradores: NO APLICA.
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la inscripción de la reaseguradora ante el órgano
+""rector para el punto 6.""",0.0,0.0,,"El pliego menciona ""solvencia"" pero en el contexto de un COEFICIENTE DE SOLVENCIA DE LA ASEGURADORA (un requisito regulatorio de compañias de seguros, definido por la Superintendencia de Seguros), NO el ratio de endeudamiento (Pasivo/Activo) del oferente que pide este campo. Son dos metricas financieras distintas que comparten la palabra ""solvencia"" en pliegos de seguros; se excluyo para evitar una falsa extraccion. GT=NULL."
+432017,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+475084,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+396016,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""NO APLICA""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.
+463117,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Contribuyente de IRE GENERAL.
+Deberán cumplir con el siguiente parámetro:
+Ratio de Liquidez (activo corriente / pasivo corriente): Deberá ser igual o mayor que 1 en promedio, en los años 2021,
+2022 y 2023.
+Endeudamiento (pasivo total / activo total): No deberá ser mayor a 0,80 en promedio, de los años 2021, 2022 y 2023.
+Rentabilidad: Porcentaje de utilidad después de impuestos o pérdida no deberá ser negativo en promedio de los
+años 2021, 2022 y 2023.
+Capital Operativo (activo corriente pasivo corriente): El oferente, deberá poseer un capital positivo y no inferior al 15
+% (quince por ciento) del monto total de la oferta (en caso de contrato abierto por monto mínimo y monto máximo,
+deberá ser por el monto máximo del llamado ), lo cual será corroborado por medio del Balance General del último
+año (2023) pudiendo completar dicho porcentaje con la presentación de certificado de una entidad financiera
+calificada que demuestre la disponibilidad de línea de crédito suficiente para justificar el porcentaje mencionado
+Contribuyentes de IRE SIMPLE
+Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso): Deberá ser igual o mayor que 1 el promedio, de los ejercicios fiscales requeridos, 2021, 2022 y
+2023.
+Para contribuyentes de IRP
+Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso).
+Deberá ser igual o mayor que 1, el promedio, de los 3 (tres) últimos años (2021, 2022 y 2023)
+Para contribuyentes de exclusivamente IVA General
+Eficiencia: (Ingreso/Egreso).
+Deberá ser igual o mayor que 1, el promedio, de los 3 (tres) últimos años (2021, 2022 y 2023)
+Oferente en consorcio:
+Requisitos Mínimos Socio
+Líder
+Cada
+Socio
+Todas las
+partes
+Combinadas
+Ratio de Liquidez (activo corriente / pasivo corriente) :
+Deberá ser igual o mayor que 1 en promedio, en los años
+2021, 2022 y 2023.
+Debe
+cumplir
+con el
+Requisito
+Debe
+cumplir
+con el
+Requisito
+No Aplica
+Endeudamiento (pasivo total / activo total) : No deberá ser
+mayor a 0,80 en promedio, de los años 2021, 2022 y 2023.
+Debe
+cumplir
+con el
+Requisito
+Debe
+cumplir
+con el
+Requisito
+No Aplica
+Rentabilidad: Porcentaje de utilidad después de impuestos
+o pérdida no deberá ser negativo en promedio de los años
+2021, 2022 y 2023.
+Debe
+cumplir
+con el
+Requisito
+Debe
+cumplir
+con el
+Requisito
+No Aplica
+Capital Operativo (activo corriente pasivo corriente) : El
+oferente, deberá poseer un capital positivo y no inferior al
+15 % (quince por ciento) del monto total de la oferta (en
+caso de contrato abierto por monto mínimo y monto
+máximo, deberá ser por el monto máximo del llamado ), lo
+cual será corroborado por medio del Balance General del
+último año (2023) pudiendo completar dicho porcentaje
+con la presentación de certificado de una entidad
+financiera calificada que demuestre la disponibilidad de
+línea de crédito suficiente para justificar el porcentaje
+mencionado.
+40%
+como
+mínimo
+del
+porcentaje
+solicitado
+10%
+como
+mínimo
+del
+porcentaje
+solicitado
+El consorcio
+en su
+conjunto
+deberá
+cumplir con
+el 100 % del
+porcentaje
+""solicitado.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Contribuyente de IRE GENERAL.
+Deberán cumplir con el siguiente parámetro:
+Ratio de Liquidez (activo corriente / pasivo corriente): Deberá ser igual o mayor que 1 en promedio, en los años 2021,
+2022 y 2023.
+Endeudamiento (pasivo total / activo total): No deberá ser mayor a 0,80 en promedio, de los años 2021, 2022 y 2023.
+Rentabilidad: Porcentaje de utilidad después de impuestos o pérdida no deberá ser negativo en promedio de los
+años 2021, 2022 y 2023.
+Capital Operativo (activo corriente pasivo corriente): El oferente, deberá poseer un capital positivo y no inferior al 15
+% (quince por ciento) del monto total de la oferta (en caso de contrato abierto por monto mínimo y monto máximo,
+deberá ser por el monto máximo del llamado ), lo cual será corroborado por medio del Balance General del último
+año (2023) pudiendo completar dicho porcentaje con la presentación de certificado de una entidad financiera
+calificada que demuestre la disponibilidad de línea de crédito suficiente para justificar el porcentaje mencionado
+Contribuyentes de IRE SIMPLE
+Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso): Deberá ser igual o mayor que 1 el promedio, de los ejercicios fiscales requeridos, 2021, 2022 y
+2023.
+Para contribuyentes de IRP
+Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso).
+Deberá ser igual o mayor que 1, el promedio, de los 3 (tres) últimos años (2021, 2022 y 2023)
+Para contribuyentes de exclusivamente IVA General
+Eficiencia: (Ingreso/Egreso).
+Deberá ser igual o mayor que 1, el promedio, de los 3 (tres) últimos años (2021, 2022 y 2023)
+Oferente en consorcio:
+Requisitos Mínimos Socio
+Líder
+Cada
+Socio
+Todas las
+partes
+Combinadas
+Ratio de Liquidez (activo corriente / pasivo corriente) :
+Deberá ser igual o mayor que 1 en promedio, en los años
+2021, 2022 y 2023.
+Debe
+cumplir
+con el
+Requisito
+Debe
+cumplir
+con el
+Requisito
+No Aplica
+Endeudamiento (pasivo total / activo total) : No deberá ser
+mayor a 0,80 en promedio, de los años 2021, 2022 y 2023.
+Debe
+cumplir
+con el
+Requisito
+Debe
+cumplir
+con el
+Requisito
+No Aplica
+Rentabilidad: Porcentaje de utilidad después de impuestos
+o pérdida no deberá ser negativo en promedio de los años
+2021, 2022 y 2023.
+Debe
+cumplir
+con el
+Requisito
+Debe
+cumplir
+con el
+Requisito
+No Aplica
+Capital Operativo (activo corriente pasivo corriente) : El
+oferente, deberá poseer un capital positivo y no inferior al
+15 % (quince por ciento) del monto total de la oferta (en
+caso de contrato abierto por monto mínimo y monto
+máximo, deberá ser por el monto máximo del llamado ), lo
+cual será corroborado por medio del Balance General del
+último año (2023) pudiendo completar dicho porcentaje
+con la presentación de certificado de una entidad
+financiera calificada que demuestre la disponibilidad de
+línea de crédito suficiente para justificar el porcentaje
+mencionado.
+40%
+como
+mínimo
+del
+porcentaje
+solicitado
+10%
+como
+mínimo
+del
+porcentaje
+solicitado
+El consorcio
+en su
+conjunto
+deberá
+cumplir con
+el 100 % del
+porcentaje
+""solicitado.""",0.8,0.8,,No se encontro un ratio de endeudamiento/solvencia (Pasivo/Activo) valido en el texto. GT=NULL.
+423992,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1) Para contribuyentes de IRACIS/ IRE GENERAL.
+Deberán cumplir con el siguiente parámetro:
+#�NOMBRE?
+Deberá ser igual o mayor a 1, en promedio, de los tres (3) últimos años 2020, 2021, 2022.
+#�NOMBRE?
+No deberá ser mayor a 0,80 en promedio, de los tres (3) últimos años 2020, 2021, 2022.
+- Rentabilidad: Porcentaje de utilidad después de impuestos o pérdida con respecto al Capital. El promedio de
+los tres (3) últimos años 2020, 2021, 2022 no deberá ser negativo.
+2) Para contribuyentes de IRPC / IRE SIMPLE
+Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso).
+Deberá ser igual o mayor que 1, el promedio, de los ejercicios fiscales 2020,2021 y 2022.
+3) Para contribuyentes de IRP / IRP - RSP
+Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso).
+Deberá ser igual o mayor que 1, el promedio, de los ejercicios fiscales 2020,2021 y 2022.
+4) Para contribuyentes de exclusivamente IVA General
+Deberá cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso).
+""Deberá ser igual o mayor que 1, el promedio, de los ejercicios fiscales 2020,2021 y 2022.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1) Para contribuyentes de IRACIS/ IRE GENERAL.
+Deberán cumplir con el siguiente parámetro:
+#�NOMBRE?
+Deberá ser igual o mayor a 1, en promedio, de los tres (3) últimos años 2020, 2021, 2022.
+#�NOMBRE?
+No deberá ser mayor a 0,80 en promedio, de los tres (3) últimos años 2020, 2021, 2022.
+- Rentabilidad: Porcentaje de utilidad después de impuestos o pérdida con respecto al Capital. El promedio de
+los tres (3) últimos años 2020, 2021, 2022 no deberá ser negativo.
+2) Para contribuyentes de IRPC / IRE SIMPLE
+Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso).
+Deberá ser igual o mayor que 1, el promedio, de los ejercicios fiscales 2020,2021 y 2022.
+3) Para contribuyentes de IRP / IRP - RSP
+Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso).
+Deberá ser igual o mayor que 1, el promedio, de los ejercicios fiscales 2020,2021 y 2022.
+4) Para contribuyentes de exclusivamente IVA General
+Deberá cumplir el siguiente parámetro:
+Eficiencia: (Ingreso/Egreso).
+""Deberá ser igual o mayor que 1, el promedio, de los ejercicios fiscales 2020,2021 y 2022.""",0.8,0.8,,No se encontro un ratio de endeudamiento/solvencia (Pasivo/Activo) valido en el texto. GT=NULL.
+466994,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Los mejores tres (3) años de los últimos cuatro (4) años de los ejercicios fiscales cerrados (años 2021, 2022, 2023, 2024).
+Para Contribuyentes de IRACIS Y/O IMPUESTO A LA RENTA EMPRESARIAL (IRE): Deberán cumplir con el siguiente parámetro:
+ROA: (Ganancia Neta / Activos Totales) * 100: Deberá ser igual o mayor que 1,1%, en promedio, en los tres (3) ejercicios fiscales requeridos.
+EBITDA: (Ingresos netos + Intereses + Impuestos + Amortización + Depreciación) / Ventas: deberá ser mayor a 0, en promedio, en los tres (3)
+ejercicios fiscales requeridos.
+Para Contribuyentes de IRPC / IRE SIMPLE: Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso / Egreso). Deberá ser igual o mayor que 1, el promedio, en los mejores tres (3) ejercicios fiscales de los últimos cuatro (4)
+ejercicios fiscales requeridos.
+En caso de tratarse de un Consorcio, los índices financieros deberán ser cumplidos por cada uno de los integrantes.
+""La evaluación se realizará aplicando el sistema CUMPLE o NO CUMPLE.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Los mejores tres (3) años de los últimos cuatro (4) años de los ejercicios fiscales cerrados (años 2021, 2022, 2023, 2024).
+Para Contribuyentes de IRACIS Y/O IMPUESTO A LA RENTA EMPRESARIAL (IRE): Deberán cumplir con el siguiente parámetro:
+ROA: (Ganancia Neta / Activos Totales) * 100: Deberá ser igual o mayor que 1,1%, en promedio, en los tres (3) ejercicios fiscales requeridos.
+EBITDA: (Ingresos netos + Intereses + Impuestos + Amortización + Depreciación) / Ventas: deberá ser mayor a 0, en promedio, en los tres (3)
+ejercicios fiscales requeridos.
+Para Contribuyentes de IRPC / IRE SIMPLE: Deberán cumplir el siguiente parámetro:
+Eficiencia: (Ingreso / Egreso). Deberá ser igual o mayor que 1, el promedio, en los mejores tres (3) ejercicios fiscales de los últimos cuatro (4)
+ejercicios fiscales requeridos.
+En caso de tratarse de un Consorcio, los índices financieros deberán ser cumplidos por cada uno de los integrantes.
+""La evaluación se realizará aplicando el sistema CUMPLE o NO CUMPLE.""",0.01,0.01,,No se encontro un ratio de endeudamiento/solvencia (Pasivo/Activo) valido en el texto. GT=NULL.
+461926,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Requisitos Mínimos Requisitos de Cumplimiento Documentación
+requerida
+Oferente
+Individual
+Consorcios
+Todas las
+Partes
+Combinadas
+Cada
+Socio
+Socio
+Líder
+Coeficiente de
+Liquidez: Activo
+corriente / Pasivo
+Corriente debe ser
+igual o mayor a 1 .
+Esta información será
+extraída del Balance
+General
+correspondiente a los
+ejercicios fiscales
+cerrados. 2022-2023-
+2024
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito.
+Completar el
+formulario
+Situación
+""Financiera"""""""" y""
+presentar los
+documentos
+que se indiquen
+en el pliego de
+bases y
+condiciones.
+Coeficiente de
+S o l v e n c i a : Pasivo
+Total / Activo Total
+i g u a l menor a 0,80.
+Esta información será
+extraída del Balance
+General
+correspondiente a los
+ejercicios fiscales
+cerrados 2022-2023-
+2024
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito.
+Completar el
+formulario
+Situación
+""Financiera"""""""" y""
+presentar los
+documentos
+que se indiquen
+en el pliego de
+bases y
+condiciones.
+Demostrar que posee
+o que tiene acceso a
+s u f i c i e n t e s activos
+líquidos, activos
+reales libres de
+gravámenes, líneas
+de crédito y otros
+medios financieros
+(independientemente
+de cualquier anticipo
+estipulado en el
+contrato) para
+cumplir los requisitos
+en materia de flujo de
+fondos para la
+construcción exigidos
+para el o los
+contratos en caso de
+suspensión,
+reanudación de
+faenas u otros
+retrasos en los pagos.
+El mínimo de activos
+líquidos y/o acceso a
+créditos libres de
+otros compromisos
+contractuales del
+adjudicatario será: 20
+% con relacion al
+monto de la oferta.
+Las deducciones al flujo de
+fondos exigidos por
+compromisos derivados de
+otros contratos solo se
+harán cuando dichos
+contratos se encuentren en
+ejecución.
+Este mínimo de activos
+líquidos que constituirá el
+capital operativo, debe ser
+el resultado de la diferencia
+entre el Activo Corriente
+menos el Pasivo Corriente.
+Puede ser complementado
+con líneas de crédito
+otorgadas por entidades
+financieras.
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir con
+el requisito
+Debe
+cumplir
+por lo
+menos
+con el
+25% del
+requisito
+mínimo
+Debe
+cumplir
+por lo
+menos
+con el
+40% del
+requisito
+mínimo
+Completar el
+formulario
+Situación
+""Financiera"""""""", y""
+presentar los
+documentos
+probatorios
+que se indiquen
+en el pliego de
+bases y
+""condiciones.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Requisitos Mínimos Requisitos de Cumplimiento Documentación
+requerida
+Oferente
+Individual
+Consorcios
+Todas las
+Partes
+Combinadas
+Cada
+Socio
+Socio
+Líder
+Coeficiente de
+Liquidez: Activo
+corriente / Pasivo
+Corriente debe ser
+igual o mayor a 1 .
+Esta información será
+extraída del Balance
+General
+correspondiente a los
+ejercicios fiscales
+cerrados. 2022-2023-
+2024
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito.
+Completar el
+formulario
+Situación
+""Financiera"""""""" y""
+presentar los
+documentos
+que se indiquen
+en el pliego de
+bases y
+condiciones.
+Coeficiente de
+S o l v e n c i a : Pasivo
+Total / Activo Total
+i g u a l menor a 0,80.
+Esta información será
+extraída del Balance
+General
+correspondiente a los
+ejercicios fiscales
+cerrados 2022-2023-
+2024
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito.
+Completar el
+formulario
+Situación
+""Financiera"""""""" y""
+presentar los
+documentos
+que se indiquen
+en el pliego de
+bases y
+condiciones.
+Demostrar que posee
+o que tiene acceso a
+s u f i c i e n t e s activos
+líquidos, activos
+reales libres de
+gravámenes, líneas
+de crédito y otros
+medios financieros
+(independientemente
+de cualquier anticipo
+estipulado en el
+contrato) para
+cumplir los requisitos
+en materia de flujo de
+fondos para la
+construcción exigidos
+para el o los
+contratos en caso de
+suspensión,
+reanudación de
+faenas u otros
+retrasos en los pagos.
+El mínimo de activos
+líquidos y/o acceso a
+créditos libres de
+otros compromisos
+contractuales del
+adjudicatario será: 20
+% con relacion al
+monto de la oferta.
+Las deducciones al flujo de
+fondos exigidos por
+compromisos derivados de
+otros contratos solo se
+harán cuando dichos
+contratos se encuentren en
+ejecución.
+Este mínimo de activos
+líquidos que constituirá el
+capital operativo, debe ser
+el resultado de la diferencia
+entre el Activo Corriente
+menos el Pasivo Corriente.
+Puede ser complementado
+con líneas de crédito
+otorgadas por entidades
+financieras.
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir con
+el requisito
+Debe
+cumplir
+por lo
+menos
+con el
+25% del
+requisito
+mínimo
+Debe
+cumplir
+por lo
+menos
+con el
+40% del
+requisito
+mínimo
+Completar el
+formulario
+Situación
+""Financiera"""""""", y""
+presentar los
+documentos
+probatorios
+que se indiquen
+en el pliego de
+bases y
+""condiciones.""",0.8,0.8,,No se encontro un ratio de endeudamiento/solvencia (Pasivo/Activo) valido en el texto. GT=NULL.
+454559,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: no podrá ser inferior al mínimo requerido a las compañías aseguradoras, por la Superintendencia
+de Seguros, es decir, uno (1).
+2. Calificación de la aseguradora: no podrá ser inferior a BBB o similar.
+3. Patrimonio propio no comprometido: igual o mayor a Gs. 3.000.000.000.- (Guaraníes tres mil millones), al cierre del
+último ejercicio Financiero.
+4. Fondo de garantía: igual o mayor a Gs. 2.000.000.000.- (Guaraníes dos mil millones), al cierre del último Ejercicio
+Financiero.
+5. Cantidad de reaseguradores: No aplica.
+6. Calificación de Reaseguradores: No aplica.
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la
+""inscripción de la reaseguradora ante el órgano rector para el punto 6.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: no podrá ser inferior al mínimo requerido a las compañías aseguradoras, por la Superintendencia
+de Seguros, es decir, uno (1).
+2. Calificación de la aseguradora: no podrá ser inferior a BBB o similar.
+3. Patrimonio propio no comprometido: igual o mayor a Gs. 3.000.000.000.- (Guaraníes tres mil millones), al cierre del
+último ejercicio Financiero.
+4. Fondo de garantía: igual o mayor a Gs. 2.000.000.000.- (Guaraníes dos mil millones), al cierre del último Ejercicio
+Financiero.
+5. Cantidad de reaseguradores: No aplica.
+6. Calificación de Reaseguradores: No aplica.
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la
+""inscripción de la reaseguradora ante el órgano rector para el punto 6.""",0.01,0.01,,"El pliego menciona ""solvencia"" pero en el contexto de un COEFICIENTE DE SOLVENCIA DE LA ASEGURADORA (un requisito regulatorio de compañias de seguros, definido por la Superintendencia de Seguros), NO el ratio de endeudamiento (Pasivo/Activo) del oferente que pide este campo. Son dos metricas financieras distintas que comparten la palabra ""solvencia"" en pliegos de seguros; se excluyo para evitar una falsa extraccion. GT=NULL."
+425397,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: El coeficiente igual o mayor que 2,00 al 30/06/2022
+2. Calificación de la aseguradora:Tengan una calificación de por lo menos A+ al 30/06/2022 como mínimo en el último
+indicador financiero publicado por la Superintendencia de Seguros del Banco Central de la República del Paraguay
+3. Patrimonio propio no comprometido: igual o superior a Gs. 15.000.000.000 (Guaraníes Quince mil millones)
+4. Fondo de garantía: como mínimo de Gs. 15.000.000.000 (GUARANÍES QUINCE MIL MILLONES).
+5. Cantidad de reaseguradores: N/A.
+6. Calificación de Reaseguradores:N/A
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la
+""inscripción de la reaseguradora ante el órgano rector para el punto 6.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+1. Margen de solvencia: El coeficiente igual o mayor que 2,00 al 30/06/2022
+2. Calificación de la aseguradora:Tengan una calificación de por lo menos A+ al 30/06/2022 como mínimo en el último
+indicador financiero publicado por la Superintendencia de Seguros del Banco Central de la República del Paraguay
+3. Patrimonio propio no comprometido: igual o superior a Gs. 15.000.000.000 (Guaraníes Quince mil millones)
+4. Fondo de garantía: como mínimo de Gs. 15.000.000.000 (GUARANÍES QUINCE MIL MILLONES).
+5. Cantidad de reaseguradores: N/A.
+6. Calificación de Reaseguradores:N/A
+El oferente presentará una declaración jurada en la que exponga cada uno de los datos señalados en los puntos 1, 3, 4, 5.
+El oferente deberá presentar el informe de la Calificadora de Riesgo para el punto 2 y la presentación de la lista donde consta la
+""inscripción de la reaseguradora ante el órgano rector para el punto 6.""",0.0,0.0,,"El pliego menciona ""solvencia"" pero en el contexto de un COEFICIENTE DE SOLVENCIA DE LA ASEGURADORA (un requisito regulatorio de compañias de seguros, definido por la Superintendencia de Seguros), NO el ratio de endeudamiento (Pasivo/Activo) del oferente que pide este campo. Son dos metricas financieras distintas que comparten la palabra ""solvencia"" en pliegos de seguros; se excluyo para evitar una falsa extraccion. GT=NULL."
+465547,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Requisitos Mínimos Requisitos de Cumplimiento Documentación
+requerida
+Oferente
+Individual
+Consorcios
+Todas las
+Partes
+Combinadas
+Cada
+Socio
+Socio
+Líder
+Coeficiente de Liquidez: Activo
+corriente / Pasivo Corriente debe
+ser igual o mayor a 1(uno) Esta
+información será extraída del
+Balance General correspondiente
+a los ejercicios fiscales
+cerrados. 2022,2023 y 2024
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito.
+Completar el
+formulario
+Situación
+""Financiera"""""""" y""
+presentar los
+documentos
+que se indiquen
+en el pliego de
+bases y
+condiciones.
+Coeficiente de Liquidez: Activo
+corriente / Pasivo Corriente debe
+ser igual o mayor a 1(uno) Esta
+información será extraída del
+Balance General correspondiente
+a los ejercicios fiscales
+cerrados. 2022,2023 y 2024
+.
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito.
+Completar el
+formulario
+Situación
+""Financiera"""""""" y""
+presentar los
+documentos
+que se indiquen
+en el pliego de
+bases y
+condiciones.
+Demostrar que posee o que tiene
+acceso a suficientes activos
+líquidos, activos reales libres de
+gravámenes, líneas de crédito y
+otros medios
+financieros (independientemente
+de cualquier anticipo estipulado
+en el contrato) para cumplir los
+requisitos en materia de flujo de
+fondos para la construcción
+exigidos para el o los contratos
+en caso de suspensión,
+reanudación de faenas u otros
+retrasos en los pagos.
+El mínimo de activos líquidos y/o
+acceso a créditos libres de otros
+compromisos contractuales del
+adjudicatario será: 20% (veinte
+porciento) del monto máximo a
+ser contratado.
+Las deducciones al flujo de fondos
+exigidos por compromisos derivados de
+otros contratos solo se harán cuando
+dichos contratos se encuentren en
+ejecución.
+Este mínimo de activos líquidos que
+constituirá el capital operativo, debe
+ser el resultado de la diferencia entre el
+Activo Corriente menos el Pasivo
+Corriente.
+Puede ser complementado con líneas
+de crédito otorgadas por entidades
+financieras.
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir con
+el requisito
+Debe
+cumplir
+por lo
+menos
+con el
+25% del
+requisito
+mínimo
+Debe
+cumplir
+por lo
+menos
+con el
+40% del
+requisito
+mínimo
+Completar el
+formulario
+Situación
+""Financiera"""""""", y""
+presentar los
+documentos
+probatorios
+que se indiquen
+en el pliego de
+bases y
+""condiciones.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+Requisitos Mínimos Requisitos de Cumplimiento Documentación
+requerida
+Oferente
+Individual
+Consorcios
+Todas las
+Partes
+Combinadas
+Cada
+Socio
+Socio
+Líder
+Coeficiente de Liquidez: Activo
+corriente / Pasivo Corriente debe
+ser igual o mayor a 1(uno) Esta
+información será extraída del
+Balance General correspondiente
+a los ejercicios fiscales
+cerrados. 2022,2023 y 2024
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito.
+Completar el
+formulario
+Situación
+""Financiera"""""""" y""
+presentar los
+documentos
+que se indiquen
+en el pliego de
+bases y
+condiciones.
+Coeficiente de Liquidez: Activo
+corriente / Pasivo Corriente debe
+ser igual o mayor a 1(uno) Esta
+información será extraída del
+Balance General correspondiente
+a los ejercicios fiscales
+cerrados. 2022,2023 y 2024
+.
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir
+con el
+requisito.
+Completar el
+formulario
+Situación
+""Financiera"""""""" y""
+presentar los
+documentos
+que se indiquen
+en el pliego de
+bases y
+condiciones.
+Demostrar que posee o que tiene
+acceso a suficientes activos
+líquidos, activos reales libres de
+gravámenes, líneas de crédito y
+otros medios
+financieros (independientemente
+de cualquier anticipo estipulado
+en el contrato) para cumplir los
+requisitos en materia de flujo de
+fondos para la construcción
+exigidos para el o los contratos
+en caso de suspensión,
+reanudación de faenas u otros
+retrasos en los pagos.
+El mínimo de activos líquidos y/o
+acceso a créditos libres de otros
+compromisos contractuales del
+adjudicatario será: 20% (veinte
+porciento) del monto máximo a
+ser contratado.
+Las deducciones al flujo de fondos
+exigidos por compromisos derivados de
+otros contratos solo se harán cuando
+dichos contratos se encuentren en
+ejecución.
+Este mínimo de activos líquidos que
+constituirá el capital operativo, debe
+ser el resultado de la diferencia entre el
+Activo Corriente menos el Pasivo
+Corriente.
+Puede ser complementado con líneas
+de crédito otorgadas por entidades
+financieras.
+Debe
+cumplir
+con el
+requisito.
+Debe
+cumplir con
+el requisito
+Debe
+cumplir
+por lo
+menos
+con el
+25% del
+requisito
+mínimo
+Debe
+cumplir
+por lo
+menos
+con el
+40% del
+requisito
+mínimo
+Completar el
+formulario
+Situación
+""Financiera"""""""", y""
+presentar los
+documentos
+probatorios
+que se indiquen
+en el pliego de
+bases y
+""condiciones.""",0.2,0.2,,No se encontro un ratio de endeudamiento/solvencia (Pasivo/Activo) valido en el texto. GT=NULL.
+413832,ratio_endeudamiento_maximo,capacidad_financiera,,"Capacidad Financiera""
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""No aplica.","Campo a extraer: Ratio de endeudamiento máximo permitido""
+Tipo esperado: float
+Guía de extracción: Buscar el ratio asociado a ratio, endeudamiento, máximo, permitido. Buscar patrones como 'N,N', 'N.N', 'ratio de N', 'indice de N'. NO extraer porcentajes. NO extraer numeros que sean parte de listas numeradas (ej: '1.', '2.'). NO extraer montos. Rango valido: 0.01-10. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.
+
+Texto del pliego:
+Capacidad Financiera
+Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices:
+""No aplica.""",0.01,0.01,,El pliego declara explicitamente que NO aplican indices de capacidad financiera. GT=NULL.

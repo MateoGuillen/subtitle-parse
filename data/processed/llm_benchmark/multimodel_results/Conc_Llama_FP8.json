@@ -1,0 +1,72 @@
+{
+ "model": "Llama 3.1 8B-FP8",
+ "backend": "vllm",
+ "prompts": 64,
+ "levels": {
+  "1": {
+   "n": 64,
+   "errors": 0,
+   "agree": 42,
+   "wall_s": 20.6,
+   "req_per_s": 3.11,
+   "out_tok_per_s": 38.0,
+   "p50_s": 0.19,
+   "p95_s": 1.1,
+   "mean_s": 0.32,
+   "vram_peak_mib": 11618,
+   "gpu_util_peak": 100
+  },
+  "4": {
+   "n": 64,
+   "errors": 0,
+   "agree": 41,
+   "wall_s": 11.0,
+   "req_per_s": 5.83,
+   "out_tok_per_s": 61.3,
+   "p50_s": 0.42,
+   "p95_s": 2.03,
+   "mean_s": 0.65,
+   "vram_peak_mib": 11618,
+   "gpu_util_peak": 100
+  },
+  "8": {
+   "n": 64,
+   "errors": 0,
+   "agree": 41,
+   "wall_s": 10.2,
+   "req_per_s": 6.28,
+   "out_tok_per_s": 84.4,
+   "p50_s": 0.61,
+   "p95_s": 3.62,
+   "mean_s": 1.16,
+   "vram_peak_mib": 11618,
+   "gpu_util_peak": 100
+  },
+  "16": {
+   "n": 64,
+   "errors": 0,
+   "agree": 40,
+   "wall_s": 9.1,
+   "req_per_s": 7.02,
+   "out_tok_per_s": 77.5,
+   "p50_s": 1.47,
+   "p95_s": 5.79,
+   "mean_s": 2.09,
+   "vram_peak_mib": 11620,
+   "gpu_util_peak": 100
+  },
+  "32": {
+   "n": 64,
+   "errors": 0,
+   "agree": 40,
+   "wall_s": 9.1,
+   "req_per_s": 7.04,
+   "out_tok_per_s": 78.6,
+   "p50_s": 3.5,
+   "p95_s": 8.12,
+   "mean_s": 3.76,
+   "vram_peak_mib": 11620,
+   "gpu_util_peak": 100
+  }
+ }
+}

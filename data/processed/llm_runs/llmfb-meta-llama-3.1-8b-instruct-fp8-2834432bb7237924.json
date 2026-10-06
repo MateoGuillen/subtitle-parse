@@ -1,0 +1,17 @@
+{
+ "model_id": "RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8",
+ "model_revision": "870a1177ed08",
+ "quant": "none",
+ "prompt_hash": "550eab5990132a7e1801b945f598d91e1030bca414ce18c168a915ab76ae0c3f",
+ "schema_version": "ada8ce2327c17fa0b28f76040a87416dce760c01aa94b78dcc142a413a18a2d0",
+ "code_version": "869c86cf5948d7a3f3604bdb7b09ece88a9f3466",
+ "sampling": {
+  "temperature": 0.0,
+  "max_tokens": 256,
+  "guided_regex": "^(-?\\d+(?:[.,]\\d+)?|NULL)$",
+  "max_num_seqs": 32
+ },
+ "conf_threshold": 0.8,
+ "fingerprint": "2834432bb7237924",
+ "run_id": "llmfb-meta-llama-3.1-8b-instruct-fp8-2834432bb7237924"
+}

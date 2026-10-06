@@ -1,0 +1,91 @@
+{
+ "tabla": {
+  "anos_experiencia_minima_tecnica": {
+   "A. AUSENCIA-FP": 59.0,
+   "E2. ERROR-REAL-humano-verbal": 0.0,
+   "M. AMBIGUO-MULTI": 4.0,
+   "ACUERDOS": 19.0,
+   "POBLACION": 82.0,
+   "FIABILIDAD%": 23.2
+  },
+  "dias_pago_anticipo": {
+   "A. AUSENCIA-FP": 3.0,
+   "E2. ERROR-REAL-humano-verbal": 0.0,
+   "M. AMBIGUO-MULTI": 49.0,
+   "ACUERDOS": 23.0,
+   "POBLACION": 75.0,
+   "FIABILIDAD%": 30.7
+  },
+  "dias_solicitud_anticipo": {
+   "A. AUSENCIA-FP": 0.0,
+   "E2. ERROR-REAL-humano-verbal": 0.0,
+   "M. AMBIGUO-MULTI": 12.0,
+   "ACUERDOS": 45.0,
+   "POBLACION": 57.0,
+   "FIABILIDAD%": 78.9
+  },
+  "dias_validez_garantia": {
+   "A. AUSENCIA-FP": 32.0,
+   "E2. ERROR-REAL-humano-verbal": 1.0,
+   "M. AMBIGUO-MULTI": 0.0,
+   "ACUERDOS": 36.0,
+   "POBLACION": 69.0,
+   "FIABILIDAD%": 52.2
+  },
+  "pct_monto_referencia_tecnica": {
+   "A. AUSENCIA-FP": 18.0,
+   "E2. ERROR-REAL-humano-verbal": 0.0,
+   "M. AMBIGUO-MULTI": 8.0,
+   "ACUERDOS": 41.0,
+   "POBLACION": 67.0,
+   "FIABILIDAD%": 61.2
+  },
+  "TOTAL": {
+   "A. AUSENCIA-FP": 112.0,
+   "E2. ERROR-REAL-humano-verbal": 1.0,
+   "M. AMBIGUO-MULTI": 73.0,
+   "ACUERDOS": 164.0,
+   "POBLACION": 350.0,
+   "FIABILIDAD%": ""
+  }
+ },
+ "ranks": {
+  "propuesto(3x pct,1x sol)": [
+   "Llama_31_8B-FP8",
+   "Llama_31_8B-AWQ",
+   "Qwen3-8B-FP8",
+   "Qwen3-14B-AWQ",
+   "Ministral_3_14B",
+   "Mistral_7B_v03-AWQ",
+   "EXAONE-35-78B-AWQ",
+   "Gemma_4_12B",
+   "Granite_42_8B",
+   "Mistral_Small_24B-AWQ"
+  ],
+  "plano(1x,1x)": [
+   "Llama_31_8B-FP8",
+   "Llama_31_8B-AWQ",
+   "Qwen3-8B-FP8",
+   "Qwen3-14B-AWQ",
+   "Ministral_3_14B",
+   "Mistral_7B_v03-AWQ",
+   "EXAONE-35-78B-AWQ",
+   "Gemma_4_12B",
+   "Granite_42_8B",
+   "Mistral_Small_24B-AWQ"
+  ],
+  "extremo(5x pct,1x sol)": [
+   "Llama_31_8B-FP8",
+   "Llama_31_8B-AWQ",
+   "Qwen3-8B-FP8",
+   "Qwen3-14B-AWQ",
+   "Ministral_3_14B",
+   "Mistral_7B_v03-AWQ",
+   "EXAONE-35-78B-AWQ",
+   "Gemma_4_12B",
+   "Granite_42_8B",
+   "Mistral_Small_24B-AWQ"
+  ]
+ },
+ "esquemas_iguales": true
+}

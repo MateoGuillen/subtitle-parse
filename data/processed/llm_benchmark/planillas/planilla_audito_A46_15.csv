@@ -1,0 +1,211 @@
+campo,nro_licitacion,valor_regex,nota_agosto,texto,mech_plantilla_vacia,mech_clausula_mal_anclada,mech_sobre_abstencion_revisor,mech_otra,evidencia_frag,disenso_sugerido
+dias_validez_garantia,434875,720.0,Valor declarado supera el rango válido 1-365 días establecido en el prompt (720 días = 720 días); se responde NULL.,"Periodo de validez de la Garantía de los bienes""
+El periodo de validez de la Garantía de los bienes será el siguiente:
+""sera de 720 dias como minimo",,,,,,
+dias_validez_garantia,418907,390.0,Valor declarado supera el rango válido 1-365 días establecido en el prompt (390 días = 390 días); se responde NULL.,"Periodo de validez de la Garantía de los bienes""
+El periodo de validez de la Garantía de los bienes será el siguiente:
+""390 días",,,,,,
+dias_validez_garantia,418731,60.0,"El texto bajo este título describe en realidad el vencimiento mínimo exigido a los productos/medicamentos/reactivos al momento de la entrega (fecha de expiración del bien, no duración de la garantía), junto con la validez de una póliza de canje (3 meses) y el aviso previo de canje; no es la validez de la garantía de los bienes que pide el campo. Se responde NULL.","Periodo de validez de la Garantía de los bienes""
+El periodo de validez de la Garantía de los bienes será el siguiente:
+El vencimiento de los productos deber ser igual o superior a 18 (dieciocho) meses, contados a partir de la fecha de entrega al DASM. Si por la naturaleza de los mismos o por
+necesidad de la Institución no se puede cumplir con dicho requisito, para los Productos con vencimiento inferior a 18 (dieciocho) meses al momento de la entrega en DASM, la
+recepción del producto será autorizada por la Dirección de Logística de Suministros de Salud (Nota de Autorización) y la entrega de la Carta de Compromiso de Canje.
+Para productos con vencimiento inferior a 12 (doce) meses al momento de la entrega en DASM, la recepción del producto será autorizada por la Dirección de Logística de
+Suministro de Salud (Nota de Autorización), la entrega de la Carta de Compromiso de Canje y Póliza de Seguro por el 100% del monto del producto a ser entregado, con
+identificación del número de Lote. La validez de dicha póliza deberá ser 3 meses posteriores a la fecha de vencimiento del producto a entregar.
+El DASM, deberá solicitar al proveedor el canje de los productos, que cuentan con carta de compromiso de canje, próximos a vencer con 60 días de antelación y comunicar a la
+""Dirección de Logística de Suministros de Salud, que se ha dado cumplimiento a dicho requisito.",,,,,,
+dias_validez_garantia,416984,60.0,"El texto bajo este título describe en realidad el vencimiento mínimo exigido a los productos/medicamentos/reactivos al momento de la entrega (fecha de expiración del bien, no duración de la garantía), junto con la validez de una póliza de canje (3 meses) y el aviso previo de canje; no es la validez de la garantía de los bienes que pide el campo. Se responde NULL.","Periodo de validez de la Garantía de los bienes""
+El periodo de validez de la Garantía de los bienes será el siguiente:
+Vencimiento:
+El vencimiento de los productos deber ser igual o superior a 18 (dieciocho) meses, contados a partir de la fecha de entrega al DASM. Si por la naturaleza de los mismos o por necesidad de la Institución no se
+puede cumplir con dicho requisito, para los Productos con vencimiento inferior a 18 (dieciocho) meses al momento de la entrega en DASM, la recepción del producto será autorizada por la Dirección de
+Logística de Suministros de Salud (Nota de Autorización) y la entrega de la Carta de Compromiso de Canje.
+Para productos con vencimiento inferior a 12 (doce) meses al momento de la entrega en DASM, la recepción del producto será autorizada por la Dirección de Logística de Suministro de Salud (Nota de
+Autorización), la entrega de la Carta de Compromiso de Canje y Póliza de Seguro por el 100% del monto del producto a ser entregado, con identificación del número de Lote. La validez de dicha póliza
+deberá ser 3 meses posteriores a la fecha de vencimiento del producto a entregar.
+El DASM, deberá solicitar al proveedor el canje de los productos, que cuentan con carta de compromiso de canje, próximos a vencer con 60 días de antelación y comunicar a la Dirección de Logística de
+""Suministros de Salud, que se ha dado cumplimiento a dicho requisito.",,,,,,
+dias_validez_garantia,454438,5.0,"Texto define garantías distintas por ítem (36 meses ítems 1-2 = 1080 días, fuera de rango; 12 meses ítem 3 = 365 días, válido). El campo (un único valor) no puede representar la variación por ítem; se responde NULL.","Periodo de validez de la Garantía de los bienes""
+El plazo de validez de la Garantía de los bienes será el siguiente:
+Item 1: Computadoras portatiles - Notebook
+Garantía Escrita. Mínimo de 36 meses. Incluye: Soporte de atención de Hardware, Mano de Obra y Repuestos incluyendo traslado de los equipos de
+la oficina del cliente al proveedor y viceversa a cargo del proveedor. Si la reparación implica la indisponibilidad del equipo por más de 5 días, el
+proveedor deberá comunicar por escrito el motivo de la demora y proporcionar un equipo de reemplazo de similar o mejor característica del equipo
+con fallas, hasta concluir las tareas y reponer operativamente el equipo en reparación sin costo para la institución.
+Para garantizar a la institución, la garantía, así como la asistencia técnica especializada, será un requisito indispensable que la garantía pueda ser
+ejecutada en cualquiera de los CAS del país. El oferente deberá indicar cuales son los CAS que existen en el país. La gestión de la ejecución de la
+garantía, deberá poder ser hecha, directamente a través de cualquiera de los CAS del país, o en su defecto, a través del Oferente, corriendo en su
+caso, por cuenta del Oferente que resulte adjudicado, la gestión de dicha ejecución.
+Item 2: Computadoras Personales de escritorio - PC
+Garantía Escrita. Mínimo de 36 meses. Incluye: Soporte de atención de Hardware, Mano de Obra y Repuestos incluyendo traslado de los equipos de
+la oficina del cliente al proveedor y viceversa a cargo del proveedor. Si la reparación implica la indisponibilidad del equipo por más de 5 días, el
+proveedor deberá comunicar por escrito el motivo de la demora y proporcionar un equipo de reemplazo de similar o mejor característica del equipo
+con fallas, hasta concluir las tareas y reponer operativamente el equipo en reparación sin costo para la institución.
+Para garantizar a la institución, la garantía, así como la asistencia técnica especializada, será un requisito indispensable que la garantía pueda ser
+ejecutada en cualquiera de los CAS del país. El oferente deberá indicar cuales son los CAS que existen en el país. La gestión de la ejecución de la
+garantía, deberá poder ser hecha, directamente a través de cualquiera de los CAS del país, o en su defecto, a través del Oferente, corriendo en su
+caso, por cuenta del Oferente que resulte adjudicado, la gestión de dicha ejecución.
+Item 3: Computadora Tactil/Tableta
+Mínimo de 12 meses. Incluye: Soporte de atención de Hardware, Mano de Obra y Repuestos incluyendo traslado de los equipos de la oficina del
+cliente al proveedor y viceversa a cargo del proveedor. Si la reparación implica la indisponibilidad del equipo por más de 5 días, el proveedor deberá
+comunicar por escrito el motivo de la demora y proporcionar un equipo de reemplazo de similar o mejor característica del equipo con fallas, hasta
+""concluir las tareas y reponer operativamente el equipo en reparación sin costo para la institución.",,,,,,
+dias_validez_garantia,476210,5.0,Valor declarado supera el rango válido 1-365 días establecido en el prompt (3 (tres) años = 1095 días); se responde NULL.,"Periodo de validez de la Garantía de los bienes""
+El plazo de validez de la Garantía de los bienes será el siguiente:
+3 (tres) años contados a partir de la recepción definitiva de los bienes.
+Incluye: Soporte de atención de Hardware contra defectos de fábrica, Mano de Obra y Repuestos incluyendo traslado de
+los equipos de la oficina del cliente al proveedor y viceversa a cargo del proveedor. Si la reparación implica la
+indisponibilidad del equipo por más de 5 días, el proveedor deberá comunicar por escrito el motivo de la demora y
+proporcionar un equipo de reemplazo de similar o mejor característica del equipo con fallas, hasta concluir las tareas y
+""reponer operativamente el equipo en reparación sin costo para la institución.",,,,,,
+dias_validez_garantia,436078,1080.0,Valor declarado supera el rango válido 1-365 días establecido en el prompt (1080 días = 1080 días); se responde NULL.,"Periodo de validez de la Garantía de los bienes""
+El plazo de validez de la Garantía de los bienes será el siguiente:
+""La garantía de los bienes será de 1080 días contados desde el momento de la entrega de los mismos.",,,,,,
+dias_validez_garantia,454303,60.0,"El texto bajo este título describe en realidad el vencimiento mínimo exigido a los productos/medicamentos/reactivos al momento de la entrega (fecha de expiración del bien, no duración de la garantía), junto con la validez de una póliza de canje (3 meses) y el aviso previo de canje; no es la validez de la garantía de los bienes que pide el campo. Se responde NULL.","Periodo de validez de la Garantía de los bienes""
+El plazo de validez de la Garantía de los bienes será el siguiente:
+Vencimiento
+El vencimiento de los productos deber ser igual o superior a 18 (dieciocho) meses, contados a partir de la fecha de entrega al DASM. Si por la naturaleza de los mismos o por necesidad de la
+Institución no se puede cumplir con dicho requisito, para los Productos con vencimiento inferior a 18 (dieciocho) meses al momento de la entrega en DASM, la recepción del producto será
+autorizada por la Dirección de Logística de Suministros de Salud (Nota de Autorización) y la entrega de la Carta de Compromiso de Canje.
+Para productos con vencimiento inferior a 12 (doce) meses al momento de la entrega en DASM, la recepción del producto será autorizada por la Dirección de Logística de Suministro de Salud
+(Nota de Autorización), la entrega de la Carta de Compromiso de Canje y Póliza de Seguro por el 100% del monto del producto a ser entregado, con identificación del numero de Lote. La validez
+de dicha póliza deberá ser 3 meses posteriores a la fecha de vencimiento del producto a entregar.
+El DASM, deberá solicitar al proveedor el canje de los productos, que cuentan con carta de compromiso de canje, próximos a vencer con 60 días de antelación y comunicar a la Dirección de
+""Logística de Suministros de Salud, que se ha dado cumplimiento a dicho requisito.",,,,,,
+anos_experiencia_minima_tecnica,416902,2021.0,"No se encontro un numero de años vinculado explicitamente a la palabra ""experiencia"" (el texto puede mencionar ""años"" en otro contexto: antiguedad de personal, edad, garantia de repuestos, años calendario aislados, o no mencionar experiencia en absoluto). GT=NULL segun regla explicita del prompt.","Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+Certificado de Cumplimiento Tributario vigente a la fecha de apertura o al inicio de la carga de propuestas para procesos de
+SBE.
+c) Balance General y Cuadro de Estado de Resultados de los años2019, 2020, 2021) para contribuyente de IRACIS.
+d) IVA General de los últimos 2019, 2020, 2021 años, para contribuyentes sólo del IVA General
+e) Formulario 106 de los últimos 2019, 2020, 2021años para contribuyentes del IRPC
+""f) Formulario 104 de los últimos 2019, 2020, 2021 años para contribuyentes de Renta Personal.",,,,,,
+anos_experiencia_minima_tecnica,434646,2.0,"No se encontro un numero de años vinculado explicitamente a la palabra ""experiencia"" (el texto puede mencionar ""años"" en otro contexto: antiguedad de personal, edad, garantia de repuestos, años calendario aislados, o no mencionar experiencia en absoluto). GT=NULL segun regla explicita del prompt.","Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad técnica:
+- El Oferente deberá ser representante oficial o distribuidor autorizado para Paraguay de los bienes ofertados, se deberán presentar documentos que acrediten la cadena de
+autorizaciones desde el fabricante hasta el oferente, dicho documento deberá ser original o copia autenticada por escribano público.
+- Autorización del Fabricante, el Oferente deberá ser CAS (Centro Autorizado de Servicios Local) de la marca de equipos ofertados requeridos en la planilla de las Especificaciones
+Técnicas. Deberá presentar documentación que avale dicho requisito.
+- El oferente deberá presentar certificados de soporte técnico autorizado de los equipos ofertados, de al menos 2 (dos) técnicos con una antigüedad mínima de 2 años en el plantel fijo
+de la empresa con su respectivo certificado de IPS vigente.
+- El oferente deberá presentar currículo del Personal Técnico que formarán parte de los trabajos de Instalación y puesta en funcionamiento de los equipos objetos del llamado.
+-La oferta deberá contemplar la capacitación técnica de uso de los Equipos Ofertados, a ser dictada por técnicos certificados por el fabricante.
+-El oferente deberá contemplar en su oferta el mantenimiento preventivo de al menos 2 eventos semestrales durante el periodo de garantía.
+""-La oferta deberá contemplar la capacitación técnica de uso del Software Ofertado, a ser dictada por técnicos certificados por el fabricante.",,,,,,
+anos_experiencia_minima_tecnica,463723,50.0,"No se encontro un numero de años vinculado explicitamente a la palabra ""experiencia"" (el texto puede mencionar ""años"" en otro contexto: antiguedad de personal, edad, garantia de repuestos, años calendario aislados, o no mencionar experiencia en absoluto). GT=NULL segun regla explicita del prompt.","Capacidad Técnica""
+Con el objetivo de calificar la capacidad técnica del oferente, se considerarán los siguientes índices:
+Con el objetivo de calificar la capacidad técnica del oferente, se considerarán los siguientes índices:
+#�NOMBRE?
+de Empresas de Seguridad y Afines (cuando desde la
+fecha de expedición de la Resolución de Habilitación ha transcurrido un año de haberse emitido esta). Asimismo, deberá presentar el
+certificado de haber sido fiscalizado por la División
+de Fiscalización del Departamento de Delitos Económicos, dependiente de la Policía Nacional, correspondiente al presente año.
+- Listado de guardias con sus correspondientes Constancias (carnet) vigente, expedido por la División de Fiscalización de Empresas de
+Seguridad Privada y Afines, y estar registrado en la
+nómina del personal remitido a la División a nombre de la empresa.
+- El oferente deberá disponer de Sistema de comunicación a través de una red de radios comunicaciones habilitada por la CONATEL
+propia de la oferente o a través de una empresa
+tercerizada, que debe operar las 24 horas del día, entre el lugar de prestación de servicios y la base de operaciones de la contratante.
+(Ley Nº 5424/15 Sección I Art: 57).
+- El oferente deberá presentar Reglamento interno de condiciones de trabajo, vigente, homologado, legalizado y registrado por el
+Ministerio de Trabajo, Empleo y Seguridad Social.
+- El oferente deberá contar con al menos 2 (dos) vehículos propios, modelo 2015 en adelante, para brindar respuesta inmediata de
+patrulla.
+Los vehículos deberán contar como mínimo con los siguientes equipamientos:
+#�NOMBRE?
+#�NOMBRE?
+#�NOMBRE?
+- El oferente deberá contar con personal de guardia, con la mayoría de edad cumplida, y una edad máxima de 50 años, instruido,
+adiestrado y capacitado en el área de seguridad, custodia
+y vigilancia.
+#�NOMBRE?
+1. Debe estar habilitado para prestar servicios de esta naturaleza.
+2. Debe estar autorizado para la posesión de las armas de fuego junto con sus municiones dentro del inmueble.
+3. Contar con armas de fuego, medios de transporte y equipos de comunicación.
+""4. Debe estar autorizado para el desplazamiento y disponibilidad para uso inmediato de las armas de fuego y sus municiones.",,,,,,
+anos_experiencia_minima_tecnica,437724,25.0,"No se encontro un numero de años vinculado explicitamente a la palabra ""experiencia"" (el texto puede mencionar ""años"" en otro contexto: antiguedad de personal, edad, garantia de repuestos, años calendario aislados, o no mencionar experiencia en absoluto). GT=NULL segun regla explicita del prompt.","Capacidad Técnica""
+Con el objetivo de calificar la capacidad técnica del oferente, se considerarán los siguientes índices:
+Personal para la prestación del servicio, instruido, adiestrado y capacitado en el área de seguridad, custodia y vigilancia, que
+deberá contar con un mínimo de 25 años y máximo de 38 años de edad, con certificados de antecedentes policiales y
+judiciales vigentes. Poseer armas de fuego debidamente registradas y autorizadas por los Organismos competentes, así
+como otros implementos de seguridad necesarios (linternas, esposas, silbatos, botas etc.).
+Sistema de comunicación a través de una red de radio comunicaciones habilitada por la CONATEL, propio del oferente o a
+través de una empresa tercerizada que debe operar las 24 horas del día, entre el lugar de prestación de servicios y la base de
+Operaciones de la Contratante.
+El proveedor deberá contar con vehículos de apoyo de los servicios de seguridad y vigilancia
+1. Debe estar habilitado para prestar servicios de esta naturaleza.
+2. Debe estar autorizado para la posesión de las armas de fuego junto con sus municiones dentro del inmueble.
+3. Contar con armas de fuego, medios de transporte y equipos de comunicación.
+""4. Debe estar autorizado para el desplazamiento y disponibilidad para uso inmediato de las armas de fuego y sus municiones.",,,,,,
+anos_experiencia_minima_tecnica,412132,25.0,"No se encontro un numero de años vinculado explicitamente a la palabra ""experiencia"" (el texto puede mencionar ""años"" en otro contexto: antiguedad de personal, edad, garantia de repuestos, años calendario aislados, o no mencionar experiencia en absoluto). GT=NULL segun regla explicita del prompt.","Capacidad Técnica""
+El Oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1- Personal para la prestación del servicio, instruido, adiestrado y capacitado en el área de Seguridad, custodia y vigilancia,
+que deberá contar con un mínimo de 25 años y máximo de 48 años de edad, con certificados de antecedentes policiales y
+judiciales vigentes.
+2- Sistema de comunicación a través de una red de radio comunicaciones habilitada por la CONATEL, propio el oferente o a
+través de una empresa tercerizada que debe operar las 24 horas del día, entre el lugar de prestación de servicios y la base
+de Operaciones de la Contratante.
+3- Poseer armas de fuego debidamente registradas y autorizadas por los Organismos competentes, así como otros
+implementos de seguridad necesarios (linternas, esposas, silbatos, bofas, etc.).
+4- El proveedor deberá contar con vehículos de apoyo de los servicios de seguridad y vigilancia al HOSPITAL MATERNO
+INFANTIL LOMA PYTA.
+1. Debe estar habilitado para prestar servicios de esta naturaleza.
+2. Debe estar autorizado para la posesión de las armas de fuego junto con sus municiones dentro
+del inmueble.
+3. Contar con armas de fuego, medios de transporte y equipos de comunicación.
+4. Debe estar autorizado para el desplazamiento y disponibilidad para uso inmediato de las armas
+""de fuego y sus municiones.",,,,,,
+anos_experiencia_minima_tecnica,446683,15.0,"No se encontro un numero de años vinculado explicitamente a la palabra ""experiencia"" (el texto puede mencionar ""años"" en otro contexto: antiguedad de personal, edad, garantia de repuestos, años calendario aislados, o no mencionar experiencia en absoluto). GT=NULL segun regla explicita del prompt.","Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+1. Folletos, catálogos y/o fotografías, e impresos descriptivos de cada uno de los insumos accesorios incluidos en el
+servicio, ofertados (féretro, arreglo foral).
+2. Carta en carácter de declaración jurada en la que el oferente manifiesta que cuenta con una muestra de todos los
+insumos ofertados, los cuales deberán ser proveídos a consideración del comité de evaluación en plazo no mayor a
+un día hábil, si así este lo solicita. El sitio donde serán verificadas las muestras, se establecerá de común acuerdo
+entre la convocante y el oferente.
+3. DD.JJ. del nombre y apellido del responsable designado para el Ministerio de Economía y Finanzas, a más del
+número de teléfono y correo electrónico por el cual se canalizarán las solicitudes, consultas, o reclamos de los
+asegurados a fin de dar solución inmediata a las situaciones que se susciten.
+4. Documentación que demuestre la disponibilidad para el servicio de cámara de frío para 2 cuerpos como mínimo.
+5. Listado de disponibilidad de instalaciones:
+a. Salones Velatorios, el oferente deberá tener disponibilidad para el servicio, de salones velatorios en el radio de
+Asunción y Gran Asunción como mínimo 5 salones velatorios en cualquier modalidad de usufructo y para cada uno
+de los Departamentos del Interior como mínimo 1 (un) salón velatorio, todos ellos climatizados y
+con estacionamiento propio. En el caso de no existir en la zona salones velatorios, los mismos servicios de calidad
+serán ofrecidos en el domicilio particular donde lo solicite el usuario del servicio.
+b. Sala de Formolización, y Oficinas administrativas.
+c. Listado de Vehículos:
+*ambulancias: El oferente deberá tener disponibilidad para el servicio en el radio de Asunción y Gran Asunción como
+mínimo de 3 (tres) ambulancias y para cada uno de los departamentos del interior el proveedor garantizará el
+servicio requerido en vehículos en no más de 10 (diez) años de uso.
+* Carroza Fúnebre: El oferente deberá contar con una flota de transporte con no más de 15 años de uso, con la
+cantidad mínima de 4 (cuatro) vehículos ejecutivos tipo carrozas para Asunción y Gran Asunción, y 1 (uno) para
+garantizar el servicio en el interior del país.
+* Transportes: El oferente deberá contar con 1 (un) Minibús para un mínimo de 15 (quince) personas con aire
+acondicionado para el transporte de familiares muy cercanos, para Gran Asunción y para cada uno de los
+Departamentos del interior del país, donde se prestará el servicio, a tal efecto el oferente deberá presentar la
+documentación de respaldo de disponibilidad o contratos de arrendamiento.
+*Listado de Equipos: El oferente deberá tener disponibilidad para el servicio (crucifijo lumínico, pedestal para ataúd,
+antorcha lumínica, accesorios para formolización, etc.) todos requeridos en las EE.TT., para la prestación del
+servicio, con su correspondiente descripción.
+Obs. En caso de no ser propios del oferente, se deberá acompañar una carta de compromiso de las empresas o personas,
+en la que se indique que prestará servicios o arrendará el bien para los servicios licitados, en caso que el oferente sea
+adjudicado. Este ítem incluye para los servicios a ser prestados en los distintos departamentos del país.
+Declaración Jurada en la que se señale que cuenta con los Recursos Humanos suficiente para cubrir cómodamente
+los servicios demandados a ser adjudicada.
+a. Criterio de evaluación para Consorcios: en caso de consorcios los integrantes podrán sumar los requisitos para cumplir
+""de manera conjunta lo exigido en el presente PBC. Asimismo, se deberá indicar cuál es el líder del consorcio.",,,,,,
+anos_experiencia_minima_tecnica,432270,7.0,"No se encontro un numero de años vinculado explicitamente a la palabra ""experiencia"" (el texto puede mencionar ""años"" en otro contexto: antiguedad de personal, edad, garantia de repuestos, años calendario aislados, o no mencionar experiencia en absoluto). GT=NULL segun regla explicita del prompt.","Capacidad Técnica""
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de capacidad
+técnica:
+El oferente deberá proporcionar evidencia documentada que demuestre su cumplimiento con los siguientes requisitos de
+capacidad técnica:
+El oferente (o cualquiera de los miembros del Consorcio para casos de Consorcios), al momento de ofertar, debe contar (ser
+propietario) con al menos 4 Tomógrafos (donde al menos 1 reconstruya imágenes a 128 cortes), 3 Resonadores Magnéticos
+Nucleares (donde al menos 1 sea de 3 Teslas), 7 ecógrafos, 3 equipos de Rayos X Digitales directos, 1 mamógrafo digital. Los
+mismos no deben tener más de 7 años de fabricación y deben contar con contrato de mantenimiento preventivo y correctivo
+""VIGENTE con el representante oficial de la marca del equipo.",,,,,,

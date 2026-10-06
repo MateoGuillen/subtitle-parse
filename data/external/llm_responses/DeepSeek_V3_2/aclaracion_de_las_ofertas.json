@@ -1,0 +1,138 @@
+{
+  "title": "Aclaracion De Las Ofertas",
+  "success": true,
+  "n_attempts": 1,
+  "response_time_s": 13.55,
+  "n_fields": 8,
+  "validation_errors": [],
+  "field_names": [
+    "solicitud_obligatoria",
+    "menciona_cpen",
+    "menciona_formulario_anexo",
+    "menciona_facilitar_proceso",
+    "num_verbos_facultad",
+    "num_restricciones_modificacion",
+    "excepcion_errores_aritmeticos",
+    "menciona_fuente_externa"
+  ],
+  "raw_response": "{\n  \"schema\": {\n    \"solicitud_obligatoria\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si el Comité de Evaluación SOLICITARÁ (obligación) aclaraciones, en lugar de PODRÁ (facultad).\",\n      \"importance\": 8,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase 'solicitará a los oferentes' o 'solicitará aclaraciones'. Si aparece, retornar 1. Si aparece 'podrá solicitar' o 'podrá solicitar aclaraciones', retornar 0.\"\n    },\n    \"menciona_cpen\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona específicamente la aclaración del CPEN (Cuadro de Precios Estimados de Necesidades).\",\n      \"importance\": 7,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la sigla 'CPEN' o la frase completa 'Cuadro de Precios Estimados de Necesidades'. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"menciona_formulario_anexo\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se menciona un formulario anexo al pliego para la respuesta de aclaraciones.\",\n      \"importance\": 6,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar las palabras 'formulario' y 'anexo' en la misma oración o contexto inmediato. Retornar 1 si ambas aparecen juntas, 0 si no.\"\n    },\n    \"menciona_facilitar_proceso\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si el objetivo de la aclaración es 'facilitar el proceso' en lugar de 'realizar' la revisión/evaluación.\",\n      \"importance\": 5,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase 'facilitar el proceso' al inicio de la sección. Retornar 1 si aparece. Si aparece 'realizar la revisión', retornar 0.\"\n    },\n    \"num_verbos_facultad\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de verbos que expresan facultad discrecional del Comité (ej. 'podrá', 'podrá solicitar').\",\n      \"importance\": 6,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Contar las ocurrencias de verbos modales que indiquen posibilidad o permiso ('podrá', 'podrán') aplicados al 'Comité de Evaluación'. Retornar el conteo total (entero).\"\n    },\n    \"num_restricciones_modificacion\": {\n      \"type\": \"numeric\",\n      \"description\": \"Cantidad de elementos (precio, sustancia) explícitamente prohibidos de modificar.\",\n      \"importance\": 9,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Contar cuántos de estos dos elementos se mencionan en la cláusula de prohibición de modificación: 'precios' (o 'precio') y 'sustancia de la oferta'. Retornar 0, 1 o 2.\"\n    },\n    \"excepcion_errores_aritmeticos\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se incluye la excepción que permite corregir errores aritméticos.\",\n      \"importance\": 8,\n      \"extraction_method\": \"literal\",\n      \"extraction_hint\": \"Buscar la frase 'errores aritméticos' o 'error aritmético'. Retornar 1 si aparece, 0 si no.\"\n    },\n    \"menciona_fuente_externa\": {\n      \"type\": \"binary\",\n      \"description\": \"Indica si se autoriza al Comité a solicitar aclaraciones a fuentes públicas o privadas externas.\",\n      \"importance\": 7,\n      \"extraction_method\": \"semantic\",\n      \"extraction_hint\": \"Buscar si el texto menciona que el Comité puede solicitar aclaraciones a una 'fuente' que no sea el oferente (ej. 'fuente pública', 'fuente privada', 'terceros'). Retornar 1 si se encuentra tal mención, 0 si no.\"\n    }\n  },\n  \"justification\": \"El cluster dominante (2_10_11_16) establece una obligación ('solicitará') y no menciona el CPEN. El campo 'solicitud_obligatoria' diferencia clusters que usan 'solicitará' (2,7) de los que usan 'podrá' (0,1,3), donde la facultad discrecional podría debilitar el control. 'menciona_cpen' y 'menciona_formulario_anexo' capturan la adición específica del cluster 1, que podría ser una exigencia adicional o una desviación focalizada. 'menciona_facilitar_proceso' distingue la redacción de objetivo, aunque su importancia normativa es menor. 'num_verbos_facultad' cuantifica el lenguaje permisivo. 'num_restricciones_modificacion' y 'excepcion_errores_aritmeticos' son cláusulas protectoras clave; su ausencia total (valor 0) sería una anomalía grave. 'menciona_fuente_externa' captura una facultad de verificación importante presente en casi todos los clusters; su omisión reduciría los poderes de investigación del Comité.\",\n  \"cluster_values\": {\n    \"solicitud_obligatoria\": {\n      \"cluster_0_4_6_19\": 0,\n      \"cluster_1\": 0,\n      \"cluster_2_10_11_16\": 1,\n      \"cluster_3_5_8_13_17_18\": 0,\n      \"cluster_7_9_12_14_15\": 1\n    },\n    \"menciona_cpen\": {\n      \"cluster_0_4_6_19\": 0,\n      \"cluster_1\": 1,\n      \"cluster_2_10_11_16\": 0,\n      \"cluster_3_5_8_13_17_18\": 0,\n      \"cluster_7_9_12_14_15\": 0\n    },\n    \"menciona_formulario_anexo\": {\n      \"cluster_0_4_6_19\": 0,\n      \"cluster_1\": 1,\n      \"cluster_2_10_11_16\": 0,\n      \"cluster_3_5_8_13_17_18\": 0,\n      \"cluster_7_9_12_14_15\": 0\n    },\n    \"menciona_facilitar_proceso\": {\n      \"cluster_0_4_6_19\": 0,\n      \"cluster_1\": 0,\n      \"cluster_2_10_11_16\": 1,\n      \"cluster_3_5_8_13_17_18\": 0,\n      \"cluster_7_9_12_14_15\": 1\n    },\n    \"num_verbos_facultad\": {\n      \"cluster_0_4_6_19\": 2,\n      \"cluster_1\": 2,\n      \"cluster_2_10_11_16\": 1,\n      \"cluster_3_5_8_13_17_18\": 2,\n      \"cluster_7_9_12_14_15\": 1\n    },\n    \"num_restricciones_modificacion\": {\n      \"cluster_0_4_6_19\": 2,\n      \"cluster_1\": 2,\n      \"cluster_2_10_11_16\": 2,\n      \"cluster_3_5_8_13_17_18\": 2,\n      \"cluster_7_9_12_14_15\": 2\n    },\n    \"excepcion_errores_aritmeticos\": {\n      \"cluster_0_4_6_19\": 1,\n      \"cluster_1\": 1,\n      \"cluster_2_10_11_16\": 1,\n      \"cluster_3_5_8_13_17_18\": 1,\n      \"cluster_7_9_12_14_15\": 1\n    },\n    \"menciona_fuente_externa\": {\n      \"cluster_0_4_6_19\": 1,\n      \"cluster_1\": 1,\n      \"cluster_2_10_11_16\": 1,\n      \"cluster_3_5_8_13_17_18\": 1,\n      \"cluster_7_9_12_14_15\": 1\n    }\n  }\n}",
+  "schema_data": {
+    "schema": {
+      "solicitud_obligatoria": {
+        "type": "binary",
+        "description": "Indica si el Comité de Evaluación SOLICITARÁ (obligación) aclaraciones, en lugar de PODRÁ (facultad).",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'solicitará a los oferentes' o 'solicitará aclaraciones'. Si aparece, retornar 1. Si aparece 'podrá solicitar' o 'podrá solicitar aclaraciones', retornar 0."
+      },
+      "menciona_cpen": {
+        "type": "binary",
+        "description": "Indica si se menciona específicamente la aclaración del CPEN (Cuadro de Precios Estimados de Necesidades).",
+        "importance": 7,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la sigla 'CPEN' o la frase completa 'Cuadro de Precios Estimados de Necesidades'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_formulario_anexo": {
+        "type": "binary",
+        "description": "Indica si se menciona un formulario anexo al pliego para la respuesta de aclaraciones.",
+        "importance": 6,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar las palabras 'formulario' y 'anexo' en la misma oración o contexto inmediato. Retornar 1 si ambas aparecen juntas, 0 si no."
+      },
+      "menciona_facilitar_proceso": {
+        "type": "binary",
+        "description": "Indica si el objetivo de la aclaración es 'facilitar el proceso' en lugar de 'realizar' la revisión/evaluación.",
+        "importance": 5,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'facilitar el proceso' al inicio de la sección. Retornar 1 si aparece. Si aparece 'realizar la revisión', retornar 0."
+      },
+      "num_verbos_facultad": {
+        "type": "numeric",
+        "description": "Cantidad de verbos que expresan facultad discrecional del Comité (ej. 'podrá', 'podrá solicitar').",
+        "importance": 6,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar las ocurrencias de verbos modales que indiquen posibilidad o permiso ('podrá', 'podrán') aplicados al 'Comité de Evaluación'. Retornar el conteo total (entero)."
+      },
+      "num_restricciones_modificacion": {
+        "type": "numeric",
+        "description": "Cantidad de elementos (precio, sustancia) explícitamente prohibidos de modificar.",
+        "importance": 9,
+        "extraction_method": "semantic",
+        "extraction_hint": "Contar cuántos de estos dos elementos se mencionan en la cláusula de prohibición de modificación: 'precios' (o 'precio') y 'sustancia de la oferta'. Retornar 0, 1 o 2."
+      },
+      "excepcion_errores_aritmeticos": {
+        "type": "binary",
+        "description": "Indica si se incluye la excepción que permite corregir errores aritméticos.",
+        "importance": 8,
+        "extraction_method": "literal",
+        "extraction_hint": "Buscar la frase 'errores aritméticos' o 'error aritmético'. Retornar 1 si aparece, 0 si no."
+      },
+      "menciona_fuente_externa": {
+        "type": "binary",
+        "description": "Indica si se autoriza al Comité a solicitar aclaraciones a fuentes públicas o privadas externas.",
+        "importance": 7,
+        "extraction_method": "semantic",
+        "extraction_hint": "Buscar si el texto menciona que el Comité puede solicitar aclaraciones a una 'fuente' que no sea el oferente (ej. 'fuente pública', 'fuente privada', 'terceros'). Retornar 1 si se encuentra tal mención, 0 si no."
+      }
+    },
+    "justification": "El cluster dominante (2_10_11_16) establece una obligación ('solicitará') y no menciona el CPEN. El campo 'solicitud_obligatoria' diferencia clusters que usan 'solicitará' (2,7) de los que usan 'podrá' (0,1,3), donde la facultad discrecional podría debilitar el control. 'menciona_cpen' y 'menciona_formulario_anexo' capturan la adición específica del cluster 1, que podría ser una exigencia adicional o una desviación focalizada. 'menciona_facilitar_proceso' distingue la redacción de objetivo, aunque su importancia normativa es menor. 'num_verbos_facultad' cuantifica el lenguaje permisivo. 'num_restricciones_modificacion' y 'excepcion_errores_aritmeticos' son cláusulas protectoras clave; su ausencia total (valor 0) sería una anomalía grave. 'menciona_fuente_externa' captura una facultad de verificación importante presente en casi todos los clusters; su omisión reduciría los poderes de investigación del Comité.",
+    "cluster_values": {
+      "solicitud_obligatoria": {
+        "cluster_0_4_6_19": 0,
+        "cluster_1": 0,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 0,
+        "cluster_7_9_12_14_15": 1
+      },
+      "menciona_cpen": {
+        "cluster_0_4_6_19": 0,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 0,
+        "cluster_3_5_8_13_17_18": 0,
+        "cluster_7_9_12_14_15": 0
+      },
+      "menciona_formulario_anexo": {
+        "cluster_0_4_6_19": 0,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 0,
+        "cluster_3_5_8_13_17_18": 0,
+        "cluster_7_9_12_14_15": 0
+      },
+      "menciona_facilitar_proceso": {
+        "cluster_0_4_6_19": 0,
+        "cluster_1": 0,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 0,
+        "cluster_7_9_12_14_15": 1
+      },
+      "num_verbos_facultad": {
+        "cluster_0_4_6_19": 2,
+        "cluster_1": 2,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 2,
+        "cluster_7_9_12_14_15": 1
+      },
+      "num_restricciones_modificacion": {
+        "cluster_0_4_6_19": 2,
+        "cluster_1": 2,
+        "cluster_2_10_11_16": 2,
+        "cluster_3_5_8_13_17_18": 2,
+        "cluster_7_9_12_14_15": 2
+      },
+      "excepcion_errores_aritmeticos": {
+        "cluster_0_4_6_19": 1,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 1,
+        "cluster_7_9_12_14_15": 1
+      },
+      "menciona_fuente_externa": {
+        "cluster_0_4_6_19": 1,
+        "cluster_1": 1,
+        "cluster_2_10_11_16": 1,
+        "cluster_3_5_8_13_17_18": 1,
+        "cluster_7_9_12_14_15": 1
+      }
+    }
+  }
+}

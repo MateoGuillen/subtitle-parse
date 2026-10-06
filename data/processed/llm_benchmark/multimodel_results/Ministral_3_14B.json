@@ -1,0 +1,807 @@
+{
+ "model": "Ministral-3-14B-Q4_K_M",
+ "score": 97,
+ "elapsed": 24.983213663101196,
+ "results": [
+  {
+   "nro": "461393",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "429420",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "417530",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "443132",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "365",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "434200",
+   "field": "dias_validez_garantia",
+   "gt": "365",
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "match": true
+  },
+  {
+   "nro": "401090",
+   "field": "dias_validez_garantia",
+   "gt": "365",
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "match": true
+  },
+  {
+   "nro": "408454",
+   "field": "dias_validez_garantia",
+   "gt": "365",
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "match": true
+  },
+  {
+   "nro": "420265",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "409512",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "447026",
+   "field": "dias_validez_garantia",
+   "gt": "365",
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "match": true
+  },
+  {
+   "nro": "465651",
+   "field": "dias_validez_garantia",
+   "gt": "365",
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "match": true
+  },
+  {
+   "nro": "381490",
+   "field": "dias_validez_garantia",
+   "gt": "182",
+   "llm_raw": "182",
+   "llm_value": 182.0,
+   "match": true
+  },
+  {
+   "nro": "428652",
+   "field": "dias_validez_garantia",
+   "gt": "365",
+   "llm_raw": "365",
+   "llm_value": 365.0,
+   "match": true
+  },
+  {
+   "nro": "432362",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "429463",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "462578",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "405727",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "463486",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "418182",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "419003",
+   "field": "dias_validez_garantia",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "439101",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "405271",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "428737",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "393056",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "475985",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "436413",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "402535",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "390561",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "439408",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "429213",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "70",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": false
+  },
+  {
+   "nro": "447765",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "459098",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "466975",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "453041",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "432452",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "426498",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "419672",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "455341",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "417616",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "428832",
+   "field": "pct_monto_referencia_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "436405",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "445230",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "460214",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "400243",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "426699",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "461484",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "445822",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "391189",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "407940",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "433528",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "444948",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "3",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": false
+  },
+  {
+   "nro": "421827",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "408734",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "460921",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "450043",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "401180",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "429540",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "476355",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "443306",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "460696",
+   "field": "anos_experiencia_minima_tecnica",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "467193",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "457788",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "407736",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "432017",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "455164",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "415555",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "405774",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "441268",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "474563",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "393442",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "426592",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "445416",
+   "field": "dias_pago_anticipo",
+   "gt": "15",
+   "llm_raw": "15",
+   "llm_value": 15.0,
+   "match": true
+  },
+  {
+   "nro": "432669",
+   "field": "dias_pago_anticipo",
+   "gt": "10",
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "match": true
+  },
+  {
+   "nro": "426072",
+   "field": "dias_pago_anticipo",
+   "gt": "30",
+   "llm_raw": "30",
+   "llm_value": 30.0,
+   "match": true
+  },
+  {
+   "nro": "464702",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "403427",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "475079",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "392981",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "435074",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "438773",
+   "field": "dias_pago_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "443693",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "405098",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "440778",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "475080",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "410377",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "441072",
+   "field": "dias_solicitud_anticipo",
+   "gt": "5",
+   "llm_raw": "5",
+   "llm_value": 5.0,
+   "match": true
+  },
+  {
+   "nro": "425873",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "467121",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "432279",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "466372",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "433600",
+   "field": "dias_solicitud_anticipo",
+   "gt": "10",
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "match": true
+  },
+  {
+   "nro": "416927",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "472560",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "460724",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "420039",
+   "field": "dias_solicitud_anticipo",
+   "gt": "10",
+   "llm_raw": "10",
+   "llm_value": 10.0,
+   "match": true
+  },
+  {
+   "nro": "461292",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "417029",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "470338",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  },
+  {
+   "nro": "441033",
+   "field": "dias_solicitud_anticipo",
+   "gt": "3",
+   "llm_raw": "3",
+   "llm_value": 10.0,
+   "match": false
+  },
+  {
+   "nro": "474107",
+   "field": "dias_solicitud_anticipo",
+   "gt": "NULL",
+   "llm_raw": "NULL",
+   "llm_value": null,
+   "match": true
+  }
+ ]
+}
