@@ -63,6 +63,8 @@ MODELS = {
                                   gpu_mem=0.85, max_len=8192),
     "qwen3.5-9b-fp8": dict(backend="vllm", id="RedHatAI/Qwen3.5-9B-FP8-dynamic",
                            gpu_mem=0.85, max_len=8192),
+    "qwen3.5-9b-gguf": dict(backend="http", gguf="/root/models/gguf/Qwen3.5-9B-Q8_0.gguf",
+                            server_flags=["--reasoning", "off"], extra={}),
     "ministral-3-8b-gguf": dict(backend="http", gguf="/root/models/gguf/Ministral-3-8B-Instruct-2512-Q8_0.gguf",
                                 server_flags=[], extra={}),
     "ling-3.0-tiny-gguf": dict(backend="http", gguf="/root/models/gguf/Ling-3.0-tiny-Q8_0.gguf",
@@ -173,6 +175,10 @@ def main():
         model = VLLMOfflineProvider(model_path=cfg["id"], quantization=None,
                                     max_model_len=cfg["max_len"], gpu_memory_utilization=cfg["gpu_mem"],
                                     dtype="bfloat16", guided_regex=GUIDED["float"])
+        # Cargar ANTES del bucle: si el modelo no entra (OOM), abortar aquí. Sin esto, el
+        # reintento ítem por ítem de gen() recargaba el modelo en cada ítem (bug visto con
+        # Qwen3.5-9B-FP8: 26 recargas fallidas).
+        model._lazy_init()
 
         def gen(msgs, t):
             model.guided_regex = GUIDED[t]

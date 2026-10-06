@@ -22,7 +22,7 @@ HAVING count(*) FILTER (WHERE status='pending') > 0 ORDER BY 2 DESC;"
 echo "== Última línea del log"
 tail -c 300 $(ls -t /root/backups/*.log | head -1) 2>/dev/null | tr '\r' '\n' | grep -v '^$' | tail -1 | cut -c1-120
 echo "== Ronda 2 de candidatos (descarga / test)"
-for m in gemma-4-12b-qat-w4a16 qwen3.5-9b-fp8 ministral-3-8b-gguf ling-3.0-tiny-gguf mimo-v2.6-9b-gguf clef-flash-gguf gemma-4-26b-a4b-gguf qwen3.6-35b-a3b-gguf; do
+for m in gemma-4-12b-qat-w4a16 qwen3.5-9b-fp8 qwen3.5-9b-gguf ministral-3-8b-gguf ling-3.0-tiny-gguf mimo-v2.6-9b-gguf clef-flash-gguf gemma-4-26b-a4b-gguf qwen3.6-35b-a3b-gguf; do
   d="bajando/en cola"; [ -f /root/models/gguf/.ok_$m ] && d="descargado"; [ -f /root/models/gguf/.fail_$m ] && d="DESCARGA FALLÓ"
   L=/root/backups/retest_$m.log; t=""
   [ -f "$L" ] && t=$(grep -h "exit=\|FALLÓ" "$L" || tr '\r' '\n' < "$L" | grep -E '^\s+[a-z_]+: [0-9]+ en' | tail -1)

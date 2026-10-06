@@ -29,6 +29,9 @@ CANDIDATES = {
                              "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"),
     "qwen3.6-35b-a3b-gguf": ("file", "unsloth/Qwen3.6-35B-A3B-GGUF",
                              "Qwen3.6-35B-A3B-UD-IQ3_XXS.gguf"),
+    # Qwen3.5-9B-FP8 (vLLM) hace OOM al cargar: el repo es multimodal (torre de visión,
+    # Qwen3_5ForConditionalGeneration, 14 GB). Se prueba como GGUF de solo texto.
+    "qwen3.5-9b-gguf": ("file", "unsloth/Qwen3.5-9B-GGUF", "Qwen3.5-9B-Q8_0.gguf"),
 }
 
 
