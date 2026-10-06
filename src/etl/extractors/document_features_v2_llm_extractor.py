@@ -44,7 +44,8 @@ class DocumentFeaturesV2LLMExtractor:
     def get_failed_extractions_grouped(self) -> Dict[str, pd.DataFrame]:
         """For each hybrid field, returns dict of {field_name: DataFrame}.
 
-        Each DataFrame has columns: nro_licitacion, content_text
+        Each DataFrame has columns: nro_licitacion, content_text, cluster_id,
+        section_title, section_line_start, section_year (one section per doc).
         Only docs where ``{field}_conf < threshold`` are included.
         """
         self.logger.info(
@@ -67,29 +68,40 @@ class DocumentFeaturesV2LLMExtractor:
                 conf_cols = [f"{n}_conf" for n in field_names]
                 where_clause = " OR ".join(f"fv2.{c} < %s" for c in conf_cols)
 
+                # Sesión 23 (H1.5): una sola sección por doc, elegida de forma
+                # determinista (la más larga; desempate por línea y año) y con su
+                # clave (title, line_start, year) para que el resume sea exacto.
                 sql = f"""
-                    SELECT fv2.nro_licitacion, {', '.join(conf_cols)},
-                           ps.content_text, ps.cluster_id
+                    SELECT DISTINCT ON (fv2.nro_licitacion)
+                           fv2.nro_licitacion, {', '.join(conf_cols)},
+                           ps.content_text, ps.cluster_id,
+                           ps.title, ps.line_start, ps.year
                     FROM dncp.document_features_v2 fv2
                     JOIN dncp.pliegos_secciones ps
                       ON fv2.nro_licitacion = ps.nro_licitacion
                      AND ps.title_normalized = %s
                     WHERE {where_clause}
+                    ORDER BY fv2.nro_licitacion, ps.content_length DESC NULLS LAST,
+                             ps.line_start, ps.year
                 """
                 params = [title_name] + [self.conf_threshold] * len(conf_cols)
                 cur.execute(sql, params)
                 rows = cur.fetchall()
 
+                k = len(field_names)
                 for row in rows:
                     doc_id = row[0]
-                    cluster_id = row[-1]
+                    text, cluster_id, title, line_start, year = row[1 + k:]
                     for i, fn in enumerate(field_names):
                         conf_val = row[1 + i]
                         if conf_val is not None and conf_val < self.conf_threshold:
                             groups[fn].append({
                                 "nro_licitacion": doc_id,
-                                "content_text": row[1 + len(field_names)],
+                                "content_text": text,
                                 "cluster_id": cluster_id,
+                                "section_title": title,
+                                "section_line_start": line_start,
+                                "section_year": year,
                             })
 
                 self.logger.info("  %s: %d rows checked", slug, len(rows))
