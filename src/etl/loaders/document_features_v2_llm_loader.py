@@ -75,7 +75,9 @@ class DocumentFeaturesV2LLMLoader:
                 raise ValueError(f"campo inválido o inexistente en {table}: {field!r}")
             val, conf, src = field, f"{field}_conf", f"{field}_source"
             status = f"{field}_status" if f"{field}_status" in cols else None
-            guard_val = (f"(t.{conf} IS NULL OR t.{conf} < CASE s.source "
+            # +1e-4: {campo}_conf es REAL y 0.9::real < 0.9 es verdadero (sin la
+            # tolerancia, re-promover el mismo run reescribía todo: no idempotente).
+            guard_val = (f"(t.{conf} IS NULL OR t.{conf} + 1e-4 < CASE s.source "
                          f"WHEN 'rule' THEN {CONF_BY_SOURCE['rule']} ELSE {CONF_BY_SOURCE['llm']} END "
                          f"OR t.{val} IS NULL OR (t.{val} = 0 AND t.{conf} = 0))")
             guard_abs = f"(t.{val} IS NULL OR (t.{val} = 0 AND t.{conf} = 0))"
@@ -101,10 +103,10 @@ class DocumentFeaturesV2LLMLoader:
                     cur.execute(
                         f"INSERT INTO dncp.document_features_v2_history (target_table, "
                         f"nro_licitacion, field, old_value, old_conf, old_source, old_status, "
-                        f"new_value, new_conf, new_source, new_status, run_id) "
+                        f"old_llm_model, new_value, new_conf, new_source, new_status, run_id) "
                         f"SELECT %s, s.nro_licitacion, %s, t.{val}, t.{conf}, t.{src}, "
-                        f"{old_status}, s.value, {conf_expr}, s.source, {new_status_val}, "
-                        f"s.run_id {elig_val}", (table, field, run_id, field))
+                        f"{old_status}, t.llm_model, s.value, {conf_expr}, s.source, "
+                        f"{new_status_val}, s.run_id {elig_val}", (table, field, run_id, field))
                     set_status = f", {status} = 'extraido'" if status else ""
                     cur.execute(
                         f"UPDATE {table} t SET {val} = s.value, {conf} = {conf_expr}, "
@@ -119,9 +121,10 @@ class DocumentFeaturesV2LLMLoader:
                         cur.execute(
                             f"INSERT INTO dncp.document_features_v2_history (target_table, "
                             f"nro_licitacion, field, old_value, old_conf, old_source, old_status, "
-                            f"new_value, new_conf, new_source, new_status, run_id) "
+                            f"old_llm_model, new_value, new_conf, new_source, new_status, run_id) "
                             f"SELECT %s, s.nro_licitacion, %s, t.{val}, t.{conf}, t.{src}, "
-                            f"t.{status}, NULL, NULL, {abs_src}, 'ausente', s.run_id {elig_abs}",
+                            f"t.{status}, t.llm_model, NULL, NULL, {abs_src}, 'ausente', "
+                            f"s.run_id {elig_abs}",
                             (table, field, run_id, field))
                         cur.execute(
                             f"UPDATE {table} t SET {val} = NULL, {conf} = NULL, "
@@ -151,6 +154,17 @@ class DocumentFeaturesV2LLMLoader:
                         (run_id, table))
             todo = [f for (f,) in cur.fetchall() if not fields or f in fields]
             out = {}
+            # llm_model es UNA columna por fila compartida entre campos: se restaura una
+            # sola vez por doc desde la entrada más antigua del run, y solo si se
+            # revierte el run completo (con subconjunto de campos queda como está).
+            if not fields and not dry_run and "llm_model" in cols:
+                cur.execute(
+                    f"UPDATE {table} t SET llm_model = h.old_llm_model "
+                    f"FROM (SELECT DISTINCT ON (nro_licitacion) nro_licitacion, old_llm_model "
+                    f"      FROM dncp.document_features_v2_history "
+                    f"      WHERE run_id=%s AND target_table=%s AND rolled_back_at IS NULL "
+                    f"      ORDER BY nro_licitacion, id) h "
+                    f"WHERE t.nro_licitacion = h.nro_licitacion", (run_id, table))
             for field in todo:
                 if not _IDENT.match(field) or field not in cols:
                     raise ValueError(f"campo inválido: {field!r}")

@@ -91,3 +91,4 @@ CREATE INDEX IF NOT EXISTS dfv2_history_run_idx
 -- columnas agregadas tras la primera aplicación (idempotente)
 ALTER TABLE dncp.document_features_v2_history ADD COLUMN IF NOT EXISTS old_status TEXT;
 ALTER TABLE dncp.document_features_v2_history ADD COLUMN IF NOT EXISTS new_status TEXT;
+ALTER TABLE dncp.document_features_v2_history ADD COLUMN IF NOT EXISTS old_llm_model TEXT;
