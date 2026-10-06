@@ -44,3 +44,31 @@
 - **Campeón sobre salida cruda: Qwen3-8B-FP8** en los campos donde el LLM decide (dias: +22 pp sobre FP8, significativo; estable bajo cambios de prompt). En pct no hay diferencia detectable contra humano.
 - El veredicto v2 ("FP8 por desempate operativo") **queda invalidado**: el empate de calidad que habilitaba el desempate no existe sobre crudo. FP8 sigue siendo 1,56× más rápido (7,0 vs 4,5 req/s), pero no hay empate que desempatar.
 - Implicación para F4: el run LLM nuevo usa **Qwen3-8B-FP8** (13,2 GB, entra en 16 GB), salvo que la ablación de F4.5 muestre que en los campos con regla el LLM no aporta nada; en ese caso esos campos van solo con reglas.
+
+## 4. Extensión a TODOS los modelos probados (`scripts/rescore_todos_modelos.py`, `F1b_todos_modelos.csv`)
+
+GT-100 humano (4 campos dias × 20 = 80 + pct 20). Crudo = número literal emitido (sin reglas).
+
+| Modelo | dias crudo (80) | pct crudo (20) | dias publicado (post) |
+|---|---|---|---|
+| EXAONE-3.5-7.8B-AWQ | 79 | 20 | 78 |
+| Gemma-4-12B (GGUF) | 79 | 19 | 78 |
+| Qwen3-14B-AWQ | 79 | 20 | 78 |
+| Qwen3.8-27B (GGUF) | 79 | 19 | 78 |
+| **Qwen3-8B-FP8** | 78 | 20 | 78 |
+| Ministral-3-14B (GGUF) | 78 | 19 | 78 |
+| Qwen2.5-14B-AWQ | 75 | 19 | 75 |
+| Qwen3-8B-AWQ | 74 | 20 | 74 |
+| Mistral-7B-AWQ | 61 | 17 | 78 |
+| Llama-3.1-8B-AWQ | 59 | 3 | 78 |
+| **Llama-3.1-8B-FP8** | **18** | **1** | 78 |
+| Granite-4.2-8B | sin crudo registrado (raw vacío en el log) | — | 78 |
+| ALIA-legal-7B | run roto (score 0) | — | 0 |
+
+Baseline siempre-NULL con el mismo postproceso: **78/80** en dias. Lecturas:
+1. El "GT-100 98/100" que llevó a FP8 a la final era casi todo postproceso: FP8 sobre crudo acierta 18/80.
+2. **La selección de finalistas (top-3) también estaba sesgada**: se hizo con Fase 5 (decidida solo en pct contra
+   pseudo-GT de regex). Sobre crudo humano, EXAONE-3.5-7.8B-AWQ, Qwen3-14B-AWQ, Gemma-4-12B y Qwen3.8-27B
+   rinden igual o mejor que Qwen3-8B-FP8 en GT-100; Llama-FP8/AWQ y Mistral-7B quedan últimos.
+3. Con n=80 las diferencias entre los 6 primeros (78-79) no son significativas. Para elegir entre ellos hace
+   falta C3-288 crudo + ablación GT-12 por modelo (≈5 min de GPU c/u). Pendiente/opcional.

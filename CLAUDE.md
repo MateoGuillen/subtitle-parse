@@ -5,6 +5,7 @@
 - **Veredicto vigente**: `docs/endurecimiento_benchmark_plan.md` §9 (v3). Modelo del fallback = **Qwen3-8B-FP8** (crudo 98,3% vs FP8 76,6% en C3 dias; GT-12 LLM solo 75,0% vs 34,5%). Las capas deterministas ponen el rendimiento: pipeline 93,8% (95,1% con orden regla→regex); el LLM decide solo 8,7% de ítems.
 - **Tabla a usar**: `dncp.document_features_v3` (NULL≠0 + `{campo}_status`). `document_features_v2` es legado (0 = ausencia).
 - **Run vigente** (sin promover): `llmfb-qwen3-8b-fp8-3fe595a69e69bfd4` en `dncp.llm_fallback_runs_v2` (287.894 filas, 0 fallidas).
+- 📋 **Tareas del usuario (checklist)**: `docs/TAREAS_USUARIO.md`.
 - 🟡 **Pendiente HUMANO (bloquea F7)**: anotar `planillas/planilla_estratificado_75.csv` (validación fuera de muestra de reglas, lo más importante), `planilla_iaa_25.csv` (κ) y la planilla ciega `planillas/aceptacion_v2_3fe595a6.csv` (643 ítems; instrucciones en `LEEME_aceptacion_v2.md`). Luego `scripts/validar_aceptacion.py`.
 - ⛔ **F7 (promote) requiere aprobación del usuario**: `scripts/promote_fallback.py --run-id <run> --fields <PROMOTE>` es dry-run por defecto; `--apply` escribe en v3 con historia/rollback. `num_componentes_formula` candidato a HOLD.
 - ⛔ Push bloqueado: falta auth GitHub y **rotar credenciales** ya publicadas (ver memoria `repo-publico-secretos`).

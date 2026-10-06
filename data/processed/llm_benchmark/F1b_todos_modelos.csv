@@ -1,0 +1,26 @@
+set,modelo,dias_n,dias_crudo,dias_post,dias_null,pct_n,pct_crudo,pct_post,pct_null
+GT100_humano,ALIA legal 7B-Q8_0,80,0,0,78.0,20,0,0,19.0
+GT100_humano,EXAONE-3.5-7.8B-AWQ,80,79,78,78.0,20,20,20,19.0
+GT100_humano,Gemma-4-12B-QAT-Q4_K_XL,80,79,78,78.0,20,19,19,19.0
+GT100_humano,Granite-4.2-8B-Q4_K_M,80,65,78,78.0,20,19,19,19.0
+GT100_humano,Llama 3.1 8B-AWQ,80,59,78,78.0,20,3,20,19.0
+GT100_humano,Llama 3.1 8B-FP8,80,18,78,78.0,20,1,20,19.0
+GT100_humano,Ministral-3-14B-Q4_K_M,80,78,78,78.0,20,19,19,19.0
+GT100_humano,Mistral 7B v0.3-AWQ,80,61,78,78.0,20,17,19,19.0
+GT100_humano,Mistral Small 24B-AWQ,40,39,40,40.0,10,9,9,9.0
+GT100_humano,Qwen2.5-14B-AWQ,80,75,75,78.0,20,19,19,19.0
+GT100_humano,Qwen3-14B-AWQ,80,79,78,78.0,20,20,20,19.0
+GT100_humano,Qwen3-8B-AWQ,80,74,74,78.0,20,20,20,19.0
+GT100_humano,Qwen3-8B-FP8,80,78,78,78.0,20,20,20,19.0
+GT100_humano,Qwen38-12hybrid-rawpp,120,35,0,40.0,0,0,0,0.0
+GT100_humano,"Qwen3.8-27B UD-Q3_K_XL (llama.cpp, no-thinking)",80,79,78,78.0,20,19,19,19.0
+Fase5_pseudo_v1,EXAONE-3.5-7.8B-AWQ,720,380,418,,147,2,2,
+Fase5_pseudo_v1,Gemma-4-12B-QAT-Q4_K_XL,720,383,418,,147,69,2,
+Fase5_pseudo_v1,Granite-4.2-8B-Q4_K_M,720,0,418,,147,0,0,
+Fase5_pseudo_v1,Ministral-3-14B-Q4_K_M,720,394,418,,147,17,17,
+Fase5_pseudo_v1,Mistral 7B v0.3-AWQ,720,325,418,,147,10,10,
+Fase5_pseudo_v1,Mistral Small 24B-AWQ,720,296,418,,147,0,0,
+Fase5_pseudo_v1,Qwen3-14B-AWQ,720,446,418,,147,42,42,
+Fase5_pseudo_v1,Llama 3.1 8B-AWQ,720,372,418,,147,114,114,
+Fase5_pseudo_v1,Llama 3.1 8B-FP8,720,401,418,,147,118,118,
+Fase5_pseudo_v1,Qwen3-8B-FP8,720,459,418,,147,56,56,
