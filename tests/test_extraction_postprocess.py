@@ -215,3 +215,13 @@ def test_num_documentos_pago_is_not_first_item_index(regex_transformer):
             "2. La factura de pago\n3. REPSE\nOtras formas y condiciones de pago")
     assert regex_transformer._re_num_documentos_pago(text) == 3
     assert regex_transformer._re_num_documentos_pago("sin lista de documentos") is None
+
+
+def test_num_pasos_verificacion_handles_ordinals_on_gt(regex_transformer):
+    g = pd.read_csv(GT_DIR / "num_pasos_verificacion_GT.csv")
+    ok = sum(regex_transformer._re_num_pasos_verificacion(str(r.text))
+             == (None if pd.isna(r.ground_truth) else int(r.ground_truth))
+             for r in g.itertuples())
+    assert ok == 200  # in-sample: validar fuera de muestra en F5
+    assert regex_transformer._re_num_pasos_verificacion(
+        "análisis: 1º Verificará el formulario 2º Verificará la firma 3º Constatará") == 3

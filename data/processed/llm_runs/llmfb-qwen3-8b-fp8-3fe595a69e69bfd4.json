@@ -1,0 +1,35 @@
+{
+ "model_id": "Qwen/Qwen3-8B-FP8",
+ "model_revision": "220b46e3b218",
+ "quant": null,
+ "prompt_hash": "550eab5990132a7e1801b945f598d91e1030bca414ce18c168a915ab76ae0c3f",
+ "schema_version": "db23068ceb86ae648cce78ca41708f6bfadfb30234e5bfd0da1a7f8769e1cc3c",
+ "code_version": "133d794f861dad6a951191b86e6cea2f46811172",
+ "code_files": {
+  "src/etl/transformers/extraction_postprocess.py": "20a4a720fcb5c61ac3b71dd8b420ce31156a16842c54f701fbcd7d9724f21a85",
+  "src/etl/transformers/document_features_v2_llm_transformer.py": "b473cee92661e493353896cb68b1809f2a49ca7b381306415e14c4b7e7beca8e",
+  "src/etl/transformers/document_features_v2_transformer.py": "82e0f612e89611845677389b7d519c5ea9722f582c9e5c1a08000d2c6edaac97",
+  "src/etl/transformers/llm_provider.py": "bf9315551084b4e944a6e801a022978785c26d54b47bad8e85826bb5d7191196",
+  "src/etl/extractors/document_features_v2_llm_extractor.py": "c10bd8f31aa0e157fb68fafe198cdd6ab1fff1043ac39608ed0d12f21183c2a2",
+  "scripts/run_llm_fallback.py": "890cfc8028a5757c99cd8a78de7266449acc2c8e99e39a08b70c11ec7cc22033"
+ },
+ "git_dirty": false,
+ "sampling": {
+  "temperature": 0.0,
+  "max_tokens": 16,
+  "guided_by_type": {
+   "int": "^(\\d{1,4}|NULL)$",
+   "float": "^(-?\\d+(?:[.,]\\d+)?|NULL)$"
+  },
+  "max_model_len": 8192
+ },
+ "conf_threshold": 0.8,
+ "mode": "rule_first",
+ "llm_all": false,
+ "pilot_docs": 0,
+ "fields": [],
+ "runner": "v2",
+ "features_table": "dncp.document_features_v3",
+ "fingerprint": "3fe595a69e69bfd4",
+ "run_id": "llmfb-qwen3-8b-fp8-3fe595a69e69bfd4"
+}

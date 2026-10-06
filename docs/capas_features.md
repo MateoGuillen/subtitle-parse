@@ -62,6 +62,36 @@
 
 Total: 81 valores + 12 conf + 12 source + 3 ids = **108**. (81 lógicos: 69 regex + 12 hybrid.)
 
+> ⚠ **Auditoría sesión 23 (H4.1)**: en v2 **ningún campo numérico tiene NULL**: la ausencia se
+> codifica como `0` en los 26 campos int/float (no solo en los 12 hybrid), mientras que en
+> 5.266 etiquetas humanas de esos campos no hay ni un 0. Además `{campo}_source='absent'`
+> mezcla dos cosas: con conf 1.0 = el doc no tiene la sección; con conf 0.0 = regex no-match.
+> **No usar v2 para análisis**: usar `document_features_v3`.
+
+## 4. `document_features_v3` — contenido con NULL ≠ 0 (31.321 × 108 + 26 `_status` + `llm_model`)
+
+**De dónde viene**: copia de v2 generada por `scripts/build_features_v3.py` (SQL en
+`sql/s23_features_v3_null_semantics.sql`); v2 queda intacta. Correcciones por campo con
+`scripts/recompute_regex_field.py` (con historia) y promociones del fallback con
+`scripts/promote_fallback.py` (con historia y rollback en `document_features_v2_history`).
+**Semántica (26 campos numéricos)**:
+
+| Columna | Valores | Significado |
+|---|---|---|
+| `{campo}` | número o **NULL** | NULL = sin valor (nunca 0) |
+| `{campo}_status` | `extraido` | hay valor |
+| | `sin_seccion` | el pliego no tiene sección del título del campo |
+| | `no_extraido` | la sección existe pero no se obtuvo valor (= población del fallback) |
+| | `ausente` | regla o LLM dictaminaron que el pliego no fija el valor (lo escribe el promote) |
+| `{campo}_source` (12 hybrid) | `regex` / `rule` / `llm` / `absent` | quién produjo el valor; `rule` = regla determinista de `extraction_postprocess.RULES` (antes se etiquetaba como `llm`) |
+| `{campo}_conf` (12 hybrid) | regex 1.0 · rule 0.9 · llm 0.7 · NULL | **convencional por fuente, no es una probabilidad** (H4.4) |
+| `llm_model` | `{source}@{run_id}` | trazabilidad de la última promoción (una columna por fila, compartida entre campos) |
+
+**Semántica de `dias_pago_maximo` (H4.6)**: la regla toma el **primer** "N días" del texto
+(criterio del GT humano), no el máximo; se conserva el nombre de columna para no romper
+consumidores. **`num_documentos_pago` (H4.3)**: corregido en v3 a conteo por nombre del
+catálogo de 7 documentos genéricos DNCP (antes devolvía el índice del primer ítem).
+
 ## Mapa en una línea
 
 `pliegos_secciones` → **forma** (`document_features`, 587) + OCDS → **plata** (`document_economic_features`, 46) + pliegos × schema → **contenido** (`document_features_v2`, 108) → top-20 variables → anomalías.

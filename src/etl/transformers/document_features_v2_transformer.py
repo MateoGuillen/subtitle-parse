@@ -681,7 +681,12 @@ class DocumentFeaturesV2Transformer:
         # Misma receta que num_categorias (el LLM subcuenta listas: devuelve 1
         # aunque haya "1. Verificará... 2. Verificará..."). Maximo item nivel 1.
         # Validador GT 27-sep: 97/97 (100%) en filas con items; resto -> None (LLM).
+        # Sesión 23: los 4.391 misses numeran con ORDINALES ("1º Verificará…") y el LLM
+        # respondía 8 constante. Con fallback a ordinales: GT 200/200 (in-sample), 0
+        # errores con valor -> el campo ya no necesita LLM.
         items = re.findall(r"(?:^|\n)\s*(\d{1,2})\s*\.\s*[A-ZÁÉÍÓÚÑÚ]", text, re.MULTILINE)
+        if not items:
+            items = re.findall(r"(?<!\d)(\d{1,2})\s*[º°]\s*[A-ZÁÉÍÓÚÑ]", text)
         if not items:
             return None
         return max(int(x) for x in items)
