@@ -88,6 +88,14 @@ Semántica corregida: NULL del modelo = `done` (confirma ausencia), `failed` = s
 | num_componentes_formula | 9/1500 | 1% | campo casi inexistente en la práctica |
 | anos_exp_minima_tecnica | 2/1229 | 0% | ⚠ a validar contra `planilla_estratificado_75.csv`: ¿ausencia real o sub-extracción? |
 
+> **Nota sesión 23 (auditoría, H6.4)**: 317.107 es la población del extractor *al momento
+> del piloto*. La corrida completa quedó en **294.102 filas** (31.321 docs) porque el
+> schema cambió durante la sesión 22 (p. ej. `num_pasos_verificacion` pasó a regex y
+> volvió a hybrid con solo los 4.391 misses del regex). No hay conciliación fila a fila
+> entre ambas cifras; la vigente es 294.102 (`SELECT count(*) FROM dncp.llm_fallback_runs`).
+> Además, en 9 de los 12 campos los "encontrados" de la tabla de arriba son valores de la
+> **regla determinista** de `extraction_postprocess.py`, no del LLM (H1.1).
+
 **Extrapolación medida (no estimada)**: 317.107 filas totales / 25 filas/s ≈ **3.5 h GPU**
 para la corrida completa (era 10-14 h en el diseño — el guided corto + secciones cortas
 rinden 4× mejor). ETA con I/O y reintentos: ~4-5 h en una sesión.

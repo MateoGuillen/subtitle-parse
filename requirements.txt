@@ -1,25 +1,40 @@
-pandas
+# Dependencias directas del proyecto (cotas mínimas).
+# Entorno exacto y reproducible del benchmark/fallback LLM: requirements-vllm.lock
+# (pip freeze de /root/vllm-env, Python 3.12.3, CUDA 13.x, GPU 16 GB).
+
+# --- ETL / datos ---
+pandas>=3.0
+numpy>=2.3
+pyarrow
+sqlalchemy>=2.0
+psycopg2-binary>=2.9
+python-dotenv>=1.0
 requests
 rarfile
 PyPDF2
 pdfplumber
-asyncio
 aiohttp
 aiofiles
 tqdm
-resource
-pyarrow
-sqlalchemy 
-psycopg2-binary
-python-dotenv
 tika
 cryptography==39.0.1
+openpyxl
+lxml
+
+# --- Clustering / NLP ---
 scikit-learn
 sentence-transformers
 umap-learn
+hdbscan
 nltk
 matplotlib
-openpyxl
-lxml
-psycopg2-binary
-hdbscan
+
+# --- Stack LLM local (benchmark + fallback) ---
+vllm==0.29.0
+torch==2.13.0
+transformers==5.16.1
+xgrammar==0.2.6
+huggingface_hub>=1.30
+
+# --- Tests ---
+pytest>=8
