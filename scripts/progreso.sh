@@ -28,3 +28,5 @@ for m in gemma-4-12b-qat-w4a16 qwen3.5-9b-fp8 qwen3.5-9b-gguf ministral-3-8b-ggu
   [ -f "$L" ] && t=$(grep -h "exit=\|FALLÓ" "$L" || tr '\r' '\n' < "$L" | grep -E '^\s+[a-z_]+: [0-9]+ en' | tail -1)
   printf "  %-24s %-16s %s\n" "$m" "$d" "${t:-—}"
 done
+echo "== Pseudo-GT Opus 5.5 (344 ítems) por modelo"
+for f in /root/backups/pseudo_*.log; do [ -f "$f" ] && printf "  %-28s %s\n" "$(basename $f .log | sed 's/^pseudo_//')" "$(grep -h 'exit=' $f || echo corriendo)"; done 2>/dev/null
