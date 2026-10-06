@@ -38,7 +38,12 @@ REF = "qwen3-8b-fp8"
 LABEL = {"qwen3-8b-fp8": "Qwen3-8B-FP8", "llama-fp8": "Llama-3.1-8B-FP8",
          "exaone-3.5-7.8b-awq": "EXAONE-3.5-7.8B-AWQ", "qwen3-14b-awq": "Qwen3-14B-AWQ",
          "gemma-4-12b-gguf": "Gemma-4-12B (GGUF)", "ministral-3-14b-gguf": "Ministral-3-14B (GGUF)",
-         "qwen3.8-27b-gguf": "Qwen3.8-27B UD-Q3_K_XL (GGUF)"}
+         "qwen3.8-27b-gguf": "Qwen3.8-27B UD-Q3_K_XL (GGUF)",
+         "gemma-4-12b-qat-w4a16": "Gemma-4-12B QAT W4A16 (vLLM)", "qwen3.5-9b-fp8": "Qwen3.5-9B-FP8 (vLLM)",
+         "ministral-3-8b-gguf": "Ministral-3-8B Q8 (GGUF)", "ling-3.0-tiny-gguf": "Ling-3.0-tiny Q8 (GGUF)",
+         "mimo-v2.6-9b-gguf": "MiMo-V2.6-9B Q8 (GGUF)", "clef-flash-gguf": "Clef-Flash Q8 (GGUF)",
+         "gemma-4-26b-a4b-gguf": "Gemma-4-26B-A4B Q4_K_XL (GGUF)",
+         "qwen3.6-35b-a3b-gguf": "Qwen3.6-35B-A3B IQ3_XXS (GGUF)"}
 
 
 def eq(a, b, f):
