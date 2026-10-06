@@ -771,6 +771,14 @@ pendiente), F6 ✅, F7 bloqueada (aprobación + F5)**.
 #### Files (nuevos clave)
 `scripts/{manifest_datos,build_tabla_maestra,rescore_crudo,snapshot_reglas,promote_fallback,build_features_v3,recompute_regex_field,ablacion_gt,ablacion_resumen,varianza_campos}.py`, `scripts/progreso.sh`, `sql/{llm_fallback_v2,s23_features_v3_null_semantics}.sql`, `tests/` (38), `pytest.ini`, `docs/{rescore_crudo_f1,ablacion_gt,varianza_campos}.md`, `requirements-vllm.lock`, `data/MANIFEST.sha256`.
 
+
+#### Sesión 24 (continuación): benchmark ampliado a 14 modelos + pseudo-GT Opus 5.5
+- **Re-score de todos los modelos sobre crudo** (`rescore_todos_modelos.py`): Llama-FP8 18/80 en GT-100 crudo; la selección de finalistas de sesiones 19-20 también estaba sesgada.
+- **Retest con protocolo único** (`ablacion_gt.py`: mismo prompt, guided xgrammar/GBNF, 2.600 GT humanos) para 14 modelos en 2 rondas (8 descargados en esta sesión: Gemma-4-12B QAT W4A16, Qwen3.5-9B GGUF, Ministral-3-8B, Ling-3.0-tiny, MiMo-V2.6-9B, Gemma-4-26B-A4B, Qwen3.6-35B-A3B, Qwen3.8-27B UD-Q3_K_XL; GGUF en `/root/models/gguf` y `models/gguf`). Top: familia Gemma-4 (83%); Qwen3-8B-FP8 (run F4) 75%; Llama-FP8 34,5%.
+- **Pseudo-GT Opus 5.5**: 344 ítems fuera de muestra, muestra y anotaciones commiteadas con sha256 antes de evaluar (`pseudo_gt_opus/`). Ranking estable (ρ=0,91, τ=0,80); reglas fuera de muestra 90,1%; varianza de criterio en `dias_pago_maximo`.
+- **Decisión**: Gemma-4-12B QAT W4A16 en vLLM recomendado para el fallback (pendiente confirmación del usuario + re-run de `num_componentes_formula`). Docs: `ablacion_gt.md`, `pseudo_gt_varianza.md`, veredicto §9.8-9.9.
+- Incidentes: Qwen3.5-9B-FP8 OOM (multimodal) → bug de recarga por ítem corregido; `pkill -f` se mataba a sí mismo → `pkill -x`/PID; Clef-Flash no soportado por llama.cpp `6d9c82e`.
+
 ## Git State
 - `HEAD` = `869c86c` on `feature/clustering-pipeline` (rama real; los docs anteriores decían `feature/ocds-csv-pipeline` — corregido en sesión 23)
 - Last commit: `fix(clustering): Apply 4 anti-overclustering fixes to section clustering`
