@@ -20,8 +20,11 @@
       (dry-run). Aplicar: agregar `--apply`. Revertir: `--rollback --apply`.
 
 ## 2b. Modelo del fallback (decisión tuya; evidencia en `endurecimiento_benchmark_plan.md` §9.8)
-- [ ] Elegir: **Gemma-4-12B GGUF** (mejor calidad; requiere agregar backend llama-server al runner, ~5 h para
-      re-correr `num_componentes_formula`) o **Qwen3-14B-AWQ** (vLLM, ya soportado, −1,7 pp, ~1,5 h).
+- [ ] Confirmar modelo: recomendado **Gemma-4-12B QAT W4A16 (vLLM)** — empata con el mejor en GT humano y en
+      el pseudo-GT, corre en el runner actual (agregar su config a `MODELS` de `run_llm_fallback.py`), 6 ítems/s
+      (~1,5 h para re-correr `num_componentes_formula`). Alternativas: Gemma-4-26B-A4B GGUF, Qwen3-14B-AWQ.
+- [ ] Revisar la definición de `dias_pago_maximo` (regla "primer N días" vs guía "sin exceder N días tras
+      factura": cambia el ganador entre regla y LLM; ver `docs/pseudo_gt_varianza.md` §D.3).
 - [ ] Re-correr `num_componentes_formula` (y residuales) con el modelo elegido antes de promoverlo.
 
 ## 3. Seguridad y publicación

@@ -462,3 +462,17 @@ re-correrse** con el modelo elegido antes de promoverlo. Caveats: GGUF (Q4/Q3) v
 cuantizaciones distintas y backends de guided distintos (GBNF vs xgrammar) — se compara el sistema
 desplegable en 16 GB, no el modelo base; la selección de agosto/septiembre (top-3) estaba sesgada
 por la métrica contaminada (§9.1), por eso Gemma y Qwen3-14B no llegaron entonces a la final.
+
+### 9.9 Ronda 2 (14 modelos) y segunda referencia independiente (06-oct; `docs/ablacion_gt.md`, `docs/pseudo_gt_varianza.md`)
+- **Ronda 2**: 8 candidatos 2025-2026 descargados y testeados con el mismo protocolo (Gemma-4-12B QAT W4A16
+  vLLM, Qwen3.5-9B GGUF, Ministral-3-8B, Ling-3.0-tiny, MiMo-V2.6-9B, Gemma-4-26B-A4B, Qwen3.6-35B-A3B; Clef-Flash
+  no soportado por el build de llama.cpp; Qwen3.5-9B-FP8 no entra en 16 GB). Top GT humano (LLM solo,
+  hybrid-12): Gemma-4-12B GGUF 83,2% · **Gemma-4-12B QAT vLLM 83,0% (6,0 ítems/s)** · Gemma-4-26B-A4B 83,0% ·
+  Qwen3.8-27B 82,4% · Qwen3-14B-AWQ 81,5% · Qwen3.6-35B-A3B 80,8% · MiMo-9B 79,7% (mejor en pct: 75,5%).
+- **Pseudo-GT Opus 5.5** (344 ítems fuera de muestra, anotación ciega pre-registrada): ranking estable
+  (Spearman ρ = 0,91, Kendall τ = 0,80; mismo top-3 y mismo bottom-3). Reglas fuera de muestra 90,1%
+  (vs 100% in-sample). Varianza de criterio documentada en `dias_pago_maximo` (convención "primer N días"
+  del GT humano vs guía "sin exceder N días después de la factura").
+- **Decisión actualizada (reemplaza §9.8)**: modelo recomendado = **Gemma-4-12B QAT W4A16 en vLLM** — empata
+  con el mejor en ambas referencias, corre en el runner de producción sin backend nuevo y es 3,6× más rápido
+  que el GGUF. Re-correr `num_componentes_formula` con él antes de promover (pendiente usuario, TAREAS 2b).
