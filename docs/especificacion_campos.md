@@ -1,16 +1,16 @@
-# Especificación operativa de los campos híbridos (borrador v0.1 — 08-oct-2026)
+# Especificación operativa de los campos híbridos (v1.0 aprobada — 08-oct-2026)
 
 > **Para qué**: una sola fuente de verdad por campo. De cada ficha salen tres cosas idénticas: la guía
 > del prompt (`extraction_hint` en `master_schemas_v2.json`), la documentación de la regla en
 > `extraction_postprocess.py` y las instrucciones del anotador. Hoy esas tres cosas difieren en dos
 > campos (`dias_pago_maximo`, `num_documentos_pago`) y eso invalidó la medición de precisión.
-> **Estado**: PROPUESTA. Cada ficha tiene una sección "Decisión" que el usuario debe aprobar (✅) o
-> cambiar. Nada se aplica a prompts, reglas ni planillas hasta que la ficha esté aprobada.
+> **Estado**: APROBADA ficha por ficha el 08-oct-2026 tras leer cada sección completa en la BD
+> (`scripts/analisis_seccion_*.py`). Pendiente: implementación (ver "Qué cambia al aprobar").
 > **Convención común a todos**: el valor es el que el pliego **fija como requisito o plazo**; si el pliego
 > dice "No Aplica", deja el campo en blanco, remite a otro documento ("según EETT", "según plantilla
 > SICP") o solo trae la plantilla sin completar, el valor es **NULL**. Nunca 0. Las cifras entre
 > paréntesis prevalecen sobre las palabras ("quince (15) días" → 15). "Hábiles", "corridos" y
-> "calendario" no cambian el número.
+> "calendario" no cambian el número. Con varios valores genuinos del mismo concepto: el **máximo**.
 
 ---
 
@@ -267,61 +267,118 @@
 
 ---
 
-## Grupo B — Casi constantes: la señal es el desvío del estándar (prioridad 3)
+## Grupo B — Casi constantes: la señal es el desvío del estándar ✅ APROBADO (08-oct-2026)
 
-### B1. `ratio_liquidez_minimo`
-- **Mide**: activo corriente / pasivo corriente mínimo exigido. Estándar DNCP = 1.
-- **Regla**: número que sigue a "Liquidez" con "igual o mayor a / ≥ / deberá ser / mínimo". Decimales con
-  coma → punto (1,20 → 1.2). Corchetes "[1]" cuentan como 1.
-- **NULL**: "[indicar índice]" sin número, "No Aplica", sección sin índices.
-- **Métrica**: reportar precisión por separado en el estrato **≠ 1** (ahí vive la señal).
-- **Decisión**: [ ] aprobar.
+### Evidencia B1/B2 (`scripts/analisis_seccion_financiera.py`, 16.181 textos distintos / 32.176 secciones)
+- "No aplica" 4.104 docs. Plantilla DNCP: "Ratio de Liquidez: activo corriente / pasivo corriente. Deberá
+  ser igual o mayor que 1, en promedio… Endeudamiento: pasivo total / activo total. No deberá ser mayor a
+  0,80…". Rentabilidad ("no negativa") y eficiencia (≥ 1) son constantes: fuera. Patrimonio neto (1.630
+  docs) y línea de crédito (1.109) son montos: fuera por ahora.
+- Formatos: "[ 0 , 5 0 ]" → 0.5 · "1, 25" → 1.25 · "= ó 1,00" → 1 · "[1,10]" → 1.1 · coma decimal → punto.
 
-### B2. `ratio_endeudamiento_maximo`
-- **Mide**: pasivo total / activo total máximo. Estándar = 0,80. "Coeficiente de solvencia (pasivo/activo)
-  igual o menor a N" es sinónimo. Mismas reglas que B1. **Decisión**: [ ] aprobar.
+### B1. `ratio_liquidez_minimo` ✅
+- **Mide**: activo corriente / pasivo corriente mínimo exigido. Estándar 1,0 (23.127 docs).
+- **No estándar: 669 docs (2,8%)**: 1,15 (349, plantilla de consorcios "Socio Líder") · 2,0 · 0,8 · 1,2 ·
+  1,25 · 1,1 · 0,9 · 0,5 · 0,7. → valor + flag **`liquidez_no_estandar`** (≠ 1); precisión medida solo en
+  ese estrato (decisión 08-oct).
+- **NULL**: "No aplica"; "[indicar índice]" o placeholder sin número.
+- **Guía del prompt**:
+  ```
+  Valor mínimo exigido del Ratio/Coeficiente de LIQUIDEZ (activo corriente / pasivo corriente).
+  Ej: "Deberá ser igual o mayor que 1, en promedio" -> 1. "igual o mayor a 1,15" -> 1.15.
+  "[ 0 , 5 0 ]" -> 0.5. "1, 25" -> 1.25. Usa punto decimal.
+  Responde NULL si dice "No aplica" o el número no está completado ("[indicar]").
+  NO es este valor: endeudamiento, solvencia, rentabilidad, eficiencia (ingreso/egreso), años.
+  ```
 
-### B3. `num_componentes_formula` — variables de entrada de la fórmula de reajuste
-- **Mide**: cuántas variables de entrada tiene la fórmula (sin contar el resultado). Estándar
-  Pr = P × IPC1/IPC0 → **3**.
-- **Regla**: contar símbolos distintos del lado derecho; coeficientes numéricos (0,60, 0,40) no cuentan;
-  umbrales ("15%") no cuentan; si hay dos fórmulas (nacional/importado) con igual cantidad → esa; si
-  difieren → ambiguo.
-- **NULL**: la sección describe el reajuste en prosa sin ecuación.
-- **Ejemplos**: A = P × I.I.B.C.P → 2. P1 = P0·(0,60·S1/S0 + 0,4·IPC1/IPC0) → 5. Polinómica de obras
-  con S,So,C,Co,G,Go,Po → 7. OCR roto → ambiguo.
-- **Métrica**: precisión en el estrato **≠ 3**. Es el único campo que decide el LLM en producción.
-- **Decisión**: [ ] aprobar.
+### B2. `ratio_endeudamiento_maximo` ✅
+- **Mide**: pasivo total / activo total máximo permitido. Estándar 0,80 (22.339 docs).
+- **No estándar: 948 docs (4%)**: 1,0 (221) · 0,9 · 0,6 · 0,7 · 0,5… → valor + flag
+  **`endeudamiento_no_estandar`** (≠ 0,80) (decisión 08-oct).
+- **Sinónimo**: "Coeficiente de Solvencia: Pasivo Total / Activo Total igual o menor a 0,70" → 0.7.
+- **Ratio invertido** "Coeficiente de Solvencia: **Activo Total / Pasivo Total** igual o mayor a 1,20" →
+  convertir **1/x redondeado a 2 decimales** (→ 0.83) (decisión 08-oct).
+- **NULL**: "No aplica"; placeholder; **margen de solvencia de aseguradoras** ("Margen de solvencia: igual
+  o superior a 1,50 al 30/06/22", indicador regulatorio de seguros; parte de los 294 docs con valor > 1)
+  (decisión 08-oct).
+- **Guía del prompt**:
+  ```
+  Valor máximo permitido del ENDEUDAMIENTO (pasivo total / activo total).
+  Ej: "No deberá ser mayor a 0,80 en promedio" -> 0.8. "Coeficiente de Solvencia: Pasivo Total /
+  Activo Total igual o menor a 0.70" -> 0.7.
+  Si el cociente está invertido (Activo Total / Pasivo Total igual o mayor a X), responde 1/X con
+  2 decimales: 1,20 -> 0.83.
+  Responde NULL si dice "No aplica", si no hay número, o si es el "margen de solvencia" de una
+  aseguradora.
+  NO es este valor: liquidez, rentabilidad, eficiencia, patrimonio, calificación de riesgo.
+  ```
+
+### B3. `num_componentes_formula` → REEMPLAZADO por `tipo_indice_reajuste` (regex) ✅ (decisión 08-oct)
+- **Evidencia** (`scripts/analisis_seccion_reajuste.py`, 8.995 textos / 32.180 secciones): lo informativo
+  es el **índice** al que se ata el reajuste, no cuántas variables tiene la fórmula. IPC (Pr = P ×
+  IPC1/IPC0, también en prosa) ~50% · polinómica de obras (coeficientes Ak, salario, cemento, gasoil)
+  12% · índice de la construcción (A = P × IIBCP) 11% · prosa sin ecuación 7,5% · tipo de cambio del
+  dólar 4,6% · salario mínimo + IPC 3,7% · combustible 2,7%. Umbral de activación: 15% en el 94% de los
+  docs con umbral (14.953); 10%, 5%, 20% en el resto.
+- **Por qué se reemplaza**: era el único campo 100% LLM; contar símbolos con OCR roto ("Pr= P x IPC1 IPC0")
+  es donde los modelos fallan; sustento BAJO; el conteo era un sustituto pobre del tipo de índice.
+- **Nuevo campo `tipo_indice_reajuste`** (categórico, regex de palabras clave, sin LLM):
+  `ipc` · `iibcp` · `polinomica` (coeficientes/insumos de obra) · `salario` (salario mínimo/jornal, con o
+  sin IPC) · `combustible` · `tipo_cambio` · `prosa_sin_formula` · `no_sujeto`.
+  Prioridad si hay varios: `polinomica` > `tipo_cambio` > `combustible` > `salario` > `iibcp` > `ipc`
+  (el más específico gana; IPC aparece como mención genérica en casi todos).
+- **Flag `umbral_reajuste_no_estandar`**: umbral de activación ≠ 15%.
+- **Lectura de riesgo**: reajuste atado al dólar o a una polinómica a medida es más manipulable que el IPC
+  estándar. `num_componentes_formula` deja de ser variable de Pipeline 3 y sale del benchmark LLM; su
+  run en staging no se promueve.
+
+## Grupo C — Plantilla pura: binarios por regex, fuera del benchmark ✅ APROBADO (08-oct-2026)
+
+Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotación humana.
+
+### C1. `dias_notificacion_fuerza_mayor` → binario `tiene_clausula_fuerza_mayor` ✅
+- Cláusula "7 días" en el 99,6% de los 29.831 docs con sección; 1.490 docs sin la sección. La señal útil
+  es la **ausencia de la sección** (información faltante, Ferwerda r=0,431), no el número.
+
+### C2. `dias_aceptacion_rechazo_factura` → binario `tiene_clausula_aceptacion_factura` ✅
+- "a más tardar en quince (15) días" en el 92,2% de los 30.992 docs con sección (el resto: variantes de
+  redacción del mismo 15). Sale del benchmark.
+
+### C3. `num_documentos_pago` → binario `exige_certificado_laboral` ✅
+- 6 documentos en 26.995 docs, 7 en 3.995: el séptimo es el **certificado laboral** (12,7%). Regex sobre
+  la sección de pago. La guía vieja ("ítems de primer nivel, no sub-ítems") queda descartada.
+
+### A7. `num_pasos_verificacion` → variable de CONTROL de versión de plantilla ✅
+- 6/7/8 sigue al año (6: 2021-2025, 7: 2024-2025, 8: solo 2025): marca la versión de la plantilla DNCP.
+  Se mantiene en regex, fuera del benchmark; en Pipeline 3 **solo como control**, nunca como predictor
+  (si no, el detector marcaría 2025 como anómalo).
+
+### `dias_presentacion_garantia` → DESCARTADO ✅
+- 10 días en el 100% de los docs. Sin información.
 
 ---
 
-## Grupo C — Plantilla pura: reclasificar a binario (prioridad 4, sin anotación)
+## Mapa final (08-oct-2026)
 
-### C1. `dias_notificacion_fuerza_mayor` → binario `tiene_clausula_fuerza_mayor_7d`
-- 7 en el 100% de 29.831 docs con sección (559 textos distintos). Como magnitud no discrimina nada.
-- **Decisión**: [ ] convertir a binario (presente/ausente) y sacar del benchmark de precisión.
+| Método | Campos |
+|---|---|
+| Regla → LLM en residuales (único lugar del benchmark) | A1 `dias_pago_maximo` · A2 `dias_validez_garantia` · A3 `dias_pago_anticipo` · A4 `dias_solicitud_anticipo` · A5 `anos_experiencia_minima_tecnica` · A6 `pct_monto_referencia_tecnica` |
+| Regla/regex sin LLM | B1 `ratio_liquidez_minimo` · B2 `ratio_endeudamiento_maximo` |
+| Regex nuevo | `tipo_indice_reajuste` · `tiene_clausula_fuerza_mayor` · `tiene_clausula_aceptacion_factura` · `exige_certificado_laboral` |
+| Flags nuevos | `pago_en_dias_habiles` · `pago_sujeto_plan_caja` · `garantia_varia_por_item` · `anticipo_sujeto_disponibilidad` · `liquidez_no_estandar` · `endeudamiento_no_estandar` · `umbral_reajuste_no_estandar` |
+| Control (no predictor) | `num_pasos_verificacion` |
+| Fusión para Pipeline 3 | `anos_experiencia_exigidos` (máx. A5 + `anos_experiencia_minima`) · `pct_monto_referencia` (`pct_monto_referencia_minimo`, si falta A6) |
+| Descartados | `num_componentes_formula` (reemplazado) · `dias_presentacion_garantia` |
 
-### C2. `dias_aceptacion_rechazo_factura` → binario `tiene_clausula_aceptacion_15d`
-- 15 en el 100%. Idem. **Decisión**: [ ] convertir a binario.
+## Plan de implementación (tras la aprobación del 08-oct-2026)
 
-### C3. `num_documentos_pago` ⚠ prompt actual INCORRECTO
-- **Mide**: documentos del catálogo genérico DNCP exigidos para cobrar (6 ó 7: el séptimo es el
-  certificado laboral). Contar **por nombre**, no por marcador de lista (la lista puede venir como 1-6,
-  a-g o sin marcadores). Hoy lo resuelve el regex (200/200 GT, 30/30 pseudo).
-- La guía actual dice "ítems de primer nivel, no sub-ítems" → da 1 → **corregir guía** para que coincida.
-- Toma solo 2 valores → información baja; equivale a "exige certificado laboral (sí/no)".
-- **Decisión**: [ ] mantener en regex con guía corregida, fuera del benchmark LLM. [ ] Alternativa:
-  binario `exige_certificado_laboral`.
-
----
-
-## Qué cambia al aprobar
-1. Se reescriben los `extraction_hint` de A1 y C3 (y se alinean los demás con el texto de la ficha).
-   Cambia el prompt → nuevo fingerprint → re-correr Gemma-4-12B QAT, Qwen3-14B y Qwen3.8-27B sobre GT
-   y pseudo-GT (~1 h GPU).
-2. Se corrigen mis 9 anotaciones del pseudo-GT en `dias_pago_maximo` (seguí la guía vieja).
-3. La métrica del benchmark pasa a reportarse en 3 columnas por campo: total, estrato no-modal,
-   ausencias; C1/C2 salen del promedio.
-4. Ronda de calibración (`planillas/calibracion_v1.csv`, 10 ítems × 10 campos de los grupos A y B,
-   sobremuestreando el estrato no-modal): usuario y Opus anotan por separado con esta ficha → κ. Si κ < 0,8
-   en un campo, se corrige la ficha, no la anotación.
+| Paso | Qué | Quién | Depende de |
+|---|---|---|---|
+| I1 | Reescribir `extraction_hint` de A1-A6, B1, B2 desde las fichas; versión nueva del prompt (cambia el fingerprint) | Opus | — |
+| I2 | Ajustar reglas deterministas a las trampas medidas (A1: FIS/cuotas/recibo/aceptación; A2: máximo + días literales + servicios; A3/A4: excluir el texto legal fijo; A5: antigüedad en el rubro + ventanas "últimos N años"; B2: ratio invertido y margen de solvencia). Un test por cada ejemplo y trampa de las fichas | Opus | — |
+| I3 | Regex nuevos (`tipo_indice_reajuste`, 3 binarios C) + 7 flags; columnas en v3 (migración SQL idempotente) y recálculo | Opus | — |
+| I4 | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
+| I5 | Calibración v2: 60 ítems (A1-A6 × 10, estrato no-modal sobremuestreado), usuario y Opus por separado → κ por campo; κ < 0,8 → se corrige la ficha | usuario + Opus | I4 |
+| I6 | Benchmark reducido: Gemma-4-12B QAT (vLLM), Qwen3-14B-AWQ, Gemma-4-26B-A4B × A1-A6, crudo y pipeline, contra GT re-alineado y pseudo-GT; métrica en 3 columnas (total, estrato no-modal, ausencias) | Opus (~40 min GPU) | I1, I2, I4 |
+| I7 | GT fuera de muestra (~240 ítems, A1-A6) → precisión por campo y estrato → promote por campo a v3 | usuario → Opus | I5, I6 |
+| I8 | Pipeline 3 fase 1 con variables sin LLM (económicas, estructurales, P1, B1/B2, regex nuevos, flags) | Opus | I3 (en paralelo a I4-I7) |

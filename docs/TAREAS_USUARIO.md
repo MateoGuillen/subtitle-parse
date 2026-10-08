@@ -3,8 +3,10 @@
 > Creado 06-oct-2026 (sesión 24). Marcar `[x]` al completar. Contexto: `docs/plan_correccion_auditoria.md` §9.
 
 ## 0. Decisiones de estrategia (leer `docs/estrategia_variables_anomalias.md` §6 y `docs/especificacion_campos.md`)
-- [ ] Aprobar fichas A1-A6, B1-B3, C1-C3 (o indicar cambios).
-- [ ] Aceptar reclasificación P4 → binarios y P3 → flags "no estándar".
+- [x] Aprobar fichas A1-A6, B1-B3, C1-C3 (08-oct-2026, ficha por ficha con evidencia de BD).
+- [x] Aceptar reclasificación P4 → binarios y P3 → flags "no estándar" (B3 reemplazado por `tipo_indice_reajuste`).
+- [ ] Aprobar las correcciones al GT de agosto que proponga el paso I4 (`especificacion_campos.md`, plan de implementación).
+- [ ] Anotar la calibración v2 (60 ítems, paso I5).
 - [ ] Confirmar benchmark reducido: Gemma-4-12B QAT (vLLM) + Qwen3-14B-AWQ + Gemma-4-26B-A4B, solo campos P2 + fórmula.
 - [ ] Autorizar Pipeline 3 fase 1 con las ~75 variables sin LLM.
 
