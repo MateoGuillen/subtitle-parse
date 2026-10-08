@@ -220,24 +220,32 @@
      experiencia en una especialidad: "Experiencia de por lo menos 1 (uno) año como Especialista en
      Medicina Nuclear demostrado con Certificados o Constancias" → **1** (caso 408117, decisión 08-oct).
   3. Varios valores del mismo nivel → el **máximo** (decisión 08-oct).
+  4. **v1.1 (tras I7, decisión 08-oct)**: cuenta la antigüedad como **representante o distribuidor** ("deberá ser
+     Representante o Distribuidor Autorizado del bien ofertado de 5 años como mínimo" → 5; "3 años de
+     representación del bien" → 3, nivel empresa) y la **permanencia del personal en el plantel / nómina del IPS**
+     ("formar parte del plantel permanente por al menos 1 año" → 1, nivel personal). Los **meses se pasan a años
+     (÷ 12)**: "antigüedad mínima de 6 meses" → 0,5; "18 meses" → 1,5. Una antigüedad en meses es siempre del
+     personal. El campo pasa de entero a decimal (tipo `float` en el esquema; la columna de v3 se amplía en el promote).
 - **NULL**: "No Aplica"; exige experiencia sin número; solo pide cantidad de contratos/referencias;
   **"en los últimos N años"** (ventana para contar contratos, 639 docs; decisión 08-oct).
 - **Trampas**: "Garantizar por 4 años la provisión de repuestos"; "registro sanitario con antelación
   mínima de 3 años"; "no poseer rescisión… en 2 años anteriores"; "vigencia mínima de 2 años";
-  garantías; antigüedad o modelo de vehículos/equipos; edad.
-- **Guía del prompt (extraction_hint)**:
+  garantías; antigüedad o modelo de vehículos/equipos ("antigüedad máxima aceptada de los equipos 10 años",
+  I7); kilometraje ("36 meses o 100.000 km"); edad.
+- **Guía del prompt (extraction_hint) v1.1**:
   ```
-  Años mínimos de experiencia o antigüedad que se EXIGEN al oferente o a su personal.
-  1) Experiencia o antigüedad de la empresa en el rubro, incluida la existencia legal:
-     "antigüedad mínima de tres (03) años en el rubro" -> 3; "mínimo de 2 años de experiencia" -> 2.
-  2) Si no hay de la empresa, la del personal: "Ingeniero con como mínimo 3 (tres) años de
-     experiencia" -> 3; "5 años de ejercicio de la profesión" -> 5;
-     "Experiencia de por lo menos 1 (uno) año como Especialista en Medicina Nuclear" -> 1.
-  3) Si hay varios valores, responde el MAYOR.
-  Responde NULL si no hay número de años exigido, si solo pide cantidad de contratos, o si los
-  años son una ventana: "en los últimos 3 años", "durante los últimos 5 años".
-  NO son experiencia: años de provisión de repuestos, garantía, vigencia de documentos, antelación
-  de registros sanitarios, años sin rescisiones, antigüedad o modelo de vehículos y equipos, edad.
+  Años mínimos de experiencia o antigüedad que se EXIGEN al oferente o a su personal. 1) Experiencia o
+  antigüedad de la empresa en el rubro, incluida la existencia legal y la antigüedad como representante o
+  distribuidor: "antigüedad mínima de tres (03) años en el rubro" -> 3; "mínimo de 2 años de experiencia" ->
+  2; "deberá ser Representante o Distribuidor Autorizado del bien ofertado de 5 (cinco) años como mínimo" ->
+  5. 2) Si no hay de la empresa, la del personal, incluida su antigüedad en el plantel o en la nómina del IPS:
+  "Ingeniero con como mínimo 3 (tres) años de experiencia" -> 3; "5 años de ejercicio de la profesión" -> 5;
+  "deberán formar parte del plantel permanente de la empresa por al menos 1 año" -> 1. 3) Si el plazo está en
+  meses, pásalo a años dividiendo por 12: "antigüedad mínima de 6 meses" -> 0.5; "18 meses" -> 1.5. 4) Si hay
+  varios valores, responde el MAYOR. Responde NULL si no hay número de años exigido, si solo pide cantidad de
+  contratos, o si los años son una ventana: "en los últimos 3 años", "durante los últimos 5 años". NO son
+  experiencia: años de provisión de repuestos, garantía, vigencia de documentos, antelación de registros
+  sanitarios, años sin rescisiones, antigüedad máxima o modelo de vehículos y equipos, kilometraje, edad.
   ```
 
 ### A6. `pct_monto_referencia_tecnica` — % del monto que deben cubrir las referencias ✅ APROBADA (08-oct-2026)
@@ -489,7 +497,7 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 | I4 ✅ | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
 | I5 🟡 | Calibración v2: 60 ítems (A1-A6 × 10, estrato no-modal sobremuestreado), usuario y Opus por separado → κ por campo; κ < 0,8 → se corrige la ficha | usuario + Opus | I4 |
 | I6 ✅ | Benchmark reducido: Gemma-4-12B QAT (vLLM), Qwen3-14B-AWQ, Gemma-4-26B-A4B × A1-A6, crudo y pipeline, contra GT re-alineado y pseudo-GT; métrica en 3 columnas (total, estrato no-modal, ausencias) | Opus (~40 min GPU) | I1, I2, I4 |
-| I7 🟡 | GT fuera de muestra (184 ítems, A1-A6; estratos de regla + residuales) → precisión por campo y estrato → promote por campo a v3 | Opus ✅ → usuario | I5, I6 |
+| I7 🟡 | GT fuera de muestra (I7 184 + I7b 299 ítems, A1-A6; estratos de regla + residuales) → precisión por campo y estrato → promote por campo a v3 | Opus ✅ → usuario | I5, I6 |
 | I8 | Pipeline 3 fase 1 con variables sin LLM (económicas, estructurales, P1, B1/B2, regex nuevos, flags) | Opus | I3 (en paralelo a I4-I7) |
 
 ### Resultado I1-I3 (08-oct-2026)
@@ -597,3 +605,49 @@ Modelos: `I7_<modelo>.json` (prompt v1.0, crudo + rule_first). Resultado complet
   conversión definida.
 - **Lectura**: Gemma-4-12B QAT = Gemma-4-26B (idénticos 69/87) y muy por encima de Qwen (Qwen3-14B/8B fallan
   sobre todo en A3 y A6 residuales: 5/25 y 1/9). Se confirma Gemma-4-12B QAT.
+
+#### I7 — correcciones aprobadas y lote de validación I7b (08-oct-2026)
+Decisiones del usuario sobre I7: (1) corregir las 2 reglas, (2) ampliar la ficha/hint de A5, (3) ampliar la muestra.
+- **Reglas** (`field_rules_v1.py`, tests nuevos): A5 trampa "antigüedad máxima" y kilometraje; A5 cuenta
+  representante/distribuidor ("ser Representante o Distribuidor…", "N años de representación del bien") y
+  permanencia en plantel/staff/nómina IPS; A5 meses ÷ 12 (siempre nivel personal; meses sin palabra de experiencia
+  no mandan al LLM); `_PERSONAL` reconoce nómina/IPS/seguro social/dependencia/vínculo laboral/staff. A4 lee el
+  número sin la palabra "días" tras el ancla de solicitud ("DENTRO DE LOS DIEZ (10) POSTERIOR" → 10).
+  Efecto en toda la base: A5 cambia 495 de 15.757 textos (≈ 440 antigüedades en meses que antes eran NULL;
+  residuales A5 282 → 219); A4 cambia 5 (todos correctos); A3 0. Revisión de muestras: un caso discutible
+  (453179: 1 año de vigencia de certificación PMP gana sobre 3 años en IPS).
+- **Hint A5 v1.1** (`master_schemas_v2.json`, tipo `float`): ver ficha A5. La columna entera de v3 se amplía
+  (NUMERIC) recién en el promote.
+- **I7b** (`generar_i7.py --lote b`, 299 ítems, excluye además los documentos de I7; regla 16/16/16 por
+  estrato, residual 10, A5 20). Opus a ciegas con fichas v1.1 (7 subagentes, 21 DUDA): `i7b_gt_opus.csv`.
+  Usuario: `I7b_GT_planilla.xlsx`. Modelos: `I7B_<modelo>.json`; I7 re-corrido con hint v1.1: `I7_<m>_v1.1.json`.
+
+| Contra Opus | g12 QAT | g26 GGUF | q8 FP8 | q14 AWQ |
+|---|---|---|---|---|
+| I7b: LLM crudo en residuales (43, al azar) | **42** | **42** | 41 | 41 |
+| I7 + I7b: LLM crudo en residuales (100) | **97** | 95 | 79 | 67 |
+| I7b: regla fuera de muestra | 245/256 (sin DUDA 235/240) | | | |
+
+**Promote (I7 + I7b, re-estratificado con la regla vigente, ponderado a producción, A5 solo de I7b), sistema con
+Gemma-4-12B QAT** — `scripts/evaluar_i7.py --lote todo --tag _v1.1`, `TODO_resumen_v1.1.csv`:
+
+| Campo | n | precisión prod. | LCB 95 % | veredicto |
+|---|---|---|---|---|
+| A1 dias_pago_maximo | 46 | 1,000 | 0,915 | PROMOTE |
+| A2 dias_validez_garantia | 78 | 0,935 | 0,856 | PROMOTE (justo) |
+| A3 dias_pago_anticipo | 106 | 0,967 | 0,900 | PROMOTE |
+| A4 dias_solicitud_anticipo | 75 | 0,978 | 0,908 | PROMOTE |
+| A5 anos_experiencia_minima_tecnica | 68 | 1,000 | 0,889 | PROMOTE |
+| A6 pct_monto_referencia_tecnica | 62 | 0,999 | 0,889 | PROMOTE |
+
+Solo I7b (todo fuera de muestra de las correcciones): A1, A3-A6 PROMOTE; A2 REVISAR (0,913 [0,812]).
+- **Errores de regla en I7b (11)**: A2 "1año" pegado (OCR) no leído; A2 varios lotes con plazos distintos → tomó
+  365 en vez del máximo 1095; A2 30 meses = 913 vs 912 (redondeo, Opus DUDA); A2 vencimiento de reactivos leído
+  como garantía (Opus DUDA); A3 "el pago del anticipo será: 10 días" escrito bajo el ancla de solicitud (×2,
+  Opus DUDA); A4 "5 (cinco), SI APLICA SOLO PARA MIPYMES" sin la palabra días; A6 50 % en capacidad de
+  producción / propiedad de equipos / facturas de COMPRA de insumo (carne). **No se corrigen** (I7b es el
+  conjunto de validación); quedan como propuesta.
+- **Inconsistencia de referencia**: las facturas de compra de carne "≥ 50 % del monto" las anotó un subagente con
+  50 (6 ítems, DUDA) y otro con NULL. La ficha A6 no lo resuelve → decisión del usuario.
+- **Lectura**: la recomendación Gemma-4-12B QAT se sostiene (97/100 en residuales vs 95 Gemma-26B, 79 Qwen3-8B,
+  67 Qwen3-14B). La referencia es Opus: el promote espera la anotación del usuario (o su aceptación de Opus).

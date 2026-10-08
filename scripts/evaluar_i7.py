@@ -8,9 +8,14 @@ precisión del campo en PRODUCCIÓN se estima ponderando cada estrato por su tam
 p = Σ W_h p_h, IC 95 % estratificado con p̃_h = (k+2)/(n+4) (Agresti-Caffo) para no dar varianza 0 a 10/10.
 Criterio de promote (plan I7 / sesión 24) sobre ese LCB del sistema: ≥ 0,85 PROMOTE, < 0,70 HOLD, intermedio
 REVISAR. Los ítems con nota DUDA se informan aparte.
-Salida: tabla en pantalla + data/processed/llm_benchmark/I7_resumen.csv
-Uso: /root/vllm-env/bin/python scripts/evaluar_i7.py
+Lotes: --lote i7 (184, diseño original) · i7b (299, valida las correcciones de I7 fuera de muestra) · todo
+(I7 + I7b re-estratificados con la regla vigente: estrato = residual / regla_ausente / regla_modal /
+regla_no_modal según lo que devuelve la regla al correr; pesos = tamaños de estrato de I7b, que es la base
+vigente; A5 solo de I7b, porque en I7 se anotó con la ficha v1.0 y originó la v1.1). --tag elige las predicciones (p. ej. _v1.1 para I7 corrido con el hint v1.1).
+Salida: tabla en pantalla + data/processed/llm_benchmark/<LOTE>_resumen<tag>.csv
+Uso: /root/vllm-env/bin/python scripts/evaluar_i7.py [--lote i7|i7b|todo] [--tag _v1.1]
 """
+import argparse
 import json
 import math
 import sys
@@ -53,14 +58,46 @@ def num(x):
     return None if v == "NULL" else float(v)
 
 
-def main():
-    key = pd.read_csv(P / "i7_gt_clave.csv", dtype={"id": str, "nro_licitacion": str})
-    op = pd.read_csv(P / "i7_gt_opus.csv", dtype={"id": str})
+def load_lote(pref, tag, models):
+    """Clave + referencias + predicciones de un lote. La regla es la que corrió con las predicciones (vigente)."""
+    key = pd.read_csv(P / f"{pref}_gt_clave.csv", dtype={"id": str, "nro_licitacion": str})
+    op = pd.read_csv(P / f"{pref}_gt_opus.csv", dtype={"id": str})
     df = key.merge(op[["id", "valor", "nota"]].rename(columns={"valor": "opus", "nota": "nota_opus"}), on="id")
-    up = P / "i7_gt_usuario.csv"
+    df["lote"] = pref
+    up = P / f"{pref}_gt_usuario.csv"
     if up.exists():
         us = pd.read_csv(up, dtype={"id": str})
         df = df.merge(us[["id", "valor_anotador"]].rename(columns={"valor_anotador": "usuario"}), on="id", how="left")
+    for j, m in enumerate(models):
+        its = {it["id"]: it for it in json.loads((LB / f"{pref.upper()}_{m}{tag}.json").read_text(encoding="utf-8"))["items"]}
+        df[f"llm_{SHORT[m]}"] = [its[i]["llm"] for i in df.id]
+        df[f"sis_{SHORT[m]}"] = [its[i]["sistema"] for i in df.id]
+        if j == 0:
+            df["estado_regla"] = ["llm" if not its[i]["regla_aplica"] else "ausente" if its[i]["regla"] is None
+                                  else "valor" for i in df.id]
+            df["regla"] = [its[i]["regla"] if its[i]["regla_aplica"] else None for i in df.id]
+    return df
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--lote", choices=["i7", "i7b", "todo"], default="i7")
+    ap.add_argument("--tag", default="", help="sufijo de las predicciones de I7 (I7b siempre sin sufijo)")
+    a = ap.parse_args()
+    lotes = {"i7": [("i7", a.tag)], "i7b": [("i7b", "")], "todo": [("i7", a.tag), ("i7b", "")]}[a.lote]
+    models = [m for m in MODELS_I6 if all((LB / f"{pf.upper()}_{m}{tg}.json").exists() for pf, tg in lotes)]
+    df = pd.concat([load_lote(pf, tg, models) for pf, tg in lotes], ignore_index=True)
+    if a.lote == "todo":  # re-estratificar con la regla vigente; pesos de la base vigente (I7b)
+        # A5 de I7: referencia anotada con la ficha v1.0 y origen de las correcciones v1.1 -> solo I7b
+        df = df[~((df.lote == "i7") & (df.campo == "anos_experiencia_minima_tecnica"))].copy()
+        kb = pd.read_csv(P / "i7b_gt_clave.csv")
+        pob = kb.groupby(["campo", "estrato"]).pob_estrato.first().to_dict()
+        modal = kb.groupby("campo").modal_campo.first().to_dict()
+        df["estrato"] = ["residual" if e == "llm" else "regla_ausente" if e == "ausente" else
+                         "regla_modal" if v == modal[f] else "regla_no_modal"
+                         for e, v, f in zip(df.estado_regla, df.regla, df.campo)]
+        df["pob_estrato"] = [pob.get((f, e), 0) for f, e in zip(df.campo, df.estrato)]
+    if "usuario" in df and df.usuario.notna().any():
         print(f"κ usuario-Opus global: {kappa(list(df.usuario.map(val)), list(df.opus.map(val))):.3f}")
         for f, g in df.groupby("campo"):
             print(f"  {f:34s} κ={kappa(list(g.usuario.map(val)), list(g.opus.map(val))):.3f}")
@@ -70,12 +107,6 @@ def main():
         df["ref"] = df.opus.map(num)
         ref_name = "opus"
     df["duda"] = df.nota_opus.fillna("").str.upper().str.contains("DUDA")
-    models = [m for m in MODELS_I6 if (LB / f"I7_{m}.json").exists()]
-    for m in models:
-        its = {it["id"]: it for it in json.loads((LB / f"I7_{m}.json").read_text(encoding="utf-8"))["items"]}
-        df[f"llm_{SHORT[m]}"] = [its[i]["llm"] for i in df.id]
-        df[f"sis_{SHORT[m]}"] = [its[i]["sistema"] for i in df.id]
-    df["regla"] = df.valor_regla.where(df.estado_regla != "llm")
 
     def ok(col, g):
         return sum(ab.eq(_n(a), _n(b), f) for a, b, f in zip(g[col], g["ref"], g["campo"]))
@@ -99,7 +130,7 @@ def main():
                     r["veredicto"] = "PROMOTE" if lo >= 0.85 else "HOLD" if lo < 0.70 else "REVISAR"
         rows.append(r)
     res = pd.DataFrame(rows).sort_values(["campo", "estrato"])
-    res.to_csv(LB / "I7_resumen.csv", index=False)
+    res.to_csv(LB / f"{a.lote.upper()}_resumen{a.tag if a.lote != 'i7b' else ''}.csv", index=False)
     print(f"\nReferencia: {ref_name}. prod_<m> = precisión del sistema ponderada a producción [LCB]; veredicto con {models[0] if models else '-'}")
     with pd.option_context("display.width", 250, "display.max_rows", 200, "display.max_columns", 50):
         print(res.to_string(index=False))
@@ -113,10 +144,10 @@ def main():
             k = ok(f"llm_{s}", resid)
             lo, hi = wilson(k, len(resid))
             print(f"LLM {m:24s} residuales {k}/{len(resid)} = {k / len(resid):.3f} [{lo:.3f}, {hi:.3f}]"
-                  f" · discrepa {ok(f'llm_{s}', resid[resid.estrato == 'residual_discrepa'])}"
-                  f"/{(resid.estrato == 'residual_discrepa').sum()}"
                   f" · sistema total {ok(f'sis_{s}', df)}/{len(df)}")
-    df.to_csv(P / "i7_gt_resultado.csv", index=False)
+            for f, g in resid.groupby("campo"):
+                print(f"      {f:34s} {ok(f'llm_{s}', g)}/{len(g)}")
+    df.to_csv(P / f"{a.lote}_gt_resultado{a.tag if a.lote != 'i7b' else ''}.csv", index=False)
 
 
 if __name__ == "__main__":

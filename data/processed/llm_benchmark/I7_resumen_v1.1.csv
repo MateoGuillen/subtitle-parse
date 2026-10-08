@@ -1,0 +1,33 @@
+campo,estrato,n,duda,regla,llm_g12,sis_g12,llm_q14,sis_q14,llm_q8,sis_q8,llm_g26,sis_g26,prod_g12,veredicto,prod_q14,prod_q8,prod_g26
+anos_experiencia_minima_tecnica,TOTAL,48,6,31/33,37/48,45/48,30/48,39/48,28/48,39/48,36/48,44/48,0.989 [0.731],REVISAR,0.989 [0.730],0.989 [0.730],0.989 [0.731]
+anos_experiencia_minima_tecnica,regla_ausente,4,0,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,,,,,
+anos_experiencia_minima_tecnica,regla_modal,4,0,4/4,3/4,4/4,2/4,4/4,3/4,4/4,3/4,4/4,,,,,
+anos_experiencia_minima_tecnica,regla_no_modal,10,0,9/10,6/10,9/10,6/10,9/10,5/10,9/10,6/10,9/10,,,,,
+anos_experiencia_minima_tecnica,residual_coincide,5,1,1/1,3/5,4/5,3/5,4/5,3/5,4/5,3/5,4/5,,,,,
+anos_experiencia_minima_tecnica,residual_discrepa,25,5,13/14,21/25,24/25,15/25,18/25,13/25,18/25,20/25,23/25,,,,,
+dias_pago_anticipo,TOTAL,48,0,18/18,46/48,47/48,22/48,28/48,33/48,36/48,45/48,46/48,1.000 [0.846],REVISAR,0.993 [0.839],0.996 [0.842],0.999 [0.845]
+dias_pago_anticipo,regla_ausente,4,0,4/4,4/4,4/4,1/4,4/4,2/4,4/4,4/4,4/4,,,,,
+dias_pago_anticipo,regla_modal,4,0,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,,,,,
+dias_pago_anticipo,regla_no_modal,10,0,10/10,9/10,10/10,7/10,10/10,9/10,10/10,9/10,10/10,,,,,
+dias_pago_anticipo,residual_coincide,5,0,,5/5,5/5,5/5,5/5,5/5,5/5,5/5,5/5,,,,,
+dias_pago_anticipo,residual_discrepa,25,0,,24/25,24/25,5/25,5/25,13/25,13/25,23/25,23/25,,,,,
+dias_pago_maximo,TOTAL,14,0,14/14,4/14,14/14,4/14,14/14,10/14,14/14,5/14,14/14,1.000 [0.775],REVISAR,1.000 [0.775],1.000 [0.775],1.000 [0.775]
+dias_pago_maximo,regla_modal,4,0,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,,,,,
+dias_pago_maximo,regla_no_modal,10,0,10/10,0/10,10/10,0/10,10/10,6/10,10/10,1/10,10/10,,,,,
+dias_solicitud_anticipo,TOTAL,23,4,17/18,17/23,21/23,14/23,21/23,16/23,21/23,17/23,21/23,0.956 [0.785],REVISAR,0.956 [0.785],0.956 [0.785],0.956 [0.785]
+dias_solicitud_anticipo,regla_ausente,4,0,4/4,3/4,4/4,3/4,4/4,3/4,4/4,3/4,4/4,,,,,
+dias_solicitud_anticipo,regla_modal,4,0,4/4,3/4,4/4,3/4,4/4,3/4,4/4,3/4,4/4,,,,,
+dias_solicitud_anticipo,regla_no_modal,10,1,9/10,7/10,9/10,4/10,9/10,6/10,9/10,7/10,9/10,,,,,
+dias_solicitud_anticipo,residual_coincide,5,3,,4/5,4/5,4/5,4/5,4/5,4/5,4/5,4/5,,,,,
+dias_validez_garantia,TOTAL,26,0,18/18,24/26,26/26,22/26,24/26,22/26,24/26,23/26,25/26,1.000 [0.848],REVISAR,1.000 [0.848],1.000 [0.848],1.000 [0.848]
+dias_validez_garantia,regla_ausente,4,0,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,,,,,
+dias_validez_garantia,regla_modal,4,0,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,,,,,
+dias_validez_garantia,regla_no_modal,10,0,10/10,8/10,10/10,8/10,10/10,8/10,10/10,8/10,10/10,,,,,
+dias_validez_garantia,residual_coincide,5,0,,5/5,5/5,5/5,5/5,5/5,5/5,5/5,5/5,,,,,
+dias_validez_garantia,residual_discrepa,3,0,,3/3,3/3,1/3,1/3,1/3,1/3,2/3,2/3,,,,,
+pct_monto_referencia_tecnica,TOTAL,25,3,11/11,25/25,25/25,15/25,17/25,18/25,21/25,25/25,25/25,1.000 [0.701],REVISAR,0.999 [0.701],1.000 [0.701],1.000 [0.701]
+pct_monto_referencia_tecnica,regla_ausente,4,0,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,4/4,,,,,
+pct_monto_referencia_tecnica,regla_modal,4,2,4/4,4/4,4/4,4/4,4/4,2/4,4/4,4/4,4/4,,,,,
+pct_monto_referencia_tecnica,regla_no_modal,3,0,3/3,3/3,3/3,1/3,3/3,2/3,3/3,3/3,3/3,,,,,
+pct_monto_referencia_tecnica,residual_coincide,5,0,,5/5,5/5,5/5,5/5,5/5,5/5,5/5,5/5,,,,,
+pct_monto_referencia_tecnica,residual_discrepa,9,1,,9/9,9/9,1/9,1/9,5/9,5/9,9/9,9/9,,,,,

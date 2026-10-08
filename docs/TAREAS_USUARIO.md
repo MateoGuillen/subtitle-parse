@@ -11,10 +11,13 @@
 - [ ] **I5**: anotar `I5_CALIBRACION_planilla.xlsx` (raíz del proyecto; también enviada a la Mac). 60 ítems,
       hoja "anotar": número en `valor_anotador` (vacío = NULL), `DUDA` en `nota` si dudás; guías en la hoja
       "guias". Devolver: `scp ~/Downloads/I5_CALIBRACION_planilla.xlsx venus:/mnt/datos/projects/subtitle-parse/`.
-- [ ] **I7**: anotar `I7_GT_planilla.xlsx` (184 ítems, misma mecánica que I5; enviada a la Mac). Opus ya anotó
-      a ciegas (`planillas/i7_gt_opus.csv`). Devolver: `scp ~/Downloads/I7_GT_planilla.xlsx venus:/mnt/datos/projects/subtitle-parse/`.
-      Decidir además: (a) arreglos de regla A5/A4 detectados en I7, (b) ampliar hint de A5 (representante/distribuidor,
-      plantel/IPS) y regla de meses → años, (c) modelo final Gemma-4-12B QAT. Ver `docs/especificacion_campos.md` §I7.
+- [ ] **I7 / I7b**: anotar `I7_GT_planilla.xlsx` (184) e `I7b_GT_planilla.xlsx` (299) — misma mecánica que I5,
+      ambas enviadas a la Mac — o aceptar la referencia de Opus para el promote. Devolver con
+      `scp ~/Downloads/<archivo>.xlsx venus:/mnt/datos/projects/subtitle-parse/`.
+      Con Opus: los 6 campos A1-A6 dan PROMOTE (I7+I7b, Gemma-4-12B). Decidir: (a) promote de A1-A6 a v3
+      (amplía la columna de A5 a NUMERIC); (b) A6: ¿facturas de COMPRA de insumo "≥ 50 % del monto" cuentan?;
+      (c) corregir los errores de regla de I7b (A2 "1año", máximo entre lotes; A3/A4 casos sueltos); (d) modelo
+      final Gemma-4-12B QAT. Detalle: `docs/especificacion_campos.md` §I7.
 - [ ] Confirmar benchmark reducido: Gemma-4-12B QAT (vLLM) + Qwen3-14B-AWQ + Gemma-4-26B-A4B, solo campos P2 + fórmula.
 - [ ] Autorizar Pipeline 3 fase 1 con las ~75 variables sin LLM.
 

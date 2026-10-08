@@ -465,6 +465,18 @@ def _first_days(clause, trap=True):
     return None
 
 
+# número sin unidad justo tras el ancla: "…solicitud de pago de anticipo: DENTRO DE LOS DIEZ (10) POSTERIOR A…"
+_IMPLICIT = re.compile(r"^\W{0,3}(?:dentro\s+de\s+(?:los\s+)?)?(?:[a-záéíóúñ]+\s+)?\(?\s*(\d{1,3})\s*\)?\s+"
+                       r"(?:posterior|siguiente|a\s+partir|despu[eé]s|de\s+(?:la|el)\s+(?:firma|recepci|suscrip))", re.I)
+
+
+def _implicit_days(clause):
+    if _DUR.search(clause[:80]):
+        return None
+    m = _IMPLICIT.search(clause)
+    return float(m.group(1)) if m else None
+
+
 def _anticipo_free(seg, sol_head=False):
     """Clasifica cada 'N días' del texto libre en ('pago'|'solicitud'|'sin_clasificar', valor).
 
@@ -503,6 +515,8 @@ def _anticipo(text, kind):
     cl = _clause(seg, anchor, maxlen)
     if cl is not None:
         v = _first_days(cl, trap=(kind == "pago"))
+        if v is None:
+            v = _implicit_days(cl)
         if v is not None:
             return v
         if kind == "pago":  # ancla de pago presente sin número = el pliego no fija el plazo
@@ -544,11 +558,14 @@ def _strip_ct_header(text):
     s = normalize(text)
     return _CT_HEADER.sub("", s, count=1).strip()
 
-_YEARS = re.compile(r"\ba[ñn]os?\b", re.I)
+_YEARS = re.compile(r"\b(?:a[ñn]os?|(mes(?:es)?))\b", re.I)  # grupo 1 = meses (se pasan a años: /12, I7)
+# I7: antigüedad como representante/distribuidor y permanencia del personal en el plantel también cuentan (ficha A5)
 _EXP_KW = re.compile(r"experien?cia|antig[uü]edad|existencia\s+legal|ejercicio\s+(?:de\s+la\s+)?profesi|"
                      r"expedici[oó]n\s+del\s+t[ií]tulo|trayectoria|en\s+el\s+rubro|en\s+el\s+mercado|"
-                     r"desempe[ñn]ad|dedicad", re.I)
-_EXP_TRAP = re.compile(r"repuesto|garant|vigencia|antelaci|registro\s+sanitario|rescisi|sanci[oó]n|\bedad\b|"
+                     r"desempe[ñn]ad|dedicad|representaci[oó]n\s+del\s+bien|"
+                     r"ser\s+representante\s+(?:o|y/o)\s+distribuidor|plantel\s+(?:permanente|estable|m[ií]nimo)|"
+                     r"parte\s+del\s+(?:plantel|staff)|del\s+staff|permanencia", re.I)
+_EXP_TRAP = re.compile(r"repuesto|garant|antig[uü]edad\s+m[aá]xima|kil[oó]metro|\bkms?\b|vigencia|antelaci|registro\s+sanitario|rescisi|sanci[oó]n|\bedad\b|"
                        r"modelo|a[ñn]os?\s+de\s+fabricaci|fabricaci[oó]n\s+no\s+mayor|veh[ií]cul|vida\s+[uú]til|"
                        r"no\s+poseer|no\s+haber|incumplimient|vencimient|ejercicios?\s+fiscal|balance|"
                        r"provisi[oó]n\s+de|"
@@ -560,7 +577,10 @@ _PERSONAL = re.compile(r"profesional|t[eé]cnic[oa]s?\b|ingenier|\bpersonal\b|re
                        r"t[ií]tulo|egresad|funcionari|plantel|gerente|jefe|consultor|programador|desarrollador|"
                        r"analista|abogad|contador|instructor|capacitador|carpinter|pintor|alba[ñn]il|electricist|"
                        r"plomer|mec[aá]nic|obrer|operari|guardia|vigilante|enfermer|cociner|personales|"
-                       r"trabajador|emplead|integrantes\s+del\s+equipo", re.I)
+                       r"trabajador|emplead|integrantes\s+del\s+equipo|"
+                       # antigüedad del personal en la nómina (I7): no es antigüedad de la empresa
+                       r"n[oó]mina|\bIPS\b|previsi[oó]n\s+social|seguro\s+social|dependencia|v[ií]nculo\s+laboral|staff",
+                       re.I)
 
 
 def _exp_mentions(text):
@@ -568,8 +588,10 @@ def _exp_mentions(text):
     out = []
     for m in _YEARS.finditer(s):
         v, st = num_before(s, m.start())
-        if v is None or v < 1 or v > 50:
+        if v is None or v < 1 or v > (600 if m.group(1) else 50):
             continue
+        if m.group(1):
+            v = round(v / 12, 2)
         a, b = sentence_span(s, st)
         sent = s[a:b]
         pre = s[max(a, st - 40):st]
@@ -580,8 +602,9 @@ def _exp_mentions(text):
             out.append(("trampa", v))
         elif _EXP_KW.search(sent):
             near = s[max(a, st - 140):min(b, m.end() + 60)]
-            out.append(("personal" if _PERSONAL.search(near) else "empresa", v))
-        else:
+            # en meses es la antigüedad del personal en la nómina, nunca la de la empresa (I7)
+            out.append(("personal" if m.group(1) or _PERSONAL.search(near) else "empresa", v))
+        elif not m.group(1):  # meses sin palabra de experiencia: vigencias, plazos… no mandan al LLM
             out.append(("sin_clasificar", v))
     return out
 

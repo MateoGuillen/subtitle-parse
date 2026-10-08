@@ -4,7 +4,7 @@
     "version": "2.0",
     "date": "2026-07-24",
     "total_titles": 25,
-    "spec_campos": "docs/especificacion_campos.md v1.0 (08-oct-2026): hints de 8 campos reescritos desde las fichas; llm_fallback=false en 7 campos"
+    "spec_campos": "docs/especificacion_campos.md v1.0 (08-oct-2026): hints de 8 campos reescritos desde las fichas; llm_fallback=false en 7 campos; v1.1 (08-oct-2026, tras I7): hint de anos_experiencia_minima_tecnica ampliado (representante/distribuidor, plantel/IPS, meses/12) y tipo float"
   },
   "analisis_de_precios_ofertados": {
     "description": "Análisis de precios ofertados — umbrales de diferencia vs precio referencial y criterios de evaluación",
@@ -393,11 +393,11 @@
     "fields": [
       {
         "name": "anos_experiencia_minima_tecnica",
-        "type": "int",
+        "type": "float",
         "description": "Años de experiencia mínima técnica requerida",
         "extraction_method": "hybrid",
-        "extraction_hint": "Años mínimos de experiencia o antigüedad que se EXIGEN al oferente o a su personal. 1) Experiencia o antigüedad de la empresa en el rubro, incluida la existencia legal: \"antigüedad mínima de tres (03) años en el rubro\" -> 3; \"mínimo de 2 años de experiencia\" -> 2. 2) Si no hay de la empresa, la del personal: \"Ingeniero con como mínimo 3 (tres) años de experiencia\" -> 3; \"5 años de ejercicio de la profesión\" -> 5. 3) Si hay varios valores, responde el MAYOR. Responde NULL si no hay número de años exigido, si solo pide cantidad de contratos, o si los años son una ventana: \"en los últimos 3 años\", \"durante los últimos 5 años\". NO son experiencia: años de provisión de repuestos, garantía, vigencia de documentos, antelación de registros sanitarios, años sin rescisiones, antigüedad o modelo de vehículos y equipos, edad.",
-        "spec_version": "v1.0"
+        "extraction_hint": "Años mínimos de experiencia o antigüedad que se EXIGEN al oferente o a su personal. 1) Experiencia o antigüedad de la empresa en el rubro, incluida la existencia legal y la antigüedad como representante o distribuidor: \"antigüedad mínima de tres (03) años en el rubro\" -> 3; \"mínimo de 2 años de experiencia\" -> 2; \"deberá ser Representante o Distribuidor Autorizado del bien ofertado de 5 (cinco) años como mínimo\" -> 5. 2) Si no hay de la empresa, la del personal, incluida su antigüedad en el plantel o en la nómina del IPS: \"Ingeniero con como mínimo 3 (tres) años de experiencia\" -> 3; \"5 años de ejercicio de la profesión\" -> 5; \"deberán formar parte del plantel permanente de la empresa por al menos 1 año\" -> 1. 3) Si el plazo está en meses, pásalo a años dividiendo por 12: \"antigüedad mínima de 6 meses\" -> 0.5; \"18 meses\" -> 1.5. 4) Si hay varios valores, responde el MAYOR. Responde NULL si no hay número de años exigido, si solo pide cantidad de contratos, o si los años son una ventana: \"en los últimos 3 años\", \"durante los últimos 5 años\". NO son experiencia: años de provisión de repuestos, garantía, vigencia de documentos, antelación de registros sanitarios, años sin rescisiones, antigüedad máxima o modelo de vehículos y equipos, kilometraje, edad.",
+        "spec_version": "v1.1"
       },
       {
         "name": "num_referencias_tecnicas_minimo",

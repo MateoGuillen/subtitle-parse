@@ -1,185 +1,185 @@
-id,campo,nro_licitacion,estrato,pob_estrato,modal_campo,valor_regla,estado_regla,i6_gemma-4-12b-qat-w4a16,i6_qwen3-14b-awq,i6_qwen3-8b-fp8,i6_gemma-4-26b-a4b-gguf,opus,nota_opus,ref,duda,llm_g12,sis_g12,llm_q14,sis_q14,llm_q8,sis_q8,llm_g26,sis_g26,regla
-0d7a7bf857,dias_pago_maximo,406442,regla_no_modal,4232,60.0,20.0,valor,,,,,20.0,,20.0,False,60.0,20.0,60.0,20.0,20.0,20.0,60.0,20.0,20.0
-472415872d,dias_pago_maximo,420614,regla_no_modal,4232,60.0,30.0,valor,,,,,30.0,,30.0,False,60.0,30.0,60.0,30.0,30.0,30.0,60.0,30.0,30.0
-a81716a71f,dias_pago_maximo,469423,regla_no_modal,4232,60.0,30.0,valor,,,,,30.0,,30.0,False,60.0,30.0,60.0,30.0,30.0,30.0,60.0,30.0,30.0
-68f08be378,dias_pago_maximo,397433,regla_no_modal,4232,60.0,10.0,valor,,,,,10.0,,10.0,False,60.0,10.0,60.0,10.0,60.0,10.0,60.0,10.0,10.0
-25765ce1ba,dias_pago_maximo,413811,regla_no_modal,4232,60.0,10.0,valor,,,,,10.0,,10.0,False,60.0,10.0,60.0,10.0,10.0,10.0,60.0,10.0,10.0
-17251c6321,dias_pago_maximo,399223,regla_no_modal,4232,60.0,30.0,valor,,,,,30.0,,30.0,False,60.0,30.0,60.0,30.0,30.0,30.0,60.0,30.0,30.0
-01169df2f0,dias_pago_maximo,456283,regla_no_modal,4232,60.0,15.0,valor,,,,,15.0,,15.0,False,60.0,15.0,60.0,15.0,60.0,15.0,15.0,15.0,15.0
-a751acc0e4,dias_pago_maximo,471459,regla_no_modal,4232,60.0,15.0,valor,,,,,15.0,,15.0,False,60.0,15.0,60.0,15.0,60.0,15.0,60.0,15.0,15.0
-651e38056f,dias_pago_maximo,411279,regla_no_modal,4232,60.0,30.0,valor,,,,,30.0,,30.0,False,60.0,30.0,60.0,30.0,30.0,30.0,30.0,30.0,30.0
-d978386010,dias_pago_maximo,454614,regla_no_modal,4232,60.0,20.0,valor,,,,,20.0,,20.0,False,60.0,20.0,60.0,20.0,60.0,20.0,60.0,20.0,20.0
-f4a5c022af,dias_pago_maximo,468755,regla_modal,11648,60.0,60.0,valor,,,,,60.0,,60.0,False,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0
-4c2e484038,dias_pago_maximo,405116,regla_modal,11648,60.0,60.0,valor,,,,,60.0,,60.0,False,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0
-a846846fe9,dias_pago_maximo,381849,regla_modal,11648,60.0,60.0,valor,,,,,60.0,sin plazo propio con número (pago según Plan de Caja) -> cláusula estándar; flag pago_sujeto_plan_caja,60.0,False,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0
-8655c49efa,dias_pago_maximo,463578,regla_modal,11648,60.0,60.0,valor,,,,,60.0,,60.0,False,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0
-0c9e96c674,dias_validez_garantia,457814,residual_discrepa,3,365.0,,llm,1095.0,1095.0,3.0,365.0,1095.0,varía por ítem (1-3 años): máximo 3 años (flag garantia_varia_por_item),1095.0,False,1095.0,1095.0,1095.0,1095.0,3.0,3.0,365.0,365.0,
-5b9aa8ac7e,dias_validez_garantia,409999,residual_discrepa,3,365.0,,llm,,1095.0,,,,fecha fija -> NULL,,False,,,1095.0,1095.0,,,,,
-d4af8506c3,dias_validez_garantia,441349,residual_discrepa,3,365.0,,llm,182.0,730.0,181.0,182.0,182.0,,182.0,False,182.0,182.0,730.0,730.0,181.0,181.0,182.0,182.0,
-a8da005b55,dias_validez_garantia,406444,residual_coincide,8,365.0,,llm,,,,,,sin plazo de garantía,,False,,,,,,,,,
-051881d852,dias_validez_garantia,466451,residual_coincide,8,365.0,,llm,1095.0,1095.0,1095.0,1095.0,1095.0,,1095.0,False,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,
-5ba7466625,dias_validez_garantia,433744,residual_coincide,8,365.0,,llm,365.0,365.0,365.0,365.0,365.0,,365.0,False,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,
-c2a384f28c,dias_validez_garantia,458525,residual_coincide,8,365.0,,llm,10.0,10.0,10.0,10.0,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,
-fa956de6ae,dias_validez_garantia,408240,residual_coincide,8,365.0,,llm,365.0,365.0,365.0,365.0,365.0,,365.0,False,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,
-335a65f858,dias_validez_garantia,392978,regla_no_modal,2421,365.0,730.0,valor,,,,,730.0,,730.0,False,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0
-58f8b1a0b4,dias_validez_garantia,433380,regla_no_modal,2421,365.0,1095.0,valor,,,,,1095.0,,1095.0,False,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0
-187f1cb612,dias_validez_garantia,381698,regla_no_modal,2421,365.0,10.0,valor,,,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0
-d02564fcf1,dias_validez_garantia,440614,regla_no_modal,2421,365.0,730.0,valor,,,,,730.0,,730.0,False,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0
-e714739833,dias_validez_garantia,408065,regla_no_modal,2421,365.0,182.0,valor,,,,,182.0,,182.0,False,,182.0,730.0,182.0,91.0,182.0,,182.0,182.0
-7496f24d37,dias_validez_garantia,436029,regla_no_modal,2421,365.0,182.0,valor,,,,,182.0,,182.0,False,182.0,182.0,365.0,182.0,91.0,182.0,182.0,182.0,182.0
-f23ab11a00,dias_validez_garantia,421601,regla_no_modal,2421,365.0,730.0,valor,,,,,730.0,,730.0,False,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0
-c36d1c812c,dias_validez_garantia,399549,regla_no_modal,2421,365.0,1095.0,valor,,,,,1095.0,varía por lote: máximo (flag garantia_varia_por_item),1095.0,False,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,365.0,1095.0,1095.0
-531cc46ac9,dias_validez_garantia,389883,regla_no_modal,2421,365.0,730.0,valor,,,,,730.0,,730.0,False,548.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0
-0e7f5260d1,dias_validez_garantia,460737,regla_no_modal,2421,365.0,1460.0,valor,,,,,1460.0,,1460.0,False,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0
-4ea6715996,dias_validez_garantia,381088,regla_modal,2219,365.0,365.0,valor,,,,,365.0,,365.0,False,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0
-e7cff84db1,dias_validez_garantia,431488,regla_modal,2219,365.0,365.0,valor,,,,,365.0,,365.0,False,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0
-7ccba73cb1,dias_validez_garantia,455085,regla_modal,2219,365.0,365.0,valor,,,,,365.0,,365.0,False,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0
-26e37c875a,dias_validez_garantia,418962,regla_modal,2219,365.0,365.0,valor,,,,,365.0,,365.0,False,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0
-a5d14ed57b,dias_validez_garantia,459450,regla_ausente,925,365.0,,ausente,,,,,,vigencia del contrato sin número -> NULL,,False,,,,,,,,,
-f82e69d738,dias_validez_garantia,423304,regla_ausente,925,365.0,,ausente,,,,,,vigencia del contrato sin número -> NULL,,False,,,,,,,,,
-38c68b5b36,dias_validez_garantia,443857,regla_ausente,925,365.0,,ausente,,,,,,remite a EETT -> NULL,,False,,,,,,,,,
-62e2c651b8,dias_validez_garantia,472710,regla_ausente,925,365.0,,ausente,,,,,,vigencia del contrato sin número -> NULL,,False,,,,,,,,,
-467b2c820b,dias_pago_anticipo,424941,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,,False,,,10.0,10.0,,,,,
-31a3beacc2,dias_pago_anticipo,441219,residual_discrepa,40,10.0,,llm,10.0,10.0,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,,,,,
-0c5db390ff,dias_pago_anticipo,462269,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud (3 lotes iguales),,False,,,10.0,10.0,,,,,
-2981474d2c,dias_pago_anticipo,463016,residual_discrepa,40,10.0,,llm,,,10.0,,,sujeto a disponibilidad sin número,,False,,,,,10.0,10.0,,,
-0f4ac22b57,dias_pago_anticipo,397011,residual_discrepa,40,10.0,,llm,60.0,15.0,15.0,,60.0,,60.0,False,60.0,60.0,15.0,15.0,15.0,15.0,60.0,60.0,
-6c7bda33d1,dias_pago_anticipo,432856,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de presentación,,False,,,10.0,10.0,,,,,
-3198498c8a,dias_pago_anticipo,466649,residual_discrepa,40,10.0,,llm,60.0,60.0,10.0,60.0,60.0,,60.0,False,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,
-c5b6fbe979,dias_pago_anticipo,468333,residual_discrepa,40,10.0,,llm,,,10.0,,,solo fija plazo de solicitud; 180 días son hitos de ejecución,,False,,,,,10.0,10.0,,,
-0b59f5ea85,dias_pago_anticipo,468355,residual_discrepa,40,10.0,,llm,,10.0,10.0,,,solo fija plazo de solicitud,,False,,,10.0,10.0,10.0,10.0,,,
-18c2a00ead,dias_pago_anticipo,426326,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,,False,,,10.0,10.0,,,,,
-1032c7e3f2,dias_pago_anticipo,424955,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de presentación,,False,,,10.0,10.0,,,,,
-0bc60c53a8,dias_pago_anticipo,399315,residual_discrepa,40,10.0,,llm,60.0,15.0,15.0,60.0,60.0,,60.0,False,60.0,60.0,15.0,15.0,15.0,15.0,60.0,60.0,
-335556638b,dias_pago_anticipo,424895,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,,False,,,10.0,10.0,,,,,
-858f582456,dias_pago_anticipo,441521,residual_discrepa,40,10.0,,llm,60.0,10.0,10.0,60.0,60.0,,60.0,False,60.0,60.0,10.0,10.0,10.0,10.0,60.0,60.0,
-769cb2bc27,dias_pago_anticipo,424914,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,,False,,,10.0,10.0,,,,,
-4aa85744bc,dias_pago_anticipo,424967,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de presentación,,False,,,10.0,10.0,,,,,
-737c526b95,dias_pago_anticipo,410931,residual_discrepa,40,10.0,,llm,60.0,15.0,15.0,60.0,60.0,15 días es la solicitud,60.0,False,60.0,60.0,15.0,15.0,15.0,15.0,60.0,60.0,
-0c8f7f574a,dias_pago_anticipo,436896,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,,False,,,10.0,10.0,,,,,
-6b794dce4f,dias_pago_anticipo,474353,residual_discrepa,40,10.0,,llm,,15.0,,60.0,60.0,,60.0,False,,,15.0,15.0,,,60.0,60.0,
-5694d04cfe,dias_pago_anticipo,464456,residual_discrepa,40,10.0,,llm,,10.0,10.0,,,sujeto a disponibilidad sin número,,False,,,10.0,10.0,10.0,10.0,,,
-1db3b9ee89,dias_pago_anticipo,464526,residual_discrepa,40,10.0,,llm,,,10.0,,,"sin número, sujeto a disponibilidad (flag anticipo_sujeto_disponibilidad)",,False,,,,,10.0,10.0,,,
-624020352f,dias_pago_anticipo,423036,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,,False,,,10.0,10.0,,,,,
-039ff73f2e,dias_pago_anticipo,419099,residual_discrepa,40,10.0,,llm,60.0,15.0,15.0,60.0,60.0,15 días es la solicitud,60.0,False,60.0,60.0,15.0,15.0,15.0,15.0,60.0,60.0,
-c758553c44,dias_pago_anticipo,424884,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,,False,,,10.0,10.0,,,,,
-a854aa82b3,dias_pago_anticipo,454063,residual_discrepa,40,10.0,,llm,,10.0,,,,"sin número, sujeto a disponibilidad (flag anticipo_sujeto_disponibilidad)",,False,,,10.0,10.0,,,,,
-7dffd2ac91,dias_pago_anticipo,448555,residual_coincide,63,10.0,,llm,,,,,,solo fija plazo de solicitud,,False,,,,,,,,,
-490311133a,dias_pago_anticipo,446377,residual_coincide,63,10.0,,llm,,,,,,solo fija plazo de solicitud,,False,,,,,,,,,
-19a7d256f4,dias_pago_anticipo,464523,residual_coincide,63,10.0,,llm,,,,,,sujeto a disponibilidad sin número,,False,,,,,,,,,
-ba5c4ceb35,dias_pago_anticipo,468789,residual_coincide,63,10.0,,llm,,,,,,solo fija plazo de presentación,,False,,,,,,,,,
-c1a71709a3,dias_pago_anticipo,436887,residual_coincide,63,10.0,,llm,,,,,,solo fija plazo de solicitud,,False,,,,,,,,,
-666233a60a,dias_pago_anticipo,434201,regla_no_modal,1293,10.0,15.0,valor,,,,,15.0,,15.0,False,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0
-6d857ba2cd,dias_pago_anticipo,426075,regla_no_modal,1293,10.0,30.0,valor,,,,,30.0,,30.0,False,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0
-f5bf9773cc,dias_pago_anticipo,451545,regla_no_modal,1293,10.0,5.0,valor,,,,,5.0,,5.0,False,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0
-7e3d7f4207,dias_pago_anticipo,473524,regla_no_modal,1293,10.0,60.0,valor,,,,,60.0,,60.0,False,60.0,60.0,10.0,60.0,60.0,60.0,60.0,60.0,60.0
-af3301d81f,dias_pago_anticipo,466523,regla_no_modal,1293,10.0,30.0,valor,,,,,30.0,,30.0,False,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0
-05b355fca6,dias_pago_anticipo,434901,regla_no_modal,1293,10.0,15.0,valor,,,,,15.0,,15.0,False,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0
-4c6b7d3ea8,dias_pago_anticipo,451477,regla_no_modal,1293,10.0,30.0,valor,,,,,30.0,,30.0,False,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0
-5481213a57,dias_pago_anticipo,475974,regla_no_modal,1293,10.0,2.0,valor,,,,,2.0,,2.0,False,2.0,2.0,10.0,2.0,2.0,2.0,2.0,2.0,2.0
-26b71ce116,dias_pago_anticipo,419153,regla_no_modal,1293,10.0,5.0,valor,,,,,5.0,,5.0,False,,5.0,,5.0,,5.0,,5.0,5.0
-c58d9caad4,dias_pago_anticipo,439024,regla_no_modal,1293,10.0,15.0,valor,,,,,15.0,,15.0,False,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0
-d5508bdc53,dias_pago_anticipo,434324,regla_modal,1532,10.0,10.0,valor,,,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0
-bc829ee8a3,dias_pago_anticipo,448049,regla_modal,1532,10.0,10.0,valor,,,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0
-5182e654b1,dias_pago_anticipo,451070,regla_modal,1532,10.0,10.0,valor,,,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0
-e3e6f5c8d3,dias_pago_anticipo,447849,regla_modal,1532,10.0,10.0,valor,,,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0
-3325fddba3,dias_pago_anticipo,401645,regla_ausente,1383,10.0,,ausente,,,,,,sin plazo de pago con número; sujeto a disponibilidad (flag),,False,,,,,,,,,
-520e979ffc,dias_pago_anticipo,429211,regla_ausente,1383,10.0,,ausente,,,,,,solo fija plazo de solicitud,,False,,,10.0,,10.0,,,,
-6347a6e7af,dias_pago_anticipo,424177,regla_ausente,1383,10.0,,ausente,,,,,,ancla de pago vacía,,False,,,10.0,,10.0,,,,
-39aae6ebba,dias_pago_anticipo,472453,regla_ausente,1383,10.0,,ausente,,,,,,solo fija plazo de solicitud,,False,,,10.0,,,,,,
-c032929749,dias_solicitud_anticipo,441219,residual_coincide,7,10.0,,llm,,,,,,"el 10 es plazo de pago contado desde el pedido (A3), no de solicitud",,False,,,,,,,,,
-4065bfcfb0,dias_solicitud_anticipo,436091,residual_coincide,7,10.0,,llm,,,,,,"DUDA: bajo el encabezado de solicitud, pero la frase dice 'el pago del anticipo será' 10 días desde la firma (A3); si se lee como solicitud sería 10",,True,,,,,,,,,
-6e251d46eb,dias_solicitud_anticipo,435380,residual_coincide,7,10.0,,llm,,,,,,DUDA: el 10 está bajo el encabezado de solicitud pero el texto lo describe como plazo de PAGO desde la firma (A3); no hay plazo de solicitud explícito,,True,,,,,,,,,
-5bc36e9ac1,dias_solicitud_anticipo,409148,residual_coincide,7,10.0,,llm,,,,,10.0,22 días es el pago (A3),10.0,False,,,,,,,,,
-4940f67563,dias_solicitud_anticipo,438904,residual_coincide,7,10.0,,llm,,,,,,DUDA: el 10 está bajo el encabezado de solicitud pero el texto lo describe como plazo de PAGO desde la firma (A3); no hay plazo de solicitud explícito,,True,,,,,,,,,
-c23a4b90d5,dias_solicitud_anticipo,436485,regla_no_modal,1890,10.0,5.0,valor,,,,,,DUDA: el 5 está bajo el encabezado de solicitud pero la frase dice 'se otorgará' (pago desde la firma de la OC); si se lee como plazo de solicitud sería 5,,True,,5.0,,5.0,,5.0,,5.0,5.0
-45e02059c3,dias_solicitud_anticipo,422863,regla_no_modal,1890,10.0,5.0,valor,,,,,5.0,,5.0,False,5.0,5.0,10.0,5.0,5.0,5.0,5.0,5.0,5.0
-7c80bf0914,dias_solicitud_anticipo,473144,regla_no_modal,1890,10.0,3.0,valor,,,,,3.0,,3.0,False,3.0,3.0,10.0,3.0,10.0,3.0,3.0,3.0,3.0
-8fe0b8c4f9,dias_solicitud_anticipo,448121,regla_no_modal,1890,10.0,20.0,valor,,,,,20.0,,20.0,False,,20.0,,20.0,,20.0,,20.0,20.0
-08a7b3e4b8,dias_solicitud_anticipo,425308,regla_no_modal,1890,10.0,7.0,valor,,,,,7.0,,7.0,False,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0
-1d7c28284b,dias_solicitud_anticipo,406477,regla_no_modal,1890,10.0,3.0,valor,,,,,3.0,,3.0,False,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
-cb2f0ffe2c,dias_solicitud_anticipo,445291,regla_no_modal,1890,10.0,3.0,valor,,,,,3.0,,3.0,False,,3.0,,3.0,,3.0,,3.0,3.0
-7b35aa09a5,dias_solicitud_anticipo,438554,regla_no_modal,1890,10.0,3.0,valor,,,,,3.0,,3.0,False,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
-aa7449ca8d,dias_solicitud_anticipo,405125,regla_no_modal,1890,10.0,5.0,valor,,,,,5.0,,5.0,False,5.0,5.0,,5.0,5.0,5.0,5.0,5.0,5.0
-790433f1d6,dias_solicitud_anticipo,471705,regla_no_modal,1890,10.0,5.0,valor,,,,,5.0,,5.0,False,,5.0,,5.0,,5.0,,5.0,5.0
-d98104b767,dias_solicitud_anticipo,424115,regla_modal,2015,10.0,10.0,valor,,,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0
-cbede37657,dias_solicitud_anticipo,423526,regla_modal,2015,10.0,10.0,valor,,,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0
-6f1fb437a8,dias_solicitud_anticipo,428968,regla_modal,2015,10.0,10.0,valor,,,,,10.0,,10.0,False,,10.0,,10.0,,10.0,,10.0,10.0
-64d35496ab,dias_solicitud_anticipo,430395,regla_modal,2015,10.0,10.0,valor,,,,,10.0,,10.0,False,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0
-91252f3d29,dias_solicitud_anticipo,444245,regla_ausente,399,10.0,,ausente,,,,,,solo cita la ley y el porcentaje,,False,,,,,,,,,
-75ac2a6350,dias_solicitud_anticipo,437253,regla_ausente,399,10.0,,ausente,,,,,,solo porcentaje,,False,,,,,,,,,
-3148a20979,dias_solicitud_anticipo,400159,regla_ausente,399,10.0,,ausente,,,,,,sin número de plazo de solicitud,,False,,,,,,,,,
-67a7af477d,dias_solicitud_anticipo,436725,regla_ausente,399,10.0,,ausente,,,,,10.0,pago = 60 (A3),10.0,False,,,,,,,,,
-45c9fb81c9,anos_experiencia_minima_tecnica,428454,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,,5.0,False,,,5.0,5.0,,,,,
-71ad6fb587,anos_experiencia_minima_tecnica,402692,residual_discrepa,42,3.0,,llm,,5.0,,,,"DUDA: experiencia del fabricante del equipo, no del oferente ni su personal (podría ser 5)",,True,,,5.0,5.0,,,,,
-d67b0b1ffe,anos_experiencia_minima_tecnica,403357,residual_discrepa,42,3.0,,llm,,1.0,1.0,,,"soporte, no experiencia",,False,,,1.0,1.0,1.0,1.0,,,
-3bedafa978,anos_experiencia_minima_tecnica,442061,residual_discrepa,42,3.0,,llm,3.0,,,3.0,3.0,personal,3.0,False,3.0,3.0,,,,,3.0,3.0,
-1f9e540d0a,anos_experiencia_minima_tecnica,454910,residual_discrepa,42,3.0,,llm,,18.0,,,1.5,"DUDA: 18 meses = 1,5 años; la ficha no fija conversión de meses para A5",1.5,True,,,18.0,18.0,,,,,
-f395e8c797,anos_experiencia_minima_tecnica,413228,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,,5.0,False,,,5.0,5.0,,,,,
-5e97be2197,anos_experiencia_minima_tecnica,407681,residual_discrepa,42,3.0,,llm,,6.0,,,,ventana,,False,,,6.0,6.0,,,,,
-9767b4d62c,anos_experiencia_minima_tecnica,442414,residual_discrepa,42,3.0,,llm,,,6.0,,1.0,DUDA: antigüedad del personal en planilla IPS (1 año) y técnico SSO 6 meses; 'últimos 03 años' es ventana,1.0,True,,,,,6.0,6.0,,,
-64cdc3cbc7,anos_experiencia_minima_tecnica,418822,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,antigüedad de la empresa como representante,5.0,False,,,5.0,5.0,,,,,
-238827806a,anos_experiencia_minima_tecnica,419651,residual_discrepa,42,3.0,,llm,,,6.0,,1.0,máximo entre 6 meses y 1 año; 'últimos 3 años' es ventana,1.0,False,,,,,6.0,6.0,,,
-1ec5a939ed,anos_experiencia_minima_tecnica,442568,residual_discrepa,42,3.0,,llm,,3.0,,,,trampa repuestos/soporte; sin experiencia exigida,,False,,,3.0,3.0,,,,,
-4781a087af,anos_experiencia_minima_tecnica,412381,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,,5.0,False,,,5.0,5.0,,,,,
-1700d9ae28,anos_experiencia_minima_tecnica,415356,residual_discrepa,42,3.0,,llm,5.0,5.0,,5.0,5.0,"personal, cargos clave",5.0,False,5.0,5.0,5.0,5.0,,,5.0,5.0,
-76cbee3571,anos_experiencia_minima_tecnica,430343,residual_discrepa,42,3.0,,llm,,1.0,,1.0,,"DUDA: duración de un contrato con medio, no años de experiencia/antigüedad",,True,,,1.0,1.0,,,1.0,1.0,
-a04d68e9e1,anos_experiencia_minima_tecnica,462533,residual_discrepa,42,3.0,,llm,,2.0,,,2.0,,2.0,False,,,2.0,2.0,,,,,
-ffc82f3847,anos_experiencia_minima_tecnica,416448,residual_discrepa,42,3.0,,llm,,,3.0,,,"garantía, no experiencia",,False,,,,,3.0,3.0,,,
-9028e8f4b1,anos_experiencia_minima_tecnica,410540,residual_discrepa,42,3.0,,llm,,5.0,5.0,5.0,5.0,,5.0,False,,,5.0,5.0,5.0,5.0,5.0,5.0,
-18a995ab23,anos_experiencia_minima_tecnica,426789,residual_discrepa,42,3.0,,llm,,12.0,12.0,,1.0,12 meses=1 año; mantenimiento por 3 años es trampa,1.0,False,,,12.0,12.0,12.0,12.0,,,
-817adc043e,anos_experiencia_minima_tecnica,435992,residual_discrepa,42,3.0,,llm,,1.0,,,1.0,antigüedad del técnico en el plantel (personal),1.0,False,,,1.0,1.0,,,1.0,1.0,
-40be947e25,anos_experiencia_minima_tecnica,451430,residual_discrepa,42,3.0,,llm,2.0,2.0,,2.0,2.0,DUDA: puede leerse como antigüedad de la certificación más que experiencia,2.0,True,2.0,2.0,2.0,2.0,,,2.0,2.0,
-160f39d3b4,anos_experiencia_minima_tecnica,416971,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,antigüedad de la empresa como distribuidor,5.0,False,,,5.0,5.0,,,,,
-16836907a8,anos_experiencia_minima_tecnica,469473,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,,5.0,False,,,5.0,5.0,,,,,
-00d328eb7d,anos_experiencia_minima_tecnica,423933,residual_discrepa,42,3.0,,llm,4.0,4.0,,4.0,4.0,antigüedad empresa en el rubro,4.0,False,4.0,4.0,4.0,4.0,,,4.0,4.0,
-751710c101,anos_experiencia_minima_tecnica,464240,residual_discrepa,42,3.0,,llm,,5.0,,,,"durabilidad del producto, no experiencia",,False,,,5.0,5.0,,,,,
-cc5947a468,anos_experiencia_minima_tecnica,409630,residual_discrepa,42,3.0,,llm,,1.0,,,1.0,,1.0,False,,,1.0,1.0,,,,,
-3f3c27a80a,anos_experiencia_minima_tecnica,442977,residual_coincide,166,3.0,,llm,,,,,2.0,DUDA: puede leerse como antigüedad de la certificación más que experiencia,2.0,True,,,,,,,,,
-fe7e1bc67a,anos_experiencia_minima_tecnica,462435,residual_coincide,166,3.0,,llm,,,,,1.0,antigüedad del personal en plantel,1.0,False,,,,,,,,,
-3559a54ac0,anos_experiencia_minima_tecnica,402070,residual_coincide,166,3.0,,llm,,,,,,"repuestos/garantía, no experiencia",,False,,,,,,,,,
-be8ccb7b57,anos_experiencia_minima_tecnica,402975,residual_coincide,166,3.0,,llm,,,,,,trampa antigüedad de equipos,,False,,,,,,,,,
-6f40e2a930,anos_experiencia_minima_tecnica,416320,residual_coincide,166,3.0,,llm,,,,,,trampa repuestos,,False,,,,,,,,,
-cb80003d54,anos_experiencia_minima_tecnica,425702,regla_no_modal,1018,3.0,1.0,valor,,,,,1.0,antigüedad del personal en el plantel,1.0,False,,1.0,,1.0,,1.0,,1.0,1.0
-1f5a8b0a94,anos_experiencia_minima_tecnica,402847,regla_no_modal,1018,3.0,5.0,valor,,,,,5.0,"personal, máximo entre perfiles; 50 años es edad",5.0,False,5.0,5.0,5.0,5.0,,5.0,5.0,5.0,5.0
-1a4ea023f4,anos_experiencia_minima_tecnica,462589,regla_no_modal,1018,3.0,5.0,valor,,,,,5.0,,5.0,False,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0
-5aa225b7f2,anos_experiencia_minima_tecnica,445117,regla_no_modal,1018,3.0,5.0,valor,,,,,5.0,,5.0,False,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0
-8ff467d285,anos_experiencia_minima_tecnica,403793,regla_no_modal,1018,3.0,2.0,valor,,,,,2.0,personal,2.0,False,2.0,2.0,2.0,2.0,,2.0,2.0,2.0,2.0
-03e7e5a9ec,anos_experiencia_minima_tecnica,441482,regla_no_modal,1018,3.0,2.0,valor,,,,,2.0,personal,2.0,False,,2.0,,2.0,,2.0,,2.0,2.0
-614bf21668,anos_experiencia_minima_tecnica,434957,regla_no_modal,1018,3.0,10.0,valor,,,,,5.0,personal; 10 años antigüedad de equipos es trampa,5.0,False,,10.0,,10.0,,10.0,,10.0,10.0
-8ffbecd4de,anos_experiencia_minima_tecnica,415910,regla_no_modal,1018,3.0,2.0,valor,,,,,2.0,,2.0,False,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0
-d5d2ef085d,anos_experiencia_minima_tecnica,444289,regla_no_modal,1018,3.0,5.0,valor,,,,,5.0,'últimos 3 años' es ventana,5.0,False,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0
-5dd50421f9,anos_experiencia_minima_tecnica,473570,regla_no_modal,1018,3.0,4.0,valor,,,,,5.0,"personal, máximo entre perfiles",5.0,False,,4.0,,4.0,,4.0,,4.0,4.0
-26a1e0a873,anos_experiencia_minima_tecnica,474420,regla_modal,624,3.0,3.0,valor,,,,,3.0,personal; 6 meses IPS menor,3.0,False,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
-808ea5a9fc,anos_experiencia_minima_tecnica,474065,regla_modal,624,3.0,3.0,valor,,,,,3.0,personal,3.0,False,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
-1879670415,anos_experiencia_minima_tecnica,423999,regla_modal,624,3.0,3.0,valor,,,,,3.0,personal,3.0,False,,3.0,,3.0,,3.0,,3.0,3.0
-3c06eafea7,anos_experiencia_minima_tecnica,474037,regla_modal,624,3.0,3.0,valor,,,,,3.0,,3.0,False,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
-0425bd1adb,anos_experiencia_minima_tecnica,441199,regla_ausente,11096,3.0,,ausente,,,,,,,,False,,,,,,,,,
-ad3fe8b095,anos_experiencia_minima_tecnica,444298,regla_ausente,11096,3.0,,ausente,,,,,,,,False,,,,,,,,,
-30c23c6638,anos_experiencia_minima_tecnica,444339,regla_ausente,11096,3.0,,ausente,,,,,,,,False,,,,,,,,,
-eee57db871,anos_experiencia_minima_tecnica,436893,regla_ausente,11096,3.0,,ausente,,,,,,sin número de años,,False,,,,,,,,,
-4b50c89c27,pct_monto_referencia_tecnica,422404,residual_discrepa,9,50.0,,llm,,50.0,50.0,,,respaldo financiero (A8); 60/40 es consorcio,,False,,,50.0,50.0,50.0,50.0,,,
-fc31913601,pct_monto_referencia_tecnica,468886,residual_discrepa,9,50.0,,llm,,60.0,,,,"respaldo financiero (A8), no referencias",,False,,,60.0,60.0,,,,,
-79820f1dcc,pct_monto_referencia_tecnica,424229,residual_discrepa,9,50.0,,llm,,,50.0,,,"equipos/personal, no referencias",,False,,,,,50.0,50.0,,,
-43f15dfd73,pct_monto_referencia_tecnica,404086,residual_discrepa,9,50.0,,llm,,50.0,,,,respaldo financiero (A8),,False,,,50.0,50.0,,,,,
-d8eefe923f,pct_monto_referencia_tecnica,402314,residual_discrepa,9,50.0,,llm,30.0,,30.0,30.0,30.0,,30.0,False,30.0,30.0,,,30.0,30.0,30.0,30.0,
-f02f4c2f17,pct_monto_referencia_tecnica,475315,residual_discrepa,9,50.0,,llm,,50.0,50.0,,,respaldo financiero (A8); sin % de referencias,,False,,,50.0,50.0,50.0,50.0,,,
-04800e149a,pct_monto_referencia_tecnica,473606,residual_discrepa,9,50.0,,llm,,60.0,,,,"respaldo financiero (A8), no referencias",,False,,,60.0,60.0,,,,,
-17cc73cd63,pct_monto_referencia_tecnica,409483,residual_discrepa,9,50.0,,llm,,60.0,,,,consorcio,,False,,,60.0,60.0,,,,,
-76edeea87e,pct_monto_referencia_tecnica,431652,residual_discrepa,9,50.0,,llm,,50.0,50.0,,,DUDA: 50% de cantidad de carne comprada (no monto de referencias); 60/40 es consorcio,,True,,,50.0,50.0,50.0,50.0,,,
-5da2c4fab5,pct_monto_referencia_tecnica,437163,residual_coincide,10,50.0,,llm,,,,,,respaldo financiero (A8),,False,,,,,,,,,
-349e6928fc,pct_monto_referencia_tecnica,454953,residual_coincide,10,50.0,,llm,,,,,,"consorcio y reposición, no referencias",,False,,,,,,,,,
-18b5e0a31d,pct_monto_referencia_tecnica,437171,residual_coincide,10,50.0,,llm,,,,,,respaldo financiero (A8),,False,,,,,,,,,
-412d890815,pct_monto_referencia_tecnica,418539,residual_coincide,10,50.0,,llm,,,,,,"capacidad de producción, no monto de referencias",,False,,,,,,,,,
-acef9ac772,pct_monto_referencia_tecnica,474328,residual_coincide,10,50.0,,llm,,,,,,"% de personal, no de referencias",,False,,,,,,,,,
-1449eaa2dd,pct_monto_referencia_tecnica,465986,regla_no_modal,3,50.0,60.0,valor,,,,,60.0,alternativa 40% individual; se toma sumatoria,60.0,False,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0
-7a1eed2c00,pct_monto_referencia_tecnica,418186,regla_no_modal,3,50.0,30.0,valor,,,,,30.0,,30.0,False,30.0,30.0,,30.0,,30.0,30.0,30.0,30.0
-65c7a2f751,pct_monto_referencia_tecnica,451850,regla_no_modal,3,50.0,30.0,valor,,,,,30.0,,30.0,False,30.0,30.0,,30.0,30.0,30.0,30.0,30.0,30.0
-4d4af86577,pct_monto_referencia_tecnica,418636,regla_modal,42,50.0,50.0,valor,,,,,50.0,"DUDA: facturas de compra de insumo (capacidad de abastecimiento), no facturación como experiencia; 60/40 consorcio",50.0,True,50.0,50.0,50.0,50.0,,50.0,50.0,50.0,50.0
-3e6cf203f5,pct_monto_referencia_tecnica,383263,regla_modal,42,50.0,50.0,valor,,,,,50.0,"DUDA: son facturas de compra de cortes (capacidad de abastecimiento), no ventas/referencias de experiencia; 70% es consorcio",50.0,True,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0
-1c2a257983,pct_monto_referencia_tecnica,416767,regla_modal,42,50.0,50.0,valor,,,,,50.0,,50.0,False,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0
-a3fb186dc6,pct_monto_referencia_tecnica,435074,regla_modal,42,50.0,50.0,valor,,,,,50.0,últimos 5 años es ventana,50.0,False,50.0,50.0,50.0,50.0,,50.0,50.0,50.0,50.0
-9432a7925e,pct_monto_referencia_tecnica,464021,regla_ausente,12885,50.0,,ausente,,,,,,,,False,,,,,,,,,
-29f21df967,pct_monto_referencia_tecnica,403862,regla_ausente,12885,50.0,,ausente,,,,,,,,False,,,,,,,,,
-43119a7bd7,pct_monto_referencia_tecnica,445314,regla_ausente,12885,50.0,,ausente,,,,,,,,False,,,,,,,,,
-0d60672a65,pct_monto_referencia_tecnica,441439,regla_ausente,12885,50.0,,ausente,,,,,,,,False,,,,,,,,,
+id,campo,nro_licitacion,estrato,pob_estrato,modal_campo,valor_regla,estado_regla,i6_gemma-4-12b-qat-w4a16,i6_qwen3-14b-awq,i6_qwen3-8b-fp8,i6_gemma-4-26b-a4b-gguf,opus,nota_opus,lote,llm_g12,sis_g12,regla,llm_q14,sis_q14,llm_q8,sis_q8,llm_g26,sis_g26,ref,duda
+0d7a7bf857,dias_pago_maximo,406442,regla_no_modal,4232,60.0,20.0,valor,,,,,20.0,,i7,60.0,20.0,20.0,60.0,20.0,20.0,20.0,60.0,20.0,20.0,False
+472415872d,dias_pago_maximo,420614,regla_no_modal,4232,60.0,30.0,valor,,,,,30.0,,i7,60.0,30.0,30.0,60.0,30.0,30.0,30.0,60.0,30.0,30.0,False
+a81716a71f,dias_pago_maximo,469423,regla_no_modal,4232,60.0,30.0,valor,,,,,30.0,,i7,60.0,30.0,30.0,60.0,30.0,30.0,30.0,60.0,30.0,30.0,False
+68f08be378,dias_pago_maximo,397433,regla_no_modal,4232,60.0,10.0,valor,,,,,10.0,,i7,60.0,10.0,10.0,60.0,10.0,60.0,10.0,60.0,10.0,10.0,False
+25765ce1ba,dias_pago_maximo,413811,regla_no_modal,4232,60.0,10.0,valor,,,,,10.0,,i7,60.0,10.0,10.0,60.0,10.0,10.0,10.0,60.0,10.0,10.0,False
+17251c6321,dias_pago_maximo,399223,regla_no_modal,4232,60.0,30.0,valor,,,,,30.0,,i7,60.0,30.0,30.0,60.0,30.0,30.0,30.0,60.0,30.0,30.0,False
+01169df2f0,dias_pago_maximo,456283,regla_no_modal,4232,60.0,15.0,valor,,,,,15.0,,i7,60.0,15.0,15.0,60.0,15.0,60.0,15.0,15.0,15.0,15.0,False
+a751acc0e4,dias_pago_maximo,471459,regla_no_modal,4232,60.0,15.0,valor,,,,,15.0,,i7,60.0,15.0,15.0,60.0,15.0,60.0,15.0,60.0,15.0,15.0,False
+651e38056f,dias_pago_maximo,411279,regla_no_modal,4232,60.0,30.0,valor,,,,,30.0,,i7,60.0,30.0,30.0,60.0,30.0,30.0,30.0,30.0,30.0,30.0,False
+d978386010,dias_pago_maximo,454614,regla_no_modal,4232,60.0,20.0,valor,,,,,20.0,,i7,60.0,20.0,20.0,60.0,20.0,60.0,20.0,60.0,20.0,20.0,False
+f4a5c022af,dias_pago_maximo,468755,regla_modal,11648,60.0,60.0,valor,,,,,60.0,,i7,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,False
+4c2e484038,dias_pago_maximo,405116,regla_modal,11648,60.0,60.0,valor,,,,,60.0,,i7,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,False
+a846846fe9,dias_pago_maximo,381849,regla_modal,11648,60.0,60.0,valor,,,,,60.0,sin plazo propio con número (pago según Plan de Caja) -> cláusula estándar; flag pago_sujeto_plan_caja,i7,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,False
+8655c49efa,dias_pago_maximo,463578,regla_modal,11648,60.0,60.0,valor,,,,,60.0,,i7,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,False
+0c9e96c674,dias_validez_garantia,457814,residual_discrepa,3,365.0,,llm,1095.0,1095.0,3.0,365.0,1095.0,varía por ítem (1-3 años): máximo 3 años (flag garantia_varia_por_item),i7,1095.0,1095.0,,1095.0,1095.0,3.0,3.0,365.0,365.0,1095.0,False
+5b9aa8ac7e,dias_validez_garantia,409999,residual_discrepa,3,365.0,,llm,,1095.0,,,,fecha fija -> NULL,i7,,,,1095.0,1095.0,,,,,,False
+d4af8506c3,dias_validez_garantia,441349,residual_discrepa,3,365.0,,llm,182.0,730.0,181.0,182.0,182.0,,i7,182.0,182.0,,730.0,730.0,181.0,181.0,182.0,182.0,182.0,False
+a8da005b55,dias_validez_garantia,406444,residual_coincide,8,365.0,,llm,,,,,,sin plazo de garantía,i7,,,,,,,,,,,False
+051881d852,dias_validez_garantia,466451,residual_coincide,8,365.0,,llm,1095.0,1095.0,1095.0,1095.0,1095.0,,i7,1095.0,1095.0,,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,False
+5ba7466625,dias_validez_garantia,433744,residual_coincide,8,365.0,,llm,365.0,365.0,365.0,365.0,365.0,,i7,365.0,365.0,,365.0,365.0,365.0,365.0,365.0,365.0,365.0,False
+c2a384f28c,dias_validez_garantia,458525,residual_coincide,8,365.0,,llm,10.0,10.0,10.0,10.0,10.0,,i7,10.0,10.0,,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+fa956de6ae,dias_validez_garantia,408240,residual_coincide,8,365.0,,llm,365.0,365.0,365.0,365.0,365.0,,i7,365.0,365.0,,365.0,365.0,365.0,365.0,365.0,365.0,365.0,False
+335a65f858,dias_validez_garantia,392978,regla_no_modal,2421,365.0,730.0,valor,,,,,730.0,,i7,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,False
+58f8b1a0b4,dias_validez_garantia,433380,regla_no_modal,2421,365.0,1095.0,valor,,,,,1095.0,,i7,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,False
+187f1cb612,dias_validez_garantia,381698,regla_no_modal,2421,365.0,10.0,valor,,,,,10.0,,i7,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+d02564fcf1,dias_validez_garantia,440614,regla_no_modal,2421,365.0,730.0,valor,,,,,730.0,,i7,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,False
+e714739833,dias_validez_garantia,408065,regla_no_modal,2421,365.0,182.0,valor,,,,,182.0,,i7,,182.0,182.0,730.0,182.0,91.0,182.0,,182.0,182.0,False
+7496f24d37,dias_validez_garantia,436029,regla_no_modal,2421,365.0,182.0,valor,,,,,182.0,,i7,182.0,182.0,182.0,365.0,182.0,91.0,182.0,182.0,182.0,182.0,False
+f23ab11a00,dias_validez_garantia,421601,regla_no_modal,2421,365.0,730.0,valor,,,,,730.0,,i7,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,False
+c36d1c812c,dias_validez_garantia,399549,regla_no_modal,2421,365.0,1095.0,valor,,,,,1095.0,varía por lote: máximo (flag garantia_varia_por_item),i7,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,1095.0,365.0,1095.0,1095.0,False
+531cc46ac9,dias_validez_garantia,389883,regla_no_modal,2421,365.0,730.0,valor,,,,,730.0,,i7,548.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,730.0,False
+0e7f5260d1,dias_validez_garantia,460737,regla_no_modal,2421,365.0,1460.0,valor,,,,,1460.0,,i7,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0,1460.0,False
+4ea6715996,dias_validez_garantia,381088,regla_modal,2219,365.0,365.0,valor,,,,,365.0,,i7,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,False
+e7cff84db1,dias_validez_garantia,431488,regla_modal,2219,365.0,365.0,valor,,,,,365.0,,i7,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,False
+7ccba73cb1,dias_validez_garantia,455085,regla_modal,2219,365.0,365.0,valor,,,,,365.0,,i7,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,False
+26e37c875a,dias_validez_garantia,418962,regla_modal,2219,365.0,365.0,valor,,,,,365.0,,i7,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,365.0,False
+a5d14ed57b,dias_validez_garantia,459450,regla_ausente,925,365.0,,ausente,,,,,,vigencia del contrato sin número -> NULL,i7,,,,,,,,,,,False
+f82e69d738,dias_validez_garantia,423304,regla_ausente,925,365.0,,ausente,,,,,,vigencia del contrato sin número -> NULL,i7,,,,,,,,,,,False
+38c68b5b36,dias_validez_garantia,443857,regla_ausente,925,365.0,,ausente,,,,,,remite a EETT -> NULL,i7,,,,,,,,,,,False
+62e2c651b8,dias_validez_garantia,472710,regla_ausente,925,365.0,,ausente,,,,,,vigencia del contrato sin número -> NULL,i7,,,,,,,,,,,False
+467b2c820b,dias_pago_anticipo,424941,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,i7,,,,10.0,10.0,,,,,,False
+31a3beacc2,dias_pago_anticipo,441219,residual_discrepa,40,10.0,,llm,10.0,10.0,,,10.0,,i7,10.0,10.0,,10.0,10.0,,,,,10.0,False
+0c5db390ff,dias_pago_anticipo,462269,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud (3 lotes iguales),i7,,,,10.0,10.0,,,,,,False
+2981474d2c,dias_pago_anticipo,463016,residual_discrepa,40,10.0,,llm,,,10.0,,,sujeto a disponibilidad sin número,i7,,,,,,10.0,10.0,,,,False
+0f4ac22b57,dias_pago_anticipo,397011,residual_discrepa,40,10.0,,llm,60.0,15.0,15.0,,60.0,,i7,60.0,60.0,,15.0,15.0,15.0,15.0,60.0,60.0,60.0,False
+6c7bda33d1,dias_pago_anticipo,432856,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de presentación,i7,,,,10.0,10.0,,,,,,False
+3198498c8a,dias_pago_anticipo,466649,residual_discrepa,40,10.0,,llm,60.0,60.0,10.0,60.0,60.0,,i7,60.0,60.0,,60.0,60.0,60.0,60.0,60.0,60.0,60.0,False
+c5b6fbe979,dias_pago_anticipo,468333,residual_discrepa,40,10.0,,llm,,,10.0,,,solo fija plazo de solicitud; 180 días son hitos de ejecución,i7,,,,,,10.0,10.0,,,,False
+0b59f5ea85,dias_pago_anticipo,468355,residual_discrepa,40,10.0,,llm,,10.0,10.0,,,solo fija plazo de solicitud,i7,,,,10.0,10.0,10.0,10.0,,,,False
+18c2a00ead,dias_pago_anticipo,426326,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,i7,,,,10.0,10.0,,,,,,False
+1032c7e3f2,dias_pago_anticipo,424955,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de presentación,i7,,,,10.0,10.0,,,,,,False
+0bc60c53a8,dias_pago_anticipo,399315,residual_discrepa,40,10.0,,llm,60.0,15.0,15.0,60.0,60.0,,i7,60.0,60.0,,15.0,15.0,15.0,15.0,60.0,60.0,60.0,False
+335556638b,dias_pago_anticipo,424895,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,i7,,,,10.0,10.0,,,,,,False
+858f582456,dias_pago_anticipo,441521,residual_discrepa,40,10.0,,llm,60.0,10.0,10.0,60.0,60.0,,i7,60.0,60.0,,10.0,10.0,10.0,10.0,60.0,60.0,60.0,False
+769cb2bc27,dias_pago_anticipo,424914,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,i7,,,,10.0,10.0,,,,,,False
+4aa85744bc,dias_pago_anticipo,424967,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de presentación,i7,,,,10.0,10.0,,,,,,False
+737c526b95,dias_pago_anticipo,410931,residual_discrepa,40,10.0,,llm,60.0,15.0,15.0,60.0,60.0,15 días es la solicitud,i7,60.0,60.0,,15.0,15.0,15.0,15.0,60.0,60.0,60.0,False
+0c8f7f574a,dias_pago_anticipo,436896,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,i7,,,,10.0,10.0,,,,,,False
+6b794dce4f,dias_pago_anticipo,474353,residual_discrepa,40,10.0,,llm,,15.0,,60.0,60.0,,i7,,,,15.0,15.0,,,60.0,60.0,60.0,False
+5694d04cfe,dias_pago_anticipo,464456,residual_discrepa,40,10.0,,llm,,10.0,10.0,,,sujeto a disponibilidad sin número,i7,,,,10.0,10.0,10.0,10.0,,,,False
+1db3b9ee89,dias_pago_anticipo,464526,residual_discrepa,40,10.0,,llm,,,10.0,,,"sin número, sujeto a disponibilidad (flag anticipo_sujeto_disponibilidad)",i7,,,,,,10.0,10.0,,,,False
+624020352f,dias_pago_anticipo,423036,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,i7,,,,10.0,10.0,,,,,,False
+039ff73f2e,dias_pago_anticipo,419099,residual_discrepa,40,10.0,,llm,60.0,15.0,15.0,60.0,60.0,15 días es la solicitud,i7,60.0,60.0,,15.0,15.0,15.0,15.0,60.0,60.0,60.0,False
+c758553c44,dias_pago_anticipo,424884,residual_discrepa,40,10.0,,llm,,10.0,,,,solo fija plazo de solicitud,i7,,,,10.0,10.0,,,,,,False
+a854aa82b3,dias_pago_anticipo,454063,residual_discrepa,40,10.0,,llm,,10.0,,,,"sin número, sujeto a disponibilidad (flag anticipo_sujeto_disponibilidad)",i7,,,,10.0,10.0,,,,,,False
+7dffd2ac91,dias_pago_anticipo,448555,residual_coincide,63,10.0,,llm,,,,,,solo fija plazo de solicitud,i7,,,,,,,,,,,False
+490311133a,dias_pago_anticipo,446377,residual_coincide,63,10.0,,llm,,,,,,solo fija plazo de solicitud,i7,,,,,,,,,,,False
+19a7d256f4,dias_pago_anticipo,464523,residual_coincide,63,10.0,,llm,,,,,,sujeto a disponibilidad sin número,i7,,,,,,,,,,,False
+ba5c4ceb35,dias_pago_anticipo,468789,residual_coincide,63,10.0,,llm,,,,,,solo fija plazo de presentación,i7,,,,,,,,,,,False
+c1a71709a3,dias_pago_anticipo,436887,residual_coincide,63,10.0,,llm,,,,,,solo fija plazo de solicitud,i7,,,,,,,,,,,False
+666233a60a,dias_pago_anticipo,434201,regla_no_modal,1293,10.0,15.0,valor,,,,,15.0,,i7,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,False
+6d857ba2cd,dias_pago_anticipo,426075,regla_no_modal,1293,10.0,30.0,valor,,,,,30.0,,i7,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,False
+f5bf9773cc,dias_pago_anticipo,451545,regla_no_modal,1293,10.0,5.0,valor,,,,,5.0,,i7,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,False
+7e3d7f4207,dias_pago_anticipo,473524,regla_no_modal,1293,10.0,60.0,valor,,,,,60.0,,i7,60.0,60.0,60.0,10.0,60.0,60.0,60.0,60.0,60.0,60.0,False
+af3301d81f,dias_pago_anticipo,466523,regla_no_modal,1293,10.0,30.0,valor,,,,,30.0,,i7,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,False
+05b355fca6,dias_pago_anticipo,434901,regla_no_modal,1293,10.0,15.0,valor,,,,,15.0,,i7,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,False
+4c6b7d3ea8,dias_pago_anticipo,451477,regla_no_modal,1293,10.0,30.0,valor,,,,,30.0,,i7,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,30.0,False
+5481213a57,dias_pago_anticipo,475974,regla_no_modal,1293,10.0,2.0,valor,,,,,2.0,,i7,2.0,2.0,2.0,10.0,2.0,2.0,2.0,2.0,2.0,2.0,False
+26b71ce116,dias_pago_anticipo,419153,regla_no_modal,1293,10.0,5.0,valor,,,,,5.0,,i7,,5.0,5.0,,5.0,,5.0,,5.0,5.0,False
+c58d9caad4,dias_pago_anticipo,439024,regla_no_modal,1293,10.0,15.0,valor,,,,,15.0,,i7,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,15.0,False
+d5508bdc53,dias_pago_anticipo,434324,regla_modal,1532,10.0,10.0,valor,,,,,10.0,,i7,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+bc829ee8a3,dias_pago_anticipo,448049,regla_modal,1532,10.0,10.0,valor,,,,,10.0,,i7,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+5182e654b1,dias_pago_anticipo,451070,regla_modal,1532,10.0,10.0,valor,,,,,10.0,,i7,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+e3e6f5c8d3,dias_pago_anticipo,447849,regla_modal,1532,10.0,10.0,valor,,,,,10.0,,i7,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+3325fddba3,dias_pago_anticipo,401645,regla_ausente,1383,10.0,,ausente,,,,,,sin plazo de pago con número; sujeto a disponibilidad (flag),i7,,,,,,,,,,,False
+520e979ffc,dias_pago_anticipo,429211,regla_ausente,1383,10.0,,ausente,,,,,,solo fija plazo de solicitud,i7,,,,10.0,,10.0,,,,,False
+6347a6e7af,dias_pago_anticipo,424177,regla_ausente,1383,10.0,,ausente,,,,,,ancla de pago vacía,i7,,,,10.0,,10.0,,,,,False
+39aae6ebba,dias_pago_anticipo,472453,regla_ausente,1383,10.0,,ausente,,,,,,solo fija plazo de solicitud,i7,,,,10.0,,,,,,,False
+c032929749,dias_solicitud_anticipo,441219,residual_coincide,7,10.0,,llm,,,,,,"el 10 es plazo de pago contado desde el pedido (A3), no de solicitud",i7,,,,,,,,,,,False
+4065bfcfb0,dias_solicitud_anticipo,436091,residual_coincide,7,10.0,,llm,,,,,,"DUDA: bajo el encabezado de solicitud, pero la frase dice 'el pago del anticipo será' 10 días desde la firma (A3); si se lee como solicitud sería 10",i7,,,,,,,,,,,True
+6e251d46eb,dias_solicitud_anticipo,435380,residual_coincide,7,10.0,,llm,,,,,,DUDA: el 10 está bajo el encabezado de solicitud pero el texto lo describe como plazo de PAGO desde la firma (A3); no hay plazo de solicitud explícito,i7,,,,,,,,,,,True
+5bc36e9ac1,dias_solicitud_anticipo,409148,residual_coincide,7,10.0,,llm,,,,,10.0,22 días es el pago (A3),i7,,,,,,,,,,10.0,False
+4940f67563,dias_solicitud_anticipo,438904,residual_coincide,7,10.0,,llm,,,,,,DUDA: el 10 está bajo el encabezado de solicitud pero el texto lo describe como plazo de PAGO desde la firma (A3); no hay plazo de solicitud explícito,i7,,,,,,,,,,,True
+c23a4b90d5,dias_solicitud_anticipo,436485,regla_no_modal,1890,10.0,5.0,valor,,,,,,DUDA: el 5 está bajo el encabezado de solicitud pero la frase dice 'se otorgará' (pago desde la firma de la OC); si se lee como plazo de solicitud sería 5,i7,,5.0,5.0,,5.0,,5.0,,5.0,,True
+45e02059c3,dias_solicitud_anticipo,422863,regla_no_modal,1890,10.0,5.0,valor,,,,,5.0,,i7,5.0,5.0,5.0,10.0,5.0,5.0,5.0,5.0,5.0,5.0,False
+7c80bf0914,dias_solicitud_anticipo,473144,regla_no_modal,1890,10.0,3.0,valor,,,,,3.0,,i7,3.0,3.0,3.0,10.0,3.0,10.0,3.0,3.0,3.0,3.0,False
+8fe0b8c4f9,dias_solicitud_anticipo,448121,regla_no_modal,1890,10.0,20.0,valor,,,,,20.0,,i7,,20.0,20.0,,20.0,,20.0,,20.0,20.0,False
+08a7b3e4b8,dias_solicitud_anticipo,425308,regla_no_modal,1890,10.0,7.0,valor,,,,,7.0,,i7,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,False
+1d7c28284b,dias_solicitud_anticipo,406477,regla_no_modal,1890,10.0,3.0,valor,,,,,3.0,,i7,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,False
+cb2f0ffe2c,dias_solicitud_anticipo,445291,regla_no_modal,1890,10.0,3.0,valor,,,,,3.0,,i7,,3.0,3.0,,3.0,,3.0,,3.0,3.0,False
+7b35aa09a5,dias_solicitud_anticipo,438554,regla_no_modal,1890,10.0,3.0,valor,,,,,3.0,,i7,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,False
+aa7449ca8d,dias_solicitud_anticipo,405125,regla_no_modal,1890,10.0,5.0,valor,,,,,5.0,,i7,5.0,5.0,5.0,,5.0,5.0,5.0,5.0,5.0,5.0,False
+790433f1d6,dias_solicitud_anticipo,471705,regla_no_modal,1890,10.0,5.0,valor,,,,,5.0,,i7,,5.0,5.0,,5.0,,5.0,,5.0,5.0,False
+d98104b767,dias_solicitud_anticipo,424115,regla_modal,2015,10.0,10.0,valor,,,,,10.0,,i7,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+cbede37657,dias_solicitud_anticipo,423526,regla_modal,2015,10.0,10.0,valor,,,,,10.0,,i7,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+6f1fb437a8,dias_solicitud_anticipo,428968,regla_modal,2015,10.0,10.0,valor,,,,,10.0,,i7,,10.0,10.0,,10.0,,10.0,,10.0,10.0,False
+64d35496ab,dias_solicitud_anticipo,430395,regla_modal,2015,10.0,10.0,valor,,,,,10.0,,i7,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,False
+91252f3d29,dias_solicitud_anticipo,444245,regla_ausente,399,10.0,,ausente,,,,,,solo cita la ley y el porcentaje,i7,,,,,,,,,,,False
+75ac2a6350,dias_solicitud_anticipo,437253,regla_ausente,399,10.0,,ausente,,,,,,solo porcentaje,i7,,,,,,,,,,,False
+3148a20979,dias_solicitud_anticipo,400159,regla_ausente,399,10.0,,ausente,,,,,,sin número de plazo de solicitud,i7,,,,,,,,,,,False
+67a7af477d,dias_solicitud_anticipo,436725,regla_ausente,399,10.0,,ausente,,,,,10.0,pago = 60 (A3),i7,,,,,,,,,,10.0,False
+45c9fb81c9,anos_experiencia_minima_tecnica,428454,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,,i7,,,,5.0,5.0,,,,,5.0,False
+71ad6fb587,anos_experiencia_minima_tecnica,402692,residual_discrepa,42,3.0,,llm,,5.0,,,,"DUDA: experiencia del fabricante del equipo, no del oferente ni su personal (podría ser 5)",i7,,,,5.0,5.0,,,,,,True
+d67b0b1ffe,anos_experiencia_minima_tecnica,403357,residual_discrepa,42,3.0,,llm,,1.0,1.0,,,"soporte, no experiencia",i7,,,,1.0,1.0,1.0,1.0,,,,False
+3bedafa978,anos_experiencia_minima_tecnica,442061,residual_discrepa,42,3.0,,llm,3.0,,,3.0,3.0,personal,i7,3.0,3.0,,,,,,3.0,3.0,3.0,False
+1f9e540d0a,anos_experiencia_minima_tecnica,454910,residual_discrepa,42,3.0,,llm,,18.0,,,1.5,"DUDA: 18 meses = 1,5 años; la ficha no fija conversión de meses para A5",i7,,,,18.0,18.0,,,,,1.5,True
+f395e8c797,anos_experiencia_minima_tecnica,413228,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,,i7,,,,5.0,5.0,,,,,5.0,False
+5e97be2197,anos_experiencia_minima_tecnica,407681,residual_discrepa,42,3.0,,llm,,6.0,,,,ventana,i7,,,,6.0,6.0,,,,,,False
+9767b4d62c,anos_experiencia_minima_tecnica,442414,residual_discrepa,42,3.0,,llm,,,6.0,,1.0,DUDA: antigüedad del personal en planilla IPS (1 año) y técnico SSO 6 meses; 'últimos 03 años' es ventana,i7,,,,,,6.0,6.0,,,1.0,True
+64cdc3cbc7,anos_experiencia_minima_tecnica,418822,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,antigüedad de la empresa como representante,i7,,,,5.0,5.0,,,,,5.0,False
+238827806a,anos_experiencia_minima_tecnica,419651,residual_discrepa,42,3.0,,llm,,,6.0,,1.0,máximo entre 6 meses y 1 año; 'últimos 3 años' es ventana,i7,,,,,,6.0,6.0,,,1.0,False
+1ec5a939ed,anos_experiencia_minima_tecnica,442568,residual_discrepa,42,3.0,,llm,,3.0,,,,trampa repuestos/soporte; sin experiencia exigida,i7,,,,3.0,3.0,,,,,,False
+4781a087af,anos_experiencia_minima_tecnica,412381,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,,i7,,,,5.0,5.0,,,,,5.0,False
+1700d9ae28,anos_experiencia_minima_tecnica,415356,residual_discrepa,42,3.0,,llm,5.0,5.0,,5.0,5.0,"personal, cargos clave",i7,5.0,5.0,,5.0,5.0,,,5.0,5.0,5.0,False
+76cbee3571,anos_experiencia_minima_tecnica,430343,residual_discrepa,42,3.0,,llm,,1.0,,1.0,,"DUDA: duración de un contrato con medio, no años de experiencia/antigüedad",i7,,,,1.0,1.0,,,1.0,1.0,,True
+a04d68e9e1,anos_experiencia_minima_tecnica,462533,residual_discrepa,42,3.0,,llm,,2.0,,,2.0,,i7,,,,2.0,2.0,,,,,2.0,False
+ffc82f3847,anos_experiencia_minima_tecnica,416448,residual_discrepa,42,3.0,,llm,,,3.0,,,"garantía, no experiencia",i7,,,,,,3.0,3.0,,,,False
+9028e8f4b1,anos_experiencia_minima_tecnica,410540,residual_discrepa,42,3.0,,llm,,5.0,5.0,5.0,5.0,,i7,,,,5.0,5.0,5.0,5.0,5.0,5.0,5.0,False
+18a995ab23,anos_experiencia_minima_tecnica,426789,residual_discrepa,42,3.0,,llm,,12.0,12.0,,1.0,12 meses=1 año; mantenimiento por 3 años es trampa,i7,,,,12.0,12.0,12.0,12.0,,,1.0,False
+817adc043e,anos_experiencia_minima_tecnica,435992,residual_discrepa,42,3.0,,llm,,1.0,,,1.0,antigüedad del técnico en el plantel (personal),i7,,,,1.0,1.0,,,1.0,1.0,1.0,False
+40be947e25,anos_experiencia_minima_tecnica,451430,residual_discrepa,42,3.0,,llm,2.0,2.0,,2.0,2.0,DUDA: puede leerse como antigüedad de la certificación más que experiencia,i7,2.0,2.0,,2.0,2.0,,,2.0,2.0,2.0,True
+160f39d3b4,anos_experiencia_minima_tecnica,416971,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,antigüedad de la empresa como distribuidor,i7,,,,5.0,5.0,,,,,5.0,False
+16836907a8,anos_experiencia_minima_tecnica,469473,residual_discrepa,42,3.0,,llm,,5.0,,,5.0,,i7,,,,5.0,5.0,,,,,5.0,False
+00d328eb7d,anos_experiencia_minima_tecnica,423933,residual_discrepa,42,3.0,,llm,4.0,4.0,,4.0,4.0,antigüedad empresa en el rubro,i7,4.0,4.0,,4.0,4.0,,,4.0,4.0,4.0,False
+751710c101,anos_experiencia_minima_tecnica,464240,residual_discrepa,42,3.0,,llm,,5.0,,,,"durabilidad del producto, no experiencia",i7,,,,5.0,5.0,,,,,,False
+cc5947a468,anos_experiencia_minima_tecnica,409630,residual_discrepa,42,3.0,,llm,,1.0,,,1.0,,i7,,,,1.0,1.0,,,,,1.0,False
+3f3c27a80a,anos_experiencia_minima_tecnica,442977,residual_coincide,166,3.0,,llm,,,,,2.0,DUDA: puede leerse como antigüedad de la certificación más que experiencia,i7,,,,,,,,,,2.0,True
+fe7e1bc67a,anos_experiencia_minima_tecnica,462435,residual_coincide,166,3.0,,llm,,,,,1.0,antigüedad del personal en plantel,i7,,,,,,,,,,1.0,False
+3559a54ac0,anos_experiencia_minima_tecnica,402070,residual_coincide,166,3.0,,llm,,,,,,"repuestos/garantía, no experiencia",i7,,,,,,,,,,,False
+be8ccb7b57,anos_experiencia_minima_tecnica,402975,residual_coincide,166,3.0,,llm,,,,,,trampa antigüedad de equipos,i7,,,,,,,,,,,False
+6f40e2a930,anos_experiencia_minima_tecnica,416320,residual_coincide,166,3.0,,llm,,,,,,trampa repuestos,i7,,,,,,,,,,,False
+cb80003d54,anos_experiencia_minima_tecnica,425702,regla_no_modal,1018,3.0,1.0,valor,,,,,1.0,antigüedad del personal en el plantel,i7,,1.0,1.0,,1.0,,1.0,,1.0,1.0,False
+1f5a8b0a94,anos_experiencia_minima_tecnica,402847,regla_no_modal,1018,3.0,5.0,valor,,,,,5.0,"personal, máximo entre perfiles; 50 años es edad",i7,5.0,5.0,5.0,5.0,5.0,,5.0,5.0,5.0,5.0,False
+1a4ea023f4,anos_experiencia_minima_tecnica,462589,regla_no_modal,1018,3.0,5.0,valor,,,,,5.0,,i7,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,False
+5aa225b7f2,anos_experiencia_minima_tecnica,445117,regla_no_modal,1018,3.0,5.0,valor,,,,,5.0,,i7,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,False
+8ff467d285,anos_experiencia_minima_tecnica,403793,regla_no_modal,1018,3.0,2.0,valor,,,,,2.0,personal,i7,2.0,2.0,2.0,2.0,2.0,,2.0,2.0,2.0,2.0,False
+03e7e5a9ec,anos_experiencia_minima_tecnica,441482,regla_no_modal,1018,3.0,2.0,valor,,,,,2.0,personal,i7,,2.0,2.0,,2.0,,2.0,,2.0,2.0,False
+614bf21668,anos_experiencia_minima_tecnica,434957,regla_no_modal,1018,3.0,10.0,valor,,,,,5.0,personal; 10 años antigüedad de equipos es trampa,i7,,10.0,10.0,,10.0,,10.0,,10.0,5.0,False
+8ffbecd4de,anos_experiencia_minima_tecnica,415910,regla_no_modal,1018,3.0,2.0,valor,,,,,2.0,,i7,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,False
+d5d2ef085d,anos_experiencia_minima_tecnica,444289,regla_no_modal,1018,3.0,5.0,valor,,,,,5.0,'últimos 3 años' es ventana,i7,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,False
+5dd50421f9,anos_experiencia_minima_tecnica,473570,regla_no_modal,1018,3.0,4.0,valor,,,,,5.0,"personal, máximo entre perfiles",i7,,4.0,4.0,,4.0,,4.0,,4.0,5.0,False
+26a1e0a873,anos_experiencia_minima_tecnica,474420,regla_modal,624,3.0,3.0,valor,,,,,3.0,personal; 6 meses IPS menor,i7,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,False
+808ea5a9fc,anos_experiencia_minima_tecnica,474065,regla_modal,624,3.0,3.0,valor,,,,,3.0,personal,i7,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,False
+1879670415,anos_experiencia_minima_tecnica,423999,regla_modal,624,3.0,3.0,valor,,,,,3.0,personal,i7,,3.0,3.0,,3.0,,3.0,,3.0,3.0,False
+3c06eafea7,anos_experiencia_minima_tecnica,474037,regla_modal,624,3.0,3.0,valor,,,,,3.0,,i7,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,False
+0425bd1adb,anos_experiencia_minima_tecnica,441199,regla_ausente,11096,3.0,,ausente,,,,,,,i7,,,,,,,,,,,False
+ad3fe8b095,anos_experiencia_minima_tecnica,444298,regla_ausente,11096,3.0,,ausente,,,,,,,i7,,,,,,,,,,,False
+30c23c6638,anos_experiencia_minima_tecnica,444339,regla_ausente,11096,3.0,,ausente,,,,,,,i7,,,,,,,,,,,False
+eee57db871,anos_experiencia_minima_tecnica,436893,regla_ausente,11096,3.0,,ausente,,,,,,sin número de años,i7,,,,,,,,,,,False
+4b50c89c27,pct_monto_referencia_tecnica,422404,residual_discrepa,9,50.0,,llm,,50.0,50.0,,,respaldo financiero (A8); 60/40 es consorcio,i7,,,,50.0,50.0,50.0,50.0,,,,False
+fc31913601,pct_monto_referencia_tecnica,468886,residual_discrepa,9,50.0,,llm,,60.0,,,,"respaldo financiero (A8), no referencias",i7,,,,60.0,60.0,,,,,,False
+79820f1dcc,pct_monto_referencia_tecnica,424229,residual_discrepa,9,50.0,,llm,,,50.0,,,"equipos/personal, no referencias",i7,,,,,,50.0,50.0,,,,False
+43f15dfd73,pct_monto_referencia_tecnica,404086,residual_discrepa,9,50.0,,llm,,50.0,,,,respaldo financiero (A8),i7,,,,50.0,50.0,,,,,,False
+d8eefe923f,pct_monto_referencia_tecnica,402314,residual_discrepa,9,50.0,,llm,30.0,,30.0,30.0,30.0,,i7,30.0,30.0,,,,30.0,30.0,30.0,30.0,30.0,False
+f02f4c2f17,pct_monto_referencia_tecnica,475315,residual_discrepa,9,50.0,,llm,,50.0,50.0,,,respaldo financiero (A8); sin % de referencias,i7,,,,50.0,50.0,50.0,50.0,,,,False
+04800e149a,pct_monto_referencia_tecnica,473606,residual_discrepa,9,50.0,,llm,,60.0,,,,"respaldo financiero (A8), no referencias",i7,,,,60.0,60.0,,,,,,False
+17cc73cd63,pct_monto_referencia_tecnica,409483,residual_discrepa,9,50.0,,llm,,60.0,,,,consorcio,i7,,,,60.0,60.0,,,,,,False
+76edeea87e,pct_monto_referencia_tecnica,431652,residual_discrepa,9,50.0,,llm,,50.0,50.0,,,DUDA: 50% de cantidad de carne comprada (no monto de referencias); 60/40 es consorcio,i7,,,,50.0,50.0,50.0,50.0,,,,True
+5da2c4fab5,pct_monto_referencia_tecnica,437163,residual_coincide,10,50.0,,llm,,,,,,respaldo financiero (A8),i7,,,,,,,,,,,False
+349e6928fc,pct_monto_referencia_tecnica,454953,residual_coincide,10,50.0,,llm,,,,,,"consorcio y reposición, no referencias",i7,,,,,,,,,,,False
+18b5e0a31d,pct_monto_referencia_tecnica,437171,residual_coincide,10,50.0,,llm,,,,,,respaldo financiero (A8),i7,,,,,,,,,,,False
+412d890815,pct_monto_referencia_tecnica,418539,residual_coincide,10,50.0,,llm,,,,,,"capacidad de producción, no monto de referencias",i7,,,,,,,,,,,False
+acef9ac772,pct_monto_referencia_tecnica,474328,residual_coincide,10,50.0,,llm,,,,,,"% de personal, no de referencias",i7,,,,,,,,,,,False
+1449eaa2dd,pct_monto_referencia_tecnica,465986,regla_no_modal,3,50.0,60.0,valor,,,,,60.0,alternativa 40% individual; se toma sumatoria,i7,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,60.0,False
+7a1eed2c00,pct_monto_referencia_tecnica,418186,regla_no_modal,3,50.0,30.0,valor,,,,,30.0,,i7,30.0,30.0,30.0,,30.0,,30.0,30.0,30.0,30.0,False
+65c7a2f751,pct_monto_referencia_tecnica,451850,regla_no_modal,3,50.0,30.0,valor,,,,,30.0,,i7,30.0,30.0,30.0,,30.0,30.0,30.0,30.0,30.0,30.0,False
+4d4af86577,pct_monto_referencia_tecnica,418636,regla_modal,42,50.0,50.0,valor,,,,,50.0,"DUDA: facturas de compra de insumo (capacidad de abastecimiento), no facturación como experiencia; 60/40 consorcio",i7,50.0,50.0,50.0,50.0,50.0,,50.0,50.0,50.0,50.0,True
+3e6cf203f5,pct_monto_referencia_tecnica,383263,regla_modal,42,50.0,50.0,valor,,,,,50.0,"DUDA: son facturas de compra de cortes (capacidad de abastecimiento), no ventas/referencias de experiencia; 70% es consorcio",i7,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,True
+1c2a257983,pct_monto_referencia_tecnica,416767,regla_modal,42,50.0,50.0,valor,,,,,50.0,,i7,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,50.0,False
+a3fb186dc6,pct_monto_referencia_tecnica,435074,regla_modal,42,50.0,50.0,valor,,,,,50.0,últimos 5 años es ventana,i7,50.0,50.0,50.0,50.0,50.0,,50.0,50.0,50.0,50.0,False
+9432a7925e,pct_monto_referencia_tecnica,464021,regla_ausente,12885,50.0,,ausente,,,,,,,i7,,,,,,,,,,,False
+29f21df967,pct_monto_referencia_tecnica,403862,regla_ausente,12885,50.0,,ausente,,,,,,,i7,,,,,,,,,,,False
+43119a7bd7,pct_monto_referencia_tecnica,445314,regla_ausente,12885,50.0,,ausente,,,,,,,i7,,,,,,,,,,,False
+0d60672a65,pct_monto_referencia_tecnica,441439,regla_ausente,12885,50.0,,ausente,,,,,,,i7,,,,,,,,,,,False

@@ -252,6 +252,11 @@ ANT = ("Solicitud de Pago de Anticipo El plazo dentro del cual se solicitará el
      "total adjudicado. Dentro de los 10 días hábiles del pedido de pago por nota del proveedor ante la oficina de "
      "Administración y Finanzas de la institución, la deducción de pago del anticipo será del 20% del monto de cada "
      "factura presentada.", NR, NR),
+    # I7 (67a7af477d): número sin la palabra días tras el ancla de solicitud
+    ("Se otorgará un Anticipo Financiero del 18. a. Plazo máximo para la presentación de la solicitud de pago de "
+     "anticipo: DENTRO DE LOS DIEZ (10) POSTERIOR A LA RECEPCION DE LA NOTA DE INICIO DEL MANTENIMIENTO b. "
+     "Dirección: Avda. X f. Plazo o fecha en la cual se abonará al contratista el monto del anticipo, siguiente a "
+     "la fecha de la presentación de la solicitud: Dentro de los 60 días de presentación de la solicitud", 10.0, 60.0),
 ])
 def test_anticipo(seg, sol, pag):
     t = ANT.format(seg)
@@ -301,6 +306,20 @@ CT = ("Capacidad Técnica El oferente deberá proporcionar evidencia documentada
      "Software Graduado o con malla curricular concluida de la carrera de Licenciatura o Ingeniería en "
      "Informática, de 7 años de experiencia demostrable con el título Universitario. Encargado de "
      "Implementación Graduado de la carrera de Ingeniería Electrónica con mínimo de 6 años de experiencia.", 7.0),
+    # I7: antigüedad máxima de equipos = trampa; representante/distribuidor; plantel; meses -> años
+    ("Jefe de Obras con 5 (cinco) años de experiencia en obras similares. La antigüedad máxima aceptada de los "
+     "equipos, será de 10 (diez) años.", 5.0),
+    ("El oferente deberá ser Representante o Distribuidor Autorizado del bien ofertado en la presente licitación "
+     "de 5 (cinco) años como mínimo.", 5.0),
+    ("El potencial oferente deberá tener, como mínimo, 3 (tres) años de representación del bien ofertado.", 3.0),
+    ("Técnico certificado por el fabricante. Deberán formar parte del plantel permanente de la empresa por al "
+     "menos 1 año.", 1.0),
+    ("El personal deberá contar con una antigüedad mínima en la empresa oferente de 18 (dieciocho) meses.", 1.5),
+    ("Contar con 15 personas como mínimo inscriptas en el Instituto de Previsión Social con antigüedad mínima de "
+     "6 meses.", 0.5),
+    ("Certificado de garantía del bien de 36 meses o 100.000 kilómetros, emitido por el Representante oficial.",
+     None),
+    ("Copia del Registro Sanitario vigente y/o certificado actualizado (6 meses) de renovación.", None),
 ])
 def test_anos_experiencia(seg, expected):
     assert fr.anos_experiencia_minima_tecnica(CT.format(seg)) == expected

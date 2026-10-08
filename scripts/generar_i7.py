@@ -15,7 +15,12 @@ Salida (planillas/): i7_gt.csv (CIEGA: id, campo, guia, texto, valor_anotador, n
 residuales). Semilla fija.
 Después: anotación Opus ciega (i7_gt_opus.csv), anotación del usuario, scripts/benchmark_i6.py --i7 y
 scripts/evaluar_i7.py.
+
+--lote b (I7b, aprobado 08-oct tras I7): valida fuera de muestra las correcciones de I7 (reglas A4/A5 y hint A5
+v1.1) y amplía los estratos de regla para que el IC del promote sea informativo. Excluye además los documentos de
+I7. Cuotas QUOTA_B; residual = todo NO_RULE vigente (sin depender de I6). Salida i7b_gt.csv / i7b_gt_clave.csv.
 """
+import argparse
 import hashlib
 import json
 import random
@@ -48,6 +53,9 @@ FIELDS = {
 QUOTA = {"residual_discrepa": 25, "residual_coincide": 5, "regla_no_modal": 10, "regla_modal": 4, "regla_ausente": 4}
 MAX_CHARS = 20000
 SEED = 1007
+QUOTA_B = {"residual": 10, "regla_no_modal": 16, "regla_modal": 16, "regla_ausente": 16}
+QUOTA_B_RESIDUAL = {"anos_experiencia_minima_tecnica": 20}
+SEED_B = 1009
 
 
 def norm(t):
@@ -59,6 +67,10 @@ def same(a, b):
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--lote", choices=["a", "b"], default="a")
+    lote = ap.parse_args().lote
+    quota, seed, pref = (QUOTA, SEED, "i7") if lote == "a" else (QUOTA_B, SEED_B, "i7b")
     s = json.loads(SCHEMAS.read_text(encoding="utf-8"))
     hint = {f["name"]: f.get("extraction_hint") or f.get("description", "")
             for k, v in s.items() if k != "meta" for f in v["fields"]}
@@ -69,6 +81,8 @@ def main():
     used |= set(pd.read_csv(LB / "pseudo_gt_opus/muestra.csv", usecols=["nro_licitacion"]).nro_licitacion.astype(str))
     for v in ("v1", "v2"):
         used |= set(pd.read_csv(OUT / f"calibracion_{v}_clave.csv", usecols=["nro_licitacion"]).nro_licitacion.astype(str))
+    if lote == "b":
+        used |= set(pd.read_csv(OUT / "i7_gt_clave.csv", usecols=["nro_licitacion"]).nro_licitacion.astype(str))
     # predicciones crudas de I6 sobre los residuales
     pred = {m: {(it["field"], it["nro"]): it["llm"]
                 for it in json.loads((LB / f"I6_{m}.json").read_text(encoding="utf-8"))["items"]
@@ -76,7 +90,7 @@ def main():
     cfg = dict(DB_CONFIG)
     cfg["dbname"] = cfg.pop("database")
     cur = psycopg2.connect(**cfg, options="-c default_transaction_read_only=on").cursor()
-    rng = random.Random(SEED)
+    rng = random.Random(seed)
     sheet, key = [], []
     for f, title in FIELDS.items():
         cur.execute("""
@@ -85,7 +99,7 @@ def main():
             JOIN dncp.pliegos_secciones s ON s.nro_licitacion::text = r.nro_licitacion AND s.title_normalized = %s
             WHERE r.field = %s AND r.ruleset = 'spec-v1' AND s.content_text IS NOT NULL
             GROUP BY 1""", (title, f))
-        strata, by_text, vals = {k: [] for k in QUOTA}, {}, []
+        strata, by_text, vals = {k: [] for k in quota}, {}, []
         for nro, text in cur.fetchall():
             if nro in used or len(text.strip()) < 30:
                 continue
@@ -100,7 +114,9 @@ def main():
                 vals.append(float(v))
         modal = max(set(vals), key=vals.count) if vals else None
         for h, (nro, v, text) in by_text.items():
-            if v is fr.NO_RULE:
+            if v is fr.NO_RULE and lote == "b":
+                k = "residual"
+            elif v is fr.NO_RULE:
                 p = [pred[m].get((f, nro), "falta") for m in MODELS_I6]
                 if "falta" in p:  # residual nuevo (posterior a I6): sin predicciones, no entra
                     continue
@@ -111,24 +127,26 @@ def main():
                 k = "regla_modal" if float(v) == modal else "regla_no_modal"
             strata[k].append((nro, v, text))
         picked = []
-        for k, q in QUOTA.items():
+        for k, q in quota.items():
+            if k == "residual":
+                q = QUOTA_B_RESIDUAL.get(f, q)
             rng.shuffle(strata[k])
             picked += [(k, x) for x in strata[k][:q]]
         for k, (nro, v, text) in picked:
-            iid = hashlib.sha256(f"i7|{f}|{nro}".encode()).hexdigest()[:10]
+            iid = hashlib.sha256(f"{pref}|{f}|{nro}".encode()).hexdigest()[:10]
             sheet.append(dict(id=iid, campo=f, guia=hint.get(f, ""), texto=re.sub(r"[ \t]+", " ", text).strip(),
                               valor_anotador="", nota=""))
             row = dict(id=iid, campo=f, nro_licitacion=nro, estrato=k, pob_estrato=len(strata[k]), modal_campo=modal,
                        valor_regla=None if (v is fr.NO_RULE or v is None) else float(v),
                        estado_regla="llm" if v is fr.NO_RULE else "ausente" if v is None else "valor")
-            row.update({f"i6_{m}": pred[m].get((f, nro)) for m in MODELS_I6})
+            row.update({f"i6_{m}": pred[m].get((f, nro)) for m in MODELS_I6} if lote == "a" else {})
             key.append(row)
         cnt = {k: len(v) for k, v in strata.items()}
         print(f"  {f:34s} textos={len(by_text):6d} modal={modal} estratos={cnt} -> {len(picked)}")
-    df = pd.DataFrame(sheet).sample(frac=1.0, random_state=SEED).reset_index(drop=True)
-    df.to_csv(OUT / "i7_gt.csv", index=False)
-    pd.DataFrame(key).to_csv(OUT / "i7_gt_clave.csv", index=False)
-    print(f"{len(df)} ítems -> {OUT.relative_to(ROOT)}/i7_gt.csv (CIEGA) + i7_gt_clave.csv")
+    df = pd.DataFrame(sheet).sample(frac=1.0, random_state=seed).reset_index(drop=True)
+    df.to_csv(OUT / f"{pref}_gt.csv", index=False)
+    pd.DataFrame(key).to_csv(OUT / f"{pref}_gt_clave.csv", index=False)
+    print(f"{len(df)} ítems -> {OUT.relative_to(ROOT)}/{pref}_gt.csv (CIEGA) + {pref}_gt_clave.csv")
 
 
 if __name__ == "__main__":
