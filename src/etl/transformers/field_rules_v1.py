@@ -239,9 +239,11 @@ def _pago_flags(text):
 _MONTHS = {1: 30, 2: 61, 3: 91, 6: 182, 12: 365, 18: 548, 24: 730, 36: 1095, 48: 1460, 60: 1825}
 _G_TRAP = re.compile(r"reposici|\brepon|reemplaz|sustitu|vencimient|caducid|antig[uü]edad|a[ñn]o\s+de\s+fabricaci|"
                      r"fabricaci[oó]n\s+no\s+mayor|garant[ií]a\s+de\s+(?:fiel\s+)?cumplimiento|"
-                     r"renova|plazo\s+de\s+entrega|capacitaci|vida\s+[uú]til", re.I)
-# soporte/horario: solo si está pegado al número (no anula "5 años con soporte 24 horas")
-_G_TRAP_NEAR = re.compile(r"24\s*horas|7\s*x\s*24|24\s*x\s*7|semanal|tiempo\s+de\s+respuesta|soporte", re.I)
+                     r"renova|plazo\s+de\s+entrega|capacitaci|vida\s+[uú]til|indisponibil", re.I)
+# soporte/horario: solo pegado al número y en la dirección correcta ("7 días de la semana",
+# "soporte en 5 días"); no anula "12 meses. Incluye: Soporte…" ni "5 años con soporte 24 horas"
+_G_TRAP_POST = re.compile(r"^\W*(?:de\s+la\s+)?(?:semana|semanal)|^[^.]{0,20}(?:24\s*horas|7\s*x\s*24|24\s*x\s*7)", re.I)
+_G_TRAP_PRE = re.compile(r"(?:soporte|tiempo\s+de\s+respuesta|atenci[oó]n)[^.]{0,25}$", re.I)
 _G_REMITE = re.compile(r"especificaci|suministros?\s+requerid|ficha\s+t[eé]cnica|\beett\b|plantilla|\bsicp\b|"
                        r"seg[uú]n\s+(?:lo\s+)?(?:establecid|estipulad|indicad|detallad)|vigencia\s+del\s+contrato|"
                        r"duraci[oó]n\s+del\s+contrato|plazo\s+de\s+prestaci", re.I)
@@ -273,7 +275,8 @@ def _validez_values(text):
             continue
         a, b = sentence_span(seg, st)
         local = seg[max(a, st - 90):min(b, m.end() + 60)]
-        if _G_TRAP.search(local) or _G_TRAP_NEAR.search(seg[max(a, st - 15):min(b, m.end() + 25)]):
+        if _G_TRAP.search(local) or _G_TRAP_POST.search(seg[m.end():min(b, m.end() + 25)]) or \
+                _G_TRAP_PRE.search(seg[max(a, st - 30):st]):
             trapped += 1
             continue
         found.append((st, m.end(), _to_days(v, m.group(1)), m.group(1).lower().startswith("d")))
@@ -312,15 +315,15 @@ _ANT_HEAD = re.compile(r"(?:se\s+solicitar[aá]\s+el\s+anticipo\s+ser[aá]\s+\(e
                        r"pago\s+de\s+anticipo\s+son\s+como\s+se\s+establecen\s+a\s+continuaci[oó]n)\s*:?", re.I)
 _SOL_ANCHOR = re.compile(r"plazo\s+m[aá]ximo\s+para\s+la\s+presentaci[oó]n\s+de\s+la\s+solicitud\s+de\s+pago\s+"
                          r"de(?:l)?\s+anticipo\s*(?:es\s*de|:)?", re.I)
-_PAG_ANCHOR = re.compile(r"plazo\s+o\s+fecha\s+en\s+la\s+cual\s+se\s+abonar[aá]\s+al\s+(?:contratista|proveedor)"
+_PAG_ANCHOR = re.compile(r"plazo\s+o\s+fecha\s+en\s+la\s+cual\s+se\s+(?:abonar|otorgar|pagar|desembolsar)[aá]\s+al\s+(?:contratista|proveedor)"
                          r"\s+el\s+monto\s+del\s+anticipo[^:]{0,90}:", re.I)
 _ITEM_END = re.compile(r"\s(?:[a-hA-H]\)|\d{1,2}[.)-])\s|\b(?:direcci[oó]n|horario\s+de\s+atenci|"
                        r"forma\s+de\s+amortizaci|oficina\s+y/o)", re.I)
 _ANT_TRAP = re.compile(r"rechaz|devoluci|devuelt|liberad|aceptaci[oó]n\s+o\s+no|amortiz|\bhoras\b", re.I)
-_PAG_VERB = re.compile(r"se\s+abonar|abonad|abonar[aá]|ser[aá]\s+(?:efectuad|pagad|desembolsad|transferid)|"
+_PAG_VERB = re.compile(r"se\s+abonar|abonad|abonar[aá]|se\s+otorgar[aá]\s+al\s+(?:contratista|proveedor)\s+el\s+monto|ser[aá]\s+(?:efectuad|pagad|desembolsad|transferid)|"
                        r"a\s+ser\s+(?:efectuad|abonad|pagad)|desembols|efectuar[aá]\s+el\s+pago|"
                        r"pago\s+del\s+anticipo\s+se\s+(?:realizar|efectuar)", re.I)
-_SOL_VERB = re.compile(r"present|solicit", re.I)
+_SOL_VERB = re.compile(r"solicit|deber[aá]n?\s+(?:ser\s+)?present|presentar[aá]", re.I)
 _DISPON = re.compile(r"disponibilidad|plan\s+de\s+caja|plan\s+financiero|transferencia|ministerio|tesoro|"
                      r"verificaci", re.I)
 
@@ -352,7 +355,7 @@ def _first_days(clause, trap=True):
     for v, st, en in _day_mentions(clause):
         if trap:
             a, b = sentence_span(clause, st)
-            if _ANT_TRAP.search(clause[a:b]):
+            if _ANT_TRAP.search(clause[max(a, st - 80):min(b, en + 40)]):
                 continue
         return float(v)
     return None
@@ -367,12 +370,12 @@ def _anticipo_free(seg, sol_head=False):
     for v, st, en in _day_mentions(seg):
         a, b = sentence_span(seg, st)
         sent = seg[a:b]
-        if _ANT_TRAP.search(sent):
+        if _ANT_TRAP.search(seg[max(a, st - 80):min(b, en + 40)]):
             continue
         if sol_head and a == 0 and not _PAG_VERB.search(seg[:st]):
             out.append(("solicitud", float(v)))
             continue
-        if not re.search(r"anticip|solicitud", sent, re.I):
+        if not re.search(r"anticip|solicit", sent, re.I):
             continue
         if _PAG_VERB.search(seg[a:st]):
             out.append(("pago", float(v)))
@@ -392,7 +395,11 @@ def _anticipo(text, kind):
     anchor, maxlen = (_SOL_ANCHOR, 250) if kind == "solicitud" else (_PAG_ANCHOR, 700)
     cl = _clause(seg, anchor, maxlen)
     if cl is not None:
-        return _first_days(cl, trap=(kind == "pago"))
+        v = _first_days(cl, trap=(kind == "pago"))
+        if v is not None:
+            return v
+        if kind == "pago":  # ancla de pago presente sin número = el pliego no fija el plazo
+            return None
     ms = _anticipo_free(seg, sol_head)
     free = [v for k, v in ms if k == kind]
     if free:
@@ -437,10 +444,10 @@ _EXP_KW = re.compile(r"experien?cia|antig[uü]edad|existencia\s+legal|ejercicio\
 _EXP_TRAP = re.compile(r"repuesto|garant|vigencia|antelaci|registro\s+sanitario|rescisi|sanci[oó]n|\bedad\b|"
                        r"modelo|a[ñn]os?\s+de\s+fabricaci|fabricaci[oó]n\s+no\s+mayor|veh[ií]cul|vida\s+[uú]til|"
                        r"no\s+poseer|no\s+haber|incumplimient|vencimient|ejercicios?\s+fiscal|balance|"
-                       r"provisi[oó]n\s+de|mantenimiento|per[ií]odo\s+de|"
+                       r"provisi[oó]n\s+de|"
                        r"menor(?:es)?\s+de\s+\d+\s+a[ñn]os|hijos?", re.I)
 # trampas que solo valen pegadas al número: escala de puntaje, duración de una carrera
-_EXP_TRAP_NEAR = re.compile(r"puntos?\b|puntaje|carrera", re.I)
+_EXP_TRAP_NEAR = re.compile(r"puntos?\b|puntaje|carrera|per[ií]odo\s+de|mantenimiento\s+preventivo", re.I)
 _PERSONAL = re.compile(r"profesional|t[eé]cnic[oa]s?\b|ingenier|\bpersonal\b|responsable|director|residente|"
                        r"coordinador|especialista|licenciad|arquitect|m[eé]dic|chofer|operador|supervisor|"
                        r"t[ií]tulo|egresad|funcionari|plantel|gerente|jefe|consultor|programador|desarrollador|"
@@ -496,21 +503,18 @@ _PCT_TRAP = re.compile(r"anticipo|retenci|contribuci|garant|entreg(?:a|ar)\s+(?:
                        r"requisitos\s+m[ií]nimos|carnet|alcohol|hipoclorito|concentraci|humedad|grasa|prote[ií]na|"
                        # otros conceptos sobre el monto: solvencia/capacidad económica, seguros, multas, stock
                        r"solvencia|capacidad\s+econ[oó]mica|capital\s+de\s+trabajo|disponibilidad|cobertura|"
-                       r"asegurad|reasegur|p[oó]liza|multa|stock|repuesto", re.I)
+                       r"asegurad|reasegur|p[oó]liza|multa|stock", re.I)
 # reparto de consorcio / porcentaje de personal: solo si está pegado al número
 _PCT_TRAP_NEAR = re.compile(r"consorci|l[ií]der|integrante|socio|restante|\bpersonal(?:es)?\b|trabajadores|"
                             r"emplead", re.I)
 _PCT_MONTO = re.compile(r"monto|valor|importe|presupuesto|ofertad|\blote\b|referencial|adjudicad", re.I)
-_PCT_REF = re.compile(r"factur|contrato|referencia|experiencia|antecedent|acredit|sumatoria|ventas", re.I)
+_PCT_REF = re.compile(r"factur|contrato|referencia|experiencia|antecedent|acredit|sumatoria|ventas|volumen", re.I)
 
 
-def pct_monto_referencia_tecnica(text):
-    if not _has_text(text):
-        return None
+def _pct_candidates(text):
+    """([(valor, es_sumatoria)] genuinos, n_inciertos, hubo_algún_%) del texto de capacidad técnica."""
     s = _strip_ct_header(text)
     ms = list(_PCT.finditer(s))
-    if not ms:
-        return None
     good, unsure = [], 0
     for m in ms:
         v = float(m.group(1).replace(",", "."))
@@ -525,10 +529,59 @@ def pct_monto_referencia_tecnica(text):
             good.append((v, bool(re.search(r"sumatoria|\bsuma\b|total\s+de\s+(?:las|los)", local, re.I))))
         elif _PCT_MONTO.search(local):
             unsure += 1
+    return good, unsure, bool(ms)
+
+
+def pct_monto_referencia_tecnica(text):
+    if not _has_text(text):
+        return None
+    good, unsure, any_pct = _pct_candidates(text)
     if good:
         tot = [v for v, is_sum in good if is_sum]
         return float(max(tot) if tot else max(v for v, _ in good))
     return NO_RULE if unsure else None
+
+
+# ------------------------------------------------------------------ A8 pct_respaldo_financiero_monto (nueva, 08-oct)
+# Exigencia de respaldo financiero proporcional al monto: línea de crédito, capital operativo
+# (activo corriente - pasivo corriente), solvencia/capacidad económica o disponibilidad de fondos
+# >= N% del monto. Se lee de las secciones de capacidad financiera/técnica y sus requisitos documentales.
+SOLVENCIA_TITLES = (
+    "capacidad financiera", "capacidad tecnica", "experiencia requerida",
+    "requisitos documentales para la evaluacion de la capacidad financiera",
+    "requisitos documentales para evaluar el criterio de capacidad financiera",
+    "requisitos documentales para evaluar el criterio de capacidad tecnica",
+    "requisito documental para evaluar la capacidad tecnica",
+    "requisitos documentales para la evaluacion de la experiencia",
+)
+_SOLV_KW = re.compile(r"l[ií]nea\s+de\s+cr[eé]dito|capital\s+(?:operativo|de\s+trabajo)|"
+                      r"activo\s+corriente\s*[-–]\s*pasivo\s+corriente|solvencia(?:\s+econ[oó]mica)?|"
+                      r"capacidad\s+econ[oó]mica|disponibilidad\s+(?:en\s+efectivo|financiera|de\s+fondos|del)|"
+                      r"saldo\s+(?:bancario|disponible)|extracto\s+bancario", re.I)
+_SOLV_TRAP = re.compile(r"anticipo|presupuestaria|margen\s+de\s+solvencia|coeficiente\s+de\s+solvencia|"
+                        r"solvencia\s+en\s+la\s+prestaci|facturaci|volumen|ventas|referencias?|experiencia|"
+                        r"garant[ií]a|multa|retenci|consorci|l[ií]der", re.I)
+
+
+def pct_respaldo_financiero_monto(text):
+    """% del monto que el oferente debe demostrar como respaldo financiero (máximo); None si no exige."""
+    if not _has_text(text):
+        return None
+    s = normalize(text)
+    vals = []
+    for m in _PCT.finditer(s):
+        v = float(m.group(1).replace(",", "."))
+        if not 0 < v <= 200:
+            continue
+        a, b = sentence_span(s, m.start())
+        pre = s[max(a, m.start() - 200):m.start()]
+        post = s[m.end():min(b, m.end() + 70)]
+        if not (_SOLV_KW.search(pre) and _PCT_MONTO.search(post)):
+            continue
+        if _SOLV_TRAP.search(s[max(a, m.start() - 120):min(b, m.end() + 40)]):
+            continue
+        vals.append(v)
+    return float(max(vals)) if vals else None
 
 
 # ------------------------------------------------------------------ B1/B2 ratios (totalitarios)

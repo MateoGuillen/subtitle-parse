@@ -238,7 +238,10 @@
   30, 40, 60, 5, 10, 100. Otros %: consorcio 1.944 docs, otros con "monto" 249, varios ~280.
 - **Alternativas** ("la sumatoria… como mínimo el 40% del monto referencial; o al menos una referencia
   por el 20%", 10 docs) → el de la **sumatoria** (decisión 08-oct).
-- **NULL**: no hay % ligado a facturación/contratos/referencias sobre el monto.
+- **NULL**: no hay % ligado a facturación/contratos/referencias sobre el monto. La "solvencia/capacidad
+  económica del N% del monto" NO es A6: va a la variable nueva A8 (`pct_respaldo_financiero_monto`).
+- **Varios % de referencias genuinos no alternativos** ("facturaciones por el 50%… volumen de negocio del
+  60%") → el **máximo** (convención común).
 - **Trampas**: reparto de consorcio ("la líder deberá cumplir con al menos 60%"); capacidad de entrega
   ("entregar hasta el 30% de los productos en 5 días"); tope de precio ("no deberá superar el 65% del
   precio fijado"); "% de los animales necesarios"; pureza/germinación de semillas; "el 70% del personal
@@ -259,6 +262,23 @@
 - **Pendiente de implementación (A5+A6)**: hints; vista/columnas fusionadas para Pipeline 3; revisar las
   reglas deterministas (A5 hoy toma el primer "N años" con "experiencia": no cubre antigüedad en el
   rubro ni excluye "últimos N años" en todas sus formas).
+
+### A8. `pct_respaldo_financiero_monto` — respaldo financiero exigido como % del monto ✅ NUEVA (08-oct-2026)
+- **Origen**: decisión del usuario en I4 ("solvencia como variable nueva"). El GT de agosto contaba la
+  "solvencia económica del N% del monto" como % de referencias (A6); la ficha A6 no la cubre.
+- **Mide**: % del monto (ofertado / máximo del llamado / contrato) que el oferente debe demostrar como respaldo
+  financiero. Barrera financiera proporcional al tamaño del contrato.
+- **Formas medidas en BD** (853 docs, 2,7%): capital operativo "(Activo Corriente − Pasivo Corriente)… no
+  inferior al 15% del monto" (plantilla, 563 docs) · línea de crédito "por un monto no menor al 20% del total
+  ofertado" · solvencia/capacidad económica "del 30% como mínimo del monto máximo… extracto bancario" ·
+  disponibilidad de fondos. Valores: 15 · 50 · 30 · 20 · 10 · 40 · 60 · 80 · 100.
+- **Secciones**: capacidad financiera, capacidad técnica, experiencia requerida y sus requisitos documentales
+  (`field_rules_v1.SOLVENCIA_TITLES`). Varios valores → el **máximo** (convención común).
+- **NULL**: no exige respaldo proporcional. Flag `exige_respaldo_financiero` (0/1).
+- **Trampas**: anticipo "conforme a su disponibilidad presupuestaria… hasta el 20%"; "solvencia en la
+  prestación de servicios… volumen de 50%" (es facturación → A6); margen/coeficiente de solvencia (ratios B2);
+  garantías, multas, retenciones, consorcio.
+- **Método**: regla regex, sin LLM. Columnas en v3: `pct_respaldo_financiero_monto`, `exige_respaldo_financiero`.
 
 ### A7. `num_pasos_verificacion` — pasos del análisis del comité
 - **Mide**: cantidad de pasos numerados ("1.", "1º", "1°") del análisis de prohibiciones del comité.
@@ -379,7 +399,7 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 | I1 ✅ | Reescribir `extraction_hint` de A1-A6, B1, B2 desde las fichas; versión nueva del prompt (cambia el fingerprint); `llm_fallback=false` en 7 campos | Opus | — |
 | I2 ✅ | Ajustar reglas deterministas a las trampas medidas (A1: FIS/cuotas/recibo/aceptación; A2: máximo + días literales + servicios; A3/A4: excluir el texto legal fijo; A5: antigüedad en el rubro + ventanas "últimos N años"; B2: ratio invertido y margen de solvencia). Un test por cada ejemplo y trampa de las fichas | Opus | — |
 | I3 ✅ | Regex nuevos (`tipo_indice_reajuste`, 3 binarios C) + 7 flags; columnas en v3 (migración SQL idempotente) y recálculo | Opus | — |
-| I4 | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
+| I4 🟡 | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
 | I5 | Calibración v2: 60 ítems (A1-A6 × 10, estrato no-modal sobremuestreado), usuario y Opus por separado → κ por campo; κ < 0,8 → se corrige la ficha | usuario + Opus | I4 |
 | I6 | Benchmark reducido: Gemma-4-12B QAT (vLLM), Qwen3-14B-AWQ, Gemma-4-26B-A4B × A1-A6, crudo y pipeline, contra GT re-alineado y pseudo-GT; métrica en 3 columnas (total, estrato no-modal, ausencias) | Opus (~40 min GPU) | I1, I2, I4 |
 | I7 | GT fuera de muestra (~240 ítems, A1-A6) → precisión por campo y estrato → promote por campo a v3 | usuario → Opus | I5, I6 |
@@ -409,3 +429,12 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
   no es % de referencias según la ficha A6; hoy NULL. ¿Variable nueva de capacidad financiera?
 - `scripts/build_features_spec_v1.py --apply`: 11 columnas nuevas en v3 (31.321 filas) y
   `dncp.spec_v1_rule_values` (232.604 filas; residual LLM ≈ 515 campo-documento).
+
+### Resultado I4 (propuesta, 08-oct-2026)
+- `scripts/generar_i4_realineacion.py` → `planillas/i4_realineacion.csv` + `docs/i4_realineacion_gt.md`:
+  85 diferencias (80 GT agosto + 5 pseudo-GT Opus), 83 explicadas por una decisión de ficha, 2 a revisar.
+  Nada modificado: espera la aprobación del usuario.
+- La revisión de I4 destapó 9 errores de las reglas v1 (corregidos con test): trampa "mantenimiento" y
+  "repuestos" demasiado amplias, ancla de solicitud vacía sin fallback, "Soporte"/"indisponibilidad" en
+  garantía, trampa de anticipo a nivel oración, "solicitará", ancla "se otorgará", "presentación de la
+  factura" como solicitud.

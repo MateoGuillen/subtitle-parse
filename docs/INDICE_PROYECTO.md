@@ -28,6 +28,7 @@
 |---|---|
 | Reglas spec-v1 (8 campos) + columnas nuevas (regex/flags) | `src/etl/transformers/field_rules_v1.py`; build: `scripts/build_features_spec_v1.py [--apply]`; tests `tests/test_field_rules_v1.py` |
 | Análisis por sección (evidencia de las fichas) | `scripts/analisis_seccion_{pago,garantia,anticipo,capacidad,financiera,reajuste}.py <dir_tmp>` |
+| I4: propuesta de re-alineación del GT con las fichas | `scripts/generar_i4_realineacion.py` → `planillas/i4_realineacion.csv` + `docs/i4_realineacion_gt.md` |
 | Informatividad de las 710 features | `scripts/informatividad_features.py` |
 | Correr/retomar fallback LLM (v2) | `scripts/run_llm_fallback.py` (`--model qwen3-8b-fp8`, `--fields`, `--pilot-docs`, `--run-id`, `--no-llm`, `--llm-all`) |
 | Promover / rollback (dry-run por defecto) | `scripts/promote_fallback.py --run-id X --fields a,b [--apply]` · `--rollback` |

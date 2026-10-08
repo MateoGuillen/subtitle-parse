@@ -109,6 +109,9 @@ GV = "Periodo de validez de la Garantía de los bienes El plazo de validez de la
     ("180 DIAS CONTADOS DESDE LA RECEPCION DEFINITIVA DEL BIEN.", 180.0),
     ("CERTIFICADO DE GARANTÍA ESCRITA POR 6 MESES", 182.0),
     ("6 (seis) meses (180 días) desde la entrega", 180.0),
+    ("12 (doce) Meses Incluye: Soporte de atención de Hardware. Si la reparación implica la indisponibilidad del "
+     "equipo por más de 5 días, el proveedor deberá comunicar.", 365.0),
+    ("Garantía con soporte las 24 horas al día, los 7 días de la semana por 36 meses.", 1095.0),
     ("La garantía de los servicios será de 30 (treinta) días corridos posteriores al servicio.", 30.0),
     ("Desde la suscripción del contrato y por lo menos 30 días posteriores al plazo de vigencia del contrato.", 30.0),
     ("No Aplica", None), ("Según las especificaciones técnicas de cada ítem.", None),
@@ -176,6 +179,16 @@ ANT = ("Solicitud de Pago de Anticipo El plazo dentro del cual se solicitará el
      "presentación de la solicitud: 10 DIAS HÁBILES LUEGO DE LA FIRMA DEL CONTRATO f. Forma de amortización",
      None, 10.0),
     ("20 (veinte) días corridos.", 20.0, None),
+    ("El anticipo será del 10%. El proveedor solicitará dentro de los 8 días contados desde la firma del contrato.",
+     8.0, None),
+    ("La solicitud de pago del anticipo deberá ser presentada por escrito, dentro de los 5(cinco) días corridos de "
+     "haber sido adjudicado, en Mesa de Entrada de lunes a viernes de 7:00 a 15:00 horas.", 5.0, None),
+    ("a) Plazo máximo para la presentación de la solicitud de otorgamiento de anticipo: b) Dirección: X f) Plazo o "
+     "fecha en la cual se otorgará al contratista el monto del anticipo, siguiente a la fecha de la presentación de "
+     "la solicitud: Dentro de los 30 (treinta) días", None, 30.0),
+    ("a) Plazo máximo para la presentación de la solicitud de pago de anticipo: Haga clic o pulse aquí. Se otorgará "
+     "el 30% de Anticipo, el mismo podrá ser solicitado hasta 10 días corridos posteriores a la emisión del Acto "
+     "Administrativo.", 10.0, None),
     ("dentro de los 30 (treinta) días corridos", 30.0, None),
     ("Anticipo : 20 % Plazo máximo para la presentación de la solicitud de pago de anticipo: 1 0 ( D I E Z ) "
      "D Í A S C O R R I D O S P O S T E R I O R E S A L A F I R M A D E L C O N T R A T O. -Dirección: X",
@@ -240,6 +253,10 @@ def test_anos_experiencia(seg, expected):
      "adjudicados a los 5 días.", None),
     ("El precio ofertado no deberá superar el 65% del precio fijado en el Acta de Fijación.", None),
     ("Contar con los registros sanitarios habilitantes.", None),
+    ("Acreditar solidez y experiencia comercial en la venta de insumos, equipos y/o repuestos, por un volumen "
+     "mínimo de 30% del monto total de la oferta, en los cinco (05) últimos años.", 30.0),
+    ("DEMOSTRAR STOCK CONTABLE DE REPUESTOS PARA ATENDER EL EQUIPO OFERTADO DE POR LO MENOS 10% DEL MONTO DE LA "
+     "OFERTA.", None),
     ("En caso de Consorcio, el líder deberá cumplir con el 60% de los criterios de calificación, y el 40% restante "
      "lo cumplirá los demás integrantes del consorcio, con facturaciones de venta y/o recepciones finales por un "
      "monto equivalente al 50 % como mínimo del monto total ofertado en la presente licitación.", 50.0),
@@ -313,3 +330,23 @@ def test_reajuste(seg, tipo, umbral):
 def test_fuerza_mayor():
     assert fr.tiene_clausula_fuerza_mayor("deberá notificar dentro de los siete (7) días") == 1
     assert fr.tiene_clausula_fuerza_mayor("deberá notificar de inmediato") == 0
+
+
+# ------------------------------------------------------------------ A8 respaldo financiero (variable nueva)
+@pytest.mark.parametrize("text,expected", [
+    ("Constancia de un Banco de plaza de otorgar una línea de crédito al oferente por un monto no menor al 20% del "
+     "total ofertado.", 20.0),
+    ("d. Capital Operativo (Activo Corriente - Pasivo Corriente): El oferente deberá poseer un capital positivo y no "
+     "inferior al 30% del monto máximo del llamado.", 30.0),
+    ("El oferente deberá demostrar su capacidad económica -poseer una solvencia económica del 30% como mínimo del "
+     "monto máximo establecido para el presente llamado- por medio de una Constancia y/o extracto bancario.", 30.0),
+    ("Constancia de línea de crédito aprobada por un valor igual o superior al 50% (cincuenta por ciento) del valor "
+     "total de la oferta.", 50.0),
+    ("La contratante conforme a su disponibilidad presupuestaria podrá otorgar Anticipo Financiero hasta del 20% del "
+     "monto total del Contrato.", None),
+    ("solvencia en la prestación de servicios de postventa, por un volumen mínimo de 50% del monto total de la "
+     "oferta.", None),
+    ("Ratio de Liquidez: Deberá ser igual o mayor que 1. Endeudamiento: No deberá ser mayor a 0,80.", None),
+])
+def test_respaldo_financiero(text, expected):
+    assert fr.pct_respaldo_financiero_monto(text) == expected

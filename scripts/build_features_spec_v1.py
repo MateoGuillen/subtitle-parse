@@ -73,7 +73,17 @@ def main():
 
     # ---- 1. columnas nuevas
     cols = {c: t for d in fr.NEW_COLUMNS.values() for c, t in d.items()}
+    cols.update({"pct_respaldo_financiero_monto": "NUMERIC", "exige_respaldo_financiero": "SMALLINT"})
     newvals = {c: {} for c in cols}
+    # A8 (variable nueva): respaldo financiero proporcional al monto, sobre varias secciones
+    cur.execute("SELECT nro_licitacion, string_agg(content_text, E'\\n' ORDER BY title_normalized, line_start) "
+                "FROM dncp.pliegos_secciones WHERE title_normalized = ANY(%s) AND content_text IS NOT NULL "
+                "GROUP BY 1", (list(fr.SOLVENCIA_TITLES),))
+    solv = {str(n): fr.pct_respaldo_financiero_monto(t) for n, t in cur.fetchall()}
+    for nro in docs:
+        v = solv.get(nro)
+        newvals["pct_respaldo_financiero_monto"][nro] = v
+        newvals["exige_respaldo_financiero"][nro] = None if nro not in solv else int(v is not None)
     for slug, cdefs in fr.NEW_COLUMNS.items():
         tx = texts[slug]
         for nro in docs:
