@@ -244,6 +244,14 @@ ANT = ("Solicitud de Pago de Anticipo El plazo dentro del cual se solicitará el
     ("Anticipo : 20 % Plazo máximo para la presentación de la solicitud de pago de anticipo: 1 0 ( D I E Z ) "
      "D Í A S C O R R I D O S P O S T E R I O R E S A L A F I R M A D E L C O N T R A T O. -Dirección: X",
      10.0, None),
+    # calibración v2 (dbe4bd72d9): el plazo pegado al encabezado, en la segunda oración
+    ("ANTICIPO A LAS MI PYMES CONFORME AL ARTICULO 188 DE LA LEY 7050 DEL 10%. DENTRO DE LOS 05 (CINCO) DIAS DE "
+     "FIRMADO EL CONTRATO.", 5.0, None),
+    # plazo contado desde el pedido = plazo de pago, no de solicitud (sigue al LLM)
+    ("La convocante prevé el pago de un anticipo para las MIPYMES que resultaren adjudicadas, en un 20% del monto "
+     "total adjudicado. Dentro de los 10 días hábiles del pedido de pago por nota del proveedor ante la oficina de "
+     "Administración y Finanzas de la institución, la deducción de pago del anticipo será del 20% del monto de cada "
+     "factura presentada.", NR, NR),
 ])
 def test_anticipo(seg, sol, pag):
     t = ANT.format(seg)

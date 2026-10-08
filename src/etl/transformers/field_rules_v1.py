@@ -427,6 +427,11 @@ _DISPON = re.compile(r"disponibilidad|plan\s+de\s+caja|plan\s+financiero|transfe
                      r"verificaci", re.I)
 
 
+# "N días … del pedido de pago / de la solicitud": plazo de PAGO contado desde la solicitud
+_DESDE_PEDIDO = re.compile(r"[^.]{0,25}?(?:del?\s+(?:su\s+)?(?:pedido|solicitud|presentaci[oó]n)|desde\s+(?:el\s+pedido|la\s+"
+                           r"solicitud|la\s+presentaci[oó]n)|de\s+recibid)", re.I)
+
+
 def _anticipo_seg(text, with_head=False):
     """Tramo de la entidad (sin el texto legal fijo). with_head: además, si el tramo sigue al
     encabezado "El plazo dentro del cual se solicitará el anticipo será (en días corridos) de:",
@@ -463,15 +468,18 @@ def _first_days(clause, trap=True):
 def _anticipo_free(seg, sol_head=False):
     """Clasifica cada 'N días' del texto libre en ('pago'|'solicitud'|'sin_clasificar', valor).
 
-    sol_head: el tramo sigue al encabezado de solicitud; un plazo en su primera oración (sin verbo
-    de pago antes) es el plazo de solicitud ("…será (en días corridos) de: 20 (veinte) días")."""
+    sol_head: el tramo sigue al encabezado de solicitud; su primer plazo (sin verbo de pago antes) es el
+    plazo de solicitud ("…será (en días corridos) de: 20 (veinte) días")."""
     out = []
-    for v, st, en in _day_mentions(seg):
+    for i, (v, st, en) in enumerate(_day_mentions(seg)):
         a, b = sentence_span(seg, st)
         sent = seg[a:b]
         if _ANT_TRAP.search(seg[max(a, st - 80):min(b, en + 40)]):
             continue
-        if sol_head and a == 0 and not _PAG_VERB.search(seg[:st]):
+        # el plazo de la primera oración tras el encabezado de solicitud, o el primero si está pegado a él
+        # ("ANTICIPO A LAS MIPYMES… DEL 10%. DENTRO DE LOS 05 DIAS DE FIRMADO EL CONTRATO" -> 5)
+        if sol_head and (a == 0 or (i == 0 and st < 160 and not _DESDE_PEDIDO.match(seg, en))) \
+                and not _PAG_VERB.search(seg[:st]):
             out.append(("solicitud", float(v)))
             continue
         if not re.search(r"anticip|solicit", sent, re.I):

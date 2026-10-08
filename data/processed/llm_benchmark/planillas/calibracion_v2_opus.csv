@@ -1,0 +1,61 @@
+id,campo,valor,evidencia,nota
+4a8614b10d,anos_experiencia_minima_tecnica,,"Sin años exigidos; ""cada 4 (cuatro) meses"" es frecuencia de mantenimiento",Trampa excluida
+9756827df5,dias_validez_garantia,1095,garantía de 36 (treinta y seis) meses del fabricante ... para ambos items,
+45626d6e43,dias_validez_garantia,730,permanecerá vigente durante el periodo de setecientos treinta (730) días,
+b723d3bcff,dias_solicitud_anticipo,5,Plazo máximo para la presentación de la solicitud de pago de anticipo: 5 (cinco) días calendarios,10 días es plazo de abono (A3)
+025bf60f56,dias_pago_maximo,60,sin exceder sesenta (60) días después de la presentación de una factura,"Solo cláusula estándar; ""15 días hábiles"" es presentar el recibo (trampa)"
+b4ebc72051,anos_experiencia_minima_tecnica,,"Sin años de experiencia; ""por un año"" es mantenimiento",Trampa excluida
+50cc88bd62,dias_solicitud_anticipo,10,Plazo máximo para la presentación de la solicitud ...: 10 días calendario posterior de la firma,
+0dfc9b5cc1,dias_pago_anticipo,,"Solo fija plazo de solicitud (""dentro de los cinco (5) días ... posterior a la firma""); sin plazo de abono",Trampa: 5 días es A4
+0157bad25d,anos_experiencia_minima_tecnica,3,técnicos ... como mínimo 3 (tres) años de experiencia; Ingeniero ... mínimo de tres años,Personal (no hay de empresa)
+384cc4cd93,dias_pago_anticipo,60,Plazo o fecha en la cual se abonará ...: Dentro de los 60 (sesenta) días.,
+e56cccb7ff,dias_pago_anticipo,,"Desembolso ""en atención a la disponibilidad presupuestaria"" sin número; 30 días es plazo de solicitud",Trampa: 30 días es A4; sujeto a disponibilidad
+3f57529124,anos_experiencia_minima_tecnica,1,profesional CDCP parte del plantel permanente ... como mínimo 1 año de antiguedad,"DUDA: solo antigüedad del personal en el plantel (1 año; ingeniero 6 meses); ""últimos 3/4 años"" son ventanas excluidas"
+073f6fae1a,dias_validez_garantia,365,1 (un) año a ser contados a partir de la entrega efectiva del Bien,
+15bca5c4a7,pct_monto_referencia_tecnica,40,La sumatoria de los montos de las referencias ... como mínimo el 40% del monto referencial,Alternativa 20% (una referencia) excluida: manda la sumatoria
+e4d3e25d7f,dias_validez_garantia,182,Para el Lote 2: Presentar una garantía escrita de 6 (seis) meses,Único plazo dado (solo lote 2); 6 meses=182
+47b1817f4f,anos_experiencia_minima_tecnica,10,"ARQUITECTO, con 10 (diez) años como mínimo de experiencia; INGENIERO CIVIL, con 10 (diez) años",Personal
+0f8bb72b49,dias_validez_garantia,365,como mínimo un (1) año,
+732c646ff9,dias_solicitud_anticipo,3,Plazo máximo para la presentación de la solicitud ... es de 3 días hábiles posteriores a la firma,
+97c5543a54,dias_pago_anticipo,60,ANTICIPO DEL 5% con la presentación de la Factura ... a más tardar a los sesenta (60) días de la recepción de los requisitos,DUDA: redacción libre; leo el 60 como plazo de pago del anticipo desde la recepción de requisitos (15 días es solicitud)
+e8e3ca99db,dias_pago_anticipo,10,se abonará ...: Diez (10) días hábiles contados a partir de la recepción de solicitud,
+2202a81d88,dias_pago_anticipo,15,se abonará ...: 15 dias corridos,
+c821c772d4,pct_monto_referencia_tecnica,30,La sumatoria de los montos de las referencias ... como mínimo el 30% del monto referencial,
+3893d60a8d,pct_monto_referencia_tecnica,,"Sin % de referencias; ""capital no inferior al 70% del valor de su oferta"" es respaldo financiero (A8)","Trampas excluidas: capital 70% (A8), consorcio 60%"
+7b010408e8,dias_solicitud_anticipo,5,Plazo máximo para la presentación de la solicitud ...: 5 (cinco) días calendarios posteriores a la firma,
+034a4ec484,anos_experiencia_minima_tecnica,2,profesionales ... con al menos dos (02) años de experiencia en la empresa,"Personal; ""garantía de vida útil de al menos dos años"" excluida"
+efd2bf12c5,dias_pago_maximo,30,El pago se realizará dentro de los 30 (treinta) días posteriores a la presentación de la solicitud,
+65122fced4,dias_pago_maximo,30,"dentro de los 30 días posteriores a la entrega diaria de los alimentos preparados, previa presentación de la factura",
+dbe4bd72d9,dias_solicitud_anticipo,5,DENTRO DE LOS 05 (CINCO) DIAS DE FIRMADO EL CONTRATO.,"Bajo el ancla ""plazo dentro del cual se solicitará"""
+5399bdf411,dias_solicitud_anticipo,3,Plazo máximo para la presentación de la solicitud ...: 3 (tres) días corridos posteriores a la firma,
+09883fffea,pct_monto_referencia_tecnica,30,Contratos Ejecutados o facturaciones finales ... con un promedio del 30% del monto total ofertado,Consorcio 60/40 excluido
+4e3e654132,dias_solicitud_anticipo,5,Plazo máximo para la presentación de la solicitud ...: 5 (cinco) días calendarios posteriores a la firma,
+50ee0d8789,pct_monto_referencia_tecnica,,No hay porcentaje ligado al monto de referencias,
+a59417fbb0,dias_pago_anticipo,10,se abonará ...: 10 días hábiles posteriores a la fecha de presentación de la solicitud,
+e6d92d19df,dias_solicitud_anticipo,10,Plazo máximo ... solicitud ...: Dentro de los 10 (diez) días calendarios desde la firma,
+8d4a91b961,anos_experiencia_minima_tecnica,,No exige años de experiencia,
+a76c902e26,pct_monto_referencia_tecnica,,No hay porcentaje ligado al monto de referencias,
+dc25dab244,pct_monto_referencia_tecnica,50,constancia de compra de carne ... con copias de facturas ... que represente al menos el 50% del monto,"DUDA: son facturas de compra (capacidad de abastecimiento), no ventas como experiencia; alternativa NULL. ""50% de los animales"" excluido"
+656347468c,dias_pago_maximo,15,en el lapso de 15 (quince) días de la presentación de los documentos requeridos,
+5587166798,pct_monto_referencia_tecnica,50,"facturas de compra de dichos bienes, cuya sumatoria represente por lo menos el 50 % del monto máximo ofertado","DUDA: facturas de compra de cortes (capacidad de abastecimiento), no experiencia en ventas; alternativa NULL"
+47671e2794,dias_validez_garantia,730,24 (Veinticuatro) meses.,
+3195868cf6,dias_pago_maximo,15,pagos ... dentro de los 15 (quince) días hábiles posteriores a la presentación de la solicitud de pago,Cuotas anuales/plurianual no cambian el plazo por factura
+1c28ef3362,dias_validez_garantia,,"Solo vencimiento de insumos: ""vigencia no menor de 1 (un) año"" del plazo de vencimiento","Trampa excluida: vencimiento de productos, no garantía"
+5e9aa07967,dias_pago_anticipo,3,se abonará ...: 3 días contados a partir de la recepción total de las documentaciones,
+df3ba6b525,anos_experiencia_minima_tecnica,3,Existencia legal de por lo menos tres (3) años de antigüedad,Empresa
+29e129e9e7,dias_pago_maximo,10,"Plazo de pago: 10 días, desde la aprobación del certificado de obra y la presentación de la factura",
+19fd099b29,dias_pago_maximo,60,"Plazo de pago: 60 (sesenta) días, desde la aprobación del certificado de obra",FIS 30 días y emplazamiento 3 días excluidos
+7cdd33e323,pct_monto_referencia_tecnica,60,La sumatoria de los montos de las referencias ... como mínimo el 60% del monto referencial,Alternativa 40% (una referencia) excluida
+8c306c7f16,pct_monto_referencia_tecnica,60,La sumatoria de los montos de las referencias ... como mínimo el 60% del monto ofertado,Alternativa 40% excluida
+924cc27062,dias_validez_garantia,30,30 DIAS POSTERIORES A AL PLAZO DE EJECUCION O VIGENCIA DEL CONTRATO,
+cdc85ec8ad,dias_solicitud_anticipo,,Solo fija el porcentaje del anticipo (5%/20%) sujeto a disponibilidad; sin plazo de solicitud,
+eb8b20ee81,dias_pago_maximo,5,El pago se realizara dentro de los 5 (cinco) dias posteriores a la presentacion de la factura,
+35d218276c,anos_experiencia_minima_tecnica,5,Experiencia de trabajo de a lo menos cinco (5) años ... ; Técnico ... como mínimo de cinco (5) años,Personal
+110a6009ef,dias_solicitud_anticipo,,"""el pago del anticipo será: 10 (diez días) corridos a partir de la suscripción"" es plazo de pago; solicitud sin número",DUDA: el 10 está bajo el encabezado de solicitud pero el texto lo dice de pago (A3); podría leerse como plazo de solicitud
+89430626c2,dias_pago_maximo,10,El pago se realizará dentro de los (10) días posteriores a la solicitud del proveedor,
+b16ce593a2,dias_pago_anticipo,30,"se abonará ...: 30 días calendarios, posteriores a la solicitud presentada.",
+0c335e8401,dias_validez_garantia,182,"6 (seis), meses como minimo",
+1e2a1135e5,dias_pago_maximo,15,El pago se realizará dentro de los 15 días de presentado las documentaciones.,
+0490d9e3b2,dias_validez_garantia,,"Remite a EE.TT. (""Punto 7. EE.TT.""), sin plazo propio",
+5e9097649b,anos_experiencia_minima_tecnica,1,Estos técnicos deberán contar con antigüedad de al menos un año con la empresa oferente,Personal (antigüedad en el plantel)
+bb0f78b01a,dias_pago_anticipo,5,se abonará ...: 5 (cinco) días contados a partir de la recepción satisfactoria de los documentos,

@@ -4,7 +4,7 @@ Entradas (planillas/): calibracion_v2_clave.csv, calibracion_v2_opus.csv y la an
 (calibracion_v2_usuario.csv: columnas id, valor_anotador[, nota]; convertir el xlsx a csv si hace falta).
 Sin la del usuario, informa solo Opus vs regla.
 κ por campo sobre categorías = valor exacto (NULL es una categoría). Criterio del plan: κ < 0,8 → se corrige
-la ficha del campo. Los residuales (estado_regla = llm) no cuentan en el acuerdo con la regla.
+la ficha del campo. La regla se recalcula con el código vigente; los residuales (NO_RULE) no cuentan en el acuerdo con la regla.
 Salida: tabla por campo + lista de desacuerdos con id; CSV en planillas/calibracion_v2_resultado.csv.
 Uso: /root/vllm-env/bin/python scripts/evaluar_calibracion_v2.py [ruta_usuario.csv]
 """
@@ -15,6 +15,8 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from src.etl.transformers import field_rules_v1 as fr  # noqa: E402
 P = ROOT / "data/processed/llm_benchmark/planillas"
 
 
@@ -43,6 +45,11 @@ def kappa(a, b):
 def main():
     key = pd.read_csv(P / "calibracion_v2_clave.csv", dtype={"id": str})
     op = pd.read_csv(P / "calibracion_v2_opus.csv", dtype={"id": str})
+    # la regla VIGENTE sobre el mismo texto que vio el anotador (la clave guarda la del muestreo)
+    tx = pd.read_csv(P / "calibracion_v2.csv", dtype={"id": str}).set_index("id").texto
+    cur = {i: fr.RULES_V1[f](tx[i]) for i, f in zip(key.id, key.campo)}
+    key["valor_regla"] = [None if (v is fr.NO_RULE or v is None) else v for v in cur.values()]
+    key["estado_regla"] = ["llm" if v is fr.NO_RULE else "ausente" if v is None else "valor" for v in cur.values()]
     df = key.merge(op[["id", "valor"]].rename(columns={"valor": "opus"}), on="id", how="left")
     upath = Path(sys.argv[1]) if len(sys.argv) > 1 else P / "calibracion_v2_usuario.csv"
     has_user = upath.exists()
