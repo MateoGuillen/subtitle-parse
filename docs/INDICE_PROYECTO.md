@@ -10,6 +10,8 @@
 | **Veredicto vigente (v3, §9)** + histórico §6-§8 | `docs/endurecimiento_benchmark_plan.md` | cifras de modelos para la tesis: SOLO §9 |
 | Re-score sobre salida cruda (F1) | `docs/rescore_crudo_f1.md` | por qué 239/239 era de las reglas; McNemar crudo |
 | Ablación regla/regex/LLM/pipeline vs GT (F4-F6) | `docs/ablacion_gt.md` | cuánto aporta el LLM; orden del pipeline |
+| **Estrategia de variables para anomalías** (qué va a LLM/regex/SQL, dónde invertir GT) | `docs/estrategia_variables_anomalias.md` | antes de anotar o de arrancar Pipeline 3 |
+| Especificación operativa por campo (fichas, prompts, criterio de anotación) | `docs/especificacion_campos.md` | antes de reescribir prompts o anotar |
 | Varianza por campo | `docs/varianza_campos.md` | qué campos sirven como magnitud vs binario (Pipeline 3) |
 | Piloto fallback (diseño→ejecución) | `docs/piloto_llm_fallback.md` | fingerprint/caché/checkpoints, resultados por lote, bugs |
 | Tabla de modelos + glosario | `docs/tabla_maestra_benchmark.md` + `.csv` | cifras de benchmark para la tesis |

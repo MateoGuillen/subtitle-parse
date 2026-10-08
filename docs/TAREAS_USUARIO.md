@@ -2,7 +2,13 @@
 
 > Creado 06-oct-2026 (sesión 24). Marcar `[x]` al completar. Contexto: `docs/plan_correccion_auditoria.md` §9.
 
-## 1. Anotación humana (F5) — bloquea el promote
+## 0. Decisiones de estrategia (leer `docs/estrategia_variables_anomalias.md` §6 y `docs/especificacion_campos.md`)
+- [ ] Aprobar fichas A1-A6, B1-B3, C1-C3 (o indicar cambios).
+- [ ] Aceptar reclasificación P4 → binarios y P3 → flags "no estándar".
+- [ ] Confirmar benchmark reducido: Gemma-4-12B QAT (vLLM) + Qwen3-14B-AWQ + Gemma-4-26B-A4B, solo campos P2 + fórmula.
+- [ ] Autorizar Pipeline 3 fase 1 con las ~75 variables sin LLM.
+
+## 1. Anotación humana (F5) — bloquea el promote (REVISADA: ver estrategia §4, ~6-7 h en total)
 - [ ] **`data/processed/llm_benchmark/planillas/planilla_estratificado_75.csv`** — PRIMERO. Única validación
       fuera de muestra de las reglas/regex (se desarrollaron sobre `gt_por_campo`; sus 200/200 son optimistas).
 - [ ] **`planilla_iaa_25.csv`** — idealmente con un segundo anotador (tutor/colega) → κ de Cohen.
