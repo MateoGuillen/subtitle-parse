@@ -5,10 +5,12 @@
 ## 0. Decisiones de estrategia (leer `docs/estrategia_variables_anomalias.md` §6 y `docs/especificacion_campos.md`)
 - [x] Aprobar fichas A1-A6, B1-B3, C1-C3 (08-oct-2026, ficha por ficha con evidencia de BD).
 - [x] Aceptar reclasificación P4 → binarios y P3 → flags "no estándar" (B3 reemplazado por `tipo_indice_reajuste`).
-- [ ] **I4**: revisar `data/processed/llm_benchmark/planillas/i4_realineacion.csv` (85 filas; resumen en
-      `docs/i4_realineacion_gt.md`): columna `aprobar` = s/n por fila (o por bloque de `decision`), `valor_final`
-      si corregís, `nota_usuario`. Los 2 ítems `revisar` necesitan tu valor.
-- [ ] Anotar la calibración v2 (60 ítems, paso I5).
+- [x] **I4** (08-oct-2026): "apruebo todo" → 85 correcciones aplicadas en copias versionadas
+      (`data/processed/alolab/gt_por_campo_v1/`, `pseudo_gt_opus/anotaciones_v1.json`; originales intactos).
+- [x] Fichas nuevas A9 `pago_plurianual` y A10 `num_tramos_pago` (sin ad referéndum; anticipo no es tramo).
+- [ ] **I5**: anotar `I5_CALIBRACION_planilla.xlsx` (raíz del proyecto; también enviada a la Mac). 60 ítems,
+      hoja "anotar": número en `valor_anotador` (vacío = NULL), `DUDA` en `nota` si dudás; guías en la hoja
+      "guias". Devolver: `scp ~/Downloads/I5_CALIBRACION_planilla.xlsx venus:/mnt/datos/projects/subtitle-parse/`.
 - [ ] Confirmar benchmark reducido: Gemma-4-12B QAT (vLLM) + Qwen3-14B-AWQ + Gemma-4-26B-A4B, solo campos P2 + fórmula.
 - [ ] Autorizar Pipeline 3 fase 1 con las ~75 variables sin LLM.
 

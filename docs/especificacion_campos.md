@@ -486,8 +486,8 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 | I1 ✅ | Reescribir `extraction_hint` de A1-A6, B1, B2 desde las fichas; versión nueva del prompt (cambia el fingerprint); `llm_fallback=false` en 7 campos | Opus | — |
 | I2 ✅ | Ajustar reglas deterministas a las trampas medidas (A1: FIS/cuotas/recibo/aceptación; A2: máximo + días literales + servicios; A3/A4: excluir el texto legal fijo; A5: antigüedad en el rubro + ventanas "últimos N años"; B2: ratio invertido y margen de solvencia). Un test por cada ejemplo y trampa de las fichas | Opus | — |
 | I3 ✅ | Regex nuevos (`tipo_indice_reajuste`, 3 binarios C) + 7 flags; columnas en v3 (migración SQL idempotente) y recálculo | Opus | — |
-| I4 🟡 | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
-| I5 | Calibración v2: 60 ítems (A1-A6 × 10, estrato no-modal sobremuestreado), usuario y Opus por separado → κ por campo; κ < 0,8 → se corrige la ficha | usuario + Opus | I4 |
+| I4 ✅ | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
+| I5 🟡 | Calibración v2: 60 ítems (A1-A6 × 10, estrato no-modal sobremuestreado), usuario y Opus por separado → κ por campo; κ < 0,8 → se corrige la ficha | usuario + Opus | I4 |
 | I6 | Benchmark reducido: Gemma-4-12B QAT (vLLM), Qwen3-14B-AWQ, Gemma-4-26B-A4B × A1-A6, crudo y pipeline, contra GT re-alineado y pseudo-GT; métrica en 3 columnas (total, estrato no-modal, ausencias) | Opus (~40 min GPU) | I1, I2, I4 |
 | I7 | GT fuera de muestra (~240 ítems, A1-A6) → precisión por campo y estrato → promote por campo a v3 | usuario → Opus | I5, I6 |
 | I8 | Pipeline 3 fase 1 con variables sin LLM (económicas, estructurales, P1, B1/B2, regex nuevos, flags) | Opus | I3 (en paralelo a I4-I7) |
@@ -517,11 +517,25 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 - `scripts/build_features_spec_v1.py --apply`: 11 columnas nuevas en v3 (31.321 filas) y
   `dncp.spec_v1_rule_values` (232.604 filas; residual LLM ≈ 515 campo-documento).
 
-### Resultado I4 (propuesta, 08-oct-2026)
+### Resultado I4 (aplicado, 08-oct-2026)
 - `scripts/generar_i4_realineacion.py` → `planillas/i4_realineacion.csv` + `docs/i4_realineacion_gt.md`:
   85 diferencias (80 GT agosto + 5 pseudo-GT Opus), 83 explicadas por una decisión de ficha, 2 a revisar.
   Nada modificado: espera la aprobación del usuario.
+- **Aprobación del usuario: "apruebo todo"** (85/85; 463117 endeudamiento → 0,8 leído en el pliego).
+  `scripts/aplicar_i4_gt.py --todo-aprobado` escribe copias versionadas: `data/processed/alolab/gt_por_campo_v1/`
+  (`ground_truth` corregido + `ground_truth_agosto` + `realineacion_i4`) y `pseudo_gt_opus/anotaciones_v1.json`;
+  bitácora `planillas/i4_aplicado.csv`. Los originales no se tocan (reproducen lo publicado).
+- Reglas v1 vs GT v1: 194/194 a 200/200 por campo (residual LLM 0-7) y 28/28-30/30 en pseudo-GT. **Circular**:
+  el GT se alineó a las fichas que implementan las reglas; la validación real es I5 (κ) e I7 (fuera de muestra).
 - La revisión de I4 destapó 9 errores de las reglas v1 (corregidos con test): trampa "mantenimiento" y
   "repuestos" demasiado amplias, ancla de solicitud vacía sin fallback, "Soporte"/"indisponibilidad" en
   garantía, trampa de anticipo a nivel oración, "solicitará", ancla "se otorgará", "presentación de la
   factura" como solicitud.
+
+### I5 en curso (08-oct-2026)
+- `scripts/generar_calibracion_v2.py` → `planillas/calibracion_v2.csv` (ciega) + `_clave.csv`: 60 ítems A1-A6 × 10
+  de docs fuera del GT, del pseudo-GT y de la calibración v1; estratos por el valor de la regla spec-v1
+  (no modal 5 · modal 2 · ausente 2 · residual 1; A1 no tiene ausentes ni residuales → 8 no modales).
+- Anotación Opus independiente (subagente que solo lee la planilla ciega y las fichas, sin código de reglas ni
+  clave): `planillas/calibracion_v2_opus.csv`. Usuario: `I5_CALIBRACION_planilla.xlsx`.
+- `scripts/evaluar_calibracion_v2.py` → κ usuario-Opus por campo y acuerdo de cada uno con la regla.
