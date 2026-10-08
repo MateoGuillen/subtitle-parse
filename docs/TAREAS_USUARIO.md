@@ -11,6 +11,10 @@
 - [ ] **I5**: anotar `I5_CALIBRACION_planilla.xlsx` (raíz del proyecto; también enviada a la Mac). 60 ítems,
       hoja "anotar": número en `valor_anotador` (vacío = NULL), `DUDA` en `nota` si dudás; guías en la hoja
       "guias". Devolver: `scp ~/Downloads/I5_CALIBRACION_planilla.xlsx venus:/mnt/datos/projects/subtitle-parse/`.
+- [ ] **I7**: anotar `I7_GT_planilla.xlsx` (184 ítems, misma mecánica que I5; enviada a la Mac). Opus ya anotó
+      a ciegas (`planillas/i7_gt_opus.csv`). Devolver: `scp ~/Downloads/I7_GT_planilla.xlsx venus:/mnt/datos/projects/subtitle-parse/`.
+      Decidir además: (a) arreglos de regla A5/A4 detectados en I7, (b) ampliar hint de A5 (representante/distribuidor,
+      plantel/IPS) y regla de meses → años, (c) modelo final Gemma-4-12B QAT. Ver `docs/especificacion_campos.md` §I7.
 - [ ] Confirmar benchmark reducido: Gemma-4-12B QAT (vLLM) + Qwen3-14B-AWQ + Gemma-4-26B-A4B, solo campos P2 + fórmula.
 - [ ] Autorizar Pipeline 3 fase 1 con las ~75 variables sin LLM.
 

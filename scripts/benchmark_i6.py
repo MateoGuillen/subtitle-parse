@@ -12,7 +12,8 @@ Conjuntos (una sola carga del modelo por corrida):
              lo que el LLM decide de verdad en producción. Se mide acuerdo entre modelos.
 Brazos por ítem: regla (spec-v1 sola), llm (salida CRUDA del modelo, sin reglas), sistema (rule_first).
 Salida: data/processed/llm_benchmark/I6_<modelo>.json ; resumen con scripts/benchmark_i6.py --resumen
-Uso: /root/vllm-env/bin/python scripts/benchmark_i6.py --model gemma-4-12b-qat-w4a16
+Uso: /root/vllm-env/bin/python scripts/benchmark_i6.py --model gemma-4-12b-qat-w4a16 [--i7]
+  --i7: mismos modelos/prompt sobre la planilla de I7 (scripts/generar_i7.py) -> I7_<modelo>.json
 """
 import argparse
 import json
@@ -87,10 +88,18 @@ def load_items():
     return items
 
 
-def run(model_name):
+def load_items_i7():
+    """I7: la planilla ciega de scripts/generar_i7.py (mismo texto que ve el anotador; sin referencia aquí)."""
+    t = pd.read_csv(PL / "i7_gt.csv", dtype={"id": str})
+    key = pd.read_csv(PL / "i7_gt_clave.csv", dtype={"id": str, "nro_licitacion": str}).set_index("id")
+    return [dict(set="i7", field=r.campo, nro=key.nro_licitacion[r.id], text=str(r.texto)[:MAX_CHARS], gt=None,
+                 id=r.id) for r in t.itertuples()]
+
+
+def run(model_name, i7=False):
     cfg = ab.MODELS[model_name]
     fs = ab.field_schemas()
-    items = load_items()
+    items = load_items_i7() if i7 else load_items()
     print(f"{model_name}: {len(items)} ítems {dict(Counter(it['set'] for it in items))}", flush=True)
     tr = DocumentFeaturesV2LLMTransformer(str(ab.SCHEMAS), llm_provider=None)
     if cfg["backend"] == "vllm":
@@ -138,10 +147,11 @@ def run(model_name):
             model.close()
     meta = {"model": cfg.get("id") or cfg.get("gguf"), "backend": cfg["backend"], "spec": "v1.0",
             "elapsed_s": round(time.time() - t0, 1)}
-    (OUT / f"I6_{model_name}.json").write_text(json.dumps(
+    name = f"{'I7' if i7 else 'I6'}_{model_name}.json"
+    (OUT / name).write_text(json.dumps(
         {**meta, "items": [{k: v for k, v in it.items() if k != "text"} for it in items]},
         ensure_ascii=False, indent=0), encoding="utf-8")
-    print(f"-> I6_{model_name}.json ({meta['elapsed_s']}s)")
+    print(f"-> {name} ({meta['elapsed_s']}s)")
 
 
 def _n(x):
@@ -200,8 +210,9 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", choices=MODELS_I6 + [m for m in ab.MODELS if m not in MODELS_I6])
     ap.add_argument("--resumen", action="store_true")
+    ap.add_argument("--i7", action="store_true", help="correr sobre la planilla de I7 (I7_<modelo>.json)")
     a = ap.parse_args()
     if a.resumen:
         resumen()
     else:
-        run(a.model)
+        run(a.model, i7=a.i7)

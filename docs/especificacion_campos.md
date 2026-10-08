@@ -489,7 +489,7 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 | I4 ✅ | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
 | I5 🟡 | Calibración v2: 60 ítems (A1-A6 × 10, estrato no-modal sobremuestreado), usuario y Opus por separado → κ por campo; κ < 0,8 → se corrige la ficha | usuario + Opus | I4 |
 | I6 ✅ | Benchmark reducido: Gemma-4-12B QAT (vLLM), Qwen3-14B-AWQ, Gemma-4-26B-A4B × A1-A6, crudo y pipeline, contra GT re-alineado y pseudo-GT; métrica en 3 columnas (total, estrato no-modal, ausencias) | Opus (~40 min GPU) | I1, I2, I4 |
-| I7 | GT fuera de muestra (~240 ítems, A1-A6) → precisión por campo y estrato → promote por campo a v3 | usuario → Opus | I5, I6 |
+| I7 🟡 | GT fuera de muestra (184 ítems, A1-A6; estratos de regla + residuales) → precisión por campo y estrato → promote por campo a v3 | Opus ✅ → usuario | I5, I6 |
 | I8 | Pipeline 3 fase 1 con variables sin LLM (económicas, estructurales, P1, B1/B2, regex nuevos, flags) | Opus | I3 (en paralelo a I4-I7) |
 
 ### Resultado I1-I3 (08-oct-2026)
@@ -564,3 +564,36 @@ Qwen3-8B-FP8 226 s · Gemma-4-12B QAT 334 s · Qwen3-14B-AWQ 389 s · Gemma-4-26
 - **Consecuencia para I7**: los conjuntos con referencia casi no tocan los residuales; la exactitud que importa
   (la del LLM sobre los 546 residuales) no está medida. Propuesta: el GT fuera de muestra de I7 se toma de los
   residuales, estratificado por campo y priorizando los casos donde los modelos discrepan (152/546).
+
+### I7 en curso (08-oct-2026) — `scripts/generar_i7.py`, `scripts/cola_i7.sh`, `scripts/evaluar_i7.py`
+Diseño aprobado tras I6 (el usuario pidió adelantar I7 y dejar I5 pendiente). 184 ítems de documentos fuera del GT,
+del pseudo-GT y de las calibraciones v1/v2. Por campo: residual_discrepa ≤25 (los 4 modelos de I6 no coinciden),
+residual_coincide ≤5, regla_no_modal 10, regla_modal 4, regla_ausente 4 (A1 no tiene residuales ni ausentes →
+14). Clave con `pob_estrato` (tamaño del estrato en la base) para ponderar a producción.
+Referencia provisoria = Opus a ciegas (5 subagentes, solo planilla + fichas; 13 DUDA): `planillas/i7_gt_opus.csv`.
+Usuario: `I7_GT_planilla.xlsx` → `planillas/i7_gt_usuario.csv` (pasa a ser la referencia; κ usuario-Opus).
+Modelos: `I7_<modelo>.json` (prompt v1.0, crudo + rule_first). Resultado completo: `I7_resumen.csv`.
+
+| Contra Opus | g12 QAT | g26 GGUF | q8 FP8 | q14 AWQ |
+|---|---|---|---|---|
+| LLM crudo en residuales (87) | **69 (0,79)** | **69 (0,79)** | 47 (0,54) | 43 (0,49) |
+| … donde los modelos de I6 discrepaban (62) | 47 | 47 | 25 | 21 |
+| Sistema sobre los 184 (muestra sesgada a residuales) | 162 | 162 | 140 | 136 |
+
+- **Regla fuera de muestra: 93/97** (sin DUDA 91/94). Errores reales: A5 toma "antigüedad máxima de los
+  equipos 10 años" (trampa no cubierta); A4 no lee "DENTRO DE LOS DIEZ (10) POSTERIOR" (sin la palabra días).
+  Discutibles: A5 máximo entre perfiles de personal (4 vs 5, uno se clasificó como empresa); A4 "se otorgará un
+  anticipo… dentro de los 5 días posterior a la firma" bajo el encabezado de solicitud (Opus DUDA).
+  **No se corrigen todavía**: corregir mirando I7 lo volvería in-sample; se proponen al usuario.
+- **Precisión del sistema ponderada a producción** (Gemma-12B): A1 1,000 · A2 1,000 · A3 1,000 · A4 0,933 ·
+  A5 0,977 · A6 1,000; los 4 modelos dan casi lo mismo (la regla decide >95% de los casos). **LCB 0,70-0,85 en
+  todos los campos → REVISAR**: con 4-10 ítems por estrato de regla el IC no alcanza 0,85 aunque acierte todo.
+  Para PROMOTE hace falta ampliar los estratos grandes (regla_modal/no_modal) o aceptar el criterio con la
+  referencia del usuario.
+- **Errores de Gemma en residuales: 18, todos NULL falsos** (nunca un valor equivocado). 16 en A5, dos patrones de
+  plantilla: "Representante o Distribuidor Autorizado … de 5 años como mínimo" (antigüedad en el rubro, ×6) y
+  "formar parte del plantel permanente / IPS por al menos 1 año" (antigüedad del técnico en el plantel, ×6), que
+  la ficha cuenta pero el hint del prompt no ejemplifica. Hueco de ficha: meses ("18 meses", "12 meses") sin
+  conversión definida.
+- **Lectura**: Gemma-4-12B QAT = Gemma-4-26B (idénticos 69/87) y muy por encima de Qwen (Qwen3-14B/8B fallan
+  sobre todo en A3 y A6 residuales: 5/25 y 1/9). Se confirma Gemma-4-12B QAT.
