@@ -488,7 +488,7 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 | I3 ✅ | Regex nuevos (`tipo_indice_reajuste`, 3 binarios C) + 7 flags; columnas en v3 (migración SQL idempotente) y recálculo | Opus | — |
 | I4 ✅ | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
 | I5 🟡 | Calibración v2: 60 ítems (A1-A6 × 10, estrato no-modal sobremuestreado), usuario y Opus por separado → κ por campo; κ < 0,8 → se corrige la ficha | usuario + Opus | I4 |
-| I6 | Benchmark reducido: Gemma-4-12B QAT (vLLM), Qwen3-14B-AWQ, Gemma-4-26B-A4B × A1-A6, crudo y pipeline, contra GT re-alineado y pseudo-GT; métrica en 3 columnas (total, estrato no-modal, ausencias) | Opus (~40 min GPU) | I1, I2, I4 |
+| I6 ✅ | Benchmark reducido: Gemma-4-12B QAT (vLLM), Qwen3-14B-AWQ, Gemma-4-26B-A4B × A1-A6, crudo y pipeline, contra GT re-alineado y pseudo-GT; métrica en 3 columnas (total, estrato no-modal, ausencias) | Opus (~40 min GPU) | I1, I2, I4 |
 | I7 | GT fuera de muestra (~240 ítems, A1-A6) → precisión por campo y estrato → promote por campo a v3 | usuario → Opus | I5, I6 |
 | I8 | Pipeline 3 fase 1 con variables sin LLM (económicas, estructurales, P1, B1/B2, regex nuevos, flags) | Opus | I3 (en paralelo a I4-I7) |
 
@@ -539,3 +539,28 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 - Anotación Opus independiente (subagente que solo lee la planilla ciega y las fichas, sin código de reglas ni
   clave): `planillas/calibracion_v2_opus.csv`. Usuario: `I5_CALIBRACION_planilla.xlsx`.
 - `scripts/evaluar_calibracion_v2.py` → κ usuario-Opus por campo y acuerdo de cada uno con la regla.
+
+### Resultado I6 (08-oct-2026) — `scripts/benchmark_i6.py`, `scripts/cola_i6.sh`, `data/processed/llm_benchmark/I6_*.json`, `I6_resumen.csv`
+4 modelos × 1.984 ítems (A1-A6), prompt de producción v1.0, decodificación restringida; 0 errores. Tiempo:
+Qwen3-8B-FP8 226 s · Gemma-4-12B QAT 334 s · Qwen3-14B-AWQ 389 s · Gemma-4-26B-A4B GGUF 538 s.
+
+| LLM crudo (sin reglas) | gt_v1 (1.200) | pseudo_v1 (178) | calib_v2 (60) | no modal gt_v1 | ausencias gt_v1 |
+|---|---|---|---|---|---|
+| Gemma-4-26B-A4B GGUF | **0,863** | **0,905** | 0,667 | 244/384 | 585/591 |
+| Gemma-4-12B QAT W4A16 | 0,857 | 0,899 | 0,667 | 233/384 | **589/591** |
+| Qwen3-8B-FP8 | 0,852 | 0,893 | 0,633 | 244/384 | 578/591 |
+| Qwen3-14B-AWQ | 0,812 | 0,860 | 0,533 | 205/384 | 565/591 |
+
+- **Sistema (regla → LLM)**: idéntico entre modelos (la regla decide casi todo; 16/1.200, 1/178 y 5/60 ítems
+  llegan al LLM en los conjuntos con referencia). La elección del modelo solo afecta a los residuales.
+- **Residuales de producción** (546 casos campo-documento, toda la base, sin referencia): acuerdo Gemma-12B vs
+  Gemma-26B 95,2%; Gemma-12B vs Qwen3-8B 87,4%; Qwen3-14B es el que más se aparta (77-80%); los 4 coinciden en
+  72,2%. Los modelos responden NULL en 69-88% de los residuales (sobre todo experiencia y pago del anticipo).
+- Debilidad de prompt: en A1 las dos Gemma responden casi siempre 60 (la cláusula "sin exceder sesenta"),
+  crudo 0,54-0,59 vs Qwen3-8B 0,80. Sin efecto en producción (A1 tiene 0 residuales: la regla es total).
+- **Lectura**: Gemma-4-12B QAT ≈ Gemma-4-26B en exactitud y acuerdo (95%) con 60% del tiempo y menos VRAM →
+  se mantiene la recomendación de Gemma-4-12B QAT. Qwen3-14B-AWQ queda último (antes empataba: el prompt v1.0
+  lo perjudica más que a los otros).
+- **Consecuencia para I7**: los conjuntos con referencia casi no tocan los residuales; la exactitud que importa
+  (la del LLM sobre los 546 residuales) no está medida. Propuesta: el GT fuera de muestra de I7 se toma de los
+  residuales, estratificado por campo y priorizando los casos donde los modelos discrepan (152/546).
