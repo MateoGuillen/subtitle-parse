@@ -70,6 +70,9 @@ def test_num_before(s, v):
      "con anterioridad al primer pago.", 60.0),
     ("La Contratante se expedirá sobre las facturas en un plazo no mayor de diez (10) días calendarios de la "
      "recepción.", 60.0),
+    ("Se realizará el segundo pago del 25% del valor total del contrato, luego de los 60 (sesenta) dias del "
+     "primer pago conforme a la Disponibilidad Financiera de la Contratante. El pago se realizará dentro de los "
+     "30 días de la recepción de la factura correspondiente.", 30.0),
     ("", 60.0),
 ])
 def test_dias_pago_maximo(own, expected):
@@ -236,6 +239,12 @@ CT = ("Capacidad Técnica El oferente deberá proporcionar evidencia documentada
      "fecha de expedición del título.", 5.0),
     ("El fabricante del Motor deberá tener un mínimo de 20 años de experiencia en el diseño y fabricación de "
      "Motores.", 20.0),
+    ("Estar especializado en Medicina Nuclear. Experiencia de por lo menos 1 (uno) año como Especialista en "
+     "Medicina Nuclear demostrado con Certificados o Constancias.", 1.0),
+    ("Gerente de Proyecto 4 años de experiencia previa en administra grupos de Personal Exigido Arquitecto de "
+     "Software Graduado o con malla curricular concluida de la carrera de Licenciatura o Ingeniería en "
+     "Informática, de 7 años de experiencia demostrable con el título Universitario. Encargado de "
+     "Implementación Graduado de la carrera de Ingeniería Electrónica con mínimo de 6 años de experiencia.", 7.0),
 ])
 def test_anos_experiencia(seg, expected):
     assert fr.anos_experiencia_minima_tecnica(CT.format(seg)) == expected

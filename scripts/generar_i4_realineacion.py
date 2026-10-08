@@ -134,7 +134,7 @@ def cls_exp(text, gt, v1):
             ctx = _snip(s, h[1], h[2])
             if re.search(r"antig[uü]edad|existencia\s+legal|en\s+el\s+rubro|en\s+el\s+mercado", h[3], re.I):
                 return ("A5-personal" if fr._PERSONAL.search(h[3]) else "A5-antiguedad"), ctx
-            if re.search(r"ejercicio|t[ií]tulo|plantel", h[3], re.I):
+            if re.search(r"ejercicio|t[ií]tulo|plantel", h[3], re.I) or fr._PERSONAL.search(h[3]):
                 return "A5-personal", ctx
         return "revisar", ctx if h else s[:400]
     if gt is not None and v1 is not None:

@@ -16,9 +16,16 @@
 
 ## Grupo A — Magnitudes con variación real (prioridad 1 y 2)
 
-### A1. `dias_pago_maximo` — plazo de pago de la factura ✅ APROBADA (08-oct-2026)
-- **Mide**: en cuántos días se compromete la entidad a pagar al proveedor. Para anomalías: plazos muy
-  cortos o muy largos respecto del estándar (60).
+### A1. `dias_pago_maximo` — plazo de pago comprometido por factura ✅ APROBADA (08-oct-2026)
+- **Mide**: en cuántos días se compromete la entidad a pagar **cada factura** desde que la recibe (o desde la
+  solicitud, la recepción o el certificado). Para anomalías: plazos muy cortos o muy largos respecto del
+  estándar (60). Con la regla v1: < 60 en 8.333 docs, = 60 en 22.624, > 60 en 35.
+- **Qué NO mide** (aclaración del 08-oct, a pedido del usuario): ni la duración total de los pagos del
+  contrato, ni la frecuencia ("cada 30 días"), ni el intervalo entre cuotas ("60 días del primer pago"), ni
+  el diferimiento del saldo a otro ejercicio. Eso lo miden A9 (`pago_plurianual`) y A10 (`num_tramos_pago`).
+  Caso 473007: plazo por factura **30**, pero 50% del contrato supeditado al presupuesto 2026 → A9 = 1,
+  A10 = 3. Caso 449660: "cada 30 días, dentro de los 60 días calendarios" → **60**. El nombre de la columna
+  no cambia.
 - **Evidencia BD** (`scripts/analisis_seccion_pago.py`, 18.418 textos distintos / 31.841 secciones):
   la entidad escribe entre "Otras formas y condiciones de pago… serán las siguientes:" y la cláusula
   estándar "La Contratante efectuará los pagos… sin exceder sesenta (60) días". Plazo propio con número:
@@ -209,7 +216,9 @@
      ("antigüedad mínima de tres (03) años en el rubro" → 3; "Existencia legal de por lo menos tres (3)
      años" → 3) (decisión 08-oct).
   2. Si no hay de la empresa, la del **personal** (profesionales, técnicos, "N años de ejercicio de la
-     profesión", "desde la expedición del título", antigüedad del técnico en el plantel).
+     profesión", "desde la expedición del título", antigüedad del técnico en el plantel). Incluye la
+     experiencia en una especialidad: "Experiencia de por lo menos 1 (uno) año como Especialista en
+     Medicina Nuclear demostrado con Certificados o Constancias" → **1** (caso 408117, decisión 08-oct).
   3. Varios valores del mismo nivel → el **máximo** (decisión 08-oct).
 - **NULL**: "No Aplica"; exige experiencia sin número; solo pide cantidad de contratos/referencias;
   **"en los últimos N años"** (ventana para contar contratos, 639 docs; decisión 08-oct).
@@ -222,7 +231,8 @@
   1) Experiencia o antigüedad de la empresa en el rubro, incluida la existencia legal:
      "antigüedad mínima de tres (03) años en el rubro" -> 3; "mínimo de 2 años de experiencia" -> 2.
   2) Si no hay de la empresa, la del personal: "Ingeniero con como mínimo 3 (tres) años de
-     experiencia" -> 3; "5 años de ejercicio de la profesión" -> 5.
+     experiencia" -> 3; "5 años de ejercicio de la profesión" -> 5;
+     "Experiencia de por lo menos 1 (uno) año como Especialista en Medicina Nuclear" -> 1.
   3) Si hay varios valores, responde el MAYOR.
   Responde NULL si no hay número de años exigido, si solo pide cantidad de contratos, o si los
   años son una ventana: "en los últimos 3 años", "durante los últimos 5 años".
@@ -279,6 +289,80 @@
   prestación de servicios… volumen de 50%" (es facturación → A6); margen/coeficiente de solvencia (ratios B2);
   garantías, multas, retenciones, consorcio.
 - **Método**: regla regex, sin LLM. Columnas en v3: `pct_respaldo_financiero_monto`, `exige_respaldo_financiero`.
+
+### Evidencia común A9/A10 (`scripts/analisis_seccion_pago_estructura.py`, 08-oct-2026)
+- Tramo propio de la entidad en "formas y condiciones de pago" (el mismo que A1): 29.489 docs con sección,
+  23.023 con texto propio no vacío. Barrido de términos además del plazo: sujeto a disponibilidad/plan de
+  caja 29,5% (ya es `pago_sujeto_plan_caja`), días hábiles 10,4% (ya es `pago_en_dias_habiles`),
+  **plurianual / pagos en otro ejercicio ~11%**, **pago en tramos con %/cuotas ~1,3%**, contra entrega 2,4%
+  (sobre todo PETROPAR; depende de la entidad, descartado), certificado de obra 13% (refleja el tipo de
+  contrato, descartado), pago por adelantado 3 docs y moneda extranjera 10 docs (demasiado raros).
+- **Validación externa** contra `dncp.pagos_contrato` (276.868 pagos reales con fecha de factura y de pago;
+  demora observada = fecha_pago − fecha_factura; mediana global 40 días, p90 157):
+
+  | Grupo (docs con pagos) | pagos por contrato | demora mediana | % pagos > 60 días | paga ≥2 años tras la firma |
+  |---|---|---|---|---|
+  | A9 = 0 (17.909) | 2 | 30 | 21,0% | 14,8% |
+  | **A9 = 1 (2.248)** | **6** | **37** | **34,4%** | **30,0%** |
+  | A10 = 0 (19.975) | 2,8 | 30 | 22,4% | 16,4% |
+  | **A10 ≥ 2 (182)** | 3 | 34 | **30,2%** | **29,7%** |
+
+  Las dos variables se asocian a pagos más demorados y más tardíos en la ejecución real: no son ruido de
+  plantilla.
+
+### A9. `pago_plurianual` — el pago abarca más de un ejercicio fiscal 🟡 BORRADOR (08-oct-2026)
+- **Origen**: caso 473007 (discusión de I4): el plazo por factura (30) esconde que el 50% del contrato queda
+  supeditado al presupuesto del año siguiente.
+- **Mide**: 1 si el pliego declara que los pagos del contrato caen en **dos o más ejercicios fiscales**
+  (ejecución presupuestaria plurianual, Ley 7021/22 art. 43-44 / Ley 2051/03 art. 14). Para anomalías: el
+  proveedor financia a la entidad y asume el riesgo de que no se apruebe el presupuesto → desalienta a los
+  oferentes sin respaldo financiero.
+- **Regla (regex, sin LLM)**, en orden:
+  1. Menciona "plurianual" en forma afirmativa → 1 (2.503 docs). Formas típicas: "Por tratarse de una
+     contratación de carácter plurianual…", "El llamado es Plurianual, 2025-2026-2027", "ejecución
+     presupuestaria plurianual", "los desembolsos serán realizados en forma plurianual".
+  2. Asigna pagos o presupuesto a **dos o más años ≥ al de publicación** → 1 (641 docs): "con recursos del
+     presupuesto correspondiente al ejercicio fiscal del año 2024 y 2025"; "Ejercicio 2021 y sujeto a
+     disponibilidad presupuestaria para el Ejercicio 2022".
+  3. "El saldo…" atado a un ejercicio posterior al de publicación → 1 (10 docs): "El pago del 50% restante del
+     Certificado Final será abonado en el Ejercicio Fiscal 2024".
+  4. Si no → 0. Sin sección o sin texto propio → NULL.
+- **No cuenta** (trampas medidas): plantilla condicional "En caso de que la contratación sea plurianual, los
+  pagos… estarán sujetos…" (325 docs, texto genérico); negación "EL LLAMADO NO ES PLURIANUAL" (2 docs);
+  "Ejercicio Fiscal 2023" solo, en un llamado publicado en 2022 (ad referéndum para un único ejercicio: un solo
+  año, no dos).
+- **Precisión**: 29/30 en una muestra aleatoria leída (el error era la negación, ya excluida).
+- **Pregunta abierta**: ¿también un binario aparte `pago_ad_referendum` (publicado en un año para ejecutar y
+  pagar en el siguiente)? Recomiendo **no** por ahora: es atributo del calendario presupuestario, no de la
+  forma de pago.
+
+### A10. `num_tramos_pago` — pago dividido en tramos o cuotas definidos 🟡 BORRADOR (08-oct-2026)
+- **Mide**: en cuántos tramos con monto o % definido se divide el pago del contrato ("Primer pago: 20%…
+  Segundo pago: 40%… Tercer pago: 40%" → 3). 0 = pago por factura o periódico sin tramos definidos. Para
+  anomalías: retener una parte grande del pago hasta el final (o diferirla 12-36 meses tras la entrega)
+  traslada el riesgo al proveedor; tramos atados a hitos son normales en consultorías y obras.
+- **Regla (regex, sin LLM)**, en orden:
+  1. Dos o más % de pago que **suman 90-110** → el número de % (162 docs): "Al entregar los bienes: 85% del
+     monto total… al entregar las documentaciones legales: el 15%" → 2; "Se pagará dentro del ejercicio 2022:
+     el 40%… 2023: el 30%… 2024: el 30%" → 3.
+  2. "en N cuotas / pagos / etapas / tramos" → N (51 docs): "el 100% dividido en 6 (seis) pagos trimestrales"
+     → 6; "en DOS (2) ETAPAS" → 2.
+  3. Ordinales "primer… segundo/tercer pago, cuota o desembolso" → cantidad de ordinales (41 docs).
+  4. Un % de pago seguido de "saldo / restante" → 2 (40 docs): "el 55%… el restante 45% será pagado a
+     principios del Ejercicio Fiscal 2024" → 2.
+  5. Si no → 0. Sin sección o sin texto propio → NULL.
+- **Trampas medidas**: "con anterioridad al **primer pago**" del FIS (348 docs, plantilla); "para el primer
+  pago presentar la documentación"; % de multa, retención, contribución 0,4/0,5%, garantía de fiel
+  cumplimiento o de anticipo, póliza, IVA, "avance de 40%" (es condición, no tramo); "100% del monto" (pago
+  único).
+- **Precisión**: 25/30 tramos genuinos en muestra aleatoria leída; 2 son "anticipo 20% + 80% restante" y 3
+  no se pudieron confirmar con el fragmento. Conteo N aproximado (ordinales repetidos por lote pueden
+  inflarlo).
+- **Preguntas abiertas**:
+  1. ¿"Anticipo 20% + saldo 80%" cuenta como 2 tramos? Recomiendo **no**: el anticipo ya tiene sus variables
+     (A3/A4) y se contaría dos veces.
+  2. ¿Número de tramos o binario? Recomiendo guardar **el número** (el binario sale de `> 0`) y, como
+     variable principal para el modelo, el binario hasta validar el conteo.
 
 ### A7. `num_pasos_verificacion` — pasos del análisis del comité
 - **Mide**: cantidad de pasos numerados ("1.", "1º", "1°") del análisis de prohibiciones del comité.
@@ -386,7 +470,7 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 |---|---|
 | Regla → LLM en residuales (único lugar del benchmark) | A1 `dias_pago_maximo` · A2 `dias_validez_garantia` · A3 `dias_pago_anticipo` · A4 `dias_solicitud_anticipo` · A5 `anos_experiencia_minima_tecnica` · A6 `pct_monto_referencia_tecnica` |
 | Regla/regex sin LLM | B1 `ratio_liquidez_minimo` · B2 `ratio_endeudamiento_maximo` |
-| Regex nuevo | `tipo_indice_reajuste` · `tiene_clausula_fuerza_mayor` · `tiene_clausula_aceptacion_factura` · `exige_certificado_laboral` |
+| Regex nuevo | `tipo_indice_reajuste` · `tiene_clausula_fuerza_mayor` · `tiene_clausula_aceptacion_factura` · `exige_certificado_laboral` · A8 `pct_respaldo_financiero_monto` · 🟡 A9 `pago_plurianual` · 🟡 A10 `num_tramos_pago` (borradores) |
 | Flags nuevos | `pago_en_dias_habiles` · `pago_sujeto_plan_caja` · `garantia_varia_por_item` · `anticipo_sujeto_disponibilidad` · `liquidez_no_estandar` · `endeudamiento_no_estandar` · `umbral_reajuste_no_estandar` |
 | Control (no predictor) | `num_pasos_verificacion` |
 | Fusión para Pipeline 3 | `anos_experiencia_exigidos` (máx. A5 + `anos_experiencia_minima`) · `pct_monto_referencia` (`pct_monto_referencia_minimo`, si falta A6) |

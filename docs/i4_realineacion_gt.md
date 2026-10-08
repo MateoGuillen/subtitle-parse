@@ -9,7 +9,7 @@
 
 | Campo | Ref. | Ítems | Difieren | Con decisión de ficha | A revisar |
 |---|---|---|---|---|---|
-| anos_experiencia_minima_tecnica | gt_agosto | 200 | 17 | 16 | 1 |
+| anos_experiencia_minima_tecnica | gt_agosto | 200 | 17 | 17 | 0 |
 | dias_pago_anticipo | gt_agosto | 200 | 0 | 0 | 0 |
 | dias_pago_maximo | gt_agosto | 200 | 15 | 15 | 0 |
 | dias_solicitud_anticipo | gt_agosto | 200 | 0 | 0 | 0 |
@@ -36,13 +36,9 @@ A5: la antigüedad en el rubro / existencia legal cuenta como experiencia de la 
 A5: empresa > personal y, dentro del nivel, el máximo. Por referencia: gt_agosto=1.
 - Ej. `anos_experiencia_minima_tecnica` nro 431683: actual **4.0** → propuesto **7.0** · …fensa y Ciberseguridad Estratégica Exigido Arquitecto de Software Graduado o con malla curricular concluida de la carrera de Licenciatura o Ingeniería en Informática, de 7 años de experiencia demostrable con el título Universitario con la fecha de expedición. Exigid
 
-### `A5-personal` — 11 ítems
-A5: experiencia del personal ('ejercicio de la profesión', 'desde el título', antigüedad en el plantel). Por referencia: gt_agosto=11.
+### `A5-personal` — 12 ítems
+A5: experiencia del personal ('ejercicio de la profesión', 'desde el título', antigüedad en el plantel). Por referencia: gt_agosto=12.
 - Ej. `anos_experiencia_minima_tecnica` nro 475962: actual **nan** → propuesto **3.0** · …su totalidad deberán estar inscriptos en el Instituto de Previsión Social, de los cuales como mínimo 5 (cinco) personas deberán ser estables con una antigüedad mínima de 3 años, para lo cual, el oferente deberá presentar copia autenticada de las constancias de entra
-
-### `revisar` — 2 ítems
-sin decisión de ficha que la explique: decide el usuario. Por referencia: gt_agosto=2.
-- Ej. `anos_experiencia_minima_tecnica` nro 408117: actual **nan** → propuesto **nan** · …ición de: Contar con registro emitido por el Ministerio de Salud Pública y Bienestar Social Vigente. Estar especializado en Medicina Nuclear. Experiencia de por lo menos 1 (uno) año como Especialista en Medicina Nuclear demostrado con Certificados o Constancias. No habrá
 
 ### `A1-mayor` — 1 ítems
 A1: dos plazos de pago genuinos → el mayor. Por referencia: gt_agosto=1.
@@ -83,6 +79,10 @@ A6: con alternativas, el porcentaje de la sumatoria. Por referencia: gt_agosto=2
 ### `A6-trampa` — 4 ítems
 A6: el % no es de referencias (consorcio, stock, repuestos, personal, póliza, multa…). Por referencia: gt_agosto=4.
 - Ej. `pct_monto_referencia_tecnica` nro 420144: actual **10.0** → propuesto **nan** · …DEMOSTRAR STOCK CONTABLE DE REPUESTOS PARA ATENDER EL EQUIPO OFERTADO DE POR LO MENOS 10% DEL MONTO DE LA OFERTA EL OFERENTE DEBERA POSEER AUTORIZADO DEL BIEN OFERTADO.
+
+### `revisar` — 1 ítems
+sin decisión de ficha que la explique: decide el usuario. Por referencia: gt_agosto=1.
+- Ej. `ratio_endeudamiento_maximo` nro 463117: actual **nan** → propuesto **nan** · …Capacidad Financiera Con el objetivo de calificar la situación financiera del oferente, se considerarán los siguientes índices: Contribuyente de IRE GENERAL. Deberán cumplir con el siguiente parámetro: Ratio de Liquidez (activo corriente / pasivo corriente): Deberá ser igual o mayor que 1 en promedi
 
 ### `A3A4-trampa` — 1 ítems
 A3/A4: el GT tomó el plazo del otro concepto (solicitud vs pago) o del texto legal fijo. Por referencia: pseudo_opus=1.
