@@ -93,9 +93,57 @@ def test_pago_flags():
                             pago("El pago se realizará dentro de los 5 (cinco) días hábiles de la solicitud, "
                                  "sujeto a disponibilidad del Plan de Caja. Certificado laboral vigente."))
     assert f == {"pago_en_dias_habiles": 1, "pago_sujeto_plan_caja": 1,
-                 "tiene_clausula_aceptacion_factura": 1, "exige_certificado_laboral": 1}
+                 "tiene_clausula_aceptacion_factura": 1, "exige_certificado_laboral": 1,
+                 "pago_plurianual": 0, "num_tramos_pago": 0}
     f = fr.section_features("formas_y_condiciones_de_pago", pago(""))
     assert f["pago_en_dias_habiles"] == 0 and f["pago_sujeto_plan_caja"] == 0 and f["exige_certificado_laboral"] == 0
+
+
+# ------------------------------------------------------------------ A9 / A10
+@pytest.mark.parametrize("own,year,expected", [
+    ("Por tratarse de una contratación de carácter plurianual, la partida presupuestaria correspondiente al "
+     "ejercicio fiscal 2025 estará sujeta a la aprobación de la Ley del Presupuesto.", 2024, 1),
+    ("El Llamado es Plurianual, 2025-2026-2027.", 2024, 1),
+    ("El pago se hará con los recursos del presupuesto correspondiente al ejercicio fiscal del año 2024 y 2025.",
+     2024, 1),
+    ("El pago del 50% restante del Certificado Final será abonado en el Ejercicio Fiscal 2024.", 2023, 1),
+    # trampas
+    ("En caso de que la contratación sea plurianual, los pagos correspondientes a cada ejercicio fiscal, estarán "
+     "sujetos a su aprobación presupuestaria correspondiente.", 2024, 0),
+    ("EL LLAMADO NO ES PLURIANUAL. Se retendrá el 0.5% sobre el importe de cada factura.", 2021, 0),
+    ("El pago se efectuará con fondos del Presupuesto General de la Nación para el Ejercicio Fiscal 2023.", 2022, 0),
+    ("", 2024, 0),
+])
+def test_pago_plurianual(own, year, expected):
+    assert fr.pago_plurianual(pago(own), year) == expected
+
+
+@pytest.mark.parametrize("own,expected", [
+    ("Primer Pago: 20% con la entrega del 1° Informe Borrador. Segundo Pago: 40% con la entrega del 2° Informe "
+     "Borrador. Tercer Pago : 40% con la entrega de los Informes Finales.", 3),
+    ("Al entregar los bienes: Ochenta y cinco por ciento (85%) del monto total del Contrato. Al entregar las "
+     "documentaciones legales: El quince por ciento (15%) del monto total del contrato.", 2),
+    ("PARA LOS ITEM 2, 3 Y 4: el 100% dividido en 6 (seis) pagos trimestrales con la presentación de las Actas.", 6),
+    ("Se realizará el primer pago del 25% del valor total del contrato, luego de la entrega de los bienes. Se "
+     "realizará el segundo pago del 25% del valor total del contrato, luego de los 60 (sesenta) dias del primer "
+     "pago. El saldo del 50% del valor contractual estará supeditado a la aprobación del Presupuesto.", 3),
+    ("el 55% del premio total anual adjudicado; el restante 45% del premio, será pagado a principios del "
+     "Ejercicio Fiscal 2024.", 2),
+    # trampas
+    ("dentro de los treinta (30) días posteriores a la obtención del código de contratación, y con anterioridad "
+     "al primer pago que vaya a percibir en el marco de dicho contrato.", 0),
+    ("una vez instaladas las licencias, se abonará el 100% del monto adjudicado.", 0),
+    ("se retendrá el 0,4% sobre el importe de cada factura. Multa del 1% del monto total del contrato.", 0),
+    ("el proveedor podrá solicitar el pago del 20% correspondiente al anticipo. Una vez finalizado el trabajo "
+     "presentará la factura para el cobro del 80% restante.", 0),
+    ("", 0),
+])
+def test_num_tramos_pago(own, expected):
+    assert fr.num_tramos_pago(pago(own)) == expected
+
+
+def test_estructura_pago_sin_seccion():
+    assert fr.pago_plurianual("", 2024) is None and fr.num_tramos_pago(None) is None
 
 
 # ------------------------------------------------------------------ A2

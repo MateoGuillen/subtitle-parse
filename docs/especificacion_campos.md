@@ -310,7 +310,7 @@
   Las dos variables se asocian a pagos más demorados y más tardíos en la ejecución real: no son ruido de
   plantilla.
 
-### A9. `pago_plurianual` — el pago abarca más de un ejercicio fiscal 🟡 BORRADOR (08-oct-2026)
+### A9. `pago_plurianual` — el pago abarca más de un ejercicio fiscal ✅ APROBADA (08-oct-2026)
 - **Origen**: caso 473007 (discusión de I4): el plazo por factura (30) esconde que el 50% del contrato queda
   supeditado al presupuesto del año siguiente.
 - **Mide**: 1 si el pliego declara que los pagos del contrato caen en **dos o más ejercicios fiscales**
@@ -326,17 +326,20 @@
      disponibilidad presupuestaria para el Ejercicio 2022".
   3. "El saldo…" atado a un ejercicio posterior al de publicación → 1 (10 docs): "El pago del 50% restante del
      Certificado Final será abonado en el Ejercicio Fiscal 2024".
-  4. Si no → 0. Sin sección o sin texto propio → NULL.
+  4. Si no → 0 (también si la entidad no escribió texto propio: solo plantilla). Sin sección → NULL.
+  Sin el ancla "Otras formas y condiciones de pago" se lee la sección completa. Los años sueltos en lista
+  cuentan ("del año 2024 y 2025", "2025-2026-2027").
 - **No cuenta** (trampas medidas): plantilla condicional "En caso de que la contratación sea plurianual, los
   pagos… estarán sujetos…" (325 docs, texto genérico); negación "EL LLAMADO NO ES PLURIANUAL" (2 docs);
   "Ejercicio Fiscal 2023" solo, en un llamado publicado en 2022 (ad referéndum para un único ejercicio: un solo
   año, no dos).
 - **Precisión**: 29/30 en una muestra aleatoria leída (el error era la negación, ya excluida).
-- **Pregunta abierta**: ¿también un binario aparte `pago_ad_referendum` (publicado en un año para ejecutar y
-  pagar en el siguiente)? Recomiendo **no** por ahora: es atributo del calendario presupuestario, no de la
-  forma de pago.
+- **Decisión (08-oct)**: sin binario aparte `pago_ad_referendum` (es calendario presupuestario, no forma de pago).
+- **Implementado (I3)**: `field_rules_v1.pago_plurianual(text, year)`; columna en v3: **4.333 docs = 1** (14%),
+  26.659 = 0, 329 NULL. Los ~1.200 extra respecto del análisis vienen sobre todo de pliegos sin ancla (452) y de
+  listas de años; 13/14 correctos en una muestra leída.
 
-### A10. `num_tramos_pago` — pago dividido en tramos o cuotas definidos 🟡 BORRADOR (08-oct-2026)
+### A10. `num_tramos_pago` — pago dividido en tramos o cuotas definidos ✅ APROBADA (08-oct-2026)
 - **Mide**: en cuántos tramos con monto o % definido se divide el pago del contrato ("Primer pago: 20%…
   Segundo pago: 40%… Tercer pago: 40%" → 3). 0 = pago por factura o periódico sin tramos definidos. Para
   anomalías: retener una parte grande del pago hasta el final (o diferirla 12-36 meses tras la entrega)
@@ -350,7 +353,7 @@
   3. Ordinales "primer… segundo/tercer pago, cuota o desembolso" → cantidad de ordinales (41 docs).
   4. Un % de pago seguido de "saldo / restante" → 2 (40 docs): "el 55%… el restante 45% será pagado a
      principios del Ejercicio Fiscal 2024" → 2.
-  5. Si no → 0. Sin sección o sin texto propio → NULL.
+  5. Si no → 0. Sin sección → NULL.
 - **Trampas medidas**: "con anterioridad al **primer pago**" del FIS (348 docs, plantilla); "para el primer
   pago presentar la documentación"; % de multa, retención, contribución 0,4/0,5%, garantía de fiel
   cumplimiento o de anticipo, póliza, IVA, "avance de 40%" (es condición, no tramo); "100% del monto" (pago
@@ -358,11 +361,11 @@
 - **Precisión**: 25/30 tramos genuinos en muestra aleatoria leída; 2 son "anticipo 20% + 80% restante" y 3
   no se pudieron confirmar con el fragmento. Conteo N aproximado (ordinales repetidos por lote pueden
   inflarlo).
-- **Preguntas abiertas**:
-  1. ¿"Anticipo 20% + saldo 80%" cuenta como 2 tramos? Recomiendo **no**: el anticipo ya tiene sus variables
-     (A3/A4) y se contaría dos veces.
-  2. ¿Número de tramos o binario? Recomiendo guardar **el número** (el binario sale de `> 0`) y, como
-     variable principal para el modelo, el binario hasta validar el conteo.
+- **Decisiones (08-oct)**: el anticipo **no** es tramo ("anticipo 20% + 80% restante" → 0; un ordinal seguido de
+  "anticipo" no se cuenta). Se guarda **el número**; para el modelo se usa el binario `num_tramos_pago > 0`
+  hasta validar el conteo.
+- **Implementado (I3)**: `field_rules_v1.num_tramos_pago(text)`; columna en v3: **331 docs > 0** (2: 184 · 3: 101
+  · 4: 23 · 5-12: 23), 30.661 = 0, 329 NULL. Caso 473007: A1 = 30, A9 = 1, A10 = 3.
 
 ### A7. `num_pasos_verificacion` — pasos del análisis del comité
 - **Mide**: cantidad de pasos numerados ("1.", "1º", "1°") del análisis de prohibiciones del comité.
@@ -470,7 +473,7 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 |---|---|
 | Regla → LLM en residuales (único lugar del benchmark) | A1 `dias_pago_maximo` · A2 `dias_validez_garantia` · A3 `dias_pago_anticipo` · A4 `dias_solicitud_anticipo` · A5 `anos_experiencia_minima_tecnica` · A6 `pct_monto_referencia_tecnica` |
 | Regla/regex sin LLM | B1 `ratio_liquidez_minimo` · B2 `ratio_endeudamiento_maximo` |
-| Regex nuevo | `tipo_indice_reajuste` · `tiene_clausula_fuerza_mayor` · `tiene_clausula_aceptacion_factura` · `exige_certificado_laboral` · A8 `pct_respaldo_financiero_monto` · 🟡 A9 `pago_plurianual` · 🟡 A10 `num_tramos_pago` (borradores) |
+| Regex nuevo | `tipo_indice_reajuste` · `tiene_clausula_fuerza_mayor` · `tiene_clausula_aceptacion_factura` · `exige_certificado_laboral` · A8 `pct_respaldo_financiero_monto` · A9 `pago_plurianual` · A10 `num_tramos_pago` |
 | Flags nuevos | `pago_en_dias_habiles` · `pago_sujeto_plan_caja` · `garantia_varia_por_item` · `anticipo_sujeto_disponibilidad` · `liquidez_no_estandar` · `endeudamiento_no_estandar` · `umbral_reajuste_no_estandar` |
 | Control (no predictor) | `num_pasos_verificacion` |
 | Fusión para Pipeline 3 | `anos_experiencia_exigidos` (máx. A5 + `anos_experiencia_minima`) · `pct_monto_referencia` (`pct_monto_referencia_minimo`, si falta A6) |

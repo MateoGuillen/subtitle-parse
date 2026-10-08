@@ -11,7 +11,7 @@ Contrato de las reglas de valor (RULES_V1):
   - NO_RULE -> la regla no sabe (hay candidatos que no clasifica): decide el LLM (residual)
 Ratios (B1/B2) son totalitarios: nunca devuelven NO_RULE.
 
-section_features(slug, text) devuelve las columnas nuevas (regex/flags) de una sección.
+section_features(slug, text, year) devuelve las columnas nuevas (regex/flags) de una sección.
 """
 import re
 
@@ -233,6 +233,105 @@ def _pago_flags(text):
     cert = int(bool(re.search(r"certificado\s+laboral", s, re.I)))
     return {"pago_en_dias_habiles": habiles, "pago_sujeto_plan_caja": plan,
             "tiene_clausula_aceptacion_factura": acept, "exige_certificado_laboral": cert}
+
+
+# ------------------------------------------------------------------ A9/A10 estructura del pago
+# Tramo propio de la entidad: entre "Otras formas y condiciones de pago…:" y la cláusula estándar.
+_OWN_START = re.compile(r"otras\s+formas\s+y\s+condiciones\s+de\s+pago[^:]{0,80}:", re.I)
+_OWN_END = re.compile(r"(?:\d\.\s*)?la\s+contratante\s+efectuar[aá]\s+los\s+pagos", re.I)
+
+
+def _pago_own(text):
+    """Texto propio de la entidad en la sección de pago ('' si solo hay plantilla); sin ancla, todo el texto."""
+    s = re.sub(r"\s+", " ", text or "")
+    a = _OWN_START.search(s)
+    if not a:
+        return s
+    b = _OWN_END.search(s, a.end())
+    return s[a.end():b.start() if b else len(s)]
+
+
+_PLUR = re.compile(r"plurianual", re.I)
+_PLUR_NOT = re.compile(r"(?:en\s+caso\s+de\s+(?:que\s+)?|si\s+|cuando\s+)(?:la\s+contrataci[oó]n|el\s+(?:llamado|contrato|"
+                       r"proceso|procedimiento))?\s*(?:sea|fuera|fuese|resultare?|fuere)\s+(?:de\s+car[aá]cter\s+)?"
+                       r"plurianual|contrataciones\s+plurianuales|\bno\s+(?:es|ser[aá])\s+(?:de\s+car[aá]cter\s+)?plurianual|"
+                       r"\bno\s+plurianual", re.I)
+_FY = re.compile(r"(?:ejercicio|presupuesto|a[nñ]o|periodo|per[ií]odo)\s+(?:fiscal\s+)?(?:del?\s+)?(?:a[nñ]o\s+)?"
+                 r"(20\d\d|2\.0\d\d)", re.I)
+_FY_MORE = re.compile(r"\s*(?:y|,|-|–|al|hasta)\s*(20\d\d)\b")
+_SALDO = re.compile(r"(?:saldo|restante|resto)[^.]{0,200}", re.I)
+
+
+def _fiscal_years(s):
+    """Años de ejercicio/presupuesto mencionados, incluidas las listas ("del año 2024 y 2025", "2025-2026")."""
+    out = []
+    for m in _FY.finditer(s):
+        out.append(int(m.group(1).replace(".", "")))
+        pos = m.end()
+        while (n := _FY_MORE.match(s, pos)):
+            out.append(int(n.group(1)))
+            pos = n.end()
+    return out
+
+
+def pago_plurianual(text, year=None):
+    """A9: 1 si los pagos del contrato caen en dos o más ejercicios fiscales; 0 si no; None sin sección.
+    `year` = año de publicación del llamado (sin él, las reglas 2-3 usan el menor año mencionado)."""
+    if not _has_text(text):
+        return None
+    s = _pago_own(text)
+    if len(_PLUR.findall(s)) > len(_PLUR_NOT.findall(s)):
+        return 1
+    yrs = set(_fiscal_years(s))
+    base = year if year is not None else (min(yrs) if yrs else None)
+    if base is None:
+        return 0
+    if len({y for y in yrs if y >= base}) >= 2:
+        return 1
+    for m in _SALDO.finditer(s):
+        if any(y > base for y in _fiscal_years(m.group(0))):
+            return 1
+    return 0
+
+
+_ORD = re.compile(r"\b(primer|segund|tercer|cuart|quint|[uú]ltim)[oa]?\s+(?:pago|cuota|desembolso|tramo|hito)\b", re.I)
+_ORD2 = re.compile(r"\b(?:segund|tercer)[oa]?\s+(?:pago|cuota|desembolso|tramo|hito)\b", re.I)
+_NCUOT = re.compile(r"\ben\s+(\d+|dos|tres|cuatro|cinco|seis|doce)\s*(?:\(\s*\w+\s*\)\s*)?"
+                    r"(?:cuotas|pagos|desembolsos|tramos|etapas|partes)\b", re.I)
+_TPCT = re.compile(r"(\d{1,3}(?:[.,]\d+)?)\s*\)?\s*(?:%|por\s*ciento)", re.I)
+_TPCT_TRAP = re.compile(r"garant[ií]a\s+de\s+(?:fiel|cumplimiento|anticipo)|multa|reten|contribuci|garant|anticipo|"
+                        r"penalidad|descuento|mora\b|seguro|tasa|p[oó]liza|iva\b|impuesto|avance\s+de|"
+                        r"cumpla\s+con\s+el|interes", re.I)
+_TPCT_PAGO = re.compile(r"monto|valor|total|contrato|precio|importe|adjudicad|saldo|restante|pago|abonar|cuota", re.I)
+
+
+def num_tramos_pago(text):
+    """A10: nº de tramos con monto o % definido en que se divide el pago (0 = sin tramos; None sin sección).
+    El anticipo no cuenta como tramo (tiene sus variables A3/A4)."""
+    if not _has_text(text):
+        return None
+    s = _pago_own(text)
+    pcts = []
+    for m in _TPCT.finditer(s):
+        v = float(m.group(1).replace(",", "."))
+        pre, post = s[max(0, m.start() - 80):m.start()], s[m.end():m.end() + 45]
+        if 0 < v < 100 and not _TPCT_TRAP.search(pre + post) and _TPCT_PAGO.search(pre[-70:] + post):
+            pcts.append((v, m.start()))
+    if len(pcts) >= 2 and 90 <= sum(v for v, _ in pcts) <= 110:
+        return len(pcts)
+    m = _NCUOT.search(s)
+    if m:
+        g = m.group(1).lower()
+        return int(g) if g.isdigit() else {"dos": 2, "tres": 3, "cuatro": 4, "cinco": 5, "seis": 6, "doce": 12}[g]
+    if _ORD2.search(s):
+        ords = {x.group(1).lower()[:4] for x in _ORD.finditer(s)
+                if not re.search(r"anticipo", s[x.end():x.end() + 60], re.I)}
+        return max(2, len(ords))
+    for _, pos in pcts:  # "N% … y el saldo / restante": dos tramos, salvo que el otro sea el anticipo
+        if re.search(r"saldo|restante", s[pos:pos + 160], re.I) and \
+                not re.search(r"anticipo", s[max(0, pos - 250):pos + 160], re.I):
+            return 2
+    return 0
 
 
 # ------------------------------------------------------------------ A2 dias_validez_garantia
@@ -705,7 +804,8 @@ TOTALITARIAN_V1 = {"ratio_liquidez_minimo", "ratio_endeudamiento_maximo"}
 NEW_COLUMNS = {
     "formas_y_condiciones_de_pago": {"pago_en_dias_habiles": "SMALLINT", "pago_sujeto_plan_caja": "SMALLINT",
                                      "tiene_clausula_aceptacion_factura": "SMALLINT",
-                                     "exige_certificado_laboral": "SMALLINT"},
+                                     "exige_certificado_laboral": "SMALLINT", "pago_plurianual": "SMALLINT",
+                                     "num_tramos_pago": "SMALLINT"},
     "periodo_de_validez_de_la_garantia_de_los_bienes": {"garantia_varia_por_item": "SMALLINT"},
     "solicitud_de_pago_de_anticipo": {"anticipo_sujeto_disponibilidad": "SMALLINT"},
     "capacidad_financiera": {"liquidez_no_estandar": "SMALLINT", "endeudamiento_no_estandar": "SMALLINT"},
@@ -716,10 +816,12 @@ NEW_COLUMNS = {
 NO_SECTION_DEFAULT = {"tiene_clausula_fuerza_mayor": 0, "tiene_clausula_aceptacion_factura": 0}
 
 
-def section_features(slug, text):
-    """Columnas nuevas (regex/flags) de la especificación v1.0 para una sección."""
+def section_features(slug, text, year=None):
+    """Columnas nuevas (regex/flags) de la especificación v1.0 para una sección.
+    `year` = año de publicación del llamado (solo lo usa A9)."""
     if slug == "formas_y_condiciones_de_pago":
-        return _pago_flags(text)
+        return {**_pago_flags(text), "pago_plurianual": pago_plurianual(text, year),
+                "num_tramos_pago": num_tramos_pago(text)}
     if slug == "periodo_de_validez_de_la_garantia_de_los_bienes":
         vals, _, _ = _validez_values(text or "")
         return {"garantia_varia_por_item": None if not vals else int(len(set(vals)) > 1)}

@@ -2,7 +2,8 @@
 
 Calcula desde dncp.pliegos_secciones (texto por documento = secciones del título concatenadas por
 line_start, igual que el pipeline v2):
-  1. Columnas NUEVAS (regex/flags, sin LLM): tipo_indice_reajuste, 3 binarios del grupo C y 7 flags
+  1. Columnas NUEVAS (regex/flags, sin LLM): tipo_indice_reajuste, 3 binarios del grupo C, 7 flags y
+     A9/A10 (pago_plurianual, num_tramos_pago)
      (field_rules_v1.NEW_COLUMNS). Con --apply se agregan a dncp.document_features_v3.
   2. Valores de las REGLAS v1 para los 8 campos con ficha (A1-A6, B1, B2) con su estado
      ('valor' | 'ausente' | 'llm' = residual para el fallback). Con --apply van a la tabla de staging
@@ -67,6 +68,9 @@ def main():
     docs = [str(r[0]) for r in cur.fetchall()]
     slugs = sorted(set(fr.NEW_COLUMNS) | set(RULE_FIELDS.values()))
     texts = load_texts(cur, slugs)
+    cur.execute("SELECT nro_licitacion::text, COALESCE(extract(year FROM fecha_publicacion)::int, year) "
+                "FROM dncp.licitaciones")
+    years = dict(cur.fetchall())  # año de publicación (A9 pago_plurianual)
     code_sha = sha_file(str(ROOT / "src/etl/transformers/field_rules_v1.py"))[:16]
     git = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True,
                          cwd=ROOT).stdout.strip()
@@ -87,7 +91,7 @@ def main():
     for slug, cdefs in fr.NEW_COLUMNS.items():
         tx = texts[slug]
         for nro in docs:
-            feats = fr.section_features(slug, tx[nro]) if nro in tx else \
+            feats = fr.section_features(slug, tx[nro], years.get(nro)) if nro in tx else \
                 {c: fr.NO_SECTION_DEFAULT.get(c) for c in cdefs}
             for c in cdefs:
                 newvals[c][nro] = feats.get(c)
