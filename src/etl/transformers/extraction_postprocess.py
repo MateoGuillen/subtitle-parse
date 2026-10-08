@@ -15,16 +15,21 @@ Rules mirror the human GT criteria for the evaluated fields:
 """
 import re
 
+from src.etl.transformers import field_rules_v1 as _v1
+
 __all__ = [
     "NO_RULE", "KNOWN_DEFAULTS", "deterministic_pct", "postprocess",
     "parse_response", "PCT_INT_SCALE",
     # sesión 23
     "RULES", "TOTALITARIAN", "PRODUCTION_MODE", "MODES", "Resolution",
     "rule_value", "llm_value", "resolve",
+    # especificación de campos v1.0 (08-oct-2026)
+    "RULESETS", "DEFAULT_RULESET", "RULES_S24", "TOTALITARIAN_S24",
 ]
 
 
-NO_RULE = object()
+# Centinela compartido con field_rules_v1 (mismo objeto: las reglas v1 lo devuelven).
+NO_RULE = _v1.NO_RULE
 
 KNOWN_DEFAULTS = {
     "dias_validez_garantia": {60.0, 90.0, 30.0, 45.0, 2.0, 3.0, 1.0, 4.0, 6.0, 180.0, 182.0},
@@ -715,8 +720,8 @@ def _deterministic_aceptacion_factura(text):
     return NO_RULE
 
 
-# Reglas autoritativas sobre el texto (el valor del LLM se ignora si aplican).
-RULES = {
+# Reglas de la SESIÓN 24 (congeladas: reproducen ablación/varianza/pseudo-GT publicados).
+RULES_S24 = {
     "ratio_liquidez_minimo": _deterministic_ratio_liquidez,
     "dias_pago_maximo": _deterministic_primer_n_dias,  # H4.6: "primer N días", no máximo
     "dias_validez_garantia": _deterministic_validez_garantia,
@@ -729,26 +734,38 @@ RULES = {
 }
 # Totalitarias: si la regla no encuentra su patrón, dictamina ausencia (None).
 # dias_pago_maximo NO lo es: sin "N días" en el texto, decide el LLM.
-TOTALITARIAN = set(RULES) - {"dias_pago_maximo"}
+TOTALITARIAN_S24 = set(RULES_S24) - {"dias_pago_maximo"}
+
+# Reglas VIGENTES = especificación de campos v1.0 (docs/especificacion_campos.md, aprobada el
+# 08-oct-2026) para los 8 campos con ficha; los dos campos de plantilla (grupo C, ahora binarios
+# por regex) conservan su regla de la sesión 24. Contrato v1: número = valor, None = ausencia,
+# NO_RULE = la regla no sabe y decide el LLM (residual). Solo los ratios son totalitarios.
+RULES = {**{f: RULES_S24[f] for f in ("dias_aceptacion_rechazo_factura",
+                                      "dias_notificacion_fuerza_mayor")},
+         **_v1.RULES_V1}
+TOTALITARIAN = _v1.TOTALITARIAN_V1 | {"dias_aceptacion_rechazo_factura", "dias_notificacion_fuerza_mayor"}
+RULESETS = {"spec-v1": (RULES, TOTALITARIAN), "s24": (RULES_S24, TOTALITARIAN_S24)}
+DEFAULT_RULESET = "spec-v1"
 # Alias con nombre honesto (H4.6)
 _first_n_dias = _deterministic_primer_n_dias
 
 
-def rule_value(field, text):
+def rule_value(field, text, ruleset=DEFAULT_RULESET):
     """Valor de la regla determinista sobre el texto, sin mirar al LLM.
 
-    Devuelve NO_RULE si el campo no tiene regla o la regla no aplica (solo
-    dias_pago_maximo puede "no aplicar"); None si la regla dictamina ausencia.
+    Devuelve NO_RULE si el campo no tiene regla o la regla no sabe (decide el LLM);
+    None si la regla dictamina ausencia. ruleset: "spec-v1" (vigente) | "s24" (histórico).
     """
+    rules, totalitarian = RULESETS[ruleset]
     det = deterministic_pct(field, text or "")
     if det is not NO_RULE:
         return det
-    fn = RULES.get(field)
+    fn = rules.get(field)
     if fn is None:
         return NO_RULE
     v = fn(text or "")
     if v is NO_RULE:
-        return None if field in TOTALITARIAN else NO_RULE
+        return None if field in totalitarian else NO_RULE
     return v
 
 
@@ -909,7 +926,7 @@ def _legacy_production_parse(raw, ftype, field="", text=""):
     return val, 1.0
 
 
-def resolve(field, raw, text, mode=PRODUCTION_MODE, ftype=None):
+def resolve(field, raw, text, mode=PRODUCTION_MODE, ftype=None, ruleset=DEFAULT_RULESET):
     """Resuelve el valor final de un (campo, respuesta LLM, texto) con origen explícito."""
     if mode not in MODES:
         raise ValueError(f"modo desconocido: {mode!r} (válidos: {MODES})")
@@ -921,7 +938,7 @@ def resolve(field, raw, text, mode=PRODUCTION_MODE, ftype=None):
         v, _ = _legacy_production_parse((raw or "").strip(), ftype, field=field, text=text)
         return Resolution(v, "legacy", False, None, None, mode)
 
-    rv = rule_value(field, text)
+    rv = rule_value(field, text, ruleset)
     applies = rv is not NO_RULE
     rv_out = rv if applies else None
     lv = None if mode == "rule_only" else llm_value(field, raw, text, ftype)

@@ -1,6 +1,8 @@
 # CLAUDE.md — Contexto de continuación entre sesiones
 
 ## ⏳ Paso actual (leer primero)
+**Sesión 25 (08-oct) = especificación de campos v1.0 aprobada + I1-I3 implementado** (`docs/especificacion_campos.md`, plan I1-I8 al final). Reglas vigentes = `src/etl/transformers/field_rules_v1.py` (`RULES`; el juego de la sesión 24 queda como `RULES_S24` / `ruleset="s24"`). Columnas nuevas en v3 (11) y valores de reglas v1 en `dncp.spec_v1_rule_values` (staging, sin promover). **Siguiente: I4** — proponer al usuario las correcciones del GT de agosto que contradicen las fichas (no editar GT sin aprobación). Estrategia de variables: `docs/estrategia_variables_anomalias.md`.
+
 **Sesión 24 = ejecución autónoma del plan de corrección (`docs/plan_correccion_auditoria.md`)**: F0-F4 y F6 ✅, F5 código ✅. Bitácora completa en §9 del plan; resumen en `AGENTS.md` §Session 24.
 - **Veredicto vigente**: `docs/endurecimiento_benchmark_plan.md` §9 (v3) + §9.8-9.9 (14 modelos + pseudo-GT Opus fuera de muestra, ranking estable ρ=0,91: **Gemma-4-12B QAT W4A16 vLLM recomendado**; elección final del usuario). Run F4 hecho con Qwen3-8B-FP8 (crudo 98,3% vs FP8 76,6% en C3 dias; GT-12 LLM solo 75,0% vs 34,5%). Las capas deterministas ponen el rendimiento: pipeline 93,8% (95,1% con orden regla→regex); el LLM decide solo 8,7% de ítems.
 - **Tabla a usar**: `dncp.document_features_v3` (NULL≠0 + `{campo}_status`). `document_features_v2` es legado (0 = ausencia).

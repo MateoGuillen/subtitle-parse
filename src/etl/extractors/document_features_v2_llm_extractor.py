@@ -27,7 +27,8 @@ class DocumentFeaturesV2LLMExtractor:
         for slug, schema in self.title_schemas.items():
             for f in schema["fields"]:
                 self._field_to_title[f["name"]] = slug
-                if f.get("extraction_method") == "hybrid":
+                # spec-v1: llm_fallback=false saca el campo del fallback (reglas/regex o reclasificado)
+                if f.get("extraction_method") == "hybrid" and f.get("llm_fallback", True):
                     if f["name"] in self.exclude_fields:
                         excluded_count += 1
                         continue
@@ -69,7 +70,8 @@ class DocumentFeaturesV2LLMExtractor:
         try:
             for slug, schema in self.title_schemas.items():
                 title_name = slug.replace("_", " ")
-                hybrid = [f for f in schema["fields"] if f.get("extraction_method") == "hybrid"]
+                hybrid = [f for f in schema["fields"]
+                          if f.get("extraction_method") == "hybrid" and f.get("llm_fallback", True)]
                 if not hybrid:
                     continue
 

@@ -88,12 +88,12 @@ def test_always_null_scores_239_only_with_rules(c3_items):
     assert len(dias) == 239
 
     def hits(mode):
-        return sum(_eq(_f(ep.resolve(f, "NULL", t, mode=mode).value), gt, f)
+        return sum(_eq(_f(ep.resolve(f, "NULL", t, mode=mode, ruleset="s24").value), gt, f)
                    for f, gt, t in dias)
     assert hits("rule_then_llm") == 239   # lo publicado: las reglas responden
     assert hits("llm_only") == 0          # midiendo al modelo, NULL no acierta nada
     assert hits("rule_first") == 239      # producción: las reglas siguen decidiendo, con source='rule'
-    srcs = {ep.resolve(f, "NULL", t, mode="rule_first").source for f, _, t in dias}
+    srcs = {ep.resolve(f, "NULL", t, mode="rule_first", ruleset="s24").source for f, _, t in dias}
     assert srcs == {"rule"}
 
 
@@ -103,10 +103,10 @@ def test_rule_value_matches_legacy_rules_except_intended(corpus):
     corrección intencional de dias_aceptacion_rechazo_factura (H4.2)."""
     diffs = {}
     for cid, f, raw, text, _ in corpus:
-        if raw != "NULL" or (f not in ep.RULES and ep.deterministic_pct(f, text) is ep.NO_RULE):
+        if raw != "NULL" or (f not in ep.RULES_S24 and ep.deterministic_pct(f, text) is ep.NO_RULE):
             continue
         legacy = _f(ep._legacy_parse_response("NULL", field=f, text=text))
-        rv = ep.rule_value(f, text)
+        rv = ep.rule_value(f, text, ruleset="s24")
         new = None if rv is ep.NO_RULE else _f(rv)
         if legacy != new:
             diffs.setdefault(f, []).append(cid)

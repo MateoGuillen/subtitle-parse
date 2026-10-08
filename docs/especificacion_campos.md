@@ -46,8 +46,10 @@
   (manda el paréntesis). Solo cláusula estándar → **60**.
 - **Hábiles vs corridos** (1.833 textos con "hábiles"): el número **tal cual**, sin convertir; se marca
   aparte el flag `pago_en_dias_habiles` (decisión 08-oct).
-- **Flag adicional** `pago_sujeto_plan_caja` (1.235 textos: "sujeto a disponibilidad del Plan de Caja /
-  Plan Financiero / transferencia de fondos"): binario, mismo texto, sin costo extra (decisión 08-oct).
+- **Flag adicional** `pago_sujeto_plan_caja` ("sujeto a disponibilidad del Plan de Caja / Plan Financiero /
+  disponibilidad presupuestaria / transferencia de fondos"): binario, mismo texto, sin costo extra
+  (decisión 08-oct). Medido sobre la sección completa (I3): 8.405 docs (27%); los 1.235 textos del
+  análisis inicial contaban solo menciones junto a un plazo.
 - **Guía del prompt (extraction_hint)**:
   ```
   Plazo en días en que la contratante se compromete a PAGAR al proveedor.
@@ -374,11 +376,36 @@ Medido en BD (31.321 docs en v3). Ningún campo de este grupo usa LLM ni anotaci
 
 | Paso | Qué | Quién | Depende de |
 |---|---|---|---|
-| I1 | Reescribir `extraction_hint` de A1-A6, B1, B2 desde las fichas; versión nueva del prompt (cambia el fingerprint) | Opus | — |
-| I2 | Ajustar reglas deterministas a las trampas medidas (A1: FIS/cuotas/recibo/aceptación; A2: máximo + días literales + servicios; A3/A4: excluir el texto legal fijo; A5: antigüedad en el rubro + ventanas "últimos N años"; B2: ratio invertido y margen de solvencia). Un test por cada ejemplo y trampa de las fichas | Opus | — |
-| I3 | Regex nuevos (`tipo_indice_reajuste`, 3 binarios C) + 7 flags; columnas en v3 (migración SQL idempotente) y recálculo | Opus | — |
+| I1 ✅ | Reescribir `extraction_hint` de A1-A6, B1, B2 desde las fichas; versión nueva del prompt (cambia el fingerprint); `llm_fallback=false` en 7 campos | Opus | — |
+| I2 ✅ | Ajustar reglas deterministas a las trampas medidas (A1: FIS/cuotas/recibo/aceptación; A2: máximo + días literales + servicios; A3/A4: excluir el texto legal fijo; A5: antigüedad en el rubro + ventanas "últimos N años"; B2: ratio invertido y margen de solvencia). Un test por cada ejemplo y trampa de las fichas | Opus | — |
+| I3 ✅ | Regex nuevos (`tipo_indice_reajuste`, 3 binarios C) + 7 flags; columnas en v3 (migración SQL idempotente) y recálculo | Opus | — |
 | I4 | Re-alinear referencias con las fichas: script que marca ítems del GT de agosto cuyo valor contradice una decisión nueva (validez por ítem, servicios, antigüedad, ventanas…) → propuesta de corrección → **aprobación del usuario**; re-anotar el pseudo-GT Opus con las fichas | Opus + usuario | I1 |
 | I5 | Calibración v2: 60 ítems (A1-A6 × 10, estrato no-modal sobremuestreado), usuario y Opus por separado → κ por campo; κ < 0,8 → se corrige la ficha | usuario + Opus | I4 |
 | I6 | Benchmark reducido: Gemma-4-12B QAT (vLLM), Qwen3-14B-AWQ, Gemma-4-26B-A4B × A1-A6, crudo y pipeline, contra GT re-alineado y pseudo-GT; métrica en 3 columnas (total, estrato no-modal, ausencias) | Opus (~40 min GPU) | I1, I2, I4 |
 | I7 | GT fuera de muestra (~240 ítems, A1-A6) → precisión por campo y estrato → promote por campo a v3 | usuario → Opus | I5, I6 |
 | I8 | Pipeline 3 fase 1 con variables sin LLM (económicas, estructurales, P1, B1/B2, regex nuevos, flags) | Opus | I3 (en paralelo a I4-I7) |
+
+### Resultado I1-I3 (08-oct-2026)
+- Código: `src/etl/transformers/field_rules_v1.py`; `RULES` vigente = spec-v1; `RULES_S24` congelado.
+- Tests: `tests/test_field_rules_v1.py` (un caso por ejemplo/trampa de las fichas) + suite histórica intacta.
+- Acierto de las reglas solas (sin LLM):
+
+| Campo | GT agosto v1 / s24 (200) | pseudo-GT Opus v1 / s24 | casos al LLM (corpus) |
+|---|---|---|---|
+| dias_pago_maximo | 185 / 189 | 26 / 21 (30) | 0 |
+| dias_validez_garantia | 163 / 200 | 28 / 22 (28) | 19 |
+| dias_pago_anticipo | 199 / 200 | 28 / 27 (30) | 162 |
+| dias_solicitud_anticipo | 197 / 200 | 28 / 25 (30) | 57 |
+| anos_experiencia_minima_tecnica | 172 / 199 | 29 / 29 (30) | 249 |
+| pct_monto_referencia_tecnica | 181 / 151 | 30 / 30 (30) | 28 |
+| ratio_liquidez_minimo | 200 / 200 | 30 / 30 (30) | 0 |
+| ratio_endeudamiento_maximo | 199 / 199 | 30 / 30 (30) | 0 |
+
+  Las reglas s24 se ajustaron sobre el GT de agosto (200/200 in-sample); las diferencias v1 vs GT son, en
+  su gran mayoría, decisiones de las fichas que el GT no sigue (validez > 365 días o por lote → GT NULL;
+  antigüedad en el rubro → GT NULL; plazo de obra "Plazo de pago: N días desde la aprobación del
+  certificado" → GT 60; recibo/retención tomados como plazo de pago). Insumo directo para I4.
+- Pregunta abierta para I4: "solvencia económica del N% del monto máximo" (capacidad técnica, 8 ítems GT)
+  no es % de referencias según la ficha A6; hoy NULL. ¿Variable nueva de capacidad financiera?
+- `scripts/build_features_spec_v1.py --apply`: 11 columnas nuevas en v3 (31.321 filas) y
+  `dncp.spec_v1_rule_values` (232.604 filas; residual LLM ≈ 515 campo-documento).

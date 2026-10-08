@@ -26,6 +26,9 @@
 ## Scripts por tarea
 | Tarea | Script |
 |---|---|
+| Reglas spec-v1 (8 campos) + columnas nuevas (regex/flags) | `src/etl/transformers/field_rules_v1.py`; build: `scripts/build_features_spec_v1.py [--apply]`; tests `tests/test_field_rules_v1.py` |
+| Análisis por sección (evidencia de las fichas) | `scripts/analisis_seccion_{pago,garantia,anticipo,capacidad,financiera,reajuste}.py <dir_tmp>` |
+| Informatividad de las 710 features | `scripts/informatividad_features.py` |
 | Correr/retomar fallback LLM (v2) | `scripts/run_llm_fallback.py` (`--model qwen3-8b-fp8`, `--fields`, `--pilot-docs`, `--run-id`, `--no-llm`, `--llm-all`) |
 | Promover / rollback (dry-run por defecto) | `scripts/promote_fallback.py --run-id X --fields a,b [--apply]` · `--rollback` |
 | Generar/validar planillas aceptación v2 | `scripts/generar_aceptacion.py --run-id X`, `scripts/validar_aceptacion.py <csv> [--segundo]` |
@@ -46,7 +49,7 @@
 | Resultados modelos | `data/processed/llm_benchmark/multimodel_results/` (`Fase5_*`, `Conc_*`, `C3_*`, `C4_*`, `C5_*`) | ~2 MB |
 | Planillas aceptación | `data/processed/llm_benchmark/planillas/` (A 281, B 400, C 123 + IAA/estrat/A46/A47) | chicos |
 | GT y comparativas | `data/processed/alolab/` (`gt_por_campo/`, `comparativa_estrategias.csv`, `*_GT.csv`) | mediano |
-| Tablas BD `dncp` | `pliegos_secciones` 2.78M · **`document_features_v3`** (NULL≠0, usar esta) · `document_features_v2` 31.321×108 (legado, 0=ausencia) · `document_economic_features` 29.811×46 · `llm_fallback_runs_v2`/`cache_v2`/`llm_runs` (run v2 288K) · `llm_fallback_{cache,runs}` (v1 congelado 294K) · `document_features_v2_history` | BD podman 5433 |
+| Tablas BD `dncp` | `pliegos_secciones` 2.78M · **`document_features_v3`** (NULL≠0, usar esta) · `document_features_v2` 31.321×108 (legado, 0=ausencia) · `document_economic_features` 29.811×46 · `llm_fallback_runs_v2`/`cache_v2`/`llm_runs` (run v2 288K) · `spec_v1_rule_values` (reglas v1, staging 232K) · `llm_fallback_{cache,runs}` (v1 congelado 294K) · `document_features_v2_history` | BD podman 5433 |
 | Modelos (NO en repo) | caché HF `/root/.cache/huggingface` (55G) + `./models/gguf/` (20G) | — |
 
 ## Código fuente (src/)

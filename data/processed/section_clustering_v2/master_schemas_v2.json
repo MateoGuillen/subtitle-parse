@@ -3,7 +3,8 @@
     "description": "Master schemas v2 for parametric extraction. 25 titles (26 excl. copias_de_la_oferta__cps con 0 secciones). Diseñados manualmente siguiendo la disciplina de diseño doc sección 5: priorizar magnitud numérica cruda, colapsar correlaciones, máx 1-2 binarios por hecho legal.",
     "version": "2.0",
     "date": "2026-07-24",
-    "total_titles": 25
+    "total_titles": 25,
+    "spec_campos": "docs/especificacion_campos.md v1.0 (08-oct-2026): hints de 8 campos reescritos desde las fichas; llm_fallback=false en 7 campos"
   },
   "analisis_de_precios_ofertados": {
     "description": "Análisis de precios ofertados — umbrales de diferencia vs precio referencial y criterios de evaluación",
@@ -72,7 +73,9 @@
         "type": "int",
         "description": "Plazo en días para notificar evento de fuerza mayor (típicamente 7)",
         "extraction_method": "hybrid",
-        "extraction_hint": "Busca el PLAZO en DÍAS para NOTIFICAR un evento de fuerza mayor. Patrones: 'N días', 'N días calendario', 'plazo de N días', 'comunicar dentro de los N días', 'notificar fehacientemente dentro de los N días'. El número debe estar asociado a 'notificar', 'comunicar' o 'fuerza mayor'. NO respondas 0 si no se menciona el plazo — responde NULL. NO extraigas porcentajes, artículos legales, ni listas numeradas. Rango: 1-365."
+        "extraction_hint": "Busca el PLAZO en DÍAS para NOTIFICAR un evento de fuerza mayor. Patrones: 'N días', 'N días calendario', 'plazo de N días', 'comunicar dentro de los N días', 'notificar fehacientemente dentro de los N días'. El número debe estar asociado a 'notificar', 'comunicar' o 'fuerza mayor'. NO respondas 0 si no se menciona el plazo — responde NULL. NO extraigas porcentajes, artículos legales, ni listas numeradas. Rango: 1-365.",
+        "llm_fallback": false,
+        "llm_fallback_motivo": "spec-v1 C1: binario tiene_clausula_fuerza_mayor (regex)"
       },
       {
         "name": "binary_incluye_ejemplos_tipicos",
@@ -105,7 +108,8 @@
         "type": "int",
         "description": "Días corridos para presentar la garantía desde la suscripción del contrato",
         "extraction_method": "regex",
-        "extraction_hint": "Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+        "extraction_hint": "Buscar el dias asociado a días, corridos, presentar, garantía, desde. Buscar patrones como 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO extraer porcentajes (ej: '10%', '10,00%') aunque esten cerca del numero. NO extraer montos en guarani (ej: 'Gs. 10.000.000'). NO extraer numeros que sean parte de una fecha (ej: '15 de enero'). Rango valido: 1-365. Si el numero esta fuera de este rango o es 0, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.",
+        "deprecated": "spec-v1 (08-oct-2026): constante (10 días en el 100%), descartado"
       }
     ]
   },
@@ -365,7 +369,8 @@
         "type": "int",
         "description": "Días de validez de la garantía de los bienes",
         "extraction_method": "hybrid",
-        "extraction_hint": "Busca el PLAZO EN DÍAS de validez de la garantía de los bienes. El valor siempre es en DÍAS. CONVERSIÓN EXACTA de meses/años a días: '12 (doce) meses' = 365, '1 año' o '1 (un) año' = 365, '6 (seis) meses' = 182, '3 (tres) meses' = 91, '2 (dos) meses' = 61, '1 mes' = 30. El número en letras del paréntesis (doce, un, seis) confirma cuántos meses son. 'N años' con N>1 = N*365; si supera 365 responde NULL. Patrones directos: 'N dias', 'N dias calendario', 'plazo de N dias', 'dentro de los N dias'. NO responder el número de meses crudo (12, 6, 3) ni 30 — siempre el valor en días convertido. Rango valido: 1-365. Si no encuentras el valor exacto, responde NULL."
+        "extraction_hint": "Plazo de validez de la garantía de los bienes o servicios, en DÍAS. Convierte: 1 mes=30, 2 meses=61, 3 meses=91, 6 meses=182, 12 meses o 1 año=365, 18 meses=548, 24 meses o 2 años=730, 36 meses o 3 años=1095, 4 años=1460, 5 años=1825. Días escritos: tal cual. \"Como mínimo N\" cuenta como N. Si dice tiempo o kilómetros/horas, usa el tiempo. Si hay plazos distintos por lote, ítem o componente, responde el MAYOR. Ej: \"12 MESES\" -> 365. \"2 AÑOS COMO MINIMO\" -> 730. \"12 meses lote 1; 36 meses lote 2\" -> 1095. Responde NULL si: \"No Aplica\"; remite a especificaciones técnicas o suministros requeridos; fecha fija; solo kilómetros u horas; \"por toda la vigencia del contrato\" sin número. NO es la garantía: plazo de reposición o reemplazo; vencimiento de productos (medicamentos, insumos); renovación de la garantía de fiel cumplimiento; antigüedad de fabricación; soporte \"24 horas\"; presentación de la garantía de cumplimiento de contrato.",
+        "spec_version": "v1.0"
       },
       {
         "name": "binary_cubre_defectos_fabricacion",
@@ -391,7 +396,8 @@
         "type": "int",
         "description": "Años de experiencia mínima técnica requerida",
         "extraction_method": "hybrid",
-        "extraction_hint": "Busca los AÑOS DE EXPERIENCIA MÍNIMA TÉCNICA requerida. Patrones: 'N años de experiencia', 'mínimo de N años', 'experiencia mínima de N años', 'experiencia de N años en', 'últimos N años'. El número debe estar acompañado de 'años' junto a 'experiencia' o 'mínimo'. NO respondas 5 por defecto. No confundas con CANTIDAD DE PERSONAL ('5 (cinco) personal técnico' = personas, no años) ni con ANTIGÜEDAD EN MESES ('6 meses' ≠ años de experiencia). Si no hay 'N años' explícito junto a 'experiencia', responde NULL. Rango: 1-50."
+        "extraction_hint": "Años mínimos de experiencia o antigüedad que se EXIGEN al oferente o a su personal. 1) Experiencia o antigüedad de la empresa en el rubro, incluida la existencia legal: \"antigüedad mínima de tres (03) años en el rubro\" -> 3; \"mínimo de 2 años de experiencia\" -> 2. 2) Si no hay de la empresa, la del personal: \"Ingeniero con como mínimo 3 (tres) años de experiencia\" -> 3; \"5 años de ejercicio de la profesión\" -> 5. 3) Si hay varios valores, responde el MAYOR. Responde NULL si no hay número de años exigido, si solo pide cantidad de contratos, o si los años son una ventana: \"en los últimos 3 años\", \"durante los últimos 5 años\". NO son experiencia: años de provisión de repuestos, garantía, vigencia de documentos, antelación de registros sanitarios, años sin rescisiones, antigüedad o modelo de vehículos y equipos, edad.",
+        "spec_version": "v1.0"
       },
       {
         "name": "num_referencias_tecnicas_minimo",
@@ -405,7 +411,8 @@
         "type": "float",
         "description": "Porcentaje mínimo del monto del lote para referencias técnicas",
         "extraction_method": "regex",
-        "extraction_hint": "Busca el PORCENTAJE del monto del lote para referencias técnicas. Patrones: 'N%', 'N por ciento', 'el N%', 'N% del monto'. EXTRAE EL NÚMERO COMPLETO SIN DIVIDIR: si el texto dice '70%' o 'el 70%', extrae 70 (NO 0.7, NO 0.70). Si el texto dice 'No Aplica' o no contiene ningún '%' o 'por ciento', responde NULL. CRÍTICO: No dividas el número por 100. Rango: 0.01-100."
+        "extraction_hint": "Porcentaje del monto (ofertado, del lote o referencial) que deben alcanzar las facturas, contratos o referencias presentados como experiencia. Responde el número tal cual: \"50%\" -> 50. Ej: \"facturaciones por un monto equivalente al 50% del monto máximo de lote ofertado\" -> 50. Si hay alternativas (\"la sumatoria como mínimo el 40%... o una referencia por el 20%\"), responde el de la sumatoria (40). Responde NULL si no hay porcentaje ligado al monto de las referencias. NO es este porcentaje: reparto entre integrantes de un consorcio; capacidad de entrega; tope de precio; porcentaje de personal, de animales o de requisitos; pureza o concentración de productos; retención 0,4%; anticipo.",
+        "spec_version": "v1.0"
       }
     ]
   },
@@ -417,21 +424,26 @@
         "type": "int",
         "description": "Plazo máximo para pago después de presentación de factura (típicamente 60 días)",
         "extraction_method": "hybrid",
-        "extraction_hint": "Buscar el días máximo de pago después de la presentación de la factura, NO el plazo de presentación. Patrones: 'sin exceder sesenta (60) días después de la presentación de una factura', 'pagos se procederá', 'pagos serán', 'no mayor a N días después de la presentación'. NO extraer 'dentro de los XX días' sin la frase 'después de la presentación'. NO extraer porcentajes, montos en guarani, números en listas. Si no hay número después de 'después de la presentación de la factura', responder NULL."
+        "extraction_hint": "Plazo en días en que la contratante se compromete a PAGAR al proveedor. 1) Si el pliego fija un plazo propio de pago (normalmente tras \"Otras formas y condiciones de pago\"), responde ese número, contado desde factura, solicitud de pago, recepción, entrega, presentación de documentos o aprobación del certificado. Ej: \"Dentro de los 30 días (de la entrega de la solicitud y factura)\" -> 30. Ej: \"PAGO MENSUAL, DENTRO DE LOS 10 DIAS POSTERIORES A LA FACTURA\" -> 10. Ej: \"Plazo de pago: 120 (ciento veinte) días, desde la aprobación del certificado\" -> 120. 2) Si no hay plazo propio con número, responde el de la cláusula \"sin exceder N días después de la presentación de una factura\" (normalmente 60; si la entidad lo cambió, el que diga). 3) Si hay dos plazos de pago distintos, responde el mayor. NO son plazo de pago: \"cada N días\" (frecuencia); aceptación o rechazo de la factura (15); presentar el recibo tras cobrar; plazos de cuotas (\"N días después de la primera solicitud\"); completar el FIS o FIP; emplazamientos; presentar la factura \"los primeros N días\"; retenciones al Tesoro; emisión de actas; garantías. Hábiles o calendario no cambian el número. Si palabra y paréntesis difieren, manda el paréntesis: \"sesenta (30)\" -> 30.",
+        "spec_version": "v1.0"
       },
       {
         "name": "dias_aceptacion_rechazo_factura",
         "type": "int",
         "description": "Plazo para aceptar o rechazar factura (típicamente 15 días)",
         "extraction_method": "hybrid",
-        "extraction_hint": "Busca el PLAZO en DÍAS para ACEPTAR o RECHAZAR una factura. Patrones: 'plazo de N días para aceptar', 'aceptación o rechazo dentro de N días', 'rechazo de factura en N días', 'plazo para aceptación de N días'. El número debe estar asociado a 'aceptar', 'rechazar' o 'factura'. PRIORIDAD: el N más cercano a 'aceptar/rechazar' o 'factura'. NO extraigas porcentajes, montos, ni fechas. Rango: 1-365."
+        "extraction_hint": "Busca el PLAZO en DÍAS para ACEPTAR o RECHAZAR una factura. Patrones: 'plazo de N días para aceptar', 'aceptación o rechazo dentro de N días', 'rechazo de factura en N días', 'plazo para aceptación de N días'. El número debe estar asociado a 'aceptar', 'rechazar' o 'factura'. PRIORIDAD: el N más cercano a 'aceptar/rechazar' o 'factura'. NO extraigas porcentajes, montos, ni fechas. Rango: 1-365.",
+        "llm_fallback": false,
+        "llm_fallback_motivo": "spec-v1 C2: binario tiene_clausula_aceptacion_factura (regex)"
       },
       {
         "name": "num_documentos_pago",
         "type": "int",
         "description": "Número de documentos requeridos para solicitar pago",
         "extraction_method": "hybrid",
-        "extraction_hint": "Cuenta los DOCUMENTOS PRINCIPALES requeridos para solicitar pago. Busca 'siguientes documentos:' y cuenta los ítems de primer nivel (1., 2., 3...). NO cuentes sub-ítems (a., b., c...). NO cuentes leyes (7021, 7781). NO extraigas plazos en días ni porcentajes. Ej: lista con '1. Factura, 2. Nota, 3. REPSE' → 3."
+        "extraction_hint": "Cuenta los DOCUMENTOS PRINCIPALES requeridos para solicitar pago. Busca 'siguientes documentos:' y cuenta los ítems de primer nivel (1., 2., 3...). NO cuentes sub-ítems (a., b., c...). NO cuentes leyes (7021, 7781). NO extraigas plazos en días ni porcentajes. Ej: lista con '1. Factura, 2. Nota, 3. REPSE' → 3.",
+        "llm_fallback": false,
+        "llm_fallback_motivo": "spec-v1 C3: binario exige_certificado_laboral (regex)"
       },
       {
         "name": "binary_requiere_cuenta_bancaria_estatal",
@@ -483,14 +495,20 @@
         "type": "float",
         "description": "Ratio de liquidez mínimo requerido",
         "extraction_method": "hybrid",
-        "extraction_hint": "Busca el RATIO DE LIQUIDEZ MÍNIMO requerido. Patrones: 'mayor que N', '>= N', 'igual o mayor a N', 'mayor a N', 'líquido de N', 'liquidez mínimo de N'. El valor suele ser 1.0, 1.1, 1.2 o 0.8, pero NO respondas 1.0 por defecto si el número no está explícito. Busca DESPUÉS de 'Ratio de Liquidez' o 'liquidez'. Si el texto dice 'No Aplica' o no menciona el ratio de liquidez explícitamente, responde NULL. NO extraigas porcentajes (%). NO confundas con ratio de endeudamiento."
+        "extraction_hint": "Valor mínimo exigido del Ratio/Coeficiente de LIQUIDEZ (activo corriente / pasivo corriente). Ej: \"Deberá ser igual o mayor que 1, en promedio\" -> 1. \"igual o mayor a 1,15\" -> 1.15. \"[ 0 , 5 0 ]\" -> 0.5. \"1, 25\" -> 1.25. Usa punto decimal. Responde NULL si dice \"No aplica\" o el número no está completado (\"[indicar]\"). NO es este valor: endeudamiento, solvencia, rentabilidad, eficiencia (ingreso/egreso), años.",
+        "spec_version": "v1.0",
+        "llm_fallback": false,
+        "llm_fallback_motivo": "spec-v1 B1: regla sin LLM"
       },
       {
         "name": "ratio_endeudamiento_maximo",
         "type": "float",
         "description": "Ratio de endeudamiento máximo permitido",
         "extraction_method": "hybrid",
-        "extraction_hint": "Busca el RATIO DE ENDEUDAMIENTO MÁXIMO permitido. Patrones: 'ratio de endeudamiento máximo de N', 'endeudamiento menor a N', 'índice de endeudamiento de N', 'igual o menor a N'. EL VALOR debe estar acompañado de la palabra 'endeudamiento' o 'endeudamiento máximo'. Si el texto dice 'No Aplica' o no menciona el ratio explícitamente, responde NULL. NO extraigas 0.01 ni ningún valor por defecto. NO extraigas porcentajes, ni montos. Rango: 0.01-10."
+        "extraction_hint": "Valor máximo permitido del ENDEUDAMIENTO (pasivo total / activo total). Ej: \"No deberá ser mayor a 0,80 en promedio\" -> 0.8. \"Coeficiente de Solvencia: Pasivo Total / Activo Total igual o menor a 0.70\" -> 0.7. Si el cociente está invertido (Activo Total / Pasivo Total igual o mayor a X), responde 1/X con 2 decimales: 1,20 -> 0.83. Responde NULL si dice \"No aplica\", si no hay número, o si es el \"margen de solvencia\" de una aseguradora. NO es este valor: liquidez, rentabilidad, eficiencia, patrimonio, calificación de riesgo.",
+        "spec_version": "v1.0",
+        "llm_fallback": false,
+        "llm_fallback_motivo": "spec-v1 B2: regla sin LLM"
       },
       {
         "name": "binary_requiere_estados_auditados",
@@ -516,7 +534,10 @@
         "type": "int",
         "description": "Número de componentes o monomios en la fórmula de reajuste",
         "extraction_method": "hybrid",
-        "extraction_hint": "Cuenta los COMPONENTES o VARIABLES de entrada en la fórmula de reajuste. Patrones: mira la fórmula después de 'Fórmula:' o 'siguiente fórmula'. Cuenta las variables de entrada (ej: P, IPC, IPCO = 3 componentes). NO incluyas el resultado (Pr, A) en la cuenta. Si no hay fórmula explícita con variables listadas, responde NULL."
+        "extraction_hint": "Cuenta los COMPONENTES o VARIABLES de entrada en la fórmula de reajuste. Patrones: mira la fórmula después de 'Fórmula:' o 'siguiente fórmula'. Cuenta las variables de entrada (ej: P, IPC, IPCO = 3 componentes). NO incluyas el resultado (Pr, A) en la cuenta. Si no hay fórmula explícita con variables listadas, responde NULL.",
+        "llm_fallback": false,
+        "llm_fallback_motivo": "spec-v1 B3: reemplazado por tipo_indice_reajuste (regex)",
+        "deprecated": "spec-v1 B3 (08-oct-2026): reemplazado por tipo_indice_reajuste"
       },
       {
         "name": "binary_referencia_ipc",
@@ -601,7 +622,9 @@
         "type": "int",
         "description": "Número de pasos o requisitos de verificación de calificación",
         "extraction_method": "hybrid",
-        "extraction_hint": "Buscar el cantidad asociado a número, pasos, requisitos, verificación, calificación. CONTAR los elementos listados en el texto. Si hay una lista (1., 2., 3.), contar cuantos items tiene. Buscar frases como 'N documentos', 'N referencias', 'los siguientes N'. NO extraer porcentajes (ej: '10%'), montos (ej: 'Gs. 10.000.000'), ni valores unitarios de la lista (ej: '1.' como item individual, no como total). Extraer el TOTAL de elementos. Rango valido: 1-50. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL."
+        "extraction_hint": "Buscar el cantidad asociado a número, pasos, requisitos, verificación, calificación. CONTAR los elementos listados en el texto. Si hay una lista (1., 2., 3.), contar cuantos items tiene. Buscar frases como 'N documentos', 'N referencias', 'los siguientes N'. NO extraer porcentajes (ej: '10%'), montos (ej: 'Gs. 10.000.000'), ni valores unitarios de la lista (ej: '1.' como item individual, no como total). Extraer el TOTAL de elementos. Rango valido: 1-50. Si el numero esta fuera, responder NULL. Extraer SOLO el numero. Si no se encuentra o no es valido, responder NULL.",
+        "llm_fallback": false,
+        "llm_fallback_motivo": "spec-v1 A7: variable de control de versión de plantilla (regex)"
       },
       {
         "name": "binary_verifica_sinarh",
@@ -641,14 +664,16 @@
         "type": "int",
         "description": "Plazo máximo en días corridos para solicitar el anticipo",
         "extraction_method": "hybrid",
-        "extraction_hint": "Busca el PLAZO MÁXIMO EN DÍAS para SOLICITAR el anticipo. PRIORIDAD MÁXIMA al patrón: 'Plazo máximo para la presentación de la solicitud de pago de anticipo: N días' (ej. '10 días calendario posterior de la firma' → 10; 'de 3 (tres) días hábiles posteriores a la firma' → 3). Otros patrones: 'N días para solicitar', 'dentro de los N días', 'N días corridos posteriores a la firma'. ADVERTENCIA: el 'plazo de cinco (5) días hábiles' para presentar nota de RECLAMO/rechazo (punto 5) NO es el plazo de solicitud — ignóralo. NO confundir con el plazo para ABONAR el anticipo (dias_pago_anticipo): la línea 'Plazo o fecha en la cual se abonará...' es OTRO campo. Si el texto solo menciona 'abonar', 'pagar' o pagaré sin 'solicitar' cerca, responde NULL. NO extraer PORCENTAJES: si el número está seguido de '%', responde NULL. Ej: '20% de anticipo' → NULL. REGLA: si hay MÚLTIPLES números, elige el que está en la línea 'Plazo máximo para la presentación de la solicitud'; si no existe, el más cercano a 'solicitar' en formato días. NO defaults: no uses 5, 10, 20, 30 por defecto. Si ves 'No Aplica' o no hay plazo de solicitud en días, responde NULL."
+        "extraction_hint": "Plazo máximo en días para que el proveedor SOLICITE (presente la solicitud de) el anticipo. Busca: \"Plazo máximo para la presentación de la solicitud de pago de anticipo: N días\" o \"deberá presentar dentro de los N días posteriores a la firma la solicitud\". Vale cualquier hito de inicio (firma, orden de inicio, aprobación del plan, recepción de un documento). Ej: \"10 (DIEZ) DÍAS CORRIDOS POSTERIORES A LA FIRMA\" -> 10. \"cinco [05] días\" -> 5. \"10 (diez) corridos posteriores a la firma\" -> 10. Responde NULL si: \"No Aplica\"; el campo está vacío o dice \"Haga clic o pulse aquí\"; solo cita la ley o el porcentaje del anticipo. NO es este plazo: el plazo en que la contratante abonará el anticipo; \"podrá rechazarlo en el plazo de cinco (5) días hábiles\"; devolución de la garantía \"treinta (30) días\".",
+        "spec_version": "v1.0"
       },
       {
         "name": "dias_pago_anticipo",
         "type": "int",
         "description": "Días para abonar el anticipo tras la solicitud",
         "extraction_method": "hybrid",
-        "extraction_hint": "Busca el PLAZO EN DÍAS para ABONAR/PAGAR el anticipo tras la solicitud. Patrones: 'abonará dentro de los N días', 'dentro de los N días siguientes a la solicitud', 'plazo de N días para el pago', 'se abonará en N días'. CRÍTICO: NO confundir con el plazo para SOLICITAR el anticipo (dias_solicitud_anticipo). REGLA: si el texto solo menciona 'solicitar' o 'solicitud' (ej: 'dentro de los 5 días de solicitar el anticipo') sin 'abonar' o 'pagar' en la misma frase, RESPONDE NULL. El número que está junto a 'solicitar' pertenece a otro campo. NO defaults: no uses 5, 10, 30 por defecto. Si el texto dice 'No Aplica' o no hay plazo de pago explícito, responde NULL."
+        "extraction_hint": "Plazo en días para que la contratante PAGUE (abone) el anticipo, contado desde la solicitud. Busca: \"Plazo o fecha en la cual se abonará al contratista el monto del anticipo...: N días\" (el número puede venir varias frases después: \"...se abonará el monto total del anticipo, a más tardar dentro de los 10 días\" -> 10), o \"a ser efectuado/abonado dentro de los N días\". Si el plazo de pago se cuenta desde la firma del contrato, también vale. Ej: \"DENTRO DE LOS 10 (DIEZ) DÍAS\" -> 10. \"(tres) días como máximo\" -> 3. Responde NULL si: \"No Aplica\"; el ancla está vacía; el pago depende del Ministerio, de la transferencia o de disponibilidad presupuestaria sin número; el pliego solo fija el plazo para SOLICITAR el anticipo. NO es este plazo: el plazo para presentar la solicitud (\"dentro de los 10 días posteriores a la firma el proveedor deberá presentar la solicitud\", aunque la frase anterior diga \"abonará\"); \"podrá rechazarlo en el plazo de cinco (5) días hábiles\"; devolución de la garantía \"treinta (30) días\"; aceptación de la garantía en horas.",
+        "spec_version": "v1.0"
       },
       {
         "name": "binary_anticipo_solo_mipymes",

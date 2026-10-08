@@ -779,6 +779,29 @@ pendiente), F6 ✅, F7 bloqueada (aprobación + F5)**.
 - **Decisión**: Gemma-4-12B QAT W4A16 en vLLM recomendado para el fallback (pendiente confirmación del usuario + re-run de `num_componentes_formula`). Docs: `ablacion_gt.md`, `pseudo_gt_varianza.md`, veredicto §9.8-9.9.
 - Incidentes: Qwen3.5-9B-FP8 OOM (multimodal) → bug de recarga por ítem corregido; `pkill -f` se mataba a sí mismo → `pkill -x`/PID; Clef-Flash no soportado por llama.cpp `6d9c82e`.
 
+### Session 25 — Especificación de campos v1.0 + implementación I1-I3 (Claude Opus 5.5 / Fable 5.1, 08-oct)
+- **Problema**: el GT de agosto, el pseudo-GT Opus y Gemma seguían criterios distintos (la guía del prompt
+  contradecía al GT en `dias_pago_maximo` y `num_documentos_pago`): no se podía medir precisión.
+- **Método**: una ficha por campo (`docs/especificacion_campos.md` v1.0) como fuente única de prompt, regla
+  y anotación; cada caso dudoso medido leyendo la sección COMPLETA en la BD (`scripts/analisis_seccion_*.py`:
+  pago 18.418 textos, garantía 6.374, anticipo 5.083, capacidad técnica 15.155, financiera 16.181,
+  reajuste 8.995) y aprobado por el usuario ficha por ficha.
+- **Decisiones clave**: plazo propio > estándar; máximo entre valores genuinos; hábiles = número tal cual;
+  servicios incluidos en garantía; antigüedad en el rubro = experiencia; "últimos N años" = NULL;
+  ratio activo/pasivo invertido → 1/x; `num_componentes_formula` → `tipo_indice_reajuste` (regex);
+  fuerza mayor / aceptación / documentos → binarios; `num_pasos_verificacion` = control de versión;
+  `dias_presentacion_garantia` descartado; fusión experiencia/pct con sus gemelos regex para Pipeline 3.
+- **I1-I3 hecho**: `src/etl/transformers/field_rules_v1.py` (reglas v1 + 11 columnas nuevas),
+  `RULES` vigente = spec-v1 (`RULES_S24` congelado, `rule_value(..., ruleset="s24")` reproduce lo publicado),
+  hints del schema reescritos desde las fichas, `llm_fallback=false` en 7 campos (el fallback queda en A1-A6),
+  `scripts/build_features_spec_v1.py --apply`: 11 columnas en v3 + `dncp.spec_v1_rule_values` (232.604 filas).
+  Tests: 41 de fichas + los 38 históricos. Fuera de muestra (pseudo-GT) v1 ≥ s24 en los 8 campos.
+- **Hallazgo**: con las reglas v1 el LLM decide solo ~515 casos (≈0,3% de campo-documento): el benchmark
+  de modelos pasa a ser control de residuales, no el motor del rendimiento.
+- **Pendiente**: I4 (re-alinear GT de agosto: ~110 ítems difieren por decisiones nuevas; pregunta abierta:
+  "solvencia económica del N% del monto" en capacidad técnica), I5 calibración, I6 benchmark reducido,
+  I7 GT fuera de muestra + promote. Valores v1 de los 8 campos NO promovidos a v3.
+
 ## Git State
 - `HEAD` = `869c86c` on `feature/clustering-pipeline` (rama real; los docs anteriores decían `feature/ocds-csv-pipeline` — corregido en sesión 23)
 - Last commit: `fix(clustering): Apply 4 anti-overclustering fixes to section clustering`

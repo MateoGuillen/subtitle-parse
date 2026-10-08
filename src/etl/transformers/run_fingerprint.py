@@ -24,6 +24,7 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 # Archivos cuyo contenido determina los valores que produce el fallback.
 CODE_FILES = [
     "src/etl/transformers/extraction_postprocess.py",
+    "src/etl/transformers/field_rules_v1.py",
     "src/etl/transformers/document_features_v2_llm_transformer.py",
     "src/etl/transformers/document_features_v2_transformer.py",
     "src/etl/transformers/llm_provider.py",
